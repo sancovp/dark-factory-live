@@ -7,7 +7,7 @@ version: 0.1.0
 # using-sourdough-baking
 
 This module is a CULTIVATED, PROOF-CHECKED knowledge organism about
-**sourdough baking** (373 concepts / 213 relations; grown by a
+**sourdough baking** (465 concepts / 268 relations; grown by a
 KB factory — every region admitted by a Prolog consistency gate, wrongness
 tracked as open supersede-issues, never hidden).
 
@@ -46,15 +46,15 @@ tracked as open supersede-issues, never hidden).
 
 ## The map
 
-- `sourdough_baking.sourdough_starter : deep_fermentation(6), deep_sourdough_starter(5)`
-- `sourdough_baking.fermentation : deep_fermentation(6)`
-- `sourdough_baking.baking : deep_fermentation(6), deep_baking(2)`
-- `deep_fermentation.fermentation_vigor : sourdough_baking(1)`
+- `?.flavor_complexity : deep_fermentation(14), sourdough_baking(5)`
+- `sourdough_baking.sourdough_starter : deep_fermentation(15), deep_sourdough_starter(5)`
+- `sourdough_baking.fermentation : deep_fermentation(15)`
+- `sourdough_baking.bulk_fermentation : deep_fermentation(15)`
 - `sourdough_baking.gluten_development`
-- `sourdough_baking.bulk_fermentation : deep_fermentation(6)`
-- `sourdough_baking.lactobacillus : deep_fermentation(1)`
-- `sourdough_baking.active_starter`
-- `sourdough_baking.dormant_starter : deep_fermentation(6), deep_sourdough_starter(5)`
-- `sourdough_baking.flour : deep_fermentation(1)`
-- `sourdough_baking.proofing`
+- `sourdough_baking.baking : deep_fermentation(15), deep_baking(2)`
+- `deep_fermentation.fermentation_vigor : sourdough_baking(5)`
+- `sourdough_baking.lactobacillus : deep_fermentation(14)`
+- `deep_fermentation.organic_acids : sourdough_baking(5)`
+- `sourdough_baking.crumb_structure`
 - `sourdough_baking.acetic_acid`
+- `sourdough_baking.active_starter`

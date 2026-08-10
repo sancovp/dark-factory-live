@@ -1,6 +1,6 @@
 {
   "region": "bulk_fermentation",
-  "call_number": "sourdough_baking.bulk_fermentation : deep_fermentation(6)",
+  "call_number": "sourdough_baking.bulk_fermentation : deep_fermentation(15)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 30
+  "cone_size": 39
 }

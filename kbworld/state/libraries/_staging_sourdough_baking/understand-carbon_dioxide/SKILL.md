@@ -11,4 +11,4 @@ Invoke this skill to understand `carbon_dioxide` down to its primitives. The REL
 `dough_expansion_velocity`, `fermentation_byproducts`, `fermentation_vigor`, `gas_production_rate`, `wild_yeast`
 
 ---
-*Projected from the `sourdough baking` KB (373 concepts / 213 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

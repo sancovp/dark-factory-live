@@ -3,47 +3,31 @@
     {
       "region": "fermentation",
       "targets": [
-        "fermentation_byproducts",
-        "fermentation_vigor"
+        "flavor_complexity",
+        "ethanol"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 12,
-      "new_relations": 28
+      "new_concepts": 29,
+      "new_relations": 22
     },
     {
-      "region": "baking",
+      "region": "bulk_fermentation",
       "targets": [
-        "baking_duration",
-        "crumb_color"
+        "fold_count",
+        "room_temperature_fermentation"
       ],
       "phases": [
         "soup",
         "soup"
       ],
       "new_concepts": 63,
-      "new_relations": 0
+      "new_relations": 14
     }
   ],
   "basis_before": {
-    "shared_atoms": [
-      "acetic_acid",
-      "fermentation",
-      "fermentation_byproducts",
-      "fermentation_vigor",
-      "flavor_complexity",
-      "lactic_acid",
-      "lactobacillus",
-      "sourness_level",
-      "wild_yeast"
-    ],
-    "shared": 9,
-    "union": 46,
-    "overlap": 0.196
-  },
-  "basis_after": {
     "shared_atoms": [
       "acetic_acid",
       "aroma_compounds",
@@ -60,7 +44,36 @@
       "wild_yeast"
     ],
     "shared": 13,
-    "union": 50,
-    "overlap": 0.26
+    "union": 31,
+    "overlap": 0.419
+  },
+  "basis_after": {
+    "shared_atoms": [
+      "acetic_acid",
+      "aroma_compounds",
+      "carbon_dioxide",
+      "ethanol",
+      "fc_acid_balance_ratio",
+      "fc_aftertaste_development",
+      "fc_estolide_compounds",
+      "fc_fermentation_depth",
+      "fc_higher_alcohols",
+      "fc_maltolytic_notes",
+      "fc_tanginess_profile",
+      "fc_volatile_esters",
+      "fc_yeast_character",
+      "fermentation",
+      "fermentation_byproducts",
+      "fermentation_vigor",
+      "flavor_complexity",
+      "lactic_acid",
+      "lactobacillus",
+      "organic_acids",
+      "sourness_level",
+      "wild_yeast"
+    ],
+    "shared": 22,
+    "union": 40,
+    "overlap": 0.55
   }
 }

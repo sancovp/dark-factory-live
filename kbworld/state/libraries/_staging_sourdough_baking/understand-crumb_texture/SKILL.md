@@ -8,7 +8,7 @@ Invoke this skill to understand `crumb_texture` down to its primitives. The RELA
 ## THE RELATIVE ROOT (the import cone, by lib)
 
 ## CONSUMERS (what needs this)
-`crumb`
+`bread_crumbs`, `bubble_size`, `crumb`
 
 ---
-*Projected from the `sourdough baking` KB (373 concepts / 213 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

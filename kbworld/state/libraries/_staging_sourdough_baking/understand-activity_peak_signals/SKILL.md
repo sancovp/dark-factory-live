@@ -14,4 +14,4 @@ Invoke this skill to understand `activity_peak_signals` down to its primitives. 
 `activity_peak`
 
 ---
-*Projected from the `sourdough baking` KB (373 concepts / 213 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

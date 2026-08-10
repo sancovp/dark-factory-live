@@ -11,4 +11,4 @@ Invoke this skill to understand `cold_storage_duration` down to its primitives. 
 `as_storage_history`, `dormant_starter`
 
 ---
-*Projected from the `sourdough baking` KB (373 concepts / 213 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
