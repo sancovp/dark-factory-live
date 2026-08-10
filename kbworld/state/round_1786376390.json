@@ -1,0 +1,128 @@
+{
+  "subject": "sourdough baking",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "deepen",
+      "doors": [
+        "fermentation",
+        "lactobacillus"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "specialize": {
+        "basis_after": 0.956,
+        "new": [
+          [
+            "fermentation",
+            26,
+            61
+          ],
+          [
+            "lactobacillus",
+            18,
+            27
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 1
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 510,
+        "relations": 376,
+        "define": 0,
+        "connect": 228
+      }
+    },
+    "brain": {
+      "grew": "fc_aftertaste_development"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/sourdough_baking",
+      "skills": 42,
+      "staff": 90
+    },
+    "observe": {
+      "findings": 7,
+      "issues": [
+        {
+          "atom": "baking_temperature",
+          "why": "450-500F omits that most dutch-oven recipes start at 475-500F then drop to 450 after lid removal, and flatbreads/pizzas run 500F+; the range is too narrow to guide a beginner",
+          "price": 4,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/22"
+        },
+        {
+          "atom": "baking_duration",
+          "why": "20-50min range is too wide to be actionable; it never tells the user to check internal temp (200-210F) as the real doneness signal",
+          "price": 1,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/23"
+        },
+        {
+          "atom": "dutch_oven",
+          "why": "Fails to state the load-bearing step: Dutch oven must be preheated covered for 30-45min BEFORE the dough goes in; a cold Dutch oven yields a flat, steamed-through loaf, not the claimed professional results",
+          "price": 1,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/24"
+        },
+        {
+          "atom": "acetic_acid",
+          "why": "Implies oxygen presence is a requirement, but acetic acid forms throughout fermentation; oxygen promotes it relative to lactic acid, yet sourdough sealed in a banneton still produces acetic acid",
+          "price": 49,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/25"
+        },
+        {
+          "atom": "dough_temperature",
+          "why": "Claim of 'predictable timing regardless of room conditions' is false; room temp still determines how fast warm dough cools or cold dough warms, affecting the fermentation rate after mixing",
+          "price": 12,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/26"
+        },
+        {
+          "atom": "fermentation_byproducts",
+          "why": "Listing alcohols for aroma is misleading since ethanol and fusel alcohols evaporate entirely in the 200F+ oven, contributing zero aroma to finished bread",
+          "price": 19,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/27"
+        },
+        {
+          "atom": "crust",
+          "why": "Attributes crust texture only to hydration and baking method, omitting steam as the primary driver; without steam in the first 20min, crust will be pale and cracked regardless of hydration",
+          "price": 2,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/28"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/sourdough_baking",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/sourdough_baking/skills/using-sourdough-baking/SKILL.md",
+      "plugin": "sourdough-baking-module",
+      "library_skills": 50
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "510c/376r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 247
+      },
+      "after": {
+        "define": 0,
+        "connect": 228
+      }
+    },
+    "basis": 0.606,
+    "secs": 194.7
+  }
+}

@@ -1,6 +1,6 @@
 {
   "region": "salt",
-  "call_number": "sourdough_baking.salt : deep_fermentation(15)",
+  "call_number": "sourdough_baking.salt : deep_fermentation(34), deep_lactobacillus(4)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 37
+  "cone_size": 60
 }

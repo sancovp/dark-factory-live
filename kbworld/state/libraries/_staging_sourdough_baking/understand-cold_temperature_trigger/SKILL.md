@@ -11,7 +11,7 @@ Invoke this skill to understand `cold_temperature_trigger` down to its primitive
 - **starter_storage_temperature** (d1): Refrigerated or room temperature holding conditions affecting fermentation rhythm
 
 ## CONSUMERS (what needs this)
-`dormant_starter`
+`cold_temperature_effect`, `dormant_starter`
 
 ---
-*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (510 concepts / 376 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

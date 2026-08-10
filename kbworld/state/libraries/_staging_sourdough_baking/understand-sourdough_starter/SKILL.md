@@ -1,6 +1,6 @@
 # understand-sourdough_starter
 
-**CALL NUMBER:** `sourdough_baking.sourdough_starter : deep_fermentation(15), deep_sourdough_starter(5)`
+**CALL NUMBER:** `sourdough_baking.sourdough_starter : deep_fermentation(34), deep_sourdough_starter(5), deep_lactobacillus(4)`
 **DEFINITION:** A fermented mixture of flour and water containing wild yeast and lactic acid bacteria that serves as the natural leaven for sourdough bread, maintained through regular feedings.
 
 Invoke this skill to understand `sourdough_starter` down to its primitives. The RELATIVE ROOT below is the least-fixed-point closure of everything it bundles from — the full import cone, grouped by the lib each prim comes from. Projected from a prover-typed KB (MAP/SWI-Prolog consistency gate): every reference below resolves.
@@ -13,10 +13,17 @@ Invoke this skill to understand `sourdough_starter` down to its primitives. The 
 
 ### from `deep_fermentation`
 - **fermentation_byproducts** (d2): Compounds produced by microbial fermentation including carbon dioxide for dough rise, lactic and acetic acids for sour flavor, and alcohols for aroma.
+- **estolide_lactobacillus_contribution** (d2): The specific metabolic output of lactobacillus strains including enzyme secretion and substrate availability that drives estolide compound generation in sourdough fermentation.
+- **fc_acid_linger** (d2): The temporal persistence of organic acids on the palate after swallowing, determined by acid strength, concentration, and the buffering capacity of saliva, resulting in sour sensations that extend beyond the initial taste experience.
+- **fc_sour_reverb** (d2): The echoing and reverberating quality of sour sensation in the aftertaste, where initial acid perception decays slowly and unevenly, creating wave-like sour peaks that persist after the main flavor has subsided.
 - **organic_acids** (d2): Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine sourness_level and contribute to flavor_complexity.
 - **carbon_dioxide** (d2): Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.
+- **estolide_yeast_contribution** (d2): The specific metabolic output of wild_yeast strains including esterase secretion and ethanol provision that participates in estolide compound formation and aroma profile development.
 - **ethanol** (d2): Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development.
+- **fc_aftertaste_evolution** (d2): The sequential unfolding and transformation of flavor notes during the aftertaste period, where initial sensations fade while secondary and tertiary flavor compounds reveal themselves progressively over time.
+- **fc_mouthfeel_linger** (d2): Textural sensations including dryness, astringency, or creaminess that persist in the mouth after swallowing, contributing tactile dimensions to the aftertaste beyond pure taste perception.
 - **fermentation_vigor** (d2): Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
+- **estolide_moiety** (d3): A fatty acid ester linkage formed by condensation of a hydroxy fatty acid hydroxyl group with another fatty acid carboxyl group, creating a dimeric or oligomeric ester structure that serves as the foundational chemical scaffold for sourdough estolide compounds.
 - **aroma_compounds** (d3): Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough.
 - **fc_acid_balance_ratio** (d3): The proportional ratio between acetic_acid and lactic_acid concentrations that fundamentally determines whether the tanginess is sharp and vinegary or soft and creamy
 - **fc_aftertaste_development** (d3): The evolving and lingering flavor sensations that persist after swallowing, shaped by organic_acid persistence and aroma_compound retention in the crumb
@@ -27,6 +34,15 @@ Invoke this skill to understand `sourdough_starter` down to its primitives. The 
 - **fc_tanginess_profile** (d3): The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness
 - **fc_volatile_esters** (d3): Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes
 - **fc_yeast_character** (d3): The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation
+- **fc_sweet_fade** (d3): Residual sweetness from grain-derived sugars and fermentation intermediates that slowly diminishes in the aftertaste, providing balance against sour and bitter notes and creating a pleasant conclusion to the flavor experience.
+- **estolide_esterification_pathway** (d3): The biochemical condensation reaction between hydroxy fatty acids and fatty acids catalyzed by microbial esterases that produces estolide linkages and water as a byproduct during fermentation.
+- **estolide_hydroxy_fatty_acid_precursor** (d3): A hydroxy-bearing fatty acid substrate derived from grain lipid oxidation or microbial metabolism that provides the esterification site for estolide formation during sourdough fermentation.
+
+### from `deep_lactobacillus`
+- **elc_enzyme_secretion** (d2): Proteolytic and esterolytic enzymes released by lactobacillus strains into the sourdough matrix during fermentation.
+- **elc_substrate_availability** (d2): The presence and accessibility of hydroxy fatty acid precursors and free fatty acids in the dough that lactobacillus metabolism can act upon.
+- **elc_metabolite_pool** (d3): Organic acid and peptide metabolites secreted by lactobacillus that create the chemical environment favoring estolide stability.
+- **hfap_fermentation_timing_factor** (d3): Temporal dimension of hydroxy fatty acid accumulation in sourdough, where extended fermentation allows progressive lipid oxidation and microbial hydroxylase activity to increase precursor availability for estolide_compounds synthesis.
 
 ### from `deep_sourdough_starter`
 - **cold_storage_duration** (d2): Time period a starter spends refrigerated during dormancy, during which yeast and bacterial metabolism slow significantly from peak activity levels.
@@ -63,4 +79,4 @@ Invoke this skill to understand `sourdough_starter` down to its primitives. The 
 - **fermentation_temperature** (d3): Environmental temperature during bulk and final proof that directly controls fermentation speed; warmer accelerates, cooler slows.
 
 ---
-*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (510 concepts / 376 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

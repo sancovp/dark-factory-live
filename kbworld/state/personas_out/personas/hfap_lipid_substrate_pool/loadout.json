@@ -1,0 +1,13 @@
+{
+  "region": "hfap_lipid_substrate_pool",
+  "call_number": "deep_lactobacillus.hfap_lipid_substrate_pool : deep_fermentation(1)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 7
+}

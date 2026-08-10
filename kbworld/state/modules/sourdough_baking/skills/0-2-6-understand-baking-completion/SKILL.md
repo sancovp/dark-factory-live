@@ -17,6 +17,6 @@ Invoke this skill to understand `baking_completion` down to its primitives. The 
 - **internal_temperature** (d2): Bread center temperature (typically 195-210F/90-99C) indicating doneness; lower temps leave gummy crumb.
 
 ---
-*Projected from the `sourdough baking` KB (373 concepts / 213 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (510 concepts / 376 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
 
 _(leaf — this is an actual skill.)_

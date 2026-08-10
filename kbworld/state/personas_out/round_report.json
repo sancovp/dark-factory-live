@@ -3,51 +3,31 @@
     {
       "region": "fermentation",
       "targets": [
-        "flavor_complexity",
-        "ethanol"
+        "fc_aftertaste_development",
+        "fc_estolide_compounds"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 29,
-      "new_relations": 22
+      "new_concepts": 26,
+      "new_relations": 61
     },
     {
-      "region": "bulk_fermentation",
+      "region": "lactobacillus",
       "targets": [
-        "fold_count",
-        "room_temperature_fermentation"
+        "estolide_lactobacillus_contribution",
+        "estolide_hydroxy_fatty_acid_precursor"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 63,
-      "new_relations": 14
+      "new_concepts": 18,
+      "new_relations": 27
     }
   ],
   "basis_before": {
-    "shared_atoms": [
-      "acetic_acid",
-      "aroma_compounds",
-      "carbon_dioxide",
-      "ethanol",
-      "fermentation",
-      "fermentation_byproducts",
-      "fermentation_vigor",
-      "flavor_complexity",
-      "lactic_acid",
-      "lactobacillus",
-      "organic_acids",
-      "sourness_level",
-      "wild_yeast"
-    ],
-    "shared": 13,
-    "union": 31,
-    "overlap": 0.419
-  },
-  "basis_after": {
     "shared_atoms": [
       "acetic_acid",
       "aroma_compounds",
@@ -62,8 +42,6 @@
       "fc_tanginess_profile",
       "fc_volatile_esters",
       "fc_yeast_character",
-      "fermentation",
-      "fermentation_byproducts",
       "fermentation_vigor",
       "flavor_complexity",
       "lactic_acid",
@@ -72,8 +50,58 @@
       "sourness_level",
       "wild_yeast"
     ],
-    "shared": 22,
-    "union": 40,
-    "overlap": 0.55
+    "shared": 20,
+    "union": 22,
+    "overlap": 0.909
+  },
+  "basis_after": {
+    "shared_atoms": [
+      "acetic_acid",
+      "aroma_compounds",
+      "carbon_dioxide",
+      "elc_enzyme_secretion",
+      "elc_metabolite_pool",
+      "elc_substrate_availability",
+      "estolide_esterification_pathway",
+      "estolide_flavor_complexity_integration",
+      "estolide_hydroxy_fatty_acid_precursor",
+      "estolide_lactobacillus_contribution",
+      "estolide_microbial_esterase_activity",
+      "estolide_moiety",
+      "estolide_yeast_contribution",
+      "ethanol",
+      "fc_acid_balance_ratio",
+      "fc_acid_linger",
+      "fc_aftertaste_clarity",
+      "fc_aftertaste_development",
+      "fc_aftertaste_evolution",
+      "fc_aftertaste_persistence",
+      "fc_bitterness_tail",
+      "fc_crumb_aroma_trap",
+      "fc_estolide_compounds",
+      "fc_fermentation_depth",
+      "fc_higher_alcohols",
+      "fc_maltolytic_notes",
+      "fc_mouthfeel_linger",
+      "fc_palate_coating",
+      "fc_retro_nasal_release",
+      "fc_salt_reverberation",
+      "fc_sour_reverb",
+      "fc_sweet_fade",
+      "fc_tanginess_profile",
+      "fc_volatile_esters",
+      "fc_yeast_character",
+      "fermentation_vigor",
+      "flavor_complexity",
+      "hfap_fermentation_timing_factor",
+      "lactic_acid",
+      "lactobacillus",
+      "organic_acids",
+      "sourness_level",
+      "wild_yeast"
+    ],
+    "shared": 43,
+    "union": 45,
+    "overlap": 0.956
   }
 }

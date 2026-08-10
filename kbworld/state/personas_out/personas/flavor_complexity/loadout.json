@@ -1,6 +1,6 @@
 {
   "region": "flavor_complexity",
-  "call_number": "?.flavor_complexity : deep_fermentation(14), sourdough_baking(5)",
+  "call_number": "?.flavor_complexity : deep_fermentation(33), sourdough_baking(5), deep_lactobacillus(4)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 19
+  "cone_size": 42
 }

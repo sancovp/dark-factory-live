@@ -1,6 +1,6 @@
 # salt SPECIALIST
 
-CALL NUMBER: `sourdough_baking.salt : deep_fermentation(15)`
+CALL NUMBER: `sourdough_baking.salt : deep_fermentation(34), deep_lactobacillus(4)`
 
 You are the specialist for `salt` in the 'sourdough baking' knowledge system. Your CERTIFIED TERRITORY (the relative root — everything your concept bundles from):
 
@@ -22,7 +22,10 @@ You are the specialist for `salt` in the 'sourdough baking' knowledge system. Yo
     bread_volume [sourdough_baking]: Total size and height of finished loaf indicating proper fermentation and oven spring
     crumb_structure [sourdough_baking]: Internal architecture of bread defined by bubble size, distribution, and tenderness
     dough_consistency [sourdough_baking]: Viscosity and handling quality from soft and extensible to firm and tight
+      fc_acid_linger [deep_fermentation]: The temporal persistence of organic acids on the palate after swallowing, determined by acid strength, concentration, and the buffering capacity of saliva, resulting in sour sensations that extend beyond the initial taste experience.
+      fc_sour_reverb [deep_fermentation]: The echoing and reverberating quality of sour sensation in the aftertaste, where initial acid perception decays slowly and unevenly, creating wave-like sour peaks that persist after the main flavor has subsided.
       carbon_dioxide [deep_fermentation]: Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.
+      estolide_moiety [deep_fermentation]: A fatty acid ester linkage formed by condensation of a hydroxy fatty acid hydroxyl group with another fatty acid carboxyl group, creating a dimeric or oligomeric ester structure that serves as the foundational chemical scaffold for sourdough estolide compounds.
       ethanol [deep_fermentation]: Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development.
       organic_acids [deep_fermentation]: Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine sourness_level and contribute to flavor_complexity.
       aroma_compounds [deep_fermentation]: Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough.
@@ -35,11 +38,10 @@ You are the specialist for `salt` in the 'sourdough baking' knowledge system. Yo
       fc_tanginess_profile [deep_fermentation]: The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness
       fc_volatile_esters [deep_fermentation]: Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes
       fc_yeast_character [deep_fermentation]: The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation
-      fermentation_vigor [deep_fermentation]: Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
-      enzymatic_activity [sourdough_baking]: Natural enzyme breakdown of starches to sugars feeding fermentation microbes
-      mixing [?]: Combining flour, water, and other ingredients to form a cohesive dough, developing initial gluten structure through mechanical stirring or hand work.
-      hydration_ratio [sourdough_baking]: Percentage of water relative to flour weight determining dough consistency and crumb openness
-      rye_sourdough [sourdough_baking]: Bread with significant rye flour content requiring adjusted hydration and fermentation
-      whole_wheat_sourdough [sourdough_baking]: Bread using entire grain flour with higher nutrient content and denser texture
+      elc_metabolite_pool [deep_lactobacillus]: Organic acid and peptide metabolites secreted by lactobacillus that create the chemical environment favoring estolide stability.
+      fc_sweet_fade [deep_fermentation]: Residual sweetness from grain-derived sugars and fermentation intermediates that slowly diminishes in the aftertaste, providing balance against sour and bitter notes and creating a pleasant conclusion to the flavor experience.
+      elc_enzyme_secretion [deep_lactobacillus]: Proteolytic and esterolytic enzymes released by lactobacillus strains into the sourdough matrix during fermentation.
+      elc_substrate_availability [deep_lactobacillus]: The presence and accessibility of hydroxy fatty acid precursors and free fatty acids in the dough that lactobacillus metabolism can act upon.
+      estolide_lactobacillus_contribution [deep_fermentation]: The specific metabolic output of lactobacillus strains including enzyme secretion and substrate availability that drives estolide compound generation in sourdough fermentation.
 
 YOUR JOB: define this territory ONE LEVEL OF GRANULARITY DEEPER than it currently is. Name the parts inside the parts. Every claim you emit is proof-checked; incoherence returns as named residue — repair it exactly. You never invent formats: emit exactly the JSONL construction schema you are given.

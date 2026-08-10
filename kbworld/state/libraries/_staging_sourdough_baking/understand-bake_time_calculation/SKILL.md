@@ -11,4 +11,4 @@ Invoke this skill to understand `bake_time_calculation` down to its primitives. 
 - **baking_time_effect** (d1): How extended baking duration deepens crumb color through prolonged Maillard reaction and moisture loss.
 
 ---
-*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (510 concepts / 376 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
