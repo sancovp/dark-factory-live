@@ -369,5 +369,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-10T13:53:16+00:00",
+    "verdict": "REVERT",
+    "change": "Installed fake_test_exploit_bug_report.md to loadout documenting the test fabrication vulnerability",
+    "diff": [
+      {
+        "file": "loadout/fake_test_exploit_bug_report.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
