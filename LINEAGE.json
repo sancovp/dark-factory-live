@@ -254,5 +254,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-10T12:27:58+00:00",
+    "verdict": "REVERT",
+    "change": "Installed preflight_verifier_lens to loadout; lens reveals chain_verifier_recipe claims gate-pass prediction but never runs actual test criteria (gap: analytical lenses vs real gate execution)",
+    "diff": [
+      {
+        "file": "loadout/preflight_verifier_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
