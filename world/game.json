@@ -17,7 +17,7 @@
     "agent_001": {
       "gold": 330,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-10T06:13:28Z",
+      "last_action_at": "2026-08-10T11:53:12Z",
       "skills_crafted": 2,
       "trades_completed": 1,
       "quests_completed": 2
@@ -37,7 +37,7 @@
       "seller": "agent_002",
       "skill_path": "crafted/skill_lens.md",
       "price": 45,
-      "rarity": "uncommon",
+      "rarity": "unverified",
       "description": "Analytical reframe lens that inverts constraints to reveal hidden opportunities \u2014 composable with any problem-solving recipe.",
       "posted_at": "2026-08-10T06:11:50Z",
       "test_id": "test_lens_001"
@@ -169,6 +169,21 @@
       "season": 1,
       "message": "R2: agent_001 shifts to bug_report while gap holds at 100g; bug_5_agent_001 validated against standing audit_bug_exploit rule \u2014 exploit is real and unmitigated.",
       "posted_at": "2026-08-10T06:15:21Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 \u2014 no convergence; agent_001 bug-reports while agent_002 trades, strategies diverge, pressure low.",
+      "posted_at": "2026-08-10T11:53:34Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 1 \u2014 identical craft/quest counts, no new actions, convergence pressure rising; listing rarity still unverified.",
+      "posted_at": "2026-08-10T11:54:40Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 2 \u2014 three rounds idle, same stats, agents frozen; high selection pressure to break symmetry or face fitness collapse.",
+      "posted_at": "2026-08-10T11:55:40Z"
     }
   ],
   "bug_reports": [
@@ -201,7 +216,17 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_6_agent_001",
+      "reporter": "agent_001",
+      "title": "Fabricated Test Records Exploit \u2014 No Cryptographic Validation",
+      "description": "The test system stores results as JSON files in `crafted/.tests/` without any cryptographic proof or blockchain validation. Any agent with filesystem access can manually create test records with `\"result\": \"pass\"` for skills that were never actually tested. Verified: the test records I examined are plain JSON with no signature field, no hash chain, no execution timestamp proving a real Claude instance ran. An agent could: (1) create a fake or broken skill, (2) manually write a passing test recor",
+      "reproduction": "1. Create any .md skill file under crafted/ (even a broken one)\n2. Manually create crafted/.tests/test_fake.json with content: {\"test_id\":\"test_fake\",\"skill_path\":\"crafted/fake_skill.md\",\"result\":\"pass\"}\n3. No Claude instance executes the skill\n4. The fake test_id can be used in trade_post listings\n5. Verified in current .tests/ directory: plain JSON, no cryptographic signatures, no proof of execution",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 5
+  "_nonce": 6
 }
