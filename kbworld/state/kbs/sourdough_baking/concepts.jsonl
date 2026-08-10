@@ -3,6 +3,7 @@
 {"c": "acid_development_rate", "d": "Speed at which lactobacillus produces lactic_acid and acetic_acid during fermentation, a component of fermentation_vigor affecting sourness_level development.", "lib": "deep_fermentation"}
 {"c": "acid_generation_rate", "d": "Speed at which lactobacillus produces organic_acids including lactic_acid and acetic_acid, measured in acid concentration change per unit time, directly influencing sourness_level development.", "lib": "deep_fermentation"}
 {"c": "acid_production_rate", "d": "Speed at which lactobacillus generates organic_acids including lactic_acid and acetic_acid during fermentation, directly influencing sourness_level development over time.", "lib": "deep_fermentation"}
+{"c": "acid_retention_capacity", "d": "The ability of the crumb matrix to retain organic_acids such that they continue to stimulate taste receptors after the bread is consumed, influenced by crumb porosity and acid binding.", "lib": "deep_fermentation"}
 {"c": "active_starter", "d": "Starter exhibiting vigorous bubbling, foam surface, and doubling within hours of feeding, indicating healthy yeast and bacterial populations.", "lib": "sourdough_baking"}
 {"c": "active_starter_develops_from", "d": "active_starter emerges through repeated starter_refreshment building starter_vigor over starter_age.", "lib": "deep_sourdough_starter"}
 {"c": "active_starter_exhibits", "d": "active_starter shows activity_indicators including rise_rate and fermentation_aroma.", "lib": "deep_sourdough_starter"}
@@ -13,6 +14,12 @@
 {"c": "activity_peak", "d": "Maximum fermentation intensity of active_starter occurring at the apex of rise before CO2 production begins to slow.", "lib": "deep_sourdough_starter"}
 {"c": "activity_peak_signals", "d": "activity_peak marks ideal moment for inoculation and levain creation using active_starter.", "lib": "deep_sourdough_starter"}
 {"c": "activity_temperature", "d": "Temperature range that modulates fermentation vigor, with optimal range 24-28\u00b0C for balanced wild yeast and lactobacillus activity.", "lib": "deep_fermentation"}
+{"c": "aftertaste_decay_dynamics", "d": "The temporal pattern of flavor intensity decline after swallowing, following characteristic curves based on compound volatility and receptor adaptation.", "lib": "deep_fermentation"}
+{"c": "aftertaste_duration", "d": "The total time elapsed from swallowing to the complete disappearance of sourdough flavor perception, determined by the slowest-clearing compounds in the aftertaste.", "lib": "deep_fermentation"}
+{"c": "aftertaste_intensity_decay", "d": "The rate at which perceived aftertaste strength diminishes over time, influenced by the molecular properties of organic_acids and aroma_compounds present.", "lib": "deep_fermentation"}
+{"c": "aftertaste_persistence_mechanics", "d": "The mechanisms governing how long flavor compounds remain perceptibly active after swallowing, including solubility, volatility, and mucosal retention factors.", "lib": "deep_fermentation"}
+{"c": "aftertaste_sensory_profile", "d": "The composite quality of lingering flavor sensations after swallowing sourdough, encompassing taste, aroma, and mouthfeel dimensions that evolve over time.", "lib": "deep_fermentation"}
+{"c": "aftertaste_tang_profile", "d": "The specific character of sour aftertaste sensations ranging from sharp and punchy to soft and creamy, shaped by the fc_acid_balance_ratio of persistent organic_acids.", "lib": "deep_fermentation"}
 {"c": "ambient_humidity", "d": "Environmental moisture level affecting crust drying rate and surface tension during baking and cooling.", "lib": "sourdough_baking"}
 {"c": "aroma_compounds", "d": "Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough.", "lib": "deep_fermentation"}
 {"c": "as_acetic_acid_ratio", "d": "Proportion of acetic acid relative to lactic acid in active starter determined by fermentation conditions and oxygen exposure.", "lib": "deep_sourdough_starter"}
@@ -58,6 +65,7 @@
 {"c": "bench_knife", "d": "Flat metal tool for cutting, dividing, and handling dough without deflation", "lib": "sourdough_baking"}
 {"c": "bench_rest", "d": "Short rest period after dividing dough allowing gluten to relax for easier shaping without springing back.", "lib": "sourdough_baking"}
 {"c": "biga", "d": "Stiff Italian-style pre-ferment with lower hydration than poolish", "lib": "sourdough_baking"}
+{"c": "bitterness_trail", "d": "Any lingering bitter notes in the aftertaste, often associated with certain organic_acids or fermentation byproducts that persist due to their solubility characteristics.", "lib": "deep_fermentation"}
 {"c": "blotchy_uneven_color", "d": "Patched or inconsistent interior coloration from irregular gas distribution, hydration variance, or uneven heat penetration during baking.", "lib": "deep_baking"}
 {"c": "boule", "d": "Round spherical bread shape formed by gathering edges to center under tension; most common sourdough form.", "lib": "sourdough_baking"}
 {"c": "bread_aroma", "d": "Complex smell of freshly baked bread from Maillard reaction products, caramelization, and fermentation volatiles.", "lib": "sourdough_baking"}
@@ -75,6 +83,7 @@
 {"c": "bubble_size", "d": "Diameter of fermentation bubbles in active_starter, with finer bubbles suggesting strong bacterial activity and larger bubbles indicating robust yeast gas production.", "lib": "deep_sourdough_starter"}
 {"c": "bulk_ferment", "d": "Initial fermentation period of shaped dough before first fold; building phase for flavor and gas production.", "lib": "sourdough_baking"}
 {"c": "bulk_fermentation", "d": "Primary fermentation phase where the mixed dough rests and ferments before shaping; time and temperature control gas production and flavor development.", "lib": "sourdough_baking"}
+{"c": "buttery_note_contribution", "d": "Sensory attribute contributed by lactate estolides producing rich buttercream flavor impressions distinct from dairy-free sharp acetate estolides", "lib": "deep_lactobacillus"}
 {"c": "caramelization", "d": "Browning of sugars at high temperatures creating sweet caramel notes in crust; occurs at higher temperatures than Maillard reaction.", "lib": "sourdough_baking"}
 {"c": "caramelized_aroma", "d": "Sweet bready smell from sugar caramelization during hot baking creating vanilla and toffee-like compounds.", "lib": "sourdough_baking"}
 {"c": "carbon_dioxide", "d": "Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.", "lib": "deep_fermentation"}
@@ -101,6 +110,7 @@
 {"c": "covered_bake", "d": "Baking method using covered dutch oven for first portion creating steam-rich environment, then uncovered for crust development.", "lib": "sourdough_baking"}
 {"c": "cream", "d": "Warm light-toned crumb signaling balanced fermentation and standard baking; the target color for well-developed sourdough with moderate Maillard reaction.", "lib": "deep_baking"}
 {"c": "cream_crumb", "d": "An off-white crumb shade with subtle warm undertones, arising from moderate fermentation and standard baking producing limited browning compounds.", "lib": "deep_baking"}
+{"c": "creamy_note_contribution", "d": "Sensory attribute contributed by lactate estolides producing smooth mouthfeel impressions and lactone-like creamy flavor sensations", "lib": "deep_lactobacillus"}
 {"c": "crouton", "d": "Small toasted bread cubes used in salads and soups, often from day-old sourdough with crusty exterior.", "lib": "sourdough_baking"}
 {"c": "crumb", "d": "The interior crumb structure of bread characterized by hole size, distribution, tenderness, and openness ranging from tight and dense to open and airy.", "lib": "sourdough_baking"}
 {"c": "crumb_color", "d": "The visual shade of the bread interior ranging from pale ivory to deep golden depending on fermentation length, dough hydration, and baking time and temperature.", "lib": "deep_baking"}
@@ -196,6 +206,23 @@
 {"c": "fc_tanginess_profile", "d": "The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness", "lib": "deep_fermentation"}
 {"c": "fc_volatile_esters", "d": "Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes", "lib": "deep_fermentation"}
 {"c": "fc_yeast_character", "d": "The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation", "lib": "deep_fermentation"}
+{"c": "fce_accumulation_dynamics", "d": "Temporal pattern of estolide buildup during fermentation; early-stage production driven by wild_yeast followed by lactobacillus-mediated late-stage accumulation.", "lib": "deep_fermentation"}
+{"c": "fce_acetate_estolides", "d": "Estolide compounds derived from acetic_acid esterification yielding sharp, fruity, sometimes solvent-like aromatic profiles in sourdough fermentation.", "lib": "deep_fermentation"}
+{"c": "fce_chain_length_effect", "d": "Carbon chain length of estolide compounds determining whether they express fruity (short chain), floral (medium chain), or waxy (long chain) aroma qualities.", "lib": "deep_fermentation"}
+{"c": "fce_crumb_retention", "d": "Mechanism by which estolide compounds bind to bread crumb matrix and release progressively during consumption contributing to evolving flavor perception.", "lib": "deep_fermentation"}
+{"c": "fce_dough_matrix_partitioning", "d": "Distribution of estolide compounds between aqueous dough phase and gaseous headspace determining aroma release intensity during baking and eating.", "lib": "deep_fermentation"}
+{"c": "fce_esterification_pathway", "d": "Biochemical condensation reaction between organic_acids and ethanol catalyzed by microbial esterase and acyltransferase enzymes during sourdough fermentation.", "lib": "deep_fermentation"}
+{"c": "fce_ethyl_esters", "d": "Ester subclass where an organic_acid reacts with ethanol to form ethyl_estolide linkages, dominant estolide type in sourdough contributing banana, pear, and fruity notes.", "lib": "deep_fermentation"}
+{"c": "fce_floral_note_family", "d": "Aroma quality family contributed by fc_estolide_compounds including rose, lavender, and blossom descriptors arising from shorter-chain estolide structures.", "lib": "deep_fermentation"}
+{"c": "fce_fruity_note_family", "d": "Aroma quality family contributed by fc_estolide_compounds including banana, pear, apple, and tropical fruit descriptors arising from specific estolide carbon chain configurations.", "lib": "deep_fermentation"}
+{"c": "fce_isoamyl_acetate_estolide", "d": "Specific estolide yielding pronounced banana and pear ester aromas; produced by wild_yeast and lactobacillus under specific fermentation conditions.", "lib": "deep_fermentation"}
+{"c": "fce_lactate_esters", "d": "A class of flavor-active ester compounds generated during sourdough fermentation when lactic acid reacts with ethanol and higher-order alcohols produced by yeast and LAB metabolism, contributing fruity and buttery aroma notes characteristic of well-fermented sourdough crumb.", "lib": null}
+{"c": "fce_lactate_estolides", "d": "Estolide compounds formed through lactic_acid esterification producing buttery, creamy, and mild fruity notes distinct from sharper acetate estolides.", "lib": "deep_fermentation"}
+{"c": "fce_microbial_source_spectrum", "d": "The range of estolide-producing organisms spanning wild_yeast esterases and lactobacillus acyl-CoA transferases each yielding distinct estolide profiles.", "lib": "deep_fermentation"}
+{"c": "fce_odor_threshold", "d": "Concentration at which specific estolide compounds become detectable by human olfaction, varying widely by estolide structure and carbon chain length.", "lib": "deep_fermentation"}
+{"c": "fce_substrate_availability", "d": "The extent of free fatty_acids and ethanol concentration in dough governing estolide formation rate and final concentration.", "lib": "deep_fermentation"}
+{"c": "fce_temperature_sensitivity", "d": "Degree to which fermentation temperature modulates estolide formation rates and final estolide profiles; moderate temperatures favor estolide synthesis.", "lib": "deep_fermentation"}
+{"c": "fce_volatility_rank", "d": "Ranking of fc_estolide_compounds by evaporation rate; low-volatility estolides correlate with fragrance_dwell persistence in aftertaste.", "lib": "deep_fermentation"}
 {"c": "feed_ratio", "d": "Proportion of flour and water added relative to existing starter weight during feeding", "lib": "sourdough_baking"}
 {"c": "feed_response_speed", "d": "Latency period between feeding and visible rise initiation in active_starter, with healthy cultures showing response within 1-2 hours.", "lib": "deep_sourdough_starter"}
 {"c": "feed_response_speed_enables", "d": "Rapid feed_response_speed predicts healthy starter_vigor and strong inoculation potential.", "lib": "deep_sourdough_starter"}
@@ -278,6 +305,7 @@
 {"c": "fold_tension_accumulation", "d": "The progressive build-up of internal dough strength and gas-holding capacity resulting from repeated fold cycles, where each fold layer adds structural integrity to the expanding gluten matrix.", "lib": "deep_bulk_fermentation"}
 {"c": "fold_timing_ratio", "d": "The proportional distribution of fold sets across the bulk fermentation period; a common ratio is 25% of bulk time per fold set, meaning 4 folds evenly spaced capture the full fermentation window.", "lib": "deep_bulk_fermentation"}
 {"c": "fold_timing_schedule", "d": "Planned temporal distribution of fold_cycle repetitions across the bulk_fermentation window, defining when each fold occurs.", "lib": "deep_bulk_fermentation"}
+{"c": "fragrance_dwell", "d": "The lingering presence of fruity, floral, or ester-derived aroma notes in the aftertaste, attributed to fc_volatile_esters and fc_estolide_compounds with low volatility.", "lib": "deep_fermentation"}
 {"c": "fusel_alcohols", "d": "Higher-order alcohols produced in trace amounts by wild_yeast contributing complex aromatic notes to finished bread.", "lib": "deep_fermentation"}
 {"c": "gas_production", "d": "Volume of CO2 generated by wild yeast metabolism during fermentation, primary driver of dough expansion and crumb structure.", "lib": "deep_fermentation"}
 {"c": "gas_production_intensity", "d": "Volume and pressure of carbon_dioxide generated by wild_yeast activity per unit time, the primary driver of dough structure and rise_rate.", "lib": "deep_fermentation"}
@@ -301,8 +329,14 @@
 {"c": "insufficient_fold_count", "d": "A fold_count below the threshold needed for adequate gluten development, resulting in dough that tears easily, lacks extensibility, and produces bread with tight crumb structure and low bread_volume.", "lib": "deep_bulk_fermentation"}
 {"c": "internal_temperature", "d": "Bread center temperature (typically 195-210F/90-99C) indicating doneness; lower temps leave gummy crumb.", "lib": "sourdough_baking"}
 {"c": "kitchen_scale", "d": "Precision weighing device for measuring ingredients by weight for consistent hydration ratios", "lib": "sourdough_baking"}
+{"c": "lactate_estolide_carbon_chain_variants", "d": "Structural variations in lactate estolides defined by carbon chain length of the lactic_acid moiety determining aroma intensity and character", "lib": "deep_lactobacillus"}
+{"c": "lactate_estolide_formation_pathway", "d": "Biochemical condensation pathway where lactobacillus lactic_acid reacts with ethanol via acyl-CoA transferase enzymes to form lactate estolide linkages", "lib": "deep_lactobacillus"}
+{"c": "lactate_estolide_odor_threshold", "d": "Concentration at which specific lactate estolide compounds become detectable by human olfaction varying by carbon chain length and esterification degree", "lib": "deep_lactobacillus"}
+{"c": "lactate_estolide_sensory_profile", "d": "Composite sensory character of lactate estolides encompassing buttery_note_contribution creamy_note_contribution and mild_fruity_note_contribution defining their distinct flavor identity", "lib": "deep_lactobacillus"}
+{"c": "lactate_estolide_volatility_profile", "d": "Evaporation rate and atmospheric persistence characteristics of lactate estolide aroma compounds determining whether buttery-creamy notes are fleeting or lingering", "lib": "deep_lactobacillus"}
 {"c": "lactic_acid", "d": "Milder sour acid produced by lactobacillus contributing to bread tanginess", "lib": "sourdough_baking"}
 {"c": "lactic_acid_bacteria", "d": "Beneficial bacteria in sourdough that produce lactic and acetic acids, creating the characteristic tang and contributing to flavor development and dough leavening.", "lib": "sourdough_baking"}
+{"c": "lactic_acid_esterification_mechanism", "d": "Specific biochemical reaction mechanism by which lactic_acid carboxylic group bonds with ethanol hydroxyl group forming ester bonds characteristic of lactate estolides", "lib": "deep_lactobacillus"}
 {"c": "lactobacillus", "d": "Bacterial strains producing lactic and acetic acids that create sourdough tanginess", "lib": "sourdough_baking"}
 {"c": "lag_phase", "d": "Initial fermentation period where wild yeast adapt to dough environment before vigorous gas production begins.", "lib": "deep_fermentation"}
 {"c": "lame", "d": "Sharp curved blade used for scoring bread, typically with a wooden handle, that creates clean precise cuts for ear formation.", "lib": "sourdough_baking"}
@@ -327,9 +361,12 @@
 {"c": "microbial_balance", "d": "Proportional ratio of wild_yeast to lactobacillus populations determining fermentation character and flavor output.", "lib": "deep_sourdough_starter"}
 {"c": "mid_bake_phase", "d": "The middle period of baking when structure firms, crumb sets, and starches gelatinize while the crust begins to brown from Maillard reaction and caramelization.", "lib": "deep_baking"}
 {"c": "mild_flavor", "d": "Subtle sourness with wheat and sweet undertones achieved through shorter fermentation and younger starter.", "lib": "sourdough_baking"}
+{"c": "mild_fruity_note_contribution", "d": "Sensory attribute contributed by lactate estolides producing subtle fruit ester notes softer than acetate estolide banana or pear profiles", "lib": "deep_lactobacillus"}
 {"c": "minimum_bake_time", "d": "The shortest baking_duration needed for any sourdough, approximately 20 minutes, at which point the crumb may still be underdone and gummy.", "lib": "deep_baking"}
 {"c": "mixing", "d": "Combining flour, water, and other ingredients to form a cohesive dough, developing initial gluten structure through mechanical stirring or hand work.", "lib": null}
 {"c": "moisture_content_indicator", "d": "Crumb color serves as proxy for internal moisture: properly hydrated dough yields even color; overly wet crumb appears pale and mottled.", "lib": "deep_baking"}
+{"c": "mouth_coating_effect", "d": "The physical coating of the oral cavity by fermented starch fragments and proteins that can trap and slowly release flavor compounds, extending aftertaste perception.", "lib": "deep_fermentation"}
+{"c": "mouthfeel_aftereffect", "d": "The tactile sensation that persists after swallowing sourdough, including astringency, dryness, or coating quality left by the crumb structure and fermentation compounds.", "lib": "deep_fermentation"}
 {"c": "nutty_flavor", "d": "Roasted grain taste from whole wheat or rye flour or from extended fermentation developing grain complexity.", "lib": "sourdough_baking"}
 {"c": "olive_oil", "d": "Fat pressed from olives used in bread making to add moisture, tenderness, and rich flavor to dough and crust.", "lib": null}
 {"c": "open_crum", "d": "Bread crumb with large irregular holes and good structure, considered desirable for artisan sourdough, achieved through proper fermentation and gentle handling.", "lib": "sourdough_baking"}
@@ -366,6 +403,7 @@
 {"c": "refrigeration_metabolism", "d": "Reduced metabolic rate of wild_yeast and lactobacillus populations occurring at cold temperatures, producing minimal CO2 and acid output.", "lib": "deep_sourdough_starter"}
 {"c": "refrigerator_storage", "d": "Cold environment at approximately 38-42F/3-5C that slows microbial metabolism and extends time between feedings.", "lib": "deep_sourdough_starter"}
 {"c": "refrigerator_vessel", "d": "Airtight container used for cold_storage_vessel holding dormant_starter in refrigerator, preventing moisture loss and odor absorption.", "lib": "deep_sourdough_starter"}
+{"c": "retronasal_aroma", "d": "Volatile aroma compounds released in the mouth after swallowing that travel to the olfactory receptors via the retronasal passage, forming a key component of sourdough aftertaste.", "lib": "deep_fermentation"}
 {"c": "revival_feeding", "d": "starter_refreshment applied to dormant_starter with fresh flour and water to reactivate microbial populations.", "lib": "deep_sourdough_starter"}
 {"c": "revival_timeline", "d": "Expected duration for dormant_starter to transition from cold storage to active_starter status after revival_feeding at room temperature.", "lib": "deep_sourdough_starter"}
 {"c": "rice_flour", "d": "Fine powder often used for dusting bannetons preventing sticking without dense crust", "lib": "sourdough_baking"}
@@ -407,6 +445,7 @@
 {"c": "scoring_angle", "d": "Blade orientation relative to dough surface affecting ear formation and rise pattern", "lib": "sourdough_baking"}
 {"c": "seeds", "d": "Sunflower, pumpkin, sesame, flax, and other seeds added to dough for nutrition, texture variety, and flavor enhancement.", "lib": "sourdough_baking"}
 {"c": "shaping", "d": "Final dough shaping technique building proper surface tension and structure to support oven spring and hold crumb form.", "lib": "sourdough_baking"}
+{"c": "sharpness_comparison_to_acetate", "d": "Relative sensory differentiation where lactate estolides produce softer rounded tang versus acetate estolides producing sharper punchier notes", "lib": "deep_lactobacillus"}
 {"c": "slicing", "d": "Cutting bread into portions after cooling for serving and storage", "lib": "sourdough_baking"}
 {"c": "slowed_metabolism", "d": "Diminished microbial activity state where wild_yeast and lactobacillus consume minimal resources.", "lib": "deep_sourdough_starter"}
 {"c": "soaker", "d": "Technique of soaking grains and seeds in liquid overnight to soften hulls, reduce phytic acid, and improve digestibility.", "lib": "sourdough_baking"}
@@ -445,16 +484,29 @@
 {"c": "surface_doming", "d": "Visible convex curvature of active_starter surface at peak activity caused by accumulated CO2 gas beneath the crust.", "lib": "deep_sourdough_starter"}
 {"c": "surface_tension", "d": "The tight outer skin formed on dough during shaping that traps gases inside, supports oven spring, and determines loaf height and ear formation.", "lib": null}
 {"c": "tang", "d": "Sharp sour flavor note from acetic acid in sourdough, more pronounced with longer cold fermentation and mature active starter.", "lib": "sourdough_baking"}
+{"c": "tanginess_linger", "d": "The duration and intensity of sour taste sensations that persist in the mouth after swallowing, determined by organic_acid type and concentration.", "lib": "deep_fermentation"}
 {"c": "temperature_coefficient", "d": "Rate of change in fermentation_vigor per degree temperature change, describing how temperature accelerates or decelerates microbial metabolism and gas production.", "lib": "deep_fermentation"}
 {"c": "temperature_response", "d": "Degree to which fermentation_vigor changes with temperature shifts, as microbial activity accelerates or slows.", "lib": "deep_fermentation"}
 {"c": "tight_crum", "d": "Dense crumb with small uniform holes, often resulting from under-proofing, over-mixing, or low hydration.", "lib": "sourdough_baking"}
 {"c": "toasted_aroma", "d": "Character of bread surface after baking with nutty brown notes from Maillard reaction and caramelization.", "lib": "sourdough_baking"}
+{"c": "umami_aftertaste_duration", "d": "The temporal persistence of savory taste sensation after swallowing sourdough, determined by retention of free amino acids and peptides in the crumb matrix and their continued release during oral clearance.", "lib": "deep_lactobacillus"}
+{"c": "umami_aspartate_content", "d": "Concentration of free L-aspartate in the crumb, second most contributing free amino acid to savory sensation after glutamate, derived from proteolytic activity during lactobacillus fermentation.", "lib": "deep_lactobacillus"}
+{"c": "umami_flour_enzyme_contribution", "d": "Proteolytic breakdown of gliadin and glutenin in wheat flour by native flour endoproteases and exopeptidases during fermentation, independent of microbial proteases.", "lib": "deep_lactobacillus"}
+{"c": "umami_glutamate_content", "d": "Concentration of free L-glutamate in the crumb matrix arising from proteolytic breakdown of grain storage proteins during fermentation, the primary molecular driver of sourdough umami intensity.", "lib": "deep_lactobacillus"}
+{"c": "umami_microbial_protease_contribution", "d": "Proteolytic enzymes secreted by lactobacillus strains including aminopeptidases and endopeptidases that hydrolyze flour proteins into free amino acids contributing to umami sensation.", "lib": "deep_lactobacillus"}
+{"c": "umami_nucleotide_synergy", "d": "Enhancement of glutamate-driven umami perception through the synergistic interaction with 5'-ribonucleotides including IMP and GMP produced by microbial and flour enzymatic nucleic acid breakdown.", "lib": "deep_lactobacillus"}
+{"c": "umami_peptide_fraction", "d": "Short-chain peptides and dipeptides in the crumb that contribute savory notes distinct from free amino acids, produced by partial proteolysis during extended fermentation.", "lib": "deep_lactobacillus"}
+{"c": "umami_proteolytic_activity", "d": "Collective enzymatic hydrolysis of grain storage proteins into free amino acids and peptides, driven by both endogenous flour proteases and lactobacillus exoproteases during sourdough fermentation.", "lib": "deep_lactobacillus"}
+{"c": "umami_receptor_activation", "d": "Binding of glutamate and aspartate to taste receptor type 1 member 1 and 3 complexes on the tongue and oral cavity, generating the savory taste signal that persists in sourdough aftertaste.", "lib": "deep_lactobacillus"}
+{"c": "umami_savory_character", "d": "The specific quality of savory, broth-like, meaty, or full-bodied taste notes in sourdough arising from glutamate concentration and nucleotide synergy, distinct from sweet, sour, salty, and bitter dimensions.", "lib": "deep_lactobacillus"}
+{"c": "umami_sensation", "d": "Savory or broth-like lingering taste notes in sourdough aftertaste, contributed by amino acids and peptides from proteolytic activity during fermentation.", "lib": "deep_fermentation"}
 {"c": "uncovered_bake", "d": "Baking in open oven typically requiring manual steam injection for proper crust formation and oven spring.", "lib": "sourdough_baking"}
 {"c": "underbake", "d": "Insufficient baking_duration leaving internal_temperature below 195F resulting in gummy crumb", "lib": "deep_baking"}
 {"c": "underbaking_detection", "d": "Signs that baking_duration was insufficient including internal_temperature below 195F, gummy crumb_texture, pale crumb_color, and lack of structural stability when cooled.", "lib": "deep_baking"}
 {"c": "underproofed", "d": "Insufficient fermentation where bread rises inadequately, producing tight crumb, dense texture, and poor oven spring.", "lib": "sourdough_baking"}
 {"c": "underproofing", "d": "Insufficient fermentation leaving dough dense with tight crumb and raw starchy flavor", "lib": "sourdough_baking"}
 {"c": "volatile_profile_sourdough_baking", "d": "The complete set of volatile compounds including ethanol and its ester derivatives that determine the aromatic signature of sourdough bread.", "lib": "deep_fermentation"}
+{"c": "volatile_release_rate", "d": "The speed at which aroma_compounds evaporate and reach olfactory receptors in the mouth after swallowing, determining whether aftertaste aromatics are fleeting or prolonged.", "lib": "deep_fermentation"}
 {"c": "water", "d": "Filtered water used to hydrate flour and feed the starter culture; temperature affects fermentation speed and dough behavior.", "lib": "sourdough_baking"}
 {"c": "wheat_flavor", "d": "Characteristic taste of wheat flour becoming more prominent in long-fermented sourdough highlighting grain origin.", "lib": "sourdough_baking"}
 {"c": "whole_wheat_flour", "d": "Flour milled from entire wheat berry including bran and germ; adds nutrition, flavor complexity, and requires more hydration.", "lib": "sourdough_baking"}

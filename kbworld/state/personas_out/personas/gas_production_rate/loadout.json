@@ -1,6 +1,6 @@
 {
   "region": "gas_production_rate",
-  "call_number": "deep_fermentation.gas_production_rate : sourdough_baking(5)",
+  "call_number": "deep_fermentation.gas_production_rate : deep_lactobacillus(20), sourdough_baking(5)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 23
+  "cone_size": 63
 }

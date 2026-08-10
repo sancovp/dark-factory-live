@@ -16,6 +16,6 @@ Invoke this skill to understand `crumb_texture` down to its primitives. The RELA
 `bread_crumbs`, `bubble_size`, `crumb`
 
 ---
-*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (517 concepts / 376 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
 
 _(leaf — this is an actual skill.)_

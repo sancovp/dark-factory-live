@@ -1,6 +1,6 @@
 {
   "region": "microbial_activity_intensity",
-  "call_number": "deep_fermentation.microbial_activity_intensity : sourdough_baking(5)",
+  "call_number": "deep_fermentation.microbial_activity_intensity : deep_lactobacillus(20), sourdough_baking(5)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 22
+  "cone_size": 62
 }

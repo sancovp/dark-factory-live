@@ -3,51 +3,31 @@
     {
       "region": "fermentation",
       "targets": [
-        "flavor_complexity",
-        "ethanol"
+        "fc_aftertaste_development",
+        "fc_estolide_compounds"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 29,
-      "new_relations": 22
+      "new_concepts": 31,
+      "new_relations": 55
     },
     {
-      "region": "bulk_fermentation",
+      "region": "lactobacillus",
       "targets": [
-        "fold_count",
-        "room_temperature_fermentation"
+        "fce_lactate_estolides",
+        "umami_sensation"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 63,
-      "new_relations": 14
+      "new_concepts": 20,
+      "new_relations": 33
     }
   ],
   "basis_before": {
-    "shared_atoms": [
-      "acetic_acid",
-      "aroma_compounds",
-      "carbon_dioxide",
-      "ethanol",
-      "fermentation",
-      "fermentation_byproducts",
-      "fermentation_vigor",
-      "flavor_complexity",
-      "lactic_acid",
-      "lactobacillus",
-      "organic_acids",
-      "sourness_level",
-      "wild_yeast"
-    ],
-    "shared": 13,
-    "union": 31,
-    "overlap": 0.419
-  },
-  "basis_after": {
     "shared_atoms": [
       "acetic_acid",
       "aroma_compounds",
@@ -62,8 +42,6 @@
       "fc_tanginess_profile",
       "fc_volatile_esters",
       "fc_yeast_character",
-      "fermentation",
-      "fermentation_byproducts",
       "fermentation_vigor",
       "flavor_complexity",
       "lactic_acid",
@@ -72,8 +50,75 @@
       "sourness_level",
       "wild_yeast"
     ],
-    "shared": 22,
-    "union": 40,
-    "overlap": 0.55
+    "shared": 20,
+    "union": 22,
+    "overlap": 0.909
+  },
+  "basis_after": {
+    "shared_atoms": [
+      "acetic_acid",
+      "acid_retention_capacity",
+      "aftertaste_duration",
+      "aftertaste_intensity_decay",
+      "aftertaste_sensory_profile",
+      "aftertaste_tang_profile",
+      "aroma_compounds",
+      "bitterness_trail",
+      "buttery_note_contribution",
+      "carbon_dioxide",
+      "creamy_note_contribution",
+      "ethanol",
+      "fc_acid_balance_ratio",
+      "fc_aftertaste_development",
+      "fc_estolide_compounds",
+      "fc_fermentation_depth",
+      "fc_higher_alcohols",
+      "fc_maltolytic_notes",
+      "fc_tanginess_profile",
+      "fc_volatile_esters",
+      "fc_yeast_character",
+      "fce_acetate_estolides",
+      "fce_esterification_pathway",
+      "fce_ethyl_esters",
+      "fce_floral_note_family",
+      "fce_fruity_note_family",
+      "fce_lactate_estolides",
+      "fce_microbial_source_spectrum",
+      "fce_odor_threshold",
+      "fermentation_vigor",
+      "flavor_complexity",
+      "fragrance_dwell",
+      "lactate_estolide_carbon_chain_variants",
+      "lactate_estolide_formation_pathway",
+      "lactate_estolide_odor_threshold",
+      "lactate_estolide_sensory_profile",
+      "lactate_estolide_volatility_profile",
+      "lactic_acid",
+      "lactic_acid_esterification_mechanism",
+      "lactobacillus",
+      "mild_fruity_note_contribution",
+      "mouthfeel_aftereffect",
+      "organic_acids",
+      "retronasal_aroma",
+      "sharpness_comparison_to_acetate",
+      "sourness_level",
+      "tanginess_linger",
+      "umami_aftertaste_duration",
+      "umami_aspartate_content",
+      "umami_flour_enzyme_contribution",
+      "umami_glutamate_content",
+      "umami_microbial_protease_contribution",
+      "umami_nucleotide_synergy",
+      "umami_peptide_fraction",
+      "umami_proteolytic_activity",
+      "umami_receptor_activation",
+      "umami_savory_character",
+      "umami_sensation",
+      "volatile_release_rate",
+      "wild_yeast"
+    ],
+    "shared": 60,
+    "union": 62,
+    "overlap": 0.968
   }
 }

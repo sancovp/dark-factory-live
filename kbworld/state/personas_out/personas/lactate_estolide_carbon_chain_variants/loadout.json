@@ -1,0 +1,13 @@
+{
+  "region": "lactate_estolide_carbon_chain_variants",
+  "call_number": "deep_lactobacillus.lactate_estolide_carbon_chain_variants",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 2
+}

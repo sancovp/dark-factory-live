@@ -1,0 +1,13 @@
+{
+  "region": "fce_lactate_estolides",
+  "call_number": "deep_fermentation.fce_lactate_estolides : deep_lactobacillus(9)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 9
+}

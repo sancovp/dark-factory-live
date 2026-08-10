@@ -1,6 +1,6 @@
 {
   "region": "fermentation_vigor",
-  "call_number": "deep_fermentation.fermentation_vigor : sourdough_baking(5)",
+  "call_number": "deep_fermentation.fermentation_vigor : deep_lactobacillus(20), sourdough_baking(5)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 19
+  "cone_size": 59
 }

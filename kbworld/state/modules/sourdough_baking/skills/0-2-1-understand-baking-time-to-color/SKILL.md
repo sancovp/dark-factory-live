@@ -16,6 +16,6 @@ Invoke this skill to understand `baking_time_to_color` down to its primitives. T
 `baking_temperature_effect`, `baking_temperature_to_color`
 
 ---
-*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (517 concepts / 376 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
 
 _(leaf — this is an actual skill.)_

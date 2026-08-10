@@ -7,7 +7,7 @@ version: 0.1.0
 # using-sourdough-baking
 
 This module is a CULTIVATED, PROOF-CHECKED knowledge organism about
-**sourdough baking** (465 concepts / 268 relations; grown by a
+**sourdough baking** (517 concepts / 376 relations; grown by a
 KB factory — every region admitted by a Prolog consistency gate, wrongness
 tracked as open supersede-issues, never hidden).
 
@@ -46,15 +46,15 @@ tracked as open supersede-issues, never hidden).
 
 ## The map
 
-- `?.flavor_complexity : deep_fermentation(14), sourdough_baking(5)`
-- `sourdough_baking.sourdough_starter : deep_fermentation(15), deep_sourdough_starter(5)`
-- `sourdough_baking.fermentation : deep_fermentation(15)`
-- `sourdough_baking.bulk_fermentation : deep_fermentation(15)`
+- `?.flavor_complexity : deep_fermentation(34), deep_lactobacillus(20), sourdough_baking(5)`
+- `deep_fermentation.organic_acids : deep_lactobacillus(20), sourdough_baking(5)`
+- `sourdough_baking.sourdough_starter : deep_fermentation(35), deep_lactobacillus(20), deep_sourdough_starter(5)`
+- `sourdough_baking.fermentation : deep_fermentation(35), deep_lactobacillus(20)`
+- `sourdough_baking.bulk_fermentation : deep_fermentation(35), deep_lactobacillus(20)`
+- `deep_fermentation.fc_estolide_compounds : deep_lactobacillus(20), sourdough_baking(5)`
 - `sourdough_baking.gluten_development`
-- `sourdough_baking.baking : deep_fermentation(15), deep_baking(2)`
-- `deep_fermentation.fermentation_vigor : sourdough_baking(5)`
-- `sourdough_baking.lactobacillus : deep_fermentation(14)`
-- `deep_fermentation.organic_acids : sourdough_baking(5)`
-- `sourdough_baking.crumb_structure`
-- `sourdough_baking.acetic_acid`
-- `sourdough_baking.active_starter`
+- `sourdough_baking.lactobacillus : deep_fermentation(34), deep_lactobacillus(20)`
+- `sourdough_baking.baking : deep_fermentation(35), deep_lactobacillus(20), deep_baking(2)`
+- `deep_fermentation.fermentation_vigor : deep_lactobacillus(20), sourdough_baking(5)`
+- `deep_fermentation.umami_sensation : deep_lactobacillus(10)`
+- `sourdough_baking.acetic_acid : deep_fermentation(1)`

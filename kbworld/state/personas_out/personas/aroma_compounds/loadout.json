@@ -1,6 +1,6 @@
 {
   "region": "aroma_compounds",
-  "call_number": "deep_fermentation.aroma_compounds",
+  "call_number": "deep_fermentation.aroma_compounds : deep_lactobacillus(1)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 0
+  "cone_size": 5
 }
