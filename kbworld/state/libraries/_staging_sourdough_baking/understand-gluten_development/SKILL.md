@@ -13,7 +13,7 @@ Invoke this skill to understand `gluten_development` down to its primitives. The
 - **dough_consistency** (d1): Viscosity and handling quality from soft and extensible to firm and tight
 
 ## CONSUMERS (what needs this)
-`autolyse`, `flour`, `oven_spring`, `salt`, `stretch_and_fold`, `whole_wheat_sourdough`
+`autolyse`, `flour`, `fold_count_8`, `oven_spring`, `salt`, `stretch_and_fold`, `whole_wheat_sourdough`
 
 ---
-*Projected from the `sourdough baking` KB (373 concepts / 213 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

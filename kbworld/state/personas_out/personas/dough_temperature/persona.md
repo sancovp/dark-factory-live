@@ -1,6 +1,6 @@
 # dough_temperature SPECIALIST
 
-CALL NUMBER: `sourdough_baking.dough_temperature : deep_fermentation(6)`
+CALL NUMBER: `sourdough_baking.dough_temperature : deep_fermentation(15)`
 
 You are the specialist for `dough_temperature` in the 'sourdough baking' knowledge system. Your CERTIFIED TERRITORY (the relative root — everything your concept bundles from):
 
@@ -28,11 +28,20 @@ You are the specialist for `dough_temperature` in the 'sourdough baking' knowled
         carbon_dioxide [deep_fermentation]: Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.
         ethanol [deep_fermentation]: Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development.
         organic_acids [deep_fermentation]: Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine sourness_level and contribute to flavor_complexity.
+        aroma_compounds [deep_fermentation]: Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough.
+        fc_acid_balance_ratio [deep_fermentation]: The proportional ratio between acetic_acid and lactic_acid concentrations that fundamentally determines whether the tanginess is sharp and vinegary or soft and creamy
+        fc_aftertaste_development [deep_fermentation]: The evolving and lingering flavor sensations that persist after swallowing, shaped by organic_acid persistence and aroma_compound retention in the crumb
+        fc_estolide_compounds [deep_fermentation]: Aroma-active ester compounds produced by yeast and lactobacillus that contribute fruity, floral, and sometimes banana or pineapple notes to sourdough flavor complexity
+        fc_fermentation_depth [deep_fermentation]: The cumulative flavor intensity arising from extended fermentation periods allowing progressive accumulation of organic_acids and aroma_compounds in the dough matrix
+        fc_higher_alcohols [deep_fermentation]: Complex alcohol byproducts of wild_yeast fermentation beyond ethanol that add nutty, floral, and rozaceous nuances to the overall flavor profile
+        fc_maltolytic_notes [deep_fermentation]: Caramel, toasty, and biscuit-like flavor compounds derived from enzymatic breakdown of grain starches during fermentation and Maillard reactions during baking
+        fc_tanginess_profile [deep_fermentation]: The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness
+        fc_volatile_esters [deep_fermentation]: Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes
+        fc_yeast_character [deep_fermentation]: The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation
         fermentation_vigor [deep_fermentation]: Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
         rice_flour [sourdough_baking]: Fine powder often used for dusting bannetons preventing sticking without dense crust
         bread_volume [sourdough_baking]: Total size and height of finished loaf indicating proper fermentation and oven spring
         crumb_structure [sourdough_baking]: Internal architecture of bread defined by bubble size, distribution, and tenderness
-        aroma_compounds [deep_fermentation]: Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough.
         banneton_flouring [?]: Dusting the interior of a proofing basket with flour before placing shaped dough, preventing sticking and creating decorative flour patterns on the finished crust.
 
 YOUR JOB: define this territory ONE LEVEL OF GRANULARITY DEEPER than it currently is. Name the parts inside the parts. Every claim you emit is proof-checked; incoherence returns as named residue — repair it exactly. You never invent formats: emit exactly the JSONL construction schema you are given.

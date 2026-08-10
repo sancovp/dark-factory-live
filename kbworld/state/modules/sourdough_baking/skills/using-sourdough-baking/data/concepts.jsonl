@@ -82,6 +82,7 @@
 {"c": "ciabatta", "d": "Italian loaf with open crumb and crisp crust using high hydration sourdough", "lib": "sourdough_baking"}
 {"c": "co2_output", "d": "Carbon dioxide gas produced by wild yeast during anaerobic fermentation of sugars in the dough; the primary driver of dough rise and open crumb structure.", "lib": "deep_fermentation"}
 {"c": "coil_fold", "d": "Gentle folding technique used for high-hydration doughs where the dough is lifted and coiled under itself, building strength with minimal disruption.", "lib": "sourdough_baking"}
+{"c": "coil_fold_variant_of", "d": "coil_fold is a specific fold variant that counts toward fold_count when used as an alternative to the standard quarter-turn fold_sequence.", "lib": "deep_bulk_fermentation"}
 {"c": "cold_dormancy_duration", "d": "starter_age accumulated during refrigerator storage representing time since last feeding under cold conditions.", "lib": "deep_sourdough_starter"}
 {"c": "cold_retard", "d": "Extended cold proofing in the refrigerator (typically 8-24 hours) that slows fermentation, develops flavor complexity, and allows flexible baking scheduling.", "lib": "sourdough_baking"}
 {"c": "cold_retard_effect", "d": "Flavor development phenomenon where extended dormant_starter storage enhances sourness through prolonged lactic_acid and acetic_acid production at low rates.", "lib": "deep_sourdough_starter"}
@@ -163,11 +164,38 @@
 {"c": "einkorn_flour", "d": "Ancient wheat variety flour with digestible gluten and rich carotenoid content; weak gluten requires gentler handling.", "lib": "sourdough_baking"}
 {"c": "enriched_sourdough", "d": "Dough containing eggs, butter, or sugar alongside the sourdough culture", "lib": "sourdough_baking"}
 {"c": "enzymatic_activity", "d": "Natural enzyme breakdown of starches to sugars feeding fermentation microbes", "lib": "sourdough_baking"}
+{"c": "esterification_deep_fermentation", "d": "Chemical reaction between ethanol and organic_acids where acids bond with alcohol molecules to form esters that contribute to aroma_compounds complexity.", "lib": "deep_fermentation"}
 {"c": "esters", "d": "Aromatic compounds formed from ethanol and organic_acids that contribute fruity and floral notes to sourdough flavor_complexity.", "lib": "deep_fermentation"}
 {"c": "ethanol", "d": "Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development.", "lib": "deep_fermentation"}
+{"c": "ethanol_as_flavor_precursor_ethanol", "d": "Ethanol's role in reacting with organic_acids to form aromatic esters that enhance flavor_complexity in the finished bread.", "lib": "deep_fermentation"}
+{"c": "ethanol_concentration", "d": "Amount of ethanol present in dough during fermentation, varying with fermentation duration, temperature, and wild_yeast activity levels.", "lib": "deep_fermentation"}
+{"c": "ethanol_concentration_ethanol", "d": "The amount of ethanol present in fermenting dough, varying with fermentation duration, temperature, and wild_yeast activity levels.", "lib": "deep_fermentation"}
+{"c": "ethanol_concentration_sourdough_baking", "d": "Measure of ethanol quantity present in fermenting dough, influenced by wild_yeast activity, fermentation duration, and sugar availability, affecting both flavor_complexity and fermentation_vigor.", "lib": "deep_fermentation"}
+{"c": "ethanol_deep_fermentation", "d": "Alcohol produced by wild_yeast during anaerobic fermentation, contributing to sourdough aroma complexity and serving as a precursor for ester formation.", "lib": "deep_fermentation"}
+{"c": "ethanol_evaporation", "d": "Volatilization of ethanol during baking when oven temperatures exceed ethanol boiling point at 78.3\u00b0C, removing alcohol content from finished bread.", "lib": "deep_fermentation"}
+{"c": "ethanol_evaporation_ethanol", "d": "The thermal removal of ethanol during baking when oven temperatures exceed ethanol's boiling point of 78.37 degrees Celsius.", "lib": "deep_fermentation"}
+{"c": "ethanol_interaction_with_acids_ethanol", "d": "Chemical reaction between ethanol and organic_acids producing esters, the volatile compounds responsible for fruity and floral aroma notes.", "lib": "deep_fermentation"}
+{"c": "ethanol_production", "d": "Biosynthesis of ethanol by wild_yeast converting sugars through glycolysis and fermentation, yielding CO2 and ethanol as primary byproducts.", "lib": "deep_fermentation"}
 {"c": "ethanol_release", "d": "Ethanol alcohol produced as a byproduct of wild yeast sugar metabolism during the initial anaerobic phase of sourdough fermentation.", "lib": "deep_fermentation"}
+{"c": "ethanol_solubility", "d": "Property of ethanol to dissolve and extract aromatic compounds from flour and fermentation byproducts, acting as a solvent carrier for flavor molecules.", "lib": "deep_fermentation"}
+{"c": "ethanol_sourdough_baking", "d": "Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development.", "lib": "deep_fermentation"}
+{"c": "ethanol_volatility_ethanol", "d": "The physical property of ethanol to transition readily from liquid to vapor, determining its escape rate during fermentation and baking.", "lib": "deep_fermentation"}
+{"c": "ethyl_acetate", "d": "Ester formed when ethanol reacts with acetic acid, producing fruity banana and pineapple notes in sourdough aroma profile.", "lib": "deep_fermentation"}
+{"c": "ethyl_acetate_deep_fermentation", "d": "Estery compound formed when acetic_acid reacts with ethanol, producing fruity banana-like aroma notes in the sourdough volatile_profile.", "lib": "deep_fermentation"}
+{"c": "ethyl_lactate_deep_fermentation", "d": "Estery compound formed when lactic_acid reacts with ethanol, contributing buttery fruity notes to the sourdough aroma_compounds.", "lib": "deep_fermentation"}
+{"c": "evaporation_point_sourdough_baking", "d": "Temperature threshold at which ethanol converts from liquid to vapor, occurring during baking and determining how much ethanol aroma persists in the final crumb.", "lib": "deep_fermentation"}
 {"c": "even_color_distribution", "d": "Uniform crumb coloration throughout the loaf indicating consistent fermentation, hydration, and heat distribution during baking.", "lib": "deep_baking"}
+{"c": "excessive_fold_count", "d": "A fold_count beyond the point of useful gluten development, causing dough over-work that degrades the gluten network, creates excessive gas retention loss, and may produce dense or collapsed bread.", "lib": "deep_bulk_fermentation"}
 {"c": "exopolysaccharides", "d": "Polysaccharide compounds secreted by certain lactobacillus strains that affect bread texture and water retention.", "lib": "deep_fermentation"}
+{"c": "fc_acid_balance_ratio", "d": "The proportional ratio between acetic_acid and lactic_acid concentrations that fundamentally determines whether the tanginess is sharp and vinegary or soft and creamy", "lib": "deep_fermentation"}
+{"c": "fc_aftertaste_development", "d": "The evolving and lingering flavor sensations that persist after swallowing, shaped by organic_acid persistence and aroma_compound retention in the crumb", "lib": "deep_fermentation"}
+{"c": "fc_estolide_compounds", "d": "Aroma-active ester compounds produced by yeast and lactobacillus that contribute fruity, floral, and sometimes banana or pineapple notes to sourdough flavor complexity", "lib": "deep_fermentation"}
+{"c": "fc_fermentation_depth", "d": "The cumulative flavor intensity arising from extended fermentation periods allowing progressive accumulation of organic_acids and aroma_compounds in the dough matrix", "lib": "deep_fermentation"}
+{"c": "fc_higher_alcohols", "d": "Complex alcohol byproducts of wild_yeast fermentation beyond ethanol that add nutty, floral, and rozaceous nuances to the overall flavor profile", "lib": "deep_fermentation"}
+{"c": "fc_maltolytic_notes", "d": "Caramel, toasty, and biscuit-like flavor compounds derived from enzymatic breakdown of grain starches during fermentation and Maillard reactions during baking", "lib": "deep_fermentation"}
+{"c": "fc_tanginess_profile", "d": "The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness", "lib": "deep_fermentation"}
+{"c": "fc_volatile_esters", "d": "Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes", "lib": "deep_fermentation"}
+{"c": "fc_yeast_character", "d": "The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation", "lib": "deep_fermentation"}
 {"c": "feed_ratio", "d": "Proportion of flour and water added relative to existing starter weight during feeding", "lib": "sourdough_baking"}
 {"c": "feed_response_speed", "d": "Latency period between feeding and visible rise initiation in active_starter, with healthy cultures showing response within 1-2 hours.", "lib": "deep_sourdough_starter"}
 {"c": "feed_response_speed_enables", "d": "Rapid feed_response_speed predicts healthy starter_vigor and strong inoculation potential.", "lib": "deep_sourdough_starter"}
@@ -175,6 +203,7 @@
 {"c": "feeding_schedule", "d": "Regular pattern of starter maintenance specifying feeding frequency, ratios, flour types, and temperature to maintain culture health.", "lib": "sourdough_baking"}
 {"c": "fermentation", "d": "Metabolic process where microbes convert sugars to CO2 for rise and acids for sour flavor", "lib": "sourdough_baking"}
 {"c": "fermentation_acidity_balance", "d": "The ratio and interaction between lactic and acetic acid proportions in fermented dough, determining the character and intensity of sour flavor perception.", "lib": "deep_fermentation"}
+{"c": "fermentation_anaerobic_deep_fermentation", "d": "Oxygen-depleted phase of microbial metabolism where wild_yeast preferentially converts sugars to ethanol and carbon_dioxide rather than oxidative pathways.", "lib": "deep_fermentation"}
 {"c": "fermentation_aroma", "d": "Smell of actively fermenting dough combining yeast products, organic acids, and flour compounds.", "lib": "sourdough_baking"}
 {"c": "fermentation_aroma_reflects", "d": "fermentation_aroma reveals acid_balance between lactic_acid and acetic_acid in active_starter.", "lib": "deep_sourdough_starter"}
 {"c": "fermentation_byproducts", "d": "Compounds produced by microbial fermentation including carbon dioxide for dough rise, lactic and acetic acids for sour flavor, and alcohols for aroma.", "lib": "deep_fermentation"}
@@ -213,7 +242,42 @@
 {"c": "focaccia", "d": "Flat Italian bread dimpled with olive oil and herbs baked on sheet pan", "lib": "sourdough_baking"}
 {"c": "fold", "d": "Technique of folding dough over itself during fermentation to strengthen gluten, redistribute yeast food, and release gas bubbles.", "lib": "sourdough_baking"}
 {"c": "fold_count", "d": "Number of stretch and fold repetitions during bulk fermentation for gluten development", "lib": "sourdough_baking"}
+{"c": "fold_count_1", "d": "The specific iteration number assigned to each stretch and fold repetition within a bulk fermentation sequence, typically numbered sequentially from 1 to total_folds.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_10", "d": "Excessive number of folds causing dough exhaustion, overdevelopment, or tearing that degrades crumb_structure and flavor_complexity.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_2", "d": "The elapsed time interval between consecutive stretch and fold repetitions, typically 30 to 60 minutes, balancing dough development against excessive handling.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_3", "d": "The complete ordered sequence of all stretch and fold repetitions scheduled for a single bulk fermentation, defined by fold_count total and fold_interval timing.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_4", "d": "The predetermined total number of stretch and fold repetitions for a given recipe or bulk fermentation, the core metric that defines fold_count itself.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_5", "d": "The temporal placement and scheduling of each fold within the broader bulk fermentation window, determining whether folds occur early middle or late in fermentation.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_6", "d": "The consistency and uniformity of technique applied across all repetitions in a fold_sequence, ensuring even gluten development and structural strength throughout the dough.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_7", "d": "The standard practice of dividing the dough into four equal quarters before each fold, providing the mechanical framework for stretch and fold execution.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_8", "d": "The degree to which the number of folds produces visible and tactile improvements in dough_strength and gluten_development, measurable by dough extensibility and windowpane test.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_9", "d": "Insufficient number of folds resulting in weak gluten network, poor dough_consistency, and reduced bread_volume due to inadequate structural development.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_actual", "d": "Realized number of fold_cycle repetitions actually executed, which may differ from fold_count_target due to dough behavior or schedule.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_actual_may_differ_from", "d": "fold_count_actual records realized repetitions and may diverge from fold_count_target if dough_consistency changes or bulk_fermentation timing shifts.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_builds", "d": "fold_count incrementally advances gluten_development, replacing the need for intensive mixing while avoiding excessive degassing.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_dough_temp_dependency", "d": "The dependency of optimal fold_count on dough_temperature, where warmer dough (78\u201380\u00b0F) progresses faster and may require more frequent folds, while cooler dough (72\u201374\u00b0F) allows longer intervals between sets.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_during", "d": "fold_count occurs within the temporal window of bulk_fermentation, and its fold_timing_schedule is anchored to bulk_fermentation duration.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_executes", "d": "fold_count is realized through the technique stretch_and_fold, which is the mechanical action used to perform each fold_cycle.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_fermentation_interaction", "d": "The coupled effect where fold_count timing must align with fermentation activity\u2014folds spaced too far apart allow dough to over-relax, while folds too frequent may tear rather than stretch the developing gluten network.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_gluten_response", "d": "The direct relationship between number of fold repetitions and degree of gluten_network_strengthening, where each fold incrementally aligns gluten strands and builds dough elasticity up to a diminishing-return ceiling.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_range_optimal", "d": "The empirically determined ideal fold_count range of 3\u20134 complete sets during a standard 4\u20135 hour bulk fermentation at 75\u201378\u00b0F dough temperature, balancing gluten development against fermentation progression.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_shaped_by", "d": "fold_count target and fold_timing_schedule are calibrated to dough_consistency and fermentation_temperature for predictable gluten alignment.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_target", "d": "Prescribed number of fold_cycle repetitions for a given formula, typically 3 to 6 sets depending on dough_consistency goals.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_count_target_calibrates", "d": "fold_count_target sets the intended fold_count which is adjusted based on fermentation_temperature and dough_consistency to achieve gluten_development goals.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_cycle", "d": "One complete sequence of stretching and folding a dough quarter over the center, counted as one unit toward the total fold_count.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_cycle_repeated_in", "d": "fold_cycle is the atomic unit that fold_count counts, and fold_count_target specifies how many times fold_cycle repeats.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_direction", "d": "Orientation of each quarter turn in the fold_sequence determining even gluten strand alignment across all axes.", "lib": "deep_bulk_fermentation"}
 {"c": "fold_frequency", "d": "Interval between stretch and fold repetitions during bulk fermentation, typically every 30-60 minutes for 2-4 sets.", "lib": "sourdough_baking"}
+{"c": "fold_interval", "d": "The elapsed time between consecutive fold sets during bulk fermentation, typically 30\u201345 minutes at room temperature, during which the dough rests and gluten relaxes before the next mechanical development phase.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_interval_within", "d": "fold_interval defines the spacing between fold_cycle repetitions and constitutes the timing structure of fold_count execution.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_phases", "d": "Individual stages within each fold_cycle: lift, stretch, and fold over the center of the dough mass.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_schedule", "d": "The predetermined timing pattern dictating when each fold set occurs throughout bulk fermentation, commonly expressed as hours into bulk (e.g., 0h, 45m, 1h30m, 2h15m) or as percentage of total bulk time.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_sequence", "d": "Pattern of directional turns executed within a single fold_cycle set, commonly four quarter-turn folds per round.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_sequence_within", "d": "fold_sequence prescribes the directional pattern of individual quarter turns executed per fold_cycle within the fold_count.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_set", "d": "One complete round of four stretch-and-fold operations performed consecutively, treating all four dough quadrants before resting; the fundamental unit of structure-building work during bulk fermentation.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_tension_accumulation", "d": "The progressive build-up of internal dough strength and gas-holding capacity resulting from repeated fold cycles, where each fold layer adds structural integrity to the expanding gluten matrix.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_timing_ratio", "d": "The proportional distribution of fold sets across the bulk fermentation period; a common ratio is 25% of bulk time per fold set, meaning 4 folds evenly spaced capture the full fermentation window.", "lib": "deep_bulk_fermentation"}
+{"c": "fold_timing_schedule", "d": "Planned temporal distribution of fold_cycle repetitions across the bulk_fermentation window, defining when each fold occurs.", "lib": "deep_bulk_fermentation"}
 {"c": "fusel_alcohols", "d": "Higher-order alcohols produced in trace amounts by wild_yeast contributing complex aromatic notes to finished bread.", "lib": "deep_fermentation"}
 {"c": "gas_production", "d": "Volume of CO2 generated by wild yeast metabolism during fermentation, primary driver of dough expansion and crumb structure.", "lib": "deep_fermentation"}
 {"c": "gas_production_intensity", "d": "Volume and pressure of carbon_dioxide generated by wild_yeast activity per unit time, the primary driver of dough structure and rise_rate.", "lib": "deep_fermentation"}
@@ -234,6 +298,7 @@
 {"c": "initial_phase", "d": "First 15-20 minutes of baking with Dutch oven lid on; when oven_spring occurs and steam_production is at maximum, developing initial crumb structure and preventing early crust formation that would restrict rise.", "lib": "deep_baking"}
 {"c": "inoculation", "d": "Adding levain to new dough batch to begin fermentation with established culture", "lib": "sourdough_baking"}
 {"c": "inoculation_rate", "d": "Percentage of levain added to main dough by weight, affecting fermentation speed and final flavor intensity.", "lib": "sourdough_baking"}
+{"c": "insufficient_fold_count", "d": "A fold_count below the threshold needed for adequate gluten development, resulting in dough that tears easily, lacks extensibility, and produces bread with tight crumb structure and low bread_volume.", "lib": "deep_bulk_fermentation"}
 {"c": "internal_temperature", "d": "Bread center temperature (typically 195-210F/90-99C) indicating doneness; lower temps leave gummy crumb.", "lib": "sourdough_baking"}
 {"c": "kitchen_scale", "d": "Precision weighing device for measuring ingredients by weight for consistent hydration ratios", "lib": "sourdough_baking"}
 {"c": "lactic_acid", "d": "Milder sour acid produced by lactobacillus contributing to bread tanginess", "lib": "sourdough_baking"}
@@ -241,6 +306,8 @@
 {"c": "lactobacillus", "d": "Bacterial strains producing lactic and acetic acids that create sourdough tanginess", "lib": "sourdough_baking"}
 {"c": "lag_phase", "d": "Initial fermentation period where wild yeast adapt to dough environment before vigorous gas production begins.", "lib": "deep_fermentation"}
 {"c": "lame", "d": "Sharp curved blade used for scoring bread, typically with a wooden handle, that creates clean precise cuts for ear formation.", "lib": "sourdough_baking"}
+{"c": "lamination_pass", "d": "Extended fold that also distributes hydration and inclusions evenly, sometimes counted as a fold_cycle in high-hydration formulas.", "lib": "deep_bulk_fermentation"}
+{"c": "lamination_pass_variant_of", "d": "lamination_pass extends the standard fold_sequence and can substitute for a fold_cycle in the fold_count tally when formula goals require it.", "lib": "deep_bulk_fermentation"}
 {"c": "leavening_power", "d": "Capacity of active_starter to raise bread dough measured by gas production rate and total rise achieved.", "lib": "deep_sourdough_starter"}
 {"c": "levain", "d": "A portion of active sourdough starter built up before baking, used to leaven the main dough; can be stiff or liquid in consistency.", "lib": "sourdough_baking"}
 {"c": "levain_maturity", "d": "Stage of levain readiness for baking determined by doubling time, bubble activity, peak height, and float test.", "lib": "sourdough_baking"}
@@ -307,6 +374,29 @@
 {"c": "rise_ratio", "d": "Proportional volumetric expansion of starter after feeding, typically doubling or more in active specimens within 4-8 hours.", "lib": "deep_sourdough_starter"}
 {"c": "room_temperature", "d": "Ambient kitchen temperature (typically 70-78F/21-26C) affecting sourdough fermentation rates and starter activity.", "lib": "sourdough_baking"}
 {"c": "room_temperature_fermentation", "d": "Proofing at ambient warmth for faster fermentation with brighter flavors", "lib": "sourdough_baking"}
+{"c": "rtf_ambient_temp_range", "d": "The environmental temperature window (typically 70-78F/21-26C) for room temperature proofing that directly controls fermentation rate and duration needs.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_ambient_temperature", "d": "Room temperature range typically 68-78F/20-26C where sourdough fermentation proceeds at moderate speed without external heating or cooling apparatus.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_ambient_temperature_range", "d": "The specific environmental temperature band (typically 70-78F/21-26C) that defines room temperature conditions for dough proofing, distinct from refrigeration or heated proofing environments.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_brightness_contrast", "d": "Flavor quality where room temperature fermentation produces brighter, more acidic notes compared to cold_retardation developing muted complexity over extended time.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_bubble_formation", "d": "The visible bubble development in the dough surface and body signaling adequate gas production and fermentation advancement.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_bulk_fermentation_window", "d": "Period during initial fermentation when room temperature drives dough rise and organic_acid accumulation before shaping occurs.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_dough_response", "d": "Observable changes in dough_consistency including increased surface blistering, gluten_relaxation, and volume_jincrease under room temperature conditions.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_dough_rise_tracking", "d": "The visual and tactile monitoring of dough volume increase, surface doming, and bubble formation during proofing to gauge fermentation progress.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_dough_temperature_dependency", "d": "The critical relationship where dough_temperature at the start of proofing determines how quickly fermentation proceeds at ambient room temperature.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_duration_timing", "d": "The shortened proofing_duration window required to reach target rise at ambient warmth, typically 1-3 hours depending on starter activity and dough temperature.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_fermentation_rate", "d": "Speed of wild_yeast gas production and lactobacillus acid generation at ambient warmth, faster than cold_retardation but slower than heated proofing.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_final_proof_phase", "d": "Shaped dough rising in rice_flour_dusted banneton at ambient warmth before scoring and baking entry.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_flavor_brightness", "d": "The sharp, tangy, bright acidic character produced by heightened lactobacillus activity at warmer proofing temperatures versus cold retardation.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_flavor_profile_brightness", "d": "The sharp clean acidic character and vibrant aromatics developed during faster room temperature fermentation, producing brighter more pronounced sourness than cold slowed proofing.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_overproof_risk", "d": "The elevated danger of exceeding optimal proof timing at room temperature due to accelerated fermentation speed and compressed timeline.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_overproofing_risk", "d": "The elevated probability of overproofing due to faster fermentation pace requiring more frequent observation than cold retarded dough.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_prefermentation_activity", "d": "The combined wild_yeast and lactobacillus metabolic activity occurring during room temperature proofing, driving dough rise and flavor development.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_proof_duration", "d": "The time interval for final dough rise at room temperature before scoring and baking, typically shorter than cold retard methods.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_proofing_duration_range", "d": "Time window of 1-4 hours for final rise depending on dough_strength, hydration_level, and ambient warmth intensity before reaching overproofing.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_schedule_flexibility", "d": "The reduced ability to pause or delay fermentation when proofing at room temperature, limiting scheduling compared to cold_retardation methods.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_scheduling_flexibility", "d": "Practical time management allowing baker to pause and resume fermentation within a limited window without temperature control equipment.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_target_fermentation_endpoint", "d": "The specific dough rise volume (typically doubled or 70-80% increased) that signals when proofing is complete and scoring should begin.", "lib": "deep_bulk_fermentation"}
+{"c": "rtf_visual_dome", "d": "The observable dough dome increase and surface tension changes indicating active fermentation progress during room temperature proof.", "lib": "deep_bulk_fermentation"}
 {"c": "rustic_appearance", "d": "Artisan bread aesthetic characterized by irregular shape, flour dusting, thick crust, and organic imperfect form.", "lib": "sourdough_baking"}
 {"c": "rye_flour", "d": "Low-gluten flour from rye grain producing dense textured bread with distinctive sour notes; feeds bacteria well and adds moisture retention.", "lib": "sourdough_baking"}
 {"c": "rye_sourdough", "d": "Bread with significant rye flour content requiring adjusted hydration and fermentation", "lib": "sourdough_baking"}
@@ -364,6 +454,7 @@
 {"c": "underbaking_detection", "d": "Signs that baking_duration was insufficient including internal_temperature below 195F, gummy crumb_texture, pale crumb_color, and lack of structural stability when cooled.", "lib": "deep_baking"}
 {"c": "underproofed", "d": "Insufficient fermentation where bread rises inadequately, producing tight crumb, dense texture, and poor oven spring.", "lib": "sourdough_baking"}
 {"c": "underproofing", "d": "Insufficient fermentation leaving dough dense with tight crumb and raw starchy flavor", "lib": "sourdough_baking"}
+{"c": "volatile_profile_sourdough_baking", "d": "The complete set of volatile compounds including ethanol and its ester derivatives that determine the aromatic signature of sourdough bread.", "lib": "deep_fermentation"}
 {"c": "water", "d": "Filtered water used to hydrate flour and feed the starter culture; temperature affects fermentation speed and dough behavior.", "lib": "sourdough_baking"}
 {"c": "wheat_flavor", "d": "Characteristic taste of wheat flour becoming more prominent in long-fermented sourdough highlighting grain origin.", "lib": "sourdough_baking"}
 {"c": "whole_wheat_flour", "d": "Flour milled from entire wheat berry including bran and germ; adds nutrition, flavor complexity, and requires more hydration.", "lib": "sourdough_baking"}
@@ -371,3 +462,4 @@
 {"c": "wild_culture", "d": "Sourdough starter cultivated from local flour and environment capturing regional microflora", "lib": "sourdough_baking"}
 {"c": "wild_yeast", "d": "Naturally occurring yeast strains captured from flour and the environment that ferment dough, providing rise without commercial yeast.", "lib": "sourdough_baking"}
 {"c": "windowpane_test", "d": "Gluten development test stretching dough thin enough to see light through without tearing; indicates proper fermentation and structure.", "lib": "sourdough_baking"}
+{"c": "yeast_metabolism_deep_fermentation", "d": "Biochemical pathway through which wild_yeast converts fermentable sugars into ethanol and carbon_dioxide, with ethanol yield varying by sugar availability and yeast strain.", "lib": "deep_fermentation"}

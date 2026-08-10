@@ -1,6 +1,6 @@
 # sourdough_starter SPECIALIST
 
-CALL NUMBER: `sourdough_baking.sourdough_starter : deep_fermentation(6), deep_sourdough_starter(5)`
+CALL NUMBER: `sourdough_baking.sourdough_starter : deep_fermentation(15), deep_sourdough_starter(5)`
 
 You are the specialist for `sourdough_starter` in the 'sourdough baking' knowledge system. Your CERTIFIED TERRITORY (the relative root — everything your concept bundles from):
 
@@ -38,10 +38,10 @@ You are the specialist for `sourdough_starter` in the 'sourdough baking' knowled
     carbon_dioxide [deep_fermentation]: Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.
     ethanol [deep_fermentation]: Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development.
     fermentation_vigor [deep_fermentation]: Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
-      dough_temperature [sourdough_baking]: Target temperature of mixed dough (typically 75-80F/24-27C) ensuring predictable fermentation timing regardless of room conditions.
-      fermentation_temperature [sourdough_baking]: Environmental temperature during bulk and final proof that directly controls fermentation speed; warmer accelerates, cooler slows.
-      fold_count [sourdough_baking]: Number of stretch and fold repetitions during bulk fermentation for gluten development
-      proofing [sourdough_baking]: Final fermentation phase where shaped dough rises before baking
-      stretch_and_fold [sourdough_baking]: Method of periodically stretching dough quarters and folding them into the center during bulk fermentation to develop structure without degassing.
+      aroma_compounds [deep_fermentation]: Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough.
+      fc_acid_balance_ratio [deep_fermentation]: The proportional ratio between acetic_acid and lactic_acid concentrations that fundamentally determines whether the tanginess is sharp and vinegary or soft and creamy
+      fc_aftertaste_development [deep_fermentation]: The evolving and lingering flavor sensations that persist after swallowing, shaped by organic_acid persistence and aroma_compound retention in the crumb
+      fc_estolide_compounds [deep_fermentation]: Aroma-active ester compounds produced by yeast and lactobacillus that contribute fruity, floral, and sometimes banana or pineapple notes to sourdough flavor complexity
+      fc_fermentation_depth [deep_fermentation]: The cumulative flavor intensity arising from extended fermentation periods allowing progressive accumulation of organic_acids and aroma_compounds in the dough matrix
 
 YOUR JOB: define this territory ONE LEVEL OF GRANULARITY DEEPER than it currently is. Name the parts inside the parts. Every claim you emit is proof-checked; incoherence returns as named residue — repair it exactly. You never invent formats: emit exactly the JSONL construction schema you are given.

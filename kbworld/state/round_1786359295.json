@@ -1,0 +1,96 @@
+{
+  "subject": "sourdough baking",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "deepen",
+      "doors": [
+        "fermentation",
+        "bulk_fermentation"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "specialize": {
+        "basis_after": 0.55,
+        "new": [
+          [
+            "fermentation",
+            29,
+            22
+          ],
+          [
+            "bulk_fermentation",
+            63,
+            14
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {},
+      "connect": {
+        "wired": 19
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 465,
+        "relations": 268,
+        "define": 0,
+        "connect": 247
+      }
+    },
+    "brain": {
+      "grew": "flavor_complexity"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/sourdough_baking",
+      "skills": 36,
+      "staff": 63
+    },
+    "observe": {
+      "findings": 3,
+      "issues": [
+        {
+          "atom": "fermentation_byproducts",
+          "why": "atom is undefined yet used as a cited source; user relying on it gets no data",
+          "price": 19,
+          "url": ""
+        },
+        {
+          "atom": "acetic_acid",
+          "why": "no warning that excessive oxygen ruins bread with vinegary harshness; user chasing tang may over-aerate",
+          "price": 49,
+          "url": ""
+        },
+        {
+          "atom": "dutch_oven",
+          "why": "implies steam comes from dough moisture trapped inside; omits that pot must be preheated empty to blazing hot for the effect",
+          "price": 1,
+          "url": ""
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/sourdough_baking",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/sourdough_baking/skills/using-sourdough-baking/SKILL.md",
+      "plugin": "sourdough-baking-module",
+      "library_skills": 43
+    }
+  },
+  "telemetry": {
+    "kb": "465c/268r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 200
+      },
+      "after": {
+        "define": 0,
+        "connect": 247
+      }
+    },
+    "basis": 0.494,
+    "secs": 259.3
+  }
+}
