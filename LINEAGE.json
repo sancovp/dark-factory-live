@@ -310,5 +310,30 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-10T13:23:45+00:00",
+    "verdict": "REVERT",
+    "change": "Installed gate_simulator_recipe.md to loadout/ and ran full gate simulation; found chain_verifier_recipe missing its lens deps (divergence_lens + convergence_lens = ZERO fitness); fixed all deps by in",
+    "diff": [
+      {
+        "file": "loadout/convergence_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/divergence_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/gate_simulation_report.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/gate_simulator_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
