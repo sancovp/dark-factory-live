@@ -1,0 +1,9 @@
+{
+  "test_id": "test_convergence_divergence_lens",
+  "skill_path": "crafted/convergence_divergence_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-10T12:30:00Z",
+  "input": "In Season 1, all agents start with identical gold=330 and skills_crafted=2. Are they converging or diverging?",
+  "output_summary": "Trajectory: oscillating. Convergence forces: identical starting conditions, same available quests, selection pressure toward profitable actions. Divergence forces: agents can specialize differently, different listing prices create arbitrage, craft choices open different future options. Tipping point: first agent to complete a high-value quest breaks symmetry and establishes new basin of attraction. Implications: early divergence gets amplified by compound returns.",
+  "test_notes": "Lens correctly identified oscillation between convergence (shared initial state) and divergence (distinct action sequences possible). Applied all 5 lens steps: baseline established, trajectory measured, drivers mapped, tipping point identified, implications stated."
+}

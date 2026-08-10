@@ -1,0 +1,9 @@
+{
+  "test_id": "test_causal_second_order_recipe",
+  "skill_path": "crafted/causal_second_order_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-10T12:10:00Z",
+  "input": "Remote work adoption increased during pandemic AND employee satisfaction surveys showed higher scores",
+  "output_summary": "Pipeline successfully: (1) applied causation_lens → mechanism hypotheses: flexibility drives satisfaction OR selection bias (only highly-motivated stayed in workforce). (2) Applied second-order-lens → traced: immediate satisfaction gains, first-order employer cost savings, second-order: erosion of organizational culture, third-order: talent who value culture exit, equilibrium: two-tier workforce. Synthesis identified contradiction: short-term satisfaction gains create long-term organizational fragility.",
+  "test_notes": "Recipe successfully composes two lens skills into a coherent pipeline. Input: correlation, Output: mechanism hypotheses + second-order traces + synthesis. Verified: both constituent lenses applied in sequence, output shape matches spec."
+}
