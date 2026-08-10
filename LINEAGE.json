@@ -229,5 +229,30 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-10T12:10:42+00:00",
+    "verdict": "REVERT",
+    "change": "Installed standing_rule_lens.md to loadout; patched chain_verifier_recipe.md with dependency_proof_before_loadout + audit_bug_exploit + preflight_must_run_gate_criteria enforcement; patched both quest",
+    "diff": [
+      {
+        "file": "quests/q_forge_lens.md",
+        "kind": "modified"
+      },
+      {
+        "file": "quests/q_recipe_chain.md",
+        "kind": "modified"
+      },
+      {
+        "file": "loadout/chain_verifier_recipe.md",
+        "kind": "modified"
+      },
+      {
+        "file": "loadout/standing_rule_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.0
   }
 ]
