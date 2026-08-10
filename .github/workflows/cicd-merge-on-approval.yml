@@ -1,0 +1,32 @@
+name: CICD Merge on approval
+
+# The thin closing piece of the standardized CI/CD on this DEPLOYED repo:
+# when a review lands as APPROVED (the heaven reviewer via REVIEW_TOKEN, or
+# any human), the PR merges — clean merges only, a conflicted PR is left
+# open (Isaac 2026-08-10: never override conflicts).
+#
+# EXCLUDED: cicd-rules/* branches — the reviewer's own rule-harvest PRs are
+# maintainer-merge only (the harvest law: the maintainer's merge IS the
+# approval gate; the reviewer never merges its own rules).
+on:
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  merge:
+    if: >
+      github.event.review.state == 'approved' &&
+      !startsWith(github.event.pull_request.head.ref, 'cicd-rules/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: merge clean (never override conflicts)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr merge ${{ github.event.pull_request.number }} \
+            --repo ${{ github.repository }} --merge \
+            || echo "not cleanly mergeable — left open for a human"

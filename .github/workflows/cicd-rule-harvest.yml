@@ -1,0 +1,49 @@
+name: CICD Rule Harvest (self-maintenance)
+
+# The reviewer's self-maintaining-rules loop (standardized from the
+# monorepo): weekly, the agent reads its own past posted reviews, distills
+# ONE recurring finding class into a rule-candidate under its own
+# cicd_aios/.claude/rules/ on a cicd-rules/<slug> branch, and opens a PR.
+# The review workflow then reviews that PR like any other — but
+# cicd-merge-on-approval EXCLUDES cicd-rules/* branches: the maintainer's
+# merge is the approval gate for the reviewer's own rules, always.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '43 6 * * 1'   # weekly, Monday 06:43 UTC (off-minute by design)
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+
+      - name: heaven reviewer (MODE=harvest)
+        env:
+          MODE: harvest
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.REVIEW_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          REPO_DIR: ${{ github.workspace }}
+          HEAVEN_DATA_DIR: /tmp/heaven_data
+        run: |
+          pip install --quiet 'pydantic==2.10.6' 'langchain-core==0.3.84' 'langchain==0.3.28' \
+            'langchain-anthropic==0.3.13' 'langchain-openai==0.3.22' 'langchain-groq==0.2.4' \
+            'langchain-deepseek==0.1.2' 'langgraph==0.2.60' 'litellm==1.80.0' \
+            'requests==2.33.1' 'httpx==0.28.1' 'fastmcp==2.9.0' 'tiktoken>=0.5.0'
+          pip install --quiet --no-deps heaven-framework==0.1.35
+          mkdir -p /tmp/heaven_data
+          git config --global --add safe.directory '*'
+          cd automation/cicd-reviewer/cicd_aios
+          python3 ../ci_agent.py

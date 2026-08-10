@@ -1,0 +1,53 @@
+name: CICD Open PR on push
+
+# Standardized heaven CI/CD (adapted from the monorepo): a non-default
+# branch pushed with no open PR gets one opened by the reviewer agent
+# (MODE=pr — it summarizes the real diff and checks for an existing PR
+# first, so repeated pushes never duplicate). Round branches usually open
+# their own PR from inside the round; the agent's existing-PR check makes
+# this a no-op there. Direct-run instead of the ghcr image — see
+# cicd-review-on-pr.yml for the divergence note.
+#
+# PR creation uses the workflow token: this repo has "Actions may create
+# and approve pull requests" enabled (unlike the monorepo, which needs the
+# PUBLISH_TOKEN PAT).
+on:
+  push:
+    branches-ignore: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  open-pr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+
+      - name: heaven reviewer (MODE=pr)
+        env:
+          MODE: pr
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          HEAD_REF: ${{ github.ref_name }}
+          REPO_DIR: ${{ github.workspace }}
+          HEAVEN_DATA_DIR: /tmp/heaven_data
+        run: |
+          pip install --quiet 'pydantic==2.10.6' 'langchain-core==0.3.84' 'langchain==0.3.28' \
+            'langchain-anthropic==0.3.13' 'langchain-openai==0.3.22' 'langchain-groq==0.2.4' \
+            'langchain-deepseek==0.1.2' 'langgraph==0.2.60' 'litellm==1.80.0' \
+            'requests==2.33.1' 'httpx==0.28.1' 'fastmcp==2.9.0' 'tiktoken>=0.5.0'
+          pip install --quiet --no-deps heaven-framework==0.1.35
+          mkdir -p /tmp/heaven_data
+          git config --global --add safe.directory '*'
+          cd automation/cicd-reviewer/cicd_aios
+          python3 ../ci_agent.py
