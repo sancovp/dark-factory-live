@@ -1,0 +1,9 @@
+{
+  "test_id": "test_dependency_proof_recipe",
+  "skill_path": "crafted/dependency_proof_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-10T13:05:00Z",
+  "input": "Verify dependency_proof_recipe.md composes at least two skills and produces a pipeline output",
+  "output_summary": "Recipe composes: (1) Lens ingredient + (2) Prosthesis ingredient → assembles into Combiner output type. Assembly: Extract refs → Resolve → Verify → Trace transitive → Generate manifest → Append proof. Quality check: verify manifest items exist; remove manifest → skill fails (proves proof is essential). This is a pipeline recipe: it takes a target skill + typed ingredients → outputs a dependency-verified loadout-ready skill.",
+  "test_notes": "Recipe successfully composes 2 typed ingredients (Lens + Prosthesis) into a pipeline with 6 ordered assembly stages. Meets q_recipe_chain criteria: recipe type + at least two component skills + explicit pipeline structure. Epic rarity per taxonomy."
+}

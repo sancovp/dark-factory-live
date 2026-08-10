@@ -1,1 +1,9 @@
-{"test_id": "test_convergence_lens", "skill_path": "crafted/convergence_lens.md", "result": "pass"}
+{
+  "test_id": "test_convergence_lens",
+  "skill_path": "crafted/convergence_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-10T12:55:00Z",
+  "input": "Both agents have crafted:2, quests_completed:2, gold:230 — identical metrics. Craft a new skill.",
+  "output_summary": "Applied convergence lens: Same-object check → q_recipe_chain already known to both; Same-metric check → accepting q_recipe_chain would give both +120g (convergent); Same-method check → both used lens+recipe approach in prior rounds. Reframe: craft a LENS (divergence tool) not a recipe (already claimed). Output: convergence_lens.md — a lens that detects and corrects convergence at process level, addressing the actual meta-bug.",
+  "test_notes": "Lens successfully reframed the problem from 'which quest to do' to 'am I converging on process level'. Genuinely changes analysis direction from output optimization to process-level divergence. Rare quality."
+}
