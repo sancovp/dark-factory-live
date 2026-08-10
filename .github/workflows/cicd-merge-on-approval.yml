@@ -23,9 +23,13 @@ jobs:
       !startsWith(github.event.pull_request.head.ref, 'cicd-rules/')
     runs-on: ubuntu-latest
     steps:
+      # MERGE WITH THE PAT, not github.token: pushes caused by GITHUB_TOKEN
+      # do NOT trigger downstream workflows (GitHub's recursion guard), so a
+      # bot-merged round would never fire publish-modules. A PAT-authored
+      # merge push triggers normally. (Found 2026-08-10, composition review.)
       - name: merge clean (never override conflicts)
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.REVIEW_TOKEN }}
         run: |
           gh pr merge ${{ github.event.pull_request.number }} \
             --repo ${{ github.repository }} --merge \
