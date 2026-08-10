@@ -130,6 +130,13 @@ def main():
     else:
         sys.exit(f"FATAL: MODE must be 'review', 'pr' or 'harvest', got {mode!r}")
 
+    # Deployed-fork extension (2026-08-10, upstreamable): the caller may scope
+    # the task — e.g. a state-only factory-round PR must NOT be reviewed by
+    # paging its enormous raw diff. A precise instruction, not a raised limit.
+    extra = os.environ.get("REVIEW_CONTEXT", "").strip()
+    if extra:
+        prompt += "\n\nSCOPE NOTE FROM THE PIPELINE: " + extra
+
     log.info("mode=%s repo=%s gh_repo=%s model=%s cwd=%s",
              mode, repo, gh_repo, os.environ.get("CICD_MODEL", "MiniMax-M3"), os.getcwd())
     agent = build_agent()
