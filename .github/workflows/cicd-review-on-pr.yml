@@ -50,7 +50,8 @@ jobs:
             echo "hint=This PR is a STATE-ONLY kbworld round emission ($n files, all under kbworld/state/ — machine-grown, prover-admitted KB state). Do NOT page the raw diff (huge JSONL). Instead: (1) verify no file outside kbworld/state/ changed via git -C \$REPO_DIR diff --name-only origin/${{ github.event.pull_request.base.ref }}...HEAD; (2) read the newest kbworld/state/round_*.json (the round's self-report); (3) spot-check 3-5 changed files via git diff --stat. Approve if the diff is state-only and the report is complete; request changes only for real defects. Post the review promptly — do not exhaust tool calls reading state." >> "$GITHUB_OUTPUT"
           else
             echo "code=true" >> "$GITHUB_OUTPUT"
-            echo "hint=" >> "$GITHUB_OUTPUT"
+            n=$(printf '%s\n' "$changed" | wc -l)
+            echo "hint=This is a $n-file code PR. Read the WHOLE diff in ONE call with 'gh pr diff $PR_NUMBER --repo $GITHUB_REPOSITORY' (do NOT cat files one by one — that exhausts your budget). Review in priority order: security → correctness → contracts. Open at most a few specific files for context on the highest-risk findings. POST your review (gh pr review) BEFORE you run low on tool calls — a posted review with the top findings beats an exhausted run with none." >> "$GITHUB_OUTPUT"
           fi
 
       - name: deterministic gate (the kbworld suite)
@@ -58,12 +59,15 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y swi-prolog
           pip install kuzu pydantic pydantic-stack-core agent-skilltree pyyaml
-          git clone --depth 1 https://github.com/sancovp/brain-agent.git /tmp/brain-agent
-          git clone --depth 1 https://github.com/sancovp/map-v2.git /tmp/map-v2
-          git clone --depth 1 -b ceo https://github.com/sancovp/cave-teams.git /tmp/cave-teams
-          git clone --depth 1 https://github.com/sancovp/ee-v2.git /tmp/ee-v2
+          set -a; source kbworld/STACK_PINS.env; set +a
+          git clone https://github.com/sancovp/brain-agent.git /tmp/brain-agent && git -C /tmp/brain-agent checkout -q "$BRAIN_AGENT_SHA"
+          git clone https://github.com/sancovp/map-v2.git /tmp/map-v2 && git -C /tmp/map-v2 checkout -q "$MAP_V2_SHA"
+          git clone https://github.com/sancovp/cave-teams.git /tmp/cave-teams && git -C /tmp/cave-teams checkout -q "$CAVE_TEAMS_SHA"
+          git clone https://github.com/sancovp/ee-v2.git /tmp/ee-v2 && git -C /tmp/ee-v2 checkout -q "$EE_V2_SHA"
           pip install -e /tmp/map-v2 -e /tmp/cave-teams -e /tmp/ee-v2 -e /tmp/brain-agent
           python kbworld/test_kbworld.py
+          python kbworld/test_publish.py
+          python kbworld/test_darkfloor.py
 
       - name: heaven reviewer (MODE=review)
         env:

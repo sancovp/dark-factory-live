@@ -92,9 +92,15 @@ def build_agent():
         use_uni_api=False,
         enable_compaction=True,
     )
-    # max_tool_calls high enough for a real review loop (git diff, cat context, gh post).
+    # max_tool_calls: a real multi-file code review reads the diff, opens
+    # context files, and posts — 40 starved the reviewer on large PRs
+    # (found 2026-08-10: exhausted mid-read on a ~1400-line diff). Raising a
+    # REVIEWER's READ budget is not gate-softening — it makes the gate MORE
+    # able to catch things; the acceptance bar (real findings, cite path:line)
+    # is unchanged. Overridable via CICD_MAX_TOOL_CALLS.
     return BaseHeavenAgent(
-        config, UnifiedChat, history=History(messages=[]), adk=False, max_tool_calls=40
+        config, UnifiedChat, history=History(messages=[]), adk=False,
+        max_tool_calls=int(os.environ.get("CICD_MAX_TOOL_CALLS", "90"))
     )
 
 

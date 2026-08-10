@@ -1,0 +1,40 @@
+name: Publish modules
+
+# THE PUBLISHING RAIL (FULL-AUTO / DARK FLOOR): when gate-merged state
+# under kbworld/state/modules/ lands on main (i.e. a round's module emission
+# survived review+merge), sync each module to its own PUBLIC repo, upsert
+# the marketplace catalog, and AUTO-MERGE the catalog PR (clean merges only;
+# a blocked merge is reported loudly and left for a maintainer). Door issue
+# in -> installable public plugin out. Stdlib-only: no model stack here.
+on:
+  push:
+    branches: [main]
+    paths: ["kbworld/state/modules/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+
+      - name: sync module repos + marketplace PR
+        env:
+          GH_TOKEN: ${{ secrets.REVIEW_TOKEN }}   # PAT: repo create + cross-repo PR
+        run: |
+          git config --global user.name kbworld-publisher
+          git config --global user.email kbworld@dark-factory-live
+          git config --global credential.helper store
+          echo "https://x-access-token:${GH_TOKEN}@github.com" > ~/.git-credentials
+          python kbworld/publish.py
+      - name: rebuild the KB Atlas (auto page per module)
+        env:
+          GH_TOKEN: ${{ secrets.REVIEW_TOKEN }}
+        run: python kbworld/atlas.py

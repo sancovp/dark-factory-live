@@ -22,8 +22,9 @@ import sys
 import tempfile
 from pathlib import Path
 
-sys.path.insert(0, "/home/ceo/repo/dark-factory")
-sys.path.insert(0, "/home/ceo/repo/ee-v2")
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+if Path("/home/ceo/repo/ee-v2").is_dir():          # container; CI pip-installs
+    sys.path.insert(1, "/home/ceo/repo/ee-v2")
 
 from kbworld.host import FactoryKbcHost                          # noqa: E402
 from kbworld.round import Deps, run_round                        # noqa: E402
@@ -121,6 +122,11 @@ async def main(tmp):
     using = next((mod / "skills").glob("using-*"))
     assert (using / "SKILL.md").exists()
     assert (using / "data" / "concepts.jsonl").exists()
+    assert (using / "data" / "module.ttl").exists()      # the OWL projection
+    ttl = (using / "data" / "module.ttl").read_text()
+    assert "owl:NamedIndividual" in ttl and "kbo:relatesTo" in ttl
+    readme = (mod / "README.md").read_text()
+    assert "kb-atlas" in readme and "module.ttl" in readme
     sibs = [d.name for d in (mod / "skills").iterdir()
             if "understand" in d.name and (d / "SKILL.md").exists()]
     assert sibs, "library skills must ship as siblings"
@@ -131,9 +137,13 @@ async def main(tmp):
         fm = yaml.safe_load(txt.split("---")[1])
         assert fm.get("name") and fm.get("description"), \
             f"{d.name}: frontmatter must strict-YAML-parse w/ name+description"
+    # stale-skill regression (found 2026-08-10: 73 dirs vs 43 harvested):
+    # re-emission must MIRROR the projection — dir count == harvest + using-*
+    n_dirs = sum(1 for d in (mod / "skills").iterdir() if d.is_dir())
+    assert n_dirs == len(sibs) + 1, (n_dirs, len(sibs))
     print(f"  encapsulate: VALID plugin — manifest alone in .claude-plugin, "
           f"skills at root ({len(sibs)} understand-* siblings), data as "
-          "skill resources ✓")
+          "skill resources, no stale dirs ✓")
     assert rep["telemetry"]["worklist"]["after"] is not None
     assert prs and str(host.state_root) in str(prs[0][1][0])
     assert list(host.state_root.glob("round_*.json"))
@@ -146,4 +156,4 @@ if __name__ == "__main__":
         asyncio.run(main(d))
     print("KBWORLD PASS — the full reified round runs deterministically: "
           "aim→grow→drain→brain→project→observe→encapsulate, all logged, "
-          "PR-shaped, human-gated.")
+          "PR-shaped, reviewer-gated (humans steer via issues).")
