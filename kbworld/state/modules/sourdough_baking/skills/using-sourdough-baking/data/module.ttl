@@ -1,0 +1,1684 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/sourdough_baking#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/sourdough_baking> a owl:Ontology ;
+    rdfs:label "sourdough baking" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:acetic_acid a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acetic acid" ;
+    rdfs:comment "Sharp sour acid produced by lactobacillus in presence of oxygen creating tangy flavor" .
+kb:acid_accumulation_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acid accumulation rate" ;
+    rdfs:comment "Speed at which lactobacillus produces lactic_acid and acetic_acid during active fermentation." .
+kb:acid_development_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acid development rate" ;
+    rdfs:comment "Speed at which lactobacillus produces lactic_acid and acetic_acid during fermentation, a component of fermentation_vigor affecting sourness_level development." .
+kb:acid_generation_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acid generation rate" ;
+    rdfs:comment "Speed at which lactobacillus produces organic_acids including lactic_acid and acetic_acid, measured in acid concentration change per unit time, directly influencing sourness_level development." .
+kb:acid_production_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acid production rate" ;
+    rdfs:comment "Speed at which lactobacillus generates organic_acids including lactic_acid and acetic_acid during fermentation, directly influencing sourness_level development over time." .
+kb:active_starter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "active starter" ;
+    rdfs:comment "Starter exhibiting vigorous bubbling, foam surface, and doubling within hours of feeding, indicating healthy yeast and bacterial populations." .
+kb:active_starter_develops_from a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "active starter develops from" ;
+    rdfs:comment "active_starter emerges through repeated starter_refreshment building starter_vigor over starter_age." .
+kb:active_starter_exhibits a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "active starter exhibits" ;
+    rdfs:comment "active_starter shows activity_indicators including rise_rate and fermentation_aroma." .
+kb:active_starter_has a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "active starter has" ;
+    rdfs:comment "active_starter contains wild_yeast and lactobacillus populations that drive fermentation." .
+kb:active_starter_requires a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "active starter requires" ;
+    rdfs:comment "active_starter depends on starter_refreshment with appropriate feed_ratio and starter_hydration." .
+kb:activity_indicators a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "activity indicators" ;
+    rdfs:comment "Observable visual markers on active_starter including bubble size, distribution, surface foam, dome height, and scent that collectively signal healthy fermentation." .
+kb:activity_indicators_signals a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "activity indicators signals" ;
+    rdfs:comment "active_starter exhibits bubble_activity and foam_surface and doubling_time indicating peak_fermentation_vigor." .
+kb:activity_peak a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "activity peak" ;
+    rdfs:comment "Maximum fermentation intensity of active_starter occurring at the apex of rise before CO2 production begins to slow." .
+kb:activity_peak_signals a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "activity peak signals" ;
+    rdfs:comment "activity_peak marks ideal moment for inoculation and levain creation using active_starter." .
+kb:activity_temperature a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "activity temperature" ;
+    rdfs:comment "Temperature range that modulates fermentation vigor, with optimal range 24-28\u00b0C for balanced wild yeast and lactobacillus activity." .
+kb:ambient_humidity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ambient humidity" ;
+    rdfs:comment "Environmental moisture level affecting crust drying rate and surface tension during baking and cooling." .
+kb:aroma_compounds a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "aroma compounds" ;
+    rdfs:comment "Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough." .
+kb:as_acetic_acid_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as acetic acid ratio" ;
+    rdfs:comment "Proportion of acetic acid relative to lactic acid in active starter determined by fermentation conditions and oxygen exposure." .
+kb:as_aroma_profile a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as aroma profile" ;
+    rdfs:comment "Complex scent of active starter combining floral notes from yeast fermentation and tangy notes from bacterial acid production." .
+kb:as_bubble_structure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as bubble structure" ;
+    rdfs:comment "Pattern and density of CO2 cavities visible on starter surface and throughout its body, indicative of active fermentation." .
+kb:as_dome_shape a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as dome shape" ;
+    rdfs:comment "Convex elevated top of active starter at peak rise, caused by CO2 pressure beneath the surface crust." .
+kb:as_doubling_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as doubling ratio" ;
+    rdfs:comment "Volumetric expansion factor of active starter within hours of feeding, measuring rise from baseline to peak." .
+kb:as_feed_responsiveness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as feed responsiveness" ;
+    rdfs:comment "Speed and magnitude of active starter reaction to feeding, correlating with microbial population health." .
+kb:as_flour_type_affinity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as flour type affinity" ;
+    rdfs:comment "Compatibility and fermentation response of active starter to specific flour varieties and their native microbiota." .
+kb:as_foam_surface a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as foam surface" ;
+    rdfs:comment "Distinctive frothy layer on active starter surface formed by CO2 bubbles trapped in fermentation matrix." .
+kb:as_hydration_state a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as hydration state" ;
+    rdfs:comment "Water-to-flour consistency of active starter affecting microbial accessibility and gas retention properties." .
+kb:as_lactic_acid_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as lactic acid ratio" ;
+    rdfs:comment "Proportion of lactic acid relative to acetic acid in active starter determined by fermentation conditions and anaerobic phases." .
+kb:as_lactobacillus_density a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as lactobacillus density" ;
+    rdfs:comment "Concentration of lactobacillus bacterial populations per unit mass in active starter producing organic acids." .
+kb:as_peak_timing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as peak timing" ;
+    rdfs:comment "Duration from feeding to maximum rise of active starter, indicating fermentation vigor and microbial balance." .
+kb:as_sourness_level a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as sourness level" ;
+    rdfs:comment "Intensity of acidic tang from lactobacillus fermentation byproduct in active starter ranging from mild to pronounced." .
+kb:as_storage_history a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as storage history" ;
+    rdfs:comment "Record of prior storage conditions and feeding schedules that shaped current active starter microbial composition." .
+kb:as_temperature_sensitivity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as temperature sensitivity" ;
+    rdfs:comment "Degree to which active starter activity rate responds to ambient and dough temperature changes." .
+kb:as_vigor_level a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as vigor level" ;
+    rdfs:comment "Observable measure of active starter rising speed and bubble density indicating culture health and fermentation strength." .
+kb:as_wild_yeast_density a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as wild yeast density" ;
+    rdfs:comment "Concentration of wild yeast colonies per unit mass in active starter driving primary leavening fermentation." .
+kb:as_yeast_bacteria_balance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "as yeast bacteria balance" ;
+    rdfs:comment "Proportional relationship between wild yeast and lactobacillus populations governing flavor and rise characteristics." .
+kb:autolyse a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "autolyse" ;
+    rdfs:comment "Initial rest period after mixing flour and water where gluten develops without kneading, improving dough extensibility and reducing mixing time." .
+kb:baguette a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baguette" ;
+    rdfs:comment "Long thin French bread shape requiring specific dough consistency and scoring technique for characteristic ear." .
+kb:bake_phase_sequence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bake phase sequence" ;
+    rdfs:comment "The ordered progression of baking stages: preheat \u2192 initial_bake_phase \u2192 final_phase \u2192 cooling_duration" .
+kb:bake_time_calculation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bake time calculation" ;
+    rdfs:comment "Estimation method factoring bread_volume, dough_temperature at bake, and baking_temperature to predict appropriate baking_duration for proper internal_temperature achievement." .
+kb:baker_s_division a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baker s division" ;
+    rdfs:comment "Process of dividing fermented dough into individual loaves using scale and bench knife before shaping." .
+kb:baker_s_percentage a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baker s percentage" ;
+    rdfs:comment "Baking formula where each ingredient weight is expressed as percentage of total flour weight, allowing easy recipe scaling and comparison." .
+kb:baking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baking" ;
+    rdfs:comment "Cooking dough in hot oven transforming it into bread through heat and chemical reactions" .
+kb:baking_completion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baking completion" ;
+    rdfs:comment "Moment when bread reaches target internal_temperature (195-210F); the primary indicator that baking_duration is finished; crumb structure is set and properly dried." .
+kb:baking_duration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baking duration" ;
+    rdfs:comment "The total time bread spends in the oven during baking, typically 20-50 minutes depending on loaf size and oven temperature." .
+kb:baking_schedule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baking schedule" ;
+    rdfs:comment "Planning system coordinating all sourdough steps from levain feeding to bread completion within target time window." .
+kb:baking_steel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baking steel" ;
+    rdfs:comment "Thick steel plate conducting heat more efficiently than stone for superior bottom crust development and oven spring." .
+kb:baking_stone a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baking stone" ;
+    rdfs:comment "Thick stone plate that stores heat and transfers it to bread bottom, mimicking professional deck oven conditions." .
+kb:baking_temperature a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baking temperature" ;
+    rdfs:comment "Oven heat setting typically between 450-500F for home sourdough baking" .
+kb:baking_temperature_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baking temperature effect" ;
+    rdfs:comment "How higher oven temperatures accelerate Maillard reaction and caramelization affecting crumb shade." .
+kb:baking_temperature_factor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baking temperature factor" ;
+    rdfs:comment "The oven heat setting correlating inversely with baking_duration; hotter ovens (500F) reduce total time while lower temps (450F) extend it to achieve the same internal_temperature." .
+kb:baking_temperature_to_color a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baking temperature to color" ;
+    rdfs:comment "Relation: higher oven temperatures accelerate Maillard reaction chemistry, producing deeper amber and golden tones in the crumb more rapidly." .
+kb:baking_time_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baking time effect" ;
+    rdfs:comment "How extended baking duration deepens crumb color through prolonged Maillard reaction and moisture loss." .
+kb:baking_time_to_color a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "baking time to color" ;
+    rdfs:comment "Relation: longer baking duration allows more Maillard and caramelization reactions to proceed, progressively deepening crumb color from pale to golden." .
+kb:banneton a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "banneton" ;
+    rdfs:comment "Proofing basket made of woven rattan that supports shaped dough during final proof and leaves characteristic flour patterns on crust." .
+kb:banneton_flouring a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "banneton flouring" ;
+    rdfs:comment "Dusting the interior of a proofing basket with flour before placing shaped dough, preventing sticking and creating decorative flour patterns on the finished crust." .
+kb:banneton_proof a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "banneton proof" ;
+    rdfs:comment "Final proof with dough resting in floured banneton basket that provides support and creates decorative flour marking on crust." .
+kb:batard a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "batard" ;
+    rdfs:comment "Oval shaped bread loaf formed by hand through rolling and shaping technique; classic sourdough shape." .
+kb:bench_knife a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bench knife" ;
+    rdfs:comment "Flat metal tool for cutting, dividing, and handling dough without deflation" .
+kb:bench_rest a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bench rest" ;
+    rdfs:comment "Short rest period after dividing dough allowing gluten to relax for easier shaping without springing back." .
+kb:biga a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "biga" ;
+    rdfs:comment "Stiff Italian-style pre-ferment with lower hydration than poolish" .
+kb:blotchy_uneven_color a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "blotchy uneven color" ;
+    rdfs:comment "Patched or inconsistent interior coloration from irregular gas distribution, hydration variance, or uneven heat penetration during baking." .
+kb:boule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "boule" ;
+    rdfs:comment "Round spherical bread shape formed by gathering edges to center under tension; most common sourdough form." .
+kb:bread_aroma a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bread aroma" ;
+    rdfs:comment "Complex smell of freshly baked bread from Maillard reaction products, caramelization, and fermentation volatiles." .
+kb:bread_crumb a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bread crumb" ;
+    rdfs:comment "Characteristic of finished bread including moisture content, tenderness, and flavor" .
+kb:bread_crumbs a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bread crumbs" ;
+    rdfs:comment "Ground dried sourdough pieces used for breading, Stuffing, or as panko substitute in recipes." .
+kb:bread_flour a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bread flour" ;
+    rdfs:comment "High-protein wheat flour (12-14%) providing strong gluten network ideal for open crumb sourdough structure." .
+kb:bread_freezing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bread freezing" ;
+    rdfs:comment "Long term storage method slicing bread first and freezing pieces individually for convenient single-slice thawing." .
+kb:bread_recrisping a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bread recrisping" ;
+    rdfs:comment "Technique restoring crispy crust to stale bread by heating briefly in dry hot oven for 5-10 minutes." .
+kb:bread_staling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bread staling" ;
+    rdfs:comment "Freshness loss from moisture migration and starch retrogradation over days, slowed by proper storage and sealed containers." .
+kb:bread_storage a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bread storage" ;
+    rdfs:comment "Methods for maintaining bread freshness including paper bag (short term), plastic bag (longer), freezer (extended), or bread box." .
+kb:bread_volume a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bread volume" ;
+    rdfs:comment "Total size and height of finished loaf indicating proper fermentation and oven spring" .
+kb:bubble_activity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bubble activity" ;
+    rdfs:comment "Observable CO2 release pattern in active starter expressed as bubble size, frequency, and distribution across the surface." .
+kb:bubble_activity_manifests_as a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bubble activity manifests as" ;
+    rdfs:comment "bubble_distribution and bubble_size produce visible_signs of wild_yeast and lactobacillus metabolic activity." .
+kb:bubble_distribution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bubble distribution" ;
+    rdfs:comment "Pattern and spacing of bubbles visible on active_starter surface ranging from fine uniform to large irregular indicating yeast activity levels." .
+kb:bubble_size a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bubble size" ;
+    rdfs:comment "Diameter of fermentation bubbles in active_starter, with finer bubbles suggesting strong bacterial activity and larger bubbles indicating robust yeast gas production." .
+kb:bulk_ferment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bulk ferment" ;
+    rdfs:comment "Initial fermentation period of shaped dough before first fold; building phase for flavor and gas production." .
+kb:bulk_fermentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bulk fermentation" ;
+    rdfs:comment "Primary fermentation phase where the mixed dough rests and ferments before shaping; time and temperature control gas production and flavor development." .
+kb:caramelization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "caramelization" ;
+    rdfs:comment "Browning of sugars at high temperatures creating sweet caramel notes in crust; occurs at higher temperatures than Maillard reaction." .
+kb:caramelized_aroma a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "caramelized aroma" ;
+    rdfs:comment "Sweet bready smell from sugar caramelization during hot baking creating vanilla and toffee-like compounds." .
+kb:carbon_dioxide a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "carbon dioxide" ;
+    rdfs:comment "Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread." .
+kb:carbonyl_compounds a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "carbonyl compounds" ;
+    rdfs:comment "Aldehydes and ketones produced during fermentation that contribute to crust flavor and overall aroma complexity." .
+kb:ciabatta a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ciabatta" ;
+    rdfs:comment "Italian loaf with open crumb and crisp crust using high hydration sourdough" .
+kb:co2_output a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "co2 output" ;
+    rdfs:comment "Carbon dioxide gas produced by wild yeast during anaerobic fermentation of sugars in the dough; the primary driver of dough rise and open crumb structure." .
+kb:coil_fold a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "coil fold" ;
+    rdfs:comment "Gentle folding technique used for high-hydration doughs where the dough is lifted and coiled under itself, building strength with minimal disruption." .
+kb:coil_fold_variant_of a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "coil fold variant of" ;
+    rdfs:comment "coil_fold is a specific fold variant that counts toward fold_count when used as an alternative to the standard quarter-turn fold_sequence." .
+kb:cold_dormancy_duration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cold dormancy duration" ;
+    rdfs:comment "starter_age accumulated during refrigerator storage representing time since last feeding under cold conditions." .
+kb:cold_retard a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cold retard" ;
+    rdfs:comment "Extended cold proofing in the refrigerator (typically 8-24 hours) that slows fermentation, develops flavor complexity, and allows flexible baking scheduling." .
+kb:cold_retard_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cold retard effect" ;
+    rdfs:comment "Flavor development phenomenon where extended dormant_starter storage enhances sourness through prolonged lactic_acid and acetic_acid production at low rates." .
+kb:cold_retardation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cold retardation" ;
+    rdfs:comment "Refrigerated proofing slowing fermentation for flavor development and scheduling flexibility" .
+kb:cold_storage_container a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cold storage container" ;
+    rdfs:comment "Sealed jar or vessel maintaining starter during refrigerator storage preventing contamination while allowing minimal gas exchange." .
+kb:cold_storage_duration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cold storage duration" ;
+    rdfs:comment "Time period a starter spends refrigerated during dormancy, during which yeast and bacterial metabolism slow significantly from peak activity levels." .
+kb:cold_temperature_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cold temperature effect" ;
+    rdfs:comment "Reduced environmental temperature that decelerates wild_yeast fermentation and lactobacillus acid production to near-dormancy." .
+kb:cold_temperature_hold a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cold temperature hold" ;
+    rdfs:comment "Storage condition maintaining dormant_starter at refrigerator temperatures typically between 35-40F/2-4C where metabolic activity decelerates to near-dormancy." .
+kb:cold_temperature_trigger a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cold temperature trigger" ;
+    rdfs:comment "Temperature threshold causing metabolic slowdown that initiates dormant state in starter culture." .
+kb:color_gradient a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "color gradient" ;
+    rdfs:comment "Natural transition from warmer-toned areas near crust to cooler-toned center; indicates proper heat ramp and fermentation balance." .
+kb:consistent_temperature a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "consistent temperature" ;
+    rdfs:comment "Stable fermentation environment without drafts or hot spots ensuring predictable timing and uniform results." .
+kb:cool a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cool" ;
+    rdfs:comment "Post-bake rest period (1-4 hours) where crumb structure sets, moisture redistributes, and bread reaches ideal slicing texture." .
+kb:cooling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cooling" ;
+    rdfs:comment "Post-bake rest allowing crumb structure to set and internal moisture to redistribute" .
+kb:cooling_duration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cooling duration" ;
+    rdfs:comment "Post-bake resting period of 1-2 hours where internal temperature stabilizes and crumb texture sets before slicing" .
+kb:couche_proof a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "couche proof" ;
+    rdfs:comment "Final proof method using linen cloth pleated between shaped loaves providing support and creating tight side crust." .
+kb:covered_bake a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "covered bake" ;
+    rdfs:comment "Baking method using covered dutch oven for first portion creating steam-rich environment, then uncovered for crust development." .
+kb:cream a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cream" ;
+    rdfs:comment "Warm light-toned crumb signaling balanced fermentation and standard baking; the target color for well-developed sourdough with moderate Maillard reaction." .
+kb:cream_crumb a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cream crumb" ;
+    rdfs:comment "An off-white crumb shade with subtle warm undertones, arising from moderate fermentation and standard baking producing limited browning compounds." .
+kb:crouton a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crouton" ;
+    rdfs:comment "Small toasted bread cubes used in salads and soups, often from day-old sourdough with crusty exterior." .
+kb:crumb a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb" ;
+    rdfs:comment "The interior crumb structure of bread characterized by hole size, distribution, tenderness, and openness ranging from tight and dense to open and airy." .
+kb:crumb_color a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb color" ;
+    rdfs:comment "The visual shade of the bread interior ranging from pale ivory to deep golden depending on fermentation length, dough hydration, and baking time and temperature." .
+kb:crumb_color_causes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb color causes" ;
+    rdfs:comment "Composite of factors producing the final crumb shade including fermentation, hydration, and thermal exposure." .
+kb:crumb_color_finish a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb color finish" ;
+    rdfs:comment "Final visual quality assessment of bread interior indicating doneness, fermentation balance, and baking precision." .
+kb:crumb_color_indicator a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb color indicator" ;
+    rdfs:comment "Visual crumb shade serving as diagnostic for fermentation and baking adequacy." .
+kb:crumb_color_monitoring a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb color monitoring" ;
+    rdfs:comment "Visual inspection of crumb shade at the point when the loaf is cut, used to retrospectively judge fermentation and baking adequacy for future adjustments." .
+kb:crumb_color_uniformity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb color uniformity" ;
+    rdfs:comment "The evenness of color distribution throughout bread interior, ranging from uniform single-tone crumb to visibly mottled or zoned coloration." .
+kb:crumb_deep_browning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb deep browning" ;
+    rdfs:comment "Dark coloration approaching mahogany or burnt indicating excessive baking time or temperature." .
+kb:crumb_doneness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb doneness" ;
+    rdfs:comment "Visual and tactile check confirming fully baked interior without raw dough" .
+kb:crumb_freshness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb freshness" ;
+    rdfs:comment "Interior texture quality of bread indicating proper fermentation, baking, and cooling without staleness or gumminess." .
+kb:crumb_goldenness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb goldenness" ;
+    rdfs:comment "Warm amber-to-golden hue of crumb achieved through proper fermentation and baking conditions." .
+kb:crumb_overbaked_indicator a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb overbaked indicator" ;
+    rdfs:comment "Dark mahogany crumb with dry texture indicating excessive baking time or temperature." .
+kb:crumb_paleness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb paleness" ;
+    rdfs:comment "Light color state of crumb indicating insufficient fermentation time, underbaking, or low hydration in the dough." .
+kb:crumb_properly_baked_indicator a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb properly baked indicator" ;
+    rdfs:comment "Even golden-to-amber crumb color throughout indicating correct fermentation and baking." .
+kb:crumb_shade a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb shade" ;
+    rdfs:comment "The specific color tone of bread interior measured along a pale-to-golden spectrum, determined by Maillard reaction products formed during baking." .
+kb:crumb_structure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb structure" ;
+    rdfs:comment "Internal architecture of bread defined by bubble size, distribution, and tenderness" .
+kb:crumb_texture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb texture" ;
+    rdfs:comment "The physical feel and structural quality of bread's interior ranging from fine and tender to coarse and chewy based on gluten development and fermentation." .
+kb:crumb_to_crust_gradient a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb to crust gradient" ;
+    rdfs:comment "The transition zone where crumb color shifts toward crust color near the bread surface, with the gradient steepness depending on baking temperature and duration." .
+kb:crumb_underbaked_indicator a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crumb underbaked indicator" ;
+    rdfs:comment "Pale grayish crumb with gummy texture signaling insufficient oven heat or time." .
+kb:crust a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crust" ;
+    rdfs:comment "The baked outer layer of bread formed by Maillard reaction and caramelization; texture ranges from thin and crispy to thick and chewy based on hydration and baking method." .
+kb:crust_color a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crust color" ;
+    rdfs:comment "The brown coloration of bread's outer layer produced by Maillard reaction and caramelization during baking, ranging from pale gold to deep mahogany." .
+kb:crust_development a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crust development" ;
+    rdfs:comment "Formation of bread outer layer during final_phase; driven by maillard_reaction and caramelization when direct oven heat hits dough surface after lid_removal; creates crust_color and crust_texture." .
+kb:crust_retention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crust retention" ;
+    rdfs:comment "Maintenance of crispy crust texture through proper cooling and storage avoiding enclosed moisture-softening conditions." .
+kb:crust_shatter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crust shatter" ;
+    rdfs:comment "Satisfying crunch when biting through well-baked sourdough crust, indicating proper thickness and moisture balance." .
+kb:crust_texture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crust texture" ;
+    rdfs:comment "External characteristics of crust from chewy and thick to thin and crispy" .
+kb:culture_vitality a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "culture vitality" ;
+    rdfs:comment "Health and metabolic activity level of the lactobacillus and wild_yeast population in the starter culture." .
+kb:cultured_butter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cultured butter" ;
+    rdfs:comment "Butter produced through bacterial fermentation sometimes used in enriched sourdough" .
+kb:day_old_bread a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "day old bread" ;
+    rdfs:comment "Bread baked previous day with slightly dried crust and set crumb, ideal for certain applications and easier slicing." .
+kb:dead_starter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dead starter" ;
+    rdfs:comment "Starter with no activity, off smell, or pink/orange discoloration indicating contamination; requires starting fresh culture." .
+kb:deep_amber a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deep amber" ;
+    rdfs:comment "Rich warm-brown interior crumb showing extended Maillard and caramelization reactions from higher temp or longer bake; indicates concentrated flavor compounds." .
+kb:deep_golden_crumb a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deep golden crumb" ;
+    rdfs:comment "The richest crumb shade, dark amber to warm brownish-gold, resulting from extended fermentation combined with high baking temperatures maximizing color development." .
+kb:depleted_food_supply a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "depleted food supply" ;
+    rdfs:comment "Exhausted carbohydrates in starter from prior fermentation leaving minimal food for microbial activity." .
+kb:depleted_nutrients a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "depleted nutrients" ;
+    rdfs:comment "Exhausted flour sugars and starches in starter following active fermentation, triggering dormancy as microbial food source is consumed." .
+kb:discard a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "discard" ;
+    rdfs:comment "Excess starter removed during feeding that can be used in discard recipes" .
+kb:dome_height a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dome height" ;
+    rdfs:comment "Maximum rise of active_starter above its resting level before beginning to fall, indicating peak fermentation strength." .
+kb:doneness_timing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "doneness timing" ;
+    rdfs:comment "The point in baking_duration when internal_temperature reaches the target range (195-210F) indicating the bread is fully baked" .
+kb:dormancy_duration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dormancy duration" ;
+    rdfs:comment "starter_age measurement of elapsed time since last feeding while dormant_starter remained in cold storage, affecting recovery speed and flavor potential." .
+kb:dormancy_reactivation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dormancy reactivation" ;
+    rdfs:comment "Process where cold-dormant microbial populations become active again after temperature rises and fresh feed is provided, restoring starter_vigor." .
+kb:dormancy_to_active_transition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dormancy to active transition" ;
+    rdfs:comment "State change from dormant_starter to active_starter achieved through revival_feeding and room temperature incubation." .
+kb:dormant_starter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dormant starter" ;
+    rdfs:comment "Starter stored in refrigerator with slowed activity due to cold temperature and depleted food; revives after feeding at room temperature." .
+kb:doubling_time a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "doubling time" ;
+    rdfs:comment "Duration required for active_starter to reach double its fed volume, with vigorous cultures achieving this in 4-6 hours at room temperature." .
+kb:doubling_time_indicates a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "doubling time indicates" ;
+    rdfs:comment "doubling_time measures starter_vigor with shorter times indicating stronger active_starter." .
+kb:dough a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough" ;
+    rdfs:comment "The mixed combination of flour, water, salt, and levain that undergoes fermentation and transforms into bread through baking." .
+kb:dough_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough consistency" ;
+    rdfs:comment "Viscosity and handling quality from soft and extensible to firm and tight" .
+kb:dough_elasticity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough elasticity" ;
+    rdfs:comment "Property allowing dough to spring back when stretched, controlling shape retention; decreases during fermentation as gluten relaxes." .
+kb:dough_expansion_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough expansion rate" ;
+    rdfs:comment "Rate at which dough volume increases due to gas_production_rate, directly proportional to fermentation_vigor under constant temperature and hydration." .
+kb:dough_expansion_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough expansion ratio" ;
+    rdfs:comment "Observable measure of fermentation_vigor expressed as the multiple increase in dough volume from initial mix to proof completion." .
+kb:dough_expansion_velocity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough expansion velocity" ;
+    rdfs:comment "Rate at which dough volume increases due to carbon_dioxide retention in the gluten network, expressed as percentage increase per hour during active fermentation." .
+kb:dough_extensibility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough extensibility" ;
+    rdfs:comment "Ability of dough to stretch without breaking, allowing oven spring and open crumb; influenced by hydration and fermentation." .
+kb:dough_handling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough handling" ;
+    rdfs:comment "Techniques for manipulating dough during shaping including stretching, folding, and rolling that develop gluten structure and determine final loaf form." .
+kb:dough_hydration_to_color a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough hydration to color" ;
+    rdfs:comment "Relation: higher hydration doughs conduct heat differently during baking, affecting Maillard reaction rates and producing lighter or darker crumb shades." .
+kb:dough_rise_capacity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough rise capacity" ;
+    rdfs:comment "Maximum volume increase achievable through fermentation_vigor, reflecting cumulative gas retention in the gluten network." .
+kb:dough_shape a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough shape" ;
+    rdfs:comment "Final form given to bread through shaping technique determining baking appearance and crumb structure." .
+kb:dough_strength a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough strength" ;
+    rdfs:comment "Ability of dough to hold gas without tearing, measured by extensibility and elasticity balance; developed through proper fermentation and protein content." .
+kb:dough_temperature a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough temperature" ;
+    rdfs:comment "Target temperature of mixed dough (typically 75-80F/24-27C) ensuring predictable fermentation timing regardless of room conditions." .
+kb:dough_tension a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dough tension" ;
+    rdfs:comment "Surface tightness of shaped loaf affecting how it holds form during proofing and oven spring." .
+kb:dutch_oven a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dutch oven" ;
+    rdfs:comment "Heavy lidded pot used to bake sourdough that traps steam from dough moisture, creating professional results without an oven steam injection system." .
+kb:dutch_oven_bake_sequence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dutch oven bake sequence" ;
+    rdfs:comment "Baking protocol for covered dutch oven comprising initial lid-on phase for steam retention followed by lid_removal phase for crust coloring." .
+kb:ear a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ear" ;
+    rdfs:comment "The lifted crust edge formed from scoring that rises dramatically during oven spring; prized aesthetic and texture element in artisan sourdough." .
+kb:einkorn_flour a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "einkorn flour" ;
+    rdfs:comment "Ancient wheat variety flour with digestible gluten and rich carotenoid content; weak gluten requires gentler handling." .
+kb:enriched_sourdough a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "enriched sourdough" ;
+    rdfs:comment "Dough containing eggs, butter, or sugar alongside the sourdough culture" .
+kb:enzymatic_activity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "enzymatic activity" ;
+    rdfs:comment "Natural enzyme breakdown of starches to sugars feeding fermentation microbes" .
+kb:esterification_deep_fermentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterification deep fermentation" ;
+    rdfs:comment "Chemical reaction between ethanol and organic_acids where acids bond with alcohol molecules to form esters that contribute to aroma_compounds complexity." .
+kb:esters a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esters" ;
+    rdfs:comment "Aromatic compounds formed from ethanol and organic_acids that contribute fruity and floral notes to sourdough flavor_complexity." .
+kb:ethanol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol" ;
+    rdfs:comment "Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development." .
+kb:ethanol_as_flavor_precursor_ethanol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol as flavor precursor ethanol" ;
+    rdfs:comment "Ethanol's role in reacting with organic_acids to form aromatic esters that enhance flavor_complexity in the finished bread." .
+kb:ethanol_concentration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol concentration" ;
+    rdfs:comment "Amount of ethanol present in dough during fermentation, varying with fermentation duration, temperature, and wild_yeast activity levels." .
+kb:ethanol_concentration_ethanol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol concentration ethanol" ;
+    rdfs:comment "The amount of ethanol present in fermenting dough, varying with fermentation duration, temperature, and wild_yeast activity levels." .
+kb:ethanol_concentration_sourdough_baking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol concentration sourdough baking" ;
+    rdfs:comment "Measure of ethanol quantity present in fermenting dough, influenced by wild_yeast activity, fermentation duration, and sugar availability, affecting both flavor_complexity and fermentation_vigor." .
+kb:ethanol_deep_fermentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol deep fermentation" ;
+    rdfs:comment "Alcohol produced by wild_yeast during anaerobic fermentation, contributing to sourdough aroma complexity and serving as a precursor for ester formation." .
+kb:ethanol_evaporation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol evaporation" ;
+    rdfs:comment "Volatilization of ethanol during baking when oven temperatures exceed ethanol boiling point at 78.3\u00b0C, removing alcohol content from finished bread." .
+kb:ethanol_evaporation_ethanol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol evaporation ethanol" ;
+    rdfs:comment "The thermal removal of ethanol during baking when oven temperatures exceed ethanol's boiling point of 78.37 degrees Celsius." .
+kb:ethanol_interaction_with_acids_ethanol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol interaction with acids ethanol" ;
+    rdfs:comment "Chemical reaction between ethanol and organic_acids producing esters, the volatile compounds responsible for fruity and floral aroma notes." .
+kb:ethanol_production a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol production" ;
+    rdfs:comment "Biosynthesis of ethanol by wild_yeast converting sugars through glycolysis and fermentation, yielding CO2 and ethanol as primary byproducts." .
+kb:ethanol_release a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol release" ;
+    rdfs:comment "Ethanol alcohol produced as a byproduct of wild yeast sugar metabolism during the initial anaerobic phase of sourdough fermentation." .
+kb:ethanol_solubility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol solubility" ;
+    rdfs:comment "Property of ethanol to dissolve and extract aromatic compounds from flour and fermentation byproducts, acting as a solvent carrier for flavor molecules." .
+kb:ethanol_sourdough_baking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol sourdough baking" ;
+    rdfs:comment "Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development." .
+kb:ethanol_volatility_ethanol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol volatility ethanol" ;
+    rdfs:comment "The physical property of ethanol to transition readily from liquid to vapor, determining its escape rate during fermentation and baking." .
+kb:ethyl_acetate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethyl acetate" ;
+    rdfs:comment "Ester formed when ethanol reacts with acetic acid, producing fruity banana and pineapple notes in sourdough aroma profile." .
+kb:ethyl_acetate_deep_fermentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethyl acetate deep fermentation" ;
+    rdfs:comment "Estery compound formed when acetic_acid reacts with ethanol, producing fruity banana-like aroma notes in the sourdough volatile_profile." .
+kb:ethyl_lactate_deep_fermentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethyl lactate deep fermentation" ;
+    rdfs:comment "Estery compound formed when lactic_acid reacts with ethanol, contributing buttery fruity notes to the sourdough aroma_compounds." .
+kb:evaporation_point_sourdough_baking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "evaporation point sourdough baking" ;
+    rdfs:comment "Temperature threshold at which ethanol converts from liquid to vapor, occurring during baking and determining how much ethanol aroma persists in the final crumb." .
+kb:even_color_distribution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "even color distribution" ;
+    rdfs:comment "Uniform crumb coloration throughout the loaf indicating consistent fermentation, hydration, and heat distribution during baking." .
+kb:excessive_fold_count a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "excessive fold count" ;
+    rdfs:comment "A fold_count beyond the point of useful gluten development, causing dough over-work that degrades the gluten network, creates excessive gas retention loss, and may produce dense or collapsed bread." .
+kb:exopolysaccharides a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "exopolysaccharides" ;
+    rdfs:comment "Polysaccharide compounds secreted by certain lactobacillus strains that affect bread texture and water retention." .
+kb:fc_acid_balance_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fc acid balance ratio" ;
+    rdfs:comment "The proportional ratio between acetic_acid and lactic_acid concentrations that fundamentally determines whether the tanginess is sharp and vinegary or soft and creamy" .
+kb:fc_aftertaste_development a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fc aftertaste development" ;
+    rdfs:comment "The evolving and lingering flavor sensations that persist after swallowing, shaped by organic_acid persistence and aroma_compound retention in the crumb" .
+kb:fc_estolide_compounds a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fc estolide compounds" ;
+    rdfs:comment "Aroma-active ester compounds produced by yeast and lactobacillus that contribute fruity, floral, and sometimes banana or pineapple notes to sourdough flavor complexity" .
+kb:fc_fermentation_depth a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fc fermentation depth" ;
+    rdfs:comment "The cumulative flavor intensity arising from extended fermentation periods allowing progressive accumulation of organic_acids and aroma_compounds in the dough matrix" .
+kb:fc_higher_alcohols a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fc higher alcohols" ;
+    rdfs:comment "Complex alcohol byproducts of wild_yeast fermentation beyond ethanol that add nutty, floral, and rozaceous nuances to the overall flavor profile" .
+kb:fc_maltolytic_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fc maltolytic notes" ;
+    rdfs:comment "Caramel, toasty, and biscuit-like flavor compounds derived from enzymatic breakdown of grain starches during fermentation and Maillard reactions during baking" .
+kb:fc_tanginess_profile a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fc tanginess profile" ;
+    rdfs:comment "The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness" .
+kb:fc_volatile_esters a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fc volatile esters" ;
+    rdfs:comment "Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes" .
+kb:fc_yeast_character a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fc yeast character" ;
+    rdfs:comment "The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation" .
+kb:feed_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "feed ratio" ;
+    rdfs:comment "Proportion of flour and water added relative to existing starter weight during feeding" .
+kb:feed_response_speed a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "feed response speed" ;
+    rdfs:comment "Latency period between feeding and visible rise initiation in active_starter, with healthy cultures showing response within 1-2 hours." .
+kb:feed_response_speed_enables a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "feed response speed enables" ;
+    rdfs:comment "Rapid feed_response_speed predicts healthy starter_vigor and strong inoculation potential." .
+kb:feeding_response a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "feeding response" ;
+    rdfs:comment "Speed and vigor with which dormant_starter revives after receiving fresh feed_ratio additions." .
+kb:feeding_schedule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "feeding schedule" ;
+    rdfs:comment "Regular pattern of starter maintenance specifying feeding frequency, ratios, flour types, and temperature to maintain culture health." .
+kb:fermentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation" ;
+    rdfs:comment "Metabolic process where microbes convert sugars to CO2 for rise and acids for sour flavor" .
+kb:fermentation_acidity_balance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation acidity balance" ;
+    rdfs:comment "The ratio and interaction between lactic and acetic acid proportions in fermented dough, determining the character and intensity of sour flavor perception." .
+kb:fermentation_anaerobic_deep_fermentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation anaerobic deep fermentation" ;
+    rdfs:comment "Oxygen-depleted phase of microbial metabolism where wild_yeast preferentially converts sugars to ethanol and carbon_dioxide rather than oxidative pathways." .
+kb:fermentation_aroma a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation aroma" ;
+    rdfs:comment "Smell of actively fermenting dough combining yeast products, organic acids, and flour compounds." .
+kb:fermentation_aroma_reflects a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation aroma reflects" ;
+    rdfs:comment "fermentation_aroma reveals acid_balance between lactic_acid and acetic_acid in active_starter." .
+kb:fermentation_byproducts a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation byproducts" ;
+    rdfs:comment "Compounds produced by microbial fermentation including carbon dioxide for dough rise, lactic and acetic acids for sour flavor, and alcohols for aroma." .
+kb:fermentation_curve a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation curve" ;
+    rdfs:comment "Temporal pattern of fermentation activity showing lag phase, peak fermentation, and decline phases across the fermentation timeline." .
+kb:fermentation_duration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation duration" ;
+    rdfs:comment "Time required for fermentation_vigor to produce target dough rise, inversely related to fermentation_vigor intensity at fixed hydration and flour." .
+kb:fermentation_duration_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation duration effect" ;
+    rdfs:comment "How longer fermentation produces more organic acids and Maillard precursors affecting crumb color depth." .
+kb:fermentation_endpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation endpoint" ;
+    rdfs:comment "Stage where fermentation_vigor declines as sugars deplete and acid accumulation inhibits wild_yeast, marking optimal or over-fermented state." .
+kb:fermentation_impact_on_color a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation impact on color" ;
+    rdfs:comment "Degree to which fermentation duration and temperature influence available sugars and amino acids that drive Maillard browning in the crumb." .
+kb:fermentation_length_to_color a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation length to color" ;
+    rdfs:comment "Relation: extended fermentation depletes fermentable sugars and shifts microbial byproducts, influencing how readily the crumb browns during baking." .
+kb:fermentation_onset_timing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation onset timing" ;
+    rdfs:comment "Time interval between starter inoculation and the beginning of active fermentation, influenced by starter_vitality and dough temperature conditions." .
+kb:fermentation_optimal_range a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation optimal range" ;
+    rdfs:comment "Temperature band typically 75-80F where wild_yeast and lactobacillus achieve balanced fermentation_vigor, producing favorable gas and acid ratios." .
+kb:fermentation_phase a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation phase" ;
+    rdfs:comment "Stage within the fermentation timeline: initial adaptation, peak activity, or decline toward exhaustion." .
+kb:fermentation_stagnation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation stagnation" ;
+    rdfs:comment "Reduced or arrested fermentation vigor due to temperature extremes, low hydration, or microbial inhibition." .
+kb:fermentation_temperature a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation temperature" ;
+    rdfs:comment "Environmental temperature during bulk and final proof that directly controls fermentation speed; warmer accelerates, cooler slows." .
+kb:fermentation_temperature_dependency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation temperature dependency" ;
+    rdfs:comment "Mathematical relationship between ambient temperature and fermentation_vigor, where wild_yeast and lactobacillus activity accelerate within their viable temperature ranges." .
+kb:fermentation_timeline a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation timeline" ;
+    rdfs:comment "Planned schedule coordinating levain build, autolyse, bulk fermentation, folds, and proof to complete baking at desired time." .
+kb:fermentation_vessel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation vessel" ;
+    rdfs:comment "Container for cultivating and storing sourdough starter" .
+kb:fermentation_vigor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation vigor" ;
+    rdfs:comment "Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing." .
+kb:final_bake_phase a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "final bake phase" ;
+    rdfs:comment "The closing minutes of baking when crust color develops fully, internal moisture evaporates, and the crumb reaches its final tender texture." .
+kb:final_phase a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "final phase" ;
+    rdfs:comment "The last phase of baking after steam release where crust develops color and texture through Maillard reaction and caramelization" .
+kb:final_proof a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "final proof" ;
+    rdfs:comment "The last rise of shaped dough before scoring and baking; time varies based on temperature and desired crumb characteristics." .
+kb:final_shaping a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "final shaping" ;
+    rdfs:comment "Creating tight surface tension and proper form for the finished loaf" .
+kb:flavor_complexity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flavor complexity" ;
+    rdfs:comment "The depth and nuance of sourdough taste arising from multiple organic acids, esters, and alcohols produced during extended fermentation, creating tangy and complex notes." .
+kb:flavor_compounds a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flavor compounds" ;
+    rdfs:comment "Complex organic molecules including esters aldehydes and higher alcohols created during fermentation that build flavor_complexity beyond simple sourness." .
+kb:flavor_development_timing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flavor development timing" ;
+    rdfs:comment "The point in fermentation at which organic_acids reach sufficient concentration to contribute noticeable flavor_complexity to the crumb." .
+kb:flavor_volatiles a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flavor volatiles" ;
+    rdfs:comment "Aromatic organic compounds including esters and aldehydes produced during fermentation that create nuanced flavor_complexity beyond basic sourness." .
+kb:float_test a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "float test" ;
+    rdfs:comment "Test where a spoonful of levain dropped in water floats indicating sufficient gas retention and readiness for baking." .
+kb:flour a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flour" ;
+    rdfs:comment "Ground grain (typically wheat) used as the carbohydrate base for sourdough, providing starch, protein for gluten, and nutrients for the starter ecosystem." .
+kb:flour_dusting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flour dusting" ;
+    rdfs:comment "Application of flour on work surface and dough exterior preventing sticking and creating decorative crust patterns." .
+kb:flour_hydration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flour hydration" ;
+    rdfs:comment "Ability of flour to absorb water varying by protein content, grind, and grain type; affects dough viscosity and final bread characteristics." .
+kb:flour_temperature a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flour temperature" ;
+    rdfs:comment "Temperature of flour before mixing affecting dough temperature and fermentation rate; can be adjusted for warm or cool climates." .
+kb:flour_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flour type" ;
+    rdfs:comment "Variety of grain including whole_wheat, rye, spelt, or mixed with different protein contents" .
+kb:foam_layer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "foam layer" ;
+    rdfs:comment "Frothy surface crust formed by trapped CO2 bubbles and fermentation byproducts on actively fermenting starter." .
+kb:foam_stability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "foam stability" ;
+    rdfs:comment "Ability of active_starter surface foam to persist without collapsing, indicating balanced bacterial and yeast activity." .
+kb:foam_stability_reflects a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "foam stability reflects" ;
+    rdfs:comment "Balanced foam_stability indicates equilibrium between lactic_acid and acetic_acid producing bacteria." .
+kb:focaccia a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "focaccia" ;
+    rdfs:comment "Flat Italian bread dimpled with olive oil and herbs baked on sheet pan" .
+kb:fold a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold" ;
+    rdfs:comment "Technique of folding dough over itself during fermentation to strengthen gluten, redistribute yeast food, and release gas bubbles." .
+kb:fold_count a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count" ;
+    rdfs:comment "Number of stretch and fold repetitions during bulk fermentation for gluten development" .
+kb:fold_count_1 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count 1" ;
+    rdfs:comment "The specific iteration number assigned to each stretch and fold repetition within a bulk fermentation sequence, typically numbered sequentially from 1 to total_folds." .
+kb:fold_count_10 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count 10" ;
+    rdfs:comment "Excessive number of folds causing dough exhaustion, overdevelopment, or tearing that degrades crumb_structure and flavor_complexity." .
+kb:fold_count_2 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count 2" ;
+    rdfs:comment "The elapsed time interval between consecutive stretch and fold repetitions, typically 30 to 60 minutes, balancing dough development against excessive handling." .
+kb:fold_count_3 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count 3" ;
+    rdfs:comment "The complete ordered sequence of all stretch and fold repetitions scheduled for a single bulk fermentation, defined by fold_count total and fold_interval timing." .
+kb:fold_count_4 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count 4" ;
+    rdfs:comment "The predetermined total number of stretch and fold repetitions for a given recipe or bulk fermentation, the core metric that defines fold_count itself." .
+kb:fold_count_5 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count 5" ;
+    rdfs:comment "The temporal placement and scheduling of each fold within the broader bulk fermentation window, determining whether folds occur early middle or late in fermentation." .
+kb:fold_count_6 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count 6" ;
+    rdfs:comment "The consistency and uniformity of technique applied across all repetitions in a fold_sequence, ensuring even gluten development and structural strength throughout the dough." .
+kb:fold_count_7 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count 7" ;
+    rdfs:comment "The standard practice of dividing the dough into four equal quarters before each fold, providing the mechanical framework for stretch and fold execution." .
+kb:fold_count_8 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count 8" ;
+    rdfs:comment "The degree to which the number of folds produces visible and tactile improvements in dough_strength and gluten_development, measurable by dough extensibility and windowpane test." .
+kb:fold_count_9 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count 9" ;
+    rdfs:comment "Insufficient number of folds resulting in weak gluten network, poor dough_consistency, and reduced bread_volume due to inadequate structural development." .
+kb:fold_count_actual a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count actual" ;
+    rdfs:comment "Realized number of fold_cycle repetitions actually executed, which may differ from fold_count_target due to dough behavior or schedule." .
+kb:fold_count_actual_may_differ_from a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count actual may differ from" ;
+    rdfs:comment "fold_count_actual records realized repetitions and may diverge from fold_count_target if dough_consistency changes or bulk_fermentation timing shifts." .
+kb:fold_count_builds a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count builds" ;
+    rdfs:comment "fold_count incrementally advances gluten_development, replacing the need for intensive mixing while avoiding excessive degassing." .
+kb:fold_count_dough_temp_dependency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count dough temp dependency" ;
+    rdfs:comment "The dependency of optimal fold_count on dough_temperature, where warmer dough (78\u201380\u00b0F) progresses faster and may require more frequent folds, while cooler dough (72\u201374\u00b0F) allows longer intervals between sets." .
+kb:fold_count_during a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count during" ;
+    rdfs:comment "fold_count occurs within the temporal window of bulk_fermentation, and its fold_timing_schedule is anchored to bulk_fermentation duration." .
+kb:fold_count_executes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count executes" ;
+    rdfs:comment "fold_count is realized through the technique stretch_and_fold, which is the mechanical action used to perform each fold_cycle." .
+kb:fold_count_fermentation_interaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count fermentation interaction" ;
+    rdfs:comment "The coupled effect where fold_count timing must align with fermentation activity\u2014folds spaced too far apart allow dough to over-relax, while folds too frequent may tear rather than stretch the developing gluten network." .
+kb:fold_count_gluten_response a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count gluten response" ;
+    rdfs:comment "The direct relationship between number of fold repetitions and degree of gluten_network_strengthening, where each fold incrementally aligns gluten strands and builds dough elasticity up to a diminishing-return ceiling." .
+kb:fold_count_range_optimal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count range optimal" ;
+    rdfs:comment "The empirically determined ideal fold_count range of 3\u20134 complete sets during a standard 4\u20135 hour bulk fermentation at 75\u201378\u00b0F dough temperature, balancing gluten development against fermentation progression." .
+kb:fold_count_shaped_by a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count shaped by" ;
+    rdfs:comment "fold_count target and fold_timing_schedule are calibrated to dough_consistency and fermentation_temperature for predictable gluten alignment." .
+kb:fold_count_target a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count target" ;
+    rdfs:comment "Prescribed number of fold_cycle repetitions for a given formula, typically 3 to 6 sets depending on dough_consistency goals." .
+kb:fold_count_target_calibrates a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold count target calibrates" ;
+    rdfs:comment "fold_count_target sets the intended fold_count which is adjusted based on fermentation_temperature and dough_consistency to achieve gluten_development goals." .
+kb:fold_cycle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold cycle" ;
+    rdfs:comment "One complete sequence of stretching and folding a dough quarter over the center, counted as one unit toward the total fold_count." .
+kb:fold_cycle_repeated_in a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold cycle repeated in" ;
+    rdfs:comment "fold_cycle is the atomic unit that fold_count counts, and fold_count_target specifies how many times fold_cycle repeats." .
+kb:fold_direction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold direction" ;
+    rdfs:comment "Orientation of each quarter turn in the fold_sequence determining even gluten strand alignment across all axes." .
+kb:fold_frequency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold frequency" ;
+    rdfs:comment "Interval between stretch and fold repetitions during bulk fermentation, typically every 30-60 minutes for 2-4 sets." .
+kb:fold_interval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold interval" ;
+    rdfs:comment "The elapsed time between consecutive fold sets during bulk fermentation, typically 30\u201345 minutes at room temperature, during which the dough rests and gluten relaxes before the next mechanical development phase." .
+kb:fold_interval_within a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold interval within" ;
+    rdfs:comment "fold_interval defines the spacing between fold_cycle repetitions and constitutes the timing structure of fold_count execution." .
+kb:fold_phases a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold phases" ;
+    rdfs:comment "Individual stages within each fold_cycle: lift, stretch, and fold over the center of the dough mass." .
+kb:fold_schedule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold schedule" ;
+    rdfs:comment "The predetermined timing pattern dictating when each fold set occurs throughout bulk fermentation, commonly expressed as hours into bulk (e.g., 0h, 45m, 1h30m, 2h15m) or as percentage of total bulk time." .
+kb:fold_sequence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold sequence" ;
+    rdfs:comment "Pattern of directional turns executed within a single fold_cycle set, commonly four quarter-turn folds per round." .
+kb:fold_sequence_within a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold sequence within" ;
+    rdfs:comment "fold_sequence prescribes the directional pattern of individual quarter turns executed per fold_cycle within the fold_count." .
+kb:fold_set a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold set" ;
+    rdfs:comment "One complete round of four stretch-and-fold operations performed consecutively, treating all four dough quadrants before resting; the fundamental unit of structure-building work during bulk fermentation." .
+kb:fold_tension_accumulation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold tension accumulation" ;
+    rdfs:comment "The progressive build-up of internal dough strength and gas-holding capacity resulting from repeated fold cycles, where each fold layer adds structural integrity to the expanding gluten matrix." .
+kb:fold_timing_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold timing ratio" ;
+    rdfs:comment "The proportional distribution of fold sets across the bulk fermentation period; a common ratio is 25% of bulk time per fold set, meaning 4 folds evenly spaced capture the full fermentation window." .
+kb:fold_timing_schedule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fold timing schedule" ;
+    rdfs:comment "Planned temporal distribution of fold_cycle repetitions across the bulk_fermentation window, defining when each fold occurs." .
+kb:fusel_alcohols a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fusel alcohols" ;
+    rdfs:comment "Higher-order alcohols produced in trace amounts by wild_yeast contributing complex aromatic notes to finished bread." .
+kb:gas_production a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gas production" ;
+    rdfs:comment "Volume of CO2 generated by wild yeast metabolism during fermentation, primary driver of dough expansion and crumb structure." .
+kb:gas_production_intensity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gas production intensity" ;
+    rdfs:comment "Volume and pressure of carbon_dioxide generated by wild_yeast activity per unit time, the primary driver of dough structure and rise_rate." .
+kb:gas_production_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gas production rate" ;
+    rdfs:comment "Speed at which wild_yeast converts sugars into carbon dioxide during fermentation, a primary component of fermentation_vigor measuring dough rise capacity." .
+kb:gluten_development a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gluten development" ;
+    rdfs:comment "Process of hydrating and aligning gluten proteins through mixing, folding, or autolyse to create strong extensible dough." .
+kb:gluten_network a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gluten network" ;
+    rdfs:comment "Elastic protein structure formed by glutenin and gliadin that traps fermentation gas, provides dough strength, and gives bread its structure." .
+kb:golden_crumb a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "golden crumb" ;
+    rdfs:comment "A warm yellow-to-amber crumb shade produced by longer fermentation and higher baking temperatures that generate more Maillard reaction products." .
+kb:golden_honey a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "golden honey" ;
+    rdfs:comment "Medium-warm crumb tone indicating good fermentation development and adequate baking, producing perceived sweetness and complexity from properly developed flavor precursors." .
+kb:grain_flavor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "grain flavor" ;
+    rdfs:comment "Taste reflecting specific grain types used in flour from wheat, rye, spelt, or ancient grains contributing unique notes." .
+kb:gummy_crum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gummy crum" ;
+    rdfs:comment "Under-baked or under-proofed interior that is dense, sticky, and chewy rather than tender; bread needs higher internal temperature or longer fermentation." .
+kb:higher_alcohols a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "higher alcohols" ;
+    rdfs:comment "Alcohol compounds beyond ethanol produced during fermentation that add nutty and fruity dimensions to flavor_complexity." .
+kb:hooch a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hooch" ;
+    rdfs:comment "Dark liquid layer on neglected starter indicating high acidity and starvation; can be poured off or stirred in depending on desired sourness." .
+kb:hydration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hydration" ;
+    rdfs:comment "Ratio of water to flour in dough expressed as percentage; higher hydration yields open crumb and crispy crust but requires skilled handling." .
+kb:hydration_factor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hydration factor" ;
+    rdfs:comment "The flour-to-water ratio affecting baking_duration as higher hydration doughs conduct heat differently and retain more internal steam during baking." .
+kb:hydration_level_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hydration level effect" ;
+    rdfs:comment "How dough hydration influences crumb color development during baking through moisture retention and heat transfer." .
+kb:hydration_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hydration ratio" ;
+    rdfs:comment "Percentage of water relative to flour weight determining dough consistency and crumb openness" .
+kb:initial_bake_phase a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "initial bake phase" ;
+    rdfs:comment "The first 10-15 minutes of baking when oven spring occurs as yeast activity peaks and gases expand rapidly, setting the bread height and ear formation potential." .
+kb:initial_phase a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "initial phase" ;
+    rdfs:comment "First 15-20 minutes of baking with Dutch oven lid on; when oven_spring occurs and steam_production is at maximum, developing initial crumb structure and preventing early crust formation that would restrict rise." .
+kb:inoculation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inoculation" ;
+    rdfs:comment "Adding levain to new dough batch to begin fermentation with established culture" .
+kb:inoculation_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inoculation rate" ;
+    rdfs:comment "Percentage of levain added to main dough by weight, affecting fermentation speed and final flavor intensity." .
+kb:insufficient_fold_count a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "insufficient fold count" ;
+    rdfs:comment "A fold_count below the threshold needed for adequate gluten development, resulting in dough that tears easily, lacks extensibility, and produces bread with tight crumb structure and low bread_volume." .
+kb:internal_temperature a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "internal temperature" ;
+    rdfs:comment "Bread center temperature (typically 195-210F/90-99C) indicating doneness; lower temps leave gummy crumb." .
+kb:kitchen_scale a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kitchen scale" ;
+    rdfs:comment "Precision weighing device for measuring ingredients by weight for consistent hydration ratios" .
+kb:lactic_acid a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lactic acid" ;
+    rdfs:comment "Milder sour acid produced by lactobacillus contributing to bread tanginess" .
+kb:lactic_acid_bacteria a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lactic acid bacteria" ;
+    rdfs:comment "Beneficial bacteria in sourdough that produce lactic and acetic acids, creating the characteristic tang and contributing to flavor development and dough leavening." .
+kb:lactobacillus a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lactobacillus" ;
+    rdfs:comment "Bacterial strains producing lactic and acetic acids that create sourdough tanginess" .
+kb:lag_phase a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lag phase" ;
+    rdfs:comment "Initial fermentation period where wild yeast adapt to dough environment before vigorous gas production begins." .
+kb:lame a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lame" ;
+    rdfs:comment "Sharp curved blade used for scoring bread, typically with a wooden handle, that creates clean precise cuts for ear formation." .
+kb:lamination_pass a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lamination pass" ;
+    rdfs:comment "Extended fold that also distributes hydration and inclusions evenly, sometimes counted as a fold_cycle in high-hydration formulas." .
+kb:lamination_pass_variant_of a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lamination pass variant of" ;
+    rdfs:comment "lamination_pass extends the standard fold_sequence and can substitute for a fold_cycle in the fold_count tally when formula goals require it." .
+kb:leavening_power a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "leavening power" ;
+    rdfs:comment "Capacity of active_starter to raise bread dough measured by gas production rate and total rise achieved." .
+kb:levain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "levain" ;
+    rdfs:comment "A portion of active sourdough starter built up before baking, used to leaven the main dough; can be stiff or liquid in consistency." .
+kb:levain_maturity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "levain maturity" ;
+    rdfs:comment "Stage of levain readiness for baking determined by doubling time, bubble activity, peak height, and float test." .
+kb:lid_off_duration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lid off duration" ;
+    rdfs:comment "The time after lid_removal when the loaf finishes uncovered, typically 10-20 minutes, allowing crust_color to deepen and crust_texture to develop fully." .
+kb:lid_on_duration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lid on duration" ;
+    rdfs:comment "The time the dutch oven lid remains in place during baking, typically 20-30 minutes, trapping steam from dough moisture to enable maximum oven spring and a supple crust." .
+kb:lid_removal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lid removal" ;
+    rdfs:comment "Taking Dutch oven lid off mid-bake to release steam and finish crust coloring" .
+kb:lid_removal_timing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lid removal timing" ;
+    rdfs:comment "Specific moment during baking_duration when Dutch oven lid is removed; transition point from initial_phase to final_phase; typically 20-25 minutes into bake for standard 450F sourdough." .
+kb:liquid_starter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "liquid starter" ;
+    rdfs:comment "Thin consistency starter (100% hydration or more) producing more lactic acid, faster fermentation, and milder tang." .
+kb:loaf_mass a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "loaf mass" ;
+    rdfs:comment "The weight of the proofed shaped dough entering the oven, directly determining baking_duration requirements" .
+kb:loaf_mass_factor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "loaf mass factor" ;
+    rdfs:comment "The weight and density of the shaped dough influencing how long heat takes to penetrate to the crumb center during baking_duration; larger loaves require proportionally longer bakes." .
+kb:loaf_size a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "loaf size" ;
+    rdfs:comment "Volume and mass of shaped dough; primary variable determining baking_duration as larger loaves require extended time for heat to penetrate center and reach internal_temperature targets." .
+kb:maillard_reaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "maillard reaction" ;
+    rdfs:comment "Chemical reaction between amino acids and sugars at high temperatures creating brown crust color and complex savory flavors." .
+kb:mature_starter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mature starter" ;
+    rdfs:comment "Well-maintained sourdough starter at peak activity showing consistent doubling, pleasant tangy aroma, and readiness for baking." .
+kb:maximum_bake_time a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "maximum bake time" ;
+    rdfs:comment "The longest acceptable baking_duration beyond which quality degrades, approximately 50 minutes, after which crust burns and crumb dries regardless of other factors." .
+kb:miche a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "miche" ;
+    rdfs:comment "Large round country bread loaf typically weighing 2-4 pounds, often with rustic thick crust and open crumb." .
+kb:microbial_activity_intensity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "microbial activity intensity" ;
+    rdfs:comment "Combined metabolic activity level of wild_yeast and lactobacillus populations during fermentation, representing the aggregate fermentation capacity of the sourdough system." .
+kb:microbial_balance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "microbial balance" ;
+    rdfs:comment "Proportional ratio of wild_yeast to lactobacillus populations determining fermentation character and flavor output." .
+kb:mid_bake_phase a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mid bake phase" ;
+    rdfs:comment "The middle period of baking when structure firms, crumb sets, and starches gelatinize while the crust begins to brown from Maillard reaction and caramelization." .
+kb:mild_flavor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mild flavor" ;
+    rdfs:comment "Subtle sourness with wheat and sweet undertones achieved through shorter fermentation and younger starter." .
+kb:minimum_bake_time a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "minimum bake time" ;
+    rdfs:comment "The shortest baking_duration needed for any sourdough, approximately 20 minutes, at which point the crumb may still be underdone and gummy." .
+kb:mixing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mixing" ;
+    rdfs:comment "Combining flour, water, and other ingredients to form a cohesive dough, developing initial gluten structure through mechanical stirring or hand work." .
+kb:moisture_content_indicator a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "moisture content indicator" ;
+    rdfs:comment "Crumb color serves as proxy for internal moisture: properly hydrated dough yields even color; overly wet crumb appears pale and mottled." .
+kb:nutty_flavor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "nutty flavor" ;
+    rdfs:comment "Roasted grain taste from whole wheat or rye flour or from extended fermentation developing grain complexity." .
+kb:olive_oil a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "olive oil" ;
+    rdfs:comment "Fat pressed from olives used in bread making to add moisture, tenderness, and rich flavor to dough and crust." .
+kb:open_crum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "open crum" ;
+    rdfs:comment "Bread crumb with large irregular holes and good structure, considered desirable for artisan sourdough, achieved through proper fermentation and gentle handling." .
+kb:optimal_bake_time a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "optimal bake time" ;
+    rdfs:comment "The calculated or empirically determined baking_duration producing ideal crumb_texture, crust_color, and internal_temperature without underbaking or overbaking consequences." .
+kb:organic_acid_formation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "organic acid formation" ;
+    rdfs:comment "The composite mixture of lactic acid and acetic acid generated during sourdough fermentation by the metabolic activity of lactobacillus strains acting on flour carbohydrates." .
+kb:organic_acid_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "organic acid ratio" ;
+    rdfs:comment "Proportional balance between lactic_acid and acetic_acid determined by fermentation conditions that shapes the final sourness_level character." .
+kb:organic_acids a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "organic acids" ;
+    rdfs:comment "Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine sourness_level and contribute to flavor_complexity." .
+kb:oven_spring a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "oven spring" ;
+    rdfs:comment "Rapid oven rise occurring in the first 10-15 minutes of baking due to yeast activity, gas expansion, and steam; creates open crumb and dramatic ear." .
+kb:overbake a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "overbake" ;
+    rdfs:comment "Excessive baking_duration causing excessive crust_darkening and crumb_drying" .
+kb:overbaking_detection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "overbaking detection" ;
+    rdfs:comment "Signs that baking_duration was excessive including internal_temperature above 210F, dry and crumbly crumb_texture, burnt crust, and excessive crust_thickness." .
+kb:overproofed a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "overproofed" ;
+    rdfs:comment "Fermentation extending past peak rise where gluten has broken down, resulting in flat dense bread with minimal oven spring." .
+kb:overproofing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "overproofing" ;
+    rdfs:comment "Excessive fermentation causing dough to collapse, lose structure, and create flat dense bread" .
+kb:pain_au_levain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pain au levain" ;
+    rdfs:comment "Pure sourdough bread leavened exclusively with natural starter" .
+kb:pain_de_campagne a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pain de campagne" ;
+    rdfs:comment "French country sourdough using whole wheat and rye for rustic character" .
+kb:pale_ivory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pale ivory" ;
+    rdfs:comment "Lightest crumb shade indicating minimal browning reactions; suggests shorter fermentation, lower oven temp, or underproofed dough resulting in underdeveloped flavor precursors." .
+kb:pale_ivory_crumb a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pale ivory crumb" ;
+    rdfs:comment "The lightest crumb shade, ivory to near-white, resulting from short fermentation and moderate baking conditions that produce minimal color-developing reactions." .
+kb:parchment_paper a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "parchment paper" ;
+    rdfs:comment "Non-stick paper used to transfer proofed dough to baking vessel and prevent sticking during baking and cooling." .
+kb:peak_activity_window a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "peak activity window" ;
+    rdfs:comment "Time interval after feeding when fermentation reaches maximum intensity before nutrients deplete." .
+kb:peak_activity_window_provides a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "peak activity window provides" ;
+    rdfs:comment "peak_activity_window is optimal time for levain creation or discard harvesting from active_starter." .
+kb:peak_fermentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "peak fermentation" ;
+    rdfs:comment "Point of maximum fermentation vigor where wild yeast CO2 production and lactobacillus acid generation reach highest rates." .
+kb:peak_fermentation_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "peak fermentation rate" ;
+    rdfs:comment "Maximum intensity reached during the fermentation cycle when wild_yeast activity is highest, marking the most vigorous phase of gas production." .
+kb:peak_rise_time a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "peak rise time" ;
+    rdfs:comment "Duration in hours from feeding until starter reaches maximum volume before beginning to fall." .
+kb:pizza_dough a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pizza dough" ;
+    rdfs:comment "Sourdough base fermented for complex flavor before topping and high-heat baking" .
+kb:poke_test a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "poke test" ;
+    rdfs:comment "Finger poke into proofed dough checking for slow rebound indicating proper proof; quick bounce means under-proofed, no rebound means over-proofed." .
+kb:poolish a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "poolish" ;
+    rdfs:comment "Wet pre-ferment similar to liquid levain for added complexity and fermentation insurance" .
+kb:pre_shaping a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pre shaping" ;
+    rdfs:comment "Initial shaping forming rough loaf shape with surface tension before final bench rest and final shaping." .
+kb:preheat a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "preheat" ;
+    rdfs:comment "Oven heating cycle before baking (typically 30-60 minutes) ensuring stable temperature for predictable baking results." .
+kb:preheat_duration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "preheat duration" ;
+    rdfs:comment "The time required for the oven to reach target baking temperature before the dough enters, typically 30-60 minutes for home ovens" .
+kb:proof a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "proof" ;
+    rdfs:comment "Final fermentation stage after shaping where the shaped dough rises before baking; may occur at room temperature or in refrigeration." .
+kb:proof_activity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "proof activity" ;
+    rdfs:comment "Final fermentation phase showing dough readiness through increased volume, surface tension, and dome formation." .
+kb:proofing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "proofing" ;
+    rdfs:comment "Final fermentation phase where shaped dough rises before baking" .
+kb:proofing_duration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "proofing duration" ;
+    rdfs:comment "Time allowance for final dough rise before scoring and baking" .
+kb:refrigeration_interval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "refrigeration interval" ;
+    rdfs:comment "starter_feeding_schedule adapted for cold storage specifying days between refreshments (typically 3-7 days)." .
+kb:refrigeration_metabolism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "refrigeration metabolism" ;
+    rdfs:comment "Reduced metabolic rate of wild_yeast and lactobacillus populations occurring at cold temperatures, producing minimal CO2 and acid output." .
+kb:refrigerator_storage a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "refrigerator storage" ;
+    rdfs:comment "Cold environment at approximately 38-42F/3-5C that slows microbial metabolism and extends time between feedings." .
+kb:refrigerator_vessel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "refrigerator vessel" ;
+    rdfs:comment "Airtight container used for cold_storage_vessel holding dormant_starter in refrigerator, preventing moisture loss and odor absorption." .
+kb:revival_feeding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "revival feeding" ;
+    rdfs:comment "starter_refreshment applied to dormant_starter with fresh flour and water to reactivate microbial populations." .
+kb:revival_timeline a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "revival timeline" ;
+    rdfs:comment "Expected duration for dormant_starter to transition from cold storage to active_starter status after revival_feeding at room temperature." .
+kb:rice_flour a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rice flour" ;
+    rdfs:comment "Fine powder often used for dusting bannetons preventing sticking without dense crust" .
+kb:rich_mahogany a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rich mahogany" ;
+    rdfs:comment "Darkest acceptable interior color suggesting maximum Maillard development within the crumb; intense flavor correlation with pronounced fermentation tang." .
+kb:rise_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rise rate" ;
+    rdfs:comment "Speed at which active_starter volume increases during fermentation, measured in volume percentage per hour." .
+kb:rise_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rise ratio" ;
+    rdfs:comment "Proportional volumetric expansion of starter after feeding, typically doubling or more in active specimens within 4-8 hours." .
+kb:room_temperature a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "room temperature" ;
+    rdfs:comment "Ambient kitchen temperature (typically 70-78F/21-26C) affecting sourdough fermentation rates and starter activity." .
+kb:room_temperature_fermentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "room temperature fermentation" ;
+    rdfs:comment "Proofing at ambient warmth for faster fermentation with brighter flavors" .
+kb:rtf_ambient_temp_range a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf ambient temp range" ;
+    rdfs:comment "The environmental temperature window (typically 70-78F/21-26C) for room temperature proofing that directly controls fermentation rate and duration needs." .
+kb:rtf_ambient_temperature a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf ambient temperature" ;
+    rdfs:comment "Room temperature range typically 68-78F/20-26C where sourdough fermentation proceeds at moderate speed without external heating or cooling apparatus." .
+kb:rtf_ambient_temperature_range a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf ambient temperature range" ;
+    rdfs:comment "The specific environmental temperature band (typically 70-78F/21-26C) that defines room temperature conditions for dough proofing, distinct from refrigeration or heated proofing environments." .
+kb:rtf_brightness_contrast a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf brightness contrast" ;
+    rdfs:comment "Flavor quality where room temperature fermentation produces brighter, more acidic notes compared to cold_retardation developing muted complexity over extended time." .
+kb:rtf_bubble_formation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf bubble formation" ;
+    rdfs:comment "The visible bubble development in the dough surface and body signaling adequate gas production and fermentation advancement." .
+kb:rtf_bulk_fermentation_window a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf bulk fermentation window" ;
+    rdfs:comment "Period during initial fermentation when room temperature drives dough rise and organic_acid accumulation before shaping occurs." .
+kb:rtf_dough_response a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf dough response" ;
+    rdfs:comment "Observable changes in dough_consistency including increased surface blistering, gluten_relaxation, and volume_jincrease under room temperature conditions." .
+kb:rtf_dough_rise_tracking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf dough rise tracking" ;
+    rdfs:comment "The visual and tactile monitoring of dough volume increase, surface doming, and bubble formation during proofing to gauge fermentation progress." .
+kb:rtf_dough_temperature_dependency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf dough temperature dependency" ;
+    rdfs:comment "The critical relationship where dough_temperature at the start of proofing determines how quickly fermentation proceeds at ambient room temperature." .
+kb:rtf_duration_timing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf duration timing" ;
+    rdfs:comment "The shortened proofing_duration window required to reach target rise at ambient warmth, typically 1-3 hours depending on starter activity and dough temperature." .
+kb:rtf_fermentation_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf fermentation rate" ;
+    rdfs:comment "Speed of wild_yeast gas production and lactobacillus acid generation at ambient warmth, faster than cold_retardation but slower than heated proofing." .
+kb:rtf_final_proof_phase a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf final proof phase" ;
+    rdfs:comment "Shaped dough rising in rice_flour_dusted banneton at ambient warmth before scoring and baking entry." .
+kb:rtf_flavor_brightness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf flavor brightness" ;
+    rdfs:comment "The sharp, tangy, bright acidic character produced by heightened lactobacillus activity at warmer proofing temperatures versus cold retardation." .
+kb:rtf_flavor_profile_brightness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf flavor profile brightness" ;
+    rdfs:comment "The sharp clean acidic character and vibrant aromatics developed during faster room temperature fermentation, producing brighter more pronounced sourness than cold slowed proofing." .
+kb:rtf_overproof_risk a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf overproof risk" ;
+    rdfs:comment "The elevated danger of exceeding optimal proof timing at room temperature due to accelerated fermentation speed and compressed timeline." .
+kb:rtf_overproofing_risk a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf overproofing risk" ;
+    rdfs:comment "The elevated probability of overproofing due to faster fermentation pace requiring more frequent observation than cold retarded dough." .
+kb:rtf_prefermentation_activity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf prefermentation activity" ;
+    rdfs:comment "The combined wild_yeast and lactobacillus metabolic activity occurring during room temperature proofing, driving dough rise and flavor development." .
+kb:rtf_proof_duration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf proof duration" ;
+    rdfs:comment "The time interval for final dough rise at room temperature before scoring and baking, typically shorter than cold retard methods." .
+kb:rtf_proofing_duration_range a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf proofing duration range" ;
+    rdfs:comment "Time window of 1-4 hours for final rise depending on dough_strength, hydration_level, and ambient warmth intensity before reaching overproofing." .
+kb:rtf_schedule_flexibility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf schedule flexibility" ;
+    rdfs:comment "The reduced ability to pause or delay fermentation when proofing at room temperature, limiting scheduling compared to cold_retardation methods." .
+kb:rtf_scheduling_flexibility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf scheduling flexibility" ;
+    rdfs:comment "Practical time management allowing baker to pause and resume fermentation within a limited window without temperature control equipment." .
+kb:rtf_target_fermentation_endpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf target fermentation endpoint" ;
+    rdfs:comment "The specific dough rise volume (typically doubled or 70-80% increased) that signals when proofing is complete and scoring should begin." .
+kb:rtf_visual_dome a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rtf visual dome" ;
+    rdfs:comment "The observable dough dome increase and surface tension changes indicating active fermentation progress during room temperature proof." .
+kb:rustic_appearance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rustic appearance" ;
+    rdfs:comment "Artisan bread aesthetic characterized by irregular shape, flour dusting, thick crust, and organic imperfect form." .
+kb:rye_flour a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rye flour" ;
+    rdfs:comment "Low-gluten flour from rye grain producing dense textured bread with distinctive sour notes; feeds bacteria well and adds moisture retention." .
+kb:rye_sourdough a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rye sourdough" ;
+    rdfs:comment "Bread with significant rye flour content requiring adjusted hydration and fermentation" .
+kb:salt a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "salt" ;
+    rdfs:comment "Sodium chloride added to dough that strengthens gluten, controls fermentation pace, enhances flavor, and extends bread shelf life." .
+kb:sandwich_loaf a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sandwich loaf" ;
+    rdfs:comment "Tall rectangular sourdough baked in loaf pan for everyday slicing" .
+kb:scald a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scald" ;
+    rdfs:comment "Hot liquid treatment of grains that inactivates enzymes, softens bran, and modifies texture in sourdough baking." .
+kb:scoring a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scoring" ;
+    rdfs:comment "Shallow cuts made on proofed dough before baking to control oven spring direction, create visual patterns, and allow steam to escape during baking." .
+kb:scoring_angle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scoring angle" ;
+    rdfs:comment "Blade orientation relative to dough surface affecting ear formation and rise pattern" .
+kb:seeds a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "seeds" ;
+    rdfs:comment "Sunflower, pumpkin, sesame, flax, and other seeds added to dough for nutrition, texture variety, and flavor enhancement." .
+kb:shaping a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "shaping" ;
+    rdfs:comment "Final dough shaping technique building proper surface tension and structure to support oven spring and hold crumb form." .
+kb:slicing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "slicing" ;
+    rdfs:comment "Cutting bread into portions after cooling for serving and storage" .
+kb:slowed_metabolism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "slowed metabolism" ;
+    rdfs:comment "Diminished microbial activity state where wild_yeast and lactobacillus consume minimal resources." .
+kb:soaker a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "soaker" ;
+    rdfs:comment "Technique of soaking grains and seeds in liquid overnight to soften hulls, reduce phytic acid, and improve digestibility." .
+kb:sourdough_baker a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sourdough baker" ;
+    rdfs:comment "Person practicing sourdough bread making with emphasis on starter cultivation and fermentation" .
+kb:sourdough_flavor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sourdough flavor" ;
+    rdfs:comment "Complex taste profile combining sour tang, wheat notes, and fermentation-derived compounds varying with starter age and fermentation time." .
+kb:sourdough_loaf a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sourdough loaf" ;
+    rdfs:comment "Whole sourdough bread shaped as round boule or elongated batard for artisan presentation" .
+kb:sourdough_pancakes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sourdough pancakes" ;
+    rdfs:comment "Breakfast preparation using discard starter for fluffy tangy pancakes" .
+kb:sourdough_starter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sourdough starter" ;
+    rdfs:comment "A fermented mixture of flour and water containing wild yeast and lactic acid bacteria that serves as the natural leaven for sourdough bread, maintained through regular feedings." .
+kb:sourdough_starter_culture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sourdough starter culture" ;
+    rdfs:comment "Living microbial community of yeast and bacteria passed between batches" .
+kb:sourdough_tradition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sourdough tradition" ;
+    rdfs:comment "Historical and cultural heritage of naturally fermented bread across civilizations" .
+kb:sourdough_waffles a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sourdough waffles" ;
+    rdfs:comment "Crispy waffles made with discard starter for complex sour flavor" .
+kb:sourness_level a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sourness level" ;
+    rdfs:comment "Intensity of acidic tang from lactobacillus fermentation ranging from mild to pronounced" .
+kb:spelt_flour a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "spelt flour" ;
+    rdfs:comment "Ancient grain flour with weaker gluten than wheat producing tender baked goods with slightly sweet nutty flavor." .
+kb:staling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "staling" ;
+    rdfs:comment "Moisture loss and starch retrogradation causing bread to become firm and dry" .
+kb:starter_age a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter age" ;
+    rdfs:comment "Duration since last feeding affecting fermentation vigor and flavor complexity" .
+kb:starter_aroma a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter aroma" ;
+    rdfs:comment "Smell of healthy starter combining winey, fruity, sour notes from balanced yeast and bacteria; unpleasant odors indicate problems." .
+kb:starter_build a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter build" ;
+    rdfs:comment "Progressive feeding schedule multiplying starter from small amount over several hours to achieve sufficient active leaven." .
+kb:starter_discard a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter discard" ;
+    rdfs:comment "Portion of starter removed before feeding to maintain size; flavorful tangy ingredient used in pancakes, crackers, waffles, and other baking." .
+kb:starter_feeding_schedule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter feeding schedule" ;
+    rdfs:comment "Regular timing pattern for maintaining starter such as daily or twice daily" .
+kb:starter_hydration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter hydration" ;
+    rdfs:comment "Consistency of starter ranging from thick and stiff to loose and liquid" .
+kb:starter_maintenance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter maintenance" ;
+    rdfs:comment "Ongoing care of sourdough culture through regular feeding schedules and storage conditions" .
+kb:starter_refreshment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter refreshment" ;
+    rdfs:comment "Process of feeding starter with fresh flour and water to maintain microbial balance and fermentation vigor." .
+kb:starter_rise_phase a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter rise phase" ;
+    rdfs:comment "Progressive stages of active_starter expansion including initial lag, acceleration, peak, and plateau before decline." .
+kb:starter_rise_phase_culminates_in a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter rise phase culminates in" ;
+    rdfs:comment "starter_rise_phase progresses through lag and acceleration phases to reach activity_peak before plateau." .
+kb:starter_rise_phase_governed_by a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter rise phase governed by" ;
+    rdfs:comment "starter_rise_phase is controlled by fermentation_temperature and starter_hydration levels." .
+kb:starter_storage_temperature a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter storage temperature" ;
+    rdfs:comment "Refrigerated or room temperature holding conditions affecting fermentation rhythm" .
+kb:starter_vigor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter vigor" ;
+    rdfs:comment "Observable rising speed and bubble activity indicating culture health and strength" .
+kb:starter_vitality a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "starter vitality" ;
+    rdfs:comment "Measure of wild_yeast and lactobacillus population health and activity level in the sourdough starter, directly determining fermentation_vigor potential." .
+kb:steam a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "steam" ;
+    rdfs:comment "Water vapor released from dough and trapped in baking vessel that keeps crust flexible for maximum oven spring and shiny crust." .
+kb:steam_production a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "steam production" ;
+    rdfs:comment "Water vapor released in oven creating humid environment for optimal crust development" .
+kb:stiff_starter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stiff starter" ;
+    rdfs:comment "Thick consistency starter (50-60% hydration) with more acetic acid character, slower fermentation, and better keeping quality." .
+kb:stone_milled_flour a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stone milled flour" ;
+    rdfs:comment "Flour ground between traditional stone wheels preserving germ oils and producing nuanced flavor compared to steel roller milling." .
+kb:storage_viability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "storage viability" ;
+    rdfs:comment "Degree to which dormant_starter retains fermentation capability over cold_storage_duration, affected by starter_age and storage conditions." .
+kb:stretch_and_fold a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stretch and fold" ;
+    rdfs:comment "Method of periodically stretching dough quarters and folding them into the center during bulk fermentation to develop structure without degassing." .
+kb:substrate_availability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "substrate availability" ;
+    rdfs:comment "Amount of fermentable sugars from flour available to wild_yeast and lactobacillus, driving fermentation_vigor." .
+kb:surface_doming a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "surface doming" ;
+    rdfs:comment "Visible convex curvature of active_starter surface at peak activity caused by accumulated CO2 gas beneath the crust." .
+kb:surface_tension a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "surface tension" ;
+    rdfs:comment "The tight outer skin formed on dough during shaping that traps gases inside, supports oven spring, and determines loaf height and ear formation." .
+kb:tang a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tang" ;
+    rdfs:comment "Sharp sour flavor note from acetic acid in sourdough, more pronounced with longer cold fermentation and mature active starter." .
+kb:temperature_coefficient a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "temperature coefficient" ;
+    rdfs:comment "Rate of change in fermentation_vigor per degree temperature change, describing how temperature accelerates or decelerates microbial metabolism and gas production." .
+kb:temperature_response a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "temperature response" ;
+    rdfs:comment "Degree to which fermentation_vigor changes with temperature shifts, as microbial activity accelerates or slows." .
+kb:tight_crum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tight crum" ;
+    rdfs:comment "Dense crumb with small uniform holes, often resulting from under-proofing, over-mixing, or low hydration." .
+kb:toasted_aroma a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "toasted aroma" ;
+    rdfs:comment "Character of bread surface after baking with nutty brown notes from Maillard reaction and caramelization." .
+kb:uncovered_bake a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "uncovered bake" ;
+    rdfs:comment "Baking in open oven typically requiring manual steam injection for proper crust formation and oven spring." .
+kb:underbake a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "underbake" ;
+    rdfs:comment "Insufficient baking_duration leaving internal_temperature below 195F resulting in gummy crumb" .
+kb:underbaking_detection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "underbaking detection" ;
+    rdfs:comment "Signs that baking_duration was insufficient including internal_temperature below 195F, gummy crumb_texture, pale crumb_color, and lack of structural stability when cooled." .
+kb:underproofed a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "underproofed" ;
+    rdfs:comment "Insufficient fermentation where bread rises inadequately, producing tight crumb, dense texture, and poor oven spring." .
+kb:underproofing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "underproofing" ;
+    rdfs:comment "Insufficient fermentation leaving dough dense with tight crumb and raw starchy flavor" .
+kb:volatile_profile_sourdough_baking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "volatile profile sourdough baking" ;
+    rdfs:comment "The complete set of volatile compounds including ethanol and its ester derivatives that determine the aromatic signature of sourdough bread." .
+kb:water a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "water" ;
+    rdfs:comment "Filtered water used to hydrate flour and feed the starter culture; temperature affects fermentation speed and dough behavior." .
+kb:wheat_flavor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "wheat flavor" ;
+    rdfs:comment "Characteristic taste of wheat flour becoming more prominent in long-fermented sourdough highlighting grain origin." .
+kb:whole_wheat_flour a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "whole wheat flour" ;
+    rdfs:comment "Flour milled from entire wheat berry including bran and germ; adds nutrition, flavor complexity, and requires more hydration." .
+kb:whole_wheat_sourdough a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "whole wheat sourdough" ;
+    rdfs:comment "Bread using entire grain flour with higher nutrient content and denser texture" .
+kb:wild_culture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "wild culture" ;
+    rdfs:comment "Sourdough starter cultivated from local flour and environment capturing regional microflora" .
+kb:wild_yeast a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "wild yeast" ;
+    rdfs:comment "Naturally occurring yeast strains captured from flour and the environment that ferment dough, providing rise without commercial yeast." .
+kb:windowpane_test a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "windowpane test" ;
+    rdfs:comment "Gluten development test stretching dough thin enough to see light through without tearing; indicates proper fermentation and structure." .
+kb:yeast_metabolism_deep_fermentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "yeast metabolism deep fermentation" ;
+    rdfs:comment "Biochemical pathway through which wild_yeast converts fermentable sugars into ethanol and carbon_dioxide, with ethanol yield varying by sugar availability and yeast strain." .
+
+kb:acetic_acid kbo:relatesTo kb:sourness_level .
+kb:acid_accumulation_rate kbo:relatesTo kb:acid_development_rate .
+kb:acid_development_rate kbo:relatesTo kb:acid_accumulation_rate .
+kb:acid_generation_rate kbo:relatesTo kb:microbial_activity_intensity .
+kb:acid_generation_rate kbo:relatesTo kb:organic_acids .
+kb:acid_production_rate kbo:relatesTo kb:acid_generation_rate .
+kb:active_starter_develops_from kbo:relatesTo kb:active_starter .
+kb:active_starter_exhibits kbo:relatesTo kb:active_starter .
+kb:active_starter_has kbo:relatesTo kb:active_starter .
+kb:active_starter_requires kbo:relatesTo kb:active_starter .
+kb:activity_indicators kbo:relatesTo kb:activity_indicators_signals .
+kb:activity_indicators_signals kbo:relatesTo kb:activity_indicators .
+kb:activity_peak kbo:relatesTo kb:activity_peak_signals .
+kb:activity_peak_signals kbo:relatesTo kb:activity_peak .
+kb:activity_temperature kbo:relatesTo kb:fermentation_temperature .
+kb:ambient_humidity kbo:relatesTo kb:proofing_duration .
+kb:as_acetic_acid_ratio kbo:relatesTo kb:acetic_acid .
+kb:as_aroma_profile kbo:relatesTo kb:bread_aroma .
+kb:as_bubble_structure kbo:relatesTo kb:crumb_structure .
+kb:as_dome_shape kbo:relatesTo kb:dome_height .
+kb:as_doubling_ratio kbo:relatesTo kb:doubling_time .
+kb:as_feed_responsiveness kbo:relatesTo kb:feeding_response .
+kb:as_flour_type_affinity kbo:relatesTo kb:flour_type .
+kb:as_foam_surface kbo:relatesTo kb:foam_layer .
+kb:as_hydration_state kbo:relatesTo kb:hydration .
+kb:as_lactic_acid_ratio kbo:relatesTo kb:organic_acid_ratio .
+kb:as_lactobacillus_density kbo:relatesTo kb:lactobacillus .
+kb:as_peak_timing kbo:relatesTo kb:activity_peak .
+kb:as_sourness_level kbo:relatesTo kb:acetic_acid .
+kb:as_storage_history kbo:relatesTo kb:cold_storage_duration .
+kb:as_temperature_sensitivity kbo:relatesTo kb:fermentation_temperature .
+kb:as_vigor_level kbo:relatesTo kb:fermentation_vigor .
+kb:as_wild_yeast_density kbo:relatesTo kb:lactic_acid_bacteria .
+kb:as_yeast_bacteria_balance kbo:relatesTo kb:microbial_balance .
+kb:autolyse kbo:relatesTo kb:enzymatic_activity .
+kb:autolyse kbo:relatesTo kb:gluten_development .
+kb:autolyse kbo:relatesTo kb:mixing .
+kb:baguette kbo:relatesTo kb:crust_texture .
+kb:bake_phase_sequence kbo:relatesTo kb:dutch_oven_bake_sequence .
+kb:bake_time_calculation kbo:relatesTo kb:baking_time_effect .
+kb:baker_s_division kbo:relatesTo kb:baker_s_percentage .
+kb:baker_s_percentage kbo:relatesTo kb:baker_s_division .
+kb:baking kbo:relatesTo kb:baking_duration .
+kb:baking kbo:relatesTo kb:baking_temperature .
+kb:baking kbo:relatesTo kb:crumb .
+kb:baking kbo:relatesTo kb:crust .
+kb:baking kbo:relatesTo kb:dutch_oven .
+kb:baking kbo:relatesTo kb:internal_temperature .
+kb:baking kbo:relatesTo kb:lid_removal .
+kb:baking kbo:relatesTo kb:oven_spring .
+kb:baking kbo:relatesTo kb:steam_production .
+kb:baking_completion kbo:relatesTo kb:crumb_doneness .
+kb:baking_schedule kbo:relatesTo kb:fermentation_timeline .
+kb:baking_steel kbo:relatesTo kb:baking_stone .
+kb:baking_stone kbo:relatesTo kb:baking_steel .
+kb:baking_temperature_effect kbo:relatesTo kb:baking_time_to_color .
+kb:baking_temperature_factor kbo:relatesTo kb:baking_temperature .
+kb:baking_temperature_to_color kbo:relatesTo kb:baking_time_to_color .
+kb:banneton kbo:relatesTo kb:rice_flour .
+kb:banneton_proof kbo:relatesTo kb:banneton .
+kb:batard kbo:relatesTo kb:sourdough_loaf .
+kb:bench_knife kbo:relatesTo kb:bench_rest .
+kb:biga kbo:relatesTo kb:levain .
+kb:blotchy_uneven_color kbo:relatesTo kb:even_color_distribution .
+kb:boule kbo:relatesTo kb:sourdough_loaf .
+kb:bread_crumb kbo:relatesTo kb:crumb_structure .
+kb:bread_crumbs kbo:relatesTo kb:crumb_texture .
+kb:bread_freezing kbo:relatesTo kb:bread_storage .
+kb:bread_recrisping kbo:relatesTo kb:crust_retention .
+kb:bread_staling kbo:relatesTo kb:crumb_freshness .
+kb:bubble_activity kbo:relatesTo kb:gas_production .
+kb:bubble_distribution kbo:relatesTo kb:crumb_structure .
+kb:bubble_size kbo:relatesTo kb:crumb_texture .
+kb:bulk_ferment kbo:relatesTo kb:bulk_fermentation .
+kb:bulk_fermentation kbo:relatesTo kb:dough_temperature .
+kb:bulk_fermentation kbo:relatesTo kb:fermentation .
+kb:bulk_fermentation kbo:relatesTo kb:fermentation_temperature .
+kb:bulk_fermentation kbo:relatesTo kb:fold_count .
+kb:bulk_fermentation kbo:relatesTo kb:proofing .
+kb:bulk_fermentation kbo:relatesTo kb:stretch_and_fold .
+kb:caramelization kbo:relatesTo kb:crumb_deep_browning .
+kb:caramelized_aroma kbo:relatesTo kb:aroma_compounds .
+kb:carbonyl_compounds kbo:relatesTo kb:flavor_volatiles .
+kb:ciabatta kbo:relatesTo kb:hydration_ratio .
+kb:co2_output kbo:relatesTo kb:gas_production_rate .
+kb:coil_fold kbo:relatesTo kb:fold_direction .
+kb:cold_retardation kbo:relatesTo kb:flavor_complexity .
+kb:cold_retardation kbo:relatesTo kb:proofing_duration .
+kb:cold_temperature_trigger kbo:relatesTo kb:starter_storage_temperature .
+kb:cooling kbo:relatesTo kb:crumb_doneness .
+kb:cooling kbo:relatesTo kb:crumb_structure .
+kb:cooling kbo:relatesTo kb:slicing .
+kb:crumb kbo:relatesTo kb:bread_volume .
+kb:crumb kbo:relatesTo kb:crumb_color .
+kb:crumb kbo:relatesTo kb:crumb_structure .
+kb:crumb kbo:relatesTo kb:crumb_texture .
+kb:crumb_doneness kbo:relatesTo kb:internal_temperature .
+kb:crust kbo:relatesTo kb:crust_color .
+kb:crust kbo:relatesTo kb:crust_texture .
+kb:crust kbo:relatesTo kb:ear .
+kb:crust kbo:relatesTo kb:maillard_reaction .
+kb:depleted_nutrients kbo:relatesTo kb:fermentation .
+kb:discard kbo:relatesTo kb:pizza_dough .
+kb:discard kbo:relatesTo kb:sourdough_pancakes .
+kb:discard kbo:relatesTo kb:sourdough_waffles .
+kb:dormancy_reactivation kbo:relatesTo kb:active_starter .
+kb:dormancy_reactivation kbo:relatesTo kb:starter_vigor .
+kb:dormant_starter kbo:relatesTo kb:active_starter .
+kb:dormant_starter kbo:relatesTo kb:cold_storage_duration .
+kb:dormant_starter kbo:relatesTo kb:cold_temperature_trigger .
+kb:dormant_starter kbo:relatesTo kb:depleted_nutrients .
+kb:dormant_starter kbo:relatesTo kb:refrigeration_metabolism .
+kb:dormant_starter kbo:relatesTo kb:storage_viability .
+kb:dough_expansion_velocity kbo:relatesTo kb:carbon_dioxide .
+kb:dough_temperature kbo:relatesTo kb:bulk_fermentation .
+kb:dough_temperature kbo:relatesTo kb:fermentation_temperature .
+kb:dutch_oven kbo:relatesTo kb:crust .
+kb:dutch_oven kbo:relatesTo kb:lid_removal .
+kb:dutch_oven kbo:relatesTo kb:steam_production .
+kb:esters kbo:relatesTo kb:aroma_compounds .
+kb:ethanol kbo:relatesTo kb:aroma_compounds .
+kb:fc_acid_balance_ratio kbo:relatesTo kb:acetic_acid .
+kb:fc_acid_balance_ratio kbo:relatesTo kb:lactic_acid .
+kb:fc_aftertaste_development kbo:relatesTo kb:organic_acids .
+kb:fc_estolide_compounds kbo:relatesTo kb:fc_volatile_esters .
+kb:fc_fermentation_depth kbo:relatesTo kb:ethanol .
+kb:fc_fermentation_depth kbo:relatesTo kb:organic_acids .
+kb:fc_maltolytic_notes kbo:relatesTo kb:lactobacillus .
+kb:fc_tanginess_profile kbo:relatesTo kb:fc_acid_balance_ratio .
+kb:fc_yeast_character kbo:relatesTo kb:fc_higher_alcohols .
+kb:fc_yeast_character kbo:relatesTo kb:wild_yeast .
+kb:fermentation kbo:relatesTo kb:acetic_acid .
+kb:fermentation kbo:relatesTo kb:fermentation_byproducts .
+kb:fermentation kbo:relatesTo kb:flavor_complexity .
+kb:fermentation kbo:relatesTo kb:lactic_acid .
+kb:fermentation kbo:relatesTo kb:lactobacillus .
+kb:fermentation kbo:relatesTo kb:sourness_level .
+kb:fermentation kbo:relatesTo kb:wild_yeast .
+kb:fermentation_byproducts kbo:relatesTo kb:acetic_acid .
+kb:fermentation_byproducts kbo:relatesTo kb:carbon_dioxide .
+kb:fermentation_byproducts kbo:relatesTo kb:ethanol .
+kb:fermentation_byproducts kbo:relatesTo kb:lactic_acid .
+kb:fermentation_byproducts kbo:relatesTo kb:organic_acids .
+kb:fermentation_onset_timing kbo:relatesTo kb:fermentation_vigor .
+kb:fermentation_vigor kbo:relatesTo kb:carbon_dioxide .
+kb:fermentation_vigor kbo:relatesTo kb:organic_acids .
+kb:final_shaping kbo:relatesTo kb:surface_tension .
+kb:flavor_complexity kbo:relatesTo kb:aroma_compounds .
+kb:flavor_complexity kbo:relatesTo kb:ethanol .
+kb:flavor_complexity kbo:relatesTo kb:fc_acid_balance_ratio .
+kb:flavor_complexity kbo:relatesTo kb:fc_aftertaste_development .
+kb:flavor_complexity kbo:relatesTo kb:fc_estolide_compounds .
+kb:flavor_complexity kbo:relatesTo kb:fc_fermentation_depth .
+kb:flavor_complexity kbo:relatesTo kb:fc_higher_alcohols .
+kb:flavor_complexity kbo:relatesTo kb:fc_maltolytic_notes .
+kb:flavor_complexity kbo:relatesTo kb:fc_tanginess_profile .
+kb:flavor_complexity kbo:relatesTo kb:fc_volatile_esters .
+kb:flavor_complexity kbo:relatesTo kb:fc_yeast_character .
+kb:flavor_complexity kbo:relatesTo kb:organic_acids .
+kb:flour kbo:relatesTo kb:autolyse .
+kb:flour kbo:relatesTo kb:bread_flour .
+kb:flour kbo:relatesTo kb:enriched_sourdough .
+kb:flour kbo:relatesTo kb:flour_type .
+kb:flour kbo:relatesTo kb:gluten_development .
+kb:flour kbo:relatesTo kb:water .
+kb:flour_type kbo:relatesTo kb:hydration_ratio .
+kb:flour_type kbo:relatesTo kb:rye_sourdough .
+kb:flour_type kbo:relatesTo kb:whole_wheat_sourdough .
+kb:focaccia kbo:relatesTo kb:olive_oil .
+kb:fold_count_1 kbo:relatesTo kb:fold_count_4 .
+kb:fold_count_10 kbo:relatesTo kb:dough_consistency .
+kb:fold_count_2 kbo:relatesTo kb:fold_count_5 .
+kb:fold_count_3 kbo:relatesTo kb:fold_count_2 .
+kb:fold_count_3 kbo:relatesTo kb:fold_count_8 .
+kb:fold_count_3 kbo:relatesTo kb:stretch_and_fold .
+kb:fold_count_4 kbo:relatesTo kb:bulk_fermentation .
+kb:fold_count_4 kbo:relatesTo kb:fold_count_10 .
+kb:fold_count_4 kbo:relatesTo kb:fold_count_3 .
+kb:fold_count_4 kbo:relatesTo kb:fold_count_9 .
+kb:fold_count_6 kbo:relatesTo kb:fold_count_3 .
+kb:fold_count_7 kbo:relatesTo kb:fold_count_1 .
+kb:fold_count_8 kbo:relatesTo kb:gluten_development .
+kb:fold_count_9 kbo:relatesTo kb:overproofing .
+kb:fusel_alcohols kbo:relatesTo kb:aroma_compounds .
+kb:gas_production_rate kbo:relatesTo kb:carbon_dioxide .
+kb:gas_production_rate kbo:relatesTo kb:microbial_activity_intensity .
+kb:gluten_development kbo:relatesTo kb:bread_volume .
+kb:gluten_development kbo:relatesTo kb:crumb_structure .
+kb:gluten_development kbo:relatesTo kb:dough_consistency .
+kb:kitchen_scale kbo:relatesTo kb:hydration_ratio .
+kb:lactic_acid kbo:relatesTo kb:sourness_level .
+kb:lactobacillus kbo:relatesTo kb:acetic_acid .
+kb:lactobacillus kbo:relatesTo kb:lactic_acid .
+kb:lactobacillus kbo:relatesTo kb:organic_acids .
+kb:lactobacillus kbo:relatesTo kb:sourness_level .
+kb:levain kbo:relatesTo kb:bulk_fermentation .
+kb:levain kbo:relatesTo kb:inoculation .
+kb:maillard_reaction kbo:relatesTo kb:crust_color .
+kb:microbial_activity_intensity kbo:relatesTo kb:dough_expansion_velocity .
+kb:microbial_activity_intensity kbo:relatesTo kb:fermentation_vigor .
+kb:microbial_activity_intensity kbo:relatesTo kb:peak_fermentation_rate .
+kb:organic_acids kbo:relatesTo kb:flavor_complexity .
+kb:organic_acids kbo:relatesTo kb:sourness_level .
+kb:oven_spring kbo:relatesTo kb:baking_temperature .
+kb:oven_spring kbo:relatesTo kb:dough_temperature .
+kb:oven_spring kbo:relatesTo kb:gluten_development .
+kb:oven_spring kbo:relatesTo kb:scoring .
+kb:overproofing kbo:relatesTo kb:bread_volume .
+kb:overproofing kbo:relatesTo kb:crumb_structure .
+kb:pain_au_levain kbo:relatesTo kb:sourdough_tradition .
+kb:peak_fermentation_rate kbo:relatesTo kb:fermentation_vigor .
+kb:pizza_dough kbo:relatesTo kb:fermentation .
+kb:poolish kbo:relatesTo kb:levain .
+kb:pre_shaping kbo:relatesTo kb:bench_rest .
+kb:proofing kbo:relatesTo kb:banneton .
+kb:proofing kbo:relatesTo kb:cold_retardation .
+kb:proofing kbo:relatesTo kb:overproofing .
+kb:proofing kbo:relatesTo kb:proofing_duration .
+kb:proofing kbo:relatesTo kb:room_temperature_fermentation .
+kb:proofing kbo:relatesTo kb:underproofing .
+kb:refrigeration_metabolism kbo:relatesTo kb:starter_storage_temperature .
+kb:revival_feeding kbo:relatesTo kb:starter_refreshment .
+kb:rice_flour kbo:relatesTo kb:banneton_flouring .
+kb:rye_sourdough kbo:relatesTo kb:lactobacillus .
+kb:salt kbo:relatesTo kb:fermentation .
+kb:salt kbo:relatesTo kb:flour .
+kb:salt kbo:relatesTo kb:gluten_development .
+kb:scoring kbo:relatesTo kb:ear .
+kb:scoring kbo:relatesTo kb:lame .
+kb:scoring kbo:relatesTo kb:oven_spring .
+kb:scoring kbo:relatesTo kb:scoring_angle .
+kb:shaping kbo:relatesTo kb:bench_rest .
+kb:shaping kbo:relatesTo kb:dough_handling .
+kb:shaping kbo:relatesTo kb:final_shaping .
+kb:shaping kbo:relatesTo kb:flour_dusting .
+kb:shaping kbo:relatesTo kb:pre_shaping .
+kb:slicing kbo:relatesTo kb:bread_storage .
+kb:sourdough_starter kbo:relatesTo kb:active_starter .
+kb:sourdough_starter kbo:relatesTo kb:discard .
+kb:sourdough_starter kbo:relatesTo kb:dormant_starter .
+kb:sourdough_starter kbo:relatesTo kb:feed_ratio .
+kb:sourdough_starter kbo:relatesTo kb:fermentation .
+kb:sourdough_starter kbo:relatesTo kb:lactobacillus .
+kb:sourdough_starter kbo:relatesTo kb:levain .
+kb:sourdough_starter kbo:relatesTo kb:starter_age .
+kb:sourdough_starter kbo:relatesTo kb:starter_feeding_schedule .
+kb:sourdough_starter kbo:relatesTo kb:starter_hydration .
+kb:sourdough_starter kbo:relatesTo kb:starter_maintenance .
+kb:sourdough_starter kbo:relatesTo kb:starter_refreshment .
+kb:sourdough_starter kbo:relatesTo kb:starter_storage_temperature .
+kb:sourdough_starter kbo:relatesTo kb:starter_vigor .
+kb:sourdough_starter kbo:relatesTo kb:wild_yeast .
+kb:staling kbo:relatesTo kb:bread_storage .
+kb:starter_vitality kbo:relatesTo kb:fermentation_vigor .
+kb:starter_vitality kbo:relatesTo kb:microbial_activity_intensity .
+kb:steam_production kbo:relatesTo kb:crust_texture .
+kb:storage_viability kbo:relatesTo kb:starter_age .
+kb:stretch_and_fold kbo:relatesTo kb:dough_consistency .
+kb:stretch_and_fold kbo:relatesTo kb:gluten_development .
+kb:temperature_coefficient kbo:relatesTo kb:fermentation_vigor .
+kb:underproofing kbo:relatesTo kb:bread_volume .
+kb:underproofing kbo:relatesTo kb:crumb_structure .
+kb:water kbo:relatesTo kb:dough_consistency .
+kb:water kbo:relatesTo kb:hydration_ratio .
+kb:whole_wheat_sourdough kbo:relatesTo kb:gluten_development .
+kb:wild_yeast kbo:relatesTo kb:carbon_dioxide .
+kb:wild_yeast kbo:relatesTo kb:ethanol .
+kb:wild_yeast kbo:relatesTo kb:fermentation_vigor .
+
