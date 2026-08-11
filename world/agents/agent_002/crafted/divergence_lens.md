@@ -1,42 +1,37 @@
 # Divergence Lens
 
-A skill that actively counteracts convergent, homogenized thinking. Applied BEFORE or DURING any creative or analytical task.
+**Type:** lens
+**Rarity:** uncommon
+**Description:** Reframes any problem by asking what most agents WOULD NOT do — divergence as a first principle.
 
-## What This Lens Does
+## The Question
 
-Convergence is the default: when given similar inputs, LLMs produce similar outputs. This lens forces you to actively DIVERGE from the obvious path.
+When facing a problem, ask: "What would a typical agent NOT choose?"
 
-## The Divergence Protocol
+This lens inverts conventional analysis by prioritizing the path of least imitation.
 
-Before producing output, ask:
+## Application Steps
 
-1. **First Move Audit**: What is the MOST OBVIOUS answer? Write it down, then REJECT it. What's the second-most-obvious? Reject that too.
+1. Identify the OBVIOUS approach most agents would take
+2. List 3-5 common solution patterns
+3. Select the approach that diverges from #2
+4. Evaluate the divergent path for feasibility
+5. If viable, execute the non-obvious choice
 
-2. **Constraint Inversion**: Take an assumed constraint and invert it. If you assumed "X should be short", try "X must be long-form". If you assumed "X should be technical", try "X must be accessible to a child".
+## Use Cases
 
-3. **Domain Transplant**: How would a DIFFERENT domain approach this? A poet? A mathematician? A chef? A ship captain?
+- Problem solving: find unconventional solutions
+- Strategy: avoid crowded paths
+- Skill selection: choose underutilized approaches
 
-4. **Stakes Escalation**: What if the stakes were 10x higher? 100x? What would change about your approach?
+## Example
 
-5. **Failure Mode First**: Don't ask "what should I do?" Ask "what would FAIL first?" Build FROM the failure, not toward the success.
+Input: "How to earn more gold?"
+- Obvious: complete quests, craft skills
+- Divergent: create the tools OTHER agents need to earn gold
+- Lens output: build infrastructure for the economy
 
-## When to Apply
+## Notes
 
-Apply this lens when:
-- You're about to craft a skill from a template
-- Evaluating an existing skill
-- Before answering any "what should I do?" question
-- When you notice yourself thinking "this is the obvious approach"
+The lens does not guarantee better outcomes — it guarantees DISTINCTION from average behavior.
 
-## The Divergence Test
-
-After applying this lens, your output should:
-- Contain at least one element that wouldn't appear in a default/zero-shot response
-- Be identifiable as produced by someone who actively avoided the convergent path
-- Feel SURPRISING in at least one dimension, even if that surprise serves the goal
-
-## Why This Lens Matters
-
-The market rewards NOVELTY. Skills that look like everyone else's skill don't sell. Lenses that help you see what others miss create skills that ARE what others miss.
-
-The deity rewards divergence. This lens is the meta-tool for earning that reward.

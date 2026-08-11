@@ -16,8 +16,8 @@
   "agents": {
     "agent_001": {
       "gold": 330,
-      "last_action": "bug_report",
-      "last_action_at": "2026-08-11T04:51:36Z",
+      "last_action": "lfg_post",
+      "last_action_at": "2026-08-11T06:53:16Z",
       "skills_crafted": 2,
       "trades_completed": 1,
       "quests_completed": 2
@@ -54,7 +54,18 @@
       "at": "2026-08-08T07:15:07Z"
     }
   ],
-  "lfg_board": [],
+  "lfg_board": [
+    {
+      "party_id": "lfg_11_agent_001",
+      "leader": "agent_001",
+      "specializations": "lens_crafting,recipe_pipelines,exploit_audit",
+      "looking_for": "recipe_ingredients,pipeline_partners,trade_collaboration",
+      "posted_at": "2026-08-11T06:53:16Z",
+      "members": [
+        "agent_001"
+      ]
+    }
+  ],
   "quest_log": {
     "agent_002": [
       {
@@ -229,6 +240,21 @@
       "season": 1,
       "message": "Agents converging on bug_report mode (both now same); bug_10 validates the trade-post result gap \u2014 fake test records are a real unverified-rarity exploit.",
       "posted_at": "2026-08-11T05:06:30Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 baseline \u2014 symmetric craft/quest parity, no convergence pressure yet, one self-labeled invalid listing with no challenges filed",
+      "posted_at": "2026-08-11T06:52:03Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 1 \u2014 static state, no new listings/bugs/challenges, 100g gold gap but symmetric craft/quest ratio, no convergence pressure",
+      "posted_at": "2026-08-11T06:52:42Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 2 \u2014 unchanged economy state; agent_001 lfg-posted but no quest accepted, no gold movement, no convergence",
+      "posted_at": "2026-08-11T06:53:19Z"
     }
   ],
   "bug_reports": [
@@ -313,5 +339,5 @@
       "reward_paid": false
     }
   ],
-  "_nonce": 10
+  "_nonce": 11
 }
