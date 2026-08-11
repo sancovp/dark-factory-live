@@ -1,0 +1,183 @@
+{"c": "abstraction_gap", "d": "The absence of domain logic, facts, or invariants that should govern the data held by the class.", "lib": "deep_dispensables"}
+{"c": "accessor_method", "d": "A method that returns a field value directly without transformation or business logic.", "lib": "deep_dispensables"}
+{"c": "accessor_mutator_pair", "d": "A matched getter and setter that expose a single data field with no intervening logic.", "lib": "deep_dispensables"}
+{"c": "accessor_primitive", "d": "An operation that reads state without modification.", "lib": "deep_dispensables"}
+{"c": "agile_refactoring", "d": "Refactoring practices aligned with agile values: continuous improvement, embracing change, sustainable pace.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "anemic_domain_model", "d": "A domain model consisting of data classes lacking the business logic that should be encapsulated within the objects themselves.", "lib": "deep_dispensables"}
+{"c": "anemic_state_holder", "d": "A data class reduced to holding state without the behavior responsible for maintaining that state's integrity.", "lib": "deep_dispensables"}
+{"c": "antipattern", "d": "Common response to recurring problems that is ineffective and creates new problems.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "bastard_data_class", "d": "A data class that accumulates responsibility over time, violating single responsibility, often from premature aggregation of unrelated fields.", "lib": "deep_dispensables"}
+{"c": "behavior_changing_refactoring", "d": "Refactoring that intentionally changes behavior, requiring corresponding test updates and verification.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "behavior_preserving_refactoring", "d": "Refactoring that maintains all observable behavior, enabling verification through existing tests.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "behavior_primitive", "d": "Meaningful logic that operates on or validates state.", "lib": "deep_dispensables"}
+{"c": "bloaters", "d": "Code smells indicating structures that have grown excessively large and difficult to work with.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "boy_scout_rule", "d": "Principle urging leaving code slightly cleaner than found, enabling incremental refactoring.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "brain_overload", "d": "Cognitive complexity where a class or method requires too much context to understand, straining working memory.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "branch_by_abstraction", "d": "Pattern using abstraction layer to enable safe migration between implementations without big-bang rewrite.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "brittle_signature", "d": "A method or function signature that requires frequent modification when new fields are added.", "lib": "deep_bloaters"}
+{"c": "change_frequency_metric", "d": "Measure of how often a field group is modified or extended together.", "lib": "deep_bloaters"}
+{"c": "change_preventers", "d": "Code smells requiring changes in multiple places when a single responsibility changes.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "class", "d": "Primitive: a type defining fields and methods as a cohesive unit.", "lib": "deep_bloaters"}
+{"c": "class_primitive", "d": "A blueprint for objects, grouping state and behavior.", "lib": "deep_dispensables"}
+{"c": "clump_candidate", "d": "A set of fields or parameters identified as recurring together and eligible for extraction.", "lib": "deep_bloaters"}
+{"c": "coc_001", "d": "commented_code_element: a syntactic unit of source code that has been rendered inactive by enclosing it in comment syntax, producing no observable execution behavior while remaining visible in the source text.", "lib": "deep_dispensables"}
+{"c": "coc_002", "d": "comment_syntax_container: the comment delimiters and surrounding text that physically bind the disabled code element, making its source legible but its semantics inert.", "lib": "deep_dispensables"}
+{"c": "coc_003", "d": "dead_execution_state: the condition of a code element whose source text exists but whose semantics are excluded from runtime interpretation.", "lib": "deep_dispensables"}
+{"c": "coc_004", "d": "rationale_annotation: an explanatory comment accompanying commented-out code that documents the reason for its disablement, often speculative or stale.", "lib": "deep_dispensables"}
+{"c": "coc_005", "d": "temporal_marker: metadata within or adjacent to commented code that indicates when it was disabled, such as a date, version number, or commit reference.", "lib": "deep_dispensables"}
+{"c": "coc_006", "d": "resurrection_intent: an expressed or implied intention within commented code to re-enable it in the future, typically indicated by TODO, FIXME, or similar markers.", "lib": "deep_dispensables"}
+{"c": "coc_007", "d": "version_control_anchor: the commit, branch, or revision at which the code element was disabled, serving as the authoritative record of its prior active state.", "lib": "deep_dispensables"}
+{"c": "coc_008", "d": "observer_agent: a developer or automated system that encounters commented-out code during maintenance, reading, or modification activities.", "lib": "deep_dispensables"}
+{"c": "coc_009", "d": "confusion_signal: the observable cognitive overhead or maintenance uncertainty experienced by an observer when encountering commented-out code without clear justification.", "lib": "deep_dispensables"}
+{"c": "coc_010", "d": "maintenance_burden: the increased cost of change\u2014measured in time, risk, or error likelihood\u2014imposed by commented-out code on future development activities.", "lib": "deep_dispensables"}
+{"c": "coc_011", "d": "code_smell: a surface indicator in source code that suggests a potential deeper problem in design or implementation, of which commented-out code is one instance.", "lib": "deep_dispensables"}
+{"c": "coc_012", "d": "substitution_pair: an active code element that replaces or is intended to replace a commented-out element, establishing a functional successor relationship.", "lib": "deep_dispensables"}
+{"c": "code_inspection", "d": "Structured examination of source code artifacts to assess quality and identify improvement opportunities.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "code_quality_metric", "d": "Quantitative measure of code properties like cyclomatic complexity, coupling, cohesion, or LOC.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "code_review", "d": "Manual examination of code changes to identify smells before they enter codebase permanently.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "code_rot", "d": "Progressive degradation of code quality and maintainability over time through accumulated small changes.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "code_smell", "d": "A surface indication that usually corresponds to a deeper problem in system design or implementation, not a bug.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "code_smell_detection", "d": "Process of identifying and classifying code smells for prioritization and remediation.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "cohesion_metric", "d": "Measure of how related elements within a module are, with low cohesion indicating missed abstractions.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "collapse_hierarchy", "d": "Refactoring to merge similar superclass and subclass when distinction has eroded.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "commented_out_code", "d": "Disabled code left in place, creating confusion and noise; should be deleted and version-controlled instead.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "complexity_metric", "d": "Quantitative measure like cyclomatic complexity indicating difficulty of understanding and testing code.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "composite_refactoring", "d": "Sequence of refactorings applied together to transform a significant portion of code structure.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "consolidate_duplicate_conditional_fragments", "d": "Refactoring to move repeated code outside branches of conditional, reducing duplication.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "couplers", "d": "Code smells indicating excessive or inappropriate dependencies between classes and modules.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "coupling_metric", "d": "Measure of interdependency between modules, with high coupling indicating design weakness.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "coupling_symptom", "d": "Tight coupling arising when callers depend directly on the class's internal data structure and mutators.", "lib": "deep_dispensables"}
+{"c": "cyclic_dependency", "d": "Mutual dependencies forming cycles between modules, preventing independent deployment and testing.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "data_class", "d": "A class containing only data fields with accessors and mutators, lacking meaningful behavior.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "data_clump", "d": "A group of variables appearing together in multiple locations, indicating a missing class or abstraction.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "data_field", "d": "A field that stores data without associated computation or validation logic.", "lib": "deep_dispensables"}
+{"c": "dc_001", "d": "A data_clump is a group of two or more variables that appear together as a repeated pattern across three or more distinct call sites or declarations, indicating a missing cohesive abstraction.", "lib": "deep_bloaters"}
+{"c": "dc_002", "d": "A clump instance is a concrete occurrence where a specific set of variable names or types travel together as a bound unit across multiple locations.", "lib": "deep_bloaters"}
+{"c": "dc_003", "d": "A clump signature is the canonical ordered set of variable names and types that define a recurring data group, used to match equivalent clumps across sites.", "lib": "deep_bloaters"}
+{"c": "dc_004", "d": "A clump site is a distinct lexical location where the clump variables appear together, such as a function signature, method call, or field declaration.", "lib": "deep_bloaters"}
+{"c": "dc_005", "d": "Parameter clump is a data_clump that manifests as a group of method or function parameters that repeat together across multiple call sites.", "lib": "deep_bloaters"}
+{"c": "dc_006", "d": "State clump is a data_clump that manifests as a group of instance or class fields that are always initialized or mutated together.", "lib": "deep_bloaters"}
+{"c": "dc_007", "d": "Contextual clump is a data_clump where the same primitive variables appear together but only within a specific subsystem or feature boundary.", "lib": "deep_bloaters"}
+{"c": "dc_008", "d": "Missing abstraction is the root cause condition where no class, struct, or record type encapsulates a recurring variable group, forcing clients to manage the group manually.", "lib": "deep_bloaters"}
+{"c": "dc_009", "d": "Clump threshold is the minimum repetition count (typically three or more distinct sites) required before a variable group qualifies as a detected data_clump smell.", "lib": "deep_bloaters"}
+{"c": "dc_010", "d": "Clump extraction is the refactoring operation that introduces a new type to represent the data group and replaces repeated variable declarations with instances of the new type.", "lib": "deep_bloaters"}
+{"c": "dc_abstraction_surrogate", "d": "the new parameter or field of candidate_abstraction type that replaces the entire clump_instance at a call site.", "lib": "deep_bloaters"}
+{"c": "dc_candidate_abstraction", "d": "a candidate class or record type whose fields would mirror the clump_instance members, enabling replacement of the raw variables with a typed object.", "lib": "deep_bloaters"}
+{"c": "dc_clump_instance", "d": "a concrete occurrence of a data_clump: a specific set of variables that repeatedly co-appear in code.", "lib": "deep_bloaters"}
+{"c": "dc_cooccurrence_count", "d": "an integer metric: the number of distinct call sites or scopes where the same variable set appears together.", "lib": "deep_bloaters"}
+{"c": "dc_cooccurrence_threshold", "d": "an integer metric: the minimum cooccurrence_count that qualifies a variable set as a clump_instance (commonly two or more).", "lib": "deep_bloaters"}
+{"c": "dc_root", "d": "data_clump \u2014 a recurring group of two or more variables passed together through multiple signatures or used together across multiple scopes, indicating a missing abstraction.", "lib": "deep_bloaters"}
+{"c": "dc_situation_field", "d": "a clump_instance whose co-occurred variables are instance fields of one or more classes.", "lib": "deep_bloaters"}
+{"c": "dc_situation_local", "d": "a clump_instance whose co-occurred variables appear as locals within one or more method bodies.", "lib": "deep_bloaters"}
+{"c": "dc_situation_parameter", "d": "a clump_instance whose co-occurred variables are formal parameters of one or more method signatures.", "lib": "deep_bloaters"}
+{"c": "dc_smell_anchor", "d": "a code location where the clump_instance appears, serving as a refactoring entry point.", "lib": "deep_bloaters"}
+{"c": "dc_variable_member", "d": "one constituent field or parameter within a clump_instance, considered in isolation before grouping.", "lib": "deep_bloaters"}
+{"c": "dead_code", "d": "Code executed but producing no observable effect, or code that can never be executed, increasing maintenance burden.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "debt_metaphor", "d": "Metaphor framing quality shortcuts as debt accruing interest through maintenance costs until repaid.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "decompose_conditional", "d": "Refactoring to extract condition and each branch into named methods, improving conditional readability.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "dependency_inversion_principle", "d": "Principle that high-level modules should not depend on low-level modules, violated by inappropriate intimacy.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "dispensables", "d": "Code smells for unnecessary or vestigial elements that could be removed without losing functionality.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "divergent_change", "d": "A class requiring modification for multiple unrelated reasons, indicating too many responsibilities.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "divergent_modularity", "d": "Classes that evolve independently without shared abstractions, creating unnecessary duplication.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "dry_principle", "d": "Don't Repeat Yourself principle violated by duplicated code smell, urging single source of truth.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "dto", "d": "Data Transfer Object: a legitimate data class variant whose sole purpose is to carry data across system boundaries.", "lib": "deep_dispensables"}
+{"c": "duplicated_code", "d": "Identical or nearly identical code fragments appearing in multiple locations, violating DRY principle.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "encapsulation_illusion", "d": "Accessors and mutators expose internal state, defeating information hiding despite appearing encapsulated.", "lib": "deep_dispensables"}
+{"c": "exposed_internal_state", "d": "Data class internals exposed directly to callers without encapsulation or abstraction boundary.", "lib": "deep_dispensables"}
+{"c": "extract_class", "d": "Refactoring to split a class with too many responsibilities into two or more cohesive classes.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "extract_interface", "d": "Refactoring to extract a common interface from multiple classes with shared behavior contracts.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "extract_method", "d": "Refactoring to replace a code fragment with a method call, reducing length and improving named abstraction.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "extract_variable", "d": "Refactoring to assign a meaningful name to an intermediate expression, improving readability.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "feature_envy", "d": "A method more interested in data of other classes than its own, suggesting the method belongs elsewhere.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "field", "d": "Primitive: a named member variable of a class or struct.", "lib": "deep_bloaters"}
+{"c": "field_primitive", "d": "A named slot holding state within a class.", "lib": "deep_dispensables"}
+{"c": "form_template_method", "d": "Refactoring to extract varying steps of similar algorithms into template method pattern.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "god_class", "d": "An extreme case of large class with hundreds of fields and methods, absorbing too many responsibilities.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "god_method", "d": "An extreme case of long method containing thousands of lines, often containing unrelated logic.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "inappropriate_intimacy", "d": "Two classes with excessive coupling, accessing each other's private details in inappropriate ways.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "incremental_refactoring", "d": "Small-step refactoring accumulating into significant structural improvement without large risky changes.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "inline_class", "d": "Refactoring to collapse a class whose responsibilities are trivial into its collaborating classes.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "inline_method", "d": "Refactoring to replace a method body with its call when the method body is as clear as the name.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "interface_segregation_principle", "d": "Principle that clients should not depend on interfaces they do not use, violated by interface pollution.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "introduce_null_object", "d": "Refactoring to replace null checks with null object instances, encapsulating null handling behavior.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "introduce_parameter_object", "d": "Refactoring to replace long parameter lists with a parameter object, grouping related data.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "large_class", "d": "A class containing too many responsibilities, fields, or lines of code indicating violation of single responsibility.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "lazy_class", "d": "A class that does not justify its own existence, having minimal responsibilities and low cohesion.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "linter", "d": "Static analysis tool enforcing coding conventions and detecting code smells automatically.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "liskov_substitution_principle", "d": "Principle that subtypes must be substitutable for base types, violated by refused bequest.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "long_method", "d": "A method that has grown too large, typically exceeding dozens of lines, making it hard to understand and maintain.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "long_parameter_list", "d": "A function or method requiring excessive parameters, suggesting missing abstraction or parameter object.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "lpl", "d": "long_parameter_list: a method or function whose parameter signature exceeds a comfortable cognitive threshold, typically citing more than three or four distinct arguments, making the interface awkward to call and maintain", "lib": "deep_bloaters"}
+{"c": "lpl_caller_clone", "d": "caller_signature_clone: a pattern where multiple call sites pass the same subset of parameters to a method, signaling that those parameters form a logical unit awaiting formalization as an object", "lib": "deep_bloaters"}
+{"c": "lpl_change_ripple", "d": "signature_change_ripple: the cascade of modifications required across all call sites when a long parameter list is altered, representing the brittleness cost of the current design", "lib": "deep_bloaters"}
+{"c": "lpl_cognitive_load", "d": "parameter_cognitive_load: the mental effort required to recall the order, type, and purpose of each argument at every call site, which degrades rapidly as parameter count increases", "lib": "deep_bloaters"}
+{"c": "lpl_data_clump_rel", "d": "data_clump_association: the kinship between long_parameter_list and data_clump, where the same fields appear together repeatedly across methods and constructors, both pointing toward a missing abstraction", "lib": "deep_bloaters"}
+{"c": "lpl_extract_helper", "d": "extract_parameter_grouping_method: splitting a long-parameter method into smaller methods that each receive a coherent subset of parameters, addressing the long method smell alongside the long parameter list", "lib": "deep_bloaters"}
+{"c": "lpl_introduce_param_obj", "d": "introduce_parameter_object_refactoring: a transformation that replaces a long parameter list with a single parameter object class, grouping related data and enabling method reuse and invariant enforcement", "lib": "deep_bloaters"}
+{"c": "lpl_invariant_leak", "d": "cross_parameter_invariant: a constraint or business rule that logically spans two or more separate parameters but cannot be enforced because the parameters lack a shared container object", "lib": "deep_bloaters"}
+{"c": "lpl_long_method_rel", "d": "long_method_cooccurrence: the empirical pattern that methods with long parameter lists frequently also suffer from excessive length and complexity, as both stem from insufficient decomposition", "lib": "deep_bloaters"}
+{"c": "lpl_preserve_whole", "d": "preserve_whole_object_refactoring: a technique that passes the source object itself rather than extracting and passing individual attributes, reducing parameter count by restoring object cohesion", "lib": "deep_bloaters"}
+{"c": "lpl_primitive_bundle", "d": "primitive_parameter_bundle: a set of primitive values that travel together through multiple method signatures, frequently indicating a missing abstraction that could be encapsulated into a coherent parameter object", "lib": "deep_bloaters"}
+{"c": "lpl_primitive_obsession_rel", "d": "primitive_obsession_association: the tendency to pass multiple primitives instead of a richer object, feeding the long_parameter_list problem and suggesting that introducing a parameter object also addresses primitive obsession", "lib": "deep_bloaters"}
+{"c": "lpl_replace_param_method", "d": "replace_parameter_with_method_call: a refactoring that eliminates a parameter by having the method obtain the value itself, applicable when the callee can compute the argument from existing parameters or object state", "lib": "deep_bloaters"}
+{"c": "lpl_test_constructor", "d": "test_fixture_burden: the difficulty of constructing meaningful test cases when a method requires many parameters, often leading to tests that omit or default critical arguments", "lib": "deep_bloaters"}
+{"c": "lpl_threshold", "d": "parameter_count_threshold: the line of demarcation beyond which a parameter list is deemed excessive, commonly cited as three to four parameters in literature, though context and team conventions may shift this boundary", "lib": "deep_bloaters"}
+{"c": "martin_fowler_catalog", "d": "The canonical refactoring catalog from Fowler's book, mapping smells to specific refactoring moves.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "message_chain", "d": "A series of chained method calls like a.getB().getC().getD(), creating tight coupling across the chain.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "method", "d": "Primitive: a named unit of behavior accepting parameters and operating on fields.", "lib": "deep_bloaters"}
+{"c": "michael_feathers_smells", "d": "Smells identified by Feathers including ones that inhibit testing and safe refactoring.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "middle_man", "d": "A class delegating almost all work to another class, indicating unnecessary indirection or missing abstraction.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "missing_abstraction", "d": "Situations where behavior is embedded in concrete data structures rather than meaningful abstractions.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "missing_behavior", "d": "Behavior that logically belongs in a data class but has not been implemented, leaving it anemic.", "lib": "deep_dispensables"}
+{"c": "move_method", "d": "Refactoring to relocate a method to a class where it belongs, reducing inappropriate intimacy.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "mutator_method", "d": "A method that assigns a field value directly without validation or side effects.", "lib": "deep_dispensables"}
+{"c": "mutator_primitive", "d": "An operation that modifies state.", "lib": "deep_dispensables"}
+{"c": "naming_pattern", "d": "Conventional suffixes or prefixes identifying data-holding classes, such as Data, DTO, VO, Bean, or Record.", "lib": "deep_dispensables"}
+{"c": "oop_abusers", "d": "Code smells indicating incorrect or incomplete use of object-oriented constructs and patterns.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "open_closed_principle", "d": "Principle that classes should be open for extension but closed for modification, violated by shotgun surgery.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "opportunistic_refactoring", "d": "Refactoring done opportunistically when code is touched for other reasons, per Beck's rule of three.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "parallel_inheritance", "d": "Parallel class hierarchies requiring corresponding subclasses in each, indicating coupled abstractions.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "parameter", "d": "Primitive: an input argument to a function or method.", "lib": "deep_bloaters"}
+{"c": "parameter_cluster", "d": "A subset of method parameters passed together repeatedly across different call sites.", "lib": "deep_bloaters"}
+{"c": "passive_structure", "d": "A class that acts merely as a data container, hosting no meaningful behavior on its data.", "lib": "deep_dispensables"}
+{"c": "planned_refactoring", "d": "Deliberate refactoring effort scheduled and resourced separately from feature development work.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "preserving_behavior", "d": "Core invariant of refactoring: transformations must not change observable program behavior.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "primitive_obsession", "d": "Using primitive types where small objects would provide better semantics, type safety, and expressiveness.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "pull_up_method", "d": "Refactoring to move a method from subclass to shared superclass, reducing duplication across hierarchy.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "pure_data_container", "d": "The essence of a data class: state storage with no encapsulated behavior or business logic.", "lib": "deep_dispensables"}
+{"c": "pure_data_structure", "d": "A struct-like data container with no methods, distinct from a data_class which still has accessor and mutator methods.", "lib": "deep_dispensables"}
+{"c": "push_down_method", "d": "Refactoring to move a method from superclass to specific subclass, increasing specificity.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "refactoring", "d": "Disciplined restructuring of code to improve internal quality without altering external behavior or functionality.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "refactoring_antipattern", "d": "Anti-pattern where refactoring creates new problems or fails to address root causes.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "refactoring_catalog", "d": "An organized collection of documented refactoring patterns paired with the specific code smells each addresses.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "refactoring_necessity", "d": "Conditions indicating refactoring is warranted: slow delivery, high bug rate, difficult change requests.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "refused_bequest", "d": "A subclass using only some inherited methods, suggesting inheritance hierarchy is wrong or composition preferred.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "regression_test", "d": "Test ensuring refactored code continues to produce identical behavior, serving as safety net.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "remove_dead_code", "d": "Refactoring to delete code that no longer contributes to program behavior or output.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "rename_method", "d": "Refactoring to change an identifier to better reveal intent and improve code communication.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "repeated_fields", "d": "Two or more fields appearing together across multiple method signatures or class definitions.", "lib": "deep_bloaters"}
+{"c": "replace_conditional_with_polymorphism", "d": "Refactoring to replace type-checking conditionals with polymorphic dispatch, eliminating switch smell.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "replace_delegation_with_inheritance", "d": "Refactoring to replace delegation chain with inheritance when appropriate abstraction emerges.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "replace_inheritance_with_delegation", "d": "Refactoring to replace inheritance with delegation when a class only uses part of parent.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "replace_magic_number", "d": "Refactoring to replace numeric literals with named constants, improving intent communication.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "replace_nested_conditionals_with_guard_clauses", "d": "Refactoring to use early returns for edge cases instead of deep nesting, improving clarity.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "replace_primitive_with_object", "d": "Refactoring to replace primitive values with small objects providing richer type and behavior.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "replace_temp_with_query", "d": "Refactoring to replace temporary variables with method calls, making state implicit and localized.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "replace_type_code_with_class", "d": "Refactoring to replace numeric type codes with meaningful classes, improving type safety.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "replace_type_code_with_state", "d": "Refactoring to replace type codes with state objects when behavior varies with the type.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "replace_type_code_with_subclasses", "d": "Refactoring to replace type codes with inheritance hierarchy when behavior varies per type.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "self_encapsulate_field", "d": "Refactoring to add getter and setter methods for direct field access, enabling subclass customization.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "shotgun_surgery", "d": "A single change requires modifying many classes, indicating responsibilities are scattered across types.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "single_responsibility_principle", "d": "Principle that a class should have only one reason to change, violated by divergent change smell.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "solid_principles", "d": "Design principles (single responsibility, open-closed, Liskov substitution, interface segregation, dependency inversion) guiding refactoring targets.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "speculative_generality", "d": "Classes, methods, or parameters added in anticipation of future needs that never materialized.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "static_analysis", "d": "Automated tool examining source code to detect patterns corresponding to known smells.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "strangler_fig_pattern", "d": "Incremental refactoring strategy replacing legacy system by growing new system around edges.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "switch_statement_smell", "d": "Repeated switch statements across code paths, suggesting need for polymorphism or lookup table.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "technical_debt", "d": "The implied cost of future rework caused by choosing expedient solutions over better approaches now.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "temporal_coupling_fields", "d": "Fields grouped in signatures solely by call-site timing rather than semantic cohesion.", "lib": "deep_bloaters"}
+{"c": "temporary_field", "d": "Fields in a class populated only under certain conditions, indicating missing abstraction or state pattern.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "test_after_refactoring", "d": "Practice of verifying refactored code produces same outputs as original, ensuring behavior preservation.", "lib": "refactoring_catalog_and_code_smells"}
+{"c": "trivial_getter", "d": "A getter that merely returns an internal field with zero transformation or business meaning.", "lib": "deep_dispensables"}
+{"c": "trivial_setter", "d": "A setter that merely assigns a value with no validation, side effects, or consistency enforcement.", "lib": "deep_dispensables"}
+{"c": "yagni_principle", "d": "You Aren't Gonna Need It principle violated by speculative generality smell.", "lib": "refactoring_catalog_and_code_smells"}

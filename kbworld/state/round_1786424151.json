@@ -1,0 +1,118 @@
+{
+  "subject": "refactoring catalog and code smells",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "bootstrap",
+      "doors": [
+        "bloaters",
+        "dispensables"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "bootstrap": {
+        "concepts": 101,
+        "relations": 83
+      },
+      "specialize": {
+        "basis_after": 0.0,
+        "new": [
+          [
+            "bloaters",
+            46,
+            15
+          ],
+          [
+            "dispensables",
+            36,
+            10
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {},
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 183,
+        "relations": 128,
+        "define": 0,
+        "connect": 43
+      }
+    },
+    "brain": {
+      "grew": "lpl"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/refactoring_catalog_and_code_smells",
+      "skills": 18,
+      "staff": 25
+    },
+    "observe": {
+      "findings": 5,
+      "issues": [
+        {
+          "atom": "dead_code",
+          "why": "definition claims dead code is 'executed' \u2014 dead code is unreachable, never runs; conflates with 'ineffective code' (executed but useless)",
+          "price": 3,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/59"
+        },
+        {
+          "atom": "lpl_extract_helper",
+          "why": "describes splitting INTO smaller methods, but that doesn't reduce call-site complexity \u2014 callers still pass all args; it only restructures internals",
+          "price": 1,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/60"
+        },
+        {
+          "atom": "lpl_caller_clone",
+          "why": "the described pattern IS data_clump at the callee, not a distinct caller-side smell; the name and framing don't match the phenomenon",
+          "price": 1,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/61"
+        },
+        {
+          "atom": "lpl_cognitive_load",
+          "why": "covers only recall of existing args but misses the prior problem: users can't determine valid argument values without deep knowledge of the method's contract",
+          "price": 1,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/62"
+        },
+        {
+          "atom": "lazy_class",
+          "why": "calls a class 'not justifying its own existence' yet allows minimal cohesive responsibilities \u2014 a class with one clear single-responsibility purpose IS justified regardless of size",
+          "price": 1,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/63"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/refactoring_catalog_and_code_smells",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/refactoring_catalog_and_code_smells/skills/using-refactoring-catalog-and-code-smells/SKILL.md",
+      "plugin": "refactoring-catalog-and-code-smells-module",
+      "library_skills": 22
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "183c/128r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 0
+      },
+      "after": {
+        "define": 0,
+        "connect": 43
+      }
+    },
+    "basis": 0.0,
+    "secs": 338.9
+  }
+}

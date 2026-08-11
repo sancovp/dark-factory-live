@@ -1,0 +1,204 @@
+{
+  "skilltree": {
+    "name": "understand-refactoring catalog and code smells",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-refactoring catalog and code smells",
+    "description": "the refactoring catalog and code smells library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-deep_bloaters",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-deep_bloaters",
+        "description": "the deep_bloaters subdomain of refactoring catalog and code smells (46 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-lpl",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-lpl",
+            "description": "long_parameter_list: a method or function whose parameter signature exceeds a comfortable cognitive threshold,",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-lpl_primitive_bundle",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-lpl_primitive_bundle",
+            "description": "primitive_parameter_bundle: a set of primitive values that travel together through multiple method signatures,",
+            "coord": "0.1.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-lpl_introduce_param_obj",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-lpl_introduce_param_obj",
+            "description": "introduce_parameter_object_refactoring: a transformation that replaces a long parameter list with a single par",
+            "coord": "0.1.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dc_001",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-dc_001",
+            "description": "A data_clump is a group of two or more variables that appear together as a repeated pattern across three or mo",
+            "coord": "0.1.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-change_frequency_metric",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-change_frequency_metric",
+            "description": "Measure of how often a field group is modified or extended together.",
+            "coord": "0.1.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-class",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-class",
+            "description": "Primitive: a type defining fields and methods as a cohesive unit.",
+            "coord": "0.1.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_dispensables",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-deep_dispensables",
+        "description": "the deep_dispensables subdomain of refactoring catalog and code smells (36 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-coc_001",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-coc_001",
+            "description": "commented_code_element: a syntactic unit of source code that has been rendered inactive by enclosing it in com",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-anemic_domain_model",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-anemic_domain_model",
+            "description": "A domain model consisting of data classes lacking the business logic that should be encapsulated within the ob",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-coc_009",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-coc_009",
+            "description": "confusion_signal: the observable cognitive overhead or maintenance uncertainty experienced by an observer when",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-trivial_getter",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-trivial_getter",
+            "description": "A getter that merely returns an internal field with zero transformation or business meaning.",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-coc_002",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-coc_002",
+            "description": "comment_syntax_container: the comment delimiters and surrounding text that physically bind the disabled code e",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-coc_003",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-coc_003",
+            "description": "dead_execution_state: the condition of a code element whose source text exists but whose semantics are exclude",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-refactoring_catalog_and_code_smells",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-refactoring_catalog_and_code_smells",
+        "description": "the refactoring_catalog_and_code_smells subdomain of refactoring catalog and code smells (101 concepts)",
+        "coord": "0.3",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-bloaters",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-bloaters",
+            "description": "Code smells indicating structures that have grown excessively large and difficult to work with.",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-primitive_obsession",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-primitive_obsession",
+            "description": "Using primitive types where small objects would provide better semantics, type safety, and expressiveness.",
+            "coord": "0.3.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-refused_bequest",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-refused_bequest",
+            "description": "A subclass using only some inherited methods, suggesting inheritance hierarchy is wrong or composition preferr",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dispensables",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-dispensables",
+            "description": "Code smells for unnecessary or vestigial elements that could be removed without losing functionality.",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-couplers",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-couplers",
+            "description": "Code smells indicating excessive or inappropriate dependencies between classes and modules.",
+            "coord": "0.3.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-brain_overload",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_refactoring_catalog_and_code_smells/understand-brain_overload",
+            "description": "Cognitive complexity where a class or method requires too much context to understand, straining working memory",
+            "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

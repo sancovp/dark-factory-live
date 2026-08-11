@@ -1,0 +1,14 @@
+{
+  "name": "refactoring-catalog-and-code-smells-module",
+  "version": "0.1.0",
+  "description": "refactoring catalog and code smells \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 183 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "knowledge-base",
+    "neurosymbolic",
+    "refactoring-catalog-and-code-smells"
+  ]
+}
