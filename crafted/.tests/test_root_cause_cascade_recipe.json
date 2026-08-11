@@ -1,0 +1,9 @@
+{
+  "test_id": "test_root_cause_cascade_recipe",
+  "skill_path": "crafted/root_cause_cascade_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-11T07:00:00Z",
+  "input": "Symptom: 'Code review takes too long'",
+  "output_summary": "Phase 1 (Causation Lens): Generated hypotheses - large PRs, unclear requirements, reviewer bottleneck. Phase 2 (Second-Order): Traced each chain: large PRs → fast growth → no code ownership. Phase 3: Convergence found at 'no team ownership boundaries'. Phase 4: Flagged as systemic - needs structural change, not individual fixes. Output: 3 causal chains, 1 convergence point, actionable recommendation: implement CODEOWNERS + PR size limits.",
+  "test_notes": "Recipe successfully composes causation_lens + second_order_lens into a 4-phase root cause analysis. Both component lenses were essential per quality gates. Emergent capability: neither lens alone would have traced through to structural ownership issues."
+}
