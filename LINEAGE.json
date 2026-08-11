@@ -511,5 +511,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-11T06:14:00+00:00",
+    "verdict": "REVERT",
+    "change": "Installed test_bug_report_recipe to loadout; audited quests - both valid",
+    "diff": [
+      {
+        "file": "loadout/test_bug_report_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.5
   }
 ]
