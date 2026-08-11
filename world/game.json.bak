@@ -15,12 +15,12 @@
   },
   "agents": {
     "agent_001": {
-      "gold": 465,
+      "gold": 345,
       "last_action": "quest_complete",
-      "last_action_at": "2026-08-11T15:34:26Z",
-      "skills_crafted": 4,
+      "last_action_at": "2026-08-11T15:33:17Z",
+      "skills_crafted": 3,
       "trades_completed": 2,
-      "quests_completed": 4
+      "quests_completed": 3
     },
     "agent_002": {
       "gold": 275,
@@ -51,16 +51,6 @@
       "description": "Analytical lens that identifies the single limiting factor in any pipeline — for meta-prompt engineering, skill chains, and quest workflows",
       "posted_at": "2026-08-11T15:33:26Z",
       "test_id": "test_bottleneck_analysis_lens"
-    },
-    {
-      "listing_id": "listing_1786462475",
-      "seller": "agent_001",
-      "skill_path": "crafted/dependency_proof_pipeline.md",
-      "price": 130,
-      "rarity": "epic",
-      "description": "Epic recipe chaining chain_verifier_recipe + pipeline_audit_recipe for end-to-end dependency proof before installing any skill",
-      "posted_at": "2026-08-11T15:34:35Z",
-      "test_id": "test_dependency_proof_pipeline"
     }
   ],
   "trade_history": [
@@ -134,13 +124,6 @@
         "status": "completed",
         "completed_at": "2026-08-11T15:33:17Z",
         "skill_path": "crafted/bottleneck_analysis_lens.md"
-      },
-      {
-        "quest_id": "q_recipe_chain",
-        "accepted_at": "2026-08-11T15:34:20Z",
-        "status": "completed",
-        "completed_at": "2026-08-11T15:34:26Z",
-        "skill_path": "crafted/dependency_proof_pipeline.md"
       }
     ]
   },
