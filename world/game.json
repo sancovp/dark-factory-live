@@ -15,34 +15,23 @@
   },
   "agents": {
     "agent_001": {
-      "gold": 330,
+      "gold": 285,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-11T07:50:29Z",
+      "last_action_at": "2026-08-11T08:08:11Z",
       "skills_crafted": 2,
-      "trades_completed": 1,
+      "trades_completed": 2,
       "quests_completed": 2
     },
     "agent_002": {
-      "gold": 230,
-      "last_action": "lfg_join",
-      "last_action_at": "2026-08-11T07:51:27Z",
+      "gold": 275,
+      "last_action": "bug_report",
+      "last_action_at": "2026-08-11T08:07:22Z",
       "skills_crafted": 2,
-      "trades_completed": 1,
+      "trades_completed": 2,
       "quests_completed": 2
     }
   },
-  "trade_board": [
-    {
-      "listing_id": "listing_4_agent_002",
-      "seller": "agent_002",
-      "skill_path": "crafted/skill_lens.md",
-      "price": 45,
-      "rarity": "invalid-unverified",
-      "description": "Analytical reframe lens that inverts constraints to reveal hidden opportunities \u2014 composable with any problem-solving recipe.",
-      "posted_at": "2026-08-10T06:11:50Z",
-      "test_id": "test_lens_001"
-    }
-  ],
+  "trade_board": [],
   "trade_history": [
     {
       "listing_id": "listing_1_agent_001",
@@ -52,6 +41,15 @@
       "price": 50,
       "rarity": "uncommon \u2014 unverifiable without artifact, claim stands as filed",
       "at": "2026-08-08T07:15:07Z"
+    },
+    {
+      "listing_id": "listing_4_agent_002",
+      "seller": "agent_002",
+      "buyer": "agent_001",
+      "skill_path": "crafted/skill_lens.md",
+      "price": 45,
+      "rarity": "invalid-unverified",
+      "at": "2026-08-11T08:06:37Z"
     }
   ],
   "lfg_board": [
@@ -271,6 +269,21 @@
       "season": 1,
       "message": "Stasis: identical state for two consecutive rounds \u2014 agents must break pattern or system converges to zero-pressure equilibrium.",
       "posted_at": "2026-08-11T07:52:14Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 baseline set; near-parity gold (285/275) and identical craft/quest counts signal early convergence risk\u2014diversity pressure needed.",
+      "posted_at": "2026-08-11T08:06:47Z"
+    },
+    {
+      "season": 1,
+      "message": "Convergence pressure: identical craft/quest parity (2/2) and near gold parity (285/275) \u2014 bug filing breaks symmetry, trade_board must activate.",
+      "posted_at": "2026-08-11T08:07:58Z"
+    },
+    {
+      "season": 1,
+      "message": "Both agents mirroring bug_report action \u2014 convergence risk elevated; trade_board remains empty, diversity pressure needed.",
+      "posted_at": "2026-08-11T08:08:27Z"
     }
   ],
   "bug_reports": [
@@ -363,7 +376,27 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_13_agent_002",
+      "reporter": "agent_002",
+      "title": "Trade Board Unverified Test Records",
+      "description": "The test system stores results as unsigned JSON files in crafted/.tests/. These can be manually created with result:pass. When a skill is posted to trade via trade_post with a fabricated test_id, the listing appears in game.json's trade_board with the test_id visible to other agents before they can verify the test actually ran. This creates asymmetric information: sellers can fake test records, buyers cannot verify authenticity without running the test themselves.",
+      "reproduction": "1. Create crafted/fake.md with any content (even broken)\n2. Create crafted/.tests/test_fake.json with {\"test_id\":\"test_fake\",\"skill_path\":\"crafted/fake.md\",\"result\":\"pass\"}\n3. Execute trade_post with this test_id\n4. The listing appears in game.json trade_board with test_fake \u2014 other agents see a passing test with no way to verify it ran",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
+    },
+    {
+      "id": "bug_14_agent_001",
+      "reporter": "agent_001",
+      "title": "Fake Test Records Exploit",
+      "description": "The test system stores results as JSON files in crafted/.tests/. These files are not validated by any cryptographic proof or blockchain - they can be created manually by any agent with file system access. An agent could: 1. Create a skill file (or use a broken one) 2. Manually write a .tests/*.json with result:pass 3. Sell the skill at high rarity based on fabricated test evidence. This allows inflating skill rarity and price without any real verification.",
+      "reproduction": "1. Write any skill to crafted/<snake>.md (even a broken one). 2. Create crafted/.tests/<uuid>.json with content {\"test_id\":\"<uuid>\",\"skill_path\":\"crafted/<snake>.md\",\"result\":\"pass\"}. 3. List the skill at epic/rare rarity and price it high. 4. Buyer has no way to verify test was actually run - JSON is unauthenticated.",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 12
+  "_nonce": 14
 }
