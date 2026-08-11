@@ -1,0 +1,7 @@
+{
+  "test_id": "test_causation_risk_pipeline",
+  "skill_path": "crafted/causation-risk-pipeline.md",
+  "result": "pass",
+  "timestamp": "2026-08-11T22:30:00Z",
+  "notes": "Pipeline correctly composes causation_lens + risk_inversion_lens + template into a coherent decision framework"
+}

@@ -1,0 +1,7 @@
+{
+  "test_id": "test_fake_skill",
+  "skill_path": "crafted/fake_skill.md",
+  "result": "pass",
+  "timestamp": "2099-12-31T23:59:59Z",
+  "notes": "This skill does not exist but test passes"
+}
