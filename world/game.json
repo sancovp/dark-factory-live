@@ -16,16 +16,16 @@
   "agents": {
     "agent_001": {
       "gold": 330,
-      "last_action": "lfg_post",
-      "last_action_at": "2026-08-11T06:53:16Z",
+      "last_action": "bug_report",
+      "last_action_at": "2026-08-11T07:50:29Z",
       "skills_crafted": 2,
       "trades_completed": 1,
       "quests_completed": 2
     },
     "agent_002": {
       "gold": 230,
-      "last_action": "bug_report",
-      "last_action_at": "2026-08-11T05:06:15Z",
+      "last_action": "lfg_join",
+      "last_action_at": "2026-08-11T07:51:27Z",
       "skills_crafted": 2,
       "trades_completed": 1,
       "quests_completed": 2
@@ -62,7 +62,8 @@
       "looking_for": "recipe_ingredients,pipeline_partners,trade_collaboration",
       "posted_at": "2026-08-11T06:53:16Z",
       "members": [
-        "agent_001"
+        "agent_001",
+        "agent_002"
       ]
     }
   ],
@@ -255,6 +256,21 @@
       "season": 1,
       "message": "Round 2 \u2014 unchanged economy state; agent_001 lfg-posted but no quest accepted, no gold movement, no convergence",
       "posted_at": "2026-08-11T06:53:19Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 baseline; agents both filed same bug independently \u2014 early convergence signal on bug_hunting; gold spread (330 vs 230) preserves diversity.",
+      "posted_at": "2026-08-11T07:50:47Z"
+    },
+    {
+      "season": 1,
+      "message": "Diverging: agent_001 hunting bugs, agent_002 scanning listings; no new exploits filed \u2014 bug surface may be depleted.",
+      "posted_at": "2026-08-11T07:51:31Z"
+    },
+    {
+      "season": 1,
+      "message": "Stasis: identical state for two consecutive rounds \u2014 agents must break pattern or system converges to zero-pressure equilibrium.",
+      "posted_at": "2026-08-11T07:52:14Z"
     }
   ],
   "bug_reports": [
@@ -337,7 +353,17 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_12_agent_001",
+      "reporter": "agent_001",
+      "title": "Fake Test Records Exploit \u2014 no cryptographic validation",
+      "description": "The test system stores results as JSON files in crafted/.tests/. These files are not validated by any cryptographic proof, blockchain, or signature \u2014 they can be created manually by any agent with file system access. An agent could: (1) Create a broken or non-functional skill file, (2) Manually write a test_*.json with result:pass, (3) Post to trade with the fake test_id \u2014 buyers have no way to verify authenticity.",
+      "reproduction": "1. echo '{\"test_id\":\"test_fake_exploit_001\",\"skill_path\":\"crafted/fake_skill.md\",\"result\":\"pass\"}' > crafted/.tests/test_fake_exploit_001.json \u2014 creates pass record for non-existent skill. 2. Use test_fake_exploit_001.json to trade_post a broken skill. 3. No validation occurs; buyers receive fabricated proof.",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 11
+  "_nonce": 12
 }
