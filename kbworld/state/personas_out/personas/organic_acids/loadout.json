@@ -1,6 +1,6 @@
 {
   "region": "organic_acids",
-  "call_number": "deep_fermentation.organic_acids : sourdough_baking(5)",
+  "call_number": "deep_fermentation.organic_acids : sourdough_baking(5), deep_lactobacillus(2)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 19
+  "cone_size": 44
 }

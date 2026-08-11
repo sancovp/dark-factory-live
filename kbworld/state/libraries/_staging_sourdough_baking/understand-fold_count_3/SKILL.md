@@ -23,4 +23,4 @@ Invoke this skill to understand `fold_count_3` down to its primitives. The RELAT
 `fold_count_4`, `fold_count_6`
 
 ---
-*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (546 concepts / 365 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

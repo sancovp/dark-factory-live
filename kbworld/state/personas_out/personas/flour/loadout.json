@@ -1,6 +1,6 @@
 {
   "region": "flour",
-  "call_number": "sourdough_baking.flour : deep_fermentation(14)",
+  "call_number": "sourdough_baking.flour : deep_fermentation(25), deep_lactobacillus(2)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 34
+  "cone_size": 59
 }

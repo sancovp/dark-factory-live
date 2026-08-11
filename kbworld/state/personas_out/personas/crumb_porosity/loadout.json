@@ -1,0 +1,13 @@
+{
+  "region": "crumb_porosity",
+  "call_number": "?.crumb_porosity : deep_fermentation(1)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}

@@ -11,7 +11,7 @@
         "name": "understand-core",
         "kind": "skill",
         "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-core",
-        "description": "the core subdomain of sourdough baking (8 concepts)",
+        "description": "the core subdomain of sourdough baking (25 concepts)",
         "coord": "0.1",
         "frameworks": [],
         "children": [
@@ -25,11 +25,38 @@
             "children": []
           },
           {
+            "name": "understand-estolide_compounds",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-estolide_compounds",
+            "description": "Aroma-active ester compounds produced by microbial esterification during fermentation, including banana, pinea",
+            "coord": "0.1.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
             "name": "understand-crumb_texture",
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-crumb_texture",
             "description": "The physical feel and structural quality of bread's interior ranging from fine and tender to coarse and chewy ",
-            "coord": "0.1.2",
+            "coord": "0.1.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-crumb_porosity",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-crumb_porosity",
+            "description": "The size, distribution, and uniformity of gas pockets in bread crumb created by carbon_dioxide expansion withi",
+            "coord": "0.1.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-estolide_precursor_acids",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-estolide_precursor_acids",
+            "description": "Short-chain organic_acids including acetic acid, lactic acid, and butyric acid derived from lactobacillus meta",
+            "coord": "0.1.5",
             "frameworks": [],
             "children": []
           },
@@ -38,33 +65,6 @@
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-crust_color",
             "description": "The brown coloration of bread's outer layer produced by Maillard reaction and caramelization during baking, ra",
-            "coord": "0.1.3",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-banneton_flouring",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-banneton_flouring",
-            "description": "Dusting the interior of a proofing basket with flour before placing shaped dough, preventing sticking and crea",
-            "coord": "0.1.4",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-dough_handling",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-dough_handling",
-            "description": "Techniques for manipulating dough during shaping including stretching, folding, and rolling that develop glute",
-            "coord": "0.1.5",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-mixing",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-mixing",
-            "description": "Combining flour, water, and other ingredients to form a cohesive dough, developing initial gluten structure th",
             "coord": "0.1.6",
             "frameworks": [],
             "children": []
@@ -89,46 +89,46 @@
             "children": []
           },
           {
-            "name": "understand-bake_phase_sequence",
+            "name": "understand-cooling_duration",
             "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-bake_phase_sequence",
-            "description": "The ordered progression of baking stages: preheat \u2192 initial_bake_phase \u2192 final_phase \u2192 cooling_duration",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-cooling_duration",
+            "description": "Post-bake resting period of 1-2 hours where internal temperature stabilizes and crumb texture sets before slic",
             "coord": "0.2.2",
             "frameworks": [],
             "children": []
           },
           {
-            "name": "understand-bake_time_calculation",
+            "name": "understand-cream",
             "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-bake_time_calculation",
-            "description": "Estimation method factoring bread_volume, dough_temperature at bake, and baking_temperature to predict appropr",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-cream",
+            "description": "Warm light-toned crumb signaling balanced fermentation and standard baking; the target color for well-develope",
             "coord": "0.2.3",
             "frameworks": [],
             "children": []
           },
           {
-            "name": "understand-baking_completion",
+            "name": "understand-crumb_color",
             "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-baking_completion",
-            "description": "Moment when bread reaches target internal_temperature (195-210F); the primary indicator that baking_duration i",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-crumb_color",
+            "description": "The visual shade of the bread interior ranging from pale ivory to deep golden depending on fermentation length",
             "coord": "0.2.4",
             "frameworks": [],
             "children": []
           },
           {
-            "name": "understand-baking_duration",
+            "name": "understand-dutch_oven_bake_sequence",
             "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-baking_duration",
-            "description": "The total time bread spends in the oven during baking, typically 20-50 minutes depending on loaf size and oven",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-dutch_oven_bake_sequence",
+            "description": "Baking protocol for covered dutch oven comprising initial lid-on phase for steam retention followed by lid_rem",
             "coord": "0.2.5",
             "frameworks": [],
             "children": []
           },
           {
-            "name": "understand-baking_temperature_effect",
+            "name": "understand-bake_phase_sequence",
             "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-baking_temperature_effect",
-            "description": "How higher oven temperatures accelerate Maillard reaction and caramelization affecting crumb shade.",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-bake_phase_sequence",
+            "description": "The ordered progression of baking stages: preheat \u2192 initial_bake_phase \u2192 final_phase \u2192 cooling_duration",
             "coord": "0.2.6",
             "frameworks": [],
             "children": []
@@ -171,11 +171,20 @@
             "children": []
           },
           {
+            "name": "understand-fold_count_10",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-fold_count_10",
+            "description": "Excessive number of folds causing dough exhaustion, overdevelopment, or tearing that degrades crumb_structure ",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
             "name": "understand-fold_count_2",
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-fold_count_2",
             "description": "The elapsed time interval between consecutive stretch and fold repetitions, typically 30 to 60 minutes, balanc",
-            "coord": "0.3.4",
+            "coord": "0.3.5",
             "frameworks": [],
             "children": []
           },
@@ -184,15 +193,6 @@
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-fold_count_8",
             "description": "The degree to which the number of folds produces visible and tactile improvements in dough_strength and gluten",
-            "coord": "0.3.5",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-fold_count_9",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-fold_count_9",
-            "description": "Insufficient number of folds resulting in weak gluten network, poor dough_consistency, and reduced bread_volum",
             "coord": "0.3.6",
             "frameworks": [],
             "children": []
@@ -203,42 +203,42 @@
         "name": "understand-deep_fermentation",
         "kind": "skill",
         "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-deep_fermentation",
-        "description": "the deep_fermentation subdomain of sourdough baking (78 concepts)",
+        "description": "the deep_fermentation subdomain of sourdough baking (107 concepts)",
         "coord": "0.4",
         "frameworks": [],
         "children": [
-          {
-            "name": "understand-fermentation_vigor",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-fermentation_vigor",
-            "description": "Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas produ",
-            "coord": "0.4.1",
-            "frameworks": [],
-            "children": []
-          },
           {
             "name": "understand-organic_acids",
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-organic_acids",
             "description": "Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine s",
+            "coord": "0.4.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-fermentation_vigor",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-fermentation_vigor",
+            "description": "Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas produ",
             "coord": "0.4.2",
             "frameworks": [],
             "children": []
           },
           {
-            "name": "understand-fermentation_byproducts",
+            "name": "understand-acid_persistence_capacity",
             "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-fermentation_byproducts",
-            "description": "Compounds produced by microbial fermentation including carbon dioxide for dough rise, lactic and acetic acids ",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-acid_persistence_capacity",
+            "description": "The ability of organic_acids to remain perceptibly present on the palate after swallowing, determined by acid ",
             "coord": "0.4.3",
             "frameworks": [],
             "children": []
           },
           {
-            "name": "understand-microbial_activity_intensity",
+            "name": "understand-aroma_retention_capacity",
             "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-microbial_activity_intensity",
-            "description": "Combined metabolic activity level of wild_yeast and lactobacillus populations during fermentation, representin",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-aroma_retention_capacity",
+            "description": "The extent to which aroma_compounds become trapped within the bread crumb structure during baking and cooling,",
             "coord": "0.4.4",
             "frameworks": [],
             "children": []
@@ -253,11 +253,75 @@
             "children": []
           },
           {
-            "name": "understand-carbon_dioxide",
+            "name": "understand-ethanol",
             "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-carbon_dioxide",
-            "description": "Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough br",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-ethanol",
+            "description": "Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to ",
             "coord": "0.4.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_lactobacillus",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-deep_lactobacillus",
+        "description": "the deep_lactobacillus subdomain of sourdough baking (35 concepts)",
+        "coord": "0.5",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-estolide_contribution_to_complexity",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-estolide_contribution_to_complexity",
+            "description": "The specific manner by which estolide_compounds enhance sourdough flavor complexity through fruity floral and ",
+            "coord": "0.5.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-estolide_impact_on_lingering_sensation",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-estolide_impact_on_lingering_sensation",
+            "description": "The way estolide compounds persist on palate receptors prolonging fruity floral aftertaste sensations beyond i",
+            "coord": "0.5.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-estolide_banana_compound_contribution",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-estolide_banana_compound_contribution",
+            "description": "Isoamyl acetate and related estolide esters producing characteristic banana notes that add tropical fruit dime",
+            "coord": "0.5.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-estolide_retention_in_crumb_matrix",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-estolide_retention_in_crumb_matrix",
+            "description": "The physical trapping of estolide esters within bread crumb structure enabling gradual volatilization during m",
+            "coord": "0.5.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-estolide_temporal_aftertaste_role",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-estolide_temporal_aftertaste_role",
+            "description": "The position and shape estolide compounds occupy in the temporal_aftertaste_curve contributing fruity peaks an",
+            "coord": "0.5.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-estolide_organic_acid_synergy",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-estolide_organic_acid_synergy",
+            "description": "The interaction between estolide aromatic compounds and organic_acids producing combined effect greater than s",
+            "coord": "0.5.6",
             "frameworks": [],
             "children": []
           }
@@ -268,51 +332,24 @@
         "kind": "skill",
         "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-deep_sourdough_starter",
         "description": "the deep_sourdough_starter subdomain of sourdough baking (71 concepts)",
-        "coord": "0.5",
+        "coord": "0.6",
         "frameworks": [],
         "children": [
-          {
-            "name": "understand-activity_peak",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-activity_peak",
-            "description": "Maximum fermentation intensity of active_starter occurring at the apex of rise before CO2 production begins to",
-            "coord": "0.5.1",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-activity_indicators",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-activity_indicators",
-            "description": "Observable visual markers on active_starter including bubble size, distribution, surface foam, dome height, an",
-            "coord": "0.5.2",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-activity_indicators_signals",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-activity_indicators_signals",
-            "description": "active_starter exhibits bubble_activity and foam_surface and doubling_time indicating peak_fermentation_vigor.",
-            "coord": "0.5.3",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-activity_peak_signals",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-activity_peak_signals",
-            "description": "activity_peak marks ideal moment for inoculation and levain creation using active_starter.",
-            "coord": "0.5.4",
-            "frameworks": [],
-            "children": []
-          },
           {
             "name": "understand-cold_storage_duration",
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-cold_storage_duration",
             "description": "Time period a starter spends refrigerated during dormancy, during which yeast and bacterial metabolism slow si",
-            "coord": "0.5.5",
+            "coord": "0.6.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-activity_peak",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-activity_peak",
+            "description": "Maximum fermentation intensity of active_starter occurring at the apex of rise before CO2 production begins to",
+            "coord": "0.6.2",
             "frameworks": [],
             "children": []
           },
@@ -321,7 +358,34 @@
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-cold_temperature_trigger",
             "description": "Temperature threshold causing metabolic slowdown that initiates dormant state in starter culture.",
-            "coord": "0.5.6",
+            "coord": "0.6.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-activity_indicators",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-activity_indicators",
+            "description": "Observable visual markers on active_starter including bubble size, distribution, surface foam, dome height, an",
+            "coord": "0.6.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-activity_indicators_signals",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-activity_indicators_signals",
+            "description": "active_starter exhibits bubble_activity and foam_surface and doubling_time indicating peak_fermentation_vigor.",
+            "coord": "0.6.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-activity_peak_signals",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-activity_peak_signals",
+            "description": "activity_peak marks ideal moment for inoculation and levain creation using active_starter.",
+            "coord": "0.6.6",
             "frameworks": [],
             "children": []
           }
@@ -332,7 +396,7 @@
         "kind": "skill",
         "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-sourdough_baking",
         "description": "the sourdough_baking subdomain of sourdough baking (180 concepts)",
-        "coord": "0.6",
+        "coord": "0.7",
         "frameworks": [],
         "children": [
           {
@@ -340,7 +404,7 @@
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-sourdough_starter",
             "description": "A fermented mixture of flour and water containing wild yeast and lactic acid bacteria that serves as the natur",
-            "coord": "0.6.1",
+            "coord": "0.7.1",
             "frameworks": [],
             "children": []
           },
@@ -349,34 +413,7 @@
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-fermentation",
             "description": "Metabolic process where microbes convert sugars to CO2 for rise and acids for sour flavor",
-            "coord": "0.6.2",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-bulk_fermentation",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-bulk_fermentation",
-            "description": "Primary fermentation phase where the mixed dough rests and ferments before shaping; time and temperature contr",
-            "coord": "0.6.3",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-gluten_development",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-gluten_development",
-            "description": "Process of hydrating and aligning gluten proteins through mixing, folding, or autolyse to create strong extens",
-            "coord": "0.6.4",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-baking",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-baking",
-            "description": "Cooking dough in hot oven transforming it into bread through heat and chemical reactions",
-            "coord": "0.6.5",
+            "coord": "0.7.2",
             "frameworks": [],
             "children": []
           },
@@ -385,7 +422,34 @@
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-lactobacillus",
             "description": "Bacterial strains producing lactic and acetic acids that create sourdough tanginess",
-            "coord": "0.6.6",
+            "coord": "0.7.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-acetic_acid",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-acetic_acid",
+            "description": "Sharp sour acid produced by lactobacillus in presence of oxygen creating tangy flavor",
+            "coord": "0.7.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-bulk_fermentation",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-bulk_fermentation",
+            "description": "Primary fermentation phase where the mixed dough rests and ferments before shaping; time and temperature contr",
+            "coord": "0.7.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-gluten_development",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_sourdough_baking/understand-gluten_development",
+            "description": "Process of hydrating and aligning gluten proteins through mixing, folding, or autolyse to create strong extens",
+            "coord": "0.7.6",
             "frameworks": [],
             "children": []
           }

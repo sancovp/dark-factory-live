@@ -1,0 +1,13 @@
+{
+  "region": "estolide_precursor_acids",
+  "call_number": "?.estolide_precursor_acids : deep_fermentation(4), sourdough_baking(3)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 8
+}

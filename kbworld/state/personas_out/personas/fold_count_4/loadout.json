@@ -1,6 +1,6 @@
 {
   "region": "fold_count_4",
-  "call_number": "deep_bulk_fermentation.fold_count_4 : sourdough_baking(23), deep_fermentation(15)",
+  "call_number": "deep_bulk_fermentation.fold_count_4 : deep_fermentation(26), sourdough_baking(23), deep_lactobacillus(2)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 46
+  "cone_size": 71
 }

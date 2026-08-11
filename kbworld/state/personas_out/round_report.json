@@ -3,51 +3,31 @@
     {
       "region": "fermentation",
       "targets": [
-        "flavor_complexity",
-        "ethanol"
+        "fc_aftertaste_development",
+        "fc_estolide_compounds"
       ],
       "phases": [
         "soup",
         "soup"
       ],
       "new_concepts": 29,
-      "new_relations": 22
+      "new_relations": 57
     },
     {
-      "region": "bulk_fermentation",
+      "region": "lactobacillus",
       "targets": [
-        "fold_count",
-        "room_temperature_fermentation"
+        "estolide_banana_compounds",
+        "estolide_contribution_to_complexity"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 63,
-      "new_relations": 14
+      "new_concepts": 35,
+      "new_relations": 20
     }
   ],
   "basis_before": {
-    "shared_atoms": [
-      "acetic_acid",
-      "aroma_compounds",
-      "carbon_dioxide",
-      "ethanol",
-      "fermentation",
-      "fermentation_byproducts",
-      "fermentation_vigor",
-      "flavor_complexity",
-      "lactic_acid",
-      "lactobacillus",
-      "organic_acids",
-      "sourness_level",
-      "wild_yeast"
-    ],
-    "shared": 13,
-    "union": 31,
-    "overlap": 0.419
-  },
-  "basis_after": {
     "shared_atoms": [
       "acetic_acid",
       "aroma_compounds",
@@ -62,8 +42,6 @@
       "fc_tanginess_profile",
       "fc_volatile_esters",
       "fc_yeast_character",
-      "fermentation",
-      "fermentation_byproducts",
       "fermentation_vigor",
       "flavor_complexity",
       "lactic_acid",
@@ -72,8 +50,60 @@
       "sourness_level",
       "wild_yeast"
     ],
-    "shared": 22,
-    "union": 40,
-    "overlap": 0.55
+    "shared": 20,
+    "union": 22,
+    "overlap": 0.909
+  },
+  "basis_after": {
+    "shared_atoms": [
+      "acetic_acid",
+      "acid_persistence_capacity",
+      "aftertaste_intensity",
+      "aroma_compounds",
+      "aroma_retention_capacity",
+      "bitter_finish",
+      "carbon_dioxide",
+      "crumb_porosity",
+      "estolide_acid_balance_dependency",
+      "estolide_banana_compounds",
+      "estolide_compounds",
+      "estolide_contribution_to_complexity",
+      "estolide_esterification_catalysis",
+      "estolide_floral_notes",
+      "estolide_fruity_notes",
+      "estolide_impact_on_lingering_sensation",
+      "estolide_pineapple_compounds",
+      "estolide_retention_in_crumb",
+      "estolide_role_in_aftertaste_curve",
+      "ethanol",
+      "fc_acid_balance_ratio",
+      "fc_aftertaste_development",
+      "fc_estolide_compounds",
+      "fc_fermentation_depth",
+      "fc_higher_alcohols",
+      "fc_maltolytic_notes",
+      "fc_tanginess_profile",
+      "fc_volatile_esters",
+      "fc_yeast_character",
+      "fermentation_vigor",
+      "finish_quality",
+      "flavor_complexity",
+      "lactic_acid",
+      "lactobacillus",
+      "lactobacillus_derived_estolides",
+      "lingering_sensation_duration",
+      "lingering_sensation_profile",
+      "organic_acids",
+      "sour_linger",
+      "sourness_level",
+      "sweet_tail",
+      "temporal_aftertaste_curve",
+      "umami_afterglow",
+      "wild_yeast",
+      "yeast_derived_estolides"
+    ],
+    "shared": 45,
+    "union": 47,
+    "overlap": 0.957
   }
 }
