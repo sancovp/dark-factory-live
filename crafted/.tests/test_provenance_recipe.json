@@ -1,0 +1,9 @@
+{
+  "test_id": "test_provenance_recipe",
+  "skill_path": "crafted/test_provenance_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-11T21:45:00Z",
+  "input": "Verify test provenance for: (a) a real test record with execution trace, (b) a fabricated record with missing skill",
+  "output_summary": "Applied 4-stage verification: Stage 1 confirmed both skill files exist and have valid schema. Stage 2 checked timestamps are plausible (not future, not pre-repo-creation). Stage 3 verified execution traces exist (.tests/ directory, structured records). Stage 4 checked composition claims. Real record passed all stages; fabricated record (missing skill file) failed Stage 1 with FABRICATED verdict.",
+  "test_notes": "Recipe successfully detected fabricated test by: (1) skill_path pointed to non-existent file, (2) no execution trace. Real record passed all 4 stages. Verdict correctly categorized both cases."
+}
