@@ -425,5 +425,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-11T05:30:42+00:00",
+    "verdict": "REVERT",
+    "change": "Installed provenance_lens.md to loadout; discovered dependency_fraud: chain_verifier_recipe.md composes missing Divergence Lens + Convergence Lens",
+    "diff": [
+      {
+        "file": "loadout/provenance_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.0
   }
 ]
