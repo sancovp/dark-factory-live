@@ -821,5 +821,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-11T21:59:44+00:00",
+    "verdict": "REVERT",
+    "change": "Installed supply_chain_lens to loadout/ and wrote supply chain analysis revealing chain_verifier_recipe is unbuildable (missing Divergence+Convergence lenses); q_forge_lens safe, q_recipe_chain blocke",
+    "diff": [
+      {
+        "file": "loadout/supply_chain_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.0
   }
 ]
