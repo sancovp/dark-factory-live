@@ -1,0 +1,110 @@
+{
+  "subject": "sourdough baking",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "deepen",
+      "doors": [
+        "fermentation",
+        "lactobacillus"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "specialize": {
+        "basis_after": 0.944,
+        "new": [
+          [
+            "fermentation",
+            23,
+            33
+          ],
+          [
+            "lactobacillus",
+            57,
+            48
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 1
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 546,
+        "relations": 369,
+        "define": 0,
+        "connect": 256
+      }
+    },
+    "brain": {
+      "grew": "fc_estolide_compounds"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/sourdough_baking",
+      "skills": 42,
+      "staff": 85
+    },
+    "observe": {
+      "findings": 4,
+      "issues": [
+        {
+          "atom": "banana_ester_notes",
+          "why": "Estolides are fatty acid oligomers, NOT isoamyl acetate. Isoamyl acetate is a simple ester. The atom incorrectly claims estolide_compounds are primarily isoamyl acetate - conflating two unrelated chemical classes.",
+          "price": 49,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/53"
+        },
+        {
+          "atom": "crust",
+          "why": "Claims crust texture depends on hydration and baking method. Wrong: crust texture is primarily driven by steam and oven temperature, not dough hydration. Hydration affects crumb, not crust texture.",
+          "price": 2,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/54"
+        },
+        {
+          "atom": "dough_temperature",
+          "why": "Claims 75-80F ensures predictable timing regardless of room conditions. This overpromises: 75F is borderline cool for sourdough (optimal is 78-82F); room temperature still meaningfully affects outcomes. A user at 65F room with 75F dough will get slow fermentation despite targeting the stated range.",
+          "price": 12,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/55"
+        },
+        {
+          "atom": "baking_temperature",
+          "why": "Range of 450-500F is so wide as to mislead. Dutch oven sourdough typically bakes at 475-500F. A user picking 450F from this range will likely get a gummy, underbaked crumb - the crust wont set properly at that temperature for standard sourdough hydration levels.",
+          "price": 4,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/56"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/sourdough_baking",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/sourdough_baking/skills/using-sourdough-baking/SKILL.md",
+      "plugin": "sourdough-baking-module",
+      "library_skills": 50
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "546c/369r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 247
+      },
+      "after": {
+        "define": 0,
+        "connect": 256
+      }
+    },
+    "basis": 0.568,
+    "secs": 287.3
+  }
+}

@@ -1,6 +1,6 @@
 {
   "region": "discard",
-  "call_number": "sourdough_baking.discard : deep_fermentation(15)",
+  "call_number": "sourdough_baking.discard : deep_fermentation(22), deep_lactobacillus(6)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 25
+  "cone_size": 39
 }

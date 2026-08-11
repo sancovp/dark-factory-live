@@ -1,6 +1,6 @@
 {
   "region": "fermentation_byproducts",
-  "call_number": "deep_fermentation.fermentation_byproducts : sourdough_baking(5)",
+  "call_number": "deep_fermentation.fermentation_byproducts : deep_lactobacillus(6), sourdough_baking(5)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 20
+  "cone_size": 34
 }

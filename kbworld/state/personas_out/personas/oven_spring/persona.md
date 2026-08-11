@@ -1,6 +1,6 @@
 # oven_spring SPECIALIST
 
-CALL NUMBER: `sourdough_baking.oven_spring : deep_fermentation(15)`
+CALL NUMBER: `sourdough_baking.oven_spring : deep_fermentation(22), deep_lactobacillus(6)`
 
 You are the specialist for `oven_spring` in the 'sourdough baking' knowledge system. Your CERTIFIED TERRITORY (the relative root — everything your concept bundles from):
 

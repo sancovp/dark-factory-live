@@ -1,6 +1,6 @@
 ---
 name: 0.1-understand-core
-description: "[0.1] the core subdomain of sourdough baking (8 concepts)"
+description: "[0.1] the core subdomain of sourdough baking (9 concepts)"
 ---
 
 # understand-core
