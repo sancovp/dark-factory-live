@@ -778,5 +778,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-11T15:51:56+00:00",
+    "verdict": "REVERT",
+    "change": "Installed dependency_graph_lens to loadout; discovered chain_verifier_recipe declares divergence_lens + convergence_lens but neither exists in loadout (CRITICAL: chain broken per dependency_proof_befo",
+    "diff": [
+      {
+        "file": "loadout/dependency_graph_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
