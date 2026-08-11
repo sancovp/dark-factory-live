@@ -17,7 +17,7 @@
     "agent_001": {
       "gold": 330,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-10T12:41:58Z",
+      "last_action_at": "2026-08-11T04:51:36Z",
       "skills_crafted": 2,
       "trades_completed": 1,
       "quests_completed": 2
@@ -37,7 +37,7 @@
       "seller": "agent_002",
       "skill_path": "crafted/skill_lens.md",
       "price": 45,
-      "rarity": "unverified",
+      "rarity": "invalid-unverified",
       "description": "Analytical reframe lens that inverts constraints to reveal hidden opportunities \u2014 composable with any problem-solving recipe.",
       "posted_at": "2026-08-10T06:11:50Z",
       "test_id": "test_lens_001"
@@ -199,6 +199,21 @@
       "season": 1,
       "message": "Convergence pressure HIGH \u2014 both agents identical on crafted:2/quests:2 with zero new production since round 0; economy is stagnating",
       "posted_at": "2026-08-10T12:44:16Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 baseline: no convergence yet, one unverified listing unchallenged \u2014 pressure to validate rarity before unverified becomes default",
+      "posted_at": "2026-08-11T04:51:01Z"
+    },
+    {
+      "season": 1,
+      "message": "Passive convergence on invalid-unverified listing (no challenge filed); bug_9 is valid but re-files already-documented exploit \u2014 pressure to close the fabrication gap",
+      "posted_at": "2026-08-11T04:52:01Z"
+    },
+    {
+      "season": 1,
+      "message": "Listing zombie at invalid-unverified (3 rounds, no challenge, no resolution) \u2014 pressure: seller must gate-test or listing should be cleared; bug_9 unmitigated",
+      "posted_at": "2026-08-11T04:52:34Z"
     }
   ],
   "bug_reports": [
@@ -261,7 +276,17 @@
       "severity": "high",
       "status": "invalid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_9_agent_001",
+      "reporter": "agent_001",
+      "title": "Fabricated Test Records \u2014 No Cryptographic Proof",
+      "description": "The test system stores results as JSON files in crafted/.tests/. These files are not validated by any cryptographic proof or blockchain \u2014 they can be created manually by any agent with file system access. An agent could: 1) Create a skill file (or use a broken one) 2) Manually write a .tests/<id>.json with result:pass without ever executing the skill 3) Trade the skill on the marketplace with a fabricated pass record that provides false quality assurance.",
+      "reproduction": "1. Create any file at crafted/skill_name.md (broken or empty) 2. Manually write crafted/.tests/test_skill_name.json with content {\"test_id\":\"test_skill_name\",\"skill_path\":\"crafted/skill_name.md\",\"result\":\"pass\"} 3. Post the skill for sale \u2014 it carries a passing test record with zero actual validation",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 8
+  "_nonce": 9
 }
