@@ -5,7 +5,7 @@ description: [0.3.3] The specific iteration number assigned to each stretch and 
 
 # understand-fold_count_1
 
-**CALL NUMBER:** `deep_bulk_fermentation.fold_count_1 : sourdough_baking(23), deep_fermentation(15)`
+**CALL NUMBER:** `deep_bulk_fermentation.fold_count_1 : sourdough_baking(23), deep_fermentation(22), deep_lactobacillus(6)`
 **DEFINITION:** The specific iteration number assigned to each stretch and fold repetition within a bulk fermentation sequence, typically numbered sequentially from 1 to total_folds.
 
 Invoke this skill to understand `fold_count_1` down to its primitives. The RELATIVE ROOT below is the least-fixed-point closure of everything it bundles from — the full import cone, grouped by the lib each prim comes from. Projected from a prover-typed KB (MAP/SWI-Prolog consistency gate): every reference below resolves.
@@ -15,6 +15,7 @@ Invoke this skill to understand `fold_count_1` down to its primitives. The RELAT
 ### from `?`
 - **flavor_complexity** (d4): The depth and nuance of sourdough taste arising from multiple organic acids, esters, and alcohols produced during extended fermentation, creating tangy and complex notes.
 - **banneton_flouring** (d6): Dusting the interior of a proofing basket with flour before placing shaped dough, preventing sticking and creating decorative flour patterns on the finished crust.
+- **fermentation_depth** (d7): The extent of sourdough fermentation progression, encompassing duration and metabolic development, where extended time enables enzymatic esterification between organic_acids and ethanol to produce fruity and floral aroma compounds.
 
 ### from `deep_bulk_fermentation`
 - **fold_count_4** (d1): The predetermined total number of stretch and fold repetitions for a given recipe or bulk fermentation, the core metric that defines fold_count itself.
@@ -40,7 +41,22 @@ Invoke this skill to understand `fold_count_1` down to its primitives. The RELAT
 - **fc_tanginess_profile** (d5): The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness
 - **fc_volatile_esters** (d5): Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes
 - **fc_yeast_character** (d5): The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation
+- **lactobacillus_esterase_activity** (d5): Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation
 - **fermentation_vigor** (d5): Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
+- **wild_yeast_esterase_activity** (d5): Enzymatic contribution of wild_yeast strains to ester synthesis, primarily through ethanol production and potential direct ester formation pathways
+- **banana_ester_notes** (d6): Estolide_compounds (primarily isoamyl acetate) producing characteristic banana aroma contributions typical in overfermented sourdough
+- **ester_contribution_to_flavor_complexity** (d6): The degree to which estolide_compounds enriches the overall sourdough flavor_complexity through combined fruity, floral, and tropical aroma notes
+- **floral_ester_notes** (d6): Estolide_compounds creating rose, violet, and blossom aromatic impressions through lightweight volatile esters in the sourdough crumb
+- **fruity_ester_notes** (d6): Estolide_compounds creating apple, pear, and tropical fruit aromatic impressions through specific ester structures in the sourdough headspace
+- **pineapple_ester_notes** (d6): Estolide_compounds (primarily ethyl butyrate) producing pineapple-like ester notes in sourdough with high fermentation_vigor
+
+### from `deep_lactobacillus`
+- **banana_ester_threshold_concentration** (d7): The minimum isoamyl_acetate concentration required for human sensory perception of banana character. Exceeded in overfermented conditions where fermentation_vigor drives excessive ester accumulation beyond normal fruity_ester_notes levels.
+- **banana_vs_fruity_ester_balance** (d7): The sensory distinction between isoamyl_acetate dominance (banana_ester_notes) versus broader fruity_ester_notes expression. At lower concentrations isoamyl acetate blends into general fruity complexity; at higher concentrations it distinctly reads as banana character.
+- **fermentation_vigor_banana_interaction** (d7): The relationship between fermentation_vigor intensity and banana_ester_notes intensity. High fermentation_vigor accelerates both wild_yeast_esterase_activity and lactobacillus_esterase_activity, driving increased isoamyl_acetate production during vigorous overfermentation.
+- **isoamyl_acetate** (d7): The primary ester compound (3-methylbutyl acetate) responsible for banana_ester_notes in sourdough. Formed through esterification between isoamyl alcohol (a higher_alcohol from wild_yeast fermentation) and acetic_acid during extended fermentation periods.
+- **overfermentation_banana_association** (d7): The established correlation between extended fermentation timing and pronounced banana_ester_notes development. Extended fermentation_depth allows progressive accumulation of isoamyl_acetate beyond typical fruity_ester_notes concentrations, creating overripe banana rather than fresh fruit impressions.
+- **isoamyl_alcohol** (d8): A branched-chain higher_alcohol byproduct of wild_yeast amino acid metabolism that serves as the alcohol substrate for isoamyl_acetate synthesis. Contributes nutty and fusel-like character alongside its ester derivatives.
 
 ### from `sourdough_baking`
 - **bulk_fermentation** (d2): Primary fermentation phase where the mixed dough rests and ferments before shaping; time and temperature control gas production and flavor development.
@@ -71,6 +87,6 @@ Invoke this skill to understand `fold_count_1` down to its primitives. The RELAT
 `fold_count_7`
 
 ---
-*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (546 concepts / 369 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
 
 _(leaf — this is an actual skill.)_

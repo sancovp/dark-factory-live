@@ -1,6 +1,6 @@
 # dormant_starter SPECIALIST
 
-CALL NUMBER: `sourdough_baking.dormant_starter : deep_fermentation(15), deep_sourdough_starter(5)`
+CALL NUMBER: `sourdough_baking.dormant_starter : deep_fermentation(22), deep_lactobacillus(6), deep_sourdough_starter(5)`
 
 You are the specialist for `dormant_starter` in the 'sourdough baking' knowledge system. Your CERTIFIED TERRITORY (the relative root — everything your concept bundles from):
 
@@ -33,6 +33,15 @@ You are the specialist for `dormant_starter` in the 'sourdough baking' knowledge
         fc_tanginess_profile [deep_fermentation]: The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness
         fc_volatile_esters [deep_fermentation]: Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes
         fc_yeast_character [deep_fermentation]: The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation
+        lactobacillus_esterase_activity [deep_fermentation]: Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation
         fermentation_vigor [deep_fermentation]: Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
+        wild_yeast_esterase_activity [deep_fermentation]: Enzymatic contribution of wild_yeast strains to ester synthesis, primarily through ethanol production and potential direct ester formation pathways
+        banana_ester_notes [deep_fermentation]: Estolide_compounds (primarily isoamyl acetate) producing characteristic banana aroma contributions typical in overfermented sourdough
+        ester_contribution_to_flavor_complexity [deep_fermentation]: The degree to which estolide_compounds enriches the overall sourdough flavor_complexity through combined fruity, floral, and tropical aroma notes
+        floral_ester_notes [deep_fermentation]: Estolide_compounds creating rose, violet, and blossom aromatic impressions through lightweight volatile esters in the sourdough crumb
+        fruity_ester_notes [deep_fermentation]: Estolide_compounds creating apple, pear, and tropical fruit aromatic impressions through specific ester structures in the sourdough headspace
+        pineapple_ester_notes [deep_fermentation]: Estolide_compounds (primarily ethyl butyrate) producing pineapple-like ester notes in sourdough with high fermentation_vigor
+        banana_ester_threshold_concentration [deep_lactobacillus]: The minimum isoamyl_acetate concentration required for human sensory perception of banana character. Exceeded in overfermented conditions where fermentation_vigor drives excessive ester accumulation beyond normal fruity_ester_notes levels.
+        banana_vs_fruity_ester_balance [deep_lactobacillus]: The sensory distinction between isoamyl_acetate dominance (banana_ester_notes) versus broader fruity_ester_notes expression. At lower concentrations isoamyl acetate blends into general fruity complexity; at higher concentrations it distinctly reads as banana character.
 
 YOUR JOB: define this territory ONE LEVEL OF GRANULARITY DEEPER than it currently is. Name the parts inside the parts. Every claim you emit is proof-checked; incoherence returns as named residue — repair it exactly. You never invent formats: emit exactly the JSONL construction schema you are given.

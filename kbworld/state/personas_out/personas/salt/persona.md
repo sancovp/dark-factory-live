@@ -1,6 +1,6 @@
 # salt SPECIALIST
 
-CALL NUMBER: `sourdough_baking.salt : deep_fermentation(15)`
+CALL NUMBER: `sourdough_baking.salt : deep_fermentation(22), deep_lactobacillus(6)`
 
 You are the specialist for `salt` in the 'sourdough baking' knowledge system. Your CERTIFIED TERRITORY (the relative root — everything your concept bundles from):
 
@@ -35,7 +35,9 @@ You are the specialist for `salt` in the 'sourdough baking' knowledge system. Yo
       fc_tanginess_profile [deep_fermentation]: The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness
       fc_volatile_esters [deep_fermentation]: Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes
       fc_yeast_character [deep_fermentation]: The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation
+      lactobacillus_esterase_activity [deep_fermentation]: Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation
       fermentation_vigor [deep_fermentation]: Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
+      wild_yeast_esterase_activity [deep_fermentation]: Enzymatic contribution of wild_yeast strains to ester synthesis, primarily through ethanol production and potential direct ester formation pathways
       enzymatic_activity [sourdough_baking]: Natural enzyme breakdown of starches to sugars feeding fermentation microbes
       mixing [?]: Combining flour, water, and other ingredients to form a cohesive dough, developing initial gluten structure through mechanical stirring or hand work.
       hydration_ratio [sourdough_baking]: Percentage of water relative to flour weight determining dough consistency and crumb openness

@@ -1,0 +1,13 @@
+{
+  "region": "wild_yeast_esterase_activity",
+  "call_number": "deep_fermentation.wild_yeast_esterase_activity : deep_lactobacillus(6), sourdough_baking(5)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 33
+}

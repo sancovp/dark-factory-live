@@ -20,6 +20,9 @@ kbo:explains a owl:ObjectProperty .
 kb:acetic_acid a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "acetic acid" ;
     rdfs:comment "Sharp sour acid produced by lactobacillus in presence of oxygen creating tangy flavor" .
+kb:acetic_acid_esterification a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acetic acid esterification" ;
+    rdfs:comment "Specific esterification pathway where acetic_acid serves as substrate for lactobacillus_esterase_activity, yielding acetate ester compounds including ethyl acetate that contribute fruity solvent-like aroma notes." .
 kb:acid_accumulation_rate a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "acid accumulation rate" ;
     rdfs:comment "Speed at which lactobacillus produces lactic_acid and acetic_acid during active fermentation." .
@@ -62,6 +65,9 @@ kb:activity_peak_signals a owl:NamedIndividual, kbo:Concept ;
 kb:activity_temperature a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "activity temperature" ;
     rdfs:comment "Temperature range that modulates fermentation vigor, with optimal range 24-28\u00b0C for balanced wild yeast and lactobacillus activity." .
+kb:acyltransferase_activity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acyltransferase activity" ;
+    rdfs:comment "Enzyme activity within lactobacillus_esterase_activity that transfers acyl groups between molecules, facilitating ester synthesis through alternative esterification_reaction pathways using organic_acid_substrates." .
 kb:ambient_humidity a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "ambient humidity" ;
     rdfs:comment "Environmental moisture level affecting crust drying rate and surface tension during baking and cooling." .
@@ -122,6 +128,45 @@ kb:as_wild_yeast_density a owl:NamedIndividual, kbo:Concept ;
 kb:as_yeast_bacteria_balance a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "as yeast bacteria balance" ;
     rdfs:comment "Proportional relationship between wild yeast and lactobacillus populations governing flavor and rise characteristics." .
+kb:atd_astringency_lingering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd astringency lingering" ;
+    rdfs:comment "Extended puckering and mouth-drying sensation caused by organic_acids, particularly acetic_acid, that persists as an aftereffect and signals the presence of lingering acidity in the sourdough profile." .
+kb:atd_crumb_retention_reservoir a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd crumb retention reservoir" ;
+    rdfs:comment "Porous crumb structure that acts as a storage depot for aroma_compounds and organic_acids, slowly releasing them into the oral cavity during chewing and swallowing to sustain aftertaste development over time." .
+kb:atd_fade_quality a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd fade quality" ;
+    rdfs:comment "The character of the final stage of aftertaste where sensations diminish to baseline, ranging from clean and crisp to lingering and drawn-out based on the compound retention profile and fc_acid_balance_ratio." .
+kb:atd_intensity_decay_curve a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd intensity decay curve" ;
+    rdfs:comment "The rate at which aftertaste intensity diminishes over time, shaped by the concentration and binding affinity of organic_acids to taste receptors and the evaporation kinetics of aroma_compounds from the oral cavity." .
+kb:atd_lingering_acid_perception a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd lingering acid perception" ;
+    rdfs:comment "Prolonged sour taste sensations on the palate after swallowing, driven by organic_acids (lactic_acid and acetic_acid) that resist rapid clearance and continue stimulating taste receptors beyond the initial tasting phase." .
+kb:atd_lingering_alcohol_nuances a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd lingering alcohol nuances" ;
+    rdfs:comment "Nutty, floral, and rozaceous flavor impressions from fc_higher_alcohols that remain detectable in the aftertaste, adding depth and complexity beyond the immediate tasting phase." .
+kb:atd_lingering_ester_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd lingering ester notes" ;
+    rdfs:comment "Fruity and floral flavor sensations from fc_volatile_esters and fc_estolide_compounds that persist in the aftertaste phase, contributing banana, pineapple, and floral complexity that lingers after swallowing." .
+kb:atd_mouthfeel_aftereffect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd mouthfeel aftereffect" ;
+    rdfs:comment "Tactile sensations including astringency, body, and texture impressions that persist after swallowing, influenced by organic_acid interaction with oral tissues and residual crumb particles." .
+kb:atd_palate_coating_duration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd palate coating duration" ;
+    rdfs:comment "How long organic_acids and aroma_compounds remain coating the oral mucosa and tongue after swallowing, extending flavor perception through sustained receptor exposure and gradual compound clearance." .
+kb:atd_perceptual_sequencing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd perceptual sequencing" ;
+    rdfs:comment "The temporal order in which different aftertaste components emerge and fade, beginning with initial acid sharpness, evolving through aroma release, and concluding with subtle lingering notes and the final fade." .
+kb:atd_retro_nasal_aroma_release a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd retro nasal aroma release" ;
+    rdfs:comment "Post-swallow perception of aroma_compounds rising through the nasopharynx as volatile esters and higher_alcohols evaporate from the tongue and throat, creating evolving flavor notes that complement lingering acidity." .
+kb:atd_temporal_extent a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd temporal extent" ;
+    rdfs:comment "Duration of sourdough flavor sensations that persist in the mouth after swallowing, measured in seconds to minutes and determined by organic_acid persistence and aroma_compound release rates from the crumb matrix." .
+kb:atd_volatile_release_kinetics a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atd volatile release kinetics" ;
+    rdfs:comment "The rate at which fc_volatile_esters, fc_estolide_compounds, and fc_higher_alcohols are released from the crumb retention reservoir into the mouth, governed by temperature, saliva interaction, and compound volatility." .
 kb:autolyse a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "autolyse" ;
     rdfs:comment "Initial rest period after mixing flour and water where gluten develops without kneading, improving dough extensibility and reducing mixing time." .
@@ -176,6 +221,15 @@ kb:baking_time_effect a owl:NamedIndividual, kbo:Concept ;
 kb:baking_time_to_color a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "baking time to color" ;
     rdfs:comment "Relation: longer baking duration allows more Maillard and caramelization reactions to proceed, progressively deepening crumb color from pale to golden." .
+kb:banana_ester_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "banana ester notes" ;
+    rdfs:comment "Estolide_compounds (primarily isoamyl acetate) producing characteristic banana aroma contributions typical in overfermented sourdough" .
+kb:banana_ester_threshold_concentration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "banana ester threshold concentration" ;
+    rdfs:comment "The minimum isoamyl_acetate concentration required for human sensory perception of banana character. Exceeded in overfermented conditions where fermentation_vigor drives excessive ester accumulation beyond normal fruity_ester_notes levels." .
+kb:banana_vs_fruity_ester_balance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "banana vs fruity ester balance" ;
+    rdfs:comment "The sensory distinction between isoamyl_acetate dominance (banana_ester_notes) versus broader fruity_ester_notes expression. At lower concentrations isoamyl acetate blends into general fruity complexity; at higher concentrations it distinctly reads as banana character." .
 kb:banneton a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "banneton" ;
     rdfs:comment "Proofing basket made of woven rattan that supports shaped dough during final proof and leaves characteristic flour patterns on crust." .
@@ -260,12 +314,18 @@ kb:carbon_dioxide a owl:NamedIndividual, kbo:Concept ;
 kb:carbonyl_compounds a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "carbonyl compounds" ;
     rdfs:comment "Aldehydes and ketones produced during fermentation that contribute to crust flavor and overall aroma complexity." .
+kb:carboxylesterase_activity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "carboxylesterase activity" ;
+    rdfs:comment "Specific esterase enzyme class within lactobacillus_esterase_activity that preferentially hydrolyzes and synthesizes short-chain carboxylic acid esters from organic_acid_substrates and ethanol." .
 kb:ciabatta a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "ciabatta" ;
     rdfs:comment "Italian loaf with open crumb and crisp crust using high hydration sourdough" .
 kb:co2_output a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "co2 output" ;
     rdfs:comment "Carbon dioxide gas produced by wild yeast during anaerobic fermentation of sugars in the dough; the primary driver of dough rise and open crumb structure." .
+kb:cofactor_requirements a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cofactor requirements" ;
+    rdfs:comment "Metal ions and cofactors including calcium or zinc required by some esterase enzyme variants for full lactobacillus_esterase_activity, affecting catalytic efficiency and substrate specificity." .
 kb:coil_fold a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "coil fold" ;
     rdfs:comment "Gentle folding technique used for high-hydration doughs where the dough is lifted and coiled under itself, building strength with minimal disruption." .
@@ -515,12 +575,60 @@ kb:enriched_sourdough a owl:NamedIndividual, kbo:Concept ;
 kb:enzymatic_activity a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "enzymatic activity" ;
     rdfs:comment "Natural enzyme breakdown of starches to sugars feeding fermentation microbes" .
+kb:ester_contribution_to_flavor_complexity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ester contribution to flavor complexity" ;
+    rdfs:comment "The degree to which estolide_compounds enriches the overall sourdough flavor_complexity through combined fruity, floral, and tropical aroma notes" .
+kb:ester_product_spectrum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ester product spectrum" ;
+    rdfs:comment "Array of distinct ester molecules produced by lactobacillus_esterase_activity including ethyl_lactate, ethyl_acetate, and minor estolide_compounds that collectively determine aroma_compounds profile." .
+kb:esterase_catalytic_mechanism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterase catalytic mechanism" ;
+    rdfs:comment "Biochemical process by which lactobacillus esterase enzymes lower activation energy for esterification_reaction, involving nucleophilic attack on the organic_acid carbonyl carbon by ethanol hydroxyl group." .
+kb:esterase_enzyme_variants a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterase enzyme variants" ;
+    rdfs:comment "Distinct protein forms within lactobacillus strains possessing esterase activity, including carboxylesterases, lipases, and acyltransferases with varying substrate specificities and catalytic efficiencies." .
+kb:esterase_inhibition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterase inhibition" ;
+    rdfs:comment "Reduction of lactobacillus_esterase_activity by specific compounds including heavy metals, phenolic acids, or extreme pH that denature the enzyme or block catalytic sites." .
+kb:esterase_inhibition_effects a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterase inhibition effects" ;
+    rdfs:comment "Competitive or non-competitive inhibition of lactobacillus_esterase_activity by certain compounds that reduce esterification efficiency including short-chain fatty acids and metal ions at supra-physiological concentrations" .
+kb:esterase_optimal_ph a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterase optimal ph" ;
+    rdfs:comment "Hydrogen ion concentration range where lactobacillus_esterase_activity reaches maximum catalytic efficiency, typically acidic conditions matching sourdough environment affecting esterification_reaction rates." .
+kb:esterase_optimal_temperature a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterase optimal temperature" ;
+    rdfs:comment "Thermal conditions where lactobacillus_esterase_activity peaks during fermentation, influencing ester_product formation rates and final fc_estolide_compounds concentrations in sourdough." .
+kb:esterase_ph_dependence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterase ph dependence" ;
+    rdfs:comment "pH-sensitive lactobacillus_esterase_activity with optimal range between pH 4.5 and 5.5 matching sourdough conditions where enzyme stability and catalytic efficiency are maximized for esterification reactions" .
+kb:esterase_product_formation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterase product formation" ;
+    rdfs:comment "The fc_estolide_compounds synthesized through lactobacillus_esterase_activity including fruity_ester_notes floral_ester_notes and tropical ester notes that contribute to ester_contribution_to_flavor_complexity" .
+kb:esterase_substrate_affinity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterase substrate affinity" ;
+    rdfs:comment "Binding strength between lactobacillus esterase enzyme and specific organic_acid_substrates, determining reaction preference and efficiency for different acid types in lactobacillus_esterase_activity." .
+kb:esterase_substrate_specificity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterase substrate specificity" ;
+    rdfs:comment "The range of organic_acids that specific lactobacillus_esterase_activity can accept as substrates, with some strains preferring lactic_acid-derived esters while others favor acetic_acid derivatives, determining the fc_estolide_compounds profile produced" .
+kb:esterase_thermal_kinetics a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterase thermal kinetics" ;
+    rdfs:comment "Temperature-dependent reaction rates of lactobacillus_esterase_activity with optimal activity typically between 25 and 35 degrees Celsius, where higher temperatures accelerate catalysis but may denature the enzyme" .
 kb:esterification_deep_fermentation a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "esterification deep fermentation" ;
     rdfs:comment "Chemical reaction between ethanol and organic_acids where acids bond with alcohol molecules to form esters that contribute to aroma_compounds complexity." .
+kb:esterification_reaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterification reaction" ;
+    rdfs:comment "Chemical reaction catalyzed by esterase enzymes where an organic_acid combines with ethanol to form an ester compound and water, representing the core transformation pathway within lactobacillus_esterase_activity." .
+kb:esterification_reaction_equilibrium a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "esterification reaction equilibrium" ;
+    rdfs:comment "Reversible nature of esterification_reaction where lactobacillus_esterase_activity catalyzes both forward ester synthesis and backward ester hydrolysis, determining net ester_product accumulation." .
 kb:esters a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "esters" ;
     rdfs:comment "Aromatic compounds formed from ethanol and organic_acids that contribute fruity and floral notes to sourdough flavor_complexity." .
+kb:estolide_formation_reaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "estolide formation reaction" ;
+    rdfs:comment "Chemical esterification process where organic_acids (carboxylic acids) react with ethanol to form ester bonds, releasing water as byproduct during sourdough fermentation" .
 kb:ethanol a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "ethanol" ;
     rdfs:comment "Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development." .
@@ -530,6 +638,9 @@ kb:ethanol_as_flavor_precursor_ethanol a owl:NamedIndividual, kbo:Concept ;
 kb:ethanol_concentration a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "ethanol concentration" ;
     rdfs:comment "Amount of ethanol present in dough during fermentation, varying with fermentation duration, temperature, and wild_yeast activity levels." .
+kb:ethanol_concentration_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol concentration effect" ;
+    rdfs:comment "Influence of ethanol_substrate_pool levels on lactobacillus_esterase_activity, where higher ethanol availability promotes forward esterification_reaction and greater fc_estolide_compounds accumulation." .
 kb:ethanol_concentration_ethanol a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "ethanol concentration ethanol" ;
     rdfs:comment "The amount of ethanol present in fermenting dough, varying with fermentation duration, temperature, and wild_yeast activity levels." .
@@ -548,6 +659,9 @@ kb:ethanol_evaporation_ethanol a owl:NamedIndividual, kbo:Concept ;
 kb:ethanol_interaction_with_acids_ethanol a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "ethanol interaction with acids ethanol" ;
     rdfs:comment "Chemical reaction between ethanol and organic_acids producing esters, the volatile compounds responsible for fruity and floral aroma notes." .
+kb:ethanol_precursor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol precursor" ;
+    rdfs:comment "Alcohol substrate from wild_yeast anaerobic fermentation serving as the alcohol moiety that esterifies with organic_acids to form estolide_compounds" .
 kb:ethanol_production a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "ethanol production" ;
     rdfs:comment "Biosynthesis of ethanol by wild_yeast converting sugars through glycolysis and fermentation, yielding CO2 and ethanol as primary byproducts." .
@@ -560,6 +674,12 @@ kb:ethanol_solubility a owl:NamedIndividual, kbo:Concept ;
 kb:ethanol_sourdough_baking a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "ethanol sourdough baking" ;
     rdfs:comment "Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development." .
+kb:ethanol_substrate_concentration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol substrate concentration" ;
+    rdfs:comment "The amount of ethanol present in the fermentation environment produced by wild_yeast metabolism that provides the alcohol moiety for esterification reactions catalyzed by lactobacillus_esterase_activity to form fc_volatile_esters" .
+kb:ethanol_substrate_pool a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethanol substrate pool" ;
+    rdfs:comment "Ethanol concentration available from wild_yeast fermentation that serves as the acyl acceptor in esterification_reaction, determining the rate and extent of ester synthesis by lactobacillus_esterase_activity." .
 kb:ethanol_volatility_ethanol a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "ethanol volatility ethanol" ;
     rdfs:comment "The physical property of ethanol to transition readily from liquid to vapor, determining its escape rate during fermentation and baking." .
@@ -569,9 +689,15 @@ kb:ethyl_acetate a owl:NamedIndividual, kbo:Concept ;
 kb:ethyl_acetate_deep_fermentation a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "ethyl acetate deep fermentation" ;
     rdfs:comment "Estery compound formed when acetic_acid reacts with ethanol, producing fruity banana-like aroma notes in the sourdough volatile_profile." .
+kb:ethyl_acetate_formation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethyl acetate formation" ;
+    rdfs:comment "Primary ester product of acetic_acid_esterification by lactobacillus_esterase_activity, producing fruity, solvent-like aroma notes contributing to fc_volatile_esters profile and fruity_ester_notes." .
 kb:ethyl_lactate_deep_fermentation a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "ethyl lactate deep fermentation" ;
     rdfs:comment "Estery compound formed when lactic_acid reacts with ethanol, contributing buttery fruity notes to the sourdough aroma_compounds." .
+kb:ethyl_lactate_formation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ethyl lactate formation" ;
+    rdfs:comment "Primary ester product of lactic_acid_esterification by lactobacillus_esterase_activity, producing creamy, buttery, and faintly fruity aroma notes contributing to fc_volatile_esters profile." .
 kb:evaporation_point_sourdough_baking a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "evaporation point sourdough baking" ;
     rdfs:comment "Temperature threshold at which ethanol converts from liquid to vapor, occurring during baking and determining how much ethanol aroma persists in the final crumb." .
@@ -647,6 +773,9 @@ kb:fermentation_byproducts a owl:NamedIndividual, kbo:Concept ;
 kb:fermentation_curve a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "fermentation curve" ;
     rdfs:comment "Temporal pattern of fermentation activity showing lag phase, peak fermentation, and decline phases across the fermentation timeline." .
+kb:fermentation_depth a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation depth" ;
+    rdfs:comment "The extent of sourdough fermentation progression, encompassing duration and metabolic development, where extended time enables enzymatic esterification between organic_acids and ethanol to produce fruity and floral aroma compounds." .
 kb:fermentation_duration a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "fermentation duration" ;
     rdfs:comment "Time required for fermentation_vigor to produce target dough rise, inversely related to fermentation_vigor intensity at fixed hydration and flour." .
@@ -683,12 +812,18 @@ kb:fermentation_temperature_dependency a owl:NamedIndividual, kbo:Concept ;
 kb:fermentation_timeline a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "fermentation timeline" ;
     rdfs:comment "Planned schedule coordinating levain build, autolyse, bulk fermentation, folds, and proof to complete baking at desired time." .
+kb:fermentation_timing_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation timing effect" ;
+    rdfs:comment "Impact of fermentation stage timing on lactobacillus_esterase_activity expression and ester_product_spectrum, as enzyme production and substrate availability change throughout sourdough fermentation." .
 kb:fermentation_vessel a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "fermentation vessel" ;
     rdfs:comment "Container for cultivating and storing sourdough starter" .
 kb:fermentation_vigor a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "fermentation vigor" ;
     rdfs:comment "Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing." .
+kb:fermentation_vigor_banana_interaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fermentation vigor banana interaction" ;
+    rdfs:comment "The relationship between fermentation_vigor intensity and banana_ester_notes intensity. High fermentation_vigor accelerates both wild_yeast_esterase_activity and lactobacillus_esterase_activity, driving increased isoamyl_acetate production during vigorous overfermentation." .
 kb:final_bake_phase a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "final bake phase" ;
     rdfs:comment "The closing minutes of baking when crust color develops fully, internal moisture evaporates, and the crumb reaches its final tender texture." .
@@ -716,6 +851,9 @@ kb:flavor_volatiles a owl:NamedIndividual, kbo:Concept ;
 kb:float_test a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "float test" ;
     rdfs:comment "Test where a spoonful of levain dropped in water floats indicating sufficient gas retention and readiness for baking." .
+kb:floral_ester_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "floral ester notes" ;
+    rdfs:comment "Estolide_compounds creating rose, violet, and blossom aromatic impressions through lightweight volatile esters in the sourdough crumb" .
 kb:flour a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "flour" ;
     rdfs:comment "Ground grain (typically wheat) used as the carbohydrate base for sourdough, providing starch, protein for gluten, and nutrients for the starter ecosystem." .
@@ -857,6 +995,9 @@ kb:fold_timing_ratio a owl:NamedIndividual, kbo:Concept ;
 kb:fold_timing_schedule a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "fold timing schedule" ;
     rdfs:comment "Planned temporal distribution of fold_cycle repetitions across the bulk_fermentation window, defining when each fold occurs." .
+kb:fruity_ester_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fruity ester notes" ;
+    rdfs:comment "Estolide_compounds creating apple, pear, and tropical fruit aromatic impressions through specific ester structures in the sourdough headspace" .
 kb:fusel_alcohols a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "fusel alcohols" ;
     rdfs:comment "Higher-order alcohols produced in trace amounts by wild_yeast contributing complex aromatic notes to finished bread." .
@@ -923,6 +1064,12 @@ kb:insufficient_fold_count a owl:NamedIndividual, kbo:Concept ;
 kb:internal_temperature a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "internal temperature" ;
     rdfs:comment "Bread center temperature (typically 195-210F/90-99C) indicating doneness; lower temps leave gummy crumb." .
+kb:isoamyl_acetate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "isoamyl acetate" ;
+    rdfs:comment "The primary ester compound (3-methylbutyl acetate) responsible for banana_ester_notes in sourdough. Formed through esterification between isoamyl alcohol (a higher_alcohol from wild_yeast fermentation) and acetic_acid during extended fermentation periods." .
+kb:isoamyl_alcohol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "isoamyl alcohol" ;
+    rdfs:comment "A branched-chain higher_alcohol byproduct of wild_yeast amino acid metabolism that serves as the alcohol substrate for isoamyl_acetate synthesis. Contributes nutty and fusel-like character alongside its ester derivatives." .
 kb:kitchen_scale a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "kitchen scale" ;
     rdfs:comment "Precision weighing device for measuring ingredients by weight for consistent hydration ratios" .
@@ -932,9 +1079,21 @@ kb:lactic_acid a owl:NamedIndividual, kbo:Concept ;
 kb:lactic_acid_bacteria a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "lactic acid bacteria" ;
     rdfs:comment "Beneficial bacteria in sourdough that produce lactic and acetic acids, creating the characteristic tang and contributing to flavor development and dough leavening." .
+kb:lactic_acid_esterification a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lactic acid esterification" ;
+    rdfs:comment "Specific esterification pathway where lactic_acid serves as substrate for lactobacillus_esterase_activity, yielding lactate ester compounds including ethyl lactate that contribute to creamy, buttery aroma notes." .
 kb:lactobacillus a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "lactobacillus" ;
     rdfs:comment "Bacterial strains producing lactic and acetic acids that create sourdough tanginess" .
+kb:lactobacillus_esterase_activity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lactobacillus esterase activity" ;
+    rdfs:comment "Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation" .
+kb:lactobacillus_strain_esterase_variation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lactobacillus strain esterase variation" ;
+    rdfs:comment "Inter-strain differences in lactobacillus_esterase_activity levels among heterofermentative and homofermentative lactobacillus species that produce varying quantities and types of fc_estolide_compounds during fermentation" .
+kb:lactobacillus_strain_variability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lactobacillus strain variability" ;
+    rdfs:comment "Natural variation among lactobacillus strain genotypes in esterase gene copy number, sequence, and expression levels, producing significant differences in lactobacillus_esterase_activity magnitude across sourdough starters." .
 kb:lag_phase a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "lag phase" ;
     rdfs:comment "Initial fermentation period where wild yeast adapt to dough environment before vigorous gas production begins." .
@@ -947,6 +1106,60 @@ kb:lamination_pass a owl:NamedIndividual, kbo:Concept ;
 kb:lamination_pass_variant_of a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "lamination pass variant of" ;
     rdfs:comment "lamination_pass extends the standard fold_sequence and can substitute for a fold_cycle in the fold_count tally when formula goals require it." .
+kb:le_acetate_ester_pathway a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le acetate ester pathway" ;
+    rdfs:comment "The specific esterification route wherein lactobacillus_esterase_activity catalyzes the reaction of acetic_acid with ethanol to form acetate esters contributing to sharp, vinegar-like aromatic nuances in sourdough headspace." .
+kb:le_activity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le activity" ;
+    rdfs:comment "Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation, producing ester compounds that contribute to flavor_complexity." .
+kb:le_acyl_donor_preference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le acyl donor preference" ;
+    rdfs:comment "The substrate specificity of lactobacillus_esterase_activity determining whether lactic_acid or acetic_acid serves as the primary acyl donor, influencing the resulting ester profile." .
+kb:le_competes_with_hydrolysis a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le competes with hydrolysis" ;
+    rdfs:comment "The competitive reaction wherein formed esters are cleaved by water back into organic_acids and ethanol, counteracting ester accumulation and requiring sustained catalysis for net estolide_compound accumulation." .
+kb:le_condensation_mechanism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le condensation mechanism" ;
+    rdfs:comment "The nucleophilic acyl substitution reaction mechanism employed by lactobacillus_esterase_activity wherein ethanol attacks the carbonyl carbon of organic_acid substrates, eliminating water and forming ester bonds." .
+kb:le_equilibrium_position a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le equilibrium position" ;
+    rdfs:comment "The balance between esterification (forward) and hydrolysis (reverse) reactions during lactobacillus_esterase_activity, shifted by substrate concentration, water activity, and temperature conditions in the sourdough matrix." .
+kb:le_estolide_formation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le estolide formation" ;
+    rdfs:comment "The biochemical process by which lactobacillus_esterase_activity joins organic_acid acyl groups with ethanol alcohol groups through condensation, yielding fc_estolide_compounds and water as products." .
+kb:le_ethanol_substrate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le ethanol substrate" ;
+    rdfs:comment "Alcohol produced by wild_yeast fermentation that serves as the nucleophile/acyl acceptor in esterification reactions catalyzed by lactobacillus_esterase_activity." .
+kb:le_kinetic_properties a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le kinetic properties" ;
+    rdfs:comment "The catalytic efficiency parameters of lactobacillus_esterase_activity including reaction rate, substrate affinity, turnover number, and Michaelis constant that determine how quickly esterification proceeds under sourdough conditions." .
+kb:le_lactate_ester_pathway a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le lactate ester pathway" ;
+    rdfs:comment "The specific esterification route wherein lactobacillus_esterase_activity catalyzes the reaction of lactic_acid (derived from pyruvate reduction) with ethanol to form lactate esters contributing to fruity_ester_notes and floral_ester_notes." .
+kb:le_organic_acid_substrate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le organic acid substrate" ;
+    rdfs:comment "Carbon-chain acid substrates (lactic_acid and acetic_acid) from lactobacillus metabolism that serve as acyl donors in esterification reactions catalyzed by lactobacillus_esterase_activity." .
+kb:le_ph_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le ph effect" ;
+    rdfs:comment "The influence of dough acidity on lactobacillus_esterase_activity, with optimal esterification catalysis occurring within specific pH ranges that preserve enzyme structure while maintaining substrate availability." .
+kb:le_physiological_conditions a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le physiological conditions" ;
+    rdfs:comment "The environmental parameters affecting lactobacillus_esterase_activity including dough pH, fermentation temperature, substrate concentration, and fermentation duration that modulate catalytic efficiency." .
+kb:le_products a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le products" ;
+    rdfs:comment "The ester compounds produced as a result of lactobacillus_esterase_activity, encompassing the fc_estolide_compounds formed from organic_acid and ethanol substrates." .
+kb:le_strain_variability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le strain variability" ;
+    rdfs:comment "Differences in esterification catalytic capability between lactobacillus strains, resulting in varying capacities to produce fc_estolide_compounds and thus different contributions to flavor_complexity." .
+kb:le_substrates a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le substrates" ;
+    rdfs:comment "The molecular reactants consumed during lactobacillus_esterase_activity: organic_acids and ethanol that undergo esterification catalysis." .
+kb:le_temperature_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le temperature effect" ;
+    rdfs:comment "The influence of fermentation temperature on lactobacillus_esterase_activity, affecting both reaction kinetics and the equilibrium position of the esterification equilibrium." .
+kb:le_water_byproduct a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "le water byproduct" ;
+    rdfs:comment "The water molecule eliminated as a byproduct of the condensation reaction during lactobacillus_esterase_activity, removed from the dough system influencing hydration dynamics." .
 kb:leavening_power a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "leavening power" ;
     rdfs:comment "Capacity of active_starter to raise bread dough measured by gas production rate and total rise achieved." .
@@ -968,6 +1181,9 @@ kb:lid_removal a owl:NamedIndividual, kbo:Concept ;
 kb:lid_removal_timing a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "lid removal timing" ;
     rdfs:comment "Specific moment during baking_duration when Dutch oven lid is removed; transition point from initial_phase to final_phase; typically 20-25 minutes into bake for standard 450F sourdough." .
+kb:lipase_activity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lipase activity" ;
+    rdfs:comment "Esterase enzyme variant within lactobacillus_esterase_activity capable of acting on longer-chain fatty acid esters, contributing to a broader range of ester_product formation in sourdough." .
 kb:liquid_starter a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "liquid starter" ;
     rdfs:comment "Thin consistency starter (100% hydration or more) producing more lactic acid, faster fermentation, and milder tang." .
@@ -1028,9 +1244,18 @@ kb:optimal_bake_time a owl:NamedIndividual, kbo:Concept ;
 kb:organic_acid_formation a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "organic acid formation" ;
     rdfs:comment "The composite mixture of lactic acid and acetic acid generated during sourdough fermentation by the metabolic activity of lactobacillus strains acting on flour carbohydrates." .
+kb:organic_acid_precursor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "organic acid precursor" ;
+    rdfs:comment "Carboxylic acid substrate (lactic_acid or acetic_acid) that serves as the acid moiety in esterification reactions producing estolide_compounds" .
 kb:organic_acid_ratio a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "organic acid ratio" ;
     rdfs:comment "Proportional balance between lactic_acid and acetic_acid determined by fermentation conditions that shapes the final sourness_level character." .
+kb:organic_acid_substrate_pool a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "organic acid substrate pool" ;
+    rdfs:comment "The concentration and variety of organic_acids available in the sourdough matrix including lactic_acid and acetic_acid that serve as precursors for esterification reactions catalyzed by lactobacillus_esterase_activity" .
+kb:organic_acid_substrates a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "organic acid substrates" ;
+    rdfs:comment "Carbon-chain acid molecules acted upon by lactobacillus esterases, including lactic_acid and acetic_acid, that serve as acyl donors in esterification reactions producing specific ester products." .
 kb:organic_acids a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "organic acids" ;
     rdfs:comment "Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine sourness_level and contribute to flavor_complexity." .
@@ -1043,6 +1268,9 @@ kb:overbake a owl:NamedIndividual, kbo:Concept ;
 kb:overbaking_detection a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "overbaking detection" ;
     rdfs:comment "Signs that baking_duration was excessive including internal_temperature above 210F, dry and crumbly crumb_texture, burnt crust, and excessive crust_thickness." .
+kb:overfermentation_banana_association a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "overfermentation banana association" ;
+    rdfs:comment "The established correlation between extended fermentation timing and pronounced banana_ester_notes development. Extended fermentation_depth allows progressive accumulation of isoamyl_acetate beyond typical fruity_ester_notes concentrations, creating overripe banana rather than fresh fruit impressions." .
 kb:overproofed a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "overproofed" ;
     rdfs:comment "Fermentation extending past peak rise where gluten has broken down, resulting in flat dense bread with minimal oven spring." .
@@ -1079,6 +1307,9 @@ kb:peak_fermentation_rate a owl:NamedIndividual, kbo:Concept ;
 kb:peak_rise_time a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "peak rise time" ;
     rdfs:comment "Duration in hours from feeding until starter reaches maximum volume before beginning to fall." .
+kb:pineapple_ester_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pineapple ester notes" ;
+    rdfs:comment "Estolide_compounds (primarily ethyl butyrate) producing pineapple-like ester notes in sourdough with high fermentation_vigor" .
 kb:pizza_dough a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "pizza dough" ;
     rdfs:comment "Sourdough base fermented for complex flavor before topping and high-heat baking" .
@@ -1244,6 +1475,9 @@ kb:seeds a owl:NamedIndividual, kbo:Concept ;
 kb:shaping a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "shaping" ;
     rdfs:comment "Final dough shaping technique building proper surface tension and structure to support oven spring and hold crumb form." .
+kb:short_chain_fatty_acid_esterification a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "short chain fatty acid esterification" ;
+    rdfs:comment "Esterification of minor organic_acid_substrates including propionic and butyric acids by lactobacillus_esterase_activity, producing corresponding ethyl esters with distinctive pungent or rancid aroma contributions." .
 kb:slicing a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "slicing" ;
     rdfs:comment "Cutting bread into portions after cooling for serving and storage" .
@@ -1349,6 +1583,9 @@ kb:stretch_and_fold a owl:NamedIndividual, kbo:Concept ;
 kb:substrate_availability a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "substrate availability" ;
     rdfs:comment "Amount of fermentable sugars from flour available to wild_yeast and lactobacillus, driving fermentation_vigor." .
+kb:substrate_concentration_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "substrate concentration effect" ;
+    rdfs:comment "Impact of organic_acid_substrates and ethanol_substrate_pool concentrations on lactobacillus_esterase_activity kinetics, following Michaelis-Menten dynamics and affecting esterification_reaction velocity." .
 kb:surface_doming a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "surface doming" ;
     rdfs:comment "Visible convex curvature of active_starter surface at peak activity caused by accumulated CO2 gas beneath the crust." .
@@ -1391,6 +1628,9 @@ kb:volatile_profile_sourdough_baking a owl:NamedIndividual, kbo:Concept ;
 kb:water a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "water" ;
     rdfs:comment "Filtered water used to hydrate flour and feed the starter culture; temperature affects fermentation speed and dough behavior." .
+kb:water_activity_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "water activity effect" ;
+    rdfs:comment "Influence of dough water availability on lactobacillus_esterase_activity, as reduced water activity shifts esterification_reaction equilibrium and affects enzyme conformation and substrate solubility." .
 kb:wheat_flavor a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "wheat flavor" ;
     rdfs:comment "Characteristic taste of wheat flour becoming more prominent in long-fermented sourdough highlighting grain origin." .
@@ -1406,6 +1646,9 @@ kb:wild_culture a owl:NamedIndividual, kbo:Concept ;
 kb:wild_yeast a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "wild yeast" ;
     rdfs:comment "Naturally occurring yeast strains captured from flour and the environment that ferment dough, providing rise without commercial yeast." .
+kb:wild_yeast_esterase_activity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "wild yeast esterase activity" ;
+    rdfs:comment "Enzymatic contribution of wild_yeast strains to ester synthesis, primarily through ethanol production and potential direct ester formation pathways" .
 kb:windowpane_test a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "windowpane test" ;
     rdfs:comment "Gluten development test stretching dough thin enough to see light through without tearing; indicates proper fermentation and structure." .
@@ -1414,6 +1657,7 @@ kb:yeast_metabolism_deep_fermentation a owl:NamedIndividual, kbo:Concept ;
     rdfs:comment "Biochemical pathway through which wild_yeast converts fermentable sugars into ethanol and carbon_dioxide, with ethanol yield varying by sugar availability and yeast strain." .
 
 kb:acetic_acid kbo:relatesTo kb:sourness_level .
+kb:acetic_acid_esterification kbo:relatesTo kb:acetic_acid .
 kb:acid_accumulation_rate kbo:relatesTo kb:acid_development_rate .
 kb:acid_development_rate kbo:relatesTo kb:acid_accumulation_rate .
 kb:acid_generation_rate kbo:relatesTo kb:microbial_activity_intensity .
@@ -1428,6 +1672,7 @@ kb:activity_indicators_signals kbo:relatesTo kb:activity_indicators .
 kb:activity_peak kbo:relatesTo kb:activity_peak_signals .
 kb:activity_peak_signals kbo:relatesTo kb:activity_peak .
 kb:activity_temperature kbo:relatesTo kb:fermentation_temperature .
+kb:acyltransferase_activity kbo:relatesTo kb:carboxylesterase_activity .
 kb:ambient_humidity kbo:relatesTo kb:proofing_duration .
 kb:as_acetic_acid_ratio kbo:relatesTo kb:acetic_acid .
 kb:as_aroma_profile kbo:relatesTo kb:bread_aroma .
@@ -1447,6 +1692,23 @@ kb:as_temperature_sensitivity kbo:relatesTo kb:fermentation_temperature .
 kb:as_vigor_level kbo:relatesTo kb:fermentation_vigor .
 kb:as_wild_yeast_density kbo:relatesTo kb:lactic_acid_bacteria .
 kb:as_yeast_bacteria_balance kbo:relatesTo kb:microbial_balance .
+kb:atd_astringency_lingering kbo:relatesTo kb:organic_acids .
+kb:atd_crumb_retention_reservoir kbo:relatesTo kb:atd_volatile_release_kinetics .
+kb:atd_crumb_retention_reservoir kbo:relatesTo kb:flavor_complexity .
+kb:atd_fade_quality kbo:relatesTo kb:atd_temporal_extent .
+kb:atd_fade_quality kbo:relatesTo kb:fc_acid_balance_ratio .
+kb:atd_lingering_acid_perception kbo:relatesTo kb:atd_palate_coating_duration .
+kb:atd_lingering_acid_perception kbo:relatesTo kb:organic_acids .
+kb:atd_lingering_alcohol_nuances kbo:relatesTo kb:fc_higher_alcohols .
+kb:atd_lingering_ester_notes kbo:relatesTo kb:fc_estolide_compounds .
+kb:atd_lingering_ester_notes kbo:relatesTo kb:fc_volatile_esters .
+kb:atd_mouthfeel_aftereffect kbo:relatesTo kb:atd_astringency_lingering .
+kb:atd_perceptual_sequencing kbo:relatesTo kb:atd_lingering_acid_perception .
+kb:atd_perceptual_sequencing kbo:relatesTo kb:fc_tanginess_profile .
+kb:atd_retro_nasal_aroma_release kbo:relatesTo kb:aroma_compounds .
+kb:atd_retro_nasal_aroma_release kbo:relatesTo kb:atd_lingering_ester_notes .
+kb:atd_temporal_extent kbo:relatesTo kb:atd_intensity_decay_curve .
+kb:atd_volatile_release_kinetics kbo:relatesTo kb:fc_fermentation_depth .
 kb:autolyse kbo:relatesTo kb:enzymatic_activity .
 kb:autolyse kbo:relatesTo kb:gluten_development .
 kb:autolyse kbo:relatesTo kb:mixing .
@@ -1471,6 +1733,15 @@ kb:baking_stone kbo:relatesTo kb:baking_steel .
 kb:baking_temperature_effect kbo:relatesTo kb:baking_time_to_color .
 kb:baking_temperature_factor kbo:relatesTo kb:baking_temperature .
 kb:baking_temperature_to_color kbo:relatesTo kb:baking_time_to_color .
+kb:banana_ester_notes kbo:relatesTo kb:aroma_compounds .
+kb:banana_ester_notes kbo:relatesTo kb:banana_ester_threshold_concentration .
+kb:banana_ester_notes kbo:relatesTo kb:banana_vs_fruity_ester_balance .
+kb:banana_ester_notes kbo:relatesTo kb:ester_contribution_to_flavor_complexity .
+kb:banana_ester_notes kbo:relatesTo kb:fermentation_depth .
+kb:banana_ester_notes kbo:relatesTo kb:fermentation_vigor_banana_interaction .
+kb:banana_ester_notes kbo:relatesTo kb:isoamyl_acetate .
+kb:banana_ester_notes kbo:relatesTo kb:overfermentation_banana_association .
+kb:banana_vs_fruity_ester_balance kbo:relatesTo kb:fruity_ester_notes .
 kb:banneton kbo:relatesTo kb:rice_flour .
 kb:banneton_proof kbo:relatesTo kb:banneton .
 kb:batard kbo:relatesTo kb:sourdough_loaf .
@@ -1484,6 +1755,7 @@ kb:bread_freezing kbo:relatesTo kb:bread_storage .
 kb:bread_recrisping kbo:relatesTo kb:crust_retention .
 kb:bread_staling kbo:relatesTo kb:crumb_freshness .
 kb:bubble_activity kbo:relatesTo kb:gas_production .
+kb:bubble_activity_manifests_as kbo:relatesTo kb:bubble_activity .
 kb:bubble_distribution kbo:relatesTo kb:crumb_structure .
 kb:bubble_size kbo:relatesTo kb:crumb_texture .
 kb:bulk_ferment kbo:relatesTo kb:bulk_fermentation .
@@ -1496,15 +1768,32 @@ kb:bulk_fermentation kbo:relatesTo kb:stretch_and_fold .
 kb:caramelization kbo:relatesTo kb:crumb_deep_browning .
 kb:caramelized_aroma kbo:relatesTo kb:aroma_compounds .
 kb:carbonyl_compounds kbo:relatesTo kb:flavor_volatiles .
+kb:carboxylesterase_activity kbo:relatesTo kb:esterase_enzyme_variants .
 kb:ciabatta kbo:relatesTo kb:hydration_ratio .
 kb:co2_output kbo:relatesTo kb:gas_production_rate .
+kb:cofactor_requirements kbo:relatesTo kb:active_starter_requires .
 kb:coil_fold kbo:relatesTo kb:fold_direction .
+kb:coil_fold_variant_of kbo:relatesTo kb:coil_fold .
+kb:cold_dormancy_duration kbo:relatesTo kb:dormancy_duration .
+kb:cold_retard kbo:relatesTo kb:cold_retardation .
+kb:cold_retard_effect kbo:relatesTo kb:cold_temperature_effect .
 kb:cold_retardation kbo:relatesTo kb:flavor_complexity .
 kb:cold_retardation kbo:relatesTo kb:proofing_duration .
+kb:cold_storage_container kbo:relatesTo kb:cold_storage_duration .
+kb:cold_temperature_effect kbo:relatesTo kb:cold_temperature_trigger .
+kb:cold_temperature_hold kbo:relatesTo kb:cold_storage_duration .
 kb:cold_temperature_trigger kbo:relatesTo kb:starter_storage_temperature .
+kb:color_gradient kbo:relatesTo kb:crumb_to_crust_gradient .
+kb:consistent_temperature kbo:relatesTo kb:activity_temperature .
+kb:cool kbo:relatesTo kb:cooling .
 kb:cooling kbo:relatesTo kb:crumb_doneness .
 kb:cooling kbo:relatesTo kb:crumb_structure .
 kb:cooling kbo:relatesTo kb:slicing .
+kb:cooling_duration kbo:relatesTo kb:baking_duration .
+kb:couche_proof kbo:relatesTo kb:banneton_proof .
+kb:covered_bake kbo:relatesTo kb:dutch_oven_bake_sequence .
+kb:cream kbo:relatesTo kb:cultured_butter .
+kb:cream_crumb kbo:relatesTo kb:crumb_texture .
 kb:crumb kbo:relatesTo kb:bread_volume .
 kb:crumb kbo:relatesTo kb:crumb_color .
 kb:crumb kbo:relatesTo kb:crumb_structure .
@@ -1532,12 +1821,21 @@ kb:dough_temperature kbo:relatesTo kb:fermentation_temperature .
 kb:dutch_oven kbo:relatesTo kb:crust .
 kb:dutch_oven kbo:relatesTo kb:lid_removal .
 kb:dutch_oven kbo:relatesTo kb:steam_production .
+kb:ester_contribution_to_flavor_complexity kbo:relatesTo kb:flavor_complexity .
 kb:esters kbo:relatesTo kb:aroma_compounds .
+kb:estolide_formation_reaction kbo:relatesTo kb:fc_estolide_compounds .
 kb:ethanol kbo:relatesTo kb:aroma_compounds .
+kb:ethanol_precursor kbo:relatesTo kb:estolide_formation_reaction .
 kb:fc_acid_balance_ratio kbo:relatesTo kb:acetic_acid .
 kb:fc_acid_balance_ratio kbo:relatesTo kb:lactic_acid .
 kb:fc_aftertaste_development kbo:relatesTo kb:organic_acids .
+kb:fc_estolide_compounds kbo:relatesTo kb:banana_ester_notes .
+kb:fc_estolide_compounds kbo:relatesTo kb:ester_contribution_to_flavor_complexity .
 kb:fc_estolide_compounds kbo:relatesTo kb:fc_volatile_esters .
+kb:fc_estolide_compounds kbo:relatesTo kb:flavor_complexity .
+kb:fc_estolide_compounds kbo:relatesTo kb:floral_ester_notes .
+kb:fc_estolide_compounds kbo:relatesTo kb:fruity_ester_notes .
+kb:fc_estolide_compounds kbo:relatesTo kb:pineapple_ester_notes .
 kb:fc_fermentation_depth kbo:relatesTo kb:ethanol .
 kb:fc_fermentation_depth kbo:relatesTo kb:organic_acids .
 kb:fc_maltolytic_notes kbo:relatesTo kb:lactobacillus .
@@ -1559,6 +1857,7 @@ kb:fermentation_byproducts kbo:relatesTo kb:organic_acids .
 kb:fermentation_onset_timing kbo:relatesTo kb:fermentation_vigor .
 kb:fermentation_vigor kbo:relatesTo kb:carbon_dioxide .
 kb:fermentation_vigor kbo:relatesTo kb:organic_acids .
+kb:fermentation_vigor_banana_interaction kbo:relatesTo kb:fermentation_vigor .
 kb:final_shaping kbo:relatesTo kb:surface_tension .
 kb:flavor_complexity kbo:relatesTo kb:aroma_compounds .
 kb:flavor_complexity kbo:relatesTo kb:ethanol .
@@ -1572,6 +1871,7 @@ kb:flavor_complexity kbo:relatesTo kb:fc_tanginess_profile .
 kb:flavor_complexity kbo:relatesTo kb:fc_volatile_esters .
 kb:flavor_complexity kbo:relatesTo kb:fc_yeast_character .
 kb:flavor_complexity kbo:relatesTo kb:organic_acids .
+kb:floral_ester_notes kbo:relatesTo kb:ester_contribution_to_flavor_complexity .
 kb:flour kbo:relatesTo kb:autolyse .
 kb:flour kbo:relatesTo kb:bread_flour .
 kb:flour kbo:relatesTo kb:enriched_sourdough .
@@ -1596,34 +1896,76 @@ kb:fold_count_6 kbo:relatesTo kb:fold_count_3 .
 kb:fold_count_7 kbo:relatesTo kb:fold_count_1 .
 kb:fold_count_8 kbo:relatesTo kb:gluten_development .
 kb:fold_count_9 kbo:relatesTo kb:overproofing .
+kb:fruity_ester_notes kbo:relatesTo kb:ester_contribution_to_flavor_complexity .
 kb:fusel_alcohols kbo:relatesTo kb:aroma_compounds .
 kb:gas_production_rate kbo:relatesTo kb:carbon_dioxide .
 kb:gas_production_rate kbo:relatesTo kb:microbial_activity_intensity .
 kb:gluten_development kbo:relatesTo kb:bread_volume .
 kb:gluten_development kbo:relatesTo kb:crumb_structure .
 kb:gluten_development kbo:relatesTo kb:dough_consistency .
+kb:isoamyl_acetate kbo:relatesTo kb:acetic_acid .
+kb:isoamyl_acetate kbo:relatesTo kb:fc_estolide_compounds .
+kb:isoamyl_acetate kbo:relatesTo kb:fc_volatile_esters .
+kb:isoamyl_acetate kbo:relatesTo kb:fc_yeast_character .
+kb:isoamyl_acetate kbo:relatesTo kb:isoamyl_alcohol .
+kb:isoamyl_acetate kbo:relatesTo kb:lactobacillus_esterase_activity .
+kb:isoamyl_acetate kbo:relatesTo kb:wild_yeast_esterase_activity .
+kb:isoamyl_alcohol kbo:relatesTo kb:fc_higher_alcohols .
 kb:kitchen_scale kbo:relatesTo kb:hydration_ratio .
 kb:lactic_acid kbo:relatesTo kb:sourness_level .
 kb:lactobacillus kbo:relatesTo kb:acetic_acid .
 kb:lactobacillus kbo:relatesTo kb:lactic_acid .
+kb:lactobacillus kbo:relatesTo kb:lactobacillus_esterase_activity .
 kb:lactobacillus kbo:relatesTo kb:organic_acids .
 kb:lactobacillus kbo:relatesTo kb:sourness_level .
+kb:lactobacillus_esterase_activity kbo:relatesTo kb:fc_estolide_compounds .
+kb:le_acetate_ester_pathway kbo:relatesTo kb:fruity_ester_notes .
+kb:le_activity kbo:relatesTo kb:ethanol .
+kb:le_activity kbo:relatesTo kb:lactobacillus .
+kb:le_activity kbo:relatesTo kb:le_acetate_ester_pathway .
+kb:le_activity kbo:relatesTo kb:le_acyl_donor_preference .
+kb:le_activity kbo:relatesTo kb:le_competes_with_hydrolysis .
+kb:le_activity kbo:relatesTo kb:le_condensation_mechanism .
+kb:le_activity kbo:relatesTo kb:le_equilibrium_position .
+kb:le_activity kbo:relatesTo kb:le_kinetic_properties .
+kb:le_activity kbo:relatesTo kb:le_lactate_ester_pathway .
+kb:le_activity kbo:relatesTo kb:le_physiological_conditions .
+kb:le_activity kbo:relatesTo kb:le_products .
+kb:le_activity kbo:relatesTo kb:le_strain_variability .
+kb:le_activity kbo:relatesTo kb:le_substrates .
+kb:le_activity kbo:relatesTo kb:organic_acids .
+kb:le_estolide_formation kbo:relatesTo kb:fc_estolide_compounds .
+kb:le_estolide_formation kbo:relatesTo kb:le_condensation_mechanism .
+kb:le_estolide_formation kbo:relatesTo kb:le_water_byproduct .
+kb:le_ethanol_substrate kbo:relatesTo kb:ethanol .
+kb:le_lactate_ester_pathway kbo:relatesTo kb:floral_ester_notes .
+kb:le_lactate_ester_pathway kbo:relatesTo kb:fruity_ester_notes .
+kb:le_organic_acid_substrate kbo:relatesTo kb:acetic_acid .
+kb:le_organic_acid_substrate kbo:relatesTo kb:lactic_acid .
+kb:le_physiological_conditions kbo:relatesTo kb:le_ph_effect .
+kb:le_physiological_conditions kbo:relatesTo kb:le_temperature_effect .
+kb:le_products kbo:relatesTo kb:le_estolide_formation .
+kb:le_substrates kbo:relatesTo kb:le_ethanol_substrate .
+kb:le_substrates kbo:relatesTo kb:le_organic_acid_substrate .
 kb:levain kbo:relatesTo kb:bulk_fermentation .
 kb:levain kbo:relatesTo kb:inoculation .
 kb:maillard_reaction kbo:relatesTo kb:crust_color .
 kb:microbial_activity_intensity kbo:relatesTo kb:dough_expansion_velocity .
 kb:microbial_activity_intensity kbo:relatesTo kb:fermentation_vigor .
 kb:microbial_activity_intensity kbo:relatesTo kb:peak_fermentation_rate .
+kb:organic_acid_precursor kbo:relatesTo kb:estolide_formation_reaction .
 kb:organic_acids kbo:relatesTo kb:flavor_complexity .
 kb:organic_acids kbo:relatesTo kb:sourness_level .
 kb:oven_spring kbo:relatesTo kb:baking_temperature .
 kb:oven_spring kbo:relatesTo kb:dough_temperature .
 kb:oven_spring kbo:relatesTo kb:gluten_development .
 kb:oven_spring kbo:relatesTo kb:scoring .
+kb:overfermentation_banana_association kbo:relatesTo kb:fc_fermentation_depth .
 kb:overproofing kbo:relatesTo kb:bread_volume .
 kb:overproofing kbo:relatesTo kb:crumb_structure .
 kb:pain_au_levain kbo:relatesTo kb:sourdough_tradition .
 kb:peak_fermentation_rate kbo:relatesTo kb:fermentation_vigor .
+kb:pineapple_ester_notes kbo:relatesTo kb:ester_contribution_to_flavor_complexity .
 kb:pizza_dough kbo:relatesTo kb:fermentation .
 kb:poolish kbo:relatesTo kb:levain .
 kb:pre_shaping kbo:relatesTo kb:bench_rest .
@@ -1681,4 +2023,6 @@ kb:whole_wheat_sourdough kbo:relatesTo kb:gluten_development .
 kb:wild_yeast kbo:relatesTo kb:carbon_dioxide .
 kb:wild_yeast kbo:relatesTo kb:ethanol .
 kb:wild_yeast kbo:relatesTo kb:fermentation_vigor .
+kb:wild_yeast kbo:relatesTo kb:wild_yeast_esterase_activity .
+kb:wild_yeast_esterase_activity kbo:relatesTo kb:fc_estolide_compounds .
 

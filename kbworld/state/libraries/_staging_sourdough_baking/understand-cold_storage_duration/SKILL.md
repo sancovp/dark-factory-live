@@ -8,7 +8,7 @@ Invoke this skill to understand `cold_storage_duration` down to its primitives. 
 ## THE RELATIVE ROOT (the import cone, by lib)
 
 ## CONSUMERS (what needs this)
-`as_storage_history`, `dormant_starter`
+`as_storage_history`, `cold_storage_container`, `cold_temperature_hold`, `dormant_starter`
 
 ---
-*Projected from the `sourdough baking` KB (465 concepts / 268 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (546 concepts / 369 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
