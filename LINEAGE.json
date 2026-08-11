@@ -498,5 +498,18 @@
     ],
     "fitness_current": 1.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-11T05:58:57+00:00",
+    "verdict": "REVERT",
+    "change": "Installed listing_verification_recipe.md to loadout/; ran it against chain_verifier_recipe.md in patch-4 \u2014 SUSPICIOUS (no test record, circular lens logic, no Gate Pass Probability formula)",
+    "diff": [
+      {
+        "file": "loadout/listing_verification_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.5
   }
 ]
