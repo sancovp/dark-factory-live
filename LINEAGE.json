@@ -679,5 +679,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-11T08:56:43+00:00",
+    "verdict": "REVERT",
+    "change": "Installed market_saturation_lens.md to loadout \u2014 no lens skills existed in loadout (greenfield gap); saturation scan shows lens=0.0/1.0 demand but recipe=2.0/1.0 neutral, so lens fills the real supply",
+    "diff": [
+      {
+        "file": "loadout/market_saturation_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 4.5,
+    "fitness_patched": 4.0
   }
 ]
