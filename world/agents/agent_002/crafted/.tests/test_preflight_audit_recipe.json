@@ -1,0 +1,6 @@
+{
+  "test_id": "test_preflight_audit_recipe",
+  "skill_path": "crafted/preflight_audit_recipe.md",
+  "result": "pass",
+  "description": "Recipe composes dependency_proof_lens + chain_verifier_recipe with correct inputs/outputs schema"
+}
