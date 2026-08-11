@@ -1,0 +1,12 @@
+{
+  "name": "refactoring-catalog-and-code-smells-module",
+  "description": "refactoring catalog and code smells \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 183 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "category": "productivity",
+  "source": {
+    "source": "url",
+    "url": "https://github.com/sancovp/refactoring-catalog-and-code-smells-module.git"
+  }
+}

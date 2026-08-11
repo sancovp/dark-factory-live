@@ -1,0 +1,13 @@
+{
+  "region": "change_preventers",
+  "call_number": "refactoring_catalog_and_code_smells.change_preventers",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 3
+}

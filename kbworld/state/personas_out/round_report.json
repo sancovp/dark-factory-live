@@ -1,98 +1,42 @@
 {
   "rounds": [
     {
-      "region": "fermentation",
+      "region": "bloaters",
       "targets": [
-        "fc_aftertaste_development",
-        "fc_estolide_compounds"
+        "long_parameter_list",
+        "data_clump"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 23,
-      "new_relations": 33
+      "new_concepts": 46,
+      "new_relations": 15
     },
     {
-      "region": "lactobacillus",
+      "region": "dispensables",
       "targets": [
-        "lactobacillus_esterase_activity",
-        "banana_ester_notes"
+        "commented_out_code",
+        "data_class"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 57,
-      "new_relations": 48
+      "new_concepts": 36,
+      "new_relations": 10
     }
   ],
   "basis_before": {
-    "shared_atoms": [
-      "acetic_acid",
-      "aroma_compounds",
-      "carbon_dioxide",
-      "ethanol",
-      "fc_acid_balance_ratio",
-      "fc_aftertaste_development",
-      "fc_estolide_compounds",
-      "fc_fermentation_depth",
-      "fc_higher_alcohols",
-      "fc_maltolytic_notes",
-      "fc_tanginess_profile",
-      "fc_volatile_esters",
-      "fc_yeast_character",
-      "fermentation_vigor",
-      "flavor_complexity",
-      "lactic_acid",
-      "lactobacillus",
-      "organic_acids",
-      "sourness_level",
-      "wild_yeast"
-    ],
-    "shared": 20,
-    "union": 22,
-    "overlap": 0.909
+    "shared_atoms": [],
+    "shared": 0,
+    "union": 12,
+    "overlap": 0.0
   },
   "basis_after": {
-    "shared_atoms": [
-      "acetic_acid",
-      "aroma_compounds",
-      "banana_ester_notes",
-      "banana_ester_threshold_concentration",
-      "banana_vs_fruity_ester_balance",
-      "carbon_dioxide",
-      "ester_contribution_to_flavor_complexity",
-      "ethanol",
-      "fc_acid_balance_ratio",
-      "fc_aftertaste_development",
-      "fc_estolide_compounds",
-      "fc_fermentation_depth",
-      "fc_higher_alcohols",
-      "fc_maltolytic_notes",
-      "fc_tanginess_profile",
-      "fc_volatile_esters",
-      "fc_yeast_character",
-      "fermentation_depth",
-      "fermentation_vigor",
-      "fermentation_vigor_banana_interaction",
-      "flavor_complexity",
-      "floral_ester_notes",
-      "fruity_ester_notes",
-      "isoamyl_acetate",
-      "isoamyl_alcohol",
-      "lactic_acid",
-      "lactobacillus",
-      "lactobacillus_esterase_activity",
-      "organic_acids",
-      "overfermentation_banana_association",
-      "pineapple_ester_notes",
-      "sourness_level",
-      "wild_yeast",
-      "wild_yeast_esterase_activity"
-    ],
-    "shared": 34,
-    "union": 36,
-    "overlap": 0.944
+    "shared_atoms": [],
+    "shared": 0,
+    "union": 12,
+    "overlap": 0.0
   }
 }
