@@ -537,5 +537,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-11T07:11:48+00:00",
+    "verdict": "REVERT",
+    "change": "Installed skill_gap_finder_recipe.md (Epic, 3-lens composition pipeline) to loadout; executed all 4 pipeline stages against patch-1/game state producing SKILL_GAP_REPORT.md finding 2 high-confidence g",
+    "diff": [
+      {
+        "file": "loadout/skill_gap_finder_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
