@@ -1,0 +1,13 @@
+{
+  "region": "a004",
+  "call_number": "deep_raft.a004 : distributed_consensus_and_replication_protocols(3)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 9
+}

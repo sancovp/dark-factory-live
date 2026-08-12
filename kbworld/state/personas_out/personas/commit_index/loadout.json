@@ -1,0 +1,13 @@
+{
+  "region": "commit_index",
+  "call_number": "distributed_consensus_and_replication_protocols.commit_index : deep_raft(6)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 10
+}

@@ -1,0 +1,13 @@
+{
+  "region": "reconfiguration",
+  "call_number": "distributed_consensus_and_replication_protocols.reconfiguration : deep_consensus(1)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 3
+}

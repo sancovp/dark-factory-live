@@ -1,0 +1,13 @@
+{
+  "region": "byzantine_failure",
+  "call_number": "deep_consensus.byzantine_failure : distributed_consensus_and_replication_protocols(12), deep_raft(6)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 23
+}
