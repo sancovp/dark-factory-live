@@ -1,0 +1,9 @@
+{
+  "test_id": "test_skill_dependency_audit_recipe",
+  "skill_path": "crafted/skill_dependency_audit_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-12T06:00:00Z",
+  "input": "Audit the lens_verify_pipeline.md skill for its claimed dependency on chain_verifier_recipe",
+  "output_summary": "Applied causation_lens: chain_verifier_recipe is CORRELATED (absence changes output but doesn't break it). Applied risk_inversion_lens: RISK_RATING=HIGH (single chain_verifier creates SPOF). Applied second-order-lens: CASCADE_RISK=possible (pipeline output degrades if verifier missing). Flagged: chain_verifier_recipe NOT IN LOADOUT - missing dependency detected.",
+  "test_notes": "Recipe successfully composed all 3 lenses. Detected that lens_verify_pipeline.md claims chain_verifier_recipe dependency but that skill is not in loadout. This validates the recipe works for dependency_audit and audit_bug_exploit detection."
+}
