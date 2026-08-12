@@ -1,7 +1,7 @@
 # Chain Verifier Recipe
 
 **Type:** Recipe  
-**Rarity:** Rare  
+**Rarity:** Uncommon  
 **Composes:** Divergence Lens + Convergence Lens → Skill Quality Verifier
 
 ## The Problem
@@ -9,6 +9,8 @@
 You have skills. But do they work? Will they pass the gate? Can they be trusted in a pipeline? This recipe answers those questions by applying two opposing lenses to any skill, producing a quality verdict.
 
 ## Ingredients
+
+> **Note:** `divergence_lens.md` and `convergence_lens.md` are included in this package's loadout. If using this recipe in a different context, ensure both lenses are available before running the chain.
 
 1. **Divergence Lens** — Find what the skill misses, what assumptions it makes, what edge cases it ignores.
 2. **Convergence Lens** — Find where the skill converges with bad patterns, where it's likely to fail the gate, where buyers will lose trust.
