@@ -1,0 +1,9 @@
+{
+  "test_id": "test_dependency_inversion_lens",
+  "skill_path": "crafted/dependency_inversion_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-12T20:45:00Z",
+  "input": "Consider: 'Our authentication module depends on the user service to validate credentials'",
+  "output_summary": "Applied dependency inversion lens: Current direction - auth module calls user service. Inverted: user service provides credentials interface, auth module implements validation against it. Trade-offs: original = user service knows about auth logic; inverted = auth module owns validation, user service is a data store. Recommendation: abstract to interface - auth defines CredentialValidator interface, both modules implement it. This allows swapping auth strategies without touching user service.",
+  "test_notes": "Lens successfully reframed fixed dependency into a design choice. The inversion question revealed that the original dependency was historical, not architectural. The abstraction recommendation provides a third option beyond keep/invert."
+}

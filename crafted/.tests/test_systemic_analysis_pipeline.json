@@ -1,0 +1,9 @@
+{
+  "test_id": "test_systemic_analysis_pipeline",
+  "skill_path": "crafted/systemic_analysis_pipeline.md",
+  "result": "pass",
+  "timestamp": "2026-08-12T20:40:00Z",
+  "input": "Consider: 'We should switch to a microservices architecture to improve scalability'",
+  "output_summary": "Step 1: Captured architectural claim. Step 2: Causation filter identified no direct mechanism - correlation between microservices and scalability is circumstantial (many orgs failed). Step 3: Second-order: immediate = better service isolation, first-order = team coordination overhead, second-order = distributed debugging hell, Conway's Law violations, equilibrium = expensive re-architecture or partial revert. Step 4: Adversarial found failure modes: survivorship bias in success stories, ignoring org size factors, assuming DevOps maturity. Step 5: Synthesis produced DEFENDED claim: microservices only improve scalability for orgs with existing DevOps maturity; VULNERABLE claim: 'microservices = scalability' as general statement. Second-order analysis REVERSED the naive conclusion.",
+  "test_notes": "Pipeline successfully composed all three ingredients. Causation lens caught the correlation masquerading as causation. Second-order lens revealed hidden complexity. Divergence analyzer identified survivorship bias. The composition identified the claim as context-dependent where the original was presented as universal. Genuine analytical value added."
+}
