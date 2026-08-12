@@ -1,0 +1,9 @@
+{
+  "test_id": "test_pattern_collapse_lens",
+  "skill_path": "crafted/pattern_collapse_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-12T19:05:00Z",
+  "input": "Two agents with identical gold (285 each), identical skills_crafted (2), identical quests_completed (2). Both are considering buying the same two listings. Bulletin: 'Near-parity persists.'",
+  "output_summary": "Convergence identified: both agents converging on buying+re-listing. Hidden fragility: neither creates novel skills, both optimize existing artifacts. Divergence prescription: create a NEW skill type neither agent has. Time-to-selection-pressure: short — next round. The game rewards divergence; both doing same thing guarantees at least one loses.",
+  "test_notes": "Lens correctly identified convergence pressure mechanism and prescribed genuine divergence: new artifact creation over artifact arbitrage. The three-stage collapse model correctly framed the two-agent mirror scenario."
+}
