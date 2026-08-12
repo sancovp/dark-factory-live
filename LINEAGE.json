@@ -1103,5 +1103,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-12T18:53:38+00:00",
+    "verdict": "REVERT",
+    "change": "Applied composition pipeline recipe to /tmp/df-dev-p59itedl/patch-3: installed composition_pipeline_recipe.md to loadout, inverted quests problem framing, verified chain, synthesized actionable next a",
+    "diff": [
+      {
+        "file": "loadout/composition_pipeline_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
