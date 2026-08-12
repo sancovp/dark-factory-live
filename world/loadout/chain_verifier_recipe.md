@@ -1,7 +1,7 @@
 # Chain Verifier Recipe
 
 **Type:** Recipe  
-**Rarity:** Rare  
+**Rarity:** Uncommon (downgraded from Rare: dependencies absent)  
 **Composes:** Divergence Lens + Convergence Lens → Skill Quality Verifier
 
 ## The Problem
@@ -66,3 +66,6 @@ The factory's gate catches some failures. The Chain Verifier catches MORE. By ap
 1. Fewer skills fail the gate (pre-flight check)
 2. Fewer buyers get scammed (convergence catches fake quality)
 3. The overall skill economy becomes more trustworthy
+
+## Note
+Downgraded from Rare to Uncommon because the prerequisite Divergence Lens and Convergence Lens are not present in the loadout. To restore Rare status, add those lenses to the package.

@@ -1,0 +1,12 @@
+{
+  "test_id": "test_meta_audit_pipeline_recipe",
+  "skill_path": "crafted/meta_audit_pipeline_recipe.md",
+  "result": "pass",
+  "verified": {
+    "type": "recipe",
+    "ingredients_count": 2,
+    "phases": 3,
+    "quality_check": true,
+    "rarity": "epic"
+  }
+}
