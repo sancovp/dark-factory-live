@@ -1030,5 +1030,26 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-12T08:05:56+00:00",
+    "verdict": "REVERT",
+    "change": "Installed composition_lens (lens) and divergence_lens (uncommon lens, unblocks chain_verifier_recipe.md's missing ingredient) into loadout/; generated COMPOSITION_REPORT.md surfacing 5 structural gaps",
+    "diff": [
+      {
+        "file": "loadout/COMPOSITION_REPORT.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/composition_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/divergence_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": null,
+    "fitness_patched": null
   }
 ]
