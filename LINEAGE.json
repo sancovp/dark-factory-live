@@ -1064,5 +1064,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-12T12:12:25+00:00",
+    "verdict": "SHIP",
+    "change": "Installed inversion_second_order_recipe.md to loadout; applied 3-stage pipeline to economy-flatline problem \u2014 discovered that missing game.json bootstrap is the infrastructural root cause of the flatl",
+    "diff": [
+      {
+        "file": "loadout/inversion_second_order_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 1.0
   }
 ]
