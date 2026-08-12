@@ -1,0 +1,13 @@
+{
+  "region": "commit_message_encoding_transcoding_logic",
+  "call_number": "deep_commit_object.commit_message_encoding_transcoding_logic",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 3
+}

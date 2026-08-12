@@ -1,0 +1,223 @@
+{
+  "skilltree": {
+    "name": "understand-git internals and the object model",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-git internals and the object model",
+    "description": "the git internals and the object model library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-core",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-core",
+        "description": "the core subdomain of git internals and the object model (1 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-revision_traversal",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-revision_traversal",
+            "description": "An ordered walk over commits in git's object graph, visiting each revision reachable from one or more starting",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_commit_object",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-deep_commit_object",
+        "description": "the deep_commit_object subdomain of git internals and the object model (21 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-commit_message_encoding_encoding_value",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-commit_message_encoding_encoding_value",
+            "description": "The character encoding name stored in the encoding header (UTF-8, ISO-8859-1, Windows-1252, etc.); controls by",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-commit_message_encoding_transcoding_logic",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-commit_message_encoding_transcoding_logic",
+            "description": "git's internal conversion from the stored encoding_value to the requested log_encoding_flag encoding; uses ico",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-author_timestamp",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-author_timestamp",
+            "description": "Integer Unix timestamp recording when the author created the change; represents seconds since epoch (1970-01-0",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-commit_message_encoding_encoding_header",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-commit_message_encoding_encoding_header",
+            "description": "Optional header line 'encoding <encoding-name>' in a commit object's raw text; git stores whatever the user wr",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-author_name",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-author_name",
+            "description": "String component of the author field in a commit object specifying the primary creator's display name; appears",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-author_date",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-author_date",
+            "description": "Composite of author_timestamp and author_timezone; git log --date= formats this value.",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_tree_object",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-deep_tree_object",
+        "description": "the deep_tree_object subdomain of git internals and the object model (33 concepts)",
+        "coord": "0.3",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-mode_type_bits",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-mode_type_bits",
+            "description": "The upper bits of the octal mode identifying the entry's object category: regular file, directory, symlink, or",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-mode_bit_format",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-mode_bit_format",
+            "description": "Base-8 positional numeral system used to encode file mode; Git stores exactly 6 octal digits representing 18 b",
+            "coord": "0.3.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-regular_file_mode",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-regular_file_mode",
+            "description": "Mode 100644; standard blob-backed file with read permission for all and write for owner; the default for non-e",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-executable_file_mode",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-executable_file_mode",
+            "description": "Mode 100755; regular file with execute bits set; Git marks it this way to preserve the executable bit across p",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-subtree_mode",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-subtree_mode",
+            "description": "Mode 040000; entry points to a nested tree object representing a directory; the tree entry name contains a for",
+            "coord": "0.3.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-symlink_mode",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-symlink_mode",
+            "description": "Mode 120000; entry points to a blob object containing the target path as raw bytes; the blob content is the sy",
+            "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-git_internals_and_the_object_model",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-git_internals_and_the_object_model",
+        "description": "the git_internals_and_the_object_model subdomain of git internals and the object model (107 concepts)",
+        "coord": "0.4",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-commit_object",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-commit_object",
+            "description": "Type-3 git object containing tree SHA, parent SHA(s), author, committer, timestamp, and message; forms the his",
+            "coord": "0.4.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-tree_entry_mode",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-tree_entry_mode",
+            "description": "Octal mode in tree object: 100644 (regular file), 100755 (executable), 040000 (subtree), 120000 (symlink), 160",
+            "coord": "0.4.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-tree_object",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-tree_object",
+            "description": "Type-2 git object listing directory entries as (mode, name, sha1) tuples; represents a single directory snapsh",
+            "coord": "0.4.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-ref_pointer",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-ref_pointer",
+            "description": "Named file under .git/refs/ containing a SHA-1; represents a branch tip, tag, or remote-tracking branch; updat",
+            "coord": "0.4.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-sha1_hash",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-sha1_hash",
+            "description": "160-bit cryptographic hash computed over object content; serves as object's unique addressable name in git's c",
+            "coord": "0.4.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-blob_object",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_git_internals_and_the_object_model/understand-blob_object",
+            "description": "Type-1 git object storing raw file contents verbatim; identified by SHA-1 of content; no filename or metadata ",
+            "coord": "0.4.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

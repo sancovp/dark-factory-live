@@ -1,0 +1,103 @@
+{
+  "subject": "git internals and the object model",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "bootstrap",
+      "doors": [
+        "commit_object",
+        "tree_object"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "bootstrap": {
+        "concepts": 107,
+        "relations": 111
+      },
+      "specialize": {
+        "basis_after": 0.512,
+        "new": [
+          [
+            "commit_object",
+            21,
+            12
+          ],
+          [
+            "tree_object",
+            33,
+            16
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 1
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 162,
+        "relations": 159,
+        "define": 0,
+        "connect": 25
+      }
+    },
+    "brain": {
+      "grew": "tree_entry_mode"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/git_internals_and_the_object_model",
+      "skills": 19,
+      "staff": 31
+    },
+    "observe": {
+      "findings": 2,
+      "issues": [
+        {
+          "atom": "commit_object",
+          "why": "Git objects use string types commit/blob/tree/tag not Type-1/2/3/4 numbers so a user will search for Type-3 and find nothing",
+          "price": 7,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/121"
+        },
+        {
+          "atom": "tree_object",
+          "why": "Same Type-2 error repeats for tree objects git uses string type tree not a number so searching Type-2 git object fails",
+          "price": 10,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/122"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/git_internals_and_the_object_model",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/git_internals_and_the_object_model/skills/using-git-internals-and-the-object-model/SKILL.md",
+      "plugin": "git-internals-and-the-object-model-module",
+      "library_skills": 24,
+      "brain_files": 26
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "162c/159r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 0
+      },
+      "after": {
+        "define": 0,
+        "connect": 25
+      }
+    },
+    "basis": 0.512,
+    "secs": 400.8
+  }
+}
