@@ -1,0 +1,796 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/distributed_consensus_and_replication_protocols#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/distributed_consensus_and_replication_protocols> a owl:Ontology ;
+    rdfs:label "distributed consensus and replication protocols" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:a001 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "a001" ;
+    rdfs:comment "Safety in agreement: the property that all correct non-faulty processes decide on the identical value, ensuring no divergence among behaving participants." .
+kb:a002 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "a002" ;
+    rdfs:comment "Validity in agreement: the decided value must have been proposed by some process in the system, guaranteeing agreements are grounded in actual proposals." .
+kb:a003 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "a003" ;
+    rdfs:comment "Integrity in agreement: no process decides more than once, or if it decides twice it decides the same value both times, preventing duplicate or inconsistent decisions." .
+kb:a004 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "a004" ;
+    rdfs:comment "Termination in agreement: every correct process eventually decides some value, ensuring the protocol makes progress and does not stall indefinitely." .
+kb:a005 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "a005" ;
+    rdfs:comment "Uniform agreement: all processes including those that later fail must decide on the same value, stricter than ordinary agreement which only binds correct processes." .
+kb:a006 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "a006" ;
+    rdfs:comment "Total order in agreement: decisions form a linearizable sequence such that all processes observe decisions in the same global order." .
+kb:a007 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "a007" ;
+    rdfs:comment "Quorum in agreement: a subset of processes sufficient to guarantee agreement can be reached, typically intersecting any valid quorum to ensure overlap." .
+kb:a008 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "a008" ;
+    rdfs:comment "Threshold in agreement: the minimum number of correct processes required to guarantee safety and liveness under given failure assumptions." .
+kb:a009 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "a009" ;
+    rdfs:comment "Asymmetric agreement: one class of processes (e.g., primary) must agree while another class (e.g., backups) may reach different decisions, used in primary-backup protocols." .
+kb:a010 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "a010" ;
+    rdfs:comment "Crash recovery agreement: agreement property that persists across process crashes and restarts, requiring recovered processes to rejoin with correct state." .
+kb:a011 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "a011" ;
+    rdfs:comment "View change agreement: agreement maintained during membership changes when processes join, leave, or are suspected failed, requiring re-establishment of quorums." .
+kb:active_replication a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "active replication" ;
+    rdfs:comment "Architecture where all replicas process requests independently with deterministic execution." .
+kb:agreement a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement" ;
+    rdfs:comment "The property that a set of distributed processes reach the same decision outcome on a given value. Uniform agreement requires all processes including those that later crash to decide identically; asymmetric agreement permits different decision classes for different process roles such as primary versus backup." .
+kb:agreement_abort a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement abort" ;
+    rdfs:comment "A proposal that fails to collect a quorum of accepts is abandoned, allowing the proposer to retry with a higher proposal number." .
+kb:agreement_accept a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement accept" ;
+    rdfs:comment "A node records a received proposal, typically after verifying the proposal number exceeds any previously promised or accepted number, committing the node to vote for that value." .
+kb:agreement_accept_request a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement accept request" ;
+    rdfs:comment "The second phase of a two-phase agreement protocol wherein the proposer sends accept messages containing the proposal number and value; recipients accept if the number meets their promise." .
+kb:agreement_commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement commit" ;
+    rdfs:comment "The act of durably recording a decided value in the log or state machine, making it irreversible under correct-node behavior." .
+kb:agreement_decide a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement decide" ;
+    rdfs:comment "A value reaches agreement when a quorum of nodes have accepted it; once decided, the value is stable and no correct process will adopt a conflicting value." .
+kb:agreement_epoch a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement epoch" ;
+    rdfs:comment "A logical time boundary in epoch-based consensus; a leader is established per epoch and all proposals within the epoch are totally ordered, with epoch changes providing safety despite leader failures." .
+kb:agreement_learn a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement learn" ;
+    rdfs:comment "A node acquires knowledge of a decided value, typically by receiving accept acknowledgements from a quorum or by notification from a leader that the value has been committed." .
+kb:agreement_prepare a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement prepare" ;
+    rdfs:comment "The first phase of a two-phase agreement protocol wherein a proposer requests permission to propose by sending a prepare message with a proposal number; recipients promise not to accept lower-numbered proposals and report any previously accepted value." .
+kb:agreement_promise a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement promise" ;
+    rdfs:comment "A commitment from a node that it will not accept proposals with numbers lower than the promised threshold; it may carry a previously accepted value to preserve when the new proposal number wins." .
+kb:agreement_proposal_number a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement proposal number" ;
+    rdfs:comment "A totally ordered identifier attached to a proposal, used to break ties and ensure the most recent proposal wins; typically a (round, node_id) pair." .
+kb:agreement_propose a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement propose" ;
+    rdfs:comment "A node submits a value for consideration by the agreement protocol; the proposed value carries a proposal number for ordering and is broadcast to quorum-forming peers." .
+kb:agreement_quorum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement quorum" ;
+    rdfs:comment "The minimal set of nodes whose responses are sufficient to guarantee agreement; in majority-quorum systems this is any set intersecting all majorities, preventing split-brain divergence." .
+kb:agreement_vote a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agreement vote" ;
+    rdfs:comment "The cast support of a node for a particular proposal, recorded and counted toward quorum; votes are durable and prevent re-opening decided values." .
+kb:anti_entropy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "anti entropy" ;
+    rdfs:comment "Repair of divergent replicas by comparing Merkle trees and exchanging differences." .
+kb:append_entries a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "append entries" ;
+    rdfs:comment "Raft RPC used for log replication and as heartbeat between leader and followers." .
+kb:applied_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "applied index" ;
+    rdfs:comment "Index of highest log entry applied to the local state machine." .
+kb:asynchronous_replication a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "asynchronous replication" ;
+    rdfs:comment "Write returns immediately after local commit; replicas updated in background." .
+kb:at_least_once_delivery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "at least once delivery" ;
+    rdfs:comment "Message delivery guarantee where messages may be redelivered but never lost." .
+kb:at_most_once_delivery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "at most once delivery" ;
+    rdfs:comment "Message delivery guarantee avoiding duplicates but potentially losing messages." .
+kb:atomic_broadcast a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atomic broadcast" ;
+    rdfs:comment "Broadcast primitive guaranteeing either all or no nodes receive a message." .
+kb:availability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "availability" ;
+    rdfs:comment "Probability system remains operational and accessible despite failures." .
+kb:bft a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bft" ;
+    rdfs:comment "Byzantine fault tolerance; consensus tolerating malicious or arbitrary node failures." .
+kb:bft_smart a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bft smart" ;
+    rdfs:comment "Production-grade BFT library implementing Smart's consensus protocol." .
+kb:byzantine_failure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "byzantine failure" ;
+    rdfs:comment "Component exhibits arbitrary behavior including lies, omissions, or timing violations." .
+kb:byzantine_fault a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "byzantine fault" ;
+    rdfs:comment "Arbitrary, potentially malicious failure including\u6492\u8c0e, duplicate messages, or omission." .
+kb:byzantine_fault_tolerance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "byzantine fault tolerance" ;
+    rdfs:comment "System's ability to function correctly despite arbitrary faulty behavior by nodes." .
+kb:candidate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "candidate" ;
+    rdfs:comment "Follower that has started an election and is requesting votes." .
+kb:cap_availability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cap availability" ;
+    rdfs:comment "Every request receives non-error response even with failed nodes." .
+kb:cap_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cap consistency" ;
+    rdfs:comment "All replicas agree on latest value before responding to read." .
+kb:cap_partition_tolerance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cap partition tolerance" ;
+    rdfs:comment "System continues despite arbitrary network partition." .
+kb:cap_theorem a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cap theorem" ;
+    rdfs:comment "Theorem stating distributed system can guarantee at most two of: consistency, availability, partition tolerance." .
+kb:cassandra a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cassandra" ;
+    rdfs:comment "Wide-column distributed database using eventual consistency and tunable quorum." .
+kb:catch_up_recovery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "catch up recovery" ;
+    rdfs:comment "Process of syncing a lagging or new replica with current leader state." .
+kb:causal_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "causal consistency" ;
+    rdfs:comment "Causally related operations are seen by all processes in order; concurrent operations may be ordered arbitrarily." .
+kb:chain_replication a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chain replication" ;
+    rdfs:comment "Replication via linked list: head handles writes, tail confirms, middle nodes forward." .
+kb:chandy_lamport a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chandy lamport" ;
+    rdfs:comment "Algorithm for capturing consistent global snapshots using marker messages." .
+kb:cheap_paxos a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cheap paxos" ;
+    rdfs:comment "Paxos variant minimizing use of acceptors by using a smaller auxiliary set for recovery." .
+kb:check_quorum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "check quorum" ;
+    rdfs:comment "Raft mechanism where leader checks if sufficient followers still exist before serving requests." .
+kb:checkpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "checkpoint" ;
+    rdfs:comment "Persisted snapshot of state enabling recovery without full replay." .
+kb:client_session a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "client session" ;
+    rdfs:comment "Tracking mechanism associating client requests and ensuring exactly-once execution." .
+kb:cockroachdb a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cockroachdb" ;
+    rdfs:comment "Distributed SQL database using Raft for consistent range replication." .
+kb:commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit" ;
+    rdfs:comment "Marking log entry as durable and irreversible; committed entries never rolled back." .
+kb:commit_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit index" ;
+    rdfs:comment "Index of highest log entry known committed; entries up to this point are durable." .
+kb:consensus a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "consensus" ;
+    rdfs:comment "Agreement on a single value among a set of distributed processes; the core problem consensus protocols solve." .
+kb:consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "consistency" ;
+    rdfs:comment "The property that all nodes in a distributed system observe the same data state at the same time, or that operations appear to all processes in a globally consistent order per the model's guarantees." .
+kb:consul a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "consul" ;
+    rdfs:comment "Service mesh solution using Raft for node coordination and service discovery." .
+kb:crash_failure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crash failure" ;
+    rdfs:comment "Component ceases operation entirely without warning or recovery attempt." .
+kb:diff a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "diff" ;
+    rdfs:comment "Incremental difference between two states used in efficient state synchronization." .
+kb:distributed_consensus_and_replication_protocols_fault_tolerance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "distributed consensus and replication protocols fault tolerance" ;
+    rdfs:comment "The ability of a distributed system to continue correct operation despite component failures including node crashes, network partitions, message loss, or Byzantine faults, typically achieved through replication and redundancy." .
+kb:distributed_snapshot a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "distributed snapshot" ;
+    rdfs:comment "Global consistent state captured across all nodes of a distributed system." .
+kb:distributed_system a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "distributed system" ;
+    rdfs:comment "Collection of independent nodes that coordinate to achieve shared goals via message passing." .
+kb:distributed_transaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "distributed transaction" ;
+    rdfs:comment "A transaction that spans multiple independent nodes or services, requiring coordination across participants to ensure atomicity, typically via two-phase commit, three-phase commit, or compensating transaction patterns." .
+kb:durability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "durability" ;
+    rdfs:comment "Guarantee that acknowledged updates survive failures and are not lost." .
+kb:dynamo a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dynamo" ;
+    rdfs:comment "Amazon's highly available key-value store using consistent hashing, quorum, and gossip." .
+kb:election_timeout a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "election timeout" ;
+    rdfs:comment "Randomized delay before follower starts election to avoid split votes." .
+kb:epoch a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "epoch" ;
+    rdfs:comment "Sequence number identifying a leader's term; used to detect stale leaders." .
+kb:etcd a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "etcd" ;
+    rdfs:comment "Distributed key-value store implementing Raft for replicated log and consensus." .
+kb:eventual_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "eventual consistency" ;
+    rdfs:comment "Given no new updates, all replicas will eventually converge to the same value." .
+kb:exactly_once_semantics a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "exactly once semantics" ;
+    rdfs:comment "Guarantee that each operation executes exactly once despite retries or failures." .
+kb:failover a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "failover" ;
+    rdfs:comment "Automatic transfer of service from failed primary to healthy backup." .
+kb:failure_detection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "failure detection" ;
+    rdfs:comment "Mechanism for detecting crashed or unreachable nodes in a distributed system." .
+kb:failure_detection_timeout a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "failure detection timeout" ;
+    rdfs:comment "Duration after which absence of heartbeat triggers suspect status." .
+kb:failure_detector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "failure detector" ;
+    rdfs:comment "Mechanism to distinguish crashed nodes from slow ones based on timeouts, heartbeats, or phi_accrual." .
+kb:failure_mode a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "failure mode" ;
+    rdfs:comment "Classification of ways components can fail: crash_stop, crash_recovery, omission, timing, response, arbitrary_byzantine." .
+kb:fast_paxos a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fast paxos" ;
+    rdfs:comment "Paxos variant reducing round trips by allowing clients to propose directly to acceptors." .
+kb:fault_tolerance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fault tolerance" ;
+    rdfs:comment "System's ability to continue operating correctly despite component failures." .
+kb:fencing_token a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fencing token" ;
+    rdfs:comment "Monotonically increasing token preventing split-brain writes during partition recovery." .
+kb:flexible_quorum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flexible quorum" ;
+    rdfs:comment "Quorum sizes decouple read and write requirements while maintaining consistency." .
+kb:follower a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "follower" ;
+    rdfs:comment "Replica node that receives entries from leader and applies them to its local state." .
+kb:ft001 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft001" ;
+    rdfs:comment "Failure detection: the capability of a distributed system to observe and identify when a process or component has stopped responding or exhibited faulty behavior, typically via timeout mechanisms or heartbeat protocols." .
+kb:ft002 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft002" ;
+    rdfs:comment "Failure classification: categorization of failure modes including crash failure where a process halts, omission failure where messages are lost, and Byzantine failure where arbitrary or malicious behavior occurs." .
+kb:ft003 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft003" ;
+    rdfs:comment "Redundancy: the duplication of critical components data or processing capacity so that system operation can continue when some components fail." .
+kb:ft004 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft004" ;
+    rdfs:comment "Replication factor: the configured number of replica copies of data maintained across distinct processes to survive loss of some copies while preserving availability and consistency." .
+kb:ft005 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft005" ;
+    rdfs:comment "Failover: the automated process of transferring operation from a failed primary component to a designated backup replica without human intervention." .
+kb:ft006 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft006" ;
+    rdfs:comment "Availability: the degree to which a distributed system remains operational and accessible over time despite component failures, often expressed as a proportion of uptime." .
+kb:ft007 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft007" ;
+    rdfs:comment "Partition tolerance: the property that a distributed system continues to operate correctly even when network communication between nodes is delayed or severed, splitting the system into isolated components." .
+kb:ft008 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft008" ;
+    rdfs:comment "Recovery: the procedures and protocols by which a distributed system restores consistent state after detecting and isolating a failure, including log replay and state reconstruction from replicated_log." .
+kb:ft009 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft009" ;
+    rdfs:comment "Failure masking: the ability of a system to conceal the effects of component failures from users by using redundancy and automatic recovery so that failures appear invisible." .
+kb:ft010 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft010" ;
+    rdfs:comment "Liveness preservation: maintaining the termination property of consensus a004 so that the system continues to make progress even as components fail and recover." .
+kb:ft011 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft011" ;
+    rdfs:comment "Safety preservation: maintaining the uniform agreement property a005 so that all processes including failed ones decide the same value despite partial failures." .
+kb:ft012 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft012" ;
+    rdfs:comment "Quorum reconfiguration: dynamically adjusting the quorum size a007 required for consensus operations as processes join leave or fail, while preserving overlap guarantees." .
+kb:ft013 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft013" ;
+    rdfs:comment "Threshold adaptation: modifying the minimum correct processes a008 needed for safety and liveness as the membership of the distributed system changes." .
+kb:ft014 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft014" ;
+    rdfs:comment "Leader election: the process of selecting a new primary process to coordinate consensus operations when the current leader fails, often requiring failure detection ft001 and quorum agreement." .
+kb:ft015 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft015" ;
+    rdfs:comment "Crash recovery: the restart procedure by which a failed process rejoins the replicated_log after recovery, potentially requiring state synchronization from remaining correct replicas." .
+kb:ft016 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft016" ;
+    rdfs:comment "Byzantine fault tolerance: the ability to maintain consensus and safety properties even when some processes exhibit arbitrary or malicious behavior, extending beyond simple crash failure models." .
+kb:ft017 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ft017" ;
+    rdfs:comment "CAP theorem implications: the inherent tradeoffs between consistency consensus and availability ft006 and partition tolerance ft007 that fault tolerance designs must navigate." .
+kb:generation_clock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "generation clock" ;
+    rdfs:comment "Monotonically increasing counter per node used for ordering and detecting stale state." .
+kb:global_state a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "global state" ;
+    rdfs:comment "Union of all local states at a moment in distributed computation." .
+kb:gossip_dissemination a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gossip dissemination" ;
+    rdfs:comment "Probabilistic epidemic protocol spreading updates through pairwise exchanges." .
+kb:gossip_protocol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gossip protocol" ;
+    rdfs:comment "Epidemic state dissemination where nodes periodically share state with random peers." .
+kb:graceful_degradation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graceful degradation" ;
+    rdfs:comment "Reduced but continued functionality when full capacity unavailable due to failure." .
+kb:grid_quorum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "grid quorum" ;
+    rdfs:comment "Structured quorum built from intersecting row and column node sets." .
+kb:heartbeat a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "heartbeat" ;
+    rdfs:comment "Periodic message indicating a node is alive; used for failure detection." .
+kb:heartbeat_timeout a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "heartbeat timeout" ;
+    rdfs:comment "Time follower waits without receiving heartbeat before starting election." .
+kb:hinted_handoff a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hinted handoff" ;
+    rdfs:comment "Temporary storage of writes destined for unavailable nodes for later delivery." .
+kb:hotstuff a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hotstuff" ;
+    rdfs:comment "BFT with pacemaker, pipelined proposals, and linear communication complexity." .
+kb:hybrid_logical_clock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hybrid logical clock" ;
+    rdfs:comment "Combines physical time with logical counter for ordering with meaningful wall-clock proximity." .
+kb:idempotency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idempotency" ;
+    rdfs:comment "Property that applying operation multiple times yields same result as once." .
+kb:joint_consensus a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "joint consensus" ;
+    rdfs:comment "Raft's two-phase configuration change using joint configuration of old and new members." .
+kb:journal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "journal" ;
+    rdfs:comment "Append-only record of operations; synonym for replicated_log in some contexts." .
+kb:lamport_timestamp a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lamport timestamp" ;
+    rdfs:comment "Monotonic counter incremented on each operation; provides causal ordering." .
+kb:last_applied a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "last applied" ;
+    rdfs:comment "Alias for applied_index; tracks state machine progress." .
+kb:lattice_quorum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lattice quorum" ;
+    rdfs:comment "Quorum constructed from intersecting monotone sets in a lattice structure." .
+kb:leader a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "leader" ;
+    rdfs:comment "Designated node that coordinates writes and appends to the replicated log in consensus protocols." .
+kb:leader_election a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "leader election" ;
+    rdfs:comment "Process of selecting a unique leader from among candidates when no leader exists." .
+kb:leader_lease a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "leader lease" ;
+    rdfs:comment "Lease held by Raft leader granting exclusive authority for its term." .
+kb:lease a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lease" ;
+    rdfs:comment "Time-limited delegation of authority; leader holds lease to make decisions without constant quorum checks." .
+kb:linearizability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "linearizability" ;
+    rdfs:comment "Strongest consistency model: every operation appears atomic and ordered in real time across all nodes." .
+kb:liveness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "liveness" ;
+    rdfs:comment "Property requiring system to eventually respond or make progress under fair conditions." .
+kb:lock_free a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock free" ;
+    rdfs:comment "Progress guarantee where at least one thread makes progress in finite steps." .
+kb:log_compaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "log compaction" ;
+    rdfs:comment "Retention policy that snapshots state and discards obsolete log entries." .
+kb:member_removal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "member removal" ;
+    rdfs:comment "Removing a node from the cluster; must ensure it doesn't have uncommitted entries." .
+kb:membership_change a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "membership change" ;
+    rdfs:comment "Adding or removing nodes from the cluster without service interruption." .
+kb:merkle_tree a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "merkle tree" ;
+    rdfs:comment "Hash tree enabling efficient comparison of large datasets to identify differences." .
+kb:min_match a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "min match" ;
+    rdfs:comment "Minimum match index across majority of nodes; determines which entries are safe to commit." .
+kb:min_match_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "min match index" ;
+    rdfs:comment "Lowest log index matched by a quorum; defines commit safety boundary." .
+kb:monotonic_reads a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "monotonic reads" ;
+    rdfs:comment "Consistency guarantee that client never sees older version after seeing newer." .
+kb:multi_paxos a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "multi paxos" ;
+    rdfs:comment "Extension of Paxos for replicating an ordered log of commands, optimizing by skipping prepare phase for consecutive entries." .
+kb:network_partition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "network partition" ;
+    rdfs:comment "Connectivity loss between node subgroups preventing inter-group communication." .
+kb:new_member_join a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "new member join" ;
+    rdfs:comment "Adding a new node to the cluster with catch-up to current state." .
+kb:obstruction_free a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "obstruction free" ;
+    rdfs:comment "Progress guarantee if any thread runs solo long enough it completes." .
+kb:pacelc a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pacelc" ;
+    rdfs:comment "Extension to CAP: during partition, must choose between latency and consistency." .
+kb:paxos a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "paxos" ;
+    rdfs:comment "Lamport's consensus algorithm using proposers, acceptors, and learners with phases of prepare/promise and accept/accepted." .
+kb:pbft a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pbft" ;
+    rdfs:comment "Practical Byzantine Fault Tolerance; Oprea et al's efficient BFT consensus for n=3f+1." .
+kb:phi_accrual_detector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "phi accrual detector" ;
+    rdfs:comment "Adaptive failure detector returning suspicion level rather than binary crashed/not crashed." .
+kb:pre_vote a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pre vote" ;
+    rdfs:comment "Raft extension where candidate tests waters by requesting pre-votes before incrementing term." .
+kb:preemptive_recovery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "preemptive recovery" ;
+    rdfs:comment "Proactive restart of potentially faulty node before failure causes visible system impact." .
+kb:primary_backup a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "primary backup" ;
+    rdfs:comment "Architecture where single leader processes requests and replicates to backups." .
+kb:quorum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "quorum" ;
+    rdfs:comment "Subset of nodes sufficient for reads or writes; typically majority (n/2+1) for strong consistency." .
+kb:quorum_read a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "quorum read" ;
+    rdfs:comment "Reading from sufficient replicas to guarantee seeing latest write." .
+kb:quorum_write a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "quorum write" ;
+    rdfs:comment "Writing to sufficient replicas to guarantee subsequent readers see the value." .
+kb:raft a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "raft" ;
+    rdfs:comment "Consensus algorithm designed for understandability, using leader election, log replication, and safety viaterm numbers." .
+kb:randomized_timeout a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "randomized timeout" ;
+    rdfs:comment "Jitter added to timeouts to reduce probability of simultaneous elections." .
+kb:read_quorum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read quorum" ;
+    rdfs:comment "Minimum nodes that must acknowledge a read to guarantee seeing latest data." .
+kb:read_repair a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read repair" ;
+    rdfs:comment "Background correction of stale replicas when read reveals outdated data." .
+kb:read_your_writes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read your writes" ;
+    rdfs:comment "Consistency guarantee that client sees effects of its own previous writes." .
+kb:reconfigurable_quorum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reconfigurable quorum" ;
+    rdfs:comment "Quorum system that can change membership without service interruption." .
+kb:reconfiguration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reconfiguration" ;
+    rdfs:comment "Process of changing cluster membership while maintaining consistency guarantees." .
+kb:recovery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "recovery" ;
+    rdfs:comment "Process of restoring a failed node or the system to a consistent state." .
+kb:redundancy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "redundancy" ;
+    rdfs:comment "Duplication of data or computation across independent failure domains." .
+kb:replica_synchronization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "replica synchronization" ;
+    rdfs:comment "Propagation of updates to ensure all replicas converge toward identical state." .
+kb:replicated_log a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "replicated log" ;
+    rdfs:comment "Ordered log of commands maintained across replicas; foundation of state machine replication." .
+kb:replicated_state_machine a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "replicated state machine" ;
+    rdfs:comment "Deterministic state machine replicated across nodes via identical input log." .
+kb:replication a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "replication" ;
+    rdfs:comment "Maintaining identical copies of data across multiple nodes for fault tolerance and performance." .
+kb:replication_factor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "replication factor" ;
+    rdfs:comment "Count of replica copies maintained for durability and availability." .
+kb:riak a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "riak" ;
+    rdfs:comment "Distributed key-value store with eventual consistency and configurable replication." .
+kb:roll_back a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "roll back" ;
+    rdfs:comment "Reverting uncommitted changes to maintain consistency after transaction abort." .
+kb:roll_forward a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "roll forward" ;
+    rdfs:comment "Reapplying committed log entries to reconstruct state after failure." .
+kb:safety a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "safety" ;
+    rdfs:comment "Property requiring system never reaches inconsistent or invalid state." .
+kb:saga_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "saga pattern" ;
+    rdfs:comment "Distributed transaction pattern using compensating transactions instead of ACID locks." .
+kb:semi_synchronous_replication a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semi synchronous replication" ;
+    rdfs:comment "Write waits for quorum of replicas to acknowledge; balances latency and durability." .
+kb:sequential_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sequential consistency" ;
+    rdfs:comment "All processes see all operations in the same total order, though that order need not match real time." .
+kb:shadow_operations a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "shadow operations" ;
+    rdfs:comment "Redundant execution paths validated against primary to detect silent corruption." .
+kb:single_server_membership a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "single server membership" ;
+    rdfs:comment "Raft simplification allowing one membership change at a time." .
+kb:smr a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "smr" ;
+    rdfs:comment "Abbreviation for state machine replication." .
+kb:snapshot a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "snapshot" ;
+    rdfs:comment "Point-in-time consistent capture of state machine contents for recovery or compaction." .
+kb:split_brain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "split brain" ;
+    rdfs:comment "Scenario where network partition causes multiple nodes to believe they are leader; resolved by quorum." .
+kb:stable_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stable property" ;
+    rdfs:comment "Condition that, once true, remains true thereafter; used in termination detection." .
+kb:state_machine_replication a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "state machine replication" ;
+    rdfs:comment "Technique where deterministic state machines are replicated across nodes via a common log." .
+kb:state_transfer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "state transfer" ;
+    rdfs:comment "Sending full current state to a lagging replica for rapid catch-up." .
+kb:strong_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strong consistency" ;
+    rdfs:comment "Any read sees the effects of all previous writes; includes linearizability and sequential consistency." .
+kb:strong_quorum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strong quorum" ;
+    rdfs:comment "Quorum where read and write quorums overlap (r + w > n)." .
+kb:swim_protocol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "swim protocol" ;
+    rdfs:comment "Scalable Weakly-consistent Infection-style Membership protocol for group membership." .
+kb:synchronous_replication a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "synchronous replication" ;
+    rdfs:comment "Write waits for all replicas to acknowledge before returning to client." .
+kb:tendermint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tendermint" ;
+    rdfs:comment "BFT consensus with rotating proposer, prevote/precommit phases, and finality." .
+kb:term a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "term" ;
+    rdfs:comment "Logical time period in Raft identified by monotonically increasing integers; epoch for leader authority." .
+kb:termination_detection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "termination detection" ;
+    rdfs:comment "Algorithm for detecting when distributed computation has completed." .
+kb:three_phase_commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "three phase commit" ;
+    rdfs:comment "3PC: adds pre-commit phase to avoid blocking; still vulnerable to network partitions." .
+kb:total_order_broadcast a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "total order broadcast" ;
+    rdfs:comment "Atomic broadcast ensuring all processes receive messages in identical order." .
+kb:true_time a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "true time" ;
+    rdfs:comment "Google's bounded time uncertainty using GPS and atomic clocks for global ordering." .
+kb:two_phase_commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "two phase commit" ;
+    rdfs:comment "2PC: coordinator asks participants to prepare then commit; blocking on coordinator failure." .
+kb:uniform_agreement a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "uniform agreement" ;
+    rdfs:comment "Property requiring all correct processes agree on the same value, not just those that decide." .
+kb:vector_clock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vector clock" ;
+    rdfs:comment "Causal timestamp as vector of per-process counters; enables causal consistency." .
+kb:version_vector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "version vector" ;
+    rdfs:comment "Set of per-replica counters tracking object versions for conflict detection." .
+kb:view_change a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "view change" ;
+    rdfs:comment "Transition of consensus membership to new configuration after membership modification." .
+kb:viewstamped_replication a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "viewstamped replication" ;
+    rdfs:comment "VR protocol using views with primary node, view changes, and log recovery." .
+kb:vote_request a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vote request" ;
+    rdfs:comment "Request sent by candidate asking followers to grant vote for election." .
+kb:wait_free a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "wait free" ;
+    rdfs:comment "Progress guarantee where every operation completes in finite steps regardless of other operations." .
+kb:wal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "wal" ;
+    rdfs:comment "Write-ahead log ensuring durability before applying operations to state machine." .
+kb:write_quorum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "write quorum" ;
+    rdfs:comment "Minimum nodes that must acknowledge a write for it to be considered committed." .
+kb:writes_follow_reads a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "writes follow reads" ;
+    rdfs:comment "Consistency guarantee that client's writes are ordered after its previous reads." .
+kb:zab a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "zab" ;
+    rdfs:comment "Zookeeper's atomic broadcast protocol for total order delivery with recovery guarantees." .
+kb:zyzzyva a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "zyzzyva" ;
+    rdfs:comment "Speculative BFT where client assumes happy path without Byzantine behavior." .
+
+kb:a001 kbo:relatesTo kb:a003 .
+kb:a001 kbo:relatesTo kb:a006 .
+kb:a002 kbo:relatesTo kb:a004 .
+kb:a003 kbo:relatesTo kb:a002 .
+kb:a004 kbo:relatesTo kb:a005 .
+kb:a005 kbo:relatesTo kb:consensus .
+kb:a006 kbo:relatesTo kb:a005 .
+kb:a007 kbo:relatesTo kb:a009 .
+kb:a007 kbo:relatesTo kb:replicated_log .
+kb:a008 kbo:relatesTo kb:a009 .
+kb:a008 kbo:relatesTo kb:replicated_log .
+kb:a009 kbo:relatesTo kb:consensus .
+kb:a010 kbo:relatesTo kb:a009 .
+kb:a011 kbo:relatesTo kb:a010 .
+kb:active_replication kbo:relatesTo kb:state_machine_replication .
+kb:agreement_accept kbo:relatesTo kb:agreement_abort .
+kb:agreement_accept_request kbo:relatesTo kb:agreement_vote .
+kb:agreement_decide kbo:relatesTo kb:agreement_commit .
+kb:agreement_decide kbo:relatesTo kb:agreement_learn .
+kb:agreement_epoch kbo:relatesTo kb:agreement_prepare .
+kb:agreement_prepare kbo:relatesTo kb:agreement_promise .
+kb:agreement_promise kbo:relatesTo kb:agreement_accept_request .
+kb:agreement_propose kbo:relatesTo kb:agreement_proposal_number .
+kb:agreement_quorum kbo:relatesTo kb:agreement_decide .
+kb:agreement_vote kbo:relatesTo kb:agreement_quorum .
+kb:anti_entropy kbo:relatesTo kb:state_transfer .
+kb:append_entries kbo:relatesTo kb:replicated_log .
+kb:applied_index kbo:relatesTo kb:commit_index .
+kb:asynchronous_replication kbo:relatesTo kb:eventual_consistency .
+kb:at_least_once_delivery kbo:relatesTo kb:at_most_once_delivery .
+kb:at_most_once_delivery kbo:relatesTo kb:at_least_once_delivery .
+kb:atomic_broadcast kbo:relatesTo kb:consensus .
+kb:availability kbo:relatesTo kb:liveness .
+kb:bft kbo:relatesTo kb:byzantine_fault .
+kb:bft_smart kbo:relatesTo kb:bft .
+kb:byzantine_failure kbo:relatesTo kb:shadow_operations .
+kb:byzantine_failure kbo:relatesTo kb:state_machine_replication .
+kb:byzantine_fault kbo:relatesTo kb:byzantine_failure .
+kb:candidate kbo:relatesTo kb:raft .
+kb:cap_availability kbo:relatesTo kb:redundancy .
+kb:cap_consistency kbo:relatesTo kb:quorum .
+kb:cap_partition_tolerance kbo:relatesTo kb:network_partition .
+kb:cap_theorem kbo:relatesTo kb:consistency .
+kb:cap_theorem kbo:relatesTo kb:eventual_consistency .
+kb:cassandra kbo:relatesTo kb:quorum .
+kb:catch_up_recovery kbo:relatesTo kb:reconfiguration .
+kb:causal_consistency kbo:relatesTo kb:consensus .
+kb:chain_replication kbo:relatesTo kb:replicated_state_machine .
+kb:cheap_paxos kbo:relatesTo kb:fast_paxos .
+kb:check_quorum kbo:relatesTo kb:leader .
+kb:checkpoint kbo:relatesTo kb:recovery .
+kb:client_session kbo:relatesTo kb:exactly_once_semantics .
+kb:cockroachdb kbo:relatesTo kb:raft .
+kb:commit kbo:relatesTo kb:commit_index .
+kb:commit_index kbo:relatesTo kb:replicated_log .
+kb:consensus kbo:relatesTo kb:a007 .
+kb:consensus kbo:relatesTo kb:a008 .
+kb:consensus kbo:relatesTo kb:agreement .
+kb:consensus kbo:relatesTo kb:fault_tolerance .
+kb:consul kbo:relatesTo kb:raft .
+kb:crash_failure kbo:relatesTo kb:recovery .
+kb:diff kbo:relatesTo kb:global_state .
+kb:distributed_consensus_and_replication_protocols_fault_tolerance kbo:relatesTo kb:agreement_abort .
+kb:distributed_consensus_and_replication_protocols_fault_tolerance kbo:relatesTo kb:agreement_decide .
+kb:distributed_snapshot kbo:relatesTo kb:chandy_lamport .
+kb:distributed_system kbo:relatesTo kb:distributed_consensus_and_replication_protocols_fault_tolerance .
+kb:durability kbo:relatesTo kb:checkpoint .
+kb:dynamo kbo:relatesTo kb:quorum .
+kb:election_timeout kbo:relatesTo kb:raft .
+kb:epoch kbo:relatesTo kb:leader_election .
+kb:etcd kbo:relatesTo kb:raft .
+kb:failover kbo:relatesTo kb:leader_election .
+kb:failure_detection kbo:relatesTo kb:heartbeat .
+kb:failure_detection_timeout kbo:relatesTo kb:failure_detector .
+kb:failure_detector kbo:relatesTo kb:failure_mode .
+kb:failure_mode kbo:relatesTo kb:byzantine_failure .
+kb:failure_mode kbo:relatesTo kb:crash_failure .
+kb:failure_mode kbo:relatesTo kb:network_partition .
+kb:fast_paxos kbo:relatesTo kb:paxos .
+kb:fault_tolerance kbo:relatesTo kb:a002 .
+kb:fencing_token kbo:relatesTo kb:split_brain .
+kb:flexible_quorum kbo:relatesTo kb:quorum .
+kb:follower kbo:relatesTo kb:replicated_log .
+kb:ft001 kbo:relatesTo kb:ft005 .
+kb:ft001 kbo:relatesTo kb:ft014 .
+kb:ft002 kbo:relatesTo kb:ft015 .
+kb:ft002 kbo:relatesTo kb:ft016 .
+kb:ft003 kbo:relatesTo kb:ft004 .
+kb:ft004 kbo:relatesTo kb:replicated_log .
+kb:ft005 kbo:relatesTo kb:consensus .
+kb:ft006 kbo:relatesTo kb:ft007 .
+kb:ft007 kbo:relatesTo kb:consensus .
+kb:ft008 kbo:relatesTo kb:ft007 .
+kb:ft009 kbo:relatesTo kb:consensus .
+kb:ft010 kbo:relatesTo kb:a004 .
+kb:ft011 kbo:relatesTo kb:a005 .
+kb:ft012 kbo:relatesTo kb:a007 .
+kb:ft013 kbo:relatesTo kb:a008 .
+kb:ft014 kbo:relatesTo kb:consensus .
+kb:ft015 kbo:relatesTo kb:replicated_log .
+kb:ft016 kbo:relatesTo kb:a002 .
+kb:ft016 kbo:relatesTo kb:consensus .
+kb:ft017 kbo:relatesTo kb:consensus .
+kb:generation_clock kbo:relatesTo kb:lamport_timestamp .
+kb:global_state kbo:relatesTo kb:distributed_snapshot .
+kb:gossip_protocol kbo:relatesTo kb:failure_detection .
+kb:graceful_degradation kbo:relatesTo kb:availability .
+kb:grid_quorum kbo:relatesTo kb:quorum .
+kb:heartbeat kbo:relatesTo kb:failure_detector .
+kb:heartbeat_timeout kbo:relatesTo kb:raft .
+kb:hinted_handoff kbo:relatesTo kb:eventual_consistency .
+kb:hotstuff kbo:relatesTo kb:byzantine_fault_tolerance .
+kb:hybrid_logical_clock kbo:relatesTo kb:linearizability .
+kb:idempotency kbo:relatesTo kb:exactly_once_semantics .
+kb:lamport_timestamp kbo:relatesTo kb:causal_consistency .
+kb:leader kbo:relatesTo kb:raft .
+kb:leader kbo:relatesTo kb:replicated_log .
+kb:leader_election kbo:relatesTo kb:epoch .
+kb:leader_election kbo:relatesTo kb:lease .
+kb:lease kbo:relatesTo kb:leader_election .
+kb:lease kbo:relatesTo kb:leader_lease .
+kb:linearizability kbo:relatesTo kb:consensus .
+kb:lock_free kbo:relatesTo kb:consensus .
+kb:member_removal kbo:relatesTo kb:reconfiguration .
+kb:membership_change kbo:relatesTo kb:joint_consensus .
+kb:membership_change kbo:relatesTo kb:view_change .
+kb:merkle_tree kbo:relatesTo kb:anti_entropy .
+kb:min_match kbo:relatesTo kb:commit_index .
+kb:monotonic_reads kbo:relatesTo kb:client_session .
+kb:multi_paxos kbo:relatesTo kb:replicated_log .
+kb:network_partition kbo:relatesTo kb:split_brain .
+kb:new_member_join kbo:relatesTo kb:reconfiguration .
+kb:obstruction_free kbo:relatesTo kb:consensus .
+kb:paxos kbo:relatesTo kb:consensus .
+kb:pbft kbo:relatesTo kb:byzantine_fault_tolerance .
+kb:phi_accrual_detector kbo:relatesTo kb:failure_detection .
+kb:phi_accrual_detector kbo:relatesTo kb:failure_detector .
+kb:pre_vote kbo:relatesTo kb:raft .
+kb:preemptive_recovery kbo:relatesTo kb:failure_detector .
+kb:primary_backup kbo:relatesTo kb:replica_synchronization .
+kb:quorum kbo:relatesTo kb:linearizability .
+kb:quorum kbo:relatesTo kb:quorum_read .
+kb:quorum kbo:relatesTo kb:quorum_write .
+kb:quorum kbo:relatesTo kb:replication_factor .
+kb:quorum kbo:relatesTo kb:semi_synchronous_replication .
+kb:quorum kbo:relatesTo kb:strong_quorum .
+kb:quorum kbo:relatesTo kb:synchronous_replication .
+kb:raft kbo:relatesTo kb:consensus .
+kb:raft kbo:relatesTo kb:replicated_log .
+kb:randomized_timeout kbo:relatesTo kb:election_timeout .
+kb:read_quorum kbo:relatesTo kb:eventual_consistency .
+kb:read_repair kbo:relatesTo kb:eventual_consistency .
+kb:read_your_writes kbo:relatesTo kb:client_session .
+kb:reconfiguration kbo:relatesTo kb:membership_change .
+kb:recovery kbo:relatesTo kb:roll_back .
+kb:recovery kbo:relatesTo kb:roll_forward .
+kb:redundancy kbo:relatesTo kb:failover .
+kb:redundancy kbo:relatesTo kb:replication_factor .
+kb:replica_synchronization kbo:relatesTo kb:anti_entropy .
+kb:replica_synchronization kbo:relatesTo kb:gossip_dissemination .
+kb:replica_synchronization kbo:relatesTo kb:read_repair .
+kb:replicated_log kbo:relatesTo kb:a005 .
+kb:riak kbo:relatesTo kb:eventual_consistency .
+kb:saga_pattern kbo:relatesTo kb:distributed_transaction .
+kb:sequential_consistency kbo:relatesTo kb:consensus .
+kb:smr kbo:relatesTo kb:replicated_log .
+kb:snapshot kbo:relatesTo kb:log_compaction .
+kb:split_brain kbo:relatesTo kb:availability .
+kb:split_brain kbo:relatesTo kb:quorum .
+kb:split_brain kbo:relatesTo kb:safety .
+kb:state_machine_replication kbo:relatesTo kb:replica_synchronization .
+kb:state_machine_replication kbo:relatesTo kb:replicated_log .
+kb:state_transfer kbo:relatesTo kb:catch_up_recovery .
+kb:swim_protocol kbo:relatesTo kb:failure_detection .
+kb:tendermint kbo:relatesTo kb:byzantine_fault_tolerance .
+kb:term kbo:relatesTo kb:raft .
+kb:three_phase_commit kbo:relatesTo kb:two_phase_commit .
+kb:total_order_broadcast kbo:relatesTo kb:atomic_broadcast .
+kb:true_time kbo:relatesTo kb:linearizability .
+kb:two_phase_commit kbo:relatesTo kb:consensus .
+kb:vector_clock kbo:relatesTo kb:causal_consistency .
+kb:viewstamped_replication kbo:relatesTo kb:consensus .
+kb:wait_free kbo:relatesTo kb:consensus .
+kb:wal kbo:relatesTo kb:log_compaction .
+kb:write_quorum kbo:relatesTo kb:eventual_consistency .
+kb:writes_follow_reads kbo:relatesTo kb:client_session .
+kb:zab kbo:relatesTo kb:consensus .
+

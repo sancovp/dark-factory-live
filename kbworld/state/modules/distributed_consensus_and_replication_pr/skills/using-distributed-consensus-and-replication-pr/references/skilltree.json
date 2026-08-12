@@ -1,0 +1,250 @@
+{
+  "skilltree": {
+    "name": "understand-distributed consensus and replication protocols",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-distributed consensus and replication protocols",
+    "description": "the distributed consensus and replication protocols library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-core",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-core",
+        "description": "the core subdomain of distributed consensus and replication protocols (4 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-distributed_consensus_and_replication_protocols_fault_tolerance",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-distributed_consensus_and_replication_protocols_fault_tolerance",
+            "description": "The ability of a distributed system to continue correct operation despite component failures including node cr",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-agreement",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-agreement",
+            "description": "The property that a set of distributed processes reach the same decision outcome on a given value. Uniform agr",
+            "coord": "0.1.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-consistency",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-consistency",
+            "description": "The property that all nodes in a distributed system observe the same data state at the same time, or that oper",
+            "coord": "0.1.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-distributed_transaction",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-distributed_transaction",
+            "description": "A transaction that spans multiple independent nodes or services, requiring coordination across participants to",
+            "coord": "0.1.4",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_consensus",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-deep_consensus",
+        "description": "the deep_consensus subdomain of distributed consensus and replication protocols (41 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-failure_detector",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-failure_detector",
+            "description": "Mechanism to distinguish crashed nodes from slow ones based on timeouts, heartbeats, or phi_accrual.",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-replica_synchronization",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-replica_synchronization",
+            "description": "Propagation of updates to ensure all replicas converge toward identical state.",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-agreement_decide",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-agreement_decide",
+            "description": "A value reaches agreement when a quorum of nodes have accepted it; once decided, the value is stable and no co",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-failure_mode",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-failure_mode",
+            "description": "Classification of ways components can fail: crash_stop, crash_recovery, omission, timing, response, arbitrary_",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-byzantine_failure",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-byzantine_failure",
+            "description": "Component exhibits arbitrary behavior including lies, omissions, or timing violations.",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-network_partition",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-network_partition",
+            "description": "Connectivity loss between node subgroups preventing inter-group communication.",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_raft",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-deep_raft",
+        "description": "the deep_raft subdomain of distributed consensus and replication protocols (28 concepts)",
+        "coord": "0.3",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-a005",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-a005",
+            "description": "Uniform agreement: all processes including those that later fail must decide on the same value, stricter than ",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-a002",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-a002",
+            "description": "Validity in agreement: the decided value must have been proposed by some process in the system, guaranteeing a",
+            "coord": "0.3.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-a007",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-a007",
+            "description": "Quorum in agreement: a subset of processes sufficient to guarantee agreement can be reached, typically interse",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-a008",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-a008",
+            "description": "Threshold in agreement: the minimum number of correct processes required to guarantee safety and liveness unde",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-a009",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-a009",
+            "description": "Asymmetric agreement: one class of processes (e.g., primary) must agree while another class (e.g., backups) ma",
+            "coord": "0.3.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-a004",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-a004",
+            "description": "Termination in agreement: every correct process eventually decides some value, ensuring the protocol makes pro",
+            "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-distributed_consensus_and_replication_protocols",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-distributed_consensus_and_replication_protocols",
+        "description": "the distributed_consensus_and_replication_protocols subdomain of distributed consensus and replication protocols (123 concepts)",
+        "coord": "0.4",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-consensus",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-consensus",
+            "description": "Agreement on a single value among a set of distributed processes; the core problem consensus protocols solve.",
+            "coord": "0.4.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-replicated_log",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-replicated_log",
+            "description": "Ordered log of commands maintained across replicas; foundation of state machine replication.",
+            "coord": "0.4.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-quorum",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-quorum",
+            "description": "Subset of nodes sufficient for reads or writes; typically majority (n/2+1) for strong consistency.",
+            "coord": "0.4.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-raft",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-raft",
+            "description": "Consensus algorithm designed for understandability, using leader election, log replication, and safety viaterm",
+            "coord": "0.4.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-eventual_consistency",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-eventual_consistency",
+            "description": "Given no new updates, all replicas will eventually converge to the same value.",
+            "coord": "0.4.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-split_brain",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_distributed_consensus_and_replication_protocols/understand-split_brain",
+            "description": "Scenario where network partition causes multiple nodes to believe they are leader; resolved by quorum.",
+            "coord": "0.4.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

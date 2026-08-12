@@ -1,0 +1,196 @@
+{"c": "a001", "d": "Safety in agreement: the property that all correct non-faulty processes decide on the identical value, ensuring no divergence among behaving participants.", "lib": "deep_raft"}
+{"c": "a002", "d": "Validity in agreement: the decided value must have been proposed by some process in the system, guaranteeing agreements are grounded in actual proposals.", "lib": "deep_raft"}
+{"c": "a003", "d": "Integrity in agreement: no process decides more than once, or if it decides twice it decides the same value both times, preventing duplicate or inconsistent decisions.", "lib": "deep_raft"}
+{"c": "a004", "d": "Termination in agreement: every correct process eventually decides some value, ensuring the protocol makes progress and does not stall indefinitely.", "lib": "deep_raft"}
+{"c": "a005", "d": "Uniform agreement: all processes including those that later fail must decide on the same value, stricter than ordinary agreement which only binds correct processes.", "lib": "deep_raft"}
+{"c": "a006", "d": "Total order in agreement: decisions form a linearizable sequence such that all processes observe decisions in the same global order.", "lib": "deep_raft"}
+{"c": "a007", "d": "Quorum in agreement: a subset of processes sufficient to guarantee agreement can be reached, typically intersecting any valid quorum to ensure overlap.", "lib": "deep_raft"}
+{"c": "a008", "d": "Threshold in agreement: the minimum number of correct processes required to guarantee safety and liveness under given failure assumptions.", "lib": "deep_raft"}
+{"c": "a009", "d": "Asymmetric agreement: one class of processes (e.g., primary) must agree while another class (e.g., backups) may reach different decisions, used in primary-backup protocols.", "lib": "deep_raft"}
+{"c": "a010", "d": "Crash recovery agreement: agreement property that persists across process crashes and restarts, requiring recovered processes to rejoin with correct state.", "lib": "deep_raft"}
+{"c": "a011", "d": "View change agreement: agreement maintained during membership changes when processes join, leave, or are suspected failed, requiring re-establishment of quorums.", "lib": "deep_raft"}
+{"c": "active_replication", "d": "Architecture where all replicas process requests independently with deterministic execution.", "lib": "deep_consensus"}
+{"c": "agreement", "d": "The property that a set of distributed processes reach the same decision outcome on a given value. Uniform agreement requires all processes including those that later crash to decide identically; asymmetric agreement permits different decision classes for different process roles such as primary versus backup.", "lib": null}
+{"c": "agreement_abort", "d": "A proposal that fails to collect a quorum of accepts is abandoned, allowing the proposer to retry with a higher proposal number.", "lib": "deep_consensus"}
+{"c": "agreement_accept", "d": "A node records a received proposal, typically after verifying the proposal number exceeds any previously promised or accepted number, committing the node to vote for that value.", "lib": "deep_consensus"}
+{"c": "agreement_accept_request", "d": "The second phase of a two-phase agreement protocol wherein the proposer sends accept messages containing the proposal number and value; recipients accept if the number meets their promise.", "lib": "deep_consensus"}
+{"c": "agreement_commit", "d": "The act of durably recording a decided value in the log or state machine, making it irreversible under correct-node behavior.", "lib": "deep_consensus"}
+{"c": "agreement_decide", "d": "A value reaches agreement when a quorum of nodes have accepted it; once decided, the value is stable and no correct process will adopt a conflicting value.", "lib": "deep_consensus"}
+{"c": "agreement_epoch", "d": "A logical time boundary in epoch-based consensus; a leader is established per epoch and all proposals within the epoch are totally ordered, with epoch changes providing safety despite leader failures.", "lib": "deep_consensus"}
+{"c": "agreement_learn", "d": "A node acquires knowledge of a decided value, typically by receiving accept acknowledgements from a quorum or by notification from a leader that the value has been committed.", "lib": "deep_consensus"}
+{"c": "agreement_prepare", "d": "The first phase of a two-phase agreement protocol wherein a proposer requests permission to propose by sending a prepare message with a proposal number; recipients promise not to accept lower-numbered proposals and report any previously accepted value.", "lib": "deep_consensus"}
+{"c": "agreement_promise", "d": "A commitment from a node that it will not accept proposals with numbers lower than the promised threshold; it may carry a previously accepted value to preserve when the new proposal number wins.", "lib": "deep_consensus"}
+{"c": "agreement_proposal_number", "d": "A totally ordered identifier attached to a proposal, used to break ties and ensure the most recent proposal wins; typically a (round, node_id) pair.", "lib": "deep_consensus"}
+{"c": "agreement_propose", "d": "A node submits a value for consideration by the agreement protocol; the proposed value carries a proposal number for ordering and is broadcast to quorum-forming peers.", "lib": "deep_consensus"}
+{"c": "agreement_quorum", "d": "The minimal set of nodes whose responses are sufficient to guarantee agreement; in majority-quorum systems this is any set intersecting all majorities, preventing split-brain divergence.", "lib": "deep_consensus"}
+{"c": "agreement_vote", "d": "The cast support of a node for a particular proposal, recorded and counted toward quorum; votes are durable and prevent re-opening decided values.", "lib": "deep_consensus"}
+{"c": "anti_entropy", "d": "Repair of divergent replicas by comparing Merkle trees and exchanging differences.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "append_entries", "d": "Raft RPC used for log replication and as heartbeat between leader and followers.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "applied_index", "d": "Index of highest log entry applied to the local state machine.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "asynchronous_replication", "d": "Write returns immediately after local commit; replicas updated in background.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "at_least_once_delivery", "d": "Message delivery guarantee where messages may be redelivered but never lost.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "at_most_once_delivery", "d": "Message delivery guarantee avoiding duplicates but potentially losing messages.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "atomic_broadcast", "d": "Broadcast primitive guaranteeing either all or no nodes receive a message.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "availability", "d": "Probability system remains operational and accessible despite failures.", "lib": "deep_consensus"}
+{"c": "bft", "d": "Byzantine fault tolerance; consensus tolerating malicious or arbitrary node failures.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "bft_smart", "d": "Production-grade BFT library implementing Smart's consensus protocol.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "byzantine_failure", "d": "Component exhibits arbitrary behavior including lies, omissions, or timing violations.", "lib": "deep_consensus"}
+{"c": "byzantine_fault", "d": "Arbitrary, potentially malicious failure including\u6492\u8c0e, duplicate messages, or omission.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "byzantine_fault_tolerance", "d": "System's ability to function correctly despite arbitrary faulty behavior by nodes.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "candidate", "d": "Follower that has started an election and is requesting votes.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "cap_availability", "d": "Every request receives non-error response even with failed nodes.", "lib": "deep_consensus"}
+{"c": "cap_consistency", "d": "All replicas agree on latest value before responding to read.", "lib": "deep_consensus"}
+{"c": "cap_partition_tolerance", "d": "System continues despite arbitrary network partition.", "lib": "deep_consensus"}
+{"c": "cap_theorem", "d": "Theorem stating distributed system can guarantee at most two of: consistency, availability, partition tolerance.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "cassandra", "d": "Wide-column distributed database using eventual consistency and tunable quorum.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "catch_up_recovery", "d": "Process of syncing a lagging or new replica with current leader state.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "causal_consistency", "d": "Causally related operations are seen by all processes in order; concurrent operations may be ordered arbitrarily.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "chain_replication", "d": "Replication via linked list: head handles writes, tail confirms, middle nodes forward.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "chandy_lamport", "d": "Algorithm for capturing consistent global snapshots using marker messages.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "cheap_paxos", "d": "Paxos variant minimizing use of acceptors by using a smaller auxiliary set for recovery.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "check_quorum", "d": "Raft mechanism where leader checks if sufficient followers still exist before serving requests.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "checkpoint", "d": "Persisted snapshot of state enabling recovery without full replay.", "lib": "deep_consensus"}
+{"c": "client_session", "d": "Tracking mechanism associating client requests and ensuring exactly-once execution.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "cockroachdb", "d": "Distributed SQL database using Raft for consistent range replication.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "commit", "d": "Marking log entry as durable and irreversible; committed entries never rolled back.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "commit_index", "d": "Index of highest log entry known committed; entries up to this point are durable.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "consensus", "d": "Agreement on a single value among a set of distributed processes; the core problem consensus protocols solve.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "consistency", "d": "The property that all nodes in a distributed system observe the same data state at the same time, or that operations appear to all processes in a globally consistent order per the model's guarantees.", "lib": null}
+{"c": "consul", "d": "Service mesh solution using Raft for node coordination and service discovery.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "crash_failure", "d": "Component ceases operation entirely without warning or recovery attempt.", "lib": "deep_consensus"}
+{"c": "diff", "d": "Incremental difference between two states used in efficient state synchronization.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "distributed_consensus_and_replication_protocols_fault_tolerance", "d": "The ability of a distributed system to continue correct operation despite component failures including node crashes, network partitions, message loss, or Byzantine faults, typically achieved through replication and redundancy.", "lib": null}
+{"c": "distributed_snapshot", "d": "Global consistent state captured across all nodes of a distributed system.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "distributed_system", "d": "Collection of independent nodes that coordinate to achieve shared goals via message passing.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "distributed_transaction", "d": "A transaction that spans multiple independent nodes or services, requiring coordination across participants to ensure atomicity, typically via two-phase commit, three-phase commit, or compensating transaction patterns.", "lib": null}
+{"c": "durability", "d": "Guarantee that acknowledged updates survive failures and are not lost.", "lib": "deep_consensus"}
+{"c": "dynamo", "d": "Amazon's highly available key-value store using consistent hashing, quorum, and gossip.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "election_timeout", "d": "Randomized delay before follower starts election to avoid split votes.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "epoch", "d": "Sequence number identifying a leader's term; used to detect stale leaders.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "etcd", "d": "Distributed key-value store implementing Raft for replicated log and consensus.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "eventual_consistency", "d": "Given no new updates, all replicas will eventually converge to the same value.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "exactly_once_semantics", "d": "Guarantee that each operation executes exactly once despite retries or failures.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "failover", "d": "Automatic transfer of service from failed primary to healthy backup.", "lib": "deep_consensus"}
+{"c": "failure_detection", "d": "Mechanism for detecting crashed or unreachable nodes in a distributed system.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "failure_detection_timeout", "d": "Duration after which absence of heartbeat triggers suspect status.", "lib": "deep_consensus"}
+{"c": "failure_detector", "d": "Mechanism to distinguish crashed nodes from slow ones based on timeouts, heartbeats, or phi_accrual.", "lib": "deep_consensus"}
+{"c": "failure_mode", "d": "Classification of ways components can fail: crash_stop, crash_recovery, omission, timing, response, arbitrary_byzantine.", "lib": "deep_consensus"}
+{"c": "fast_paxos", "d": "Paxos variant reducing round trips by allowing clients to propose directly to acceptors.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "fault_tolerance", "d": "System's ability to continue operating correctly despite component failures.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "fencing_token", "d": "Monotonically increasing token preventing split-brain writes during partition recovery.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "flexible_quorum", "d": "Quorum sizes decouple read and write requirements while maintaining consistency.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "follower", "d": "Replica node that receives entries from leader and applies them to its local state.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "ft001", "d": "Failure detection: the capability of a distributed system to observe and identify when a process or component has stopped responding or exhibited faulty behavior, typically via timeout mechanisms or heartbeat protocols.", "lib": "deep_raft"}
+{"c": "ft002", "d": "Failure classification: categorization of failure modes including crash failure where a process halts, omission failure where messages are lost, and Byzantine failure where arbitrary or malicious behavior occurs.", "lib": "deep_raft"}
+{"c": "ft003", "d": "Redundancy: the duplication of critical components data or processing capacity so that system operation can continue when some components fail.", "lib": "deep_raft"}
+{"c": "ft004", "d": "Replication factor: the configured number of replica copies of data maintained across distinct processes to survive loss of some copies while preserving availability and consistency.", "lib": "deep_raft"}
+{"c": "ft005", "d": "Failover: the automated process of transferring operation from a failed primary component to a designated backup replica without human intervention.", "lib": "deep_raft"}
+{"c": "ft006", "d": "Availability: the degree to which a distributed system remains operational and accessible over time despite component failures, often expressed as a proportion of uptime.", "lib": "deep_raft"}
+{"c": "ft007", "d": "Partition tolerance: the property that a distributed system continues to operate correctly even when network communication between nodes is delayed or severed, splitting the system into isolated components.", "lib": "deep_raft"}
+{"c": "ft008", "d": "Recovery: the procedures and protocols by which a distributed system restores consistent state after detecting and isolating a failure, including log replay and state reconstruction from replicated_log.", "lib": "deep_raft"}
+{"c": "ft009", "d": "Failure masking: the ability of a system to conceal the effects of component failures from users by using redundancy and automatic recovery so that failures appear invisible.", "lib": "deep_raft"}
+{"c": "ft010", "d": "Liveness preservation: maintaining the termination property of consensus a004 so that the system continues to make progress even as components fail and recover.", "lib": "deep_raft"}
+{"c": "ft011", "d": "Safety preservation: maintaining the uniform agreement property a005 so that all processes including failed ones decide the same value despite partial failures.", "lib": "deep_raft"}
+{"c": "ft012", "d": "Quorum reconfiguration: dynamically adjusting the quorum size a007 required for consensus operations as processes join leave or fail, while preserving overlap guarantees.", "lib": "deep_raft"}
+{"c": "ft013", "d": "Threshold adaptation: modifying the minimum correct processes a008 needed for safety and liveness as the membership of the distributed system changes.", "lib": "deep_raft"}
+{"c": "ft014", "d": "Leader election: the process of selecting a new primary process to coordinate consensus operations when the current leader fails, often requiring failure detection ft001 and quorum agreement.", "lib": "deep_raft"}
+{"c": "ft015", "d": "Crash recovery: the restart procedure by which a failed process rejoins the replicated_log after recovery, potentially requiring state synchronization from remaining correct replicas.", "lib": "deep_raft"}
+{"c": "ft016", "d": "Byzantine fault tolerance: the ability to maintain consensus and safety properties even when some processes exhibit arbitrary or malicious behavior, extending beyond simple crash failure models.", "lib": "deep_raft"}
+{"c": "ft017", "d": "CAP theorem implications: the inherent tradeoffs between consistency consensus and availability ft006 and partition tolerance ft007 that fault tolerance designs must navigate.", "lib": "deep_raft"}
+{"c": "generation_clock", "d": "Monotonically increasing counter per node used for ordering and detecting stale state.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "global_state", "d": "Union of all local states at a moment in distributed computation.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "gossip_dissemination", "d": "Probabilistic epidemic protocol spreading updates through pairwise exchanges.", "lib": "deep_consensus"}
+{"c": "gossip_protocol", "d": "Epidemic state dissemination where nodes periodically share state with random peers.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "graceful_degradation", "d": "Reduced but continued functionality when full capacity unavailable due to failure.", "lib": "deep_consensus"}
+{"c": "grid_quorum", "d": "Structured quorum built from intersecting row and column node sets.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "heartbeat", "d": "Periodic message indicating a node is alive; used for failure detection.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "heartbeat_timeout", "d": "Time follower waits without receiving heartbeat before starting election.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "hinted_handoff", "d": "Temporary storage of writes destined for unavailable nodes for later delivery.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "hotstuff", "d": "BFT with pacemaker, pipelined proposals, and linear communication complexity.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "hybrid_logical_clock", "d": "Combines physical time with logical counter for ordering with meaningful wall-clock proximity.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "idempotency", "d": "Property that applying operation multiple times yields same result as once.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "joint_consensus", "d": "Raft's two-phase configuration change using joint configuration of old and new members.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "journal", "d": "Append-only record of operations; synonym for replicated_log in some contexts.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "lamport_timestamp", "d": "Monotonic counter incremented on each operation; provides causal ordering.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "last_applied", "d": "Alias for applied_index; tracks state machine progress.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "lattice_quorum", "d": "Quorum constructed from intersecting monotone sets in a lattice structure.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "leader", "d": "Designated node that coordinates writes and appends to the replicated log in consensus protocols.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "leader_election", "d": "Process of selecting a unique leader from among candidates when no leader exists.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "leader_lease", "d": "Lease held by Raft leader granting exclusive authority for its term.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "lease", "d": "Time-limited delegation of authority; leader holds lease to make decisions without constant quorum checks.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "linearizability", "d": "Strongest consistency model: every operation appears atomic and ordered in real time across all nodes.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "liveness", "d": "Property requiring system to eventually respond or make progress under fair conditions.", "lib": "deep_consensus"}
+{"c": "lock_free", "d": "Progress guarantee where at least one thread makes progress in finite steps.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "log_compaction", "d": "Retention policy that snapshots state and discards obsolete log entries.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "member_removal", "d": "Removing a node from the cluster; must ensure it doesn't have uncommitted entries.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "membership_change", "d": "Adding or removing nodes from the cluster without service interruption.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "merkle_tree", "d": "Hash tree enabling efficient comparison of large datasets to identify differences.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "min_match", "d": "Minimum match index across majority of nodes; determines which entries are safe to commit.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "min_match_index", "d": "Lowest log index matched by a quorum; defines commit safety boundary.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "monotonic_reads", "d": "Consistency guarantee that client never sees older version after seeing newer.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "multi_paxos", "d": "Extension of Paxos for replicating an ordered log of commands, optimizing by skipping prepare phase for consecutive entries.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "network_partition", "d": "Connectivity loss between node subgroups preventing inter-group communication.", "lib": "deep_consensus"}
+{"c": "new_member_join", "d": "Adding a new node to the cluster with catch-up to current state.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "obstruction_free", "d": "Progress guarantee if any thread runs solo long enough it completes.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "pacelc", "d": "Extension to CAP: during partition, must choose between latency and consistency.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "paxos", "d": "Lamport's consensus algorithm using proposers, acceptors, and learners with phases of prepare/promise and accept/accepted.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "pbft", "d": "Practical Byzantine Fault Tolerance; Oprea et al's efficient BFT consensus for n=3f+1.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "phi_accrual_detector", "d": "Adaptive failure detector returning suspicion level rather than binary crashed/not crashed.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "pre_vote", "d": "Raft extension where candidate tests waters by requesting pre-votes before incrementing term.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "preemptive_recovery", "d": "Proactive restart of potentially faulty node before failure causes visible system impact.", "lib": "deep_consensus"}
+{"c": "primary_backup", "d": "Architecture where single leader processes requests and replicates to backups.", "lib": "deep_consensus"}
+{"c": "quorum", "d": "Subset of nodes sufficient for reads or writes; typically majority (n/2+1) for strong consistency.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "quorum_read", "d": "Reading from sufficient replicas to guarantee seeing latest write.", "lib": "deep_consensus"}
+{"c": "quorum_write", "d": "Writing to sufficient replicas to guarantee subsequent readers see the value.", "lib": "deep_consensus"}
+{"c": "raft", "d": "Consensus algorithm designed for understandability, using leader election, log replication, and safety viaterm numbers.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "randomized_timeout", "d": "Jitter added to timeouts to reduce probability of simultaneous elections.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "read_quorum", "d": "Minimum nodes that must acknowledge a read to guarantee seeing latest data.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "read_repair", "d": "Background correction of stale replicas when read reveals outdated data.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "read_your_writes", "d": "Consistency guarantee that client sees effects of its own previous writes.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "reconfigurable_quorum", "d": "Quorum system that can change membership without service interruption.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "reconfiguration", "d": "Process of changing cluster membership while maintaining consistency guarantees.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "recovery", "d": "Process of restoring a failed node or the system to a consistent state.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "redundancy", "d": "Duplication of data or computation across independent failure domains.", "lib": "deep_consensus"}
+{"c": "replica_synchronization", "d": "Propagation of updates to ensure all replicas converge toward identical state.", "lib": "deep_consensus"}
+{"c": "replicated_log", "d": "Ordered log of commands maintained across replicas; foundation of state machine replication.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "replicated_state_machine", "d": "Deterministic state machine replicated across nodes via identical input log.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "replication", "d": "Maintaining identical copies of data across multiple nodes for fault tolerance and performance.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "replication_factor", "d": "Count of replica copies maintained for durability and availability.", "lib": "deep_consensus"}
+{"c": "riak", "d": "Distributed key-value store with eventual consistency and configurable replication.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "roll_back", "d": "Reverting uncommitted changes to maintain consistency after transaction abort.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "roll_forward", "d": "Reapplying committed log entries to reconstruct state after failure.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "safety", "d": "Property requiring system never reaches inconsistent or invalid state.", "lib": "deep_consensus"}
+{"c": "saga_pattern", "d": "Distributed transaction pattern using compensating transactions instead of ACID locks.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "semi_synchronous_replication", "d": "Write waits for quorum of replicas to acknowledge; balances latency and durability.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "sequential_consistency", "d": "All processes see all operations in the same total order, though that order need not match real time.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "shadow_operations", "d": "Redundant execution paths validated against primary to detect silent corruption.", "lib": "deep_consensus"}
+{"c": "single_server_membership", "d": "Raft simplification allowing one membership change at a time.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "smr", "d": "Abbreviation for state machine replication.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "snapshot", "d": "Point-in-time consistent capture of state machine contents for recovery or compaction.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "split_brain", "d": "Scenario where network partition causes multiple nodes to believe they are leader; resolved by quorum.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "stable_property", "d": "Condition that, once true, remains true thereafter; used in termination detection.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "state_machine_replication", "d": "Technique where deterministic state machines are replicated across nodes via a common log.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "state_transfer", "d": "Sending full current state to a lagging replica for rapid catch-up.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "strong_consistency", "d": "Any read sees the effects of all previous writes; includes linearizability and sequential consistency.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "strong_quorum", "d": "Quorum where read and write quorums overlap (r + w > n).", "lib": "deep_consensus"}
+{"c": "swim_protocol", "d": "Scalable Weakly-consistent Infection-style Membership protocol for group membership.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "synchronous_replication", "d": "Write waits for all replicas to acknowledge before returning to client.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "tendermint", "d": "BFT consensus with rotating proposer, prevote/precommit phases, and finality.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "term", "d": "Logical time period in Raft identified by monotonically increasing integers; epoch for leader authority.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "termination_detection", "d": "Algorithm for detecting when distributed computation has completed.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "three_phase_commit", "d": "3PC: adds pre-commit phase to avoid blocking; still vulnerable to network partitions.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "total_order_broadcast", "d": "Atomic broadcast ensuring all processes receive messages in identical order.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "true_time", "d": "Google's bounded time uncertainty using GPS and atomic clocks for global ordering.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "two_phase_commit", "d": "2PC: coordinator asks participants to prepare then commit; blocking on coordinator failure.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "uniform_agreement", "d": "Property requiring all correct processes agree on the same value, not just those that decide.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "vector_clock", "d": "Causal timestamp as vector of per-process counters; enables causal consistency.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "version_vector", "d": "Set of per-replica counters tracking object versions for conflict detection.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "view_change", "d": "Transition of consensus membership to new configuration after membership modification.", "lib": "deep_consensus"}
+{"c": "viewstamped_replication", "d": "VR protocol using views with primary node, view changes, and log recovery.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "vote_request", "d": "Request sent by candidate asking followers to grant vote for election.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "wait_free", "d": "Progress guarantee where every operation completes in finite steps regardless of other operations.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "wal", "d": "Write-ahead log ensuring durability before applying operations to state machine.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "write_quorum", "d": "Minimum nodes that must acknowledge a write for it to be considered committed.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "writes_follow_reads", "d": "Consistency guarantee that client's writes are ordered after its previous reads.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "zab", "d": "Zookeeper's atomic broadcast protocol for total order delivery with recovery guarantees.", "lib": "distributed_consensus_and_replication_protocols"}
+{"c": "zyzzyva", "d": "Speculative BFT where client assumes happy path without Byzantine behavior.", "lib": "distributed_consensus_and_replication_protocols"}

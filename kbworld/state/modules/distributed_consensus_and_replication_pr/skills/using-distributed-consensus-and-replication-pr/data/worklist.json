@@ -1,0 +1,25 @@
+{
+  "phase": "soup",
+  "define": [],
+  "connect": [
+    "journal",
+    "last_applied",
+    "lattice_quorum",
+    "min_match_index",
+    "pacelc",
+    "reconfigurable_quorum",
+    "replication",
+    "single_server_membership",
+    "stable_property",
+    "strong_consistency",
+    "termination_detection",
+    "uniform_agreement",
+    "version_vector",
+    "vote_request",
+    "zyzzyva"
+  ],
+  "reconcile": [],
+  "explain": [],
+  "n_concepts": 196,
+  "n_relations": 187
+}

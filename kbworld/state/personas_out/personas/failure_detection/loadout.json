@@ -1,0 +1,13 @@
+{
+  "region": "failure_detection",
+  "call_number": "distributed_consensus_and_replication_protocols.failure_detection : deep_consensus(16), deep_raft(6)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 44
+}

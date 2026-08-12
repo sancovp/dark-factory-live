@@ -1,0 +1,12 @@
+{
+  "name": "distributed-consensus-and-replication-pr-module",
+  "description": "distributed consensus and replication protocols \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 196 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "category": "productivity",
+  "source": {
+    "source": "url",
+    "url": "https://github.com/sancovp/distributed-consensus-and-replication-pr-module.git"
+  }
+}
