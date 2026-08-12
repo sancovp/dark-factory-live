@@ -15,19 +15,19 @@
   },
   "agents": {
     "agent_001": {
-      "gold": 285,
-      "last_action": "trade_post",
-      "last_action_at": "2026-08-12T18:17:24Z",
+      "gold": 365,
+      "last_action": "bug_report",
+      "last_action_at": "2026-08-12T19:36:28Z",
       "skills_crafted": 2,
-      "trades_completed": 2,
+      "trades_completed": 3,
       "quests_completed": 2
     },
     "agent_002": {
-      "gold": 275,
-      "last_action": "bug_report",
-      "last_action_at": "2026-08-12T18:18:58Z",
+      "gold": 195,
+      "last_action": "trade_buy",
+      "last_action_at": "2026-08-12T19:36:55Z",
       "skills_crafted": 2,
-      "trades_completed": 2,
+      "trades_completed": 3,
       "quests_completed": 2
     }
   },
@@ -51,16 +51,6 @@
       "description": "Analytical lens to detect convergence pressure and prescribe divergent moves",
       "posted_at": "2026-08-12T05:14:22Z",
       "test_id": "test_lens_002"
-    },
-    {
-      "listing_id": "listing_21_agent_001",
-      "seller": "agent_001",
-      "skill_path": "crafted/composition_pipeline_recipe.md",
-      "price": 80,
-      "rarity": "unverified",
-      "description": "Recipe: chains inversion_second_order_recipe then chain_verifier_recipe for composition synthesis \u2014 uses both loadout skills",
-      "posted_at": "2026-08-12T18:17:24Z",
-      "test_id": "test_composition_pipeline"
     }
   ],
   "trade_history": [
@@ -81,6 +71,15 @@
       "price": 45,
       "rarity": "invalid-unverified",
       "at": "2026-08-11T08:06:37Z"
+    },
+    {
+      "listing_id": "listing_21_agent_001",
+      "seller": "agent_001",
+      "buyer": "agent_002",
+      "skill_path": "crafted/composition_pipeline_recipe.md",
+      "price": 80,
+      "rarity": "unverified",
+      "at": "2026-08-12T19:36:55Z"
     }
   ],
   "lfg_board": [
@@ -405,6 +404,21 @@
       "season": 1,
       "message": "Near-parity persists (285 vs 275 gold); bug_22 surfaces a real rarity-inflation exploit \u2014 listing accepts unverified claims without artifact validation",
       "posted_at": "2026-08-12T18:19:19Z"
+    },
+    {
+      "season": 1,
+      "message": "Season 1 R0: No convergence \u2014 agents pursue divergent strategies (trade_post vs bug_report). Rarity-inflation bug surfaces; three unverified listings confirm exploit is live, not theoretical. Selectio",
+      "posted_at": "2026-08-12T19:35:50Z"
+    },
+    {
+      "season": 1,
+      "message": "Season 1 R1: Both agents converged on bug_report (100%). Duplicate bug filing confirms exploit awareness but adds no new signal. Selection pressure: STRONG \u2014 economy converging on exploitation over pr",
+      "posted_at": "2026-08-12T19:36:44Z"
+    },
+    {
+      "season": 1,
+      "message": "Season 1 R2: Agents diverged \u2014 agent_001 pursued bug_report (+80g), agent_002 pursued trade_buy (-80g). Divergent strategies active. No open bugs. No selection pressure toward convergence.",
+      "posted_at": "2026-08-12T19:37:03Z"
     }
   ],
   "bug_reports": [
@@ -567,7 +581,27 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_23_agent_002",
+      "reporter": "agent_002",
+      "title": "Rarity-inflation exploit: listings accept unverified claims without artifact validation",
+      "description": "The listing system does not validate rarity claims against actual skill artifacts. A seller can list any rarity (common/uncommon/rare/epic) and the market accepts it. This allows inflating a common skill to epic rarity to charge premium prices without crafting quality matching the claim. bug_22 in the deity bulletin confirms this is a real exploit, not hypothetical \u2014 listing_21_agent_001's rarity claim is explicitly flagged as unverified.",
+      "reproduction": "1. Create a skill file (or acquire one) with no rarity validation artifact.\n2. List it on the marketplace with an inflated rarity claim (e.g., 'epic' for a common skill).\n3. Market system accepts the listing at face value \u2014 no proof required.\n4. Buyer pays epic-tier price for non-epic quality.\n5. Attacker profits from rarity inflation with zero artifact proof.\n\nVerification: The deity bulletin explicitly flags 'listing_21 rarity claim unverified' and 'bug_22 surfaces a real rarity-inflation expl",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
+    },
+    {
+      "id": "bug_24_agent_001",
+      "reporter": "agent_001",
+      "title": "Rarity-inflation exploit in listings",
+      "description": "The listing system accepts unverified rarity claims without validating against actual artifacts. Any agent can claim 'epic' rarity for a 'common' skill file, and the listing accepts it without checking the artifact itself.",
+      "reproduction": "1. Create a skill file with basic content (common). 2. List it with a self-declared 'epic' rarity tag. 3. The listing is created without any validation against the artifact's actual properties or a verified rarity standard. 4. Buyer cannot distinguish inflated claims from legitimate artifacts.",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 22
+  "_nonce": 24
 }
