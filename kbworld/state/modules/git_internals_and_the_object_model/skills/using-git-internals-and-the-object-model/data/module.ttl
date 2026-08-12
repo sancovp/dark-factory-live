@@ -1,0 +1,666 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/git_internals_and_the_object_model#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/git_internals_and_the_object_model> a owl:Ontology ;
+    rdfs:label "git internals and the object model" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:alternates_object_db a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "alternates object db" ;
+    rdfs:comment "File .git/objects/info/alternates listing paths to shared object stores; enables disk-space savings across clones." .
+kb:annotated_tag_signature a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "annotated tag signature" ;
+    rdfs:comment "PGP signature stored within tag object body; verified by git tag -v; authenticates the tagged object SHA-1." .
+kb:author_date a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "author date" ;
+    rdfs:comment "Composite of author_timestamp and author_timezone; git log --date= formats this value." .
+kb:author_email a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "author email" ;
+    rdfs:comment "String component of the author field in a commit object specifying the primary creator's email address; appears in angle brackets after the name in the standard <name> <email> format." .
+kb:author_field a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "author field" ;
+    rdfs:comment "Name and email in commit object identifying primary creator; distinct from committer who applied the patch." .
+kb:author_ident a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "author ident" ;
+    rdfs:comment "Full author identity string in the form 'Name <email> timestamp timezone_offset' embedded in a commit object's author header; the canonical representation of author_field." .
+kb:author_identification a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "author identification" ;
+    rdfs:comment "The combination of author_name and author_email forming the author's identity within the commit object." .
+kb:author_name a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "author name" ;
+    rdfs:comment "String component of the author field in a commit object specifying the primary creator's display name; appears before the email in the standard <name> <email> format." .
+kb:author_rfc2822 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "author rfc2822" ;
+    rdfs:comment "The RFC 2822 formatted author line: \"author <name> <email> <timestamp> <timezone>\" stored in commit object body." .
+kb:author_timestamp a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "author timestamp" ;
+    rdfs:comment "Integer Unix timestamp recording when the author created the change; represents seconds since epoch (1970-01-01 00:00:00 UTC) in the author field." .
+kb:author_timezone a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "author timezone" ;
+    rdfs:comment "String timezone offset in the author field following the timestamp; formatted as +HHMM or -HHMM indicating hours and minutes east or west of UTC." .
+kb:author_vs_committer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "author vs committer" ;
+    rdfs:comment "The semantic distinction: author created the patch content; committer applied it to the repository; git blame uses author_field as the primary attribution." .
+kb:bisect_log a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bisect log" ;
+    rdfs:comment "refs/bisect/* pseudo-refs tracking midpoints and test results during git bisect; --no-checkout mode walks history without checkout." .
+kb:blob_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "blob object" ;
+    rdfs:comment "Type-1 git object storing raw file contents verbatim; identified by SHA-1 of content; no filename or metadata retained." .
+kb:blob_prefetch a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "blob prefetch" ;
+    rdfs:comment "Git fetch-object or protocol v2 advertisements retrieving missing blob content on demand from partial clone; requires server support." .
+kb:blob_split_threshold a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "blob split threshold" ;
+    rdfs:comment "Configuration core.bigFileThreshold beyond which git may store deltas instead of full content in packfiles." .
+kb:bloom_filter_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bloom filter index" ;
+    rdfs:comment "Commit-graph embedded data structure encoding paths modified per commit; powers git log --S <string> --throughput optimization." .
+kb:branch_tracking_assignment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "branch tracking assignment" ;
+    rdfs:comment "Remote-tracking ref establishing upstream relationship; configured via branch.<name>.remote and branch.<name>.merge; used for push.default and @{upstream}." .
+kb:bundle_format a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bundle format" ;
+    rdfs:comment "Self-contained .git-bundle file encoding ref updates and reachable objects; enables offline transfer via removable media." .
+kb:byte_string_content a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "byte string content" ;
+    rdfs:comment "The raw byte sequence forming the name; git stores no encoding assumption, no null bytes permitted within the name itself, and no guaranteed UTF-8 validity." .
+kb:case_preservation_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "case preservation property" ;
+    rdfs:comment "The name bytes are stored verbatim and compared byte-for-byte, making the entry case-sensitive on all operating systems including case-insensitive filesystems where the working tree normalizes casing." .
+kb:cherry_pick_delta a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cherry pick delta" ;
+    rdfs:comment "Apply single commit's diff as new commit; preserves original author; generates new SHA-1; records original SHA-1 in commit message." .
+kb:clean_filter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "clean filter" ;
+    rdfs:comment "Configured program git attributes runs on git checkout; transforms blob from object store before writing to working tree." .
+kb:commit_date_ordering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit date ordering" ;
+    rdfs:comment "Revision list ordering by commit timestamp; --date-order flag; faster than topological but produces non-ancestor-first sequences." .
+kb:commit_filter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit filter" ;
+    rdfs:comment "Revision traversal predicate (--since, --author, --grep, --S, --G) restricting which commits appear in output." .
+kb:commit_graph a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit graph" ;
+    rdfs:comment "Binary file .git/objects/info/commit-graph storing commit reachability, generation numbers, and bloom filter data off the critical path." .
+kb:commit_graph_verify a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit graph verify" ;
+    rdfs:comment "git commit-graph verify reads graph and validates generation numbers, checksum, and fanout structure; reports corruption." .
+kb:commit_graph_write a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit graph write" ;
+    rdfs:comment "git commit-graph write traverses reachable commits and writes binary graph; --split merges small chains; --append adds commits to existing graph." .
+kb:commit_message_encoding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit message encoding" ;
+    rdfs:comment "Commit object may record encoding header; git log --encoding=UTF-8 transcodes as needed; enables non-ASCII commit messages." .
+kb:commit_message_encoding_display_encoding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit message encoding display encoding" ;
+    rdfs:comment "The terminal or output stream encoding git uses when writing the transcoded_message; git assumes UTF-8 output if terminal encoding is unset." .
+kb:commit_message_encoding_encoding_absence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit message encoding encoding absence" ;
+    rdfs:comment "State when a commit object lacks an encoding header; git treats the message as UTF-8 by default per the unicode interpretation rule." .
+kb:commit_message_encoding_encoding_fallback a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit message encoding encoding fallback" ;
+    rdfs:comment "Fallback behavior when transcoding_logic cannot map a character; typically replaces with a substitution character or skips the byte." .
+kb:commit_message_encoding_encoding_header a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit message encoding encoding header" ;
+    rdfs:comment "Optional header line 'encoding <encoding-name>' in a commit object's raw text; git stores whatever the user wrote verbatim." .
+kb:commit_message_encoding_encoding_value a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit message encoding encoding value" ;
+    rdfs:comment "The character encoding name stored in the encoding header (UTF-8, ISO-8859-1, Windows-1252, etc.); controls byte-to-character interpretation of the message bytes." .
+kb:commit_message_encoding_log_encoding_flag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit message encoding log encoding flag" ;
+    rdfs:comment "git log flag --encoding=<enc> specifying the target encoding for transcoded output; overrides the stored encoding for display purposes." .
+kb:commit_message_encoding_message_bytes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit message encoding message bytes" ;
+    rdfs:comment "Raw byte sequence forming the commit message body; decoded using encoding_value (or assumed UTF-8) to produce display characters." .
+kb:commit_message_encoding_original_encoding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit message encoding original encoding" ;
+    rdfs:comment "Alias for encoding_value; the encoding recorded at commit time distinguishing the message's original byte interpretation from the display encoding." .
+kb:commit_message_encoding_transcoded_message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit message encoding transcoded message" ;
+    rdfs:comment "The output of transcoding_logic: message_bytes decoded then re-encoded into log_encoding_flag; git log emits this to the terminal." .
+kb:commit_message_encoding_transcoding_logic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit message encoding transcoding logic" ;
+    rdfs:comment "git's internal conversion from the stored encoding_value to the requested log_encoding_flag encoding; uses iconv-style conversion with loss handling." .
+kb:commit_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit object" ;
+    rdfs:comment "Type-3 git object containing tree SHA, parent SHA(s), author, committer, timestamp, and message; forms the history DAG backbone." .
+kb:committer_field a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "committer field" ;
+    rdfs:comment "Name, email, timestamp, and timezone offset in commit object; records who committed (not necessarily who authored)." .
+kb:committer_ident a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "committer ident" ;
+    rdfs:comment "Full committer identity string in form 'Name <email> timestamp timezone_offset' in the commit object; distinct from author_ident." .
+kb:compression_level a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "compression level" ;
+    rdfs:comment "Integer -1 (zlib default), 0 (store), 1-9 (fast to best); set via core.compression or per-object pack-objects --compression." .
+kb:content_addressable_store a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "content addressable store" ;
+    rdfs:comment "Property that object identity derives solely from its content hash; same content always yields identical identifier regardless of path or history." .
+kb:copy_instruction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "copy instruction" ;
+    rdfs:comment "Packfile command copying bytes from base object at offset+length; encodes file copy without recompression." .
+kb:crc32_checksum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crc32 checksum" ;
+    rdfs:comment "Checksum stored per object in packfile index; verified on read to detect corruption before decompression." .
+kb:custom_object_db a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "custom object db" ;
+    rdfs:comment "Alternative backend via GIT_OBJECT_DIRECTORY or extensions.objectFormat; allows SHA-256, shared storage, or plugin-based stores." .
+kb:dangling_blob a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dangling blob" ;
+    rdfs:comment "Blob object with no parent tree entry; arises from aborted rebase or staged-but-uncommitted content; harmless but obscures analysis." .
+kb:delta_compression a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "delta compression" ;
+    rdfs:comment "Git's storage optimization encoding an object as a series of copy/insert commands relative to a base object; OFS_DELTA uses relative offsets; REF_DELTA uses absolute SHA-1." .
+kb:delta_island a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "delta island" ;
+    rdfs:comment "Packfile grouping mechanism isolating objects reachable via specific refs; prevents cross-island delta sharing; aids monorepo incremental fetch." .
+kb:embedded_null_rejection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedded null rejection" ;
+    rdfs:comment "The rule that a tree entry name cannot contain an internal null byte because null is the field terminator; any such byte would truncate the name prematurely." .
+kb:empty_tree_sha a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "empty tree sha" ;
+    rdfs:comment "SHA-1 of the empty tree (tree with zero entries): 4b825dc642cb6eb9a060e54bf8d69288fbee4904; used as synthetic parent of root commits." .
+kb:executable_file_mode a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "executable file mode" ;
+    rdfs:comment "Mode 100755; regular file with execute bits set; Git marks it this way to preserve the executable bit across platforms that handle it differently." .
+kb:fetch_head a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fetch head" ;
+    rdfs:comment "Temporary .git/FETCH_HEAD file recording all branches fetched and their merge configuration for the next pull operation." .
+kb:forward_slash_byte a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "forward slash byte" ;
+    rdfs:comment "The octet value 0x2F representing the ASCII forward slash character; signals subdirectory boundary in tree entry name byte sequences." .
+kb:fsck_integrity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fsck integrity" ;
+    rdfs:comment "git fsck traverses all reachable objects validating SHA-1 linkage, ref integrity, and accessibility; reports dangling and unreachable." .
+kb:fsync_object_write a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fsync object write" ;
+    rdfs:comment "System call flushing object file to durable storage; controlled by core.fsyncObjectFiles; trades safety against write throughput." .
+kb:gc_prune a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gc prune" ;
+    rdfs:comment "Garbage collection process expunging unreachable objects older than prune.window; configurable via gc.prune expire and git prune." .
+kb:generation_number a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "generation number" ;
+    rdfs:comment "Integer in commit-graph measuring topological distance from roots; enables fast ancestor queries without traversing full commit history." .
+kb:graft_point a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graft point" ;
+    rdfs:comment "File .git/info/grafts (or .git/shallow) overriding or truncating commit ancestry; used for repository imports with incomplete history." .
+kb:graph_tip a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph tip" ;
+    rdfs:comment "Commit referenced by a branch tip; all ancestors reachable; descendant commits unreferenced subject to gc if no other path retains them." .
+kb:hash_object_write a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hash object write" ;
+    rdfs:comment "Flag hash --write causes git to store the computed object in .git/objects/ after hashing; idempotent on repeat." .
+kb:head_pointer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "head pointer" ;
+    rdfs:comment "Symbolic ref .git/HEAD pointing to current branch name or directly to a SHA-1 in detached mode; moves on checkout." .
+kb:heads_namespace a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "heads namespace" ;
+    rdfs:comment "Namespace .git/refs/heads/ containing local branch references; each file = branch name; its SHA-1 = tip commit." .
+kb:hook_environment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hook environment" ;
+    rdfs:comment "Environment variables (GIT_DIR, GIT_WORK_TREE, GIT_QUARANTINE_PATH) passed to hook executables; quarantine prevents bad objects from entering repo." .
+kb:hook_trigger a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hook trigger" ;
+    rdfs:comment "Executable script under .git/hooks/ invoked by specific git commands (pre-commit, post-commit, pre-rebase, etc.); nonzero exit aborts operation." .
+kb:index_file a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "index file" ;
+    rdfs:comment "Binary staging area at .git/index listing path->blob SHA-1 mappings plus stage numbers for unmerged entries; fast diff vs tree computation." .
+kb:insert_instruction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "insert instruction" ;
+    rdfs:comment "Packfile command appending literal byte sequence to output; the raw new content not derivable from base." .
+kb:linear_history_heuristic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "linear history heuristic" ;
+    rdfs:comment "Git's default rebase behavior assumes first parent path is mainline; git log --first-parent exposes linearized view; bisect follows first parent." .
+kb:loose_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "loose object" ;
+    rdfs:comment "Individual compressed file stored at .git/objects/xx/xxxx...; fast to write but inefficient at scale; one object per file." .
+kb:maintenance_scheduler a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "maintenance scheduler" ;
+    rdfs:comment "Background git maintenance --scheduled running via cron or systemd timer; config thresholds in maintenance.<task>.schedule." .
+kb:maintenance_task a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "maintenance task" ;
+    rdfs:comment "git maintenance subcommand scheduling background optimization: gc, commit-graph rebuild, incremental-repack, prefetch, prune." .
+kb:merkle_tree_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "merkle tree property" ;
+    rdfs:comment "\u62dc\u5360\u5ead\u5bb9\u9519\u7279\u6027: tree SHA derived from entry hashes and names; any content change ripples upward; enables tamper-evident history without full content comparison." .
+kb:mode_bit_format a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mode bit format" ;
+    rdfs:comment "Base-8 positional numeral system used to encode file mode; Git stores exactly 6 octal digits representing 18 bits of mode information." .
+kb:mode_permission_bits a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mode permission bits" ;
+    rdfs:comment "The lower 9 bits (three octal digits) encoding Unix owner/group/other read-write-execute permissions; displayed as the last three digits of the 6-digit octal mode." .
+kb:mode_type_bits a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mode type bits" ;
+    rdfs:comment "The upper bits of the octal mode identifying the entry's object category: regular file, directory, symlink, or submodule; encoded in the first two octal digits." .
+kb:mode_zero_padding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mode zero padding" ;
+    rdfs:comment "The leading zero in modes like 100644 and 040000 ensures consistent 6-digit width; the zero fills the third octal digit reserved for special file type flags." .
+kb:multi_pack_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "multi pack index" ;
+    rdfs:comment "Compound .midx file spanning multiple packfiles; enables cross-pack object queries and accelerates repack scenarios." .
+kb:name_length_constraint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "name length constraint" ;
+    rdfs:comment "Practical limits on tree entry name bytes derived from path length limits and the 4096-byte tree object ceiling; individual names cannot contain embedded null bytes." .
+kb:note_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "note object" ;
+    rdfs:comment "Blob-like object linked via refs/notes/commits/ to commits; provides annotation layer outside normal commit history." .
+kb:null_termination a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "null termination" ;
+    rdfs:comment "The terminal byte value 0x00 that marks the boundary between a tree entry name and the following field (mode space or next entry) in the binary tree object format." .
+kb:null_termination_semantics a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "null termination semantics" ;
+    rdfs:comment "The rule that a null byte (0x00) terminates the tree entry name field, separating it from the following mode and SHA-1 blob reference within the tree entry binary structure." .
+kb:object_database a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "object database" ;
+    rdfs:comment "Directory-backed key-value store under .git/objects/; loose objects stored as zlib-deflated files keyed by SHA-1; packed objects aggregated into packfiles." .
+kb:object_database_loose_count a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "object database loose count" ;
+    rdfs:comment "Count of loose objects in .git/objects subdirs; high count triggers automatic gc; git count-objects reports count and size." .
+kb:object_header a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "object header" ;
+    rdfs:comment "Four-byte prefix of every loose object: type byte + space + decimal size + null byte before payload; enables streaming deserialization." .
+kb:object_type_inspection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "object type inspection" ;
+    rdfs:comment "git cat-file -t reveals object type; git cat-file -s shows byte size; git cat-file -p pretty-prints content; git rev-list walks commit graph." .
+kb:octet a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "octet" ;
+    rdfs:comment "A single 8-bit byte serving as the atomic encoding unit within a tree entry name byte string; Git stores names as raw bytes with no character encoding assumption." .
+kb:octopus_merge a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "octopus merge" ;
+    rdfs:comment "Merge commit with more than two parents; octopus strategy combines multiple branches; refs/heads/main lists all parents in merge commit object." .
+kb:octopus_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "octopus strategy" ;
+    rdfs:comment "Merge strategy handling 3+ branch tips simultaneously; creates single commit with all parents; avoids intermediate pairwise merges." .
+kb:ofs_delta a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ofs delta" ;
+    rdfs:comment "Delta format encoding base object as relative offset within packfile; safer for streaming than REF_DELTA which names base by SHA-1." .
+kb:ours_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ours strategy" ;
+    rdfs:comment "Merge strategy favoring current branch content for conflicts; creates new commit with all parents but discards theirs content." .
+kb:pack_depth_limit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pack depth limit" ;
+    rdfs:comment "Maximum delta chain length before stopping; deeper chains improve compression but slow random access; default 50." .
+kb:packed_refs a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "packed refs" ;
+    rdfs:comment "Consolidated .git/packed-refs file containing refs not in loose format; created by git pack-refs; enables faster startup on repos with many refs." .
+kb:packfile a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "packfile" ;
+    rdfs:comment "Single binary file consolidating many objects via delta compression; named pack-*.pack with companion .idx index; vastly reduces repository size." .
+kb:packfile_bitmap a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "packfile bitmap" ;
+    rdfs:comment "Reachability bitmap at packfile end enabling fast network transfer negotiation and clone/fetch optimization by marking all reachable objects." .
+kb:packfile_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "packfile index" ;
+    rdfs:comment "Binary lookup table (.idx) enabling O(log n) SHA-1 to offset resolution within a packfile; also stores CRC-32 for integrity verification." .
+kb:packfile_negotiation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "packfile negotiation" ;
+    rdfs:comment "Smart protocol phase where server advertises reachable refs and client computes minimum packfile of missing objects using haves/wants." .
+kb:parent_commit_list a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "parent commit list" ;
+    rdfs:comment "Comma-separated list of parent SHA-1s in commit object; first parent first enables linear history heuristics; octopush uses multi-parent." .
+kb:partial_clone a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "partial clone" ;
+    rdfs:comment "Clone with --filter omitting blob objects from transfer; missing blobs retrieved on demand via fetch-object; enables huge-repository workflows." .
+kb:patch_author a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "patch author" ;
+    rdfs:comment "Conceptual role: the person who originally wrote the code change; represented by author_ident in the commit object." .
+kb:path_segment_extraction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "path segment extraction" ;
+    rdfs:comment "The derivation of individual directory components by splitting the name on forward slash boundaries, producing the hierarchical path representation git reconstructs." .
+kb:path_separator_notation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "path separator notation" ;
+    rdfs:comment "The forward slash character (0x2F) embedded within the name byte string signals a directory boundary; git parses no actual directory structure, only the slash as a naming convention." .
+kb:platform_case_folding_divergence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "platform case folding divergence" ;
+    rdfs:comment "The mismatch where the stored tree entry name bytes are compared literally but the host filesystem may fold case on lookup, causing apparent mismatches resolved by Git's case-insensitive matching logic." .
+kb:promisor_ref a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "promisor ref" ;
+    rdfs:comment "Reference in a partial clone marking an object as promised but not yet fetched; enables placeholder usage before physical retrieval." .
+kb:reachability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reachability" ;
+    rdfs:comment "Property of an object being transitively accessible from another; defines ancestry in the commit DAG; basis for gc, merge-base, and history queries." .
+kb:rebase_replay a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rebase replay" ;
+    rdfs:comment "Replay commits as new objects onto new base; each original commit replaced; original SHA-1s abandoned; creates new history branch." .
+kb:recursive_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "recursive strategy" ;
+    rdfs:comment "Merge strategy recursing into trees for three-way content merge; handles rename detection and conflict presentation." .
+kb:ref_backend a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ref backend" ;
+    rdfs:comment "Virtual filesystem layer for ref storage; files backend for loose refs, reftable backend for high-scale; configured via extensions.refStorage." .
+kb:ref_delta a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ref delta" ;
+    rdfs:comment "Delta format referencing base object by its SHA-1; simpler but requires base to precede delta in packfile or be separately reachable." .
+kb:ref_pointer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ref pointer" ;
+    rdfs:comment "Named file under .git/refs/ containing a SHA-1; represents a branch tip, tag, or remote-tracking branch; updated atomically during operations." .
+kb:ref_transaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ref transaction" ;
+    rdfs:comment "Atomic multi-ref update mechanism; all-or-nothing semantics; used by git update-ref --transaction for safe concurrent modifications." .
+kb:reflog a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reflog" ;
+    rdfs:comment "Append-only log at .git/logs/ tracking all ref changes with old SHA, new SHA, timestamp, and actor; enables recovery from accidental resets or branch deletions." .
+kb:refspec a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "refspec" ;
+    rdfs:comment "Pattern mapping source to destination ref during fetch/push: [+]<src>:<dst>; enables selective branch transfer and namespace rewriting." .
+kb:reftable_format a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reftable format" ;
+    rdfs:comment "Binary sorted table format for refs replacing loose files + packed-refs; compact, concurrent-writer-safe; default for repositories over 1GB." .
+kb:regular_file_mode a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "regular file mode" ;
+    rdfs:comment "Mode 100644; standard blob-backed file with read permission for all and write for owner; the default for non-executable files committed to Git." .
+kb:remote_tracking_update a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "remote tracking update" ;
+    rdfs:comment "Ref update in refs/remotes/ namespace during fetch; controlled by remote.<name>.fetch config; default +refs/heads/*:refs/remotes/origin/*." .
+kb:remotes_namespace a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "remotes namespace" ;
+    rdfs:comment "Namespace .git/refs/remotes/ containing remote-tracking branches; updated by fetch, not by user edits; represent server state." .
+kb:replace_ref a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "replace ref" ;
+    rdfs:comment "Reference under refs/replace/ mapping an object SHA to a substitute SHA; transparent to most commands; allows history rewriting without modifying history." .
+kb:rev_parse_extended a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rev parse extended" ;
+    rdfs:comment "Extended reference syntax: HEAD~n (n-th ancestor), HEAD^n (n-th parent in merge), HEAD@{n} (reflog entry), HEAD^{type} (dereference type)." .
+kb:reverse_walk a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reverse walk" ;
+    rdfs:comment "Revision traversal with --reverse flag; emits commits from oldest to newest; useful for generating forward history scripts." .
+kb:revert_delta a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "revert delta" ;
+    rdfs:comment "Generate commit whose tree undoes another commit's changes; opposite of cherry-pick; uses three-way merge to compute inverse patch." .
+kb:revision_traversal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "revision traversal" ;
+    rdfs:comment "An ordered walk over commits in git's object graph, visiting each revision reachable from one or more starting points (refs, commits) following parent links, in depth-first, breadth-first, or topological order, to collect metadata, compute reachability, or stream objects for processing." .
+kb:root_commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "root commit" ;
+    rdfs:comment "Commit with zero parent SHAs; git mktree produces empty tree SHA; git rev-list excludes root commits with --max-parents=0 when negating." .
+kb:sha1_collision_resistance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sha1 collision resistance" ;
+    rdfs:comment "Property that finding two distinct contents with same SHA-1 requires ~2^80 operations; git relies on this for object identity." .
+kb:sha1_hash a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sha1 hash" ;
+    rdfs:comment "160-bit cryptographic hash computed over object content; serves as object's unique addressable name in git's content-addressable store." .
+kb:sha256_migration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sha256 migration" ;
+    rdfs:comment "Gradual transition from SHA-1 to SHA-256 object names; support for SHA-256-only repositories since git 2.29; object format stored in config." .
+kb:shallow_clone a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "shallow clone" ;
+    rdfs:comment "Clone with .git/shallow cut-off file listing shallow commit SHAs; prevents fetching ancestors beyond the boundary." .
+kb:signed_commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "signed commit" ;
+    rdfs:comment "Commit with GPGSIG header containing cryptographic signature over commit contents; verified by git verify-commit." .
+kb:smudge_filter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "smudge filter" ;
+    rdfs:comment "Configured program git attributes runs on git add; transforms working-tree file before storing as object; lazy loading via .gitattributes." .
+kb:stash_drop a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stash drop" ;
+    rdfs:comment "Remove stash entry; objects remain reachable via reflog until reflog expiry; --index flag restores staged state from stash commit tree." .
+kb:stash_ref a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stash ref" ;
+    rdfs:comment "Pseudo-branch at refs/stash maintained by git stash; each stash entry is a commit whose tree captures working-directory state." .
+kb:subdirectory_segment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "subdirectory segment" ;
+    rdfs:comment "The portion of a tree entry name between forward slash bytes; corresponds to a single directory level in the repository path hierarchy." .
+kb:submodule_pointer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "submodule pointer" ;
+    rdfs:comment "Entry in a parent repository's tree object referencing a specific commit of a nested repository; stored as mode 160000 with commit SHA-1." .
+kb:subtree_merge a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "subtree merge" ;
+    rdfs:comment "Merge strategy handling repository-in-repository layout; subtrees/ subcommand maintains synthetic history linking project roots." .
+kb:subtree_mode a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "subtree mode" ;
+    rdfs:comment "Mode 040000; entry points to a nested tree object representing a directory; the tree entry name contains a forward slash but the slash is not stored in the entry itself." .
+kb:subtree_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "subtree strategy" ;
+    rdfs:comment "Merge variant treating branch tip trees as subtrees of current tree; read-tree + commit without losing either branch's subdirectory content." .
+kb:symlink_mode a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "symlink mode" ;
+    rdfs:comment "Mode 120000; entry points to a blob object containing the target path as raw bytes; the blob content is the symlink destination, not the link data itself." .
+kb:tag_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tag object" ;
+    rdfs:comment "Type-4 git object wrapping another object with a tag name, tagger info, and message; typically used for annotated release markers." .
+kb:tags_namespace a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tags namespace" ;
+    rdfs:comment "Namespace .git/refs/tags/ containing tag references; may point directly at commits (lightweight) or at tag objects (annotated)." .
+kb:topological_ordering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "topological ordering" ;
+    rdfs:comment "Revision list ordering guaranteeing all parents precede children; --topo-order flag; required for linearized history display." .
+kb:trace_output a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "trace output" ;
+    rdfs:comment "GIT_TRACE_PACKET, GIT_TRACE_PERFORMANCE, GIT_TRACE_SETUP, GIT_TRACE_OID logging to stderr; GIT_TRACE2 structured event output for tooling." .
+kb:transfer_protocol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transfer protocol" ;
+    rdfs:comment "Wire format for git fetch/push; smart protocol negotiates packfile contents; dumb protocol requires static file serving of .git/objects/." .
+kb:tree_entry a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry" ;
+    rdfs:comment "A fixed-format record within a Git tree object containing an octal mode, a space separator, a null-terminated name, a space, a 20-byte SHA-1 reference, and a newline; entries are sorted lexicographically by their tree_entry_name byte sequence." .
+kb:tree_entry_mode a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry mode" ;
+    rdfs:comment "Octal mode in tree object: 100644 (regular file), 100755 (executable), 040000 (subtree), 120000 (symlink), 160000 (submodule)." .
+kb:tree_entry_name a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name" ;
+    rdfs:comment "Null-terminated byte string within tree entry; may contain slash for subdirectory entries; case-sensitive on all platforms." .
+kb:tree_entry_name_case_preservation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name case preservation" ;
+    rdfs:comment "The property that tree_entry_name_raw_bytes preserve exact byte case from the moment of entry; git never folds case to a canonical form during storage." .
+kb:tree_entry_name_case_sensitivity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name case sensitivity" ;
+    rdfs:comment "The property that git performs byte-exact comparison of tree entry names during lookup and merge; names differing only in case are distinct entries on all platforms including macOS HFS+ and NTFS (which are case-preserving but case-insensitive at the OS layer)." .
+kb:tree_entry_name_dot_special a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name dot special" ;
+    rdfs:comment "Tree entry names equal to . or .. which git handles as special directory references in index operations; the raw bytes are stored verbatim with no transformation." .
+kb:tree_entry_name_extension_byte a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name extension byte" ;
+    rdfs:comment "The period byte (0x2E) that may appear within the name to separate basename from extension; git makes no special interpretation of this byte \u2014 it is ordinary content unless it is the leading byte of .. or . special entries." .
+kb:tree_entry_name_last_slash_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name last slash index" ;
+    rdfs:comment "The byte offset of the rightmost slash byte within the name; everything after this index is the filename portion, everything before (including any preceding slash) is the directory portion." .
+kb:tree_entry_name_length_field a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name length field" ;
+    rdfs:comment "The byte count of tree_entry_name_raw_bytes; git computes this from the offset between the space after mode and the null terminator during parsing." .
+kb:tree_entry_name_multi_component a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name multi component" ;
+    rdfs:comment "A tree_entry_name containing one or more slash bytes \u2014 represents a file at arbitrary depth; git stores the full relative path string as a single null-terminated name field." .
+kb:tree_entry_name_null_terminator a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name null terminator" ;
+    rdfs:comment "The single NUL byte (0x00) that delimits the end of the tree entry name field; git parses tree objects by scanning for this byte to extract the name string from the mode-space-name-null-SHA sequence." .
+kb:tree_entry_name_raw_bytes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name raw bytes" ;
+    rdfs:comment "The exact byte sequence stored between the space after mode and the NUL terminator; git treats these bytes as opaque \u2014 no encoding interpretation, no normalization, no validation of valid filesystem characters." .
+kb:tree_entry_name_single_component a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name single component" ;
+    rdfs:comment "A tree_entry_name with no slash byte \u2014 represents a file directly in the containing directory; the name bytes constitute the full filename without path prefix." .
+kb:tree_entry_name_slash_byte a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name slash byte" ;
+    rdfs:comment "The forward-slash byte (0x2F) that may appear anywhere within tree_entry_name_raw_bytes to indicate subdirectory hierarchy; git stores the slash literally without encoding or escaping." .
+kb:tree_entry_name_utf8_byte_sequence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree entry name utf8 byte sequence" ;
+    rdfs:comment "A common case where tree_entry_name_raw_bytes form a valid UTF-8 encoded string representing a human-readable filename; git stores the raw bytes without validating or re-encoding them." .
+kb:tree_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree object" ;
+    rdfs:comment "Type-2 git object listing directory entries as (mode, name, sha1) tuples; represents a single directory snapshot at a point in time." .
+kb:unreachable_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "unreachable object" ;
+    rdfs:comment "Object with valid content but no reference path from any ref, reflog entry, or other reachable object; candidate for garbage collection." .
+kb:worktree_list a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "worktree list" ;
+    rdfs:comment "git worktree list enumerates all linked working trees sharing one object store and refs; main worktree distinguished by gitdir file location." .
+kb:worktree_pointer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "worktree pointer" ;
+    rdfs:comment "File .git/worktrees/<name>/HEAD and GITDIR files linking a linked working tree to the main repository's object store and refs." .
+kb:zlib_compression a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "zlib compression" ;
+    rdfs:comment "Deflate compression applied to all loose object content and packfile entries; balance of speed and ratio; configurable per object type via core.compression." .
+
+kb:alternates_object_db kbo:relatesTo kb:object_database .
+kb:author_date kbo:relatesTo kb:author_timestamp .
+kb:author_email kbo:relatesTo kb:author_field .
+kb:author_ident kbo:relatesTo kb:author_field .
+kb:author_identification kbo:relatesTo kb:author_name .
+kb:author_name kbo:relatesTo kb:author_field .
+kb:author_rfc2822 kbo:relatesTo kb:author_field .
+kb:author_timestamp kbo:relatesTo kb:author_date .
+kb:author_timezone kbo:relatesTo kb:author_timestamp .
+kb:author_vs_committer kbo:relatesTo kb:author_field .
+kb:blob_object kbo:relatesTo kb:object_type_inspection .
+kb:blob_object kbo:relatesTo kb:partial_clone .
+kb:blob_object kbo:relatesTo kb:tree_object .
+kb:blob_split_threshold kbo:relatesTo kb:delta_compression .
+kb:bundle_format kbo:relatesTo kb:object_database .
+kb:byte_string_content kbo:relatesTo kb:blob_object .
+kb:case_preservation_property kbo:relatesTo kb:tree_entry_name_case_preservation .
+kb:cherry_pick_delta kbo:relatesTo kb:commit_object .
+kb:clean_filter kbo:relatesTo kb:blob_object .
+kb:clean_filter kbo:relatesTo kb:smudge_filter .
+kb:commit_graph kbo:relatesTo kb:bloom_filter_index .
+kb:commit_graph kbo:relatesTo kb:commit_graph_verify .
+kb:commit_graph kbo:relatesTo kb:commit_graph_write .
+kb:commit_graph kbo:relatesTo kb:generation_number .
+kb:commit_message_encoding_encoding_absence kbo:relatesTo kb:commit_message_encoding_encoding_value .
+kb:commit_message_encoding_encoding_header kbo:relatesTo kb:commit_message_encoding_encoding_value .
+kb:commit_message_encoding_encoding_value kbo:relatesTo kb:commit_message_encoding_message_bytes .
+kb:commit_message_encoding_encoding_value kbo:relatesTo kb:commit_message_encoding_original_encoding .
+kb:commit_message_encoding_encoding_value kbo:relatesTo kb:commit_message_encoding_transcoding_logic .
+kb:commit_message_encoding_log_encoding_flag kbo:relatesTo kb:commit_message_encoding_transcoding_logic .
+kb:commit_message_encoding_message_bytes kbo:relatesTo kb:commit_message_encoding_transcoding_logic .
+kb:commit_message_encoding_transcoded_message kbo:relatesTo kb:commit_message_encoding_display_encoding .
+kb:commit_message_encoding_transcoding_logic kbo:relatesTo kb:commit_message_encoding_encoding_fallback .
+kb:commit_message_encoding_transcoding_logic kbo:relatesTo kb:commit_message_encoding_transcoded_message .
+kb:commit_object kbo:relatesTo kb:author_field .
+kb:commit_object kbo:relatesTo kb:commit_graph .
+kb:commit_object kbo:relatesTo kb:commit_message_encoding .
+kb:commit_object kbo:relatesTo kb:commit_message_encoding_encoding_header .
+kb:commit_object kbo:relatesTo kb:committer_field .
+kb:commit_object kbo:relatesTo kb:empty_tree_sha .
+kb:commit_object kbo:relatesTo kb:head_pointer .
+kb:commit_object kbo:relatesTo kb:note_object .
+kb:commit_object kbo:relatesTo kb:object_type_inspection .
+kb:commit_object kbo:relatesTo kb:parent_commit_list .
+kb:commit_object kbo:relatesTo kb:root_commit .
+kb:commit_object kbo:relatesTo kb:shallow_clone .
+kb:commit_object kbo:relatesTo kb:signed_commit .
+kb:committer_ident kbo:relatesTo kb:committer_field .
+kb:content_addressable_store kbo:relatesTo kb:object_database .
+kb:crc32_checksum kbo:relatesTo kb:packfile_index .
+kb:custom_object_db kbo:relatesTo kb:object_database .
+kb:dangling_blob kbo:relatesTo kb:unreachable_object .
+kb:delta_compression kbo:relatesTo kb:copy_instruction .
+kb:delta_compression kbo:relatesTo kb:insert_instruction .
+kb:delta_compression kbo:relatesTo kb:ofs_delta .
+kb:delta_compression kbo:relatesTo kb:ref_delta .
+kb:delta_island kbo:relatesTo kb:delta_compression .
+kb:embedded_null_rejection kbo:relatesTo kb:null_termination_semantics .
+kb:fetch_head kbo:relatesTo kb:remote_tracking_update .
+kb:forward_slash_byte kbo:relatesTo kb:path_separator_notation .
+kb:fsync_object_write kbo:relatesTo kb:hash_object_write .
+kb:hash_object_write kbo:relatesTo kb:content_addressable_store .
+kb:head_pointer kbo:relatesTo kb:worktree_pointer .
+kb:heads_namespace kbo:relatesTo kb:branch_tracking_assignment .
+kb:hook_trigger kbo:relatesTo kb:hook_environment .
+kb:index_file kbo:relatesTo kb:blob_object .
+kb:index_file kbo:relatesTo kb:head_pointer .
+kb:index_file kbo:relatesTo kb:tree_object .
+kb:linear_history_heuristic kbo:relatesTo kb:commit_graph .
+kb:maintenance_task kbo:relatesTo kb:commit_graph_write .
+kb:maintenance_task kbo:relatesTo kb:gc_prune .
+kb:maintenance_task kbo:relatesTo kb:maintenance_scheduler .
+kb:maintenance_task kbo:relatesTo kb:ref_backend .
+kb:merkle_tree_property kbo:relatesTo kb:commit_object .
+kb:merkle_tree_property kbo:relatesTo kb:reachability .
+kb:merkle_tree_property kbo:relatesTo kb:tree_object .
+kb:mode_bit_format kbo:relatesTo kb:mode_zero_padding .
+kb:mode_type_bits kbo:relatesTo kb:executable_file_mode .
+kb:mode_type_bits kbo:relatesTo kb:regular_file_mode .
+kb:mode_type_bits kbo:relatesTo kb:submodule_pointer .
+kb:mode_type_bits kbo:relatesTo kb:subtree_mode .
+kb:mode_type_bits kbo:relatesTo kb:symlink_mode .
+kb:object_database kbo:relatesTo kb:fsck_integrity .
+kb:object_database kbo:relatesTo kb:loose_object .
+kb:object_database kbo:relatesTo kb:packfile .
+kb:object_type_inspection kbo:relatesTo kb:commit_filter .
+kb:object_type_inspection kbo:relatesTo kb:commit_message_encoding_encoding_header .
+kb:object_type_inspection kbo:relatesTo kb:tree_entry_mode .
+kb:octopus_merge kbo:relatesTo kb:octopus_strategy .
+kb:octopus_merge kbo:relatesTo kb:parent_commit_list .
+kb:ours_strategy kbo:relatesTo kb:commit_object .
+kb:packfile kbo:relatesTo kb:delta_compression .
+kb:packfile kbo:relatesTo kb:packfile_bitmap .
+kb:packfile kbo:relatesTo kb:packfile_index .
+kb:packfile_index kbo:relatesTo kb:multi_pack_index .
+kb:packfile_negotiation kbo:relatesTo kb:packfile .
+kb:partial_clone kbo:relatesTo kb:blob_prefetch .
+kb:partial_clone kbo:relatesTo kb:bundle_format .
+kb:partial_clone kbo:relatesTo kb:promisor_ref .
+kb:reachability kbo:relatesTo kb:commit_date_ordering .
+kb:reachability kbo:relatesTo kb:fsck_integrity .
+kb:reachability kbo:relatesTo kb:graph_tip .
+kb:reachability kbo:relatesTo kb:packfile_bitmap .
+kb:reachability kbo:relatesTo kb:topological_ordering .
+kb:reachability kbo:relatesTo kb:unreachable_object .
+kb:rebase_replay kbo:relatesTo kb:commit_object .
+kb:rebase_replay kbo:relatesTo kb:parent_commit_list .
+kb:recursive_strategy kbo:relatesTo kb:tree_object .
+kb:ref_backend kbo:relatesTo kb:packed_refs .
+kb:ref_backend kbo:relatesTo kb:reftable_format .
+kb:ref_pointer kbo:relatesTo kb:heads_namespace .
+kb:ref_pointer kbo:relatesTo kb:packed_refs .
+kb:ref_pointer kbo:relatesTo kb:ref_transaction .
+kb:ref_pointer kbo:relatesTo kb:reflog .
+kb:ref_pointer kbo:relatesTo kb:remotes_namespace .
+kb:ref_pointer kbo:relatesTo kb:replace_ref .
+kb:ref_pointer kbo:relatesTo kb:stash_ref .
+kb:ref_pointer kbo:relatesTo kb:tags_namespace .
+kb:reflog kbo:relatesTo kb:bisect_log .
+kb:reflog kbo:relatesTo kb:stash_ref .
+kb:refspec kbo:relatesTo kb:fetch_head .
+kb:refspec kbo:relatesTo kb:remotes_namespace .
+kb:revert_delta kbo:relatesTo kb:commit_object .
+kb:revision_traversal kbo:relatesTo kb:rev_parse_extended .
+kb:sha1_collision_resistance kbo:relatesTo kb:sha1_hash .
+kb:sha1_collision_resistance kbo:relatesTo kb:sha256_migration .
+kb:sha1_hash kbo:relatesTo kb:alternates_object_db .
+kb:sha1_hash kbo:relatesTo kb:blob_object .
+kb:sha1_hash kbo:relatesTo kb:commit_object .
+kb:sha1_hash kbo:relatesTo kb:content_addressable_store .
+kb:sha1_hash kbo:relatesTo kb:replace_ref .
+kb:sha1_hash kbo:relatesTo kb:tag_object .
+kb:sha1_hash kbo:relatesTo kb:tree_object .
+kb:sha256_migration kbo:relatesTo kb:custom_object_db .
+kb:shallow_clone kbo:relatesTo kb:graft_point .
+kb:smudge_filter kbo:relatesTo kb:blob_object .
+kb:submodule_pointer kbo:relatesTo kb:submodule_pointer .
+kb:subtree_strategy kbo:relatesTo kb:tree_object .
+kb:tag_object kbo:relatesTo kb:annotated_tag_signature .
+kb:tag_object kbo:relatesTo kb:graft_point .
+kb:tag_object kbo:relatesTo kb:ref_pointer .
+kb:transfer_protocol kbo:relatesTo kb:packfile_negotiation .
+kb:tree_entry_mode kbo:relatesTo kb:executable_file_mode .
+kb:tree_entry_mode kbo:relatesTo kb:mode_bit_format .
+kb:tree_entry_mode kbo:relatesTo kb:mode_permission_bits .
+kb:tree_entry_mode kbo:relatesTo kb:mode_type_bits .
+kb:tree_entry_mode kbo:relatesTo kb:regular_file_mode .
+kb:tree_entry_mode kbo:relatesTo kb:submodule_pointer .
+kb:tree_entry_mode kbo:relatesTo kb:subtree_mode .
+kb:tree_entry_mode kbo:relatesTo kb:symlink_mode .
+kb:tree_entry_mode kbo:relatesTo kb:tree_entry_name .
+kb:tree_object kbo:relatesTo kb:object_type_inspection .
+kb:tree_object kbo:relatesTo kb:submodule_pointer .
+kb:tree_object kbo:relatesTo kb:tree_entry_mode .
+kb:tree_object kbo:relatesTo kb:tree_entry_name .
+kb:unreachable_object kbo:relatesTo kb:gc_prune .
+kb:worktree_pointer kbo:relatesTo kb:worktree_list .
+kb:zlib_compression kbo:relatesTo kb:compression_level .
+kb:zlib_compression kbo:relatesTo kb:object_header .
+

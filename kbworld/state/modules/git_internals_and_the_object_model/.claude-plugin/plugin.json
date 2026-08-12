@@ -1,0 +1,14 @@
+{
+  "name": "git-internals-and-the-object-model-module",
+  "version": "0.1.0",
+  "description": "git internals and the object model \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 162 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "knowledge-base",
+    "neurosymbolic",
+    "git-internals-and-the-object-model"
+  ]
+}
