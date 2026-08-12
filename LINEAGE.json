@@ -1013,5 +1013,22 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-12T07:58:42+00:00",
+    "verdict": "REVERT",
+    "change": "Installed loadout_gap_lens.md (lens, fills q_forge_lens + surfaces chain_verifier_recipe's missing Divergence/Convergence Lens deps) and craft_audit_pipeline.md (recipe, enables the CRAFT\u2192AUDIT pipeli",
+    "diff": [
+      {
+        "file": "loadout/craft_audit_pipeline.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/loadout_gap_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.0
   }
 ]
