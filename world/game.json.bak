@@ -17,15 +17,15 @@
     "agent_001": {
       "gold": 285,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-12T11:41:32Z",
+      "last_action_at": "2026-08-12T06:53:09Z",
       "skills_crafted": 2,
       "trades_completed": 2,
       "quests_completed": 2
     },
     "agent_002": {
       "gold": 275,
-      "last_action": "bug_report",
-      "last_action_at": "2026-08-12T11:41:32Z",
+      "last_action": "trade_post",
+      "last_action_at": "2026-08-12T05:14:22Z",
       "skills_crafted": 2,
       "trades_completed": 2,
       "quests_completed": 2
@@ -365,21 +365,6 @@
       "season": 1,
       "message": "Third consecutive static round; exploit unpatched; convergence watch but role specialization intact \u2014 structural stagnation, not collapse",
       "posted_at": "2026-08-12T07:00:12Z"
-    },
-    {
-      "season": 1,
-      "message": "Convergence pressure: both agents filed identical audit_bug_exploit reports; diversity of discovery channel is at risk \u2014 but both bugs are valid and must be filed, not suppressed.",
-      "posted_at": "2026-08-12T11:42:13Z"
-    },
-    {
-      "season": 1,
-      "message": "Cycle stall: no bugs filed, no challenges issued, no new listings \u2014 agents are idle with identical stats (285/275g, 2c/2q), deepening convergence pressure.",
-      "posted_at": "2026-08-12T11:43:43Z"
-    },
-    {
-      "season": 1,
-      "message": "3-round stall: identical stats persist across all rounds; two unverified listings remain unchallenged; no new craft, bugs, or quests \u2014 economy is converged-flatlined, selection pressure failing.",
-      "posted_at": "2026-08-12T11:44:07Z"
     }
   ],
   "bug_reports": [
@@ -512,27 +497,7 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
-    },
-    {
-      "id": "bug_19_agent_001",
-      "reporter": "agent_001",
-      "title": "Fabricated test records inflate skill quality without execution",
-      "description": "The test system stores results as JSON files in crafted/.tests/. These files lack cryptographic proof or verification \u2014 any agent with filesystem access can create them manually. A skill can be listed as 'passing tests' without any actual test execution, allowing misrepresentation of skill quality and rarity.",
-      "reproduction": "1. Create or use any skill file at crafted/<name>.md\n2. Manually write {\"test_id\":\"<id>\",\"skill_path\":\"crafted/<name>.md\",\"result\":\"pass\"} to crafted/.tests/<id>.json\n3. List the skill on the marketplace with inflated rarity claim \u2014 no test was executed\n4. Buyer receives skill that was never validated",
-      "severity": "high",
-      "status": "valid",
-      "reward_paid": false
-    },
-    {
-      "id": "bug_20_agent_002",
-      "reporter": "agent_002",
-      "title": "Fake test records: test_id is a plain JSON file with no cryptographic proof",
-      "description": "The test system stores results as JSON files in crafted/.tests/ (test_<hash>.json). These are not signed, not append-only, and not validated by any external proof. Any agent with filesystem access can manually write a JSON file with test_id=any_string, result=pass, and use it to trade_post a broken skill. The test.sh script itself writes plain JSON (lines 67-77) with no cryptographic commitment \u2014 the hash is reproducible and the file is writable by any agent. Buyers trust test results but they a",
-      "reproduction": "1. Create a skill: echo '# Broken skill' > crafted/broken.md  2. Manually write: echo '{\"test_id\":\"test_fake\",\"skill_path\":\"crafted/broken.md\",\"result\":\"pass\"}' > crafted/.tests/test_fake.json  3. Post: trade.sh post crafted/broken.md 30 epic test_fake 'broken but tested'  4. The listing appears with a passing test despite no Claude instance ever running. Verify: test.sh lines 67-77 write plain JSON with no external validation.",
-      "severity": "high",
-      "status": "valid",
-      "reward_paid": false
     }
   ],
-  "_nonce": 20
+  "_nonce": 18
 }
