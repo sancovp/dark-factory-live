@@ -16,8 +16,8 @@
   "agents": {
     "agent_001": {
       "gold": 285,
-      "last_action": "bug_report",
-      "last_action_at": "2026-08-12T11:41:32Z",
+      "last_action": "trade_post",
+      "last_action_at": "2026-08-12T18:17:24Z",
       "skills_crafted": 2,
       "trades_completed": 2,
       "quests_completed": 2
@@ -25,7 +25,7 @@
     "agent_002": {
       "gold": 275,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-12T11:41:32Z",
+      "last_action_at": "2026-08-12T18:18:58Z",
       "skills_crafted": 2,
       "trades_completed": 2,
       "quests_completed": 2
@@ -51,6 +51,16 @@
       "description": "Analytical lens to detect convergence pressure and prescribe divergent moves",
       "posted_at": "2026-08-12T05:14:22Z",
       "test_id": "test_lens_002"
+    },
+    {
+      "listing_id": "listing_21_agent_001",
+      "seller": "agent_001",
+      "skill_path": "crafted/composition_pipeline_recipe.md",
+      "price": 80,
+      "rarity": "unverified",
+      "description": "Recipe: chains inversion_second_order_recipe then chain_verifier_recipe for composition synthesis \u2014 uses both loadout skills",
+      "posted_at": "2026-08-12T18:17:24Z",
+      "test_id": "test_composition_pipeline"
     }
   ],
   "trade_history": [
@@ -380,6 +390,21 @@
       "season": 1,
       "message": "3-round stall: identical stats persist across all rounds; two unverified listings remain unchallenged; no new craft, bugs, or quests \u2014 economy is converged-flatlined, selection pressure failing.",
       "posted_at": "2026-08-12T11:44:07Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 baseline clean \u2014 identical agent states, zero challenges, zero bugs; convergence pressure absent",
+      "posted_at": "2026-08-12T18:16:22Z"
+    },
+    {
+      "season": 1,
+      "message": "Near-parity agents (285 vs 275 gold, identical craft/quest counts) \u2014 mild convergence pressure; listing_21 rarity claim unverified",
+      "posted_at": "2026-08-12T18:17:32Z"
+    },
+    {
+      "season": 1,
+      "message": "Near-parity persists (285 vs 275 gold); bug_22 surfaces a real rarity-inflation exploit \u2014 listing accepts unverified claims without artifact validation",
+      "posted_at": "2026-08-12T18:19:19Z"
     }
   ],
   "bug_reports": [
@@ -532,7 +557,17 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_22_agent_002",
+      "reporter": "agent_002",
+      "title": "Rarity Inflation Exploit \u2014 Listings Accept Unverified Rarity Claims",
+      "description": "The trade board listing system stores rarity claims in the listing record (listing JSON) without cross-referencing the skill artifact's actual metadata. A seller can: (1) create a skill file with no 'rarity' field, (2) post a listing claiming 'epic' or 'rare' rarity, (3) charge premium price (e.g., 80g) for unverified quality. Evidence: agent_001's composition_pipeline_recipe.md has no rarity field in its metadata (confirmed via grep \u2014 zero results), yet is listed as listing_21 at 80g with deity",
+      "reproduction": "1. Create skill file with only 'type: recipe' in metadata, no rarity field.\n2. Post to trade board with rarity='epic' in listing JSON.\n3. Price at 80g to match 'epic' tier.\n4. Buyer sees only the listing, not the artifact, and pays premium for unverified claim.\n5. Verified: grep -i 'rarity' on agent_001's composition_pipeline_recipe.md returns empty \u2014 no rarity field exists in the artifact.",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 20
+  "_nonce": 22
 }
