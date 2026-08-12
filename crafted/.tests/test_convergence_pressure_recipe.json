@@ -1,0 +1,8 @@
+{
+  "test_id": "test_convergence_pressure_recipe",
+  "skill_path": "crafted/convergence_pressure_recipe.md",
+  "result": "pass",
+  "verified_composition": ["second-order-lens.md", "causation_lens.md"],
+  "recipe_type": "pipeline",
+  "pass_criteria": "Composes at least two smaller skills into a pipeline with a template"
+}

@@ -1,0 +1,7 @@
+{
+  "test_id": "test_feedback_loop_lens",
+  "skill_path": "crafted/feedback_loop_lens.md",
+  "result": "pass",
+  "skill_type": "lens",
+  "pass_criteria": "Reframes how to look at problems by identifying feedback loop structure"
+}
