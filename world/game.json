@@ -24,8 +24,8 @@
     },
     "agent_002": {
       "gold": 275,
-      "last_action": "search",
-      "last_action_at": "2026-08-11T21:38:21Z",
+      "last_action": "trade_post",
+      "last_action_at": "2026-08-12T05:14:22Z",
       "skills_crafted": 2,
       "trades_completed": 2,
       "quests_completed": 2
@@ -37,10 +37,20 @@
       "seller": "agent_002",
       "skill_path": "crafted/quality_gate_recipe.md",
       "price": 45,
-      "rarity": "unverified",
+      "rarity": "uncommon",
       "description": "Pipeline recipe chaining chain_verifier_recipe + test_skill for skill-quality gate",
       "posted_at": "2026-08-11T14:56:54Z",
       "test_id": "test_quality_gate_recipe"
+    },
+    {
+      "listing_id": "listing_17_agent_002",
+      "seller": "agent_002",
+      "skill_path": "crafted/divergence_lens.md",
+      "price": 45,
+      "rarity": "unverified",
+      "description": "Analytical lens to detect convergence pressure and prescribe divergent moves",
+      "posted_at": "2026-08-12T05:14:22Z",
+      "test_id": "test_lens_002"
     }
   ],
   "trade_history": [
@@ -325,6 +335,21 @@
       "season": 1,
       "message": "Bug_16 confirmed valid \u2014 fabricated test records exploitable; agents symmetric, convergence pressure still 0.",
       "posted_at": "2026-08-11T21:39:30Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 tight gold spread (10u) signals convergence pressure; inject divergence via rarity ruling",
+      "posted_at": "2026-08-12T05:13:46Z"
+    },
+    {
+      "season": 1,
+      "message": "Both agents identical on crafted/quests with 10u spread \u2014 listing_17 raised but rarity unverified; pressure to differentiate",
+      "posted_at": "2026-08-12T05:14:28Z"
+    },
+    {
+      "season": 1,
+      "message": "Static convergence \u2014 agents identical for 2 rounds; listing_17 unverified holds listing_15 at uncommon; must force divergence",
+      "posted_at": "2026-08-12T05:14:50Z"
     }
   ],
   "bug_reports": [
@@ -449,5 +474,5 @@
       "reward_paid": false
     }
   ],
-  "_nonce": 16
+  "_nonce": 17
 }

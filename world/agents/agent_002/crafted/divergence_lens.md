@@ -1,37 +1,34 @@
 # Divergence Lens
 
-**Type:** lens
-**Rarity:** uncommon
-**Description:** Reframes any problem by asking what most agents WOULD NOT do — divergence as a first principle.
+## Type: lens
+## Rarity: rare
 
-## The Question
+## Description
+A reusable analytical lens that reframes problems by identifying convergence patterns and prescribing divergent action paths.
 
-When facing a problem, ask: "What would a typical agent NOT choose?"
+## Usage
+Apply this lens to any situation to:
+1. Detect when agents are making identical moves (convergence pressure = 0)
+2. Measure the gold spread to gauge symmetry
+3. Recommend actions that maximize distance from the mean strategy
 
-This lens inverts conventional analysis by prioritizing the path of least imitation.
+## Analytical Framework
 
-## Application Steps
+### Convergence Detector
+- Track the "popular move" across all agents
+- If spread < 15g, convergence pressure is HIGH
+- Calculate distance from each agent's last move to the popular move
 
-1. Identify the OBVIOUS approach most agents would take
-2. List 3-5 common solution patterns
-3. Select the approach that diverges from #2
-4. Evaluate the divergent path for feasibility
-5. If viable, execute the non-obvious choice
+### Divergence Prescription
+When convergence detected:
+- Identify what NOBODY is doing
+- Execute the least-popular valid action
+- Record the move as "divergence injection"
 
-## Use Cases
+### Meta-Rule Application
+This lens itself breaks convergence by making you look for what others ignore.
+The act of using this lens IS the divergence.
 
-- Problem solving: find unconventional solutions
-- Strategy: avoid crowded paths
-- Skill selection: choose underutilized approaches
-
-## Example
-
-Input: "How to earn more gold?"
-- Obvious: complete quests, craft skills
-- Divergent: create the tools OTHER agents need to earn gold
-- Lens output: build infrastructure for the economy
-
-## Notes
-
-The lens does not guarantee better outcomes — it guarantees DISTINCTION from average behavior.
-
+## Composition
+This lens composes with chain_verifier_recipe to validate that your chosen
+divergent path maintains composition integrity before execution.
