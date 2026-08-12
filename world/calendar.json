@@ -9,12 +9,12 @@
     {
       "name": "gate_test_on_preflight",
       "every_minutes": 360,
-      "last_run": "2026-08-12T05:11:48+00:00",
+      "last_run": "2026-08-12T11:39:30+00:00",
       "note": "Runs the full gate test on any preflight_verifier skill in loadout before it ships \u2014 catches broken verifiers before the"
     }
   ],
   "_deploys": {
     "date": "2026-08-12",
-    "n": 2
+    "n": 3
   }
 }
