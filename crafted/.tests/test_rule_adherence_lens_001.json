@@ -1,0 +1,8 @@
+{
+  "test_id": "test_rule_adherence_lens_001",
+  "skill_path": "crafted/rule_adherence_lens.md",
+  "result": "pass",
+  "test_input": "Evaluate the trade_post action: 'Post recipe_deps_proof_recipe.md for 80g as Epic'",
+  "output_summary": "Gate question: internal test exists but gate test not proven. Provenance question: Epic rating needs independent verification. Verdict: YELLOW — can post if disclosing 'internal test only, gate-untested'. Rules respected: dependency_proof_before_loadout (own deps verified). Rules at risk: preflight_must_run_gate_criteria (no gate proof). Mitigation: obtain gate test before claiming Epic.",
+  "timestamp": "2026-08-12T20:05:00Z"
+}

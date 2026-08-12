@@ -1,0 +1,8 @@
+{
+  "test_id": "test_recipe_deps_proof_recipe_001",
+  "skill_path": "crafted/recipe_deps_proof_recipe.md",
+  "result": "pass",
+  "test_input": "self-verification: run the verifier on its own recipe",
+  "output_summary": "Extracted 4 root dependencies (test-skill, skill_types/recipe.md, second-order-lens, causation_lens). Verified all 4 exist in loadout or skills directory. Chain depth: 1 (no transitive deps). All dependencies are CRITICAL (removal breaks verification). Verdict: LOADOUT-READY. Quality check passed - all 4 ingredients are essential.",
+  "timestamp": "2026-08-12T19:50:00Z"
+}
