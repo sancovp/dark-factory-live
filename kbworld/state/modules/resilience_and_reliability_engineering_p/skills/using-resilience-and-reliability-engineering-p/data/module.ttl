@@ -1,0 +1,409 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/resilience_and_reliability_engineering_patterns#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/resilience_and_reliability_engineering_patterns> a owl:Ontology ;
+    rdfs:label "resilience and reliability engineering patterns" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:active_active_failover a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "active active failover" ;
+    rdfs:comment "multiple nodes serve traffic simultaneously; load balanced with automatic failover on loss" .
+kb:active_passive_failover a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "active passive failover" ;
+    rdfs:comment "standby passive node takes over only upon primary failure; waste of capacity but simple" .
+kb:alert_fatigue a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "alert fatigue" ;
+    rdfs:comment "desensitization from excessive alerts; leads to missed critical notifications" .
+kb:anti_affinity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "anti affinity" ;
+    rdfs:comment "scheduling constraint preventing pods from same service on same node; improves failure isolation" .
+kb:backpressure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "backpressure" ;
+    rdfs:comment "signaling upstream to slow production when downstream cannot keep pace; prevents buffer overflow" .
+kb:blameless_culture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "blameless culture" ;
+    rdfs:comment "organizational norm where individuals report failures without fear of punishment; enables learning" .
+kb:blue_green_deployment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "blue green deployment" ;
+    rdfs:comment "parallel environments with instant traffic switch; enables instant rollback on failure" .
+kb:bulkhead a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bulkhead" ;
+    rdfs:comment "isolation pattern limiting failure blast radius; partitions resources so one failure cannot exhaust all" .
+kb:cache_aside a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cache aside" ;
+    rdfs:comment "application checks cache first, loads from db on miss, populates cache; most common pattern" .
+kb:cache_invalidation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cache invalidation" ;
+    rdfs:comment "removing stale cached entries; must be timely to prevent serving incorrect data" .
+kb:cache_stampede a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cache stampede" ;
+    rdfs:comment "concurrent cache misses causing thundering herd on backend; mitigated by probabilistic early expiration" .
+kb:canary_deployment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "canary deployment" ;
+    rdfs:comment "gradual traffic shift to new version; small percentage first, monitor, then complete rollout" .
+kb:cap_theorem a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cap theorem" ;
+    rdfs:comment "impossibility guarantee that distributed system cannot simultaneously provide consistency, availability, and partition tolerance; must choose two" .
+kb:capacity_planning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "capacity planning" ;
+    rdfs:comment "projecting resource needs based on growth and utilization trends; prevents exhaustion failures" .
+kb:cascading_failure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cascading failure" ;
+    rdfs:comment "failure propagation from one component to others; circuit breakers and bulkheads prevent this" .
+kb:chaos_engineering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chaos engineering" ;
+    rdfs:comment "deliberate injection of failures into production to discover weaknesses before they cause outages" .
+kb:checkpointing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "checkpointing" ;
+    rdfs:comment "periodic saved state snapshots enabling fast restart without replaying entire history" .
+kb:circuit_breaker a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "circuit breaker" ;
+    rdfs:comment "pattern preventing cascading failures by stopping calls to failing service; trips open on threshold violations" .
+kb:circuit_breaker_half_open_limit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "circuit breaker half open limit" ;
+    rdfs:comment "maximum requests permitted in half_open state; small number tests recovery without overload risk" .
+kb:circuit_breaker_state_closed a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "circuit breaker state closed" ;
+    rdfs:comment "normal operation state; requests pass through, failures monitored; opens on threshold breach" .
+kb:circuit_breaker_state_half_open a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "circuit breaker state half open" ;
+    rdfs:comment "limited probe state; small number of requests allowed; determines if service recovered" .
+kb:circuit_breaker_state_open a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "circuit breaker state open" ;
+    rdfs:comment "rapid failure state; requests fail immediately without calling service; periodic probe tests recovery" .
+kb:compensation_action a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "compensation action" ;
+    rdfs:comment "undo operation executed when saga step fails; restores consistency across services" .
+kb:connection_pool_exhaustion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "connection pool exhaustion" ;
+    rdfs:comment "all pool connections in use preventing new requests; causes request queuing or failure" .
+kb:connection_pool_timeout a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "connection pool timeout" ;
+    rdfs:comment "wait time for available connection before rejecting request; prevents indefinite blocking" .
+kb:connection_pooling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "connection pooling" ;
+    rdfs:comment "reusing database connections across requests; reduces connection establishment overhead" .
+kb:cqrs a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cqrs" ;
+    rdfs:comment "command_query_responsibility_segregation \u2014 separate models for read and write operations" .
+kb:dashboard a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dashboard" ;
+    rdfs:comment "visual aggregation of metrics; enables real-time situational awareness during incidents" .
+kb:database_failover a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "database failover" ;
+    rdfs:comment "automatic promotion of replica to primary on primary failure; maintains data availability" .
+kb:dead_letter_queue a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dead letter queue" ;
+    rdfs:comment "holding place for messages that could not be processed; enables later analysis and retry" .
+kb:deadline_propagation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deadline propagation" ;
+    rdfs:comment "carrying remaining time budget through call chain; downstream services respect upstream urgency" .
+kb:degradation_function a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "degradation function" ;
+    rdfs:comment "mapping failure severity to reduced capability level; enables graceful degradation decisions" .
+kb:dependency_matrix a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dependency matrix" ;
+    rdfs:comment "mapping of service dependencies; reveals transitive failure risks and circular dependencies" .
+kb:draining a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "draining" ;
+    rdfs:comment "gracefully removing node from service by evicting pods and halting new scheduling" .
+kb:dual_write a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dual write" ;
+    rdfs:comment "simultaneous writes to multiple systems; risky without additional consistency guarantees" .
+kb:error_budget a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "error budget" ;
+    rdfs:comment "acceptable amount of unreliability remaining after meeting slo; guides engineering decisions on risk" .
+kb:escalation_policy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "escalation policy" ;
+    rdfs:comment "rules determining who gets notified and when as incident severity or duration increases" .
+kb:event_sourcing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event sourcing" ;
+    rdfs:comment "storing state changes as immutable event sequence; enables reconstruction and auditing" .
+kb:eventual_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "eventual consistency" ;
+    rdfs:comment "guarantee that system converges to consistent state given no new updates; acceptable delay" .
+kb:exponential_backoff a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "exponential backoff" ;
+    rdfs:comment "retry delay doubling after each failure; prevents overwhelming failing service during recovery" .
+kb:failover a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "failover" ;
+    rdfs:comment "automatic transfer of operations to redundant system when primary system fails; maintains continuity" .
+kb:failure_injection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "failure injection" ;
+    rdfs:comment "deliberate fault insertion via chaos tools; validates system behavior under realistic failure conditions" .
+kb:failure_isolation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "failure isolation" ;
+    rdfs:comment "A resilience strategy that prevents failures in one component or subsystem from propagating to other components, consuming shared resources, or cascading into broader system outages" .
+kb:failure_mode_analysis a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "failure mode analysis" ;
+    rdfs:comment "structured examination of possible failure modes and their impacts; guides resilience investment" .
+kb:fallback_value a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fallback value" ;
+    rdfs:comment "substitute result returned when primary request fails; prevents complete request failure" .
+kb:fault_injection_testing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fault injection testing" ;
+    rdfs:comment "automated testing with synthetic failures; validates resilience mechanisms work as designed" .
+kb:fault_tolerance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fault tolerance" ;
+    rdfs:comment "system's capability to continue operating correctly despite component failures; presence of faults does not lead to failure" .
+kb:feature_flag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "feature flag" ;
+    rdfs:comment "toggle controlling feature availability at runtime; enables gradual rollout and quick disable on failure" .
+kb:fishbone_diagram a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fishbone diagram" ;
+    rdfs:comment "visual root cause analysis categorizing potential causes along impact categories" .
+kb:five_whys a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "five whys" ;
+    rdfs:comment "root cause analysis technique iterating why questions to find underlying cause" .
+kb:game_day a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "game day" ;
+    rdfs:comment "planned exercise running failure scenarios against live system; tests response procedures and tools" .
+kb:graceful_degradation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graceful degradation" ;
+    rdfs:comment "system continues operating at reduced capability when full functionality unavailable" .
+kb:health_check a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "health check" ;
+    rdfs:comment "periodic endpoint verifying component is functioning; load balancer uses results for routing decisions" .
+kb:heartbeat a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "heartbeat" ;
+    rdfs:comment "periodic signal indicating component alive; absence triggers failure detection" .
+kb:hedged_request a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hedged request" ;
+    rdfs:comment "duplicate request sent after delay; returns first response; hedges against tail latency" .
+kb:high_availability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "high availability" ;
+    rdfs:comment "system design ensuring uptime above 99.9% through redundancy, failover, and elimination of single_points_of_failure" .
+kb:horizontal_pod_autoscaler a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "horizontal pod autoscaler" ;
+    rdfs:comment "automatically adjusts replica count based on observed metrics like cpu utilization" .
+kb:hystrix a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hystrix" ;
+    rdfs:comment "netflix latency and fault tolerance library; provided original circuit breaker pattern implementation" .
+kb:idempotency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idempotency" ;
+    rdfs:comment "property where repeated execution produces same result; enables safe retries without side effects" .
+kb:idempotency_key a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idempotency key" ;
+    rdfs:comment "client-generated unique identifier for operation; server stores to detect and deduplicate retries" .
+kb:incident_management a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "incident management" ;
+    rdfs:comment "structured process for detecting, responding to, and recovering from service disruptions" .
+kb:istio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "istio" ;
+    rdfs:comment "service mesh providing traffic management, observability, and security without application changes" .
+kb:jitter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "jitter" ;
+    rdfs:comment "randomization of retry intervals within exponential backoff; reduces thundering herd problem" .
+kb:kubernetes_replicas a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kubernetes replicas" ;
+    rdfs:comment "declared pod count ensuring desired availability; scheduler maintains replica count across nodes" .
+kb:leader_election a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "leader election" ;
+    rdfs:comment "distributed algorithm selecting single node as coordinator; handles leader failure and re-election" .
+kb:liveness_probe a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "liveness probe" ;
+    rdfs:comment "kubernetes check indicating if process is alive; restarts container if probe fails" .
+kb:load_balancer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "load balancer" ;
+    rdfs:comment "distributes traffic across multiple instances; health checks route around failed nodes" .
+kb:load_testing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "load testing" ;
+    rdfs:comment "artificial traffic generation to verify performance under stress; identifies bottlenecks before production" .
+kb:logs a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "logs" ;
+    rdfs:comment "timestamped records of discrete events; structured logging enables efficient searching and analysis" .
+kb:maintenance_window a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "maintenance window" ;
+    rdfs:comment "scheduled period for updates; planned outages must be communicated and minimized" .
+kb:message_replay a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message replay" ;
+    rdfs:comment "re-processing historical messages from event store; enables recovery and new consumer onboarding" .
+kb:metrics a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "metrics" ;
+    rdfs:comment "numerical measurements of system behavior over time; enable alerting and trend analysis" .
+kb:mtbf a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mtbf" ;
+    rdfs:comment "mean_time_between_failures \u2014 average operational time between system failures; higher indicates better reliability" .
+kb:mttr a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mttr" ;
+    rdfs:comment "mean_time_to_repair \u2014 average time to restore system after failure; lower indicates better recovery capability" .
+kb:nines_availability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "nines availability" ;
+    rdfs:comment "availability expressed as number of nines; three_nines is 99.9%, four_nines is 99.99%" .
+kb:observability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "observability" ;
+    rdfs:comment "system's ability to produce diagnostic outputs revealing internal state from external outputs" .
+kb:outbox_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "outbox pattern" ;
+    rdfs:comment "reliable event publishing by writing to local table first; background relay ensures delivery" .
+kb:pager_duty_rotation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pager duty rotation" ;
+    rdfs:comment "on_call scheduling distributing incident response burden; escalates to backup if primary unresponsive" .
+kb:paxos_consensus a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "paxos consensus" ;
+    rdfs:comment "distributed consensus protocol ensuring agreement on value across distributed nodes" .
+kb:pod_disruption_budget a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pod disruption budget" ;
+    rdfs:comment "kubernetes limit on concurrent pod evictions during voluntary disruptions; protects availability" .
+kb:pod_preemption a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pod preemption" ;
+    rdfs:comment "kubernetes evicting lower_priority pods to schedule higher priority pending pods" .
+kb:poison_message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "poison message" ;
+    rdfs:comment "message causing repeated processing failures; must be isolated to dlq to prevent consumer blocking" .
+kb:postmortem a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "postmortem" ;
+    rdfs:comment "blameless analysis after incident; identifies root cause and preventive improvements" .
+kb:quorum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "quorum" ;
+    rdfs:comment "minimum number of nodes required to agree for read/write operation in distributed system" .
+kb:raft_consensus a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "raft consensus" ;
+    rdfs:comment "distributed consensus algorithm for managing replicated log; tolerates minority node failures" .
+kb:rate_limiting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rate limiting" ;
+    rdfs:comment "restricting request volume per client; protects backend from overload and ensures fair access" .
+kb:read_replica a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read replica" ;
+    rdfs:comment "asynchronous copy of primary database serving read queries; scales read capacity" .
+kb:readiness_probe a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "readiness probe" ;
+    rdfs:comment "kubernetes check indicating if container can receive traffic; removes from load balancing when failing" .
+kb:redundancy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "redundancy" ;
+    rdfs:comment "duplication of critical components or functions with backup ready to assume work upon primary failure" .
+kb:reliability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reliability" ;
+    rdfs:comment "probability a system performs its intended function correctly over a given time period under specified conditions" .
+kb:resilience a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "resilience" ;
+    rdfs:comment "system's ability to recover from failures and continue functioning; bouncing back from disruptions rather than never failing" .
+kb:retry_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retry pattern" ;
+    rdfs:comment "automatic re-execution of failed operations with exponential backoff to handle transient failures" .
+kb:rolling_deployment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rolling deployment" ;
+    rdfs:comment "incremental replacement of instances with new version; maintains capacity throughout" .
+kb:rpo a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rpo" ;
+    rdfs:comment "recovery_point_objective \u2014 maximum acceptable amount of data loss measured in time; determines backup frequency" .
+kb:rto a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rto" ;
+    rdfs:comment "recovery_time_objective \u2014 maximum acceptable time to restore system functionality after disruption" .
+kb:runbook a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "runbook" ;
+    rdfs:comment "documented operational procedure for specific incident type; enables consistent response" .
+kb:saga_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "saga pattern" ;
+    rdfs:comment "managing distributed transactions through sequential local transactions with compensating actions" .
+kb:severity_level a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "severity level" ;
+    rdfs:comment "classification of incident impact; determines response urgency and involved personnel" .
+kb:sharding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sharding" ;
+    rdfs:comment "horizontal data partitioning across database instances; scales write capacity at cost of query complexity" .
+kb:single_point_of_failure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "single point of failure" ;
+    rdfs:comment "component whose failure causes entire system failure; must be identified and eliminated in resilient designs" .
+kb:sli a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sli" ;
+    rdfs:comment "service_level_indicator \u2014 quantitative measure of service performance against the slo" .
+kb:slo a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "slo" ;
+    rdfs:comment "service_level_objective \u2014 target value or range defining acceptable service performance; contractual commitment" .
+kb:soak_testing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "soak testing" ;
+    rdfs:comment "sustained load over extended period; reveals memory leaks and resource exhaustion" .
+kb:spof_elimination a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "spof elimination" ;
+    rdfs:comment "systematic identification and removal of single points of failure; increases redundancy" .
+kb:state_machine_replication a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "state machine replication" ;
+    rdfs:comment "replicated state machines maintaining identical state across nodes through logged commands" .
+kb:status_page a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "status page" ;
+    rdfs:comment "public transparency mechanism showing service health; critical for customer communication during outages" .
+kb:stress_testing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stress testing" ;
+    rdfs:comment "pushing system beyond normal capacity to find breaking point and failure modes" .
+kb:strong_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strong consistency" ;
+    rdfs:comment "all nodes reflect same data immediately after write completes; higher latency but no stale reads" .
+kb:tail_latency_amplification a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tail latency amplification" ;
+    rdfs:comment "slowest operation determining overall latency when parallelized; addressed by hedging or deadline scheduling" .
+kb:throttling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "throttling" ;
+    rdfs:comment "degrading service quality under load rather than rejecting; maintains partial availability" .
+kb:timeout a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "timeout" ;
+    rdfs:comment "maximum wait time for operation completion; prevents indefinite blocking on unresponsive calls" .
+kb:traces a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "traces" ;
+    rdfs:comment "record of request path through distributed system; reveals latency bottlenecks and failure points" .
+kb:vertical_pod_autoscaler a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vertical pod autoscaler" ;
+    rdfs:comment "automatically adjusts container resource requests based on actual usage patterns" .
+kb:war_room a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "war room" ;
+    rdfs:comment "collaborative incident response space; brings together necessary expertise during major outage" .
+kb:write_ahead_log a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "write ahead log" ;
+    rdfs:comment "durable record of operations before applying changes; enables recovery and replication" .
+kb:write_back_cache a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "write back cache" ;
+    rdfs:comment "write to cache only, async flush to db; low latency but risk of data loss on failure" .
+kb:write_through_cache a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "write through cache" ;
+    rdfs:comment "synchronous cache and db writes; ensures consistency but adds latency" .
+kb:zero_downtime_deployment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "zero downtime deployment" ;
+    rdfs:comment "deployment technique ensuring continuous availability during version transition" .
+
+kb:active_active_failover kbo:relatesTo kb:high_availability .
+kb:active_passive_failover kbo:relatesTo kb:failover .
+kb:alert_fatigue kbo:relatesTo kb:incident_management .
+kb:anti_affinity kbo:relatesTo kb:failure_isolation .
+kb:backpressure kbo:relatesTo kb:throttling .
+kb:blue_green_deployment kbo:relatesTo kb:zero_downtime_deployment .
+kb:bulkhead kbo:relatesTo kb:failure_isolation .
+kb:cache_aside kbo:relatesTo kb:cache_invalidation .
+kb:cache_invalidation kbo:relatesTo kb:cache_stampede .
+kb:canary_deployment kbo:relatesTo kb:blue_green_deployment .
+kb:cap_theorem kbo:relatesTo kb:eventual_consistency .
+kb:capacity_planning kbo:relatesTo kb:load_testing .
+kb:chaos_engineering kbo:relatesTo kb:failure_injection .
+kb:checkpointing kbo:relatesTo kb:write_ahead_log .
+kb:circuit_breaker kbo:relatesTo kb:cascading_failure .
+kb:circuit_breaker_half_open_limit kbo:relatesTo kb:circuit_breaker .
+kb:circuit_breaker_state_closed kbo:relatesTo kb:circuit_breaker .
+kb:circuit_breaker_state_half_open kbo:relatesTo kb:circuit_breaker .
+kb:circuit_breaker_state_open kbo:relatesTo kb:circuit_breaker .
+kb:connection_pool_exhaustion kbo:relatesTo kb:connection_pooling .
+kb:connection_pool_timeout kbo:relatesTo kb:timeout .
+kb:dashboard kbo:relatesTo kb:observability .
+kb:database_failover kbo:relatesTo kb:failover .
+kb:dead_letter_queue kbo:relatesTo kb:message_replay .
+kb:event_sourcing kbo:relatesTo kb:cqrs .
+kb:high_availability kbo:relatesTo kb:redundancy .
+kb:load_balancer kbo:relatesTo kb:health_check .
+kb:pod_disruption_budget kbo:relatesTo kb:kubernetes_replicas .
+kb:postmortem kbo:relatesTo kb:blameless_culture .
+kb:raft_consensus kbo:relatesTo kb:leader_election .
+kb:reliability kbo:relatesTo kb:mtbf .
+kb:resilience kbo:relatesTo kb:fault_tolerance .
+kb:retry_pattern kbo:relatesTo kb:exponential_backoff .
+kb:saga_pattern kbo:relatesTo kb:compensation_action .
+

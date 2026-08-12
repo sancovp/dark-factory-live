@@ -1,0 +1,118 @@
+{"c": "active_active_failover", "d": "multiple nodes serve traffic simultaneously; load balanced with automatic failover on loss", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "active_passive_failover", "d": "standby passive node takes over only upon primary failure; waste of capacity but simple", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "alert_fatigue", "d": "desensitization from excessive alerts; leads to missed critical notifications", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "anti_affinity", "d": "scheduling constraint preventing pods from same service on same node; improves failure isolation", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "backpressure", "d": "signaling upstream to slow production when downstream cannot keep pace; prevents buffer overflow", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "blameless_culture", "d": "organizational norm where individuals report failures without fear of punishment; enables learning", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "blue_green_deployment", "d": "parallel environments with instant traffic switch; enables instant rollback on failure", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "bulkhead", "d": "isolation pattern limiting failure blast radius; partitions resources so one failure cannot exhaust all", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "cache_aside", "d": "application checks cache first, loads from db on miss, populates cache; most common pattern", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "cache_invalidation", "d": "removing stale cached entries; must be timely to prevent serving incorrect data", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "cache_stampede", "d": "concurrent cache misses causing thundering herd on backend; mitigated by probabilistic early expiration", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "canary_deployment", "d": "gradual traffic shift to new version; small percentage first, monitor, then complete rollout", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "cap_theorem", "d": "impossibility guarantee that distributed system cannot simultaneously provide consistency, availability, and partition tolerance; must choose two", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "capacity_planning", "d": "projecting resource needs based on growth and utilization trends; prevents exhaustion failures", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "cascading_failure", "d": "failure propagation from one component to others; circuit breakers and bulkheads prevent this", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "chaos_engineering", "d": "deliberate injection of failures into production to discover weaknesses before they cause outages", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "checkpointing", "d": "periodic saved state snapshots enabling fast restart without replaying entire history", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "circuit_breaker", "d": "pattern preventing cascading failures by stopping calls to failing service; trips open on threshold violations", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "circuit_breaker_half_open_limit", "d": "maximum requests permitted in half_open state; small number tests recovery without overload risk", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "circuit_breaker_state_closed", "d": "normal operation state; requests pass through, failures monitored; opens on threshold breach", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "circuit_breaker_state_half_open", "d": "limited probe state; small number of requests allowed; determines if service recovered", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "circuit_breaker_state_open", "d": "rapid failure state; requests fail immediately without calling service; periodic probe tests recovery", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "compensation_action", "d": "undo operation executed when saga step fails; restores consistency across services", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "connection_pool_exhaustion", "d": "all pool connections in use preventing new requests; causes request queuing or failure", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "connection_pool_timeout", "d": "wait time for available connection before rejecting request; prevents indefinite blocking", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "connection_pooling", "d": "reusing database connections across requests; reduces connection establishment overhead", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "cqrs", "d": "command_query_responsibility_segregation \u2014 separate models for read and write operations", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "dashboard", "d": "visual aggregation of metrics; enables real-time situational awareness during incidents", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "database_failover", "d": "automatic promotion of replica to primary on primary failure; maintains data availability", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "dead_letter_queue", "d": "holding place for messages that could not be processed; enables later analysis and retry", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "deadline_propagation", "d": "carrying remaining time budget through call chain; downstream services respect upstream urgency", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "degradation_function", "d": "mapping failure severity to reduced capability level; enables graceful degradation decisions", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "dependency_matrix", "d": "mapping of service dependencies; reveals transitive failure risks and circular dependencies", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "draining", "d": "gracefully removing node from service by evicting pods and halting new scheduling", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "dual_write", "d": "simultaneous writes to multiple systems; risky without additional consistency guarantees", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "error_budget", "d": "acceptable amount of unreliability remaining after meeting slo; guides engineering decisions on risk", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "escalation_policy", "d": "rules determining who gets notified and when as incident severity or duration increases", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "event_sourcing", "d": "storing state changes as immutable event sequence; enables reconstruction and auditing", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "eventual_consistency", "d": "guarantee that system converges to consistent state given no new updates; acceptable delay", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "exponential_backoff", "d": "retry delay doubling after each failure; prevents overwhelming failing service during recovery", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "failover", "d": "automatic transfer of operations to redundant system when primary system fails; maintains continuity", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "failure_injection", "d": "deliberate fault insertion via chaos tools; validates system behavior under realistic failure conditions", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "failure_isolation", "d": "A resilience strategy that prevents failures in one component or subsystem from propagating to other components, consuming shared resources, or cascading into broader system outages", "lib": null}
+{"c": "failure_mode_analysis", "d": "structured examination of possible failure modes and their impacts; guides resilience investment", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "fallback_value", "d": "substitute result returned when primary request fails; prevents complete request failure", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "fault_injection_testing", "d": "automated testing with synthetic failures; validates resilience mechanisms work as designed", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "fault_tolerance", "d": "system's capability to continue operating correctly despite component failures; presence of faults does not lead to failure", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "feature_flag", "d": "toggle controlling feature availability at runtime; enables gradual rollout and quick disable on failure", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "fishbone_diagram", "d": "visual root cause analysis categorizing potential causes along impact categories", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "five_whys", "d": "root cause analysis technique iterating why questions to find underlying cause", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "game_day", "d": "planned exercise running failure scenarios against live system; tests response procedures and tools", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "graceful_degradation", "d": "system continues operating at reduced capability when full functionality unavailable", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "health_check", "d": "periodic endpoint verifying component is functioning; load balancer uses results for routing decisions", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "heartbeat", "d": "periodic signal indicating component alive; absence triggers failure detection", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "hedged_request", "d": "duplicate request sent after delay; returns first response; hedges against tail latency", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "high_availability", "d": "system design ensuring uptime above 99.9% through redundancy, failover, and elimination of single_points_of_failure", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "horizontal_pod_autoscaler", "d": "automatically adjusts replica count based on observed metrics like cpu utilization", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "hystrix", "d": "netflix latency and fault tolerance library; provided original circuit breaker pattern implementation", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "idempotency", "d": "property where repeated execution produces same result; enables safe retries without side effects", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "idempotency_key", "d": "client-generated unique identifier for operation; server stores to detect and deduplicate retries", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "incident_management", "d": "structured process for detecting, responding to, and recovering from service disruptions", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "istio", "d": "service mesh providing traffic management, observability, and security without application changes", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "jitter", "d": "randomization of retry intervals within exponential backoff; reduces thundering herd problem", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "kubernetes_replicas", "d": "declared pod count ensuring desired availability; scheduler maintains replica count across nodes", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "leader_election", "d": "distributed algorithm selecting single node as coordinator; handles leader failure and re-election", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "liveness_probe", "d": "kubernetes check indicating if process is alive; restarts container if probe fails", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "load_balancer", "d": "distributes traffic across multiple instances; health checks route around failed nodes", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "load_testing", "d": "artificial traffic generation to verify performance under stress; identifies bottlenecks before production", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "logs", "d": "timestamped records of discrete events; structured logging enables efficient searching and analysis", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "maintenance_window", "d": "scheduled period for updates; planned outages must be communicated and minimized", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "message_replay", "d": "re-processing historical messages from event store; enables recovery and new consumer onboarding", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "metrics", "d": "numerical measurements of system behavior over time; enable alerting and trend analysis", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "mtbf", "d": "mean_time_between_failures \u2014 average operational time between system failures; higher indicates better reliability", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "mttr", "d": "mean_time_to_repair \u2014 average time to restore system after failure; lower indicates better recovery capability", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "nines_availability", "d": "availability expressed as number of nines; three_nines is 99.9%, four_nines is 99.99%", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "observability", "d": "system's ability to produce diagnostic outputs revealing internal state from external outputs", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "outbox_pattern", "d": "reliable event publishing by writing to local table first; background relay ensures delivery", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "pager_duty_rotation", "d": "on_call scheduling distributing incident response burden; escalates to backup if primary unresponsive", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "paxos_consensus", "d": "distributed consensus protocol ensuring agreement on value across distributed nodes", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "pod_disruption_budget", "d": "kubernetes limit on concurrent pod evictions during voluntary disruptions; protects availability", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "pod_preemption", "d": "kubernetes evicting lower_priority pods to schedule higher priority pending pods", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "poison_message", "d": "message causing repeated processing failures; must be isolated to dlq to prevent consumer blocking", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "postmortem", "d": "blameless analysis after incident; identifies root cause and preventive improvements", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "quorum", "d": "minimum number of nodes required to agree for read/write operation in distributed system", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "raft_consensus", "d": "distributed consensus algorithm for managing replicated log; tolerates minority node failures", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "rate_limiting", "d": "restricting request volume per client; protects backend from overload and ensures fair access", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "read_replica", "d": "asynchronous copy of primary database serving read queries; scales read capacity", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "readiness_probe", "d": "kubernetes check indicating if container can receive traffic; removes from load balancing when failing", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "redundancy", "d": "duplication of critical components or functions with backup ready to assume work upon primary failure", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "reliability", "d": "probability a system performs its intended function correctly over a given time period under specified conditions", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "resilience", "d": "system's ability to recover from failures and continue functioning; bouncing back from disruptions rather than never failing", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "retry_pattern", "d": "automatic re-execution of failed operations with exponential backoff to handle transient failures", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "rolling_deployment", "d": "incremental replacement of instances with new version; maintains capacity throughout", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "rpo", "d": "recovery_point_objective \u2014 maximum acceptable amount of data loss measured in time; determines backup frequency", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "rto", "d": "recovery_time_objective \u2014 maximum acceptable time to restore system functionality after disruption", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "runbook", "d": "documented operational procedure for specific incident type; enables consistent response", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "saga_pattern", "d": "managing distributed transactions through sequential local transactions with compensating actions", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "severity_level", "d": "classification of incident impact; determines response urgency and involved personnel", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "sharding", "d": "horizontal data partitioning across database instances; scales write capacity at cost of query complexity", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "single_point_of_failure", "d": "component whose failure causes entire system failure; must be identified and eliminated in resilient designs", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "sli", "d": "service_level_indicator \u2014 quantitative measure of service performance against the slo", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "slo", "d": "service_level_objective \u2014 target value or range defining acceptable service performance; contractual commitment", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "soak_testing", "d": "sustained load over extended period; reveals memory leaks and resource exhaustion", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "spof_elimination", "d": "systematic identification and removal of single points of failure; increases redundancy", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "state_machine_replication", "d": "replicated state machines maintaining identical state across nodes through logged commands", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "status_page", "d": "public transparency mechanism showing service health; critical for customer communication during outages", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "stress_testing", "d": "pushing system beyond normal capacity to find breaking point and failure modes", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "strong_consistency", "d": "all nodes reflect same data immediately after write completes; higher latency but no stale reads", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "tail_latency_amplification", "d": "slowest operation determining overall latency when parallelized; addressed by hedging or deadline scheduling", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "throttling", "d": "degrading service quality under load rather than rejecting; maintains partial availability", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "timeout", "d": "maximum wait time for operation completion; prevents indefinite blocking on unresponsive calls", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "traces", "d": "record of request path through distributed system; reveals latency bottlenecks and failure points", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "vertical_pod_autoscaler", "d": "automatically adjusts container resource requests based on actual usage patterns", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "war_room", "d": "collaborative incident response space; brings together necessary expertise during major outage", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "write_ahead_log", "d": "durable record of operations before applying changes; enables recovery and replication", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "write_back_cache", "d": "write to cache only, async flush to db; low latency but risk of data loss on failure", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "write_through_cache", "d": "synchronous cache and db writes; ensures consistency but adds latency", "lib": "resilience_and_reliability_engineering_patterns"}
+{"c": "zero_downtime_deployment", "d": "deployment technique ensuring continuous availability during version transition", "lib": "resilience_and_reliability_engineering_patterns"}

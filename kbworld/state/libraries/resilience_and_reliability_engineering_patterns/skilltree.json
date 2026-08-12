@@ -1,0 +1,95 @@
+{
+  "skilltree": {
+    "name": "understand-resilience and reliability engineering patterns",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_resilience_and_reliability_engineering_patterns/understand-resilience and reliability engineering patterns",
+    "description": "the resilience and reliability engineering patterns library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-core",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_resilience_and_reliability_engineering_patterns/understand-core",
+        "description": "the core subdomain of resilience and reliability engineering patterns (1 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-failure_isolation",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_resilience_and_reliability_engineering_patterns/understand-failure_isolation",
+            "description": "A resilience strategy that prevents failures in one component or subsystem from propagating to other component",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-resilience_and_reliability_engineering_patterns",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_resilience_and_reliability_engineering_patterns/understand-resilience_and_reliability_engineering_patterns",
+        "description": "the resilience_and_reliability_engineering_patterns subdomain of resilience and reliability engineering patterns (117 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-circuit_breaker",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_resilience_and_reliability_engineering_patterns/understand-circuit_breaker",
+            "description": "pattern preventing cascading failures by stopping calls to failing service; trips open on threshold violations",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-high_availability",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_resilience_and_reliability_engineering_patterns/understand-high_availability",
+            "description": "system design ensuring uptime above 99.9% through redundancy, failover, and elimination of single_points_of_fa",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-failover",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_resilience_and_reliability_engineering_patterns/understand-failover",
+            "description": "automatic transfer of operations to redundant system when primary system fails; maintains continuity",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-blue_green_deployment",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_resilience_and_reliability_engineering_patterns/understand-blue_green_deployment",
+            "description": "parallel environments with instant traffic switch; enables instant rollback on failure",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-cache_invalidation",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_resilience_and_reliability_engineering_patterns/understand-cache_invalidation",
+            "description": "removing stale cached entries; must be timely to prevent serving incorrect data",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-resilience",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_resilience_and_reliability_engineering_patterns/understand-resilience",
+            "description": "system's ability to recover from failures and continue functioning; bouncing back from disruptions rather than",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}
