@@ -1,0 +1,13 @@
+{
+  "region": "read_uncommitted",
+  "call_number": "database_transaction_isolation_and_concurrency_c.read_uncommitted : deep_isolation_level(3)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 4
+}

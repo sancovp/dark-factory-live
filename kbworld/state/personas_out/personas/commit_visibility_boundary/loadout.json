@@ -1,0 +1,13 @@
+{
+  "region": "commit_visibility_boundary",
+  "call_number": "deep_isolation_level.commit_visibility_boundary",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 2
+}

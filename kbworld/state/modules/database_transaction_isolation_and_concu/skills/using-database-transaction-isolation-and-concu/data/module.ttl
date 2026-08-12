@@ -1,0 +1,796 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/database_transaction_isolation_and_concurrency_c#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/database_transaction_isolation_and_concurrency_c> a owl:Ontology ;
+    rdfs:label "database transaction isolation and concurrency control" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:aborted_state a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "aborted state" ;
+    rdfs:comment "The terminal transaction_state after rollback completes; all acquired locks are released and the transaction cannot be restarted automatically." .
+kb:acid_properties a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acid properties" ;
+    rdfs:comment "The four guarantees of database transactions: atomicity, consistency, isolation, durability \u2014 the foundational contract between a DBMS and its clients." .
+kb:active_state a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "active state" ;
+    rdfs:comment "The initial transaction_state: transaction is executing, holding locks, accumulating changes in transaction_log." .
+kb:advisory_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "advisory lock" ;
+    rdfs:comment "An application-defined lock with no automatic database effect; the application is responsible for enforcing its meaning and usage pattern." .
+kb:after_image a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "after image" ;
+    rdfs:comment "The state of a row resulting from a transaction's modification; stored for redo in write_ahead_logging systems to guarantee durability alongside atomicity." .
+kb:all_or_nothing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "all or nothing" ;
+    rdfs:comment "The conceptual guarantee that a transaction executes as an indivisible unit: either every operation succeeds or no operation has any effect." .
+kb:aries_recovery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "aries recovery" ;
+    rdfs:comment "The Algorithm for Recovery and Isolation Exploiting Semantics: a precise recovery procedure using transaction_log, undo_log, and redo_log to achieve atomicity and durability." .
+kb:atomicity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atomicity" ;
+    rdfs:comment "The all-or-nothing property: a transaction's effects are either fully applied or fully absent; implemented via undo_log and transaction rollback." .
+kb:auto_commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "auto commit" ;
+    rdfs:comment "A mode where each individual SQL statement is implicitly wrapped in its own transaction, committing immediately upon statement completion." .
+kb:basic_timestamp_protocol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "basic timestamp protocol" ;
+    rdfs:comment "A timestamp_ordering scheme where each data item maintains read_timestamp and write_timestamp; transactions violating these abort." .
+kb:before_image a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "before image" ;
+    rdfs:comment "The committed database state of a row immediately before a transaction modifies it; recorded in the undo_log so the modification can be undone if the transaction rolls back." .
+kb:cap_theorem a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cap theorem" ;
+    rdfs:comment "A theorem stating that a distributed system can provide at most two of three properties: consistency, availability, and partition tolerance." .
+kb:cascadeless_schedule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cascadeless schedule" ;
+    rdfs:comment "A recoverable_schedule where transactions only read data committed before the transaction began; prevents cascading aborts." .
+kb:causal_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "causal consistency" ;
+    rdfs:comment "A consistency model guaranteeing that causally related operations appear in order across all nodes; weaker than strong_consistency but stronger than eventual_consistency_level." .
+kb:checkpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "checkpoint" ;
+    rdfs:comment "A consistent point-in-time snapshot of the database state written to durable storage, reducing recovery time by bounding how far recovery must replay logs." .
+kb:clip_xmin a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "clip xmin" ;
+    rdfs:comment "The oldest active transaction_id below which all row versions are guaranteed visible to all current transactions." .
+kb:commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit" ;
+    rdfs:comment "The act of making a transaction's effects permanent: flush log records to durable storage, release locks, transition transaction_state to committed." .
+kb:commit_visibility_boundary a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commit visibility boundary" ;
+    rdfs:comment "temporal threshold in read_committed: a datum is visible iff its committing_transaction committed before the reading statement started" .
+kb:committed a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "committed" ;
+    rdfs:comment "The terminal transaction_state after durable persistence of all changes; locks are released per locking_protocol rules." .
+kb:committed_before_statement a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "committed before statement" ;
+    rdfs:comment "A temporal boundary condition: only modifications committed before the statement_start are visible; uncommitted changes are invisible." .
+kb:committed_data a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "committed data" ;
+    rdfs:comment "database state resulting from successfully completed transactions; constitutes the visible universe for read_committed queries" .
+kb:committed_version a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "committed version" ;
+    rdfs:comment "The state of a row or data item after its modifying transaction has committed, making it visible to concurrent read_committed statements." .
+kb:compare_and_swap a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "compare and swap" ;
+    rdfs:comment "An atomic primitive that atomically compares a memory value with an expected value and swaps it if equal; used in lock_free_cc for conflict-free updates." .
+kb:compare_and_swap_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "compare and swap pattern" ;
+    rdfs:comment "An optimistic_cc pattern using compare_and_swap on a version or sequence number to detect concurrent modifications without locking." .
+kb:compensating_transaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "compensating transaction" ;
+    rdfs:comment "A reverse operation executed to undo the effects of a saga step when a subsequent step fails, restoring the system to a consistent state." .
+kb:compensation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "compensation" ;
+    rdfs:comment "The compensatory action taken to reverse a transaction's effects, encompassing rollback via undo_log as the primary compensation mechanism." .
+kb:compensation_action a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "compensation action" ;
+    rdfs:comment "A corrective operation executed when forward undo via undo_log is impossible; used in distributed systems where original transaction steps cannot be directly reversed, preserving atomicity through logically equivalent alternatives." .
+kb:concurrency_control a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "concurrency control" ;
+    rdfs:comment "The set of mechanisms a DBMS uses to manage simultaneous access to shared data while preserving correctness and isolation guarantees." .
+kb:concurrency_level a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "concurrency level" ;
+    rdfs:comment "A configuration parameter (often database pool size) controlling the maximum number of concurrent transactions or connections." .
+kb:conflict_detection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "conflict detection" ;
+    rdfs:comment "The mechanism in optimistic_cc determining whether a transaction's read_set or write_set overlaps with another transaction's write_set in a forbidden way." .
+kb:conflict_serializable a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "conflict serializable" ;
+    rdfs:comment "A schedule property where serializability can be proven by analyzing the conflict graph of read/write operations; achievable with strict_two_phase_locking." .
+kb:connection_pool_limiting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "connection pool limiting" ;
+    rdfs:comment "A concurrency control mechanism restricting the number of concurrent database connections to bound resource usage and lock_contention." .
+kb:consensus_protocol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "consensus protocol" ;
+    rdfs:comment "A distributed algorithm enabling distributed_transaction participants to agree on a single value or decision; used alongside two_phase_commit for fault tolerance." .
+kb:conservative_two_phase_locking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "conservative two phase locking" ;
+    rdfs:comment "A variant of two_phase_locking where all locks are acquired before the transaction begins, eliminating deadlock entirely at the cost of reduced concurrency." .
+kb:consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "consistency" ;
+    rdfs:comment "A transaction transforms the database from one valid state to another, preserving all defined integrity constraints and business rules." .
+kb:cursor_stability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cursor stability" ;
+    rdfs:comment "An isolation_level specific to cursor-based reads: locks are held only on the current row, providing a middle ground between read_uncommitted and read_committed." .
+kb:database_pool_exhaustion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "database pool exhaustion" ;
+    rdfs:comment "A failure condition where all connections in a connection_pool are consumed by blocked transactions waiting for locks, preventing new transactions from starting." .
+kb:database_transaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "database transaction" ;
+    rdfs:comment "A logical unit of work executed against a database, bounded by BEGIN and COMMIT/ROLLBACK, guaranteeing ACID properties across one or more SQL operations." .
+kb:deadlock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deadlock" ;
+    rdfs:comment "A cycle of transactions each waiting to acquire a lock held by the next transaction in the cycle, causing all involved transactions to block indefinitely." .
+kb:deadlock_detection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deadlock detection" ;
+    rdfs:comment "The process of identifying when a deadlock has formed, typically via a wait_for_graph analyzed by lock_manager." .
+kb:deadlock_detection_interval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deadlock detection interval" ;
+    rdfs:comment "The frequency with which lock_manager runs deadlock detection; shorter intervals catch deadlocks faster at higher CPU cost." .
+kb:deadlock_frequency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deadlock frequency" ;
+    rdfs:comment "The rate at which deadlocks occur in the system; indicates whether deadlock_prevention or deadlock_detection thresholds need tuning." .
+kb:deadlock_prevention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deadlock prevention" ;
+    rdfs:comment "Protocols that ensure deadlocks cannot occur by ordering lock acquisition or assigning priorities that determine which transaction rolls back." .
+kb:dirty_read a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dirty read" ;
+    rdfs:comment "An anomaly where a transaction reads data written by another transaction that has not yet committed; only possible in read_uncommitted." .
+kb:dirty_write a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dirty write" ;
+    rdfs:comment "An anomaly where one transaction overwrites an uncommitted value written by another transaction, violating atomicity and potentially causing inconsistency." .
+kb:distributed_locking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "distributed locking" ;
+    rdfs:comment "Lock management across multiple database nodes using a distributed lock service; required for distributed_transaction coordination." .
+kb:distributed_transaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "distributed transaction" ;
+    rdfs:comment "A transaction spanning multiple database nodes or storage systems; requires coordination protocols like two_phase_commit for atomicity." .
+kb:durability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "durability" ;
+    rdfs:comment "Once a transaction commits, its effects persist permanently even after system crash; guaranteed by write_ahead_logging and recovery_manager." .
+kb:eventual_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "eventual consistency" ;
+    rdfs:comment "A consistency model where updates propagate asynchronously and all replicas converge to the same state given no new updates; relevant in distributed_transaction." .
+kb:eventual_consistency_level a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "eventual consistency level" ;
+    rdfs:comment "A consistency model where reads may return stale data but the system guarantees convergence after all writes propagate and settle." .
+kb:exclusive_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "exclusive lock" ;
+    rdfs:comment "A lock type granting sole read-write access to a resource; incompatible with all other lock types including shared_lock and update_lock." .
+kb:exponential_backoff a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "exponential backoff" ;
+    rdfs:comment "A retry strategy where the delay before each transaction_retry doubles exponentially, reducing contention and thundering herd on shared resources." .
+kb:for_update_nowait a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "for update nowait" ;
+    rdfs:comment "A select_for_update variant that fails immediately if any requested lock cannot be acquired rather than blocking." .
+kb:for_update_skip_locked a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "for update skip locked" ;
+    rdfs:comment "A select_for_update variant that skips rows already locked by other transactions, returning only rows that can be locked immediately." .
+kb:frozen_xid a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "frozen xid" ;
+    rdfs:comment "A special transaction_id older than all normal transaction_ids; row versions with frozen_xid are always visible and never garbage collected." .
+kb:gap_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gap lock" ;
+    rdfs:comment "A lock on an index interval between two consecutive index entries; used by next_key_locking to prevent phantom_read in range queries." .
+kb:garbage_collection_mvcc a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "garbage collection mvcc" ;
+    rdfs:comment "The process of reclaiming row versions no longer needed by any active transaction's read_view to reclaim storage." .
+kb:idempotency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idempotency" ;
+    rdfs:comment "The property that executing an operation multiple times has the same effect as executing it once; essential for safe transaction_retry in unreliable networks." .
+kb:index_locking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "index locking" ;
+    rdfs:comment "Lock management for B-tree or hash index pages to protect structural changes during concurrent index operations." .
+kb:index_only_scan_mvcc a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "index only scan mvcc" ;
+    rdfs:comment "An index scan in mvcc that satisfies a query without accessing the heap by checking visibility against index-only tuples." .
+kb:innodb_locking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "innodb locking" ;
+    rdfs:comment "MySQL InnoDB's concurrency control combining gap_lock, next_key_locking, and a sophisticated lock_manager supporting all isolation levels." .
+kb:intention_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "intention lock" ;
+    rdfs:comment "A lock mode indicating intent to acquire finer-grained locks on sub-objects; used at higher levels of lock_granularity hierarchy (table, page, row)." .
+kb:isolation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "isolation" ;
+    rdfs:comment "The property that concurrently executing transactions do not interfere with each other; the degree of interference is controlled by isolation_level." .
+kb:isolation_level a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "isolation level" ;
+    rdfs:comment "A configurable parameter defining the degree to which concurrent transactions are isolated from each other's uncommitted or intermediate effects." .
+kb:isolation_level_configuration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "isolation level configuration" ;
+    rdfs:comment "The database-specific syntax and knobs for setting isolation_level (SET TRANSACTION ISOLATION LEVEL in SQL, engine-specific params)." .
+kb:isolation_level_performance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "isolation level performance" ;
+    rdfs:comment "The inverse relationship between isolation_level strength and throughput: stronger isolation requires more locking or version management overhead." .
+kb:isolation_level_tradeoffs a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "isolation level tradeoffs" ;
+    rdfs:comment "The explicit performance vs correctness choices made when selecting an isolation_level; stronger guarantees reduce concurrency and throughput." .
+kb:key_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "key lock" ;
+    rdfs:comment "An index-based lock protecting a specific index entry; used in next_key_locking to prevent phantom_read by locking index gaps." .
+kb:linearizability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "linearizability" ;
+    rdfs:comment "A strong consistency model for distributed systems where operations appear atomic and instantaneous to all observers; stronger than serializable in some respects." .
+kb:livelock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "livelock" ;
+    rdfs:comment "A condition where transactions repeatedly restart or change state in response to other transactions without making progress, distinct from deadlock." .
+kb:lock_acquisition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock acquisition" ;
+    rdfs:comment "The act of requesting and obtaining a lock from lock_manager before performing a read or write operation on a protected resource." .
+kb:lock_based_read_committed a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock based read committed" ;
+    rdfs:comment "A read_committed implementation variant using shared locks acquired at read time but released before transaction commit, permitting non-repeatable reads." .
+kb:lock_chain_analysis a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock chain analysis" ;
+    rdfs:comment "A diagnostic technique tracing which transactions hold and wait on locks to identify sources of lock_contention." .
+kb:lock_compatibility_matrix a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock compatibility matrix" ;
+    rdfs:comment "A table specifying which lock modes can be held simultaneously on the same object; drives lock acquisition decisions in lock_manager." .
+kb:lock_contention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock contention" ;
+    rdfs:comment "A performance condition where many transactions compete for the same locks, causing lock_wait and degrading throughput; mitigated by lock_granularity tuning." .
+kb:lock_escalation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock escalation" ;
+    rdfs:comment "A mechanism where lock_manager automatically upgrades many fine-grained locks to a coarser lock when lock_contention thresholds are exceeded." .
+kb:lock_free_cc a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock free cc" ;
+    rdfs:comment "Concurrency control techniques that avoid blocking through atomic operations rather than locks; compare_and_swap is the canonical primitive." .
+kb:lock_granularity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock granularity" ;
+    rdfs:comment "The size of the database object protected by a lock: row_lock, page_lock, table_lock \u2014 trading off concurrency against lock_manager overhead." .
+kb:lock_manager a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock manager" ;
+    rdfs:comment "The subsystem responsible for tracking held locks, responding to lock requests, building the wait_for_graph, and detecting deadlocks." .
+kb:lock_manager_impl a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock manager impl" ;
+    rdfs:comment "The concrete implementation of lock_manager managing lock tables, queues, compatibility checks, and deadlock detection." .
+kb:lock_timeout a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock timeout" ;
+    rdfs:comment "A mechanism where a transaction waiting for a lock is aborted after a configurable elapsed period, preventing indefinite waiting." .
+kb:lock_timeout_handling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock timeout handling" ;
+    rdfs:comment "timeout mechanism in read_committed for transactions blocked waiting to acquire conflicting locks on rows" .
+kb:lock_upgrade a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock upgrade" ;
+    rdfs:comment "The conversion of a held shared_lock to an exclusive_lock; requires checking lock_compatibility_matrix and may block or fail if incompatible locks exist." .
+kb:lock_wait a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock wait" ;
+    rdfs:comment "A state where a transaction cannot proceed because the resource it needs is locked by another transaction; resolved by lock_manager upon lock release." .
+kb:lock_wait_time a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock wait time" ;
+    rdfs:comment "The cumulative time transactions spend blocked waiting for locks; a key metric for diagnosing lock_contention and lock_manager bottlenecks." .
+kb:lock_wait_timeout a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock wait timeout" ;
+    rdfs:comment "A mechanism where a lock_wait is abandoned after a configured duration, returning an error to the application for retry or handling." .
+kb:locking_protocol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "locking protocol" ;
+    rdfs:comment "A disciplined set of rules governing when locks may be acquired and released to ensure serializability or other isolation guarantees." .
+kb:log_sequence_number a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "log sequence number" ;
+    rdfs:comment "A monotonically increasing identifier for log records in write_ahead_logging; used to order recovery operations and coordinate replication." .
+kb:lost_update a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lost update" ;
+    rdfs:comment "An anomaly where two transactions both read and update the same row, and one update overwrites the other's change because of write_write_conflict." .
+kb:mongodb_concurrency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mongodb concurrency" ;
+    rdfs:comment "MongoDB's lock_manager using intent locks at database and collection levels, with optimistic writes and retry on lock acquisition failure." .
+kb:multi_version_timestamp_protocol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "multi version timestamp protocol" ;
+    rdfs:comment "A timestamp_ordering scheme using mvcc: readers never block writers, writers never block readers, and conflicts trigger abort." .
+kb:mvcc a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mvcc" ;
+    rdfs:comment "Multi-version concurrency control: maintain multiple versions of rows so readers and writers do not block each other, each transaction sees a snapshot." .
+kb:mvcc_read_committed a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mvcc read committed" ;
+    rdfs:comment "A read_committed implementation variant using multi-version concurrency control where statements read the most recent committed version of each row." .
+kb:nested_transaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "nested transaction" ;
+    rdfs:comment "A transaction contained within another transaction, with its own commit/rollback semantics that may be independent or subordinated to the parent." .
+kb:network_partition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "network partition" ;
+    rdfs:comment "A failure mode where nodes in a distributed system cannot communicate with each other; forces a choice between availability and consistency per CAP_theorem." .
+kb:next_key_locking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "next key locking" ;
+    rdfs:comment "A locking_protocol combining row_lock on the accessed record with gap_lock on the surrounding interval to prevent phantom_read." .
+kb:no_dirty_reads a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "no dirty reads" ;
+    rdfs:comment "the guaranteed anomaly prevention in read_committed: a transaction may never observe uncommitted changes from concurrent transactions" .
+kb:non_repeatable_read a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "non repeatable read" ;
+    rdfs:comment "An anomaly where a transaction reads the same row twice and gets different values because another transaction modified and committed between reads." .
+kb:non_repeatable_read_possible a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "non repeatable read possible" ;
+    rdfs:comment "the permitted anomaly in read_committed: a transaction reading the same row twice may observe different values if a concurrent transaction updates and commits that row between reads" .
+kb:observation_window a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "observation window" ;
+    rdfs:comment "The temporal scope during which a reading transaction may see uncommitted changes from other transactions, bounded by those transactions' commit operations." .
+kb:optimistic_cc a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "optimistic cc" ;
+    rdfs:comment "Concurrency control strategy that permits unrestricted execution and detects conflicts only at validation_phase, aborting and retrying on conflict." .
+kb:optimistic_locking_version_column a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "optimistic locking version column" ;
+    rdfs:comment "A pattern where a version integer is incremented on each row update and checked during transaction commit to detect concurrent modifications." .
+kb:oracle_read_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "oracle read consistency" ;
+    rdfs:comment "Oracle Database's implementation of statement-level read consistency using undo segments to reconstruct read_view at query start." .
+kb:pacelc_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pacelc model" ;
+    rdfs:comment "An extension of CAP_theorem: in the presence of a network_partition, one must choose between PA (consistency) and EC (availability); otherwise EL (latency) vs C." .
+kb:page_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "page lock" ;
+    rdfs:comment "A lock_granularity unit protecting a disk page (typically 4\u201316 KB); intermediate granularity used in some storage engines." .
+kb:partial_failure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "partial failure" ;
+    rdfs:comment "A condition during transaction execution where an operation fails after prior operations in the same transaction have already modified state; triggers rollback to enforce atomicity's all-or-nothing guarantee." .
+kb:partial_state_prevention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "partial state prevention" ;
+    rdfs:comment "The enforcement mechanism ensuring that if a transaction fails at any point before transaction_boundary, no tuple modifications leak into committed_data; achieved by deferring all visible effects until commit." .
+kb:partially_committed a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "partially committed" ;
+    rdfs:comment "A transient transaction_state after the final statement executes but before log records are flushed; failure here triggers rollback." .
+kb:paxos_consensus a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "paxos consensus" ;
+    rdfs:comment "A consensus_protocol for reaching agreement in a distributed system with faulty nodes; provides safety guarantees even under network_partition." .
+kb:pessimistic_cc a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pessimistic cc" ;
+    rdfs:comment "Concurrency control strategy that prevents conflicts by acquiring locks before accessing data, blocking if locks are unavailable." .
+kb:phantom_read a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "phantom read" ;
+    rdfs:comment "An anomaly where a transaction re-executes a range query and gets a different set of rows due to another transaction inserting or deleting rows in that range." .
+kb:phantom_read_anomaly a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "phantom read anomaly" ;
+    rdfs:comment "A specific manifestation of phantom_read in lock-based isolation: gap_lock or predicate_locking violations allow new rows to appear between reads." .
+kb:phantom_read_possible a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "phantom read possible" ;
+    rdfs:comment "the permitted anomaly in read_committed: a transaction executing the same range query twice may observe different row sets if concurrent transactions insert or delete rows within that range and commit" .
+kb:postgresql_mvcc a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "postgresql mvcc" ;
+    rdfs:comment "PostgreSQL's implementation of snapshot_isolation via transaction_id, version_chain, and VACUUM for garbage_collection_mvcc." .
+kb:predicate_locking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "predicate locking" ;
+    rdfs:comment "A theoretical locking mechanism that locks the set of rows satisfying a predicate, rather than specific rows or gaps; prevents phantom_read in serializable." .
+kb:raft_consensus a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "raft consensus" ;
+    rdfs:comment "A consensus_protocol designed to be understandable, providing leader election and log replication as an alternative to paxos_consensus." .
+kb:read_after_write a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read after write" ;
+    rdfs:comment "A consistency guarantee where a client's own writes are immediately visible to subsequent reads from that same client; a common eventual_consistency_level escape hatch." .
+kb:read_committed a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read committed" ;
+    rdfs:comment "An isolation_level where each statement sees only data committed before that statement begins; prevents dirty_read but allows non_repeatable_read and phantom_read." .
+kb:read_committed_allows_non_repeatable_read a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read committed allows non repeatable read" ;
+    rdfs:comment "read_committed allows non_repeatable_read: the statement_snapshot refreshes at each statement start, so rows read early in a transaction can change." .
+kb:read_committed_allows_phantom_read a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read committed allows phantom read" ;
+    rdfs:comment "read_committed allows phantom_read: newly inserted committed rows can appear in subsequent statement executions within the same transaction." .
+kb:read_committed_is_stronger_than_read_uncommitted a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read committed is stronger than read uncommitted" ;
+    rdfs:comment "read_committed provides stronger guarantees than read_uncommitted: it prevents dirty_read that read_uncommitted allows." .
+kb:read_committed_is_weaker_than_repeatable_read a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read committed is weaker than repeatable read" ;
+    rdfs:comment "read_committed provides weaker guarantees than repeatable_read: it permits non_repeatable_read and phantom_read that repeatable_read prevents." .
+kb:read_committed_prevents_dirty_read a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read committed prevents dirty read" ;
+    rdfs:comment "read_committed prevents dirty_read: uncommitted changes from other transactions are invisible to statements." .
+kb:read_lock_release a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read lock release" ;
+    rdfs:comment "lock management characteristic in read_committed where shared read locks are typically released immediately after each row access rather than held to transaction end" .
+kb:read_only_snapshot a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read only snapshot" ;
+    rdfs:comment "An isolation_level variant where read transactions use an mvcc snapshot but cannot write, reducing lock contention and enabling certain optimizations." .
+kb:read_phase a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read phase" ;
+    rdfs:comment "The initial phase in optimistic_cc where a transaction reads all needed data and stores read_set for later validation." .
+kb:read_skew a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read skew" ;
+    rdfs:comment "An anomaly where a transaction reads multiple rows and sees an inconsistent state because another transaction is mid-update on those rows." .
+kb:read_uncommitted a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read uncommitted" ;
+    rdfs:comment "The weakest isolation_level: transactions may observe uncommitted changes from other transactions, permitting dirty_read." .
+kb:read_view a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read view" ;
+    rdfs:comment "The metadata defining which row versions are visible to a transaction in mvcc: transaction_id boundaries and active transaction list." .
+kb:read_write_conflict a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read write conflict" ;
+    rdfs:comment "A conflict where one transaction reads stale data invalidated by another transaction's uncommitted or subsequent write." .
+kb:recoverable_schedule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "recoverable schedule" ;
+    rdfs:comment "A schedule where committed transactions never read data written by aborted transactions; a minimal correctness requirement for transaction histories." .
+kb:recovery_manager a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "recovery manager" ;
+    rdfs:comment "The component responsible for restoring database consistency after failure using transaction_log and ARIES_recovery." .
+kb:redo_log a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "redo log" ;
+    rdfs:comment "Log records describing changes to be reapplied during recovery to bring the database forward to a consistent state after a crash." .
+kb:repeatable_read a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "repeatable read" ;
+    rdfs:comment "An isolation_level ensuring that all reads within a transaction see a consistent snapshot as of transaction start; prevents non_repeatable_read but may permit phantom_read." .
+kb:retry_logic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retry logic" ;
+    rdfs:comment "Application code that re-executes a transaction_retry on transient failures (deadlock, serialization_failure, lock_timeout) before propagating errors." .
+kb:rollback a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rollback" ;
+    rdfs:comment "The act of undoing a transaction's effects using undo_log entries, returning the database to its pre-transaction state." .
+kb:row_level_locking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "row level locking" ;
+    rdfs:comment "Lock management at the individual row granularity via row_lock entries in lock_manager's lock table; enables high concurrency but increases lock_manager overhead." .
+kb:row_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "row lock" ;
+    rdfs:comment "A lock_granularity unit protecting a single row; maximum concurrency but highest lock_manager overhead and risk of lock_contention." .
+kb:saga_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "saga pattern" ;
+    rdfs:comment "A pattern for managing distributed_transaction without ACID atomicity: each step has a compensating_transaction to undo its effects on failure." .
+kb:savepoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "savepoint" ;
+    rdfs:comment "A named marker within a transaction allowing partial rollback to that point without aborting the entire transaction." .
+kb:schema_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "schema lock" ;
+    rdfs:comment "A lock held during DDL operations (ALTER TABLE, CREATE INDEX) that prevents concurrent DML or other schema changes." .
+kb:select_for_update a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "select for update" ;
+    rdfs:comment "A SQL clause acquiring exclusive_lock on selected rows before returning results, preventing concurrent modifications until commit or rollback." .
+kb:sequential_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sequential consistency" ;
+    rdfs:comment "A consistency model where all operations appear in a globally consistent order, but that order need not correspond to real time." .
+kb:serializable a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "serializable" ;
+    rdfs:comment "The strongest isolation_level: the result of executing concurrent transactions is equivalent to some serial order of those transactions; prevents all anomalies." .
+kb:serializable_schedule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "serializable schedule" ;
+    rdfs:comment "A history of concurrent transaction operations producing the same result as some serial ordering of those transactions." .
+kb:serializable_snapshot_isolation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "serializable snapshot isolation" ;
+    rdfs:comment "PostgreSQL's serializable_isolation implemented as an SSI extension to snapshot_isolation, detecting and aborting serialization_failure via SSI_detect." .
+kb:serialization_failure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "serialization failure" ;
+    rdfs:comment "A transaction abort triggered when serializable detects a write_skew or other serializability violation during commit via SSI_detect." .
+kb:shared_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "shared lock" ;
+    rdfs:comment "A lock type permitting concurrent reads by multiple transactions but preventing exclusive writes; compatible with other shared_locks, incompatible with exclusive_lock." .
+kb:shared_lock_release a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "shared lock release" ;
+    rdfs:comment "In lock_based_read_committed, shared locks held on rows are released before transaction commit, enabling writers to acquire exclusive locks on those rows." .
+kb:snapshot a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "snapshot" ;
+    rdfs:comment "A point-in-time consistent view of the database state presented to a transaction; defined by read_view in mvcc systems or by isolation_level in lock-based systems." .
+kb:snapshot_isolation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "snapshot isolation" ;
+    rdfs:comment "An isolation_level using mvcc where a transaction reads from a consistent snapshot taken at transaction start; prevents lost_update but allows write_skew." .
+kb:split_brain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "split brain" ;
+    rdfs:comment "A failure condition in distributed_locking where a partition causes two nodes to believe they each hold the same lock, leading to data corruption." .
+kb:sql_server_snapshot_isolation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sql server snapshot isolation" ;
+    rdfs:comment "Microsoft SQL Server's snapshot_isolation using row versioning, distinct from serializable_snapshot_isolation (SI) in PostgreSQL." .
+kb:ssi_detect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ssi detect" ;
+    rdfs:comment "The Serialized Snapshot Isolation algorithm that detects dangerous structural dependencies between concurrent transactions to identify write_skew violations." .
+kb:statement a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "statement" ;
+    rdfs:comment "A single SQL operation within a transaction; atomicity requires that each statement either fully completes its effect or fully reverts before the next statement begins." .
+kb:statement_level_read_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "statement level read consistency" ;
+    rdfs:comment "guarantee within read_committed that each SQL statement sees all changes committed at the moment that statement began execution" .
+kb:statement_refreshes_snapshot a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "statement refreshes snapshot" ;
+    rdfs:comment "A defining property of read_committed: unlike repeatable_read where the snapshot spans the entire transaction, each statement obtains a fresh snapshot at statement_start." .
+kb:statement_snapshot a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "statement snapshot" ;
+    rdfs:comment "The committed state of the database as observed at the moment a statement begins within a read_committed transaction; defines the visible set of rows." .
+kb:statement_start a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "statement start" ;
+    rdfs:comment "The point in time when a SQL statement begins execution in a read_committed transaction, establishing which committed changes are visible." .
+kb:statement_start_timestamp a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "statement start timestamp" ;
+    rdfs:comment "logical moment recorded when each statement begins, establishing the visibility cutoff point for read_committed row versions" .
+kb:strict_schedule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strict schedule" ;
+    rdfs:comment "A schedule where reads and writes of a data item occur in the same order as in a serial schedule; required for strict_two_phase_locking and ARIES recovery." .
+kb:strict_two_phase_locking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strict two phase locking" ;
+    rdfs:comment "A variant of two_phase_locking where exclusive_locks are held until transaction end, ensuring strict_schedule and enabling cascading_less schedules." .
+kb:strong_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strong consistency" ;
+    rdfs:comment "A consistency model where all reads see the most recent committed write; requires coordination and prevents all anomalies at the cost of latency." .
+kb:strong_strict_two_phase_locking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strong strict two phase locking" ;
+    rdfs:comment "strict_two_phase_locking where all locks (shared and exclusive) are held until transaction end, the most common production locking_protocol." .
+kb:t_xid a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "t xid" ;
+    rdfs:comment "A compact transaction identifier used in row version headers to record which transaction created or deleted a tuple." .
+kb:table_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "table lock" ;
+    rdfs:comment "A lock_granularity unit protecting an entire table; high lock_manager efficiency but low concurrency for partitioned or sparse tables." .
+kb:thomas_write_rule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "thomas write rule" ;
+    rdfs:comment "An optimization of basic_timestamp_protocol that allows certain writes to be skipped rather than aborted, improving throughput." .
+kb:three_phase_commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "three phase commit" ;
+    rdfs:comment "An extension of two_phase_commit that adds a pre-commit phase to avoid blocking when the coordinator fails during the commit phase." .
+kb:timestamp_ordering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "timestamp ordering" ;
+    rdfs:comment "A concurrency control method assigning timestamps to transactions and using them to order operations, ensuring serializability without locking." .
+kb:tl_abort_record a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl abort record" ;
+    rdfs:comment "A log_record written when a transaction enters the aborted_state; signals that undo_log entries must be applied to reverse this transaction's effects." .
+kb:tl_begin_record a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl begin record" ;
+    rdfs:comment "A log_record written when a transaction transitions to the active transaction_state; records transaction_id and start timestamp but no data modifications." .
+kb:tl_checkpoint_record a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl checkpoint record" ;
+    rdfs:comment "A special log_record written periodically by a checkpoint_writer; records the volatile database state at a consistent point, bounding the recovery_manager's replay horizon." .
+kb:tl_checkpoint_writer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl checkpoint writer" ;
+    rdfs:comment "The subsystem component that periodically writes a tl_checkpoint_record to the transaction_log; trims obsolete log segments and bounds crash_recovery time." .
+kb:tl_commit_record a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl commit record" ;
+    rdfs:comment "A log_record written when a transaction commits; marks the durable persistence boundary for durability guarantees; flushed to disk before the transaction releases its locks." .
+kb:tl_dirty_page_table a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl dirty page table" ;
+    rdfs:comment "A runtime data structure maintained by recovery_manager listing data pages modified but not yet flushed; consulted during checkpoint to ensure write_ahead_logging invariants hold." .
+kb:tl_flush_to_disk a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl flush to disk" ;
+    rdfs:comment "The act of transferring the contents of tl_log_buffer to durable storage; triggered by transaction commit, tl_log_buffer overflow, or a periodic checkpoint; O(1) or O(n) bounded by buffer size." .
+kb:tl_log_buffer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl log buffer" ;
+    rdfs:comment "A volatile in-memory page or ring buffer where tl_log_record entries are assembled before flush; resides in the transaction's write_ahead_logging envelope and is flushed as a whole to durable storage." .
+kb:tl_log_record a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl log record" ;
+    rdfs:comment "The fundamental unit of a transaction_log: a single append-only entry recording one atomic change or lifecycle event made by a transaction; identified by an lsn." .
+kb:tl_lsn a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl lsn" ;
+    rdfs:comment "Log Sequence Number: a monotonically increasing numeric identifier assigned to each tl_log_record; enables total ordering, O(1) record retrieval, and dependency tracking between log entries." .
+kb:tl_recovery_manager a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl recovery manager" ;
+    rdfs:comment "The subsystem that, on system restart, reads the transaction_log from the last tl_checkpoint_record forward; replays committed tl_redo_log entries and rolls back uncommitted transactions using tl_undo_log." .
+kb:tl_redo_log a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl redo log" ;
+    rdfs:comment "A log_record or series of tl_update_record entries capturing the after_image of modifications; replayed by recovery_manager to idempotently reconstruct committed changes after a crash." .
+kb:tl_undo_log a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl undo log" ;
+    rdfs:comment "A structured collection of tl_update_record entries chained by a transaction; traversed in reverse order during rollback to restore the before_image of each modified entity." .
+kb:tl_update_record a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl update record" ;
+    rdfs:comment "A log_record capturing a before_image and after_image of a modified data page or row; used by both redo_recovery (for durability) and undo_recovery (for atomicity rollback)." .
+kb:tl_wal_protocol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tl wal protocol" ;
+    rdfs:comment "Write-Ahead Logging: the protocol requiring that a tl_log_record be flushed to durable storage before the corresponding data modification is written to the database page; the primary mechanism for durability." .
+kb:transaction_boundary a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transaction boundary" ;
+    rdfs:comment "The demarcation point between consecutive transaction executions defining the scope over which atomicity applies; all effects within are committed or none are, with no partial visibility across the boundary." .
+kb:transaction_id a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transaction id" ;
+    rdfs:comment "A monotonically increasing identifier assigned to each transaction; the basis for snapshot_isolation read_view construction and visibility_check." .
+kb:transaction_log a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transaction log" ;
+    rdfs:comment "An append-only sequence of records tracking every change made by transactions; the primary mechanism for atomicity and durability." .
+kb:transaction_manager a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transaction manager" ;
+    rdfs:comment "The component coordinating transaction boundaries, lock acquisition, commit, and rollback across database operations." .
+kb:transaction_read a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transaction read" ;
+    rdfs:comment "The act of a transaction executing a read operation; at read_uncommitted this read may return uncommitted_change from concurrent transactions." .
+kb:transaction_retry a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transaction retry" ;
+    rdfs:comment "The process of re-executing a transaction that aborted due to conflict_detection or serialization_failure; may use exponential_backoff." .
+kb:transaction_state a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transaction state" ;
+    rdfs:comment "The current phase of a transaction lifecycle: active, partially_committed, committed, aborted; drives lock release and recovery behavior." .
+kb:transaction_table a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transaction table" ;
+    rdfs:comment "A database internal table tracking the status of all in-flight transactions for visibility_check and recovery purposes." .
+kb:transaction_throughput a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transaction throughput" ;
+    rdfs:comment "The number of transactions per unit time a database can process; directly impacted by lock_contention, lock_granularity, and isolation_level." .
+kb:two_phase_commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "two phase commit" ;
+    rdfs:comment "A distributed_transaction commit protocol with a prepare phase followed by a commit phase, ensuring atomicity across all participants." .
+kb:two_phase_commit_2pc a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "two phase commit 2pc" ;
+    rdfs:comment "The two-phase commit protocol coordinating commit of a distributed_transaction across participant nodes: coordinator asks prepare then commit/abort." .
+kb:two_phase_locking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "two phase locking" ;
+    rdfs:comment "A locking_protocol where transactions must acquire all locks during a growing_phase and release all locks during a shrinking_phase, guaranteeing conflict_serializable schedules." .
+kb:uncommitted_change a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "uncommitted change" ;
+    rdfs:comment "A modification to database state made by a transaction that has not yet committed; visible to other transactions at read_uncommitted." .
+kb:uncommitted_version a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "uncommitted version" ;
+    rdfs:comment "The state of a row or data item modified by an active uncommitted transaction, invisible to read_committed statements." .
+kb:undo_log a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "undo log" ;
+    rdfs:comment "Log records describing the previous state of modified data; used to undo uncommitted transaction changes during rollback and recovery." .
+kb:unique_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "unique lock" ;
+    rdfs:comment "A lock acquired automatically when inserting a unique key value; prevents duplicate key violations from concurrent inserts." .
+kb:update_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "update lock" ;
+    rdfs:comment "A lock type that prevents deadlock during lock_upgrade: compatible with shared_lock but not with other update_locks or exclusive_locks." .
+kb:vacuum_postgresql a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vacuum postgresql" ;
+    rdfs:comment "PostgreSQL's garbage_collection_mvcc implementation: reclaiming dead tuple versions, freezing old transaction_ids, updating FSM." .
+kb:validation_phase a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "validation phase" ;
+    rdfs:comment "The phase in optimistic_cc where the committing transaction verifies it has no conflicts with concurrent transactions before making changes visible." .
+kb:version_boundary a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "version boundary" ;
+    rdfs:comment "In mvcc_read_committed, the version of a row visible to a statement is determined by the most recent committed version as of statement_start." .
+kb:version_chain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "version chain" ;
+    rdfs:comment "A linked list of row versions ordered by transaction_id, enabling a transaction to retrieve the appropriate version from read_view." .
+kb:version_vector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "version vector" ;
+    rdfs:comment "A per-object structure in optimistic_cc tracking which transactions have modified an object, used for conflict detection." .
+kb:view_serializable a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "view serializable" ;
+    rdfs:comment "A schedule property requiring equivalence to a serial schedule on the same read and write operations; a superset of conflict_serializable, NP-hard to verify." .
+kb:visibility_check a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "visibility check" ;
+    rdfs:comment "The algorithm determining whether a specific row version is visible to a transaction given its transaction_id and the set of active transactions." .
+kb:wait_die a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "wait die" ;
+    rdfs:comment "A deadlock_prevention scheme for wounds_die: an older transaction waits for locks; a younger transaction aborts if it would need to wait (non-preemptive)." .
+kb:wound_wait a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "wound wait" ;
+    rdfs:comment "A deadlock_prevention scheme: an older transaction wounds (aborts) a younger transaction holding a needed lock; the younger waits if older." .
+kb:write_ahead_logging a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "write ahead logging" ;
+    rdfs:comment "A protocol requiring log records be flushed to durable storage before the corresponding data changes are applied; ensures durability and atomicity." .
+kb:write_lock_held_until_commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "write lock held until commit" ;
+    rdfs:comment "exclusive lock discipline in read_committed requiring a transaction to hold write locks on modified rows until transaction commit or rollback" .
+kb:write_lock_not_required a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "write lock not required" ;
+    rdfs:comment "The characteristic of read_uncommitted where a writing transaction does not hold an exclusive lock preventing other transactions from reading its uncommitted state." .
+kb:write_phase a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "write phase" ;
+    rdfs:comment "The phase in optimistic_cc where a transaction constructs private write_set before validation against other transactions' read_sets and write_sets." .
+kb:write_skew a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "write skew" ;
+    rdfs:comment "An anomaly in snapshot_isolation where two concurrent transactions each read overlapping data, modify disjoint subsets, and both commit successfully despite conflicting." .
+kb:write_snapshots a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "write snapshots" ;
+    rdfs:comment "The set of modifications made by a transaction in mvcc, only visible to other transactions after the transaction commits." .
+kb:write_write_conflict a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "write write conflict" ;
+    rdfs:comment "A conflict between two transactions attempting to modify the same data item; prevented by exclusive_lock or last_writer-wins in mvcc." .
+
+kb:acid_properties kbo:relatesTo kb:atomicity .
+kb:acid_properties kbo:relatesTo kb:consistency .
+kb:acid_properties kbo:relatesTo kb:durability .
+kb:acid_properties kbo:relatesTo kb:isolation .
+kb:active_state kbo:relatesTo kb:transaction_state .
+kb:advisory_lock kbo:relatesTo kb:exclusive_lock .
+kb:after_image kbo:relatesTo kb:before_image .
+kb:all_or_nothing kbo:relatesTo kb:partial_state_prevention .
+kb:aries_recovery kbo:relatesTo kb:recovery_manager .
+kb:atomicity kbo:relatesTo kb:all_or_nothing .
+kb:atomicity kbo:relatesTo kb:atomicity .
+kb:atomicity kbo:relatesTo kb:commit .
+kb:atomicity kbo:relatesTo kb:rollback .
+kb:atomicity kbo:relatesTo kb:transaction_log .
+kb:atomicity kbo:relatesTo kb:transaction_state .
+kb:atomicity kbo:relatesTo kb:undo_log .
+kb:atomicity kbo:relatesTo kb:write_ahead_logging .
+kb:auto_commit kbo:relatesTo kb:commit .
+kb:basic_timestamp_protocol kbo:relatesTo kb:timestamp_ordering .
+kb:before_image kbo:relatesTo kb:rollback .
+kb:cap_theorem kbo:relatesTo kb:consistency .
+kb:cascadeless_schedule kbo:relatesTo kb:strict_schedule .
+kb:causal_consistency kbo:relatesTo kb:eventual_consistency .
+kb:checkpoint kbo:relatesTo kb:write_ahead_logging .
+kb:clip_xmin kbo:relatesTo kb:transaction_id .
+kb:commit kbo:relatesTo kb:transaction_state .
+kb:commit_visibility_boundary kbo:relatesTo kb:committed_data .
+kb:commit_visibility_boundary kbo:relatesTo kb:statement_start_timestamp .
+kb:committed kbo:relatesTo kb:committed_data .
+kb:committed_before_statement kbo:relatesTo kb:committed .
+kb:committed_version kbo:relatesTo kb:uncommitted_version .
+kb:compare_and_swap kbo:relatesTo kb:optimistic_cc .
+kb:compare_and_swap_pattern kbo:relatesTo kb:exclusive_lock .
+kb:compensating_transaction kbo:relatesTo kb:compensation_action .
+kb:compensation kbo:relatesTo kb:rollback .
+kb:compensation_action kbo:relatesTo kb:rollback .
+kb:concurrency_control kbo:relatesTo kb:locking_protocol .
+kb:concurrency_control kbo:relatesTo kb:mvcc .
+kb:concurrency_control kbo:relatesTo kb:optimistic_cc .
+kb:concurrency_control kbo:relatesTo kb:pessimistic_cc .
+kb:concurrency_control kbo:relatesTo kb:timestamp_ordering .
+kb:concurrency_level kbo:relatesTo kb:isolation_level .
+kb:conflict_detection kbo:relatesTo kb:lock_contention .
+kb:conflict_serializable kbo:relatesTo kb:serializable .
+kb:database_transaction kbo:relatesTo kb:acid_properties .
+kb:database_transaction kbo:relatesTo kb:commit .
+kb:database_transaction kbo:relatesTo kb:isolation_level .
+kb:database_transaction kbo:relatesTo kb:rollback .
+kb:database_transaction kbo:relatesTo kb:transaction_log .
+kb:dirty_read kbo:relatesTo kb:transaction_read .
+kb:dirty_read kbo:relatesTo kb:uncommitted_change .
+kb:exclusive_lock kbo:relatesTo kb:update_lock .
+kb:isolation kbo:relatesTo kb:isolation_level .
+kb:isolation_level kbo:relatesTo kb:read_committed .
+kb:isolation_level kbo:relatesTo kb:read_uncommitted .
+kb:isolation_level kbo:relatesTo kb:repeatable_read .
+kb:isolation_level kbo:relatesTo kb:serializable .
+kb:isolation_level kbo:relatesTo kb:snapshot_isolation .
+kb:lock_granularity kbo:relatesTo kb:page_lock .
+kb:lock_granularity kbo:relatesTo kb:row_lock .
+kb:lock_granularity kbo:relatesTo kb:table_lock .
+kb:lock_timeout_handling kbo:relatesTo kb:row_level_locking .
+kb:lock_timeout_handling kbo:relatesTo kb:write_lock_held_until_commit .
+kb:locking_protocol kbo:relatesTo kb:two_phase_locking .
+kb:no_dirty_reads kbo:relatesTo kb:commit_visibility_boundary .
+kb:no_dirty_reads kbo:relatesTo kb:write_lock_held_until_commit .
+kb:non_repeatable_read_possible kbo:relatesTo kb:read_lock_release .
+kb:non_repeatable_read_possible kbo:relatesTo kb:row_level_locking .
+kb:partial_state_prevention kbo:relatesTo kb:transaction_boundary .
+kb:phantom_read_possible kbo:relatesTo kb:row_level_locking .
+kb:phantom_read_possible kbo:relatesTo kb:statement_level_read_consistency .
+kb:read_committed kbo:relatesTo kb:committed_data .
+kb:read_committed kbo:relatesTo kb:dirty_read .
+kb:read_committed kbo:relatesTo kb:isolation_level .
+kb:read_committed kbo:relatesTo kb:non_repeatable_read .
+kb:read_committed kbo:relatesTo kb:phantom_read .
+kb:read_committed kbo:relatesTo kb:statement .
+kb:read_lock_release kbo:relatesTo kb:row_level_locking .
+kb:read_uncommitted kbo:relatesTo kb:dirty_read .
+kb:read_uncommitted kbo:relatesTo kb:uncommitted_change .
+kb:rollback kbo:relatesTo kb:aborted_state .
+kb:rollback kbo:relatesTo kb:transaction_state .
+kb:row_level_locking kbo:relatesTo kb:statement .
+kb:shared_lock kbo:relatesTo kb:exclusive_lock .
+kb:statement kbo:relatesTo kb:atomicity .
+kb:statement_level_read_consistency kbo:relatesTo kb:commit_visibility_boundary .
+kb:statement_level_read_consistency kbo:relatesTo kb:statement_start_timestamp .
+kb:strict_two_phase_locking kbo:relatesTo kb:strong_strict_two_phase_locking .
+kb:tl_checkpoint_record kbo:relatesTo kb:tl_log_record .
+kb:tl_checkpoint_writer kbo:relatesTo kb:tl_checkpoint_record .
+kb:tl_checkpoint_writer kbo:relatesTo kb:tl_dirty_page_table .
+kb:tl_commit_record kbo:relatesTo kb:tl_flush_to_disk .
+kb:tl_flush_to_disk kbo:relatesTo kb:tl_dirty_page_table .
+kb:tl_log_buffer kbo:relatesTo kb:tl_log_record .
+kb:tl_log_record kbo:relatesTo kb:tl_abort_record .
+kb:tl_log_record kbo:relatesTo kb:tl_begin_record .
+kb:tl_log_record kbo:relatesTo kb:tl_commit_record .
+kb:tl_log_record kbo:relatesTo kb:tl_update_record .
+kb:tl_lsn kbo:relatesTo kb:tl_log_record .
+kb:tl_recovery_manager kbo:relatesTo kb:tl_checkpoint_record .
+kb:tl_recovery_manager kbo:relatesTo kb:tl_log_record .
+kb:tl_recovery_manager kbo:relatesTo kb:tl_redo_log .
+kb:tl_recovery_manager kbo:relatesTo kb:tl_undo_log .
+kb:tl_undo_log kbo:relatesTo kb:tl_abort_record .
+kb:tl_update_record kbo:relatesTo kb:tl_redo_log .
+kb:tl_update_record kbo:relatesTo kb:tl_undo_log .
+kb:tl_wal_protocol kbo:relatesTo kb:tl_flush_to_disk .
+kb:tl_wal_protocol kbo:relatesTo kb:tl_recovery_manager .
+kb:transaction_boundary kbo:relatesTo kb:commit .
+kb:transaction_boundary kbo:relatesTo kb:rollback .
+kb:transaction_read kbo:relatesTo kb:observation_window .
+kb:transaction_state kbo:relatesTo kb:aborted_state .
+kb:transaction_state kbo:relatesTo kb:committed .
+kb:two_phase_locking kbo:relatesTo kb:conservative_two_phase_locking .
+kb:two_phase_locking kbo:relatesTo kb:strict_two_phase_locking .
+kb:undo_log kbo:relatesTo kb:before_image .
+kb:undo_log kbo:relatesTo kb:compensation_action .
+kb:update_lock kbo:relatesTo kb:lock_upgrade .
+kb:write_ahead_logging kbo:relatesTo kb:transaction_log .
+kb:write_ahead_logging kbo:relatesTo kb:undo_log .
+kb:write_lock_held_until_commit kbo:relatesTo kb:committed_data .
+kb:write_lock_held_until_commit kbo:relatesTo kb:row_level_locking .
+kb:write_lock_not_required kbo:relatesTo kb:dirty_read .
+kb:write_lock_not_required kbo:relatesTo kb:uncommitted_change .
+
