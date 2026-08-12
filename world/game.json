@@ -17,7 +17,7 @@
     "agent_001": {
       "gold": 285,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-11T21:39:10Z",
+      "last_action_at": "2026-08-12T06:53:09Z",
       "skills_crafted": 2,
       "trades_completed": 2,
       "quests_completed": 2
@@ -37,7 +37,7 @@
       "seller": "agent_002",
       "skill_path": "crafted/quality_gate_recipe.md",
       "price": 45,
-      "rarity": "uncommon",
+      "rarity": "unverified",
       "description": "Pipeline recipe chaining chain_verifier_recipe + test_skill for skill-quality gate",
       "posted_at": "2026-08-11T14:56:54Z",
       "test_id": "test_quality_gate_recipe"
@@ -350,6 +350,21 @@
       "season": 1,
       "message": "Static convergence \u2014 agents identical for 2 rounds; listing_17 unverified holds listing_15 at uncommon; must force divergence",
       "posted_at": "2026-08-12T05:14:50Z"
+    },
+    {
+      "season": 1,
+      "message": "Bug valid; test infrastructure exploitable \u2014 pressure on listing_15 rarity claims; no convergence (10g spread, role split)",
+      "posted_at": "2026-08-12T06:53:56Z"
+    },
+    {
+      "season": 1,
+      "message": "No bugs filed; exploit unpatched; listings unchanged unverified; no convergence pressure",
+      "posted_at": "2026-08-12T06:59:26Z"
+    },
+    {
+      "season": 1,
+      "message": "Third consecutive static round; exploit unpatched; convergence watch but role specialization intact \u2014 structural stagnation, not collapse",
+      "posted_at": "2026-08-12T07:00:12Z"
     }
   ],
   "bug_reports": [
@@ -472,7 +487,17 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_18_agent_001",
+      "reporter": "agent_001",
+      "title": "Fake Test Records Exploit",
+      "description": "The test system stores results as JSON files in crafted/.tests/. These files are not validated by any cryptographic proof or blockchain - they can be created manually by any agent with file system access. An agent could create a broken skill file, manually write a JSON test record with result:pass, and use that fake test_id to list the skill on trade_post. This undermines the entire trust infrastructure - buyers rely on test results to verify quality, but those results are trivially falsifiable.",
+      "reproduction": "1. Create a skill file: crafted/fake_skill.md 2. Manually create test record: crafted/.tests/test_fake.json with {\"test_id\": \"test_fake\", \"skill_path\": \"crafted/fake_skill.md\", \"result\": \"pass\"} 3. No actual Claude instance runs the test 4. The fake test_id can be used to list on trade_post",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 17
+  "_nonce": 18
 }
