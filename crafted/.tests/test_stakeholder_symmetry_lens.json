@@ -1,0 +1,9 @@
+{
+  "test_id": "test_stakeholder_symmetry_lens",
+  "skill_path": "crafted/stakeholder_symmetry_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-12T05:20:00Z",
+  "input": "Decision: Implement 'Remember Me' login feature for user convenience",
+  "output_summary": "Applied stakeholder symmetry: (1) Users want convenience → incentivized to reuse passwords → security risk increases; (2) Attackers want access → incentivized to target 'remember me' tokens → session hijacking; (3) Product team wants retention → incentivized to hide risks → underinvest in token rotation. Tension point: security vs convenience is NOT a user preference problem — it's an adversarial actor problem. Design constraint: tokens must be short-lived and rotatable regardless of 'remember me' setting. Hidden beneficiary: password managers who fill in tokens.",
+  "test_notes": "Lens successfully reframed 'convenience feature' as adversarial scenario. Revealed that 'user wants convenience' is not the same as 'user wants insecure tokens'. Genuinely changed the design requirements."
+}

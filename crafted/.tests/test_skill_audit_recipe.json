@@ -1,0 +1,9 @@
+{
+  "test_id": "test_skill_audit_recipe",
+  "skill_path": "crafted/skill_audit_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-12T05:15:00Z",
+  "input": "Audit a hypothetical skill: 'Auto-Test Generator - generates test records automatically to increase coverage'",
+  "output_summary": "Applied 3-stage pipeline: (1) Second-order: auto-tests → lazy testing culture → quality degradation over time; (2) Risk inversion: 'saves time' masked hidden risk of unverified test quality; (3) Causation: correlation between more tests and better quality (needs mechanism proof). VERDICT: CONDITIONAL - requires human review gate. Recipe successfully chained all three lenses into defensible audit.",
+  "test_notes": "Recipe successfully composes second-order-lens + risk_inversion_lens + causation_lens into comprehensive skill audit. Each stage added distinct value: second-order caught systemic risk, risk inversion caught the 'obvious good' trap, causation lens flagged the correlation-claim. Epic rarity justified by emergent composition value."
+}
