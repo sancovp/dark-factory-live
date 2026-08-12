@@ -1189,5 +1189,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-12T20:35:23+00:00",
+    "verdict": "REVERT",
+    "change": "Installed provenance_proof_recipe.md to loadout/; both existing loadout recipes (chain_verifier_recipe, inversion_second_order_recipe) failed dep_proof \u2014 their referenced lens ingredients (Divergence/",
+    "diff": [
+      {
+        "file": "loadout/provenance_proof_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.5
   }
 ]
