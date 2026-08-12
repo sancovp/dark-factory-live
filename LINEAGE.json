@@ -894,5 +894,18 @@
     ],
     "fitness_current": 1.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-12T05:39:41+00:00",
+    "verdict": "REVERT",
+    "change": "Installed constraint_lens.md to loadout; found dependency gap in chain_verifier_recipe (references missing Divergence/Convergence Lenses)",
+    "diff": [
+      {
+        "file": "loadout/constraint_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.5
   }
 ]
