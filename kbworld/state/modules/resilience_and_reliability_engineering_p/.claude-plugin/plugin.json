@@ -1,0 +1,14 @@
+{
+  "name": "resilience-and-reliability-engineering-p-module",
+  "version": "0.1.0",
+  "description": "resilience and reliability engineering patterns \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 118 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "knowledge-base",
+    "neurosymbolic",
+    "resilience-and-reliability-engineering-p"
+  ]
+}

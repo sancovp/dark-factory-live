@@ -1,0 +1,13 @@
+{
+  "region": "circuit_breaker",
+  "call_number": "resilience_and_reliability_engineering_patterns.circuit_breaker",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}
