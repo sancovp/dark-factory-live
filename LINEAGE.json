@@ -1077,5 +1077,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 1.0
+  },
+  {
+    "at": "2026-08-12T18:29:36+00:00",
+    "verdict": "REVERT",
+    "change": "Installed listing_authenticator_recipe.md to loadout/ \u2014 enables independent verification of test claims to detect fabricated test records (exploit confirmed: test_exploit_probe + test_fake_exploit_001",
+    "diff": [
+      {
+        "file": "loadout/listing_authenticator_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.5
   }
 ]
