@@ -1163,5 +1163,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-12T20:00:54+00:00",
+    "verdict": "REVERT",
+    "change": "Installed adversarial_lens to loadout; identified 6 failure modes across quests and loadout packages via adversarial analysis",
+    "diff": [
+      {
+        "file": "loadout/adversarial_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.5
   }
 ]
