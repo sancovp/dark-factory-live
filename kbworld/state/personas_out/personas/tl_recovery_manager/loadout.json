@@ -1,0 +1,13 @@
+{
+  "region": "tl_recovery_manager",
+  "call_number": "deep_database_transaction.tl_recovery_manager",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 10
+}

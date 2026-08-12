@@ -1,0 +1,204 @@
+{
+  "skilltree": {
+    "name": "understand-database transaction isolation and concurrency control",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-database transaction isolation and concurrency control",
+    "description": "the database transaction isolation and concurrency control library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-database_transaction_isolation_and_concurrency_c",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-database_transaction_isolation_and_concurrency_c",
+        "description": "the database_transaction_isolation_and_concurrency_c subdomain of database transaction isolation and concurrency control (164 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-atomicity",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-atomicity",
+            "description": "The all-or-nothing property: a transaction's effects are either fully applied or fully absent; implemented via",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-isolation_level",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-isolation_level",
+            "description": "A configurable parameter defining the degree to which concurrent transactions are isolated from each other's u",
+            "coord": "0.1.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-rollback",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-rollback",
+            "description": "The act of undoing a transaction's effects using undo_log entries, returning the database to its pre-transacti",
+            "coord": "0.1.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-read_committed",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-read_committed",
+            "description": "An isolation_level where each statement sees only data committed before that statement begins; prevents dirty_",
+            "coord": "0.1.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-transaction_state",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-transaction_state",
+            "description": "The current phase of a transaction lifecycle: active, partially_committed, committed, aborted; drives lock rel",
+            "coord": "0.1.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-row_level_locking",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-row_level_locking",
+            "description": "Lock management at the individual row granularity via row_lock entries in lock_manager's lock table; enables h",
+            "coord": "0.1.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_database_transaction",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-deep_database_transaction",
+        "description": "the deep_database_transaction subdomain of database transaction isolation and concurrency control (24 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-tl_log_record",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-tl_log_record",
+            "description": "The fundamental unit of a transaction_log: a single append-only entry recording one atomic change or lifecycle",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-tl_recovery_manager",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-tl_recovery_manager",
+            "description": "The subsystem that, on system restart, reads the transaction_log from the last tl_checkpoint_record forward; r",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-tl_update_record",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-tl_update_record",
+            "description": "A log_record capturing a before_image and after_image of a modified data page or row; used by both redo_recove",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-tl_undo_log",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-tl_undo_log",
+            "description": "A structured collection of tl_update_record entries chained by a transaction; traversed in reverse order durin",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-tl_checkpoint_record",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-tl_checkpoint_record",
+            "description": "A special log_record written periodically by a checkpoint_writer; records the volatile database state at a con",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-tl_flush_to_disk",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-tl_flush_to_disk",
+            "description": "The act of transferring the contents of tl_log_buffer to durable storage; triggered by transaction commit, tl_",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_isolation_level",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-deep_isolation_level",
+        "description": "the deep_isolation_level subdomain of database transaction isolation and concurrency control (29 concepts)",
+        "coord": "0.3",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-commit_visibility_boundary",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-commit_visibility_boundary",
+            "description": "temporal threshold in read_committed: a datum is visible iff its committing_transaction committed before the r",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-write_lock_held_until_commit",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-write_lock_held_until_commit",
+            "description": "exclusive lock discipline in read_committed requiring a transaction to hold write locks on modified rows until",
+            "coord": "0.3.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-committed_data",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-committed_data",
+            "description": "database state resulting from successfully completed transactions; constitutes the visible universe for read_c",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-statement_level_read_consistency",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-statement_level_read_consistency",
+            "description": "guarantee within read_committed that each SQL statement sees all changes committed at the moment that statemen",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-uncommitted_change",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-uncommitted_change",
+            "description": "A modification to database state made by a transaction that has not yet committed; visible to other transactio",
+            "coord": "0.3.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-read_lock_release",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_database_transaction_isolation_and_concurrency_c/understand-read_lock_release",
+            "description": "lock management characteristic in read_committed where shared read locks are typically released immediately af",
+            "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

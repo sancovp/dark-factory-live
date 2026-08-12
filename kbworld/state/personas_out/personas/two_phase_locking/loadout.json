@@ -1,0 +1,13 @@
+{
+  "region": "two_phase_locking",
+  "call_number": "database_transaction_isolation_and_concurrency_c.two_phase_locking",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 3
+}
