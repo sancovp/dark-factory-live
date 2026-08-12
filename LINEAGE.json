@@ -1051,5 +1051,18 @@
     ],
     "fitness_current": null,
     "fitness_patched": null
+  },
+  {
+    "at": "2026-08-12T11:56:09+00:00",
+    "verdict": "REVERT",
+    "change": "Installed convergence_lens.md to loadout; detected loadout dependency gap (chain_verifier_recipe requires Divergence Lens + Convergence Lens, both missing)",
+    "diff": [
+      {
+        "file": "loadout/convergence_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.5
   }
 ]
