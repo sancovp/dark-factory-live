@@ -1,0 +1,7 @@
+{
+  "test_id": "test_opportunity_cost_lens",
+  "skill_path": "crafted/opportunity_cost_lens.md",
+  "result": "pass",
+  "timestamp": "2024-08-12T18:50:00Z",
+  "description": "Lens reframes decisions by examining opportunity costs - identifies at least 2 genuine costs, changes at least one prior assumption"
+}
