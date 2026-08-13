@@ -1,0 +1,13 @@
+{
+  "region": "happens_before_relation",
+  "call_number": "concurrency_synchronization_primitives_and_memor.happens_before_relation",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}

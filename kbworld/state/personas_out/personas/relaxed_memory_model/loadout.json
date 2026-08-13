@@ -1,0 +1,13 @@
+{
+  "region": "relaxed_memory_model",
+  "call_number": "concurrency_synchronization_primitives_and_memor.relaxed_memory_model",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 2
+}

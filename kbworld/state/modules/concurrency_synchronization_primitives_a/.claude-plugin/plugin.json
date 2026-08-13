@@ -1,0 +1,14 @@
+{
+  "name": "concurrency-synchronization-primitives-a-module",
+  "version": "0.1.0",
+  "description": "concurrency synchronization primitives and memory models \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 155 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "knowledge-base",
+    "neurosymbolic",
+    "concurrency-synchronization-primitives-a"
+  ]
+}

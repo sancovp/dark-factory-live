@@ -1,57 +1,42 @@
 {
   "rounds": [
     {
-      "region": "consensus",
+      "region": "c11_memory_model",
       "targets": [
-        "agreement",
-        "fault_tolerance"
+        "memory_order_relaxed",
+        "sequentially_consistent"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 41,
-      "new_relations": 51
+      "new_concepts": 31,
+      "new_relations": 21
     },
     {
-      "region": "raft",
+      "region": "spinlock",
       "targets": [
-        "agreement",
-        "fault_tolerance"
+        "exponential_backoff",
+        "mcs_lock"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 28,
-      "new_relations": 35
+      "new_concepts": 20,
+      "new_relations": 29
     }
   ],
   "basis_before": {
-    "shared_atoms": [
-      "agreement",
-      "consensus",
-      "fault_tolerance"
-    ],
-    "shared": 3,
-    "union": 5,
-    "overlap": 0.6
+    "shared_atoms": [],
+    "shared": 0,
+    "union": 10,
+    "overlap": 0.0
   },
   "basis_after": {
-    "shared_atoms": [
-      "a002",
-      "a004",
-      "a005",
-      "a007",
-      "a008",
-      "a009",
-      "agreement",
-      "consensus",
-      "fault_tolerance",
-      "replicated_log"
-    ],
-    "shared": 10,
-    "union": 11,
-    "overlap": 0.909
+    "shared_atoms": [],
+    "shared": 0,
+    "union": 33,
+    "overlap": 0.0
   }
 }

@@ -1,0 +1,13 @@
+{
+  "region": "mcs_lock_enqueue",
+  "call_number": "deep_spinlock.mcs_lock_enqueue",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 2
+}
