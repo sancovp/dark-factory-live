@@ -1,0 +1,867 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/retrieval_augmented_generation_architecture_patt#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/retrieval_augmented_generation_architecture_patt> a owl:Ontology ;
+    rdfs:label "retrieval augmented generation architecture patterns" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:active_learning_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "active learning retrieval" ;
+    rdfs:comment "Selecting informative unlabeled examples for human labeling to iteratively improve retrieval models" .
+kb:advanced_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "advanced rag" ;
+    rdfs:comment "RAG pipeline with preprocessing (query expansion, rewriting) and postprocessing (reranking, relevance filtering) stages surrounding core retrieval" .
+kb:agentic_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agentic rag" ;
+    rdfs:comment "RAG system where an LLM agent iteratively decides retrieval actions, queries, and when to stop based on intermediate reasoning steps" .
+kb:ance_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ance retrieval" ;
+    rdfs:comment "Approximate Nearest Neighbor Negative Contrastive Estimation \u2014 retrieval training using asynchronously updated ANN indices" .
+kb:answer_relevance_metric a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "answer relevance metric" ;
+    rdfs:comment "RAG evaluation measuring how well generated answer addresses the original user query" .
+kb:approximate_nearest_neighbor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "approximate nearest neighbor" ;
+    rdfs:comment "Vector indexing technique trading exactness for speed: HNSW, IVF, or LSH structures enabling sub-linear retrieval at scale" .
+kb:auto_merging_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "auto merging rag" ;
+    rdfs:comment "Hierarchical chunking retrieval: small chunks retrieved, then parent document chunks auto-merged if sufficient child chunks are relevant" .
+kb:batching_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "batching retrieval" ;
+    rdfs:comment "Processing multiple queries or documents in batch to improve throughput through parallelization and GPU utilization" .
+kb:bi_encoder_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bi encoder retrieval" ;
+    rdfs:comment "Embedding approach encoding query and documents independently into fixed vectors enabling fast similarity computation" .
+kb:bm25_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bm25 retrieval" ;
+    rdfs:comment "Classical probabilistic retrieval ranking using term frequency and inverse document frequency with document length normalization" .
+kb:cache_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cache strategy" ;
+    rdfs:comment "Approach for storing and reusing retrieval results or generated responses to reduce redundant computation and latency, typically by caching embeddings, query results, or full generations with policies governing cache invalidation, TTL, and hit resolution." .
+kb:caching_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "caching strategy" ;
+    rdfs:comment "Caching embeddings, retrieval results, or generation outputs to reduce latency and compute costs for repeated queries" .
+kb:candidate_document a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "candidate document" ;
+    rdfs:comment "A document retrieved by at least one retrieval system and thus eligible for fusion scoring" .
+kb:chain_of_thought_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chain of thought rag" ;
+    rdfs:comment "RAG generation with explicit reasoning steps that interleave retrieval actions with intermediate conclusions" .
+kb:chunking_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chunking strategy" ;
+    rdfs:comment "Document splitting approach determining chunk size, overlap, and boundaries \u2014 fixed-size, semantic, recursive, or document-structure-aware" .
+kb:closed_book_baseline a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "closed book baseline" ;
+    rdfs:comment "Control evaluation comparing RAG outputs against the same LLM without retrieval to isolate augmentation benefit" .
+kb:code_indexing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code indexing" ;
+    rdfs:comment "Embedding source code with awareness of syntax trees, function boundaries, and semantic dependencies" .
+kb:colbert_approximate_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert approximate search" ;
+    rdfs:comment "Approximate nearest neighbor indexing on per-token document embeddings enabling efficient retrieval of candidate documents before late interaction re-scoring." .
+kb:colbert_biencoder_comparison a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert biencoder comparison" ;
+    rdfs:comment "Comparison distinguishing ColBERT from standard dense bi-encoder retrieval: ColBERT preserves per-token granularity for late interaction rather than pooling to single embedding per sequence." .
+kb:colbert_contrastive_training a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert contrastive training" ;
+    rdfs:comment "Contrastive learning objective training encoders to maximize late interaction scores for relevant query-document pairs versus in-batch or hard negatives." .
+kb:colbert_cross_encoder_comparison a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert cross encoder comparison" ;
+    rdfs:comment "Comparison metric distinguishing ColBERT from cross-encoder reranking: ColBERT scores via token-level max-sim aggregation whereas cross-encoder produces single joint representation per pair." .
+kb:colbert_document_encoder a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert document encoder" ;
+    rdfs:comment "Encoder producing per-token document embeddings from document passages, typically run offline and indexed for fast retrieval against query embeddings." .
+kb:colbert_late_interaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert late interaction" ;
+    rdfs:comment "Core architectural principle deferring interaction between query and document token representations until scoring time, enabling efficient per-token similarity computation without full cross-encoding of query-document pairs." .
+kb:colbert_maxsim_operator a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert maxsim operator" ;
+    rdfs:comment "Maximum similarity operator that for each query token finds the highest-scoring document token via cosine similarity, then aggregates across query tokens to produce document relevance score." .
+kb:colbert_query_encoder a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert query encoder" ;
+    rdfs:comment "Encoder producing per-token query embeddings from input query tokens, enabling efficient single-pass encoding with late interaction against document tokens." .
+kb:colbert_re_reranking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert re reranking" ;
+    rdfs:comment "Two-stage retrieval using ColBERT late interaction as re-ranker over approximate nearest neighbor candidates, leveraging fine-grained token matching for relevance refinement." .
+kb:colbert_reductional_scoring a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert reductional scoring" ;
+    rdfs:comment "Late scoring mechanism reducing query-document interaction to token-level maximum similarities then aggregating, contrasted with full cross-encoder joint encoding." .
+kb:colbert_representation_rank a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert representation rank" ;
+    rdfs:comment "Rank dimension of per-token embeddings determining expressiveness of token-level similarity computation in late interaction framework." .
+kb:colbert_style_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert style retrieval" ;
+    rdfs:comment "Late interaction retrieval: compute token-level similarity then aggregate for fine-grained relevance without full cross-encoding" .
+kb:colbert_token_aggregation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert token aggregation" ;
+    rdfs:comment "Aggregation function combining per-token similarity scores (typically sum or mean over query tokens) to produce final document relevance score in late interaction framework." .
+kb:colbert_token_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert token embedding" ;
+    rdfs:comment "Dense contextualized vector representation produced per token by an encoder model, preserving token identity and positional context for late interaction scoring." .
+kb:colbert_token_filtering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert token filtering" ;
+    rdfs:comment "Query-side token pruning or masking to reduce token count before embedding, improving efficiency without significant accuracy loss in late interaction scoring." .
+kb:colbert_token_interaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert token interaction" ;
+    rdfs:comment "Late interaction similarity between per-token query embeddings and per-token document embeddings enabling fine matching" .
+kb:context_assembly a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context assembly" ;
+    rdfs:comment "Process of selecting, ordering, and formatting retrieved passages into a generation prompt context window" .
+kb:context_utilization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context utilization" ;
+    rdfs:comment "Degree to which generated answer draws from and references information present in the retrieved context" .
+kb:context_window_management a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context window management" ;
+    rdfs:comment "Strategy for fitting retrieved chunks, system instructions, and conversation history within LLM token limits" .
+kb:context_window_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context window memory" ;
+    rdfs:comment "Working memory subset constrained by token limits for current generation context" .
+kb:continual_learning_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "continual learning retrieval" ;
+    rdfs:comment "RAG that updates retrieval models or indexes based on feedback signals without full retraining" .
+kb:conversation_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "conversation context" ;
+    rdfs:comment "Serialized dialogue history including prior user queries, system responses, and turn metadata" .
+kb:conversational_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "conversational rag" ;
+    rdfs:comment "Multi-turn RAG that maintains conversation history, resolves coreferences, and retrieves contextually relevant information across dialogue turns" .
+kb:corrective_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "corrective rag" ;
+    rdfs:comment "RAG architecture with explicit error detection: low-quality retrieval triggers fallback to web search or re-retrieval strategies" .
+kb:cross_encoder_reranking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cross encoder reranking" ;
+    rdfs:comment "Two-pass retrieval: initial ANN retrieval followed by full cross-encoder scoring of candidate-document pairs for refined ranking" .
+kb:cross_session_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cross session memory" ;
+    rdfs:comment "Memory segment persisting across distinct sessions or round boundaries" .
+kb:dense_passage_retriever a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dense passage retriever" ;
+    rdfs:comment "Bi-encoder model trained on query-passage pairs to produce jointly learned dense embeddings for retrieval" .
+kb:dense_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dense retrieval" ;
+    rdfs:comment "Neural retrieval using learned embedding models to encode queries and documents into dense vectors for similarity search" .
+kb:document_frequency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document frequency" ;
+    rdfs:comment "The count of retrieval systems that return a given document; higher frequency increases fusion score robustness" .
+kb:document_preprocessing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document preprocessing" ;
+    rdfs:comment "Cleaning, normalizing, and structuring raw documents before embedding and indexing" .
+kb:document_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document retrieval" ;
+    rdfs:comment "Coarse-grained retrieval returning complete documents rather than specific passages" .
+kb:document_versioning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document versioning" ;
+    rdfs:comment "Managing multiple versions of indexed documents with retrieval that can reference specific temporal document states" .
+kb:domain_adaptation_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "domain adaptation rag" ;
+    rdfs:comment "Fine-tuning embedding or retrieval models on domain-specific labeled data to improve domain relevance" .
+kb:early_fusion_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "early fusion retrieval" ;
+    rdfs:comment "Merging query and document representations early in the model architecture before similarity computation" .
+kb:embedding_dimensionality a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding dimensionality" ;
+    rdfs:comment "Vector size of text representations \u2014 trade-off between expressiveness, storage cost, and retrieval speed" .
+kb:embedding_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding model" ;
+    rdfs:comment "Neural model converting text into dense vector representations optimized for retrieval similarity tasks" .
+kb:end_to_end_rag_eval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "end to end rag eval" ;
+    rdfs:comment "System-level evaluation measuring whether RAG outputs are factually correct, complete, and grounded in retrieved context" .
+kb:episodic_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "episodic memory" ;
+    rdfs:comment "Memory organized by discrete events or episodes capturing related context together" .
+kb:faithfulness_metric a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "faithfulness metric" ;
+    rdfs:comment "RAG evaluation measuring how much generated answer is actually supported by the provided retrieved context" .
+kb:fallback_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fallback retrieval" ;
+    rdfs:comment "Secondary retrieval strategy activated when primary retrieval yields insufficient results or low confidence" .
+kb:few_shot_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "few shot retrieval" ;
+    rdfs:comment "Retrieval improved through in-context examples demonstrating relevance judgments without gradient updates" .
+kb:fusion_score a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fusion score" ;
+    rdfs:comment "The RRF score computed for a document by summing reciprocal rank contributions from all retrieval systems that returned it" .
+kb:fusion_threshold a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fusion threshold" ;
+    rdfs:comment "Optional cutoff on fusion score or document count to limit the unified ranking to top-N results" .
+kb:graph_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph rag" ;
+    rdfs:comment "RAG variant that retrieves from knowledge graphs or builds graphs over document chunks to capture entity relationships and community structure" .
+kb:hallucination_detection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hallucination detection" ;
+    rdfs:comment "Post-generation technique checking whether outputs are supported by retrieved context using entailment or self-consistency checks" .
+kb:hybrid_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hybrid rag" ;
+    rdfs:comment "RAG combining dense vector retrieval with sparse lexical retrieval (BM25) to leverage both semantic similarity and exact keyword matching" .
+kb:hybrid_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hybrid search" ;
+    rdfs:comment "Retrieval combining multiple search paradigms (dense/sparse, vector/keyword) with score normalization or late fusion" .
+kb:hyde_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hyde retrieval" ;
+    rdfs:comment "Hypothetical Document Embeddings: generate hypothetical answer/doc, embed it, use as query vector for improved retrieval" .
+kb:hyperparameter_k a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hyperparameter k" ;
+    rdfs:comment "The constant added to each rank in the RRF formula (typically k=60); controls sensitivity to rank differences across systems" .
+kb:incremental_indexing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "incremental indexing" ;
+    rdfs:comment "Index update strategy adding or modifying vectors without rebuilding entire index structure" .
+kb:index_memory_footprint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "index memory footprint" ;
+    rdfs:comment "Storage requirements for vector index relative to number of embedded documents and embedding dimensionality" .
+kb:indexing_pipeline a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "indexing pipeline" ;
+    rdfs:comment "End-to-end process: document ingestion, preprocessing, chunking, embedding generation, and vector store population" .
+kb:iterative_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "iterative retrieval" ;
+    rdfs:comment "Multi-pass retrieval where each round uses previous retrieval results to inform and refine the next query" .
+kb:knowledge_distillation_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge distillation rag" ;
+    rdfs:comment "Training smaller retrieval models to mimic larger teacher retrievers for efficient deployment" .
+kb:kv_cache_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kv cache retrieval" ;
+    rdfs:comment "Leveraging key-value cache from prior LLM inference to accelerate subsequent generations with retrieved context" .
+kb:late_fusion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "late fusion" ;
+    rdfs:comment "The fusion paradigm RRF implements: combining decision-level outputs (ranked lists) rather than feature-level inputs (raw scores)" .
+kb:late_fusion_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "late fusion retrieval" ;
+    rdfs:comment "Combining retrieval scores from multiple methods (vector, keyword, graph) at aggregation stage rather than query time" .
+kb:llm_as_retriever a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "llm as retriever" ;
+    rdfs:comment "Using a large language model itself to perform retrieval through in-context learning or fine-tuned generation" .
+kb:long_context_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "long context rag" ;
+    rdfs:comment "RAG handling documents exceeding model context limits through hierarchical summarization or selective chunk retrieval" .
+kb:maximum_marginal_relevance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "maximum marginal relevance" ;
+    rdfs:comment "Diversification technique balancing relevance and diversity in retrieved results to avoid redundancy and surface varied perspectives" .
+kb:mean_reciprocal_rank a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mean reciprocal rank" ;
+    rdfs:comment "Rank-based retrieval metric averaging inverse rank of first relevant result across queries" .
+kb:memory_attention_weights a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory attention weights" ;
+    rdfs:comment "Dynamic weighting scores applied to memory entries reflecting relevance to current query" .
+kb:memory_augmented_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory augmented rag" ;
+    rdfs:comment "RAG with persistent or working memory storing prior retrieval results, conversation state, or learned retrieval patterns" .
+kb:memory_compression a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory compression" ;
+    rdfs:comment "Transformation reducing memory entry size while preserving core informational content" .
+kb:memory_consolidation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory consolidation" ;
+    rdfs:comment "Process of transferring high-value working memory contents into the persistent memory store" .
+kb:memory_entry a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory entry" ;
+    rdfs:comment "Atomic unit of stored information in the memory system, containing content plus metadata" .
+kb:memory_eviction_policy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory eviction policy" ;
+    rdfs:comment "Policy governing which memory entries are removed when capacity or staleness thresholds are exceeded" .
+kb:memory_generation_augmentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory generation augmentation" ;
+    rdfs:comment "Injection of retrieved memory context into the LLM prompt or attention mechanism during generation" .
+kb:memory_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory index" ;
+    rdfs:comment "Access structure enabling efficient lookup of memory entries by key, time, or semantic similarity" .
+kb:memory_pruning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory pruning" ;
+    rdfs:comment "Selective removal of memory entries based on age, relevance decay, or eviction policy" .
+kb:memory_retrieval_query a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory retrieval query" ;
+    rdfs:comment "Internal query executed against the memory store to fetch relevant prior context" .
+kb:memory_store a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory store" ;
+    rdfs:comment "Persistent or semi-persistent storage layer holding memory entries across retrieval operations and sessions" .
+kb:memory_update_operation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory update operation" ;
+    rdfs:comment "Addition of new information or modification of existing entries in the memory store" .
+kb:metadata_filtering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "metadata filtering" ;
+    rdfs:comment "Filtering retrieval results by document metadata (date, source, type, author) before or after vector similarity scoring" .
+kb:mmr001 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr001" ;
+    rdfs:comment "Modality type: classification of data representation forms a retrieval system handles \u2014 text, image, table, code, audio, video, or structured data." .
+kb:mmr002 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr002" ;
+    rdfs:comment "Multi-modal embedding model: neural network architecture that projects content from different modalities into a shared vector space enabling cross-modal similarity search." .
+kb:mmr003 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr003" ;
+    rdfs:comment "Cross-modal retrieval: searching for content in one modality using a query from a different modality, such as retrieving images from a text query or code from a table context." .
+kb:mmr004 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr004" ;
+    rdfs:comment "Modal fusion strategy: mechanism for combining or harmonizing representations from multiple modalities \u2014 early fusion (embedding-level concatenation), late fusion (score-level aggregation), or intermediate fusion (attention-based cross-modal interaction)." .
+kb:mmr005 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr005" ;
+    rdfs:comment "Non-text chunk processor: component that parses, extracts, and encodes non-text content from documents \u2014 handling image pixels, table cells, code syntax, or audio waveforms into retrievable representations." .
+kb:mmr006 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr006" ;
+    rdfs:comment "Table extraction: parsing structured tabular data from documents or PDFs into machine-readable format with row/column headers preserved for retrieval and reasoning." .
+kb:mmr007 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr007" ;
+    rdfs:comment "Image/figure extraction: isolating visual elements from documents \u2014 charts, diagrams, photographs \u2014 for separate encoding and retrieval alongside text." .
+kb:mmr008 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr008" ;
+    rdfs:comment "Code chunk handler: processing code snippets with language-aware parsing to capture syntax, imports, function signatures, and docstrings as retrieval units." .
+kb:mmr009 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr009" ;
+    rdfs:comment "Multi-modal index: index structure supporting heterogeneous chunk types \u2014 text vectors, image features, table embeddings \u2014 with metadata routing for modality-aware retrieval." .
+kb:mmr010 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr010" ;
+    rdfs:comment "Modality-specific retriever: specialized retrieval component tuned to a particular modality's retrieval patterns, scoring functions, and similarity measures." .
+kb:mmr011 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr011" ;
+    rdfs:comment "Heterogeneous retrieval engine: unified retrieval layer that queries across mixed content types, resolving modality mismatches and ranking results from diverse sources." .
+kb:mmr012 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr012" ;
+    rdfs:comment "Cross-modal similarity metric: distance or similarity measure applicable across modality boundaries \u2014 enabling comparison of text query vectors against image embeddings, for example." .
+kb:mmr013 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr013" ;
+    rdfs:comment "Multi-modal reranker: post-retrieval component that reorders mixed-modality candidates using cross-attention between query and all retrieved content types." .
+kb:mmr014 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr014" ;
+    rdfs:comment "Modality confidence scorer: scoring function estimating retrieval quality per modality, enabling fallback decisions when a modality's results are unreliable." .
+kb:mmr015 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr015" ;
+    rdfs:comment "Multi-modal memory store: persistent storage holding retrieved chunks across modalities with indexing supporting mixed-modality queries and temporal session context." .
+kb:mmr016 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr016" ;
+    rdfs:comment "Table-to-text generator: component converting retrieved tabular data into natural language summaries or explanations for injection into the generation prompt." .
+kb:mmr017 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr017" ;
+    rdfs:comment "Image description encoder: vision model producing text-aligned representations of images \u2014 captions, scene graphs, or dense captions \u2014 enabling image content in text-based retrieval." .
+kb:mmr018 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr018" ;
+    rdfs:comment "Scene graph extractor: parsing visual content into structured entity-relationship graphs capturing objects, attributes, and spatial relationships for graph-based retrieval." .
+kb:mmr019 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr019" ;
+    rdfs:comment "Audio-video transcription: converting temporal media to text transcripts with timestamps, enabling retrieval of relevant segments by text query." .
+kb:mmr020 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr020" ;
+    rdfs:comment "Document page segmenter: component that splits compound documents into modality-homogeneous chunks \u2014 separating text blocks from embedded figures and tables." .
+kb:mmr021 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr021" ;
+    rdfs:comment "Multi-modal query router: routing layer classifying query type and directing retrieval toward appropriate modality-specific or cross-modal retrieval paths." .
+kb:mmr022 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr022" ;
+    rdfs:comment "Visual question answering retriever: retrieving image regions or full images that answer visual queries, returning image crops plus textual annotations." .
+kb:mmr023 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr023" ;
+    rdfs:comment "Code semantic embedder: embedding code snippets capturing functional semantics, API usage patterns, and documentation context for semantic code retrieval." .
+kb:mmr024 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr024" ;
+    rdfs:comment "Modality alignment calibrator: training or fine-tuning procedure aligning embedding spaces across modalities using contrastive learning or shared latent representations." .
+kb:mmr025 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr025" ;
+    rdfs:comment "Structured data retrieval: RAG variant that indexes and retrieves from structured sources \u2014 databases, JSON, knowledge graphs \u2014 alongside unstructured text, with query-to-SQL or query-to-SPARQL translation as a sub-component." .
+kb:mmr026 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr026" ;
+    rdfs:comment "Temporal media segment retriever: retrieving specific time segments from audio or video based on query relevance, returning transcript snippets with start/end timestamps and modality metadata." .
+kb:mmr027 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mmr027" ;
+    rdfs:comment "Multi-modal context builder: constructing the generation-augmenting context by assembling retrieved chunks of mixed types, handling format conversion and ordering for downstream generation." .
+kb:modular_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "modular rag" ;
+    rdfs:comment "RAG architecture decomposed into interchangeable components: retrievers, rerankers, routers, generators, and memory modules assembled per task" .
+kb:multi_hop_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "multi hop retrieval" ;
+    rdfs:comment "Retrieval strategy that executes multiple sequential retrieval steps, where each step uses the output or context of prior steps to formulate improved queries, enabling the system to gather information spanning multiple\u5173\u7cfb\u7684 hops through a knowledge graph or document corpus." .
+kb:multi_hop_rrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "multi hop rrieval" ;
+    rdfs:comment "Multi-step reasoning retrieval answering complex questions requiring synthesizing information across multiple sources" .
+kb:multi_modal_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "multi modal rag" ;
+    rdfs:comment "RAG system that retrieves and augments generation with images, tables, code, or other non-text modalities alongside text" .
+kb:multi_vector_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "multi vector retrieval" ;
+    rdfs:comment "Representing documents with multiple vectors (per-sentence, per-section) rather than single aggregate document vector" .
+kb:naive_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "naive rag" ;
+    rdfs:comment "Basic RAG architecture: query embedding, vector similarity search, context injection, generation \u2014 simple pipeline without optimization refinements" .
+kb:ndcg_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ndcg retrieval" ;
+    rdfs:comment "Normalized Discounted Cumulative Gain: retrieval ranking quality metric accounting for position of relevant results" .
+kb:ocr_postprocessing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ocr postprocessing" ;
+    rdfs:comment "Correction and structuring of text extracted from images or scanned documents before retrieval indexing" .
+kb:open_book_exam a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "open book exam" ;
+    rdfs:comment "RAG evaluation paradigm treating the system as answering questions with provided reference materials analogous to open-book tests" .
+kb:overlapping_chunks a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "overlapping chunks" ;
+    rdfs:comment "Chunking with overlap between adjacent segments to preserve cross-boundary context during retrieval" .
+kb:parallel_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "parallel retrieval" ;
+    rdfs:comment "Executing multiple retrieval systems concurrently before applying RRF to combine their results" .
+kb:parent_document_retriever a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "parent document retriever" ;
+    rdfs:comment "Retrieval strategy maintaining parent-child chunk relationships: retrieve small chunks but return larger parent document as context" .
+kb:passage_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "passage retrieval" ;
+    rdfs:comment "Fine-grained retrieval of individual sentences or short passages rather than full documents" .
+kb:prior_retrieval_results a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prior retrieval results" ;
+    rdfs:comment "Cached outcomes from previous retrieval operations available for reuse or reference" .
+kb:privacy_preserving_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "privacy preserving rag" ;
+    rdfs:comment "RAG techniques enabling retrieval from sensitive sources using differential privacy, federated learning, or secure enclaves" .
+kb:prompt_construction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prompt construction" ;
+    rdfs:comment "Template-based or dynamic assembly of system prompts, retrieved context, chat history, and user query into LLM input" .
+kb:query a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query" ;
+    rdfs:comment "The search query for which all retrieval systems produce their ranked candidate lists" .
+kb:query_decomposition_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query decomposition rag" ;
+    rdfs:comment "RAG pattern that breaks complex queries into sub-questions, retrieves for each, and synthesizes answers from distributed contexts" .
+kb:query_expansion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query expansion" ;
+    rdfs:comment "Pre-retrieval technique augmenting user query with related terms, synonyms, or generated elaborations to improve recall" .
+kb:query_rewriting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query rewriting" ;
+    rdfs:comment "Pre-retrieval transformation converting natural language queries into optimal retrieval queries using LLM or rule-based methods" .
+kb:query_type_routing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query type routing" ;
+    rdfs:comment "Classifying query into factual, conversational, analytical, or procedural types to select appropriate retrieval strategy" .
+kb:query_understanding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query understanding" ;
+    rdfs:comment "Pre-retrieval analysis parsing query intent, entities, temporal constraints, and required information types" .
+kb:ragas_metrics a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ragas metrics" ;
+    rdfs:comment "RAG-specific evaluation framework measuring faithfulness, answer relevance, context precision, and context recall" .
+kb:rank_ordinal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rank ordinal" ;
+    rdfs:comment "The ordinal position used in RRF (1, 2, 3...); not the raw score from the retrieval system" .
+kb:rank_position a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rank position" ;
+    rdfs:comment "The 1-indexed position of a document within a ranked list; lower position indicates higher predicted relevance" .
+kb:ranked_list a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ranked list" ;
+    rdfs:comment "A ranked list of candidate documents from a single retrieval system, ordered by that system's relevance scores" .
+kb:real_time_indexing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "real time indexing" ;
+    rdfs:comment "Incremental index updates allowing newly ingested documents to be immediately searchable without full recomputation" .
+kb:reciprocal_contribution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reciprocal contribution" ;
+    rdfs:comment "The term 1/(k+rank) contributed by a single retrieval system to a document's fusion score" .
+kb:reciprocal_rank_fusion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reciprocal rank fusion" ;
+    rdfs:comment "Fusing ranked retrieval lists from multiple systems by reciprocal rank weighting to produce unified ranking" .
+kb:recursive_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "recursive retrieval" ;
+    rdfs:comment "Multi-stage retrieval that starts with coarse-grained results and iteratively refines with increasingly specific queries or filters" .
+kb:reinforcement_learning_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reinforcement learning retrieval" ;
+    rdfs:comment "Training retrieval policies using RL signals from downstream generation quality or user feedback" .
+kb:relevance_scored_memory_entry a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relevance scored memory entry" ;
+    rdfs:comment "Memory entry annotated with a relevance or utility score from prior use or estimation" .
+kb:reranking_pipeline a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reranking pipeline" ;
+    rdfs:comment "Secondary scoring stage after initial retrieval using more expensive but accurate cross-encoder or LLM-based relevance models" .
+kb:retrieval_augmented_decoding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval augmented decoding" ;
+    rdfs:comment "On-the-fly context injection during LLM token generation to condition each generated token on retrieved information" .
+kb:retrieval_augmented_generation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval augmented generation" ;
+    rdfs:comment "Paradigm that augments language model generation with information retrieved from external knowledge sources to improve factual accuracy and reduce hallucination" .
+kb:retrieval_confidence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval confidence" ;
+    rdfs:comment "Scored certainty measure of retrieved result relevance enabling downstream thresholding or fallback decisions" .
+kb:retrieval_fusion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval fusion" ;
+    rdfs:comment "Combining results from multiple retrieval methods through Reciprocal Rank Fusion, Score Normalization, or learned weights" .
+kb:retrieval_grounding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval grounding" ;
+    rdfs:comment "Technique ensuring generated outputs explicitly cite or reference retrieved source material in the response" .
+kb:retrieval_latency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval latency" ;
+    rdfs:comment "Time elapsed from query submission to retrieved context availability \u2014 critical for real-time RAG applications" .
+kb:retrieval_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval pattern" ;
+    rdfs:comment "Learned or extracted strategy encoding effective query formulations or retrieval configurations" .
+kb:retrieval_precision a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval precision" ;
+    rdfs:comment "Metric measuring fraction of retrieved documents that are relevant to the query" .
+kb:retrieval_recall a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval recall" ;
+    rdfs:comment "Metric measuring fraction of all relevant documents that were successfully retrieved" .
+kb:retrieval_system a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval system" ;
+    rdfs:comment "A source retrieval system contributing ranked results to the fusion (e.g., dense retriever, sparse BM25 retriever, cross-encoder reranker)" .
+kb:retrieval_throughput a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval throughput" ;
+    rdfs:comment "Volume of queries retrievable system can process per time unit \u2014 function of index size, hardware, and architecture" .
+kb:rocketqa_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rocketqa retrieval" ;
+    rdfs:comment "Dense retrieval training with denoised negative sampling and cross-encoder interaction for improved precision" .
+kb:router_based_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "router based rag" ;
+    rdfs:comment "RAG with a routing layer that directs queries to specialized retrievers, vector stores, or generation modes based on query classification" .
+kb:rrf a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf" ;
+    rdfs:comment "Reciprocal Rank Fusion \u2014 a rank-based fusion technique that combines multiple ranked retrieval lists by weighting each item by the reciprocal of its rank position (1/rank) and summing across all lists to produce a unified fused ranking." .
+kb:rrf_algorithm a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf algorithm" ;
+    rdfs:comment "Reciprocal Rank Fusion algorithm: combines multiple ranked retrieval lists into a unified ranking using the formula 1/(k+rank) where k is a constant hyperparameter" .
+kb:rrf_candidate_pool a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf candidate pool" ;
+    rdfs:comment "The union of all unique documents appearing in any contributing rank list; the fusion score is computed only for documents present in the candidate pool." .
+kb:rrf_constant_k a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf constant k" ;
+    rdfs:comment "A positive smoothing constant (conventional value 60) added to each rank position before taking the reciprocal, preventing division by zero and dampening sensitivity to high ranks for stable fusion scoring" .
+kb:rrf_contributing_stream a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf contributing stream" ;
+    rdfs:comment "A single retrieval system (e.g., dense retriever, sparse BM25, keyword search) whose ranked output list participates in the fusion; RRF requires at least two contributing streams." .
+kb:rrf_document_candidate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf document candidate" ;
+    rdfs:comment "A document uniquely identified within the fusion process by its document_id, carrying accumulated scores from one or more retrieval systems and participating in the final sort" .
+kb:rrf_final_ranking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf final ranking" ;
+    rdfs:comment "The merged document list produced by sorting all candidates in descending order by their fusion scores, yielding a unified cross-system ranking that reflects all input retrieval evidence" .
+kb:rrf_formula a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf formula" ;
+    rdfs:comment "The scoring formula: RRF(d) = \u03a3 1/(k+rank_i(d)) summed over all retrieval systems i that return document d" .
+kb:rrf_fused_ranking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf fused ranking" ;
+    rdfs:comment "The final unified ranking produced by sorting all candidate documents by their fusion scores in descending order; constitutes the output of the RRF process fed into downstream stages." .
+kb:rrf_fusion_score a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf fusion score" ;
+    rdfs:comment "The sum of reciprocal rank values for a given document across all contributing rank lists; the document's position in the fused ranking is determined by descending fusion score." .
+kb:rrf_k_parameter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf k parameter" ;
+    rdfs:comment "A smoothing constant added to the rank position in the denominator to dampen the contribution of low-ranked items and reduce sensitivity to rank differences among poorly ranked results; standard value is 60." .
+kb:rrf_normalization_preprocessing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf normalization preprocessing" ;
+    rdfs:comment "Optional score normalization (min-max or z-score) applied to raw retrieval scores before rank extraction, improving fusion robustness when source systems use disparate scoring scales" .
+kb:rrf_rank_list a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf rank list" ;
+    rdfs:comment "An ordered sequence of documents or passage identifiers produced by a single retrieval system, where each item carries an integer rank position starting at 1 for the top-scoring item." .
+kb:rrf_rank_position a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf rank position" ;
+    rdfs:comment "The integer position of an item within a rank list, starting at 1 for the highest-scoring result; used as the denominator in reciprocal rank computation." .
+kb:rrf_ranked_list a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf ranked list" ;
+    rdfs:comment "An ordered sequence of document identifiers returned by a single retrieval system, ranked by that system's internal relevance scoring mechanism, where position encodes ordinal relevance" .
+kb:rrf_reciprocal_rank a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf reciprocal rank" ;
+    rdfs:comment "The value 1/(rank_position + k) where k is a smoothing constant (commonly k=60), computed per-item per-rank-list; items with higher ranks (lower position numbers) receive larger reciprocal rank values." .
+kb:rrf_reciprocal_rank_score a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf reciprocal rank score" ;
+    rdfs:comment "The per-system score for a document computed as 1 divided by the sum of rank position and constant k, yielding a value in (0, 1/k] that decays with worsening rank" .
+kb:rrf_retrieval_system a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf retrieval system" ;
+    rdfs:comment "One of the multiple retrieval subsystems (dense, sparse, keyword, or hybrid) that produces an independent ranked document list submitted to the fusion algorithm for combination" .
+kb:rrf_score_normalization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf score normalization" ;
+    rdfs:comment "Optional pre-processing step applied to raw retrieval scores from each system before rank extraction, ensuring comparable score ranges across heterogeneous retrieval methods such as dense vector search and BM25." .
+kb:rrf_weighted_rrf a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rrf weighted rrf" ;
+    rdfs:comment "Extended RRF variant introducing per-system weights multiplied by each reciprocal rank contribution, allowing differential credit for systems with varying reliability or relevance to the query type" .
+kb:score_aggregation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "score aggregation" ;
+    rdfs:comment "The operation of combining per-system rank evidence into a single score via summation across systems" .
+kb:score_normalization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "score normalization" ;
+    rdfs:comment "Optional pre-processing step applying min-max or z-score normalization to raw retrieval scores before fusion" .
+kb:self_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "self rag" ;
+    rdfs:comment "Self-reflective RAG where the generator evaluates retrieved passages and its own generations for relevance, utility, and hallucination using special tokens" .
+kb:semantic_cache_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic cache retrieval" ;
+    rdfs:comment "Caching mechanism using embedding similarity to match new queries against cached query-response pairs" .
+kb:semantic_chunk_boundaries a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic chunk boundaries" ;
+    rdfs:comment "Chunking aligned with semantic units (paragraphs, sections) rather than arbitrary token windows" .
+kb:semantic_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic memory" ;
+    rdfs:comment "Memory organized by semantic embeddings enabling similarity-based retrieval" .
+kb:sentence_window_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sentence window rag" ;
+    rdfs:comment "Retrieval pattern that fetches single sentences then expands context window to surrounding sentences before generation" .
+kb:sliding_window_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sliding window retrieval" ;
+    rdfs:comment "Retrieving across overlapping time-spans or document segments using sliding windows to capture continuous context" .
+kb:sparse_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sparse retrieval" ;
+    rdfs:comment "Lexical retrieval using sparse bag-of-words representations like BM25 that score term overlap between query and documents" .
+kb:speculative_decoding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "speculative decoding" ;
+    rdfs:comment "Generation acceleration: draft tokens with small model, verify with large model conditioned on retrieved context" .
+kb:speculative_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "speculative rag" ;
+    rdfs:comment "RAG pattern where a smaller model drafts candidates that a larger model then verifies against retrieved context" .
+kb:table_indexing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "table indexing" ;
+    rdfs:comment "Specialized processing and embedding of tabular data preserving row-column relationships for structured retrieval" .
+kb:tart_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tart retrieval" ;
+    rdfs:comment "Task-agnostic retrieval training using a learned task prefix to condition bi-encoder on diverse retrieval tasks" .
+kb:temporal_memory_entry a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "temporal memory entry" ;
+    rdfs:comment "Memory entry augmented with timestamp or sequence ordering metadata" .
+kb:tf_idf_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tf idf retrieval" ;
+    rdfs:comment "Bag-of-words retrieval weighting terms by document frequency to surface discriminative vocabulary" .
+kb:trulens_eval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "trulens eval" ;
+    rdfs:comment "Feedback foundation library providing tracing and evaluation hooks for RAG systems with built-in metrics" .
+kb:truncation_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "truncation strategy" ;
+    rdfs:comment "Policy for shortening context when total content exceeds model context limits: smart truncation, priority weighting, or iterative reduction" .
+kb:undocumented_document a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "undocumented document" ;
+    rdfs:comment "A document that appears in one retrieval system's results but not in another's; RRF handles this by assigning zero contribution for absent systems" .
+kb:unified_ranking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "unified ranking" ;
+    rdfs:comment "The final merged ranking output by RRF, containing all candidate documents sorted by descending fusion score" .
+kb:vector_database a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vector database" ;
+    rdfs:comment "Specialized storage system indexing embeddings with efficient similarity search capabilities (Pinecone, Weaviate, Chroma, Milvus, pgvector)" .
+kb:vector_similarity_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vector similarity search" ;
+    rdfs:comment "Core retrieval operation computing distance or similarity (cosine, dot-product, euclidean) between query and document vectors" .
+kb:working_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "working memory" ;
+    rdfs:comment "Short-term operational memory buffer active during a single retrieval-generation cycle" .
+kb:zero_shot_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "zero shot retrieval" ;
+    rdfs:comment "Retrieval on unseen domains without training using zero-shot capable embedding models" .
+
+kb:active_learning_retrieval kbo:relatesTo kb:reinforcement_learning_retrieval .
+kb:advanced_rag kbo:relatesTo kb:modular_rag .
+kb:ance_retrieval kbo:relatesTo kb:dense_passage_retriever .
+kb:answer_relevance_metric kbo:relatesTo kb:end_to_end_rag_eval .
+kb:batching_retrieval kbo:relatesTo kb:retrieval_throughput .
+kb:bi_encoder_retrieval kbo:relatesTo kb:dense_retrieval .
+kb:bm25_retrieval kbo:relatesTo kb:sparse_retrieval .
+kb:cache_strategy kbo:relatesTo kb:semantic_cache_retrieval .
+kb:caching_strategy kbo:relatesTo kb:cache_strategy .
+kb:candidate_document kbo:relatesTo kb:candidate_document .
+kb:chain_of_thought_rag kbo:relatesTo kb:iterative_retrieval .
+kb:chunking_strategy kbo:relatesTo kb:indexing_pipeline .
+kb:chunking_strategy kbo:relatesTo kb:overlapping_chunks .
+kb:chunking_strategy kbo:relatesTo kb:semantic_chunk_boundaries .
+kb:closed_book_baseline kbo:relatesTo kb:end_to_end_rag_eval .
+kb:code_indexing kbo:relatesTo kb:document_preprocessing .
+kb:colbert_approximate_search kbo:relatesTo kb:approximate_nearest_neighbor .
+kb:colbert_approximate_search kbo:relatesTo kb:colbert_document_encoder .
+kb:colbert_approximate_search kbo:relatesTo kb:hybrid_search .
+kb:colbert_biencoder_comparison kbo:relatesTo kb:dense_passage_retriever .
+kb:colbert_contrastive_training kbo:relatesTo kb:dense_passage_retriever .
+kb:colbert_document_encoder kbo:relatesTo kb:colbert_representation_rank .
+kb:colbert_late_interaction kbo:relatesTo kb:colbert_maxsim_operator .
+kb:colbert_late_interaction kbo:relatesTo kb:colbert_reductional_scoring .
+kb:colbert_late_interaction kbo:relatesTo kb:colbert_token_aggregation .
+kb:colbert_maxsim_operator kbo:relatesTo kb:colbert_token_embedding .
+kb:colbert_query_encoder kbo:relatesTo kb:colbert_representation_rank .
+kb:colbert_re_reranking kbo:relatesTo kb:colbert_approximate_search .
+kb:colbert_re_reranking kbo:relatesTo kb:cross_encoder_reranking .
+kb:colbert_reductional_scoring kbo:relatesTo kb:colbert_cross_encoder_comparison .
+kb:colbert_token_aggregation kbo:relatesTo kb:colbert_maxsim_operator .
+kb:colbert_token_embedding kbo:relatesTo kb:colbert_document_encoder .
+kb:colbert_token_embedding kbo:relatesTo kb:colbert_query_encoder .
+kb:colbert_token_filtering kbo:relatesTo kb:colbert_query_encoder .
+kb:context_assembly kbo:relatesTo kb:prompt_construction .
+kb:context_utilization kbo:relatesTo kb:ragas_metrics .
+kb:context_window_management kbo:relatesTo kb:long_context_rag .
+kb:context_window_management kbo:relatesTo kb:retrieval_augmented_decoding .
+kb:context_window_management kbo:relatesTo kb:truncation_strategy .
+kb:context_window_memory kbo:relatesTo kb:working_memory .
+kb:continual_learning_retrieval kbo:relatesTo kb:active_learning_retrieval .
+kb:conversation_context kbo:relatesTo kb:context_window_memory .
+kb:conversation_context kbo:relatesTo kb:memory_entry .
+kb:conversational_rag kbo:relatesTo kb:memory_augmented_rag .
+kb:conversational_rag kbo:relatesTo kb:query_understanding .
+kb:corrective_rag kbo:relatesTo kb:fallback_retrieval .
+kb:corrective_rag kbo:relatesTo kb:mmr014 .
+kb:corrective_rag kbo:relatesTo kb:retrieval_confidence .
+kb:dense_retrieval kbo:relatesTo kb:approximate_nearest_neighbor .
+kb:dense_retrieval kbo:relatesTo kb:cross_encoder_reranking .
+kb:dense_retrieval kbo:relatesTo kb:dense_passage_retriever .
+kb:dense_retrieval kbo:relatesTo kb:hybrid_rag .
+kb:dense_retrieval kbo:relatesTo kb:hybrid_search .
+kb:document_frequency kbo:relatesTo kb:document_frequency .
+kb:document_retrieval kbo:relatesTo kb:document_retrieval .
+kb:document_versioning kbo:relatesTo kb:incremental_indexing .
+kb:domain_adaptation_rag kbo:relatesTo kb:embedding_model .
+kb:early_fusion_retrieval kbo:relatesTo kb:early_fusion_retrieval .
+kb:embedding_model kbo:relatesTo kb:bi_encoder_retrieval .
+kb:embedding_model kbo:relatesTo kb:embedding_dimensionality .
+kb:embedding_model kbo:relatesTo kb:few_shot_retrieval .
+kb:embedding_model kbo:relatesTo kb:zero_shot_retrieval .
+kb:faithfulness_metric kbo:relatesTo kb:hallucination_detection .
+kb:fusion_score kbo:relatesTo kb:fusion_score .
+kb:fusion_threshold kbo:relatesTo kb:fusion_threshold .
+kb:graph_rag kbo:relatesTo kb:mmr018 .
+kb:graph_rag kbo:relatesTo kb:multi_hop_retrieval .
+kb:hybrid_search kbo:relatesTo kb:colbert_style_retrieval .
+kb:hybrid_search kbo:relatesTo kb:retrieval_fusion .
+kb:hyperparameter_k kbo:relatesTo kb:hyperparameter_k .
+kb:iterative_retrieval kbo:relatesTo kb:agentic_rag .
+kb:iterative_retrieval kbo:relatesTo kb:multi_hop_retrieval .
+kb:knowledge_distillation_rag kbo:relatesTo kb:dense_passage_retriever .
+kb:kv_cache_retrieval kbo:relatesTo kb:batching_retrieval .
+kb:late_fusion kbo:relatesTo kb:late_fusion .
+kb:llm_as_retriever kbo:relatesTo kb:agentic_rag .
+kb:llm_as_retriever kbo:relatesTo kb:few_shot_retrieval .
+kb:llm_as_retriever kbo:relatesTo kb:zero_shot_retrieval .
+kb:long_context_rag kbo:relatesTo kb:kv_cache_retrieval .
+kb:maximum_marginal_relevance kbo:relatesTo kb:maximum_marginal_relevance .
+kb:memory_consolidation kbo:relatesTo kb:memory_store .
+kb:memory_entry kbo:relatesTo kb:memory_attention_weights .
+kb:memory_entry kbo:relatesTo kb:memory_compression .
+kb:memory_entry kbo:relatesTo kb:memory_generation_augmentation .
+kb:memory_entry kbo:relatesTo kb:memory_pruning .
+kb:memory_entry kbo:relatesTo kb:relevance_scored_memory_entry .
+kb:memory_entry kbo:relatesTo kb:temporal_memory_entry .
+kb:memory_eviction_policy kbo:relatesTo kb:memory_entry .
+kb:memory_eviction_policy kbo:relatesTo kb:memory_pruning .
+kb:memory_index kbo:relatesTo kb:memory_entry .
+kb:memory_retrieval_query kbo:relatesTo kb:memory_entry .
+kb:memory_store kbo:relatesTo kb:cross_session_memory .
+kb:memory_store kbo:relatesTo kb:episodic_memory .
+kb:memory_store kbo:relatesTo kb:memory_entry .
+kb:memory_store kbo:relatesTo kb:semantic_memory .
+kb:memory_update_operation kbo:relatesTo kb:memory_store .
+kb:metadata_filtering kbo:relatesTo kb:parent_document_retriever .
+kb:mmr001 kbo:relatesTo kb:mmr005 .
+kb:mmr002 kbo:relatesTo kb:mmr012 .
+kb:mmr003 kbo:relatesTo kb:mmr002 .
+kb:mmr004 kbo:relatesTo kb:mmr002 .
+kb:mmr004 kbo:relatesTo kb:mmr012 .
+kb:mmr006 kbo:relatesTo kb:mmr005 .
+kb:mmr007 kbo:relatesTo kb:mmr005 .
+kb:mmr008 kbo:relatesTo kb:mmr005 .
+kb:mmr009 kbo:relatesTo kb:mmr001 .
+kb:mmr009 kbo:relatesTo kb:mmr002 .
+kb:mmr010 kbo:relatesTo kb:mmr001 .
+kb:mmr010 kbo:relatesTo kb:mmr002 .
+kb:mmr011 kbo:relatesTo kb:mmr003 .
+kb:mmr011 kbo:relatesTo kb:mmr010 .
+kb:mmr013 kbo:relatesTo kb:mmr003 .
+kb:mmr013 kbo:relatesTo kb:mmr011 .
+kb:mmr014 kbo:relatesTo kb:mmr010 .
+kb:mmr015 kbo:relatesTo kb:mmr009 .
+kb:mmr016 kbo:relatesTo kb:mmr006 .
+kb:mmr017 kbo:relatesTo kb:mmr007 .
+kb:mmr018 kbo:relatesTo kb:mmr017 .
+kb:mmr019 kbo:relatesTo kb:mmr005 .
+kb:mmr020 kbo:relatesTo kb:mmr006 .
+kb:mmr020 kbo:relatesTo kb:mmr007 .
+kb:mmr021 kbo:relatesTo kb:mmr001 .
+kb:mmr021 kbo:relatesTo kb:mmr011 .
+kb:mmr022 kbo:relatesTo kb:mmr003 .
+kb:mmr022 kbo:relatesTo kb:mmr017 .
+kb:mmr023 kbo:relatesTo kb:mmr008 .
+kb:mmr024 kbo:relatesTo kb:mmr002 .
+kb:mmr024 kbo:relatesTo kb:mmr012 .
+kb:mmr025 kbo:relatesTo kb:mmr001 .
+kb:mmr025 kbo:relatesTo kb:mmr011 .
+kb:mmr026 kbo:relatesTo kb:mmr003 .
+kb:mmr026 kbo:relatesTo kb:mmr009 .
+kb:mmr026 kbo:relatesTo kb:mmr019 .
+kb:mmr027 kbo:relatesTo kb:mmr006 .
+kb:mmr027 kbo:relatesTo kb:mmr009 .
+kb:mmr027 kbo:relatesTo kb:mmr016 .
+kb:mmr027 kbo:relatesTo kb:mmr017 .
+kb:mmr027 kbo:relatesTo kb:mmr023 .
+kb:multi_hop_retrieval kbo:relatesTo kb:query_decomposition_rag .
+kb:multi_hop_rrieval kbo:relatesTo kb:multi_hop_retrieval .
+kb:multi_modal_rag kbo:relatesTo kb:mmr001 .
+kb:multi_modal_rag kbo:relatesTo kb:mmr003 .
+kb:multi_modal_rag kbo:relatesTo kb:mmr004 .
+kb:multi_modal_rag kbo:relatesTo kb:mmr027 .
+kb:multi_vector_retrieval kbo:relatesTo kb:colbert_token_interaction .
+kb:multi_vector_retrieval kbo:relatesTo kb:sentence_window_rag .
+kb:naive_rag kbo:relatesTo kb:advanced_rag .
+kb:naive_rag kbo:relatesTo kb:mmr005 .
+kb:naive_rag kbo:relatesTo kb:mmr009 .
+kb:ocr_postprocessing kbo:relatesTo kb:document_preprocessing .
+kb:open_book_exam kbo:relatesTo kb:closed_book_baseline .
+kb:parallel_retrieval kbo:relatesTo kb:parallel_retrieval .
+kb:parent_document_retriever kbo:relatesTo kb:auto_merging_rag .
+kb:passage_retrieval kbo:relatesTo kb:passage_retrieval .
+kb:prior_retrieval_results kbo:relatesTo kb:context_window_memory .
+kb:prior_retrieval_results kbo:relatesTo kb:memory_entry .
+kb:privacy_preserving_rag kbo:relatesTo kb:zero_shot_retrieval .
+kb:query kbo:relatesTo kb:query .
+kb:query_expansion kbo:relatesTo kb:hyde_retrieval .
+kb:query_expansion kbo:relatesTo kb:query_rewriting .
+kb:query_expansion kbo:relatesTo kb:query_understanding .
+kb:rank_ordinal kbo:relatesTo kb:rank_ordinal .
+kb:rank_position kbo:relatesTo kb:rank_position .
+kb:ranked_list kbo:relatesTo kb:ranked_list .
+kb:reciprocal_contribution kbo:relatesTo kb:reciprocal_contribution .
+kb:reinforcement_learning_retrieval kbo:relatesTo kb:retrieval_fusion .
+kb:relevance_scored_memory_entry kbo:relatesTo kb:memory_attention_weights .
+kb:reranking_pipeline kbo:relatesTo kb:cross_encoder_reranking .
+kb:reranking_pipeline kbo:relatesTo kb:late_fusion_retrieval .
+kb:retrieval_augmented_generation kbo:relatesTo kb:agentic_rag .
+kb:retrieval_augmented_generation kbo:relatesTo kb:conversational_rag .
+kb:retrieval_augmented_generation kbo:relatesTo kb:corrective_rag .
+kb:retrieval_augmented_generation kbo:relatesTo kb:graph_rag .
+kb:retrieval_augmented_generation kbo:relatesTo kb:multi_modal_rag .
+kb:retrieval_augmented_generation kbo:relatesTo kb:naive_rag .
+kb:retrieval_augmented_generation kbo:relatesTo kb:query_decomposition_rag .
+kb:retrieval_augmented_generation kbo:relatesTo kb:router_based_rag .
+kb:retrieval_augmented_generation kbo:relatesTo kb:self_rag .
+kb:retrieval_augmented_generation kbo:relatesTo kb:speculative_rag .
+kb:retrieval_fusion kbo:relatesTo kb:reciprocal_rank_fusion .
+kb:retrieval_grounding kbo:relatesTo kb:end_to_end_rag_eval .
+kb:retrieval_grounding kbo:relatesTo kb:faithfulness_metric .
+kb:retrieval_pattern kbo:relatesTo kb:memory_entry .
+kb:retrieval_precision kbo:relatesTo kb:mean_reciprocal_rank .
+kb:retrieval_precision kbo:relatesTo kb:retrieval_recall .
+kb:retrieval_recall kbo:relatesTo kb:ndcg_retrieval .
+kb:retrieval_system kbo:relatesTo kb:retrieval_system .
+kb:retrieval_throughput kbo:relatesTo kb:retrieval_latency .
+kb:rocketqa_retrieval kbo:relatesTo kb:dense_passage_retriever .
+kb:router_based_rag kbo:relatesTo kb:mmr021 .
+kb:router_based_rag kbo:relatesTo kb:query_type_routing .
+kb:router_based_rag kbo:relatesTo kb:self_rag .
+kb:rrf kbo:relatesTo kb:rrf_algorithm .
+kb:rrf_document_candidate kbo:relatesTo kb:rrf_fusion_score .
+kb:rrf_fusion_score kbo:relatesTo kb:rrf_final_ranking .
+kb:rrf_fusion_score kbo:relatesTo kb:rrf_fusion_score .
+kb:rrf_normalization_preprocessing kbo:relatesTo kb:rrf_rank_position .
+kb:rrf_rank_position kbo:relatesTo kb:rrf_constant_k .
+kb:rrf_rank_position kbo:relatesTo kb:rrf_reciprocal_rank_score .
+kb:rrf_ranked_list kbo:relatesTo kb:rrf_document_candidate .
+kb:rrf_ranked_list kbo:relatesTo kb:rrf_rank_position .
+kb:rrf_reciprocal_rank_score kbo:relatesTo kb:rrf_fusion_score .
+kb:rrf_retrieval_system kbo:relatesTo kb:rrf_normalization_preprocessing .
+kb:rrf_retrieval_system kbo:relatesTo kb:rrf_ranked_list .
+kb:rrf_retrieval_system kbo:relatesTo kb:rrf_weighted_rrf .
+kb:rrf_weighted_rrf kbo:relatesTo kb:rrf_fusion_score .
+kb:self_rag kbo:relatesTo kb:iterative_retrieval .
+kb:self_rag kbo:relatesTo kb:mmr014 .
+kb:semantic_memory kbo:relatesTo kb:memory_retrieval_query .
+kb:sentence_window_rag kbo:relatesTo kb:recursive_retrieval .
+kb:sparse_retrieval kbo:relatesTo kb:hybrid_rag .
+kb:sparse_retrieval kbo:relatesTo kb:hybrid_search .
+kb:speculative_rag kbo:relatesTo kb:mmr013 .
+kb:speculative_rag kbo:relatesTo kb:speculative_decoding .
+kb:table_indexing kbo:relatesTo kb:document_preprocessing .
+kb:temporal_memory_entry kbo:relatesTo kb:memory_eviction_policy .
+kb:trulens_eval kbo:relatesTo kb:end_to_end_rag_eval .
+kb:vector_database kbo:relatesTo kb:approximate_nearest_neighbor .
+kb:vector_database kbo:relatesTo kb:incremental_indexing .
+kb:vector_database kbo:relatesTo kb:index_memory_footprint .
+kb:vector_database kbo:relatesTo kb:indexing_pipeline .
+kb:vector_database kbo:relatesTo kb:real_time_indexing .
+kb:vector_database kbo:relatesTo kb:vector_similarity_search .
+kb:working_memory kbo:relatesTo kb:memory_consolidation .
+kb:working_memory kbo:relatesTo kb:memory_entry .
+

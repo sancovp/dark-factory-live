@@ -1,0 +1,90 @@
+{
+  "subject": "retrieval augmented generation architecture patterns",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "bootstrap",
+      "doors": [
+        "retrieval_augmented_generation",
+        "dense_retrieval"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "bootstrap": {
+        "concepts": 106,
+        "relations": 95
+      },
+      "specialize": {
+        "basis_after": 0.0,
+        "new": [
+          [
+            "retrieval_augmented_generation",
+            48,
+            79
+          ],
+          [
+            "dense_retrieval",
+            51,
+            31
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 2
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 207,
+        "relations": 225,
+        "define": 0,
+        "connect": 15
+      }
+    },
+    "brain": {
+      "grew": "memory_entry"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/retrieval_augmented_generation_architecture_patt",
+      "skills": 20,
+      "staff": 60
+    },
+    "observe": {
+      "findings": 0,
+      "issues": []
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/retrieval_augmented_generation_architect",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/retrieval_augmented_generation_architect/skills/using-retrieval-augmented-generation-architect/SKILL.md",
+      "plugin": "retrieval-augmented-generation-architect-module",
+      "library_skills": 25,
+      "brain_files": 28
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "207c/225r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 0
+      },
+      "after": {
+        "define": 0,
+        "connect": 15
+      }
+    },
+    "basis": 0.0,
+    "secs": 428.2
+  }
+}

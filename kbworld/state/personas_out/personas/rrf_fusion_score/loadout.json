@@ -1,0 +1,13 @@
+{
+  "region": "rrf_fusion_score",
+  "call_number": "deep_dense_retrieval.rrf_fusion_score",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}
