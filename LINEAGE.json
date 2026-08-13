@@ -1518,5 +1518,22 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-13T10:52:07+00:00",
+    "verdict": "REVERT",
+    "change": "Installed rarity_audit_lens.md to loadout; found inversion_second_order_recipe.md over-claimed (Epic\u2192Rare, missing ingredients)",
+    "diff": [
+      {
+        "file": "loadout/RARITY_AUDIT.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/rarity_audit_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
