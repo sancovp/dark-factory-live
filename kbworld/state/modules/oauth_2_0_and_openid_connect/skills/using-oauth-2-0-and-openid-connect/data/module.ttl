@@ -1,0 +1,640 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/oauth_2_0_and_openid_connect#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/oauth_2_0_and_openid_connect> a owl:Ontology ;
+    rdfs:label "oauth 2 0 and openid connect" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:access_denied a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "access denied" ;
+    rdfs:comment "OAuth 2.0 error code when the resource owner or authorization server denied the request (e.g. user clicked Deny)." .
+kb:access_token a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "access token" ;
+    rdfs:comment "OAuth 2.0 credential presented to the resource server; opaque to clients but contains or references authorization state; scoped and time-limited." .
+kb:access_token_audience_restricted a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "access token audience restricted" ;
+    rdfs:comment "RFC 8707 resource_indicator parameter scopes the access_token to a specific target resource server URI; tokens issued without resource_indicator are general-purpose and may be accepted by any protected resource." .
+kb:access_token_expires_in a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "access token expires in" ;
+    rdfs:comment "Integer seconds from issuance after which the access_token is no longer valid; the resource server must reject expired tokens; returned alongside access_token in the token response." .
+kb:access_token_format_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "access token format type" ;
+    rdfs:comment "Classification of the access_token internal structure: opaque (random string referencing server-side state) or structured (JWT containing claims about scope, audience, expiration embedded directly)." .
+kb:access_token_hash a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "access token hash" ;
+    rdfs:comment "OIDC id_token at_hash claim computed as base64url(left-half(SHA256(access_token))); RP verifies to confirm access_token was not tampered with." .
+kb:access_token_introspection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "access token introspection" ;
+    rdfs:comment "RFC 7662 mechanism by which a resource_server POSTs the access_token to the authorization_server introspection_endpoint to determine active status, scope, expiry, and metadata before serving the protected resource." .
+kb:access_token_presented_to a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "access token presented to" ;
+    rdfs:comment "The resource_server that receives and validates the access_token on each protected API call; the token is forwarded via HTTP Authorization header using the bearer scheme." .
+kb:access_token_reference_state a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "access token reference state" ;
+    rdfs:comment "For opaque tokens the authorization state remains server-side; the token value is a reference (pointer) to that state rather than an encoded payload; the resource server must call introspection or validate against the authorization server to interpret the token." .
+kb:access_token_refreshed_by a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "access token refreshed by" ;
+    rdfs:comment "A refresh_token is a long-lived credential optionally issued alongside the access_token that allows the client to obtain a new access_token without re-engaging the resource owner; the refresh_token is tied to the same scope as the original." .
+kb:access_token_scope a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "access token scope" ;
+    rdfs:comment "The specific permission set granted to the access_token; a space-delimited string drawn from the scopes requested and approved during authorization; determines what resources and actions the token authorizes." .
+kb:account_selection_required a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "account selection required" ;
+    rdfs:comment "OIDC error when prompt=select_account but the user has multiple accounts and must pick one." .
+kb:achieved_acr a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "achieved acr" ;
+    rdfs:comment "The authentication context class reference actually satisfied by the OpenID Provider during an authentication event; carried in the id_token acr claim; may differ from requested_acr when best-effort matching applies." .
+kb:acr a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr" ;
+    rdfs:comment "Authentication Context Class: a statement about the authentication method used, the assurance level of the authentication event, and potentially the identity binding" .
+kb:acr_claim a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr claim" ;
+    rdfs:comment "Claim in the id_token containing the ACR actually used by the OP to authenticate the user, returned to the RP" .
+kb:acr_claim_value a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr claim value" ;
+    rdfs:comment "The specific ACC URI returned in the acr claim of id_token, must be one of or satisfy the requested acr_values." .
+kb:acr_class_reference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr class reference" ;
+    rdfs:comment "The URI string value that uniquely identifies a specific authentication context class; the atomic element within acr_values; examples drawn from SAML ACR URN namespace." .
+kb:acr_essential a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr essential" ;
+    rdfs:comment "OIDC parameter flag accompanying acr_values indicating whether the requested ACR is required (essential=true) or preferred; when essential=true and no acceptable ACR can be satisfied the OP returns an error." .
+kb:acr_in_id_token a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr in id token" ;
+    rdfs:comment "The 'acr' claim embedded in the signed id_token; carries the achieved_acr identifier as a URI string; RP inspects this to verify authentication context requirements were met." .
+kb:acr_match a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr match" ;
+    rdfs:comment "The determination by the OP of which requested ACR (if any) was satisfied by the authentication performed; evaluated against the ordered acr_values list in priority order; result is the achieved_acr." .
+kb:acr_mismatch a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr mismatch" ;
+    rdfs:comment "Identity provider condition when no requested ACC in acr_values can be satisfied, causing authentication failure per prompt=none semantics." .
+kb:acr_processing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr processing" ;
+    rdfs:comment "The algorithmic step the OP performs upon receiving acr_values: iterate the ordered list, evaluate each acr_class against the authentication that will be performed, return the first satisfied class as achieved_acr in the id_token." .
+kb:acr_request a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr request" ;
+    rdfs:comment "The subset of an OIDC Authorization Request that specifies acr_values (and optionally acr_values essential flag); the structured representation of the RP's authentication context requirements." .
+kb:acr_requirement a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr requirement" ;
+    rdfs:comment "A requirement statement specifying which ACRs the RP considers acceptable and in what priority order" .
+kb:acr_satisfaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr satisfaction" ;
+    rdfs:comment "The OP evaluating its authentication mechanisms against the requested ACRs and determining which ones it can satisfy" .
+kb:acr_satisfaction_policy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr satisfaction policy" ;
+    rdfs:comment "The internal OP policy defining how ordered acr_values list is processed to select the achieved_acr; typically returns the first class in the list that the authentication event satisfied." .
+kb:acr_values a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr values" ;
+    rdfs:comment "OIDC authentication context class reference values requested by RP; ordered list the OP attempts to satisfy (e.g. 'urn:oasis:names:tc:SAML:2.0:ac:classes:Password')." .
+kb:acr_vs_amr a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acr vs amr" ;
+    rdfs:comment "The conceptual distinction that acr addresses authentication context class (what kind of assurance) while AMR addresses authentication method (how the user proved identity); acr is coarse-grained context, AMR is fine-grained mechanism." .
+kb:authentication_context_class a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "authentication context class" ;
+    rdfs:comment "A named authentication context class identified by a URI string; represents a defined level of assurance or authentication method category that an Identity Provider can declare it satisfied in an authentication event." .
+kb:authentication_level a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "authentication level" ;
+    rdfs:comment "Level of Assurance semantics governing the ordering of ACC URIs in acr_values; higher-positioned ACCs imply stronger authentication requirements." .
+kb:authentication_method_reference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "authentication method reference" ;
+    rdfs:comment "The AMR claim in id_token listing specific authentication methods used (e.g. OTP, swk); distinct from acr which addresses context class; both may coexist in id_token to fully characterize the authentication event." .
+kb:authorization_code a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "authorization code" ;
+    rdfs:comment "Short-lived credential exchanged for tokens at the token endpoint; exists to keep tokens out of the user-agent (browser) history and address bar." .
+kb:authorization_code_flow a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "authorization code flow" ;
+    rdfs:comment "Primary OAuth 2.0 flow for web apps with a server-side component; uses authorization_endpoint then token_endpoint with the returned code." .
+kb:authorization_code_interception a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "authorization code interception" ;
+    rdfs:comment "Threat where malware or network attacker steals the authorization code from the browser redirect; mitigated by PKCE requiring proof at token time." .
+kb:authorization_endpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "authorization endpoint" ;
+    rdfs:comment "OAuth 2.0 endpoint where the resource owner authenticates and grants consent; returns authorization_code via redirect or form_post response." .
+kb:authorization_server a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "authorization server" ;
+    rdfs:comment "OAuth 2.0 server that authenticates the resource owner, obtains consent, and issues access tokens and optionally refresh tokens and ID tokens." .
+kb:authorization_server_metadata a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "authorization server metadata" ;
+    rdfs:comment "RFC 8414 metadata document at /.well-known/oauth-authorization-server; lists server capabilities, endpoint URLs, grant types, and supported features." .
+kb:authz_code a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "authz code" ;
+    rdfs:comment "OAuth 2.0 authorization code: a short-lived, single-use opaque credential issued by the authorization_endpoint and exchanged at the token_endpoint for access_token and optional refresh_token." .
+kb:back_channel_logout a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "back channel logout" ;
+    rdfs:comment "OIDC Logout spec using direct server-to-server POST to RP logout endpoint; more reliable than front-channel but requires RP endpoint." .
+kb:bearer_token a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bearer token" ;
+    rdfs:comment "Token type defined in RFC 6750; any party possessing the token may use it; security relies on transport TLS and token secrecy." .
+kb:bearer_token_scheme a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bearer token scheme" ;
+    rdfs:comment "RFC 6750 token type specifying that possession of the access_token is sufficient proof of authorization; the token is transmitted in the Authorization header as 'Bearer <token>' or in body/form when headers are unavailable." .
+kb:best_available_ac a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "best available ac" ;
+    rdfs:comment "Identity provider selection rule: when acr_values lists multiple ACCs ordered by LoA, OP returns the highest ACC it can satisfy rather than failing." .
+kb:check_session_iframe a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "check session iframe" ;
+    rdfs:comment "OIDC RP iframe that polls the OP to detect changes in login state (e.g. user logged out elsewhere); enables cross-tab session sync." .
+kb:ciba a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ciba" ;
+    rdfs:comment "RFC 9002 Client Initiated Backchannel Authentication; user initiates auth from a device, push notification is sent to their phone, RP polls for result." .
+kb:claims_parameter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "claims parameter" ;
+    rdfs:comment "OIDC parameter requesting specific claims in id_token or userinfo response; server may return subset based on policy and user consent." .
+kb:claims_policy_enforcement a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "claims policy enforcement" ;
+    rdfs:comment "Identity provider rule set determining which claims can be released to a given relying_party based on client registration, user consent records, and data availability." .
+kb:claims_request_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "claims request object" ;
+    rdfs:comment "Structured JSON object within the claims parameter containing claim preferences for id_token and userinfo endpoints; root container for granular claim directives." .
+kb:claims_supported a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "claims supported" ;
+    rdfs:comment "Discovery metadata field listing which claims the OP is capable of returning; clients use it to check support before requesting." .
+kb:claims_verification a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "claims verification" ;
+    rdfs:comment "Relying party validation that returned claims match what was requested in the claims_parameter, checking essential claims are present and values satisfy policy constraints." .
+kb:client a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "client" ;
+    rdfs:comment "Application making protected resource requests on behalf of the resource owner; classified as confidential (can hold secrets) or public (cannot)." .
+kb:client_assertion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "client assertion" ;
+    rdfs:comment "JWT used for client authentication at the token_endpoint; signed with client's private key; contains iss, sub, aud, exp, jti claims." .
+kb:client_credentials_grant a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "client credentials grant" ;
+    rdfs:comment "OAuth 2.0 flow where the client authenticates with its own credentials and receives an access token representing the client itself (no user)." .
+kb:client_id a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "client id" ;
+    rdfs:comment "Public identifier assigned by the authorization server to a client; used to identify which application is requesting authorization." .
+kb:client_secret a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "client secret" ;
+    rdfs:comment "Confidential credential held by the client; used with authorization_code or client_credentials flows to authenticate the client to the token endpoint." .
+kb:code_acr_values a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code acr values" ;
+    rdfs:comment "OIDC acr_values requested during authorization and stored with the code so the token endpoint can confirm the authentication context was satisfied." .
+kb:code_audience a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code audience" ;
+    rdfs:comment "The target resource or client_id for which the authorization code was issued; determines the audience claim in the resulting access_token." .
+kb:code_callback a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code callback" ;
+    rdfs:comment "The redirect_uri parameter value carried in the original authorization request and bound to the authorization_code; must match exactly at token_endpoint exchange to prevent redirection hijacking." .
+kb:code_challenge a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code challenge" ;
+    rdfs:comment "PKCE challenge derived from code_verifier; method S256 sends base64url(SHA256(code_verifier)); method plain sends verifier as-is." .
+kb:code_challenge_method a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code challenge method" ;
+    rdfs:comment "PKCE parameter specifying how code_challenge was computed: S256 (SHA256 hash) or plain (plaintext); server uses same to verify." .
+kb:code_claims a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code claims" ;
+    rdfs:comment "OIDC claims_parameter values requested at authorization and preserved with the code so the userinfo endpoint or id_token reflects them." .
+kb:code_client_binding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code client binding" ;
+    rdfs:comment "The authorization code is bound to the client_id that initiated the flow; the token request must authenticate as that same client using client_secret or DPoP proof." .
+kb:code_consumed_at a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code consumed at" ;
+    rdfs:comment "Timestamp when token_endpoint successfully exchanged the authorization_code; after consumption the code becomes invalid and cannot be reused." .
+kb:code_expires_in a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code expires in" ;
+    rdfs:comment "Integer seconds after code_issued_at during which the authorization_code remains valid; short-lived by design to limit interception window; typically 60 seconds." .
+kb:code_expiry a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code expiry" ;
+    rdfs:comment "The brief time window (typically 60 seconds) after which the authorization_code becomes invalid if not exchanged; short lifetime limits interception exposure." .
+kb:code_format a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code format" ;
+    rdfs:comment "Server-defined structure encoding issuer, client_id, expiry, nonce, scope, and optionally the actual token claims; format is opaque to the client and may be a signed JWT." .
+kb:code_hash a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code hash" ;
+    rdfs:comment "OIDC id_token c_hash claim; analogous to at_hash but for authorization_code; verified when hybrid flow returns code from authorization_endpoint." .
+kb:code_introspection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code introspection" ;
+    rdfs:comment "RFC 7662 introspection response for a code used at the token endpoint reveals its active status, expiry, scope, and client_id before the exchange completes." .
+kb:code_issued_at a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code issued at" ;
+    rdfs:comment "Timestamp when authorization_server generated the authorization_code; used to enforce short-lived code_expires_in window for security." .
+kb:code_issued_to a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code issued to" ;
+    rdfs:comment "The client_id identifying which registered client the authorization_code was issued to; enforced at token_endpoint exchange." .
+kb:code_issuer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code issuer" ;
+    rdfs:comment "The authorization_server entity that generates and later validates the authorization_code at token exchange." .
+kb:code_nonce a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code nonce" ;
+    rdfs:comment "OIDC RFC 7519 nonce parameter sent in the authorization request for implicit/hybrid flows; bound to the authorization_code so the id_token returned at token_endpoint can be correlated to the original auth request." .
+kb:code_pkce_binding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code pkce binding" ;
+    rdfs:comment "When PKCE is active the authorization code is bound to the code_challenge presented during the authorization request; the token request must present the matching code_verifier." .
+kb:code_pkce_challenge a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code pkce challenge" ;
+    rdfs:comment "The challenge derived from code_verifier and sent to authorization_endpoint during authorization request; authorization_server stores this to validate later code exchange." .
+kb:code_pkce_verifier a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code pkce verifier" ;
+    rdfs:comment "The high-entropy random string (code_verifier from PKCE) required at token_endpoint to redeem authorization_code when PKCE was used in authorization request." .
+kb:code_redirect_uri a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code redirect uri" ;
+    rdfs:comment "The pre-registered redirect_uri to which authorization_server sends the authorization_code via browser redirect; must exactly match client registration." .
+kb:code_redirect_uri_binding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code redirect uri binding" ;
+    rdfs:comment "The redirect_uri parameter is bound to the authorization code at issuance; the redirect URI used during token exchange must match the registered URI." .
+kb:code_resource_binding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code resource binding" ;
+    rdfs:comment "The resource_indicator URI specified in the authorization request and attached to the authorization_code; scopes the issued access_token to that specific resource server." .
+kb:code_scope a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code scope" ;
+    rdfs:comment "The scope value string authorized by the resource owner and attached to the authorization_code; governs what access_token scope can be granted at token exchange." .
+kb:code_single_use a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code single use" ;
+    rdfs:comment "The server-enforced property that each authorization code may be presented exactly once; a second exchange attempt returns invalid_grant." .
+kb:code_state a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code state" ;
+    rdfs:comment "The opaque state parameter echoed back by authorization_server to client via redirect_uri; client validates state matches its original value to prevent CSRF attacks." .
+kb:code_state_binding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code state binding" ;
+    rdfs:comment "The state parameter value echoed by the authorization_server from the authorization request; client validates it in the redirect response to confirm the authorization session integrity and mitigate CSRF." .
+kb:code_string a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code string" ;
+    rdfs:comment "The opaque string value of the authorization_code itself; a high-entropy random token generated by the authorization_server." .
+kb:code_value a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code value" ;
+    rdfs:comment "The raw string credential itself; opaque to the client; server-side only; base64url-encoded per implementation." .
+kb:code_verifier a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code verifier" ;
+    rdfs:comment "PKCE random string (43-128 chars) kept secret by the client and sent hashed as code_challenge at authorization request time." .
+kb:confidential_client a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "confidential client" ;
+    rdfs:comment "OAuth 2.0 client capable of securely maintaining a client_secret (web server applications); can authenticate at the token_endpoint." .
+kb:csrf_attack a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "csrf attack" ;
+    rdfs:comment "Cross-site request forgery threat against OAuth authorization callback; mitigated by the state parameter binding request and response." .
+kb:device_flow a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "device flow" ;
+    rdfs:comment "RFC 8628 OAuth 2.0 Device Authorization Grant; user enters a code on a separate device while the client polls for authorization completion." .
+kb:discovery_document a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "discovery document" ;
+    rdfs:comment "Well-known URL pattern (RFC 5785) at /.well-known/openid-configuration exposing OIDC provider configuration JSON." .
+kb:dpop_proof a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dpop proof" ;
+    rdfs:comment "RFC 9449 Demonstrated Proof-of-Possession; client signs a JWT with its private key and includes DPoP header in token requests to bind the token to the key." .
+kb:end_session_endpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "end session endpoint" ;
+    rdfs:comment "OIDC endpoint the RP redirects the user to for logout; OP invalidates session cookie and may trigger front-channel or back-channel logout to other RPs." .
+kb:essential_claim_directive a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "essential claim directive" ;
+    rdfs:comment "Claim marked as required by the relying party; identity provider must return this claim or return an error satisfying the acr_values if unable to fulfill." .
+kb:expires_in a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "expires in" ;
+    rdfs:comment "Integer seconds indicating access token lifetime; returned alongside access_token in token response." .
+kb:federation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "federation" ;
+    rdfs:comment "Multi-domain identity arrangement where one identity_provider serves multiple relying_parties across organizational boundaries; uses OIDC or SAML." .
+kb:form_post_response_mode a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "form post response mode" ;
+    rdfs:comment "OIDC response mode where authorization response parameters are encoded in an auto-submitted HTML form POST to the redirect_uri." .
+kb:front_channel_logout a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "front channel logout" ;
+    rdfs:comment "OIDC Logout spec using hidden iframes to notify RPs that a user logged out; RP renders a front-channel logout iframe." .
+kb:grant_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "grant type" ;
+    rdfs:comment "OAuth 2.0 parameter identifying which authorization flow is being used; values: authorization_code, client_credentials, refresh_token, password (deprecated)." .
+kb:hybrid_flow a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hybrid flow" ;
+    rdfs:comment "OIDC flow variant returning id_token and/or authorization_code from authorization_endpoint (front channel) while also allowing token_endpoint exchange." .
+kb:id_token a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "id token" ;
+    rdfs:comment "OIDC JWT containing subject identifier (sub), issuer, audience, expiration, authentication event metadata, and optionally user claims; always signed." .
+kb:id_token_claim_target a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "id token claim target" ;
+    rdfs:comment "Claims section of claims_request specifying which claims the relying party wants embedded directly in the signed id_token JWT." .
+kb:id_token_hint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "id token hint" ;
+    rdfs:comment "OIDC parameter carrying a previously issued id_token; OP uses it to infer the user and potentially skip re-authentication or pre-fill consent." .
+kb:identity_provider a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "identity provider" ;
+    rdfs:comment "OIDC term for the authorization server that also acts as the authentication authority; issues id_token and exposes userinfo." .
+kb:implicit_flow_deprecation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "implicit flow deprecation" ;
+    rdfs:comment "Historical OIDC flow returning access_token via fragment; removed from OIDC Core due to token exposure in browser history and lack of PKCE equivalent." .
+kb:interaction_required a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "interaction required" ;
+    rdfs:comment "OIDC error when the authorization request requires an interaction the user is not currently engaged in (prompt=none failure)." .
+kb:introspection_endpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "introspection endpoint" ;
+    rdfs:comment "RFC 7662 endpoint allowing resource servers to validate access tokens; returns active status, scope, expiry, and other token metadata." .
+kb:invalid_client a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "invalid client" ;
+    rdfs:comment "OAuth 2.0 error code when client authentication fails at the token_endpoint (unknown client_id, wrong secret, revoked credentials)." .
+kb:invalid_grant a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "invalid grant" ;
+    rdfs:comment "OAuth 2.0 error code when the provided authorization grant or refresh token is invalid, expired, revoked, or already used." .
+kb:invalid_request a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "invalid request" ;
+    rdfs:comment "OAuth 2.0 error code for missing, malformed, or invalid parameters in the authorization request." .
+kb:invalid_scope a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "invalid scope" ;
+    rdfs:comment "OAuth 2.0 error code when the requested scope is invalid, unknown, or exceeds what was originally granted." .
+kb:issuer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "issuer" ;
+    rdfs:comment "String identifier (typically URL) in id_token and access_token; relying parties validate tokens were issued by a trusted, matching issuer." .
+kb:jwk a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "jwk" ;
+    rdfs:comment "RFC 7517 JSON Web Key; JSON representation of a cryptographic key (RSA, EC, Oct) with kty, use, alg, n, e or crv fields." .
+kb:jwk_set a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "jwk set" ;
+    rdfs:comment "RFC 7517 JWK Set; JSON object with 'keys' array containing JWK entries; served at jwks_uri for token signature verification." .
+kb:jwks a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "jwks" ;
+    rdfs:comment "Shorthand for JWK Set; the JSON payload served at the jwks_uri endpoint containing the public keys for verifying ID tokens and access tokens." .
+kb:jwks_uri a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "jwks uri" ;
+    rdfs:comment "URL in discovery document pointing to JSON Web Key Set (RFC 7517) containing public keys used to verify id_token and access_token signatures." .
+kb:jwt a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "jwt" ;
+    rdfs:comment "RFC 7519 JSON Web Token; base64url-encoded JSON envelope containing claims; can be signed (JWS) or encrypted (JWE); id_token is always a JWS." .
+kb:level_of_assurance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "level of assurance" ;
+    rdfs:comment "LoA: an assurance level (e.g., LoA1 through LoA4) that classifies the strength of authentication; ACRs often map to LoA" .
+kb:login_hint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "login hint" ;
+    rdfs:comment "OIDC parameter suggesting which account the user should log in with; may be email, username, or account selector hint." .
+kb:login_required a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "login required" ;
+    rdfs:comment "OIDC error when prompt=none but the user is not currently authenticated and must log in." .
+kb:max_age a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "max age" ;
+    rdfs:comment "OIDC parameter specifying maximum seconds since last authentication; if elapsed, OP must re-authenticate before issuing id_token." .
+kb:mix_up_attack a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mix up attack" ;
+    rdfs:comment "Threat where an attacker substitutes the authorization server's issuer identifier causing the client to send tokens to the wrong server." .
+kb:native_app a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "native app" ;
+    rdfs:comment "Mobile or desktop OAuth 2.0 public client; uses PKCE; may use app linking (claimed https redirect_uri) or custom scheme (e.g. com.app://oauth)." .
+kb:nonce a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "nonce" ;
+    rdfs:comment "OIDC string value transmitted in authorization request, embedded in id_token, and validated by the relying party to prevent replay attacks." .
+kb:oauth_2_0 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "oauth 2 0" ;
+    rdfs:comment "IETF RFC 6749 authorization framework enabling third-party application access to protected resources without sharing credentials; defines four grant types and token issuance via authorization and token endpoints." .
+kb:op_satisfaction_logic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "op satisfaction logic" ;
+    rdfs:comment "Identity provider algorithm matching requested acr_values against supported authentication methods to determine which ACC to satisfy or whether to error." .
+kb:open_redirect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "open redirect" ;
+    rdfs:comment "Security vulnerability where the authorization server redirects to a URI not matching the registered redirect_uri; mitigated by exact string matching." .
+kb:openid_configuration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "openid configuration" ;
+    rdfs:comment "Discovery document served at /.well-known/openid-configuration; machine-readable metadata listing endpoints, supported features, and server capabilities." .
+kb:openid_connect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "openid connect" ;
+    rdfs:comment "Identity layer on top of OAuth 2.0 (OIDC 1.0, OIDC Core spec) adding ID tokens as JWTs, userinfo endpoint, and standardized identity claims for authentication use cases." .
+kb:pairwise_identifiers a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pairwise identifiers" ;
+    rdfs:comment "OIDC subject identifier strategy where each RP receives a different sub for the same user, preventing cross-RP user correlation." .
+kb:par_endpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "par endpoint" ;
+    rdfs:comment "Pushed Authorization Request endpoint; requires client authentication; returns request_uri valid for a short window (e.g. 60 seconds)." .
+kb:partial_claims_fulfillment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "partial claims fulfillment" ;
+    rdfs:comment "Server response state where only a subset of requested claims are returned; occurs when policy or consent excludes some claims from the request." .
+kb:pkce a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pkce" ;
+    rdfs:comment "RFC 7636 Proof Key for Code Exchange; mitigates authorization code interception by requiring code_verifier and code_challenge from the client." .
+kb:prompt_parameter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prompt parameter" ;
+    rdfs:comment "OIDC parameter controlling user interaction: none (no prompt, error if needed), login (force re-auth), consent (show approval screen), select_account." .
+kb:public_client a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "public client" ;
+    rdfs:comment "OAuth 2.0 client unable to securely store a client_secret; mobile apps, SPAs; always uses PKCE; cannot use client_secret_post or client_secret_basic." .
+kb:public_identifiers a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "public identifiers" ;
+    rdfs:comment "OIDC subject identifier strategy where the same sub is issued to all RPs; used for cases where cross-RP identity sharing is desired." .
+kb:pushed_authorization_request a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pushed authorization request" ;
+    rdfs:comment "RFC 9126 PAR: client POSTs authorization request parameters to par_endpoint first, receives request_uri for use at authorization_endpoint." .
+kb:redirect_uri a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "redirect uri" ;
+    rdfs:comment "Callback URL the authorization server redirects to after consent; must be pre-registered with the authorization server and must match exactly." .
+kb:refresh_token a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "refresh token" ;
+    rdfs:comment "OAuth 2.0 credential used to obtain new access tokens without re-prompting the resource owner; long-lived and tied to the same scope as the original access token." .
+kb:refresh_token_rotation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "refresh token rotation" ;
+    rdfs:comment "Security practice where each refresh token use issues a new refresh token and invalidates the old one; detects token theft via reuse." .
+kb:relying_party a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relying party" ;
+    rdfs:comment "OIDC term for the client application that relies on the identity provider's id_token for user authentication." .
+kb:request_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "request object" ;
+    rdfs:comment "RFC 9101 JAR: a signed and optionally encrypted JWT containing authorization request parameters; either passed inline or via request_uri." .
+kb:request_uri_parameter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "request uri parameter" ;
+    rdfs:comment "OIDC/JAR parameter referencing an external request_uri hosting the request_object; server fetches and processes it before consent." .
+kb:requested_acr a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "requested acr" ;
+    rdfs:comment "The authentication context class reference(s) carried in the acr_request that the RP prefers or requires for the authentication event being initiated." .
+kb:resource_indicator a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "resource indicator" ;
+    rdfs:comment "RFC 8707 parameter specifying the target resource server URI; server issues access token scoped to that specific resource, not just the general API." .
+kb:resource_owner a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "resource owner" ;
+    rdfs:comment "Entity capable of granting access to a protected resource; typically the end-user who authenticates to authorize the client's request." .
+kb:resource_server a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "resource server" ;
+    rdfs:comment "Server hosting protected resources; validates incoming access tokens and returns resources only when tokens are valid and authorized." .
+kb:revocation_endpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "revocation endpoint" ;
+    rdfs:comment "RFC 7009 endpoint allowing clients to invalidate refresh or access tokens; supports bearer tokens and is advisory (server may retain copy)." .
+kb:saml_2_0 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "saml 2 0" ;
+    rdfs:comment "Security Assertion Markup Language 2.0; XML-based SSO protocol predating OIDC; OIDC was designed to provide similar functionality with JSON and REST." .
+kb:saml_ac_classes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "saml ac classes" ;
+    rdfs:comment "SAML 2.0 authentication context class URIs (urn:oasis:names:tc:SAML:2.0:ac:classes:*) used for OIDC-to-SAML federation interoperability in acr_values." .
+kb:saml_acrid a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "saml acrid" ;
+    rdfs:comment "SAML authentication context class identifier URIs reused as OIDC ACR values (e.g., urn:oasis:names:tc:SAML:2.0:ac:classes:Password)" .
+kb:scope a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scope" ;
+    rdfs:comment "OAuth 2.0 mechanism for requesting specific permission sets; space-delimited string (e.g. 'openid profile email'); server grants subset based on policy." .
+kb:sector_identifier_uri a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sector identifier uri" ;
+    rdfs:comment "OIDC mechanism for grouping redirect_uris under one sector identifier; used to derive pairwise subject identifiers from a separate sector host." .
+kb:server_error a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "server error" ;
+    rdfs:comment "OAuth 2.0 error code (error=server_error) when the authorization server encounters an unexpected condition preventing request fulfillment." .
+kb:signed_jwt a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "signed jwt" ;
+    rdfs:comment "JWS: a JWT with a JSON Web Signature (RFC 7515); id_token is typically a signed JWT using RS256 or ES256 algorithm." .
+kb:spa a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "spa" ;
+    rdfs:comment "Single Page Application: browser-based public client using PKCE; historically used implicit flow, now encouraged toward authorization_code + PKCE with no secret." .
+kb:standard_claims a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "standard claims" ;
+    rdfs:comment "OIDC defined claims set (name, email, phone, address, birthdate, gender, picture, website) in OIDC Core Section 5.1." .
+kb:state a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "state" ;
+    rdfs:comment "OAuth 2.0 CSRF protection parameter; opaque string generated by the client, echoed back in the callback, and validated for binding the request and response." .
+kb:subject_identifier a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "subject identifier" ;
+    rdfs:comment "The 'sub' claim in id_token: a unique stable identifier assigned by the identity provider to the user; pairwise vs public based on RP." .
+kb:token_binding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token binding" ;
+    rdfs:comment "Cryptographic binding of tokens to the TLS channel or a key; id_token is bound to the channel used during the authorization request." .
+kb:token_endpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token endpoint" ;
+    rdfs:comment "OAuth 2.0 endpoint accepting authorization_code or other grants and returning access_token, refresh_token, and optional id_token." .
+kb:token_endpoint_auth_method a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token endpoint auth method" ;
+    rdfs:comment "Metadata field specifying how the client authenticates at the token_endpoint: client_secret_basic, client_secret_post, private_key_jwt, none." .
+kb:token_endpoint_response a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token endpoint response" ;
+    rdfs:comment "The HTTP response from the token_endpoint containing the access_token plus optionally refresh_token, expires_in, scope, and token_type as JSON members." .
+kb:token_exchange a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token exchange" ;
+    rdfs:comment "RFC 8693 Token Exchange grant; allows a client to exchange one token type for another (e.g. exchange a refresh token for an audience-scoped access token)." .
+kb:token_introspection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token introspection" ;
+    rdfs:comment "RFC 7662 introspection: protected endpoint where resource servers POST access_token to get its status, scope, expiration, and active flag." .
+kb:token_leakage a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token leakage" ;
+    rdfs:comment "Exposure of access_token or refresh_token to unauthorized parties via logs, browser history, or insecure storage; mitigated by transport security and short-lived tokens." .
+kb:token_reuse_detection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token reuse detection" ;
+    rdfs:comment "Refresh token rotation mechanism detecting replay: if the same refresh token is used twice, the server revokes the entire token family." .
+kb:token_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token type" ;
+    rdfs:comment "OAuth 2.0 parameter indicating how the access_token is to be presented to the resource server, typically Bearer, specifying the authorization scheme to use in requests." .
+kb:token_type_hint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token type hint" ;
+    rdfs:comment "OAuth 2.0 hint parameter in refresh requests indicating whether the token being refreshed is an access_token or refresh_token." .
+kb:ui_locales a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ui locales" ;
+    rdfs:comment "OIDC parameter indicating user's preferred languages for the consent/userinfo UI; BCP 47 language tag list." .
+kb:unauthorized_client a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "unauthorized client" ;
+    rdfs:comment "OAuth 2.0 error code when the client is not authorized to use the requested grant_type (not registered or policy forbids it)." .
+kb:unsupported_grant_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "unsupported grant type" ;
+    rdfs:comment "OAuth 2.0 error code when the grant_type is not supported by the authorization server." .
+kb:user_claims_consent a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "user claims consent" ;
+    rdfs:comment "End-user authorization for the identity provider to release specific claims; may be granted, denied, or limited compared to what relying party requested." .
+kb:userinfo_claim_target a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "userinfo claim target" ;
+    rdfs:comment "Claims section of claims_request specifying which claims the relying party wants returned from the userinfo_endpoint after token exchange." .
+kb:userinfo_endpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "userinfo endpoint" ;
+    rdfs:comment "OIDC protected endpoint returning user claims as a JSON object; called with access_token after successful authentication; claims may overlap with id_token." .
+kb:voluntary_claim_directive a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "voluntary claim directive" ;
+    rdfs:comment "Claim requested by the relying party but not mandated; identity provider may omit based on policy, user consent, or availability without error." .
+kb:zero_touch_authentication a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "zero touch authentication" ;
+    rdfs:comment "OIDC silent authentication using id_token_hint or session cookie to authenticate without explicit user interaction when prompt=none." .
+
+kb:access_denied kbo:relatesTo kb:invalid_grant .
+kb:access_token kbo:relatesTo kb:access_token_scope .
+kb:access_token kbo:relatesTo kb:authorization_server .
+kb:access_token kbo:relatesTo kb:bearer_token .
+kb:access_token kbo:relatesTo kb:expires_in .
+kb:access_token kbo:relatesTo kb:grant_type .
+kb:access_token kbo:relatesTo kb:introspection_endpoint .
+kb:access_token kbo:relatesTo kb:refresh_token .
+kb:access_token kbo:relatesTo kb:resource_indicator .
+kb:access_token kbo:relatesTo kb:resource_server .
+kb:access_token kbo:relatesTo kb:token_endpoint .
+kb:access_token_audience_restricted kbo:relatesTo kb:access_token .
+kb:access_token_expires_in kbo:relatesTo kb:access_token .
+kb:access_token_format_type kbo:relatesTo kb:access_token .
+kb:access_token_hash kbo:relatesTo kb:access_token_introspection .
+kb:access_token_introspection kbo:relatesTo kb:token_introspection .
+kb:access_token_presented_to kbo:relatesTo kb:access_token .
+kb:access_token_reference_state kbo:relatesTo kb:state .
+kb:access_token_refreshed_by kbo:relatesTo kb:refresh_token .
+kb:account_selection_required kbo:relatesTo kb:authorization_endpoint .
+kb:achieved_acr kbo:relatesTo kb:acr_values .
+kb:acr kbo:relatesTo kb:acr_claim .
+kb:acr_claim kbo:relatesTo kb:id_token .
+kb:acr_claim_value kbo:relatesTo kb:acr_claim .
+kb:acr_class_reference kbo:relatesTo kb:authentication_context_class .
+kb:acr_essential kbo:relatesTo kb:acr_requirement .
+kb:acr_in_id_token kbo:relatesTo kb:id_token .
+kb:acr_match kbo:relatesTo kb:acr_satisfaction .
+kb:acr_mismatch kbo:relatesTo kb:acr_requirement .
+kb:acr_processing kbo:relatesTo kb:acr .
+kb:bearer_token kbo:relatesTo kb:resource_server .
+kb:claims_parameter kbo:relatesTo kb:claims_request_object .
+kb:claims_parameter kbo:relatesTo kb:id_token .
+kb:claims_parameter kbo:relatesTo kb:userinfo_endpoint .
+kb:claims_policy_enforcement kbo:relatesTo kb:partial_claims_fulfillment .
+kb:claims_request_object kbo:relatesTo kb:essential_claim_directive .
+kb:claims_request_object kbo:relatesTo kb:id_token_claim_target .
+kb:claims_request_object kbo:relatesTo kb:userinfo_claim_target .
+kb:claims_request_object kbo:relatesTo kb:voluntary_claim_directive .
+kb:claims_verification kbo:relatesTo kb:essential_claim_directive .
+kb:identity_provider kbo:relatesTo kb:claims_policy_enforcement .
+kb:oauth_2_0 kbo:relatesTo kb:access_token .
+kb:oauth_2_0 kbo:relatesTo kb:authorization_code .
+kb:oauth_2_0 kbo:relatesTo kb:authorization_code_flow .
+kb:oauth_2_0 kbo:relatesTo kb:authorization_endpoint .
+kb:oauth_2_0 kbo:relatesTo kb:authorization_server .
+kb:oauth_2_0 kbo:relatesTo kb:authorization_server_metadata .
+kb:oauth_2_0 kbo:relatesTo kb:bearer_token .
+kb:oauth_2_0 kbo:relatesTo kb:ciba .
+kb:oauth_2_0 kbo:relatesTo kb:client .
+kb:oauth_2_0 kbo:relatesTo kb:client_credentials_grant .
+kb:oauth_2_0 kbo:relatesTo kb:client_id .
+kb:oauth_2_0 kbo:relatesTo kb:client_secret .
+kb:oauth_2_0 kbo:relatesTo kb:device_flow .
+kb:oauth_2_0 kbo:relatesTo kb:dpop_proof .
+kb:oauth_2_0 kbo:relatesTo kb:expires_in .
+kb:oauth_2_0 kbo:relatesTo kb:grant_type .
+kb:oauth_2_0 kbo:relatesTo kb:introspection_endpoint .
+kb:oauth_2_0 kbo:relatesTo kb:openid_connect .
+kb:oauth_2_0 kbo:relatesTo kb:pkce .
+kb:oauth_2_0 kbo:relatesTo kb:pushed_authorization_request .
+kb:oauth_2_0 kbo:relatesTo kb:redirect_uri .
+kb:oauth_2_0 kbo:relatesTo kb:refresh_token .
+kb:oauth_2_0 kbo:relatesTo kb:resource_indicator .
+kb:oauth_2_0 kbo:relatesTo kb:resource_owner .
+kb:oauth_2_0 kbo:relatesTo kb:resource_server .
+kb:oauth_2_0 kbo:relatesTo kb:revocation_endpoint .
+kb:oauth_2_0 kbo:relatesTo kb:scope .
+kb:oauth_2_0 kbo:relatesTo kb:state .
+kb:oauth_2_0 kbo:relatesTo kb:token_endpoint .
+kb:oauth_2_0 kbo:relatesTo kb:token_exchange .
+kb:oauth_2_0 kbo:relatesTo kb:token_introspection .
+kb:openid_connect kbo:relatesTo kb:acr_values .
+kb:openid_connect kbo:relatesTo kb:claims_parameter .
+kb:openid_connect kbo:relatesTo kb:discovery_document .
+kb:openid_connect kbo:relatesTo kb:id_token .
+kb:openid_connect kbo:relatesTo kb:id_token_hint .
+kb:openid_connect kbo:relatesTo kb:identity_provider .
+kb:openid_connect kbo:relatesTo kb:issuer .
+kb:openid_connect kbo:relatesTo kb:jwks_uri .
+kb:openid_connect kbo:relatesTo kb:login_hint .
+kb:openid_connect kbo:relatesTo kb:max_age .
+kb:openid_connect kbo:relatesTo kb:openid_configuration .
+kb:openid_connect kbo:relatesTo kb:pairwise_identifiers .
+kb:openid_connect kbo:relatesTo kb:prompt_parameter .
+kb:openid_connect kbo:relatesTo kb:relying_party .
+kb:openid_connect kbo:relatesTo kb:subject_identifier .
+kb:openid_connect kbo:relatesTo kb:ui_locales .
+kb:openid_connect kbo:relatesTo kb:userinfo_endpoint .
+kb:partial_claims_fulfillment kbo:relatesTo kb:claims_verification .
+kb:refresh_token kbo:relatesTo kb:authorization_server .
+kb:relying_party kbo:relatesTo kb:claims_parameter .
+kb:resource_server kbo:relatesTo kb:introspection_endpoint .
+kb:token_endpoint kbo:relatesTo kb:access_token .
+kb:token_endpoint kbo:relatesTo kb:expires_in .
+kb:token_endpoint kbo:relatesTo kb:token_type .
+kb:user_claims_consent kbo:relatesTo kb:claims_policy_enforcement .
+

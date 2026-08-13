@@ -1,0 +1,115 @@
+{
+  "subject": "oauth 2 0 and openid connect",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "bootstrap",
+      "doors": [
+        "oauth_2_0",
+        "openid_connect"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "bootstrap": {
+        "concepts": 103,
+        "relations": 48
+      },
+      "specialize": {
+        "basis_after": 0.441,
+        "new": [
+          [
+            "oauth_2_0",
+            37,
+            16
+          ],
+          [
+            "openid_connect",
+            33,
+            13
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 1
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 174,
+        "relations": 97,
+        "define": 0,
+        "connect": 90
+      }
+    },
+    "brain": {
+      "grew": "access_token"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/oauth_2_0_and_openid_connect",
+      "skills": 19,
+      "staff": 15
+    },
+    "observe": {
+      "findings": 4,
+      "issues": [
+        {
+          "atom": "access_token",
+          "why": "Opaque is not guaranteed. JWT access tokens are explicitly NOT opaque \u2014 clients can decode and inspect them. A developer relying on this module would assume clients cannot read token contents and build broken trust boundaries.",
+          "price": 6,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/177"
+        },
+        {
+          "atom": "bearer_token",
+          "why": "Incomplete security model. Token theft (XSS, logs, clipboard) and replay are live threats independent of TLS. A user who reads only this atom will ship bearer-token-in-JS and think they're fine because they use HTTPS.",
+          "price": 7,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/178"
+        },
+        {
+          "atom": "authorization_server",
+          "why": "Overgeneralizes. Client credentials and device code flows have NO resource-owner authentication. A user building a machine-to-machine integration will be confused why the AS does not authenticate anyone in the conventional sense.",
+          "price": 9,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/179"
+        },
+        {
+          "atom": "acr_values",
+          "why": "Missing caveat. The OP attempts to satisfy the requested ACR class but is not obligated to succeed. A user will file acr_values expecting guaranteed strength and get unexpected lower assurance with no error.",
+          "price": 3,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/180"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/oauth_2_0_and_openid_connect",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/oauth_2_0_and_openid_connect/skills/using-oauth-2-0-and-openid-connect/SKILL.md",
+      "plugin": "oauth-2-0-and-openid-connect-module",
+      "library_skills": 24,
+      "brain_files": 29
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "174c/97r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 0
+      },
+      "after": {
+        "define": 0,
+        "connect": 90
+      }
+    },
+    "basis": 0.644,
+    "secs": 406.5
+  }
+}
