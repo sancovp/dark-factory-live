@@ -1223,5 +1223,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-13T03:24:40+00:00",
+    "verdict": "REVERT",
+    "change": "Gap Discovery Pipeline surfaced 6 HIGH gaps in patch-1 loadout (2 broken recipes each missing 2 lens deps, 1 circular dep, 1 false README claim) plus 2 LOW design gaps; installed gap_discovery_recipe.",
+    "diff": [
+      {
+        "file": "loadout/gap_discovery_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 1.0,
+    "fitness_patched": 0.0
   }
 ]
