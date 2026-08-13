@@ -1,0 +1,223 @@
+{
+  "skilltree": {
+    "name": "understand-type systems for working programmers",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-type systems for working programmers",
+    "description": "the type systems for working programmers library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-core",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-core",
+        "description": "the core subdomain of type systems for working programmers (1 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-primitive_union",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-primitive_union",
+            "description": "An untagged union of types representing a value that could be one of several member types, but without a discr",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_tagged_union_type",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-deep_tagged_union_type",
+        "description": "the deep_tagged_union_type subdomain of type systems for working programmers (28 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-du_variant",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-du_variant",
+            "description": "A named constituent of a discriminated union, pairing a du_tag with a du_payload type. Each variant represents",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-lens_optic",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-lens_optic",
+            "description": "An optic pairing a getter with a setter over a product type's field, enabling focused access to one du_payload",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-du_tag",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-du_tag",
+            "description": "A value-level or type-level label that uniquely identifies which variant of a discriminated union is active in",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-du_payload",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-du_payload",
+            "description": "The data value carried by a specific variant of a discriminated union. Only one payload is live at a time; the",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-prism_optic",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-prism_optic",
+            "description": "An optic pairing a matcher with a builder over a sum type's du_variant, enabling partial projection into one d",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-du_match",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-du_match",
+            "description": "The elimination form: a function that, given a discriminated union value, dispatches on its du_tag to apply th",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_type_inference",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-deep_type_inference",
+        "description": "the deep_type_inference subdomain of type systems for working programmers (56 concepts)",
+        "coord": "0.3",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-instantiation",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-instantiation",
+            "description": "Operation that replaces quantified variables in a type scheme with fresh type variables.",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-constraint_solving",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-constraint_solving",
+            "description": "The phase that processes the generated constraints via unification, producing the principal substitution.",
+            "coord": "0.3.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-generalization",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-generalization",
+            "description": "Operation that abstracts free type variables into quantified variables, forming a type scheme.",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-pt02",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-pt02",
+            "description": "type_inference: the algorithmic process of deriving types for expressions by propagating constraints from know",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-pt09",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-pt09",
+            "description": "instantiation: replacing quantified variables in a type scheme with fresh type variables, yielding a less-gene",
+            "coord": "0.3.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-constraint",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-constraint",
+            "description": "An atomic equational condition of the form type_A = type_B produced during constraint_generation, awaiting res",
+            "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-type_systems_for_working_programmers",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-type_systems_for_working_programmers",
+        "description": "the type_systems_for_working_programmers subdomain of type systems for working programmers (157 concepts)",
+        "coord": "0.4",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-optics_type",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-optics_type",
+            "description": "Abstracting getters/setters across product and sum types (lens, prism, traversal).",
+            "coord": "0.4.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-type_inference",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-type_inference",
+            "description": "Compiler or runtime deducing types from context without explicit annotation.",
+            "coord": "0.4.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-discriminated_union",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-discriminated_union",
+            "description": "Tagged union enabling compiler-verified exhaustive pattern matching over variants.",
+            "coord": "0.4.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-type_variable",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-type_variable",
+            "description": "Placeholder symbol ranging over types, awaiting instantiation (alpha in Hindley-Milner).",
+            "coord": "0.4.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-type_error",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-type_error",
+            "description": "Violation of type constraints detected by the type system (static or runtime).",
+            "coord": "0.4.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-tagged_union_type",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_type_systems_for_working_programmers/understand-tagged_union_type",
+            "description": "Discriminated union with explicit tag field enabling exhaustive pattern matching.",
+            "coord": "0.4.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

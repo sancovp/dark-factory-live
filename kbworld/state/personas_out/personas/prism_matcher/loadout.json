@@ -1,0 +1,13 @@
+{
+  "region": "prism_matcher",
+  "call_number": "deep_tagged_union_type.prism_matcher",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 3
+}

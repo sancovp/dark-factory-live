@@ -1,42 +1,42 @@
 {
   "rounds": [
     {
-      "region": "c11_memory_model",
+      "region": "tagged_union_type",
       "targets": [
-        "memory_order_relaxed",
-        "sequentially_consistent"
+        "discriminated_union",
+        "optics_type"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 31,
-      "new_relations": 21
+      "new_concepts": 28,
+      "new_relations": 51
     },
     {
-      "region": "spinlock",
+      "region": "type_inference",
       "targets": [
-        "exponential_backoff",
-        "mcs_lock"
+        "principal_type",
+        "type_inference"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 20,
-      "new_relations": 29
+      "new_concepts": 56,
+      "new_relations": 61
     }
   ],
   "basis_before": {
     "shared_atoms": [],
     "shared": 0,
-    "union": 10,
+    "union": 7,
     "overlap": 0.0
   },
   "basis_after": {
     "shared_atoms": [],
     "shared": 0,
-    "union": 33,
+    "union": 47,
     "overlap": 0.0
   }
 }

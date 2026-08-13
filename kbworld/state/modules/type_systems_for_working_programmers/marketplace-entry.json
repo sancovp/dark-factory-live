@@ -1,0 +1,12 @@
+{
+  "name": "type-systems-for-working-programmers-module",
+  "description": "type systems for working programmers \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 242 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "category": "productivity",
+  "source": {
+    "source": "url",
+    "url": "https://github.com/sancovp/type-systems-for-working-programmers-module.git"
+  }
+}
