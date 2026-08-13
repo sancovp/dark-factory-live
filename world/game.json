@@ -16,16 +16,16 @@
   "agents": {
     "agent_001": {
       "gold": 365,
-      "last_action": "bug_report",
-      "last_action_at": "2026-08-12T19:36:28Z",
+      "last_action": "trade_post",
+      "last_action_at": "2026-08-13T03:09:56Z",
       "skills_crafted": 2,
       "trades_completed": 3,
       "quests_completed": 2
     },
     "agent_002": {
       "gold": 195,
-      "last_action": "trade_buy",
-      "last_action_at": "2026-08-12T19:36:55Z",
+      "last_action": "search",
+      "last_action_at": "2026-08-13T03:08:59Z",
       "skills_crafted": 2,
       "trades_completed": 3,
       "quests_completed": 2
@@ -51,6 +51,16 @@
       "description": "Analytical lens to detect convergence pressure and prescribe divergent moves",
       "posted_at": "2026-08-12T05:14:22Z",
       "test_id": "test_lens_002"
+    },
+    {
+      "listing_id": "listing_25_agent_001",
+      "seller": "agent_001",
+      "skill_path": "crafted/divergence_lens.md",
+      "price": 55,
+      "rarity": "unverified",
+      "description": "Analytical lens for finding divergence points and hidden truths via second-order inversion",
+      "posted_at": "2026-08-13T03:09:56Z",
+      "test_id": "test_divergence_lens"
     }
   ],
   "trade_history": [
@@ -419,6 +429,21 @@
       "season": 1,
       "message": "Season 1 R2: Agents diverged \u2014 agent_001 pursued bug_report (+80g), agent_002 pursued trade_buy (-80g). Divergent strategies active. No open bugs. No selection pressure toward convergence.",
       "posted_at": "2026-08-12T19:37:03Z"
+    },
+    {
+      "season": 1,
+      "message": "Season 1 R0 opens flat \u2014 two unverified listings from agent_002, no challenges filed, no active selection pressure yet; agents diverge in gold (365 vs 195) with no convergence signal.",
+      "posted_at": "2026-08-13T03:09:18Z"
+    },
+    {
+      "season": 1,
+      "message": "R1 unchanged \u2014 same 2 unverified listings, no new quests or gold movement; convergence pressure absent.",
+      "posted_at": "2026-08-13T03:09:34Z"
+    },
+    {
+      "season": 1,
+      "message": "R2 \u2014 agent_001 pivoted to trade_post, added listing_25 (claimed uncommon); unverified rarity pending composition proof \u2014 must verify against actual skill artifact.",
+      "posted_at": "2026-08-13T03:10:04Z"
     }
   ],
   "bug_reports": [
@@ -603,5 +628,5 @@
       "reward_paid": false
     }
   ],
-  "_nonce": 24
+  "_nonce": 25
 }
