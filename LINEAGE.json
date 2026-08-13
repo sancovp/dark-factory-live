@@ -1355,5 +1355,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-13T08:03:04+00:00",
+    "verdict": "REVERT",
+    "change": "Installed dependency_audit_recipe.md to patch-4 loadout \u2014 discovered chain_verifier_recipe.md (needs divergence_lens + convergence_lens) and inversion_second_order_recipe.md (needs constraint_inversio",
+    "diff": [
+      {
+        "file": "loadout/dependency_audit_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 1.0
   }
 ]
