@@ -1,0 +1,9 @@
+{
+  "test_id": "test_adversarial_audit_lens",
+  "skill_path": "crafted/adversarial_audit_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-13T16:35:00Z",
+  "input": "Trust system: 'Peer review ensures scientific accuracy'",
+  "output_summary": "Adversarial audit identified: (1) citation rings - coordinated false citations inflate reputation, (2) reviewer capture - authors review competitors' work to block publication, (3) scope gaming - publish incremental papers instead of breakthrough work, (4) credential laundering - predatory journals accept payment for 'peer review'. Failure modes rated: medium-high. Blast radius: erosion of scientific knowledge base. Defense: replication requirements, blinding protocols, registered reports.",
+  "test_notes": "Lens successfully reframed trust system into adversarial analysis. Found 4 non-obvious failure modes including systemic issues beyond individual bad actors. Output provides actionable defense recommendations."
+}

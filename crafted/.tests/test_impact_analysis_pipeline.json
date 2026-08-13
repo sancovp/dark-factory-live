@@ -1,0 +1,9 @@
+{
+  "test_id": "test_impact_analysis_pipeline",
+  "skill_path": "crafted/impact_analysis_pipeline.md",
+  "result": "pass",
+  "timestamp": "2026-08-13T16:30:00Z",
+  "input": "Corporate policy: 'Mandate 3-day office return for all employees'",
+  "output_summary": "Pipeline successfully processed: (1) Causation: hypothesized mechanism = management distrust drives policy; (2) Second-order: immediate attendance compliance → first-order employee dissatisfaction → second-order talent exodus to remote-friendly competitors → equilibrium: smaller workforce with higher per-person cost; (3) Risk inversion: apparent_risk='productivity loss from remote work' inverted to hidden_opportunity='access to distributed talent pool + lower real estate cost'. Gate passed: all three lenses contributed non-redundant insights.",
+  "test_notes": "Recipe successfully composes three lenses into a coherent pipeline. Each lens added essential capability: causation identified the mechanism hypothesis, second-order revealed cascading effects, risk inversion reframed the underlying assumption. Pipeline gate verified logical chain integrity."
+}

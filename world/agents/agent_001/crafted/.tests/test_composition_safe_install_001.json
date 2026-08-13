@@ -1,0 +1,8 @@
+{
+  "test_id": "test_composition_safe_install_001",
+  "skill_path": "crafted/composition_safe_install_recipe.md",
+  "skill_name": "composition_safe_install_recipe",
+  "test_input": "{\"target_skill\": \"pipeline_composer_recipe.md\"}",
+  "output": "SAFE INSTALL REPORT\ninstallable: false\nmissing_deps: [\"chain_verifier_recipe\"]\nacquisition_plan: [{\"skill\": \"chain_verifier_recipe\", \"source\": \"craft_required\", \"type\": \"recipe\", \"estimated_cost\": 80}]\nblocker: \"dependency chain_verifier_recipe not in loadout — must craft or acquire before installing pipeline_composer_recipe\"",
+  "tested_at": "2026-01-15T14:00:00Z"
+}
