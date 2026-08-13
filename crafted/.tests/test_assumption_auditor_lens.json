@@ -1,0 +1,9 @@
+{
+  "test_id": "test_assumption_auditor_lens",
+  "skill_path": "crafted/assumption_auditor_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-13T10:00:00Z",
+  "input": "Consider: 'We should expand to new markets to grow revenue'",
+  "output_summary": "Surfaced 5 assumptions: 2 core (market demand exists in target region, operational capacity scales without degradation), 2 structural (competitors won't react, regulatory approval is achievable), 1 peripheral (brand transfers across cultures). Core assumption about demand was non-obvious — original claim-maker had not surveyed target market. Reframed decision to: 'Only expand if demand signal exists AND scaling does not degrade core product; if demand signal absent, validate first with pilot.'",
+  "test_notes": "Lens successfully surfaced 2 non-obvious core assumptions and changed the decision framing from 'expand' to 'validate-then-expand'. Genuinely changed the analysis direction."
+}

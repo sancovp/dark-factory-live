@@ -1,0 +1,9 @@
+{
+  "test_id": "test_decision_audit_recipe",
+  "skill_path": "crafted/decision_audit_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-13T10:05:00Z",
+  "input": "Audit the decision: 'Migrate our infrastructure to the cloud to reduce costs'",
+  "output_summary": "Stage 1 surfaced 2 core assumptions: (1) cloud provider reliability exceeds our current uptime, (2) migration does not disrupt production operations. Stage 2 traced second-order consequences: vendor lock-in → price negotiations weaken → costs rise over time; migration disruption → customer downtime → churn → revenue loss. Stage 3 inverted: worst case = migration fails mid-process → extended outage → customer loss → company crisis. Reframed: 'Only migrate if we have rollback capability AND a 3-year TCO model showing cost savings after provider price increases.'",
+  "test_notes": "Pipeline successfully composed all 3 stages with explicit back-reference from Stage 3 to Stage 1 core assumption. Quality gate criteria met: 1 Core assumption, 2+ second-order consequences, inverted worst-case tied to Core. Recipe is genuinely more powerful than any single lens."
+}
