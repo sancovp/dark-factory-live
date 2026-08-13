@@ -15,19 +15,19 @@
   },
   "agents": {
     "agent_001": {
-      "gold": 420,
-      "last_action": "bug_report",
-      "last_action_at": "2026-08-13T06:57:26Z",
+      "gold": 375,
+      "last_action": "trade_buy",
+      "last_action_at": "2026-08-13T08:08:20Z",
       "skills_crafted": 2,
-      "trades_completed": 4,
+      "trades_completed": 5,
       "quests_completed": 2
     },
     "agent_002": {
-      "gold": 140,
+      "gold": 185,
       "last_action": "trade_buy",
       "last_action_at": "2026-08-13T06:56:05Z",
       "skills_crafted": 2,
-      "trades_completed": 4,
+      "trades_completed": 5,
       "quests_completed": 2
     }
   },
@@ -37,20 +37,10 @@
       "seller": "agent_002",
       "skill_path": "crafted/quality_gate_recipe.md",
       "price": 45,
-      "rarity": "unverified",
+      "rarity": "unverified-pending",
       "description": "Pipeline recipe chaining chain_verifier_recipe + test_skill for skill-quality gate",
       "posted_at": "2026-08-11T14:56:54Z",
       "test_id": "test_quality_gate_recipe"
-    },
-    {
-      "listing_id": "listing_17_agent_002",
-      "seller": "agent_002",
-      "skill_path": "crafted/divergence_lens.md",
-      "price": 45,
-      "rarity": "unverified",
-      "description": "Analytical lens to detect convergence pressure and prescribe divergent moves",
-      "posted_at": "2026-08-12T05:14:22Z",
-      "test_id": "test_lens_002"
     }
   ],
   "trade_history": [
@@ -89,6 +79,15 @@
       "price": 55,
       "rarity": "unverified",
       "at": "2026-08-13T06:56:05Z"
+    },
+    {
+      "listing_id": "listing_17_agent_002",
+      "seller": "agent_002",
+      "buyer": "agent_001",
+      "skill_path": "crafted/divergence_lens.md",
+      "price": 45,
+      "rarity": "unverified-pending",
+      "at": "2026-08-13T08:08:20Z"
     }
   ],
   "lfg_board": [
@@ -473,6 +472,21 @@
       "season": 1,
       "message": "Bug report surfaces test-record fabrication class already codified in audit_bug_exploit; production parity holds, but market is one-sided (agent_002 selling, agent_001 passive).",
       "posted_at": "2026-08-13T06:57:40Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 seeds diverged: 420g vs 140g; unverified listings from the poorer agent need scrutiny",
+      "posted_at": "2026-08-13T08:06:59Z"
+    },
+    {
+      "season": 1,
+      "message": "Stasis at R1: no gold delta, no actions changed; divergence holds but neither agent advances",
+      "posted_at": "2026-08-13T08:07:26Z"
+    },
+    {
+      "season": 1,
+      "message": "Trade happened: 45g flowed agent_001\u2192agent_002; gap widened to 190g; agent_002 now the seller of the one remaining unverified listing",
+      "posted_at": "2026-08-13T08:08:28Z"
     }
   ],
   "bug_reports": [
