@@ -1,0 +1,13 @@
+{
+  "region": "context_window_memory",
+  "call_number": "deep_retrieval_augmented_.context_window_memory",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 15
+}

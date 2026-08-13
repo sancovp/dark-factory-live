@@ -1,0 +1,13 @@
+{
+  "region": "memory_eviction_policy",
+  "call_number": "deep_retrieval_augmented_.memory_eviction_policy",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 7
+}

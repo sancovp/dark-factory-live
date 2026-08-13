@@ -1,0 +1,13 @@
+{
+  "region": "approximate_nearest_neighbor",
+  "call_number": "retrieval_augmented_generation_architecture_patt.approximate_nearest_neighbor",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 0
+}

@@ -1,88 +1,42 @@
 {
   "rounds": [
     {
-      "region": "oauth_2_0",
+      "region": "retrieval_augmented_generation",
       "targets": [
-        "access_token",
-        "authorization_code"
+        "multi_modal_rag",
+        "memory_augmented_rag"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 37,
-      "new_relations": 16
+      "new_concepts": 48,
+      "new_relations": 79
     },
     {
-      "region": "openid_connect",
+      "region": "dense_retrieval",
       "targets": [
-        "acr_values",
-        "claims_parameter"
+        "colbert_style_retrieval",
+        "reciprocal_rank_fusion"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 33,
-      "new_relations": 13
+      "new_concepts": 51,
+      "new_relations": 31
     }
   ],
   "basis_before": {
-    "shared_atoms": [
-      "acr_values",
-      "claims_parameter",
-      "discovery_document",
-      "id_token",
-      "id_token_hint",
-      "identity_provider",
-      "issuer",
-      "jwks_uri",
-      "login_hint",
-      "max_age",
-      "openid_configuration",
-      "openid_connect",
-      "pairwise_identifiers",
-      "prompt_parameter",
-      "relying_party",
-      "subject_identifier",
-      "ui_locales",
-      "userinfo_endpoint"
-    ],
-    "shared": 18,
-    "union": 49,
-    "overlap": 0.367
+    "shared_atoms": [],
+    "shared": 0,
+    "union": 30,
+    "overlap": 0.0
   },
   "basis_after": {
-    "shared_atoms": [
-      "acr_values",
-      "claims_parameter",
-      "claims_policy_enforcement",
-      "claims_request_object",
-      "claims_verification",
-      "discovery_document",
-      "essential_claim_directive",
-      "id_token",
-      "id_token_claim_target",
-      "id_token_hint",
-      "identity_provider",
-      "issuer",
-      "jwks_uri",
-      "login_hint",
-      "max_age",
-      "openid_configuration",
-      "openid_connect",
-      "pairwise_identifiers",
-      "partial_claims_fulfillment",
-      "prompt_parameter",
-      "relying_party",
-      "subject_identifier",
-      "ui_locales",
-      "userinfo_claim_target",
-      "userinfo_endpoint",
-      "voluntary_claim_directive"
-    ],
-    "shared": 26,
-    "union": 59,
-    "overlap": 0.441
+    "shared_atoms": [],
+    "shared": 0,
+    "union": 50,
+    "overlap": 0.0
   }
 }

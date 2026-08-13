@@ -1,0 +1,14 @@
+{
+  "name": "retrieval-augmented-generation-architect-module",
+  "version": "0.1.0",
+  "description": "retrieval augmented generation architecture patterns \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 207 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "knowledge-base",
+    "neurosymbolic",
+    "retrieval-augmented-generation-architect"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "phase": "soup",
+  "define": [],
+  "connect": [
+    "rrf_candidate_pool",
+    "rrf_contributing_stream",
+    "rrf_formula",
+    "rrf_fused_ranking",
+    "rrf_k_parameter",
+    "rrf_rank_list",
+    "rrf_reciprocal_rank",
+    "rrf_score_normalization",
+    "score_aggregation",
+    "score_normalization",
+    "sliding_window_retrieval",
+    "tart_retrieval",
+    "tf_idf_retrieval",
+    "undocumented_document",
+    "unified_ranking"
+  ],
+  "reconcile": [],
+  "explain": [],
+  "n_concepts": 207,
+  "n_relations": 225
+}

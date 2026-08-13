@@ -1,0 +1,232 @@
+{
+  "skilltree": {
+    "name": "understand-retrieval augmented generation architecture patterns",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-retrieval augmented generation architecture patterns",
+    "description": "the retrieval augmented generation architecture patterns library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-core",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-core",
+        "description": "the core subdomain of retrieval augmented generation architecture patterns (2 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-multi_hop_retrieval",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-multi_hop_retrieval",
+            "description": "Retrieval strategy that executes multiple sequential retrieval steps, where each step uses the output or conte",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-cache_strategy",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-cache_strategy",
+            "description": "Approach for storing and reusing retrieval results or generated responses to reduce redundant computation and ",
+            "coord": "0.1.2",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_dense_retrieval",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-deep_dense_retrieval",
+        "description": "the deep_dense_retrieval subdomain of retrieval augmented generation architecture patterns (51 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-rrf_fusion_score",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-rrf_fusion_score",
+            "description": "The sum of reciprocal rank values for a given document across all contributing rank lists; the document's posi",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-colbert_approximate_search",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-colbert_approximate_search",
+            "description": "Approximate nearest neighbor indexing on per-token document embeddings enabling efficient retrieval of candida",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-rrf_rank_position",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-rrf_rank_position",
+            "description": "The integer position of an item within a rank list, starting at 1 for the highest-scoring result; used as the ",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-colbert_late_interaction",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-colbert_late_interaction",
+            "description": "Core architectural principle deferring interaction between query and document token representations until scor",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-colbert_maxsim_operator",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-colbert_maxsim_operator",
+            "description": "Maximum similarity operator that for each query token finds the highest-scoring document token via cosine simi",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-colbert_token_embedding",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-colbert_token_embedding",
+            "description": "Dense contextualized vector representation produced per token by an encoder model, preserving token identity a",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_retrieval_augmented_",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-deep_retrieval_augmented_",
+        "description": "the deep_retrieval_augmented_ subdomain of retrieval augmented generation architecture patterns (48 concepts)",
+        "coord": "0.3",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-memory_entry",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-memory_entry",
+            "description": "Atomic unit of stored information in the memory system, containing content plus metadata",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-mmr001",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-mmr001",
+            "description": "Modality type: classification of data representation forms a retrieval system handles \u2014 text, image, table, co",
+            "coord": "0.3.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-mmr002",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-mmr002",
+            "description": "Multi-modal embedding model: neural network architecture that projects content from different modalities into ",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-mmr003",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-mmr003",
+            "description": "Cross-modal retrieval: searching for content in one modality using a query from a different modality, such as ",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-mmr005",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-mmr005",
+            "description": "Non-text chunk processor: component that parses, extracts, and encodes non-text content from documents \u2014 handl",
+            "coord": "0.3.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-mmr009",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-mmr009",
+            "description": "Multi-modal index: index structure supporting heterogeneous chunk types \u2014 text vectors, image features, table ",
+            "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-retrieval_augmented_generation_architecture_patt",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-retrieval_augmented_generation_architecture_patt",
+        "description": "the retrieval_augmented_generation_architecture_patt subdomain of retrieval augmented generation architecture patterns (106 concepts)",
+        "coord": "0.4",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-retrieval_augmented_generation",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-retrieval_augmented_generation",
+            "description": "Paradigm that augments language model generation with information retrieved from external knowledge sources to",
+            "coord": "0.4.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dense_retrieval",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-dense_retrieval",
+            "description": "Neural retrieval using learned embedding models to encode queries and documents into dense vectors for similar",
+            "coord": "0.4.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-vector_database",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-vector_database",
+            "description": "Specialized storage system indexing embeddings with efficient similarity search capabilities (Pinecone, Weavia",
+            "coord": "0.4.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dense_passage_retriever",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-dense_passage_retriever",
+            "description": "Bi-encoder model trained on query-passage pairs to produce jointly learned dense embeddings for retrieval",
+            "coord": "0.4.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-multi_modal_rag",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-multi_modal_rag",
+            "description": "RAG system that retrieves and augments generation with images, tables, code, or other non-text modalities alon",
+            "coord": "0.4.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-embedding_model",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_retrieval_augmented_generation_architecture_patt/understand-embedding_model",
+            "description": "Neural model converting text into dense vector representations optimized for retrieval similarity tasks",
+            "coord": "0.4.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}
