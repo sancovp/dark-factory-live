@@ -1471,5 +1471,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-13T10:12:05+00:00",
+    "verdict": "REVERT",
+    "change": "Installed rarity_validator_lens into patch-2 loadout; validated chain_verifier_recipe (Rarity:Rare) and inversion_second_order_recipe (Rarity:Epic) \u2014 both rarity labels are in {common,uncommon,rare,ep",
+    "diff": [
+      {
+        "file": "loadout/rarity_validator_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.0
   }
 ]
