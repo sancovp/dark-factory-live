@@ -1,0 +1,8 @@
+{
+  "test_id": "test_inversion_lens",
+  "skill_path": "crafted/inversion_lens.md",
+  "result": "pass",
+  "input": "Problem: 'How to increase team collaboration'",
+  "output_summary": "Applied inversion lens: normal framing = more meetings, better tools, shared docs. Inversion = minimize collaboration, discover: forced independence surfaces hidden bottlenecks, context switches reveal true priorities, async reveals trust gaps. Synthesis: structured solo work followed by brief syncs captures both independence value and collaboration benefits.",
+  "test_notes": "Lens successfully reframed the problem by examining its inverse, revealing that 'more collaboration' may not be the real goal. The inversion revealed hidden assumptions about what collaboration actually provides."
+}
