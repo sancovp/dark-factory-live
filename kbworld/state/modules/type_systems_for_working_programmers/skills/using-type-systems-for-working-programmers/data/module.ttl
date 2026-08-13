@@ -1,0 +1,933 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/type_systems_for_working_programmers#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/type_systems_for_working_programmers> a owl:Ontology ;
+    rdfs:label "type systems for working programmers" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:abstract_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "abstract type" ;
+    rdfs:comment "Type requiring concrete implementations; cannot be instantiated directly." .
+kb:ad_hoc_polymorphism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ad hoc polymorphism" ;
+    rdfs:comment "Same name denotes different implementations for different argument types (overloading)." .
+kb:algebraic_data_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "algebraic data type" ;
+    rdfs:comment "Type formed by sum (union) and product (record) of other types." .
+kb:algorithm_w a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "algorithm w" ;
+    rdfs:comment "The classic Hindley-Milner type_inference algorithm combining constraint_generation, most_general_unifier computation, and let-polymorphism generalization in a single pass producing principal_type." .
+kb:applicative_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "applicative pattern" ;
+    rdfs:comment "Lifted function application over wrapped values enabling multi-argument composition." .
+kb:array_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "array type" ;
+    rdfs:comment "Homogeneous mutable sequence with element type (list[int] in Python)." .
+kb:async_result_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "async result type" ;
+    rdfs:comment "Asynchronous computation that may succeed with value or fail with error." .
+kb:async_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "async type" ;
+    rdfs:comment "Type representing asynchronous computation (Future[T], Promise<T>, Task<T>)." .
+kb:autoboxing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "autoboxing" ;
+    rdfs:comment "Automatic implicit boxing/unboxing between primitives and their wrapper types." .
+kb:bidirectional_type_inference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bidirectional type inference" ;
+    rdfs:comment "A mode of type_inference splitting into two directions: synthesize (produce a type from an expression alone) and check (verify an expression against a given expected_type), composed via type_environment." .
+kb:borrowing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "borrowing" ;
+    rdfs:comment "Temporary access to data without taking ownership, with borrow checker enforcement." .
+kb:bottom_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bottom type" ;
+    rdfs:comment "Type with no values (never in TypeScript, Nothing in Scala) \u2014 uninhabited." .
+kb:boxing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "boxing" ;
+    rdfs:comment "Wrapping primitive value in heap-allocated object wrapper (int \u2192 Integer)." .
+kb:builder_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "builder pattern" ;
+    rdfs:comment "Fluent API constructing complex objects step-by-step with method chaining and type-safe setters." .
+kb:casting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "casting" ;
+    rdfs:comment "Explicit programmer assertion to interpret value as different type (unsafe in many langs)." .
+kb:class_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "class type" ;
+    rdfs:comment "Object blueprint combining data fields, methods, and potentially inheritance." .
+kb:codegen a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "codegen" ;
+    rdfs:comment "Automatic generation of type-safe code from type definitions or schemas." .
+kb:collection_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "collection type" ;
+    rdfs:comment "Generic container type (List[T], Set[T], Map[K,V]) with element type parameter." .
+kb:completeness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "completeness" ;
+    rdfs:comment "Type system accepts every valid program (relative to its formal semantics)." .
+kb:compound_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "compound type" ;
+    rdfs:comment "Type constructed from other types (tuple, array, object, function)." .
+kb:conditional_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "conditional type" ;
+    rdfs:comment "Type-level conditional selecting between two types based on condition (T extends U ? X : Y)." .
+kb:constraint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "constraint" ;
+    rdfs:comment "An atomic equational condition of the form type_A = type_B produced during constraint_generation, awaiting resolution by unification." .
+kb:constraint_generation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "constraint generation" ;
+    rdfs:comment "The phase that walks the syntax tree of an expression under a type_environment, producing a set of constraints paired with an accumulating type_environment for subterms." .
+kb:constraint_set a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "constraint set" ;
+    rdfs:comment "Set of type equality constraints generated during constraint-based type inference." .
+kb:constraint_solving a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "constraint solving" ;
+    rdfs:comment "The phase that processes the generated constraints via unification, producing the principal substitution." .
+kb:contravariance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "contravariance" ;
+    rdfs:comment "Generic reverses subtyping direction for input positions (Consumer[-A])." .
+kb:covariance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "covariance" ;
+    rdfs:comment "Generic preserves subtyping direction for output positions (Producer[+A])." .
+kb:ct_bound_variable a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct bound variable" ;
+    rdfs:comment "A type variable bound by a \u2200 quantifier in a type scheme; subject to instantiation." .
+kb:ct_constraint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct constraint" ;
+    rdfs:comment "A type equality constraint \u03c4\u2081 ~ \u03c4\u2082 arising during inference; must be unified to complete typing." .
+kb:ct_expression a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct expression" ;
+    rdfs:comment "A program expression undergoing type inference; the subject of a typing judgment." .
+kb:ct_free_variable a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct free variable" ;
+    rdfs:comment "A type variable free in a type (not bound by a surrounding type scheme); scoped via the type environment." .
+kb:ct_fresh_variable a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct fresh variable" ;
+    rdfs:comment "A type variable generated during instantiation or constraint solving; distinct from all existing variables." .
+kb:ct_generalization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct generalization" ;
+    rdfs:comment "The operation that abstracts free type variables in a monotype to form a type scheme when binding a let-expression." .
+kb:ct_instantiation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct instantiation" ;
+    rdfs:comment "The operation that replaces quantified variables in a type scheme with fresh type variables to obtain a monotype." .
+kb:ct_mgu a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct mgu" ;
+    rdfs:comment "Most General Unifier; the unique (up to renaming) substitution that is more general than any other unifier of the same constraints." .
+kb:ct_most_general a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct most general" ;
+    rdfs:comment "The property of a type being maximal under the instance relation; no other valid type is more general." .
+kb:ct_principal_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct principal type" ;
+    rdfs:comment "Most general type that captures all valid typings for an expression; all other valid types are instances of it via substitution." .
+kb:ct_substitution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct substitution" ;
+    rdfs:comment "A type substitution mapping type variables to types; the mechanism that relates principal type to its instances." .
+kb:ct_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct type" ;
+    rdfs:comment "A type; the target of typing judgments; can be monomorphic or polymorphic." .
+kb:ct_type_environment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct type environment" ;
+    rdfs:comment "The context \u0393 mapping term variables to their types or type schemes during inference." .
+kb:ct_type_scheme a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct type scheme" ;
+    rdfs:comment "A polymorphic type (polytype) of the form \u2200\u03b1\u2081...\u03b1\u2099. \u03c4 expressing that \u03c4 may be instantiated by replacing the quantified variables." .
+kb:ct_type_variable a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct type variable" ;
+    rdfs:comment "A flexible type variable appearing in an inferred type; subject to unification and occurs-check." .
+kb:ct_typing_judgment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct typing judgment" ;
+    rdfs:comment "A judgment of the form \u0393 \u22a2 e : \u03c4 asserting expression e has type \u03c4 under type environment \u0393." .
+kb:ct_unification a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ct unification" ;
+    rdfs:comment "The algorithm that computes the most general unifier of a set of type constraints; yields a substitution." .
+kb:curry_howard_correspondence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "curry howard correspondence" ;
+    rdfs:comment "Isomorphism between types and logical propositions, programs and proofs." .
+kb:decorator_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "decorator pattern" ;
+    rdfs:comment "Wrapping objects to add behavior at runtime without altering the wrapped type." .
+kb:dependent_pair a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dependent pair" ;
+    rdfs:comment "Pair where second component type depends on first component value." .
+kb:dependent_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dependent type" ;
+    rdfs:comment "Type that depends on a runtime value, enabling compile-time proofs about data." .
+kb:deserialization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deserialization" ;
+    rdfs:comment "Reconstructing typed objects from serialized representation with type safety concerns." .
+kb:dictionary_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dictionary type" ;
+    rdfs:comment "Key-value mapping type (dict[K,V] in Python, Map<K,V> in Java)." .
+kb:discriminated_union a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "discriminated union" ;
+    rdfs:comment "Tagged union enabling compiler-verified exhaustive pattern matching over variants." .
+kb:du_binary a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "du binary" ;
+    rdfs:comment "A discriminated union with exactly two du_variant cases. Historically called 'Either' or sum-of-two; many algebraic laws simplify for the binary case." .
+kb:du_closed a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "du closed" ;
+    rdfs:comment "A discriminated union whose variant set is fixed and final; no new variants can be introduced. Common in languages with sealed hierarchies or final sum types." .
+kb:du_exhaustiveness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "du exhaustiveness" ;
+    rdfs:comment "The static guarantee that a du_match covers every du_variant of the discriminated union. The type system rejects non-exhaustive matches, ensuring no variant is silently ignored." .
+kb:du_inject a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "du inject" ;
+    rdfs:comment "The introduction form for a discriminated union: given a variant label and a payload of the matching type, produce a value of the union type. Also called 'variant' or 'Left'/'Right' in binary cases." .
+kb:du_match a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "du match" ;
+    rdfs:comment "The elimination form: a function that, given a discriminated union value, dispatches on its du_tag to apply the appropriate handler to the du_payload, yielding a uniform result type." .
+kb:du_nominal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "du nominal" ;
+    rdfs:comment "A discriminated union where each du_variant is identified by a distinct type name (nominal typing). The du_tag is implicit in the variant's name; runtime representation may be optimized away." .
+kb:du_open a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "du open" ;
+    rdfs:comment "A discriminated union that permits new variants to be added in extension modules or subtypes without breaking existing du_match arms. Contrast with du_closed." .
+kb:du_payload a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "du payload" ;
+    rdfs:comment "The data value carried by a specific variant of a discriminated union. Only one payload is live at a time; the tag selects which one." .
+kb:du_primitive a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "du primitive" ;
+    rdfs:comment "An untagged union of types without a du_tag. The discriminated union adds a tag to this primitive structure to make variant membership verifiable." .
+kb:du_structural a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "du structural" ;
+    rdfs:comment "A discriminated union where variants are distinguished by their shape (payload type) rather than by name. The du_tag must be stored at runtime to disambiguate structurally identical variants." .
+kb:du_tag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "du tag" ;
+    rdfs:comment "A value-level or type-level label that uniquely identifies which variant of a discriminated union is active in a given value. The tag is the first-class evidence of variant membership." .
+kb:du_variant a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "du variant" ;
+    rdfs:comment "A named constituent of a discriminated union, pairing a du_tag with a du_payload type. Each variant represents one summand in the sum type." .
+kb:duck_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "duck typing" ;
+    rdfs:comment "Typing based on object capabilities rather than declared type or inheritance." .
+kb:dynamic_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dynamic typing" ;
+    rdfs:comment "Type checking performed at runtime during execution." .
+kb:effects_system a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "effects system" ;
+    rdfs:comment "Type-level tracking of side effects (IO, state, exceptions) beyond return type." .
+kb:enum_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "enum type" ;
+    rdfs:comment "Fixed finite set of named constant values (enum in Python/Rust/TypeScript)." .
+kb:error_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "error type" ;
+    rdfs:comment "Type representing failure conditions as values rather than exceptions." .
+kb:error_union a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "error union" ;
+    rdfs:comment "Union of value type and error type representing failure as ordinary value." .
+kb:exception_safety a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "exception safety" ;
+    rdfs:comment "Guarantee about object and resource state when exceptions propagate." .
+kb:exhaustive_check a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "exhaustive check" ;
+    rdfs:comment "Compiler verification that all cases of a union are handled in pattern matching." .
+kb:existential_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "existential type" ;
+    rdfs:comment "Abstraction hiding a type (some T such that property holds) from consumers." .
+kb:exists_quantification a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "exists quantification" ;
+    rdfs:comment "Existential quantifier over types meaning some hidden type T satisfies property." .
+kb:factory_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "factory pattern" ;
+    rdfs:comment "Constructor abstraction returning possibly-different subtypes based on input parameters." .
+kb:final_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "final type" ;
+    rdfs:comment "Type or class that cannot be extended or subclassed (final in Java/Kotlin)." .
+kb:forall_quantification a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "forall quantification" ;
+    rdfs:comment "Universal quantifier over types meaning property holds for all types T." .
+kb:free_type_variables a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "free type variables" ;
+    rdfs:comment "Set of type variables occurring in a type that are not quantified; relevant to generalization." .
+kb:function_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "function type" ;
+    rdfs:comment "Callable type specifying parameter types and return type (x: Callable[[int], str])." .
+kb:functor_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "functor pattern" ;
+    rdfs:comment "Mappable wrapper where map applies function to contained value preserving structure." .
+kb:generalization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "generalization" ;
+    rdfs:comment "Operation that abstracts free type variables into quantified variables, forming a type scheme." .
+kb:generator_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "generator type" ;
+    rdfs:comment "Lazy sequence producing values via coroutine-like suspension (yield)." .
+kb:generic_constraint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "generic constraint" ;
+    rdfs:comment "Bound restricting type variable to subset of types (T extends Comparable in Java)." .
+kb:generic_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "generic type" ;
+    rdfs:comment "Type or function parameterized by one or more type variables enabling code reuse across types." .
+kb:gradual_guarantee a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gradual guarantee" ;
+    rdfs:comment "Removing static annotations preserves runtime behavior; adding them never breaks it." .
+kb:gradual_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gradual typing" ;
+    rdfs:comment "Mixing statically-typed and dynamically-typed code with consistency checks at boundary." .
+kb:higher_kinded_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "higher kinded type" ;
+    rdfs:comment "Type constructor taking another type as argument (Functor[F[_]] in Scala)." .
+kb:hindley_milner a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hindley milner" ;
+    rdfs:comment "Classical type inference algorithm supporting parametric polymorphism and let-generalization." .
+kb:impredicative_polymorphism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "impredicative polymorphism" ;
+    rdfs:comment "Polymorphism allowing polymorphic types inside other types (System F \u2014 e.g. Java generics)." .
+kb:instantiation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "instantiation" ;
+    rdfs:comment "Operation that replaces quantified variables in a type scheme with fresh type variables." .
+kb:interface_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "interface type" ;
+    rdfs:comment "Contract specifying required fields and/or methods without implementation details." .
+kb:intersection_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "intersection type" ;
+    rdfs:comment "Value must satisfy all constituent types simultaneously (A & B)." .
+kb:invariance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "invariance" ;
+    rdfs:comment "Generic has no subtyping relationship regardless of component types (mutable container)." .
+kb:iso_optic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "iso optic" ;
+    rdfs:comment "A bidirectional optic between two types that are isomorphic, providing both a forward view and a reverse constructor with no information loss." .
+kb:iterator_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "iterator type" ;
+    rdfs:comment "Lazy traversal abstraction yielding elements one at a time on demand." .
+kb:kind a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kind" ;
+    rdfs:comment "Type of a type \u2014 arity classification (* is proper type, *\u2192* is type constructor)." .
+kb:latent_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "latent typing" ;
+    rdfs:comment "Types implied by operations rather than declared; checked at use site." .
+kb:lens_getter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lens getter" ;
+    rdfs:comment "A pure projection from a product type to a specific du_payload at a named field, extracting only the target substructure without mutation." .
+kb:lens_optic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lens optic" ;
+    rdfs:comment "An optic pairing a getter with a setter over a product type's field, enabling focused access to one du_payload while preserving the rest of the product structure." .
+kb:lens_setter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lens setter" ;
+    rdfs:comment "A mutation function taking a product type and a new du_payload value, returning a new product with only the target field replaced, leaving all other du_payload fields unchanged." .
+kb:lens_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lens type" ;
+    rdfs:comment "Composable accessor/mutator pair for nested immutable data structures." .
+kb:let_polymorphism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "let polymorphism" ;
+    rdfs:comment "The scoping discipline that generalizes the rhs of a let-binding at its point of definition, making its type_scheme available for instantiation at each use site." .
+kb:lifetime a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lifetime" ;
+    rdfs:comment "Region of code during which a reference remains valid (Rust lifetime annotations)." .
+kb:liquid_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "liquid type" ;
+    rdfs:comment "Refinement types with automatically inferred predicates using SMT solving." .
+kb:manifest_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "manifest typing" ;
+    rdfs:comment "Requiring explicit type declarations for all bindings (Java, C++)." .
+kb:mapped_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mapped type" ;
+    rdfs:comment "Type transforming each member of another type (Record<K,V> in TypeScript)." .
+kb:memory_safety a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory safety" ;
+    rdfs:comment "Guarantee preventing invalid memory access: buffer overflows, use-after-free, dangling pointers." .
+kb:mixin_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mixin pattern" ;
+    rdfs:comment "Composable behavior units mixed into classes via inheritance or composition." .
+kb:monad_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "monad pattern" ;
+    rdfs:comment "Type wrapper with bind operation chaining computations with context (Result, Option)." .
+kb:monotype a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "monotype" ;
+    rdfs:comment "Type with no quantified variables; ground type or type variable instantiation result." .
+kb:most_general a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "most general" ;
+    rdfs:comment "Property of a type such that no strictly more general type exists for the same expression." .
+kb:most_general_unifier a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "most general unifier" ;
+    rdfs:comment "Most general substitution that satisfies a set of type constraints; unique up to renaming of variables." .
+kb:mutually_recursive_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mutually recursive type" ;
+    rdfs:comment "Set of types referencing each other forming a cycle (AST node variants)." .
+kb:mypy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mypy" ;
+    rdfs:comment "Static type checker for Python implementing PEP 484 type annotations." .
+kb:narrowing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "narrowing" ;
+    rdfs:comment "Type refinement in conditional branches reducing possible types (v: int | str \u2192 v: int)." .
+kb:newtype_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "newtype pattern" ;
+    rdfs:comment "Type wrapper distinguishing semantically different values of same representation." .
+kb:nominal_subtype a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "nominal subtype" ;
+    rdfs:comment "Subtyping relationship declared explicitly via class/interface inheritance." .
+kb:nominal_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "nominal typing" ;
+    rdfs:comment "Type compatibility determined by explicit declaration and name identity." .
+kb:null_pointer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "null pointer" ;
+    rdfs:comment "Reference pointing to absent object causing crash on dereference if unchecked." .
+kb:null_safety a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "null safety" ;
+    rdfs:comment "Type system preventing null dereference by distinguishing nullable from non-null types." .
+kb:object_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "object type" ;
+    rdfs:comment "Structured data bundling named fields and methods; blueprint for runtime instances." .
+kb:occurs_check a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "occurs check" ;
+    rdfs:comment "The guard inside unification that rejects a substitution {\u03b1 \u21a6 t} when \u03b1 occurs free inside t, preventing the construction of infinite recursive types." .
+kb:opaque_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "opaque type" ;
+    rdfs:comment "Type whose internal structure is hidden from consumers (abstract type with hidden representation)." .
+kb:optic_compose a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "optic compose" ;
+    rdfs:comment "Composition rule: chaining optics so the du_payload of one becomes the structure operated on by the next, forming a pipeline that satisfies the optic laws transitively." .
+kb:optic_law_get_set a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "optic law get set" ;
+    rdfs:comment "Law: applying lens_setter to the result of lens_getter on any product yields back the original du_payload value \u2014 get never lies about what set just wrote." .
+kb:optic_law_set_get a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "optic law set get" ;
+    rdfs:comment "Law: applying lens_getter to the result of lens_setter on a product yields back the du_payload value that was set \u2014 set reflects exactly what get will retrieve." .
+kb:optic_law_set_set a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "optic law set set" ;
+    rdfs:comment "Law: composing two lens_setter calls yields the same product as applying only the second one \u2014 idempotent in the face of duplicate mutation, last du_payload wins." .
+kb:optic_law_unity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "optic law unity" ;
+    rdfs:comment "Law: the composition of a lens_setter with a lens_getter in reverse order yields a total transformation equivalent to the identity on du_payload \u2014 structural integrity preserved under round-trip." .
+kb:optic_variance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "optic variance" ;
+    rdfs:comment "Classification of an optic by its directional capability: getter-only (covariant, read-only), setter-only (contravariant, write-only), or full optic (both directions, lenses are the canonical full case)." .
+kb:optics_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "optics type" ;
+    rdfs:comment "Abstracting getters/setters across product and sum types (lens, prism, traversal)." .
+kb:option_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "option type" ;
+    rdfs:comment "Explicit optional value type forcing handling of absence (Option[T], Maybe[T])." .
+kb:optional_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "optional type" ;
+    rdfs:comment "Value may be present (Some/T) or absent (None/Null) \u2014 nullable wrapper." .
+kb:ownership a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ownership" ;
+    rdfs:comment "Linear resource management where exactly one owner is responsible for deallocation." .
+kb:parametric_polymorphism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "parametric polymorphism" ;
+    rdfs:comment "Same implementation works uniformly over a range of types via type parameters." .
+kb:phantom_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "phantom type" ;
+    rdfs:comment "Type variable appearing only in output positions carrying compile-time metadata." .
+kb:polymorphic_recursion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "polymorphic recursion" ;
+    rdfs:comment "Recursive function where type argument differs between recursive calls." .
+kb:polytype a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "polytype" ;
+    rdfs:comment "Synonym for type scheme; a type with forall-quantified variables enabling polymorphism." .
+kb:predicative_polymorphism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "predicative polymorphism" ;
+    rdfs:comment "Polymorphism restricted to monomorphic types inside quantifiers (ML/Hindley-Milner)." .
+kb:primitive_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "primitive type" ;
+    rdfs:comment "Built-in atomic types (int, float, bool, str) not composed from other types." .
+kb:primitive_union a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "primitive union" ;
+    rdfs:comment "An untagged union of types representing a value that could be one of several member types, but without a discriminator tag or label to identify which variant is active at runtime. Membership cannot be compiler-verified and exhaustive pattern matching is not enforced." .
+kb:principal_pair a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "principal pair" ;
+    rdfs:comment "Pair consisting of a type scheme and its originating type environment; the full inference result." .
+kb:principal_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "principal type" ;
+    rdfs:comment "Most general type capturing all valid typings for an expression." .
+kb:prism_builder a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prism builder" ;
+    rdfs:comment "A constructor taking a du_payload and injecting it as the sole du_variant under a specific du_tag, rebuilding the sum type from the selected summand." .
+kb:prism_matcher a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prism matcher" ;
+    rdfs:comment "A partial function over a sum type that succeeds only when the active du_tag matches the target, yielding the contained du_payload; otherwise the sum is preserved." .
+kb:prism_optic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prism optic" ;
+    rdfs:comment "An optic pairing a matcher with a builder over a sum type's du_variant, enabling partial projection into one du_tag's du_payload with fallback to the original sum." .
+kb:protocol_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "protocol type" ;
+    rdfs:comment "Structural type defining required methods without implementation (Swift protocol, Go interface)." .
+kb:pruning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pruning" ;
+    rdfs:comment "The substitution-composition step that replaces a type_variable with its expanded form after unification, eliminating aliasing to type_variables." .
+kb:pt01 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt01" ;
+    rdfs:comment "principal_type: the unique most-general type that captures all valid typings for an expression, serving as the output of type inference" .
+kb:pt02 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt02" ;
+    rdfs:comment "type_inference: the algorithmic process of deriving types for expressions by propagating constraints from known types through the syntax tree" .
+kb:pt03 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt03" ;
+    rdfs:comment "type_variable: a placeholder symbol in a type that remains unresolved until unification binds it to a concrete or more general type" .
+kb:pt04 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt04" ;
+    rdfs:comment "unification: the algorithm that finds the most general substitution making two types equal, central to constraint solving in inference" .
+kb:pt05 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt05" ;
+    rdfs:comment "substitution: a mapping from type variables to types that, when applied, resolves all variables in a type expression" .
+kb:pt06 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt06" ;
+    rdfs:comment "type_constraint: an equation of the form T1 = T2 between two types that must hold for a valid typing" .
+kb:pt07 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt07" ;
+    rdfs:comment "type_scheme: a type paired with quantified type variables, enabling polymorphism by separating generic from monomorphic occurrences" .
+kb:pt08 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt08" ;
+    rdfs:comment "generalization: the operation that lifts free type variables into a type scheme, forming a polytype from a monotype" .
+kb:pt09 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt09" ;
+    rdfs:comment "instantiation: replacing quantified variables in a type scheme with fresh type variables, yielding a less-general type" .
+kb:pt10 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt10" ;
+    rdfs:comment "most_general_unifier: the substitution produced by unification that is no more restrictive than any other unifier for the same types" .
+kb:pt11 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt11" ;
+    rdfs:comment "let_polymorphism: the polymorphism arising from let-bindings where the bound expression is generalized, giving it a principal type scheme" .
+kb:pt12 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt12" ;
+    rdfs:comment "type_equivalence_class: the set of all types reachable from a principal type via instantiation\u2014types that are all valid typings of the same expression" .
+kb:pt13 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt13" ;
+    rdfs:comment "free_type_variables: type variables occurring in an expression that are not bound by a surrounding lambda and thus subject to generalization" .
+kb:pt14 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pt14" ;
+    rdfs:comment "principal_type_theorem: the formal result guaranteeing that when a principal type exists, it is unique up to renaming of type variables" .
+kb:purity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "purity" ;
+    rdfs:comment "Function producing same output for same input with no side effects." .
+kb:pyright a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pyright" ;
+    rdfs:comment "Fast TypeScript-style type checker for Python using language server protocol." .
+kb:record_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "record type" ;
+    rdfs:comment "Fixed set of named fields with individual types (struct in Rust, type alias in TypeScript)." .
+kb:recursive_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "recursive type" ;
+    rdfs:comment "Type containing itself as component (linked list node: value + next node)." .
+kb:referential_transparency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "referential transparency" ;
+    rdfs:comment "Expression replaceable by its value without changing program behavior." .
+kb:refined_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "refined type" ;
+    rdfs:comment "Base type restricted by a predicate (x: {v: int | v > 0})." .
+kb:reified_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reified type" ;
+    rdfs:comment "Type information preserved and accessible at runtime via reflection or generics reification." .
+kb:renaming a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "renaming" ;
+    rdfs:comment "The fresh-variable generation step that replaces a type_variable with a distinct new type_variable during instantiation or when lifting quantifiers, ensuring no capture of free variables." .
+kb:resource_leak a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "resource leak" ;
+    rdfs:comment "Failure to release acquired resources causing gradual exhaustion (file handles, memory)." .
+kb:result_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "result type" ;
+    rdfs:comment "Wrapper capturing either successful value or error without exceptions (Result<T, E>)." .
+kb:row_polymorphism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "row polymorphism" ;
+    rdfs:comment "Polymorphism over record shapes allowing extension while preserving existing fields." .
+kb:runtime_type_checking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "runtime type checking" ;
+    rdfs:comment "Validating values against types at runtime (pydantic, attrs, marshmallow)." .
+kb:schema_validation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "schema validation" ;
+    rdfs:comment "Verifying data structure conforms to schema (JSON Schema, OpenAPI, GraphQL SDL)." .
+kb:sealed_class a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sealed class" ;
+    rdfs:comment "Class limited to known subtypes enabling compiler-verified exhaustive matching." .
+kb:serialization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "serialization" ;
+    rdfs:comment "Transforming in-memory objects to transmittable/recordable format preserving type information." .
+kb:set_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "set type" ;
+    rdfs:comment "Collection of unique values with O(1) membership testing (set[T], HashSet<T>)." .
+kb:side_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "side effect" ;
+    rdfs:comment "Observable state change beyond returning a value (I/O, mutation, throwing)." .
+kb:skolemization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "skolemization" ;
+    rdfs:comment "Replacing type variable with fresh unknown type during type inference." .
+kb:soundness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "soundness" ;
+    rdfs:comment "Type system property: well-typed programs cannot go wrong (Milner)." .
+kb:static_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "static typing" ;
+    rdfs:comment "Type checking performed at compile-time before execution." .
+kb:strategy_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strategy pattern" ;
+    rdfs:comment "Encapsulating swappable algorithms behind common interface for runtime selection." .
+kb:strict_null_checks a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strict null checks" ;
+    rdfs:comment "Compiler flag enforcing non-nullability preventing null assignment to non-nullable types." .
+kb:strong_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strong typing" ;
+    rdfs:comment "Language enforcement preventing implicit conversions between unrelated types." .
+kb:structural_subtype a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "structural subtype" ;
+    rdfs:comment "Subtyping relationship inferred from having all required members of supertype." .
+kb:structural_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "structural typing" ;
+    rdfs:comment "Type compatibility determined by shape of data (fields present) not by name." .
+kb:substitution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "substitution" ;
+    rdfs:comment "A total function from type_variable to monotype; a mapping recording how each type_variable was solved during constraint_solving." .
+kb:subtype_polymorphism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "subtype polymorphism" ;
+    rdfs:comment "Code operates on values of a type and all its subtypes via inheritance hierarchy." .
+kb:subtype_relation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "subtype relation" ;
+    rdfs:comment "Partial ordering between types where subtype values can substitute supertype values." .
+kb:supertype a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "supertype" ;
+    rdfs:comment "Parent type higher in a type hierarchy; all subtypes are compatible with it." .
+kb:tagged_union_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tagged union type" ;
+    rdfs:comment "Discriminated union with explicit tag field enabling exhaustive pattern matching." .
+kb:template_literal_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "template literal type" ;
+    rdfs:comment "Type computed from string literal allowing string manipulation at type level." .
+kb:thread_safety a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "thread safety" ;
+    rdfs:comment "Correct behavior of types and operations under concurrent access from multiple threads." .
+kb:top_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "top type" ;
+    rdfs:comment "Supertype of all types (Any in Python/TypeScript, Object in Java) accepting any value." .
+kb:traversal_fold a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "traversal fold" ;
+    rdfs:comment "Operation over a traversal_optic that reduces all targeted du_payload within a structure to a single aggregate value, consuming the structure without producing a new one." .
+kb:traversal_map a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "traversal map" ;
+    rdfs:comment "Operation over a traversal_optic that applies a function to each du_payload in the targeted locations, producing a new structure with all positions updated." .
+kb:traversal_optic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "traversal optic" ;
+    rdfs:comment "An optic generalizing lens and prism to target zero or more locations simultaneously, enabling fold and map operations over collections of du_payload within a structure." .
+kb:tuple_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tuple type" ;
+    rdfs:comment "Fixed-length heterogeneous sequence with positional typing (x: tuple[int, str])." .
+kb:type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type" ;
+    rdfs:comment "Fundamental classification of values determining permissible operations and memory layout." .
+kb:type_alias a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type alias" ;
+    rdfs:comment "Named shorthand for a complex type expression improving readability." .
+kb:type_annotation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type annotation" ;
+    rdfs:comment "Explicit syntactic marker associating a name or expression with a type (e.g. x: int)." .
+kb:type_annotations_stub a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type annotations stub" ;
+    rdfs:comment "Type hints file (.pyi) providing types without implementation for external libraries." .
+kb:type_argument a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type argument" ;
+    rdfs:comment "Concrete type substituted for type parameter at instantiation site." .
+kb:type_checker a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type checker" ;
+    rdfs:comment "Static analysis tool verifying type constraints without executing the program." .
+kb:type_checking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type checking" ;
+    rdfs:comment "Process of verifying that program expressions respect declared or inferred type constraints." .
+kb:type_coercion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type coercion" ;
+    rdfs:comment "Implicit automatic conversion from one type to another (e.g. int to float)." .
+kb:type_compatibility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type compatibility" ;
+    rdfs:comment "Whether a value of one type may be assigned to a variable of another type." .
+kb:type_difference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type difference" ;
+    rdfs:comment "Type with certain members excluded (TypeScript: string & {} excluding never)." .
+kb:type_environment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type environment" ;
+    rdfs:comment "A finite mapping from term_variable names to type_schemes, providing the typing assumptions available at a given point during constraint_generation." .
+kb:type_equality a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type equality" ;
+    rdfs:comment "Two types are exactly identical in structure and name (nominal or structural)." .
+kb:type_erasure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type erasure" ;
+    rdfs:comment "Type information discarded during compilation (Java generics pre-14 reification)." .
+kb:type_error a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type error" ;
+    rdfs:comment "Violation of type constraints detected by the type system (static or runtime)." .
+kb:type_extraction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type extraction" ;
+    rdfs:comment "Unwrapping type from container (Option[T] \u2192 T via unwrap or pattern match)." .
+kb:type_family a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type family" ;
+    rdfs:comment "Type-level function mapping input types to output types (associated types in Rust traits)." .
+kb:type_guard a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type guard" ;
+    rdfs:comment "Function narrowing union type to one branch based on runtime check (isinstance)." .
+kb:type_inference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type inference" ;
+    rdfs:comment "Compiler or runtime deducing types from context without explicit annotation." .
+kb:type_intersection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type intersection" ;
+    rdfs:comment "Most specific common supertype of two types (greatest lower bound)." .
+kb:type_isolation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type isolation" ;
+    rdfs:comment "Restricting which types may extend or implement a given type." .
+kb:type_naming_convention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type naming convention" ;
+    rdfs:comment "Systematic naming rules for types (PascalCase for classes, snake_case for Python)." .
+kb:type_narrowing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type narrowing" ;
+    rdfs:comment "Compiler inference of more specific type within control flow branch." .
+kb:type_parameter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type parameter" ;
+    rdfs:comment "Named placeholder within generic declaration awaiting concrete type argument." .
+kb:type_projection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type projection" ;
+    rdfs:comment "Accessing field or method of existential type while hiding the concrete type." .
+kb:type_promotion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type promotion" ;
+    rdfs:comment "Implicit widening conversion along a type hierarchy (e.g. byte to int)." .
+kb:type_safe_builder a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type safe builder" ;
+    rdfs:comment "Builder preventing invalid intermediate states via phantom types encoding construction phase." .
+kb:type_safe_union a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type safe union" ;
+    rdfs:comment "Tagged union with exhaustiveness guarantee preventing access without matching on tag." .
+kb:type_safety a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type safety" ;
+    rdfs:comment "Property that a program cannot perform invalid operations on values of incorrect type." .
+kb:type_scheme a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type scheme" ;
+    rdfs:comment "Type with universally quantified variables; pairs a monotype with a set of type variables in scope." .
+kb:type_substitution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type substitution" ;
+    rdfs:comment "Mapping from type variables to types; a function applied to types to resolve variables." .
+kb:type_theory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type theory" ;
+    rdfs:comment "Formal mathematical framework for studying types and their properties." .
+kb:type_union a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type union" ;
+    rdfs:comment "Least upper bound of two types \u2014 value belonging to either type." .
+kb:type_variable a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type variable" ;
+    rdfs:comment "Placeholder symbol ranging over types, awaiting instantiation (alpha in Hindley-Milner)." .
+kb:type_widening a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type widening" ;
+    rdfs:comment "Implicit conversion from narrow subtype to broader supertype." .
+kb:typeshed a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "typeshed" ;
+    rdfs:comment "Centralized repository of standard library type stubs for Python type checkers." .
+kb:unboxing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "unboxing" ;
+    rdfs:comment "Extracting primitive value from its object wrapper." .
+kb:unification a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "unification" ;
+    rdfs:comment "The algorithm that, given two monotypes, computes a substitution that makes them syntactically identical, or reports a type_error if impossible." .
+kb:union_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "union type" ;
+    rdfs:comment "Value may be one of several alternative types (x: int | str in TypeScript)." .
+kb:uniqueness_up_to_rename a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "uniqueness up to rename" ;
+    rdfs:comment "Property that any two principal types for the same expression differ only by renaming of type variables." .
+kb:universal_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "universal type" ;
+    rdfs:comment "Abstraction over all types (for all T, property holds) \u2014 parametric polymorphism." .
+kb:valid_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "valid typing" ;
+    rdfs:comment "A type that can be assigned to an expression under some type environment and substitution." .
+kb:variance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "variance" ;
+    rdfs:comment "Rules governing how subtyping relationships between type arguments affect parameterized types." .
+kb:variance_annotation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "variance annotation" ;
+    rdfs:comment "Explicit (+/-/*) markers on type parameters declaring covariance/contravariance/invariance." .
+kb:visitor_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "visitor pattern" ;
+    rdfs:comment "Separating algorithm from object structure using accept/visit dispatch on typed data." .
+kb:weak_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "weak typing" ;
+    rdfs:comment "Permissive type system allowing implicit conversions and pointer coercion." .
+
+kb:abstract_type kbo:relatesTo kb:subtype_polymorphism .
+kb:ad_hoc_polymorphism kbo:relatesTo kb:parametric_polymorphism .
+kb:algorithm_w kbo:relatesTo kb:generalization .
+kb:algorithm_w kbo:relatesTo kb:instantiation .
+kb:algorithm_w kbo:relatesTo kb:let_polymorphism .
+kb:algorithm_w kbo:relatesTo kb:most_general_unifier .
+kb:algorithm_w kbo:relatesTo kb:type_inference .
+kb:applicative_pattern kbo:relatesTo kb:functor_pattern .
+kb:array_type kbo:relatesTo kb:collection_type .
+kb:async_result_type kbo:relatesTo kb:result_type .
+kb:async_type kbo:relatesTo kb:result_type .
+kb:autoboxing kbo:relatesTo kb:boxing .
+kb:bidirectional_type_inference kbo:relatesTo kb:constraint_generation .
+kb:bidirectional_type_inference kbo:relatesTo kb:type_annotation .
+kb:borrowing kbo:relatesTo kb:lifetime .
+kb:bottom_type kbo:relatesTo kb:type_safety .
+kb:boxing kbo:relatesTo kb:unboxing .
+kb:builder_pattern kbo:relatesTo kb:phantom_type .
+kb:casting kbo:relatesTo kb:type_coercion .
+kb:class_type kbo:relatesTo kb:object_type .
+kb:codegen kbo:relatesTo kb:template_literal_type .
+kb:collection_type kbo:relatesTo kb:array_type .
+kb:completeness kbo:relatesTo kb:exhaustive_check .
+kb:compound_type kbo:relatesTo kb:tuple_type .
+kb:constraint kbo:relatesTo kb:unification .
+kb:constraint_generation kbo:relatesTo kb:constraint .
+kb:constraint_set kbo:relatesTo kb:constraint_solving .
+kb:constraint_solving kbo:relatesTo kb:principal_pair .
+kb:constraint_solving kbo:relatesTo kb:substitution .
+kb:constraint_solving kbo:relatesTo kb:unification .
+kb:contravariance kbo:relatesTo kb:invariance .
+kb:covariance kbo:relatesTo kb:invariance .
+kb:ct_bound_variable kbo:relatesTo kb:ct_type_environment .
+kb:ct_constraint kbo:relatesTo kb:constraint .
+kb:ct_expression kbo:relatesTo kb:ct_type .
+kb:ct_free_variable kbo:relatesTo kb:ct_bound_variable .
+kb:ct_fresh_variable kbo:relatesTo kb:ct_type_variable .
+kb:curry_howard_correspondence kbo:relatesTo kb:type_theory .
+kb:discriminated_union kbo:relatesTo kb:algebraic_data_type .
+kb:discriminated_union kbo:relatesTo kb:du_exhaustiveness .
+kb:discriminated_union kbo:relatesTo kb:du_inject .
+kb:discriminated_union kbo:relatesTo kb:du_match .
+kb:discriminated_union kbo:relatesTo kb:du_variant .
+kb:discriminated_union kbo:relatesTo kb:type_safe_union .
+kb:du_binary kbo:relatesTo kb:du_variant .
+kb:du_closed kbo:relatesTo kb:du_tag .
+kb:du_exhaustiveness kbo:relatesTo kb:du_match .
+kb:du_exhaustiveness kbo:relatesTo kb:du_variant .
+kb:du_inject kbo:relatesTo kb:du_primitive .
+kb:du_inject kbo:relatesTo kb:du_variant .
+kb:du_match kbo:relatesTo kb:du_payload .
+kb:du_match kbo:relatesTo kb:du_tag .
+kb:du_open kbo:relatesTo kb:du_tag .
+kb:du_primitive kbo:relatesTo kb:primitive_union .
+kb:du_tag kbo:relatesTo kb:du_payload .
+kb:du_variant kbo:relatesTo kb:du_payload .
+kb:du_variant kbo:relatesTo kb:du_tag .
+kb:existential_type kbo:relatesTo kb:exists_quantification .
+kb:generalization kbo:relatesTo kb:free_type_variables .
+kb:generalization kbo:relatesTo kb:monotype .
+kb:generalization kbo:relatesTo kb:type_scheme .
+kb:generic_constraint kbo:relatesTo kb:type_parameter .
+kb:gradual_typing kbo:relatesTo kb:type_erasure .
+kb:higher_kinded_type kbo:relatesTo kb:generic_type .
+kb:hindley_milner kbo:relatesTo kb:predicative_polymorphism .
+kb:hindley_milner kbo:relatesTo kb:type_inference .
+kb:instantiation kbo:relatesTo kb:monotype .
+kb:instantiation kbo:relatesTo kb:renaming .
+kb:instantiation kbo:relatesTo kb:type_scheme .
+kb:instantiation kbo:relatesTo kb:type_variable .
+kb:interface_type kbo:relatesTo kb:protocol_type .
+kb:kind kbo:relatesTo kb:higher_kinded_type .
+kb:lens_getter kbo:relatesTo kb:du_payload .
+kb:lens_optic kbo:relatesTo kb:lens_getter .
+kb:lens_optic kbo:relatesTo kb:lens_setter .
+kb:lens_optic kbo:relatesTo kb:optic_law_get_set .
+kb:lens_optic kbo:relatesTo kb:optic_law_set_get .
+kb:lens_optic kbo:relatesTo kb:optic_law_set_set .
+kb:lens_optic kbo:relatesTo kb:optic_law_unity .
+kb:lens_setter kbo:relatesTo kb:du_payload .
+kb:let_polymorphism kbo:relatesTo kb:generalization .
+kb:let_polymorphism kbo:relatesTo kb:instantiation .
+kb:let_polymorphism kbo:relatesTo kb:type_scheme .
+kb:mapped_type kbo:relatesTo kb:conditional_type .
+kb:monotype kbo:relatesTo kb:polytype .
+kb:most_general_unifier kbo:relatesTo kb:substitution .
+kb:nominal_typing kbo:relatesTo kb:nominal_subtype .
+kb:null_safety kbo:relatesTo kb:optional_type .
+kb:null_safety kbo:relatesTo kb:type_guard .
+kb:occurs_check kbo:relatesTo kb:type_error .
+kb:optic_compose kbo:relatesTo kb:lens_optic .
+kb:optic_compose kbo:relatesTo kb:prism_optic .
+kb:optic_compose kbo:relatesTo kb:traversal_optic .
+kb:optic_variance kbo:relatesTo kb:lens_optic .
+kb:optics_type kbo:relatesTo kb:du_variant .
+kb:optics_type kbo:relatesTo kb:iso_optic .
+kb:optics_type kbo:relatesTo kb:lens_optic .
+kb:optics_type kbo:relatesTo kb:optic_compose .
+kb:optics_type kbo:relatesTo kb:optic_law_get_set .
+kb:optics_type kbo:relatesTo kb:optic_law_set_get .
+kb:optics_type kbo:relatesTo kb:optic_law_set_set .
+kb:optics_type kbo:relatesTo kb:optic_law_unity .
+kb:optics_type kbo:relatesTo kb:optic_variance .
+kb:optics_type kbo:relatesTo kb:prism_optic .
+kb:optics_type kbo:relatesTo kb:traversal_optic .
+kb:option_type kbo:relatesTo kb:optional_type .
+kb:ownership kbo:relatesTo kb:borrowing .
+kb:ownership kbo:relatesTo kb:memory_safety .
+kb:parametric_polymorphism kbo:relatesTo kb:generic_type .
+kb:phantom_type kbo:relatesTo kb:newtype_pattern .
+kb:polytype kbo:relatesTo kb:type_scheme .
+kb:prism_builder kbo:relatesTo kb:du_tag .
+kb:prism_builder kbo:relatesTo kb:du_variant .
+kb:prism_matcher kbo:relatesTo kb:du_tag .
+kb:prism_matcher kbo:relatesTo kb:du_variant .
+kb:prism_optic kbo:relatesTo kb:optic_variance .
+kb:prism_optic kbo:relatesTo kb:prism_builder .
+kb:prism_optic kbo:relatesTo kb:prism_matcher .
+kb:pt01 kbo:relatesTo kb:pt02 .
+kb:pt01 kbo:relatesTo kb:pt12 .
+kb:pt02 kbo:relatesTo kb:pt03 .
+kb:pt02 kbo:relatesTo kb:pt06 .
+kb:pt02 kbo:relatesTo kb:pt08 .
+kb:pt02 kbo:relatesTo kb:pt09 .
+kb:pt04 kbo:relatesTo kb:pt05 .
+kb:pt05 kbo:relatesTo kb:pt03 .
+kb:pt06 kbo:relatesTo kb:pt04 .
+kb:pt07 kbo:relatesTo kb:pt09 .
+kb:pt08 kbo:relatesTo kb:pt07 .
+kb:pt08 kbo:relatesTo kb:pt13 .
+kb:pt09 kbo:relatesTo kb:pt07 .
+kb:pt10 kbo:relatesTo kb:pt04 .
+kb:pt10 kbo:relatesTo kb:pt05 .
+kb:pt11 kbo:relatesTo kb:pt07 .
+kb:pt11 kbo:relatesTo kb:pt08 .
+kb:pt11 kbo:relatesTo kb:pt09 .
+kb:pt12 kbo:relatesTo kb:pt09 .
+kb:pt14 kbo:relatesTo kb:pt01 .
+kb:record_type kbo:relatesTo kb:algebraic_data_type .
+kb:record_type kbo:relatesTo kb:lens_type .
+kb:record_type kbo:relatesTo kb:row_polymorphism .
+kb:recursive_type kbo:relatesTo kb:algebraic_data_type .
+kb:recursive_type kbo:relatesTo kb:type_inference .
+kb:refined_type kbo:relatesTo kb:dependent_type .
+kb:result_type kbo:relatesTo kb:error_type .
+kb:result_type kbo:relatesTo kb:union_type .
+kb:sealed_class kbo:relatesTo kb:exhaustive_check .
+kb:side_effect kbo:relatesTo kb:type_theory .
+kb:soundness kbo:relatesTo kb:type_error .
+kb:strict_null_checks kbo:relatesTo kb:null_safety .
+kb:structural_typing kbo:relatesTo kb:structural_subtype .
+kb:substitution kbo:relatesTo kb:pruning .
+kb:substitution kbo:relatesTo kb:type_variable .
+kb:tagged_union_type kbo:relatesTo kb:algebraic_data_type .
+kb:tagged_union_type kbo:relatesTo kb:discriminated_union .
+kb:tagged_union_type kbo:relatesTo kb:optics_type .
+kb:tagged_union_type kbo:relatesTo kb:type_safe_union .
+kb:thread_safety kbo:relatesTo kb:type_checking .
+kb:traversal_optic kbo:relatesTo kb:traversal_fold .
+kb:traversal_optic kbo:relatesTo kb:traversal_map .
+kb:type_alias kbo:relatesTo kb:type_family .
+kb:type_annotation kbo:relatesTo kb:constraint .
+kb:type_error kbo:relatesTo kb:constraint_solving .
+kb:type_family kbo:relatesTo kb:dependent_type .
+kb:type_guard kbo:relatesTo kb:narrowing .
+kb:type_inference kbo:relatesTo kb:constraint_generation .
+kb:type_inference kbo:relatesTo kb:constraint_solving .
+kb:type_inference kbo:relatesTo kb:principal_pair .
+kb:type_inference kbo:relatesTo kb:principal_type .
+kb:type_inference kbo:relatesTo kb:type_annotation .
+kb:type_inference kbo:relatesTo kb:type_environment .
+kb:type_narrowing kbo:relatesTo kb:narrowing .
+kb:type_parameter kbo:relatesTo kb:type_argument .
+kb:type_projection kbo:relatesTo kb:existential_type .
+kb:type_variable kbo:relatesTo kb:constraint .
+kb:type_variable kbo:relatesTo kb:free_type_variables .
+kb:type_variable kbo:relatesTo kb:hindley_milner .
+kb:type_variable kbo:relatesTo kb:substitution .
+kb:type_widening kbo:relatesTo kb:subtype_relation .
+kb:typeshed kbo:relatesTo kb:type_annotations_stub .
+kb:unification kbo:relatesTo kb:most_general_unifier .
+kb:unification kbo:relatesTo kb:occurs_check .
+kb:unification kbo:relatesTo kb:type_error .
+kb:universal_type kbo:relatesTo kb:forall_quantification .
+kb:variance kbo:relatesTo kb:subtype_relation .
+kb:variance_annotation kbo:relatesTo kb:variance .
+

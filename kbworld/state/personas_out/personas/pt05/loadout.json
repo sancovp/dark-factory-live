@@ -1,0 +1,13 @@
+{
+  "region": "pt05",
+  "call_number": "deep_type_inference.pt05",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}

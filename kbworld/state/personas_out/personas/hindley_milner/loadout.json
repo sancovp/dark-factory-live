@@ -1,0 +1,13 @@
+{
+  "region": "hindley_milner",
+  "call_number": "type_systems_for_working_programmers.hindley_milner : deep_type_inference(11)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 17
+}

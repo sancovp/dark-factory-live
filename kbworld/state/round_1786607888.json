@@ -1,0 +1,109 @@
+{
+  "subject": "type systems for working programmers",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "bootstrap",
+      "doors": [
+        "tagged_union_type",
+        "type_inference"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "bootstrap": {
+        "concepts": 157,
+        "relations": 54
+      },
+      "specialize": {
+        "basis_after": 0.0,
+        "new": [
+          [
+            "tagged_union_type",
+            28,
+            51
+          ],
+          [
+            "type_inference",
+            56,
+            61
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 1
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 242,
+        "relations": 186,
+        "define": 0,
+        "connect": 73
+      }
+    },
+    "brain": {
+      "grew": "optics_type"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/type_systems_for_working_programmers",
+      "skills": 19,
+      "staff": 45
+    },
+    "observe": {
+      "findings": 3,
+      "issues": [
+        {
+          "atom": "optic_law_get_set",
+          "why": "The law name is get_set but the description is set_get (set then get); swapping a lens should obey get_set (get then set).",
+          "price": 6,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/160"
+        },
+        {
+          "atom": "optic_law_set_get",
+          "why": "The law name is set_get but the description is get_set (get then set); a valid lens should obey set_get (set then get).",
+          "price": 6,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/161"
+        },
+        {
+          "atom": "optic_compose",
+          "why": "du_payload is the FOCUS not the structure; it flows as the target type of one optic and source of the next, not as structure",
+          "price": 2,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/162"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/type_systems_for_working_programmers",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/type_systems_for_working_programmers/skills/using-type-systems-for-working-programmers/SKILL.md",
+      "plugin": "type-systems-for-working-programmers-module",
+      "library_skills": 24,
+      "brain_files": 18
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "242c/186r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 0
+      },
+      "after": {
+        "define": 0,
+        "connect": 73
+      }
+    },
+    "basis": 0.426,
+    "secs": 398.2
+  }
+}

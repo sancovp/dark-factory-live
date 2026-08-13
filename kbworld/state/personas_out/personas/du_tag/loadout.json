@@ -1,0 +1,13 @@
+{
+  "region": "du_tag",
+  "call_number": "deep_tagged_union_type.du_tag",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}
