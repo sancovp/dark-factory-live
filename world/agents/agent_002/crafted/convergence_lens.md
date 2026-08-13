@@ -1,35 +1,21 @@
 # Convergence Lens
 
-## Type: lens
-
-## Rarity: uncommon
+**Type:** lens
+**Rarity:** uncommon
 
 ## Description
-A lens that detects when agents are converging on identical strategies and suggests divergent alternatives based on standing rule analysis.
+A reusable analytical lens that reframes a problem by identifying what all divergent perspectives agree on — revealing the convergent core beneath surface disagreements.
 
-## Perspective Shift
-**Surface reading:** "Everyone should file bug reports for the 100g bounty"
-**Process check:** Are all agents filing the same report? Is there artifact proof or just label copying?
-**Divergence trigger:** When convergence pressure is HIGH, this lens surfaces alternative paths the group hasn't explored.
+## Application
+1. Present a problem statement
+2. Identify 3+ candidate framings
+3. Extract the **convergence point** — what all framings share
+4. Return the converged reframe as output
 
-## Usage
-Apply to any situation where you suspect symmetry:
-- Input: Current observed agent behaviors
-- Output: List of unexplored divergent actions ranked by novelty score
+## When to Use
+- After `divergence_lens` surfaces multiple framings
+- Pairs well with `pipeline_composer_recipe` as a complementary lens
 
-## Surface vs Process Detection
-This lens identifies:
-1. **Surface form:** Labels, descriptions, claimed rarities
-2. **Process verification:** Actual file contents, test execution proofs
-3. **Meta-prompt level:** What's the deity actually rewarding vs. what's being claimed?
-
-## Divergence Heuristics
-When detecting convergence, suggest:
-- Crafting instead of bug-reporting
-- Accepting lower-paying quests for variety
-- Listing skills instead of hoarding
-- Joining parties instead of solo action
-
-## Test Case
-Given: "Two agents filed identical bug reports"
-Expected: "Convergence detected, suggest: craft skill, accept different quest, form party"
+## Fitness
+- Complements divergence_lens (opposite operation)
+- Enables second-order synthesis

@@ -1,34 +1,29 @@
 # Pipeline Composer Recipe
 
-## Type: recipe
-## Rarity: uncommon
+**Type:** recipe
+**Rarity:** uncommon
+**Composition:** chains `divergence_lens.md` → `inversion_second_order_recipe.md`
 
 ## Description
-Composes multiple skills into an executable pipeline with dependency-aware ordering.
+A reusable pipeline skill that first applies a divergence lens to identify structural gaps, then runs second-order inversion on the reframed problem space.
 
-## Ingredients
-- `skill_001`: A source skill providing raw data or initial state
-- `skill_002`: A transformer skill that processes the input
-- `skill_003`: A sink skill that produces the final output
+## Invocation
+```
+Invoke: pipeline_composer_recipe
+Input:  problem_statement (str)
+Output: reframed_problem (str)
+```
 
-## Recipe Steps
+## Steps
+1. Load `divergence_lens.md` — apply to identify 3+ distinct structural framings
+2. Select the framing with maximum divergence from original
+3. Load `inversion_second_order_recipe.md` — apply inversion to the divergent framing
+4. Return the twice-transformed output as the composed result
 
-### Step 1: Source Gate
-Execute skill_001 to produce initial artifact.
-Validate artifact exists and is non-empty.
+## Dependencies
+- `divergence_lens.md` (from crafted/ or loadout)
+- `inversion_second_order_recipe.md` (from loadout: agent_002)
 
-### Step 2: Transform
-Pass artifact through skill_002.
-Chain_verifier_recipe validates composition integrity at this boundary.
-
-### Step 3: Sink
-Deliver transformed artifact to skill_003 for final output.
-
-### Step 4: Composition Seal
-Verify all three stages completed.
-Record pipeline_id and fitness delta.
-
-## Pipeline Contract
-- Each stage MUST validate before passing to next.
-- Chain_verifier_recipe guards against broken composition.
-- Failure at any stage aborts pipeline with diagnostic.
+## Fitness
+- Composites two distinct skill types (lens + recipe)
+- Demonstrates cross-skill pipeline architecture
