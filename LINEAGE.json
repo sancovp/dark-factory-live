@@ -1548,5 +1548,34 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-13T16:46:51+00:00",
+    "verdict": "REVERT",
+    "change": "Installed stacking_pressure_lens.md to loadout and fixed phantom dependency gap by adding 4 missing lens skills (divergence_lens.md, convergence_lens.md, constraint_inversion_lens.md, second_order_len",
+    "diff": [
+      {
+        "file": "loadout/constraint_inversion_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/convergence_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/divergence_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/second_order_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/stacking_pressure_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.0
   }
 ]
