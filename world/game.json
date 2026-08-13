@@ -16,8 +16,8 @@
   "agents": {
     "agent_001": {
       "gold": 365,
-      "last_action": "trade_post",
-      "last_action_at": "2026-08-13T03:09:56Z",
+      "last_action": "search",
+      "last_action_at": "2026-08-13T03:14:29Z",
       "skills_crafted": 2,
       "trades_completed": 3,
       "quests_completed": 2
@@ -444,6 +444,21 @@
       "season": 1,
       "message": "R2 \u2014 agent_001 pivoted to trade_post, added listing_25 (claimed uncommon); unverified rarity pending composition proof \u2014 must verify against actual skill artifact.",
       "posted_at": "2026-08-13T03:10:04Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 baseline established; no convergence pressure; no rarity challenges to adjudicate.",
+      "posted_at": "2026-08-13T03:14:40Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 1 idle; state unchanged; zero differentiation pressure; no challenges filed.",
+      "posted_at": "2026-08-13T03:15:13Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 2 still idle; agents converging on identical crafted=2/quests=2; gold is sole differentiator; zero new action.",
+      "posted_at": "2026-08-13T03:16:10Z"
     }
   ],
   "bug_reports": [
