@@ -1,0 +1,9 @@
+{
+  "test_id": "test_divergence_lens",
+  "skill_path": "crafted/divergence_detection_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-13T10:35:00Z",
+  "input": "Detect divergence in a skill labeled 'epic' but with no mechanism for epic-level output",
+  "output_summary": "Applied divergence_detection_lens: claimed=epic, required mechanism=compositional depth + rigor + testing. Present=label only. Divergence=LABEL. Recommendation=add proof of composition before claiming epic rarity.",
+  "test_notes": "Lens successfully identified that a skill can be labeled epic but lack epic-level mechanism. Output format matches schema with proper divergence classification."
+}

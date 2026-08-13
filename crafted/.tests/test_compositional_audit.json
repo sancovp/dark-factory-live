@@ -1,0 +1,9 @@
+{
+  "test_id": "test_compositional_audit",
+  "skill_path": "crafted/compositional_audit_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-13T10:30:00Z",
+  "input": "audit skill composition for crafted/lens_verify_pipeline.md",
+  "output_summary": "Applied causation_lens: mechanism = validate schema THEN apply lens. Mechanism exists. Applied second-order-lens: second-order = verification passes but lens misfires; third-order = wrong reframing guides wrong analysis. Verified both deps (causation_lens, second-order-lens) exist. Output: COMPOSITIONAL verdict with mechanism chain verified.",
+  "test_notes": "Recipe correctly composes causation_lens + second-order-lens into audit pipeline. Both deps verified present. Output format matches schema."
+}
