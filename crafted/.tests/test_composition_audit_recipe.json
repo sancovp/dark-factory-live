@@ -1,0 +1,9 @@
+{
+  "test_id": "test_composition_audit_recipe",
+  "skill_path": "crafted/composition_audit_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-13T08:30:00Z",
+  "input": "crafts/composition_audit_recipe.md",
+  "output_summary": "Audit correctly identified: (1) lens_verify_pipeline references chain_verifier_recipe which is MISSING from loadout; (2) second-order-lens VERIFIED. Verdict: COMPOSITION_GAPS.",
+  "test_notes": "Recipe successfully composes file existence checker + import tracer + dependency validator. Correctly identified that lens_verify_pipeline's chain_verifier_recipe reference does not exist, while second-order-lens does. Addresses dependency_proof_before_loadout gap."
+}
