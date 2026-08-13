@@ -1,0 +1,23 @@
+{
+  "phase": "soup",
+  "define": [],
+  "connect": [
+    "java_memory_model",
+    "phaser_java",
+    "program_order_locality",
+    "relaxed_atomicity",
+    "relaxed_load",
+    "relaxed_read_modify_write",
+    "relaxed_store",
+    "relaxed_vs_acquire",
+    "relaxed_vs_release",
+    "speculation_prune",
+    "store_buffer_linger",
+    "volatile_cpp",
+    "write_coalescing_privilege"
+  ],
+  "reconcile": [],
+  "explain": [],
+  "n_concepts": 155,
+  "n_relations": 137
+}

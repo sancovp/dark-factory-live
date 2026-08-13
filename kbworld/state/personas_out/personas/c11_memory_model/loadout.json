@@ -1,0 +1,13 @@
+{
+  "region": "c11_memory_model",
+  "call_number": "concurrency_synchronization_primitives_and_memor.c11_memory_model : deep_c11_memory_model(9)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 15
+}

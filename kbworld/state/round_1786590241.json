@@ -1,0 +1,109 @@
+{
+  "subject": "concurrency synchronization primitives and memory models",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "bootstrap",
+      "doors": [
+        "c11_memory_model",
+        "spinlock"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "bootstrap": {
+        "concepts": 99,
+        "relations": 69
+      },
+      "specialize": {
+        "basis_after": 0.0,
+        "new": [
+          [
+            "c11_memory_model",
+            31,
+            21
+          ],
+          [
+            "spinlock",
+            20,
+            29
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 5
+      },
+      "connect": {
+        "wired": 18
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 155,
+        "relations": 137,
+        "define": 0,
+        "connect": 13
+      }
+    },
+    "brain": {
+      "grew": "sequentially_consistent"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/concurrency_synchronization_primitives_and_memor",
+      "skills": 23,
+      "staff": 32
+    },
+    "observe": {
+      "findings": 3,
+      "issues": [
+        {
+          "atom": "happens_before_relation",
+          "why": "Says effects are VISIBLE TO B - conflates ordering relation with data visibility. User might think happens-before alone guarantees B sees A's writes; requires synchronizes-with for visibility guarantees.",
+          "price": 12,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/146"
+        },
+        {
+          "atom": "seq_cst_atomic_visibility",
+          "why": "Says reads observe the MOST RECENT write - misleading: seq_cst reads observe the most recent write IN THE GLOBAL TOTAL ORDER, not the most recent by wall-clock time. Multiple threads writing might all have newer timestamps but only one appears.",
+          "price": 9,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/147"
+        },
+        {
+          "atom": "mcs_lock",
+          "why": "Claims O(1) bus traffic per lock ACQUISITION. MCS reduces bus traffic for waiters to O(1) by spinning locally, but the atomic operation that acquires the lock still requires cache-line transfer. The headline O(1) applies to waiters, not acquisition.",
+          "price": 4,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/148"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/concurrency_synchronization_primitives_a",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/concurrency_synchronization_primitives_a/skills/using-concurrency-synchronization-primitives-a/SKILL.md",
+      "plugin": "concurrency-synchronization-primitives-a-module",
+      "library_skills": 28,
+      "brain_files": 21
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "155c/137r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 0
+      },
+      "after": {
+        "define": 0,
+        "connect": 13
+      }
+    },
+    "basis": 0.364,
+    "secs": 360.9
+  }
+}
