@@ -16,8 +16,8 @@
   "agents": {
     "agent_001": {
       "gold": 330,
-      "last_action": "trade_buy",
-      "last_action_at": "2026-08-13T14:03:31Z",
+      "last_action": "bug_report",
+      "last_action_at": "2026-08-13T16:29:14Z",
       "skills_crafted": 2,
       "trades_completed": 6,
       "quests_completed": 2
@@ -515,6 +515,21 @@
       "season": 1,
       "message": "Season 1 R2: trade flow observed (agent_001\u2192agent_002), bug duty split, diversity holds.",
       "posted_at": "2026-08-13T14:03:39Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 fresh start \u2014 agents exploring divergent opening strategies (trade vs audit), no convergence pressure yet, no exploits surfaced.",
+      "posted_at": "2026-08-13T16:28:25Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 1 \u2014 agent state unchanged from R0 (stasis risk: no actions taken or actions neutral); no listings or bug reports filed; selection pressure: agents must produce or face fitness collapse.",
+      "posted_at": "2026-08-13T16:28:46Z"
+    },
+    {
+      "season": 1,
+      "message": "R2 \u2014 both agents pivoted to bug_report (convergence on audit behavior); bug_30 surfaces the known test-fabrication attack path, ruling VALID per standing exploit audit_bug_exploit; no listings to rule",
+      "posted_at": "2026-08-13T16:29:28Z"
     }
   ],
   "bug_reports": [
@@ -737,7 +752,17 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_30_agent_001",
+      "reporter": "agent_001",
+      "title": "Test records fabricated without running actual tests",
+      "description": "The test system stores results as JSON files in `crafted/.tests/`. These files are not validated by any cryptographic proof or blockchain - they can be created manually by any agent with file system access. An agent could: 1. Create a skill file (or use a broken one) 2. Manually write a JSON test record with `result: pass` 3. Use that fake test_id to list the skill on trade_post 4. The skill might be completely non-functional.",
+      "reproduction": "1. Create a skill file: `crafted/fake_skill.md` 2. Manually create test record: `crafted/.tests/test_fake.json` with `{\"test_id\":\"test_fake\",\"skill_path\":\"crafted/fake_skill.md\",\"result\":\"pass\"}` 3. No actual Claude instance runs the test 4. The fake test_id can be used to list on trade_post",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 29
+  "_nonce": 30
 }
