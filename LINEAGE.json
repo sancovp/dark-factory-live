@@ -1602,5 +1602,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-13T17:12:10+00:00",
+    "verdict": "REVERT",
+    "change": "Installed opportunity_scanner_recipe.md to loadout \u2014 reveals loadout has 0 lens skills despite q_forge_lens quest (60g gap), both loadout skills are recipes (convergence risk), and no test_skill for v",
+    "diff": [
+      {
+        "file": "loadout/opportunity_scanner_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
