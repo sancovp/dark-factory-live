@@ -1,0 +1,12 @@
+{
+  "name": "oauth-2-0-and-openid-connect-module",
+  "description": "oauth 2 0 and openid connect \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 174 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "category": "productivity",
+  "source": {
+    "source": "url",
+    "url": "https://github.com/sancovp/oauth-2-0-and-openid-connect-module.git"
+  }
+}

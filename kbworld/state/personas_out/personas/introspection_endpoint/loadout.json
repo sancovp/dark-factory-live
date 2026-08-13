@@ -1,0 +1,13 @@
+{
+  "region": "introspection_endpoint",
+  "call_number": "oauth_2_0_and_openid_connect.introspection_endpoint",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 0
+}

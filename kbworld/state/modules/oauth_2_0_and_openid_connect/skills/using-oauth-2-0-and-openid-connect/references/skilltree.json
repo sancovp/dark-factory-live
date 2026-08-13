@@ -1,0 +1,223 @@
+{
+  "skilltree": {
+    "name": "understand-oauth 2 0 and openid connect",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-oauth 2 0 and openid connect",
+    "description": "the oauth 2 0 and openid connect library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-core",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-core",
+        "description": "the core subdomain of oauth 2 0 and openid connect (1 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-token_type",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-token_type",
+            "description": "OAuth 2.0 parameter indicating how the access_token is to be presented to the resource server, typically Beare",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_oauth_2_0",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-deep_oauth_2_0",
+        "description": "the deep_oauth_2_0 subdomain of oauth 2 0 and openid connect (37 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-access_token_introspection",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-access_token_introspection",
+            "description": "RFC 7662 mechanism by which a resource_server POSTs the access_token to the authorization_server introspection",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-access_token_format_type",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-access_token_format_type",
+            "description": "Classification of the access_token internal structure: opaque (random string referencing server-side state) or",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-access_token_scope",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-access_token_scope",
+            "description": "The specific permission set granted to the access_token; a space-delimited string drawn from the scopes reques",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-access_token_expires_in",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-access_token_expires_in",
+            "description": "Integer seconds from issuance after which the access_token is no longer valid; the resource server must reject",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-access_token_refreshed_by",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-access_token_refreshed_by",
+            "description": "A refresh_token is a long-lived credential optionally issued alongside the access_token that allows the client",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-access_token_presented_to",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-access_token_presented_to",
+            "description": "The resource_server that receives and validates the access_token on each protected API call; the token is forw",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_openid_connect",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-deep_openid_connect",
+        "description": "the deep_openid_connect subdomain of oauth 2 0 and openid connect (33 concepts)",
+        "coord": "0.3",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-claims_request_object",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-claims_request_object",
+            "description": "Structured JSON object within the claims parameter containing claim preferences for id_token and userinfo endp",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-acr_claim",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-acr_claim",
+            "description": "Claim in the id_token containing the ACR actually used by the OP to authenticate the user, returned to the RP",
+            "coord": "0.3.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-claims_policy_enforcement",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-claims_policy_enforcement",
+            "description": "Identity provider rule set determining which claims can be released to a given relying_party based on client r",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-acr",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-acr",
+            "description": "Authentication Context Class: a statement about the authentication method used, the assurance level of the aut",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-acr_requirement",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-acr_requirement",
+            "description": "A requirement statement specifying which ACRs the RP considers acceptable and in what priority order",
+            "coord": "0.3.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-essential_claim_directive",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-essential_claim_directive",
+            "description": "Claim marked as required by the relying party; identity provider must return this claim or return an error sat",
+            "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-oauth_2_0_and_openid_connect",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-oauth_2_0_and_openid_connect",
+        "description": "the oauth_2_0_and_openid_connect subdomain of oauth 2 0 and openid connect (103 concepts)",
+        "coord": "0.4",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-oauth_2_0",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-oauth_2_0",
+            "description": "IETF RFC 6749 authorization framework enabling third-party application access to protected resources without s",
+            "coord": "0.4.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-openid_connect",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-openid_connect",
+            "description": "Identity layer on top of OAuth 2.0 (OIDC 1.0, OIDC Core spec) adding ID tokens as JWTs, userinfo endpoint, and",
+            "coord": "0.4.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-access_token",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-access_token",
+            "description": "OAuth 2.0 credential presented to the resource server; opaque to clients but contains or references authorizat",
+            "coord": "0.4.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-token_endpoint",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-token_endpoint",
+            "description": "OAuth 2.0 endpoint accepting authorization_code or other grants and returning access_token, refresh_token, and",
+            "coord": "0.4.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-claims_parameter",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-claims_parameter",
+            "description": "OIDC parameter requesting specific claims in id_token or userinfo response; server may return subset based on ",
+            "coord": "0.4.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-resource_server",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_oauth_2_0_and_openid_connect/understand-resource_server",
+            "description": "Server hosting protected resources; validates incoming access tokens and returns resources only when tokens ar",
+            "coord": "0.4.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

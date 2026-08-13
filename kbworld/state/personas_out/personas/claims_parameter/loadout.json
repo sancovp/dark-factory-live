@@ -1,0 +1,13 @@
+{
+  "region": "claims_parameter",
+  "call_number": "oauth_2_0_and_openid_connect.claims_parameter : deep_openid_connect(5)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 7
+}

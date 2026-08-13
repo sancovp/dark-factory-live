@@ -1,0 +1,13 @@
+{
+  "region": "acr_claim",
+  "call_number": "deep_openid_connect.acr_claim : oauth_2_0_and_openid_connect(1)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}

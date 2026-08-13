@@ -1,0 +1,13 @@
+{
+  "region": "access_token",
+  "call_number": "oauth_2_0_and_openid_connect.access_token : deep_oauth_2_0(1)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 11
+}
