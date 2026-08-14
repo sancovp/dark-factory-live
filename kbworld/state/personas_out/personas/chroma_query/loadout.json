@@ -1,0 +1,13 @@
+{
+  "region": "chroma_query",
+  "call_number": "deep_vector_database.chroma_query",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 8
+}

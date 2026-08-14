@@ -1,6 +1,6 @@
 {
   "region": "approximate_nearest_neighbor",
-  "call_number": "retrieval_augmented_generation_architecture_patt.approximate_nearest_neighbor",
+  "call_number": "vector_databases_and_embeddings.approximate_nearest_neighbor",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 0
+  "cone_size": 7
 }

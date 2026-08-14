@@ -1,74 +1,42 @@
 {
   "rounds": [
     {
-      "region": "knowledge_management",
+      "region": "vector_database",
       "targets": [
-        "luhmann",
-        "slip_box"
+        "chroma",
+        "pinecone"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 43,
-      "new_relations": 21
+      "new_concepts": 45,
+      "new_relations": 48
     },
     {
-      "region": "second_brain",
+      "region": "nearest_neighbor_search",
       "targets": [
-        "external_memory",
-        "thought_extender"
+        "scalar_quantization",
+        "indexing_strategy"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 23,
-      "new_relations": 24
+      "new_concepts": 47,
+      "new_relations": 19
     }
   ],
   "basis_before": {
-    "shared_atoms": [
-      "atomic_notes",
-      "capturing",
-      "distilling",
-      "evergreen_notes",
-      "expressing",
-      "fleeting_notes",
-      "knowledge_management",
-      "literature_notes",
-      "luhmann",
-      "organizing",
-      "permanent_notes",
-      "progressive_summarization",
-      "slip_box",
-      "zettelkasten"
-    ],
-    "shared": 14,
-    "union": 18,
-    "overlap": 0.778
+    "shared_atoms": [],
+    "shared": 0,
+    "union": 16,
+    "overlap": 0.0
   },
   "basis_after": {
-    "shared_atoms": [
-      "atomic_notes",
-      "box_context",
-      "capturing",
-      "communication_partner",
-      "distilling",
-      "evergreen_notes",
-      "expressing",
-      "fleeting_notes",
-      "knowledge_management",
-      "literature_notes",
-      "luhmann",
-      "organizing",
-      "permanent_notes",
-      "progressive_summarization",
-      "slip_box",
-      "zettelkasten"
-    ],
-    "shared": 16,
-    "union": 23,
-    "overlap": 0.696
+    "shared_atoms": [],
+    "shared": 0,
+    "union": 18,
+    "overlap": 0.0
   }
 }

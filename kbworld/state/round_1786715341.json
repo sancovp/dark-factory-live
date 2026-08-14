@@ -1,0 +1,139 @@
+{
+  "subject": "vector databases and embeddings",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "bootstrap",
+      "doors": [
+        "vector_database",
+        "nearest_neighbor_search"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "bootstrap": {
+        "concepts": 140,
+        "relations": 63
+      },
+      "specialize": {
+        "basis_after": 0.0,
+        "new": [
+          [
+            "vector_database",
+            45,
+            48
+          ],
+          [
+            "nearest_neighbor_search",
+            47,
+            19
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 30
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 262,
+        "relations": 150,
+        "define": 0,
+        "connect": 99
+      }
+    },
+    "brain": {
+      "grew": "approximate_nearest_neighbor"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/vector_databases_and_embeddings",
+      "skills": 24,
+      "staff": 27
+    },
+    "observe": {
+      "findings": 8,
+      "issues": [
+        {
+          "atom": "approximate_nearest_neighbor",
+          "why": "Trades NO recall for EXACT recall; claims probabilistic organization but search is deterministic given same index",
+          "price": 18,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/217"
+        },
+        {
+          "atom": "approximate_nearest_neighbor",
+          "why": "ivf search is O(n) not sub-linear: must scan partition vectors; sub-linear only when nprobe=1 of k lists",
+          "price": 18,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/218"
+        },
+        {
+          "atom": "hnsw_index",
+          "why": "Local search ef-construction neighbors, not constant-time; O(log n) worst case per layer across all layers",
+          "price": 23,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/219"
+        },
+        {
+          "atom": "memory_footprint",
+          "why": "Quantization is NOT the primary lever: index type (flat vs hnsw) determines order-of-magnitude more",
+          "price": 30,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/220"
+        },
+        {
+          "atom": "chroma",
+          "why": "Missing caveat: in-process single-node only, not production-distributed; unsuitable for scale without external orchestration",
+          "price": 8,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/221"
+        },
+        {
+          "atom": "embedding_cache",
+          "why": "Redis memcached lack native vec ops; not a drop-in vector cache without FAISS/NumPy layer",
+          "price": 10,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/222"
+        },
+        {
+          "atom": "qdrant",
+          "why": "SCAN is not an index type Qdrant offers; their indexes are HNSW, binary quantization, and dense",
+          "price": 8,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/223"
+        },
+        {
+          "atom": "pinecone",
+          "why": "Serverless tier has cold-start warmup latency not disclosed; SLA-backed availability omits cold-start SLA gap",
+          "price": 8,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/224"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/vector_databases_and_embeddings",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/vector_databases_and_embeddings/skills/using-vector-databases-and-embeddings/SKILL.md",
+      "plugin": "vector-databases-and-embeddings-module",
+      "library_skills": 29,
+      "brain_files": 26
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "262c/150r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 0
+      },
+      "after": {
+        "define": 0,
+        "connect": 99
+      }
+    },
+    "basis": 0.444,
+    "secs": 414.0
+  }
+}

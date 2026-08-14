@@ -1,0 +1,12 @@
+{
+  "name": "vector-databases-and-embeddings-module",
+  "description": "vector databases and embeddings \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 262 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "category": "productivity",
+  "source": {
+    "source": "url",
+    "url": "https://github.com/sancovp/vector-databases-and-embeddings-module.git"
+  }
+}

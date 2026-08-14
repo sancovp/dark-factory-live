@@ -1,0 +1,957 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/vector_databases_and_embeddings#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/vector_databases_and_embeddings> a owl:Ontology ;
+    rdfs:label "vector databases and embeddings" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:ann_benchmark a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ann benchmark" ;
+    rdfs:comment "A reproducible evaluation framework that measures recall, QPS, and build time for ANN implementations across fixed datasets (deep-image-96, sift-128) under standardized query budgets." .
+kb:anomaly_detection_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "anomaly detection embedding" ;
+    rdfs:comment "Computing embedding for data point and measuring distance to cluster centroid; large distance flags anomalous behavior." .
+kb:approximate_nearest_neighbor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "approximate nearest neighbor" ;
+    rdfs:comment "An ANN algorithm that trades exact recall for sub-linear query time by probabilistically organizing the embedding space into clusters or graphs." .
+kb:approximate_query a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "approximate query" ;
+    rdfs:comment "A retrieval query that returns an approximate set of nearest neighbors rather than exact results, trading guaranteed recall for reduced query latency and lower computational cost." .
+kb:asymmetric_quantization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "asymmetric quantization" ;
+    rdfs:comment "A quantization scheme using both scale_factor and zero_point to map an arbitrary [min, max] float range to the integer domain, enabling better utilization of the quantization range." .
+kb:authenticates_to_pinecone_project a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "authenticates to pinecone project" ;
+    rdfs:comment "The relationship where a scoped API key grants authenticated access to a specific Pinecone project and its resources." .
+kb:backup_recovery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "backup recovery" ;
+    rdfs:comment "The process of periodically snapshotting a vector database's index files and payload state to durable object storage for restoration in the event of data loss or corruption." .
+kb:batch_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "batch embedding" ;
+    rdfs:comment "The process of running multiple inputs through an embedding model simultaneously in a single forward pass to maximize GPU throughput and reduce per-item latency." .
+kb:belongs_to_pinecone_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "belongs to pinecone index" ;
+    rdfs:comment "The containment relationship indicating a record resides within a specific Pinecone index for storage and retrieval." .
+kb:belongs_to_pinecone_namespace a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "belongs to pinecone namespace" ;
+    rdfs:comment "The tenancy relationship indicating a record is scoped to a particular namespace within a Pinecone index." .
+kb:bi_encoder a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bi encoder" ;
+    rdfs:comment "An embedding model that independently encodes a query and a document into vectors, then computes similarity via a fast distance metric; enables pre-computed document vectors." .
+kb:bm25 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bm25" ;
+    rdfs:comment "Okapi Best Matching 25: a probabilistic sparse retrieval model that scores documents by term frequency and inverse document frequency with length normalization." .
+kb:bm25_sparse_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bm25 sparse retrieval" ;
+    rdfs:comment "Lexical baseline using term frequency and document length normalization; complements dense retrieval for exact-match queries." .
+kb:catastrophic_forgetting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "catastrophic forgetting" ;
+    rdfs:comment "The destructive overwriting of previously learned semantic relationships when an embedding model is fine-tuned on new data without regularization against the old embedding distribution." .
+kb:chroma a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma" ;
+    rdfs:comment "An open-source embedded vector database written in Python; designed for developer simplicity with in-memory or persistence mode, commonly used in LLM and RAG applications." .
+kb:chroma_client a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma client" ;
+    rdfs:comment "The primary Python API client for Chroma; wraps HTTP or in-memory transport to a Chroma server or persistence layer." .
+kb:chroma_collection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma collection" ;
+    rdfs:comment "A named namespace within Chroma that stores embeddings, associated documents, metadata, and IDs as an isolated group." .
+kb:chroma_distance_metric a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma distance metric" ;
+    rdfs:comment "The similarity measure used for nearest-neighbor ranking; Chroma supports cosine, euclidean, and dot product distances." .
+kb:chroma_document a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma document" ;
+    rdfs:comment "The raw text or payload string that is embedded and stored alongside its vector representation in a collection." .
+kb:chroma_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma embedding" ;
+    rdfs:comment "A dense vector of floating-point numbers produced by an embedding function, representing the semantic position of a document in high-dimensional space." .
+kb:chroma_embedding_function a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma embedding function" ;
+    rdfs:comment "A callable that converts raw input documents into embedding vectors; Chroma supports multiple backends (sentence-transformers, OpenAI, Cohere, etc.)." .
+kb:chroma_entry_id a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma entry id" ;
+    rdfs:comment "A unique identifier string assigned to each embedded document within a collection; used for targeted get/delete operations." .
+kb:chroma_filter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma filter" ;
+    rdfs:comment "A metadata predicate applied at query time to restrict which entries are considered during approximate nearest-neighbor search." .
+kb:chroma_in_memory_mode a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma in memory mode" ;
+    rdfs:comment "An ephemeral Chroma instantiation where all data lives in process memory with optional snapshot-to-disk; no server required." .
+kb:chroma_metadata a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma metadata" ;
+    rdfs:comment "Structured key-value attributes attached to an embedding entry; enables filtering and payload queries at query time." .
+kb:chroma_persistence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma persistence" ;
+    rdfs:comment "The mechanism for checkpointing collection state to disk; Chroma writes SQLite and binary files to a configurable root directory." .
+kb:chroma_query a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma query" ;
+    rdfs:comment "A search request containing a query vector (or text to embed) plus optional top-k and metadata filter parameters." .
+kb:chroma_result_set a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma result set" ;
+    rdfs:comment "The ordered list of matches returned by a query, containing entry IDs, documents, metadata, and distance scores." .
+kb:chroma_server a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chroma server" ;
+    rdfs:comment "A long-running Chroma process that exposes a REST or gRPC API, managing one or more collections for remote clients." .
+kb:chunking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chunking" ;
+    rdfs:comment "The process of splitting a long document into smaller text segments (sentences, paragraphs, or fixed token windows) before embedding each chunk as a discrete vector." .
+kb:clipping_threshold a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "clipping threshold" ;
+    rdfs:comment "A boundary value defining where outliers are clipped during quantization; values beyond the threshold are mapped to the quantization range extrema, introducing bounded error." .
+kb:clustering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "clustering" ;
+    rdfs:comment "An unsupervised partitioning of the embedding space into k groups such that vectors within a cluster share geometric or semantic proximity." .
+kb:clustering_quality a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "clustering quality" ;
+    rdfs:comment "An evaluation metric for embedding space organization measured by silhouette score, Davies-Bouldin index, or cluster purity against a labeled ground-truth partition of the data." .
+kb:colbert_late_interaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "colbert late interaction" ;
+    rdfs:comment "Model producing per-token vectors; retrieval uses MaxSim operator (max over token similarities) enabling fine-grained phrase matching." .
+kb:collaborative_filtering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "collaborative filtering" ;
+    rdfs:comment "A recommendation approach that learns joint user-item embedding vectors from interaction history, capturing latent taste factors without requiring explicit item content features." .
+kb:concept_drift a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "concept drift" ;
+    rdfs:comment "A change in the statistical properties of the input data distribution that causes an embedding model trained on historical data to produce suboptimal representations for new inputs." .
+kb:configures_pinecone_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "configures pinecone index" ;
+    rdfs:comment "The configuration relationship where a distance metric parameterizes the similarity measure of a Pinecone index." .
+kb:consistency_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "consistency model" ;
+    rdfs:comment "The concurrency and staleness guarantees provided by a distributed vector database: strong consistency requires all replicas to agree before returning, while eventual consistency allows stale reads." .
+kb:constrains_pinecone_query a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "constrains pinecone query" ;
+    rdfs:comment "The gating relationship where a filter expression restricts query results to records matching indexed scalar field conditions." .
+kb:contains_pinecone_dense_vector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "contains pinecone dense vector" ;
+    rdfs:comment "The composition relationship where a Pinecone record embeds dense vector values representing semantic embeddings for ANN search." .
+kb:contains_pinecone_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "contains pinecone index" ;
+    rdfs:comment "The organizational relationship where a Pinecone project holds one or more indexes as its primary data collections." .
+kb:contains_pinecone_sparse_vector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "contains pinecone sparse vector" ;
+    rdfs:comment "The composition relationship where a Pinecone record optionally embeds sparse vector dimensions for hybrid dense-sparse retrieval." .
+kb:content_based_filtering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "content based filtering" ;
+    rdfs:comment "A recommendation approach that encodes item attributes into embedding vectors and retrieves items with embeddings similar to a user profile embedding." .
+kb:continual_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "continual learning" ;
+    rdfs:comment "A model adaptation paradigm that incrementally learns new concepts while preserving performance on previously learned ones, addressing the stability-plasticity dilemma in evolving embedding spaces." .
+kb:contrastive_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "contrastive learning" ;
+    rdfs:comment "A self-supervised training objective that pulls semantically similar pairs of embeddings together while pushing dissimilar pairs apart in the vector space." .
+kb:cosine_similarity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cosine similarity" ;
+    rdfs:comment "A scalar similarity measure equal to the cosine of the angle between two vectors; range [-1, 1], with 1 indicating identical direction in the embedding space." .
+kb:creates_pinecone_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "creates pinecone index" ;
+    rdfs:comment "The provisioning relationship where an index creation operation establishes a new named vector collection with specified configuration." .
+kb:cross_encoder a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cross encoder" ;
+    rdfs:comment "A neural model that takes a query-document pair as a concatenated input and outputs a relevance score; more accurate than bi-encoder but too slow for first-stage retrieval." .
+kb:deduplication a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deduplication" ;
+    rdfs:comment "The process of detecting and eliminating near-duplicate or exact-duplicate embedding vectors from a vector database to reduce storage waste and retrieval noise." .
+kb:delete_operation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "delete operation" ;
+    rdfs:comment "The removal of a specific vector and its associated metadata from a vector database, with behavior varying from immediate physical removal to soft-delete with periodic compaction." .
+kb:deletion_marking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deletion marking" ;
+    rdfs:comment "Soft-delete approach: mark vector as inactive in metadata; physical removal deferred to periodic index compaction." .
+kb:dense_passage_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dense passage retrieval" ;
+    rdfs:comment "The use of dense bi-encoder embeddings to retrieve relevant text passages from a corpus, typically trained with contrastive loss on question-answer pairs." .
+kb:dense_vector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dense vector" ;
+    rdfs:comment "A vector representation where most or all dimensions carry meaningful non-zero values, in contrast to sparse one-hot or bag-of-words encodings." .
+kb:dequantization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dequantization" ;
+    rdfs:comment "The reverse operation converting int8 back to float32 for computation; performed as (int8_value * scale_factor) + zero_point for asymmetric, or int8_value * scale_factor for symmetric." .
+kb:dimension_reduction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dimension reduction" ;
+    rdfs:comment "Technique (PCA, UMAP, t-SNE) mapping high-dimensional embeddings to lower dimensions for visualization or efficiency." .
+kb:dimensionality_reduction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dimensionality reduction" ;
+    rdfs:comment "A family of techniques (PCA, UMAP, autoencoders) that project high-dimensional embedding vectors into a lower-dimensional space while preserving pairwise distance structure for visualization or compression." .
+kb:distributed_vector_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "distributed vector search" ;
+    rdfs:comment "A sharded or replicated deployment of a vector database across multiple nodes to achieve horizontal scalability, with query routing and result merge across partition boundaries." .
+kb:document_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document embedding" ;
+    rdfs:comment "A single dense vector that summarizes the semantic content of an entire document, computed by pooling token-level embeddings or aggregating sentence-level vectors." .
+kb:domain_adaptation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "domain adaptation" ;
+    rdfs:comment "The process of adjusting a generic embedding model so that its learned representations better capture the semantic structure of a specific domain or vocabulary." .
+kb:dot_product a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dot product" ;
+    rdfs:comment "An inner-product similarity computed as the sum of element-wise products between two vectors; when vectors are L2-normalized it is equivalent to cosine similarity." .
+kb:dot_product_similarity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dot product similarity" ;
+    rdfs:comment "Raw inner product of unnormalized vectors; correlates with cosine similarity but is magnitude-sensitive." .
+kb:edge_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "edge embedding" ;
+    rdfs:comment "A vector representation of a graph edge or relationship, often computed as a function (e.g., Hadamard product, concatenation) of the two endpoint node embeddings." .
+kb:elasticsearch_vector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "elasticsearch vector" ;
+    rdfs:comment "The dense vector field type and kNN search capability added to Elasticsearch 8.0+; supports cosine and dot-product similarity with approximate HNSW indexing." .
+kb:elbow_method a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "elbow method" ;
+    rdfs:comment "A heuristic for selecting the optimal number of clusters in k-means by identifying the bend point in a plot of within-cluster sum of squares (WCSS) versus k." .
+kb:embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding" ;
+    rdfs:comment "A dense vector representation of data (text, image, audio) produced by a neural model that encodes semantic meaning into a numerical array." .
+kb:embedding_aggregation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding aggregation" ;
+    rdfs:comment "A method for combining multiple embedding vectors (from document chunks, sentences, or modalities) into a single representative vector through averaging or weighted summation." .
+kb:embedding_as_service a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding as service" ;
+    rdfs:comment "Microservice exposing trained embedding model via HTTP/gRPC; handles batching, caching, and model versioning independently of the DB." .
+kb:embedding_cache a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding cache" ;
+    rdfs:comment "A key-value store (Redis, memcached, disk) that persists computed embedding vectors to avoid redundant model inference for identical or duplicate inputs." .
+kb:embedding_dimension a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding dimension" ;
+    rdfs:comment "The length of the numerical vector produced by an embedding model; higher dimensions capture richer semantic nuance but increase storage, index size, and compute cost." .
+kb:embedding_drift a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding drift" ;
+    rdfs:comment "The gradual shift in embedding vector distributions over time as the underlying embedding model is retrained or the data semantics evolve, causing previously indexed vectors to become misaligned with fresh queries." .
+kb:embedding_finetuning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding finetuning" ;
+    rdfs:comment "Adapting a pretrained embedding model to a specific domain or task via contrastive or triplet loss on labeled data." .
+kb:embedding_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding model" ;
+    rdfs:comment "A trained neural network that converts raw tokens or image patches into fixed-length dense vectors in the embedding space." .
+kb:embedding_model_selection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding model selection" ;
+    rdfs:comment "The process of choosing an optimal embedding model (BERT, OpenAI ada, SBERT, CLIP) based on dimension budget, latency constraints, retrieval quality benchmarks, and licensing constraints." .
+kb:embedding_normalization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding normalization" ;
+    rdfs:comment "The process of scaling embedding vectors to unit Euclidean length; enables cosine similarity to be computed as a simple dot product between normalized vectors." .
+kb:embedding_pipeline a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding pipeline" ;
+    rdfs:comment "An end-to-end data processing workflow that ingests raw content, applies preprocessing, chunks text into segments, and produces embedding vectors for storage in the vector database." .
+kb:embedding_quality a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding quality" ;
+    rdfs:comment "An evaluation of how well an embedding space captures target semantic relationships, measured by downstream task accuracy, clustering quality metrics, or similarity probe benchmarks." .
+kb:embedding_serving a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding serving" ;
+    rdfs:comment "The infrastructure layer that exposes an embedding model as a low-latency HTTP or gRPC API, typically with batching, GPU inference, and horizontal scaling." .
+kb:entity_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entity embedding" ;
+    rdfs:comment "A dense vector representation of a real-world entity (person, place, organization) learned jointly with other entities in a knowledge graph or recommendation embedding table." .
+kb:euclidean_distance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "euclidean distance" ;
+    rdfs:comment "The L2 geometric distance between two embedding vectors computed as the square root of the sum of squared dimension differences; smaller values indicate greater similarity." .
+kb:exact_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "exact search" ;
+    rdfs:comment "A brute-force scan of all vectors in a database to return provably correct nearest neighbors; prohibitively expensive at scale but used as the ground truth for evaluating ANN quality." .
+kb:extends_pinecone_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "extends pinecone index" ;
+    rdfs:comment "The inheritance relationship where pod-based and serverless deployment models specialize the base Pinecone index concept with distinct compute strategies." .
+kb:faiss a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "faiss" ;
+    rdfs:comment "Meta's open-source C++/Python library for dense vector similarity search; implements IVF, PQ, HNSW, ONNG, and GPU-accelerated kernels with optional 8-bit quantization." .
+kb:false_positive_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "false positive rate" ;
+    rdfs:comment "The fraction of retrieved nearest neighbors that are not true nearest neighbors; a key metric for evaluating the quality of approximate nearest neighbor search results." .
+kb:fine_tuning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fine tuning" ;
+    rdfs:comment "The continued training of a pre-trained embedding model on a domain-specific dataset to improve its ability to distinguish relevant semantic relationships in a targeted use case." .
+kb:float32_base a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "float32 base" ;
+    rdfs:comment "The 32-bit IEEE floating-point representation of a vector element prior to quantization; each value occupies 4 bytes and spans the full numerical range of float32." .
+kb:fp16_quantization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fp16 quantization" ;
+    rdfs:comment "A reduced-precision format that stores embedding dimensions as 16-bit IEEE half-precision floats, halving storage while maintaining near-fp32 retrieval quality for most embedding models." .
+kb:freshness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "freshness" ;
+    rdfs:comment "A system property measuring how recently the vector database reflects the current state of the indexed corpus; affected by indexing latency, batch size, and incremental update frequency." .
+kb:gpu_acceleration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gpu acceleration" ;
+    rdfs:comment "The use of graphics processing units to parallelize ANN computations (HNSW search, IVF scanning, PQ distance) achieving orders-of-magnitude throughput improvements over CPU-only implementations." .
+kb:graph_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph index" ;
+    rdfs:comment "An index structure that models the embedding space as a navigable proximity graph where edges connect nearest neighbor vectors at each layer." .
+kb:graph_neural_network a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph neural network" ;
+    rdfs:comment "A neural architecture that operates on graph-structured data by propagating and transforming embedding vectors along edges and through node aggregation layers." .
+kb:hard_negative a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hard negative" ;
+    rdfs:comment "A negative training example that is semantically similar to the anchor (e.g., same topic or category) and thus creates stronger discrimination pressure during contrastive training." .
+kb:high_dimensional_space a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "high dimensional space" ;
+    rdfs:comment "The mathematical n-dimensional Euclidean (or inner-product) space in which embedding vectors reside; dimensionality typically ranges from 64 to 4096." .
+kb:hnsw a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hnsw" ;
+    rdfs:comment "Hierarchical Navigable Small World: a graph-based ANN index that builds a multi-layer skip-list of proximity graphs, enabling logarithmic-time greedy search from an entry point." .
+kb:hnsw_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hnsw index" ;
+    rdfs:comment "Hierarchical Navigable Small World graph; layered skip-list + NN graph enabling logarithmic-layer traversal then constant-time local search." .
+kb:hosts_pinecone_serverless_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hosts pinecone serverless index" ;
+    rdfs:comment "The hosting relationship where a cloud provider infrastructure (AWS, GCP, or Azure) runs a Pinecone serverless index deployment." .
+kb:hybrid_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hybrid search" ;
+    rdfs:comment "A retrieval strategy that combines dense vector similarity search with sparse keyword-based retrieval (BM25) to capture both semantic nuance and exact term matching." .
+kb:idx_accuracy_threshold a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx accuracy threshold" ;
+    rdfs:comment "Minimum acceptable accuracy or recall rate below which results are unacceptable for the application" .
+kb:idx_algorithm_selection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx algorithm selection" ;
+    rdfs:comment "Choice among ANN index types HNSW IVF ANNOY LSH determined by data scale query patterns and accuracy requirements" .
+kb:idx_build_time_budget a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx build time budget" ;
+    rdfs:comment "Maximum acceptable index construction time constraining algorithm complexity and sampling choices" .
+kb:idx_faiss_index_factory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx faiss index factory" ;
+    rdfs:comment "FAISS API selecting index type and factory string for automatic parameter defaults and memory estimates" .
+kb:idx_gpu_acceleration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx gpu acceleration" ;
+    rdfs:comment "Use of GPU kernels for index construction or querying requiring specific index types and memory layout" .
+kb:idx_hnsw_params a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx hnsw params" ;
+    rdfs:comment "Hyperparameters governing HNSW construction and search efConstruction m and ef controlling graph density and traversal depth" .
+kb:idx_hybrid_composition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx hybrid composition" ;
+    rdfs:comment "Strategy combining multiple index types such as HNSW over PQ or IVF with scalar quantization to balance speed accuracy and memory" .
+kb:idx_ivf_params a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx ivf params" ;
+    rdfs:comment "Inverted file index hyperparameters nlist clusters and nprobe probe counts controlling partition granularity and search scope" .
+kb:idx_memory_budget a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx memory budget" ;
+    rdfs:comment "Available RAM or VRAM for index and raw vectors constraining quantization choices and index density" .
+kb:idx_parameter_sweep a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx parameter sweep" ;
+    rdfs:comment "Systematic exploration of parameter space to find optimal recall speed trade off for given constraints" .
+kb:idx_query_latency_budget a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx query latency budget" ;
+    rdfs:comment "Maximum acceptable query response time constraining algorithm selection and pruning aggressiveness" .
+kb:idx_recall_target a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx recall target" ;
+    rdfs:comment "Desired fraction of true nearest neighbors returned governing aggressiveness of search pruning and parameter tuning" .
+kb:idx_throughput_target a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx throughput target" ;
+    rdfs:comment "Target queries per second rate constraining parallelization and batch processing strategy" .
+kb:idx_workload_profiling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idx workload profiling" ;
+    rdfs:comment "Analysis of query distribution vector density and access patterns informing algorithm and parameter selection" .
+kb:image_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "image embedding" ;
+    rdfs:comment "A dense vector extracted from an image by a vision transformer, CNN backbone, or CLIP vision encoder." .
+kb:immutability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "immutability" ;
+    rdfs:comment "A database design choice where vectors are never updated in place; changes are appended as new versioned records, eliminating concurrent-read/write conflicts in distributed index shards." .
+kb:implements_ann_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "implements ann index" ;
+    rdfs:comment "The implementation relationship where a Pinecone index provides approximate nearest neighbor search over stored vector collections." .
+kb:incremental_indexing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "incremental indexing" ;
+    rdfs:comment "The ability to insert new vectors into an existing ANN index without rebuilding the entire structure from scratch; supported variably by different index types." .
+kb:index_build_time a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "index build time" ;
+    rdfs:comment "The wall-clock time required to construct a vector index from a corpus; varies from seconds (IVFFlat) to minutes (HNSW with high M/efConstruction) for billion-scale datasets." .
+kb:index_size a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "index size" ;
+    rdfs:comment "The disk or memory footprint of a built ANN index, typically expressed in bytes per stored vector and overhead factors from the index structure." .
+kb:indexing_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "indexing strategy" ;
+    rdfs:comment "Choice and configuration of ANN algorithm (HNSW, IVF, ANNOY, LSH) and its parameters (ef, nlist, nprobe) governing recall/speed trade-off." .
+kb:inner_product a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inner product" ;
+    rdfs:comment "The raw dot product between two unnormalized vectors; used as a similarity score for models that produce vectors in a non-normalized space." .
+kb:int8_quantization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "int8 quantization" ;
+    rdfs:comment "Post-training quantization that converts 32-bit floating-point embedding dimensions to 8-bit signed or unsigned integers, reducing memory footprint and enabling faster integer arithmetic." .
+kb:int8_representation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "int8 representation" ;
+    rdfs:comment "The 8-bit signed integer result of scalar quantization, mapping the original float32 range onto [-128, 127] or the unsigned variant [0, 255]; occupies 1 byte per element." .
+kb:integrates_with_embedding_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "integrates with embedding model" ;
+    rdfs:comment "The integration relationship where a vector database connects to embedding models to ingest, store, and search generated vector representations." .
+kb:introspects_pinecone_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "introspects pinecone index" ;
+    rdfs:comment "The inspection relationship where an operation retrieves index metadata including dimension, namespace record counts, and storage fullness metrics." .
+kb:inverted_file_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inverted file index" ;
+    rdfs:comment "An index that partitions the vector space into Voronoi cells (clusters) and maintains an inverted list of vectors per cell centroid, enabling scope-limited search." .
+kb:is_component_of_pinecone_record a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "is component of pinecone record" ;
+    rdfs:comment "The partitive relationship where a dense or sparse vector constitutes one of the mandatory or optional fields of a Pinecone record." .
+kb:ivf_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ivf index" ;
+    rdfs:comment "Inverted File Index; clusters vectors into Voronoi cells via k-means; search prunes to nearest centroids then scans partitions." .
+kb:k_means a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "k means" ;
+    rdfs:comment "A centroid-based clustering algorithm that iteratively assigns vectors to nearest centroids and updates centroids as the cluster mean; used to build IVF and PQ codebooks." .
+kb:knowledge_graph_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph embedding" ;
+    rdfs:comment "A set of learned dense vectors representing entities and relation types in a knowledge graph, enabling link prediction and reasoning via vector arithmetic." .
+kb:local_sensitive_hashing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "local sensitive hashing" ;
+    rdfs:comment "A hashing scheme that maps similar vectors to the same hash bucket with high probability; variants include signed random projection (SRP) for cosine similarity and Hamming LSH for binary vectors." .
+kb:manages_vector_database a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "manages vector database" ;
+    rdfs:comment "The management relationship where a service (such as Pinecone) orchestrates vector storage, indexing, and querying infrastructure." .
+kb:manhattan_distance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "manhattan distance" ;
+    rdfs:comment "The L1 distance between two vectors computed as the sum of absolute dimension differences; useful for high-dimensional sparse embedding spaces." .
+kb:maximum_marginal_relevance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "maximum marginal relevance" ;
+    rdfs:comment "Diversification technique penalizing results too similar to already-selected items; balances relevance against coverage in top-k lists." .
+kb:memory_footprint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory footprint" ;
+    rdfs:comment "RAM or VRAM required to hold index and vectors; quantization (PQ, int8) is the primary compression lever." .
+kb:memory_mapped_files a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory mapped files" ;
+    rdfs:comment "An I/O strategy where the vector index files are mapped into the process address space, allowing the operating system's virtual memory manager to handle paging of large indexes from disk." .
+kb:memory_savings_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory savings ratio" ;
+    rdfs:comment "The factor by which memory_footprint is reduced, expressed as original_bytes / quantized_bytes; scalar quantization achieves approximately 4x savings (32-bit to 8-bit)." .
+kb:metadata_filtering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "metadata filtering" ;
+    rdfs:comment "Pre-filtering step applying structured attribute conditions (date, category) before or after vector similarity search." .
+kb:milvus a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "milvus" ;
+    rdfs:comment "An open-source cloud-native vector database developed by Zilliz; supports multiple ANN indexes (HNSW, IVF, DiskANN), GPU acceleration, and distributed shard/replica deployments." .
+kb:modifies_pinecone_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "modifies pinecone index" ;
+    rdfs:comment "The reconfiguration relationship where an operation adjusts index properties such as replica count, pod type, or serverless settings." .
+kb:multilingual_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "multilingual embedding" ;
+    rdfs:comment "Embedding model trained on cross-lingual data enabling semantic similarity across languages in a shared vector space." .
+kb:multimodal_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "multimodal embedding" ;
+    rdfs:comment "A shared embedding space where text and images (or other modalities) are projected into the same vector space enabling cross-modal retrieval." .
+kb:nearest_neighbor_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "nearest neighbor search" ;
+    rdfs:comment "Query operation returning the k closest vectors by a distance or similarity metric in embedding space." .
+kb:negative_sampling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "negative sampling" ;
+    rdfs:comment "A training strategy in contrastive embedding models that randomly selects unrelated examples as negatives; hard negatives are semi-hard examples within a proximity margin that provide stronger gradient signal." .
+kb:neural_network_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "neural network embedding" ;
+    rdfs:comment "The output tensor produced by the final hidden layer of a neural embedding model; the vector stored and indexed in the vector database." .
+kb:node_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "node embedding" ;
+    rdfs:comment "A dense vector representation of a graph node learned by graph embedding methods such as DeepWalk, Node2Vec, or GraphSAGE for downstream node classification or link prediction." .
+kb:online_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "online learning" ;
+    rdfs:comment "A training strategy that continuously updates embedding model weights from incoming queries and feedback in real time without full retraining from the complete historical corpus." .
+kb:overlap_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "overlap strategy" ;
+    rdfs:comment "A chunking configuration that preserves a configurable number of tokens from the end of one chunk at the start of the next chunk to reduce information loss at segment boundaries." .
+kb:partitions_pinecone_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "partitions pinecone index" ;
+    rdfs:comment "The isolation relationship where a namespace divides a shared index into tenant-scoped record collections without separate infrastructure." .
+kb:pca a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pca" ;
+    rdfs:comment "Principal Component Analysis: a linear dimensionality reduction method that projects vectors onto the top k orthogonal axes of maximum variance in the embedding space." .
+kb:per_channel_quantization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "per channel quantization" ;
+    rdfs:comment "A granularity variant where each channel (dimension) has its own scale_factor, reducing precision loss for tensors with heterogeneous value distributions across dimensions." .
+kb:per_tensor_quantization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "per tensor quantization" ;
+    rdfs:comment "A granularity variant where a single scale_factor and optionally zero_point applies to all elements in an entire tensor or vector." .
+kb:pgvector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pgvector" ;
+    rdfs:comment "A PostgreSQL extension that adds vector data type, L2/inner-product/cosine distance operators, and IVFFlat/HNSW index support within the Postgres query planner." .
+kb:pinecone a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone" ;
+    rdfs:comment "A managed cloud vector database service that provides serverless ANN indexing, real-time upserts, filtering, and multi-tenancy with SLA-backed availability." .
+kb:pinecone_api_key a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone api key" ;
+    rdfs:comment "A scoped credential for authenticating REST or gRPC calls to a Pinecone project." .
+kb:pinecone_cloud_provider a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone cloud provider" ;
+    rdfs:comment "The infrastructure provider hosting a Pinecone serverless index: aws, gcp, or azure." .
+kb:pinecone_collection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone collection" ;
+    rdfs:comment "A read-only snapshot of a Pinecone index stored as a named artifact, used for backup or index cloning." .
+kb:pinecone_configure_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone configure index" ;
+    rdfs:comment "An index reconfiguration operation in Pinecone that adjusts replicas, pod type, or serverless settings." .
+kb:pinecone_create_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone create index" ;
+    rdfs:comment "An index provisioning operation in Pinecone that specifies name, dimension, metric, and pod or serverless configuration." .
+kb:pinecone_delete a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone delete" ;
+    rdfs:comment "A write operation that removes records from a Pinecone index by id, filter, or namespace." .
+kb:pinecone_dense_vector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone dense vector" ;
+    rdfs:comment "A Pinecone record component representing dense embedding values for ANN search." .
+kb:pinecone_describe_index_stats a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone describe index stats" ;
+    rdfs:comment "An introspection operation that returns index metadata including dimension, count per namespace, and index fullness." .
+kb:pinecone_dimension a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone dimension" ;
+    rdfs:comment "The fixed vector dimensionality of a Pinecone index, set at creation and immutable thereafter." .
+kb:pinecone_distance_metric a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone distance metric" ;
+    rdfs:comment "A configurable similarity measure in Pinecone: cosine, euclidean, or dotproduct." .
+kb:pinecone_fetch a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone fetch" ;
+    rdfs:comment "A read operation that retrieves records by explicit id list from a Pinecone index." .
+kb:pinecone_filter_expression a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone filter expression" ;
+    rdfs:comment "A metadata filtering construct in Pinecone query that gates results via indexed scalar fields." .
+kb:pinecone_grpc_api a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone grpc api" ;
+    rdfs:comment "A Pinecone transport layer using gRPC for low-latency upsert and query operations." .
+kb:pinecone_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone index" ;
+    rdfs:comment "A named searchable collection of vectors in Pinecone, configurable with dimension, metric, and pod/serverless settings." .
+kb:pinecone_index_status a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone index status" ;
+    rdfs:comment "A runtime state of a Pinecone index: Initializing, Ready, Initializing, Upgrading, Scaling, or Error." .
+kb:pinecone_multi_tenancy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone multi tenancy" ;
+    rdfs:comment "A Pinecone isolation model using namespaces within a shared index to serve multiple tenants." .
+kb:pinecone_namespace a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone namespace" ;
+    rdfs:comment "A tenant isolation boundary within a Pinecone index that partitions records without separate infrastructure." .
+kb:pinecone_pod_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone pod index" ;
+    rdfs:comment "A pod-based index deployment model in Pinecone using pre-allocated compute resources with configurable replicas." .
+kb:pinecone_project a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone project" ;
+    rdfs:comment "The top-level organizational unit in Pinecone that scopes API keys, indexes, and billing." .
+kb:pinecone_python_client a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone python client" ;
+    rdfs:comment "An official Python SDK for Pinecone providing typed wrappers around REST and gRPC APIs." .
+kb:pinecone_query a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone query" ;
+    rdfs:comment "A read operation that returns approximate nearest neighbors to a query vector with optional metadata filtering and namespace scoping." .
+kb:pinecone_query_vector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone query vector" ;
+    rdfs:comment "The target vector submitted to Pinecone query for ANN retrieval." .
+kb:pinecone_range_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone range search" ;
+    rdfs:comment "A query variant in Pinecone returning all vectors within a given radius of a query vector." .
+kb:pinecone_record a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone record" ;
+    rdfs:comment "A data unit in Pinecone containing id, dense vector values, optional sparse values, and key-value metadata." .
+kb:pinecone_region a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone region" ;
+    rdfs:comment "The geographic availability zone for a Pinecone index or project." .
+kb:pinecone_serverless_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone serverless index" ;
+    rdfs:comment "A serverless index deployment model in Pinecone that auto-scales compute and storage without pod management." .
+kb:pinecone_similarity_score a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone similarity score" ;
+    rdfs:comment "The numeric proximity value returned with each Pinecone query result, interpreting the configured distance metric." .
+kb:pinecone_sla a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone sla" ;
+    rdfs:comment "A service-level guarantee attached to a Pinecone project specifying availability and support terms." .
+kb:pinecone_sparse_vector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone sparse vector" ;
+    rdfs:comment "A Pinecone record component representing sparse dimensions (token id + values) for hybrid retrieval." .
+kb:pinecone_top_k a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone top k" ;
+    rdfs:comment "The count of nearest neighbors returned per Pinecone query request." .
+kb:pinecone_upsert a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pinecone upsert" ;
+    rdfs:comment "A write operation that inserts or updates records in a Pinecone index by unique id." .
+kb:precision a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "precision" ;
+    rdfs:comment "The fraction of returned results that are genuine nearest neighbors; precision at k measures how clean the top-k list is in an ANN retrieval." .
+kb:precision_at_k a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "precision at k" ;
+    rdfs:comment "The fraction of the top-k retrieved results that are true nearest neighbors; a standard retrieval quality metric reported at k values like 1, 10, or 100." .
+kb:precision_loss a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "precision loss" ;
+    rdfs:comment "The accuracy degradation resulting from mapping continuous float32 values to a discrete int8 representation; measured as mean squared error, cosine similarity drop, or recall degradation." .
+kb:product_quantization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "product quantization" ;
+    rdfs:comment "A vector quantization technique that splits a high-dimensional vector into subvectors, independently quantizes each subvector, and concatenates codes to form a compact representation." .
+kb:qdrant a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "qdrant" ;
+    rdfs:comment "An open-source vector similarity search engine with a Rust core; provides HNSW and SCAN indexing, payload filtering, quantization, and a gRPC-first API." .
+kb:quantization_error a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "quantization error" ;
+    rdfs:comment "The difference between the original float32 value and the reconstructed value after dequantization; the primary source of precision_loss in scalar_quantization." .
+kb:query_latency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query latency" ;
+    rdfs:comment "The end-to-end time to submit a query vector and receive an ordered list of nearest neighbor IDs from a vector database." .
+kb:rag_pipeline a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rag pipeline" ;
+    rdfs:comment "The full software pipeline that connects a vector database, an embedding model, a retrieval step, and a language model into an end-to-end RAG system with query parsing and response formatting." .
+kb:rag_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rag retrieval" ;
+    rdfs:comment "Retrieval-Augmented Generation pattern: vector search fetches relevant context chunks, injected into LLM prompt to ground generation." .
+kb:reads_from_pinecone_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reads from pinecone index" ;
+    rdfs:comment "The data access relationship where fetch or query operations retrieve stored records from a Pinecone index by id or vector similarity." .
+kb:recall a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "recall" ;
+    rdfs:comment "The fraction of true nearest neighbors that appear within the result set returned by an approximate nearest neighbor search; a primary quality metric for ANN indexes." .
+kb:recall_at_k a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "recall at k" ;
+    rdfs:comment "The fraction of all true nearest neighbors that appear within the top-k results returned by an approximate search; k must be larger than the number of true neighbors to approach 100%." .
+kb:receives_query_vector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "receives query vector" ;
+    rdfs:comment "The input relationship where a query operation accepts an embedding vector as the basis for nearest-neighbor similarity search." .
+kb:recommendation_system a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "recommendation system" ;
+    rdfs:comment "A system that suggests relevant items to users based on learned embeddings of users and items, using vector similarity search to retrieve candidate items from a collaborative or content-based embedding space." .
+kb:replication a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "replication" ;
+    rdfs:comment "The duplication of vector index shards across multiple nodes to improve read throughput, fault tolerance, and geographic query latency without changing the logical data set." .
+kb:reranking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reranking" ;
+    rdfs:comment "A two-stage retrieval process where an initial ANN search produces a candidate set that is then re-scored by a more expensive but accurate cross-encoder model." .
+kb:retrieval_augmented_generation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval augmented generation" ;
+    rdfs:comment "A generation architecture that retrieves relevant context vectors from a vector database at inference time and prepends the decoded context to the language model prompt to reduce hallucination." .
+kb:returns_pinecone_similarity_score a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "returns pinecone similarity score" ;
+    rdfs:comment "The output relationship where a query operation yields relevance scores indicating how closely each result matches the query vector." .
+kb:scalar_quantization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scalar quantization" ;
+    rdfs:comment "Floating-point values mapped to low-precision (e.g. int8); reduces memory 4x with modest accuracy loss." .
+kb:scale_factor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scale factor" ;
+    rdfs:comment "The multiplicative factor used to convert float32 values to int8 and back; computed as (value_range_max - value_range_min) / (quantization_range_max - quantization_range_min)." .
+kb:scopes_pinecone_api_key a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scopes pinecone api key" ;
+    rdfs:comment "The authorization relationship where a Pinecone project defines the boundary of access granted by an associated API key." .
+kb:semantic_cache a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic cache" ;
+    rdfs:comment "A caching strategy that stores query vectors alongside their results and answers new queries by finding the nearest cached vector rather than recomputing the full retrieval pipeline." .
+kb:semantic_chunking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic chunking" ;
+    rdfs:comment "Splitting documents into segments sized for embedding (typically 256\u20131024 tokens) to maximize topical coherence per chunk." .
+kb:semantic_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic search" ;
+    rdfs:comment "An information retrieval paradigm that finds results based on semantic meaning rather than exact keyword overlap, enabled by embedding-based similarity in a vector database." .
+kb:sentence_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sentence embedding" ;
+    rdfs:comment "A dense vector that represents the semantic content of an individual sentence, produced by a sentence-transformer model and stored as a single record in the vector database." .
+kb:shard_partitioning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "shard partitioning" ;
+    rdfs:comment "Distributing vector collection across multiple nodes; strategies include semantic clustering (by embedding region) or random partitioning." .
+kb:sharding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sharding" ;
+    rdfs:comment "The horizontal partitioning of a vector collection across multiple database nodes based on a partitioning scheme (range, hash, or vector-space Voronoi cells) to distribute query load." .
+kb:similarity_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "similarity search" ;
+    rdfs:comment "The operation of finding vectors in a database that are most semantically or geometrically similar to a given query vector." .
+kb:similarity_threshold a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "similarity threshold" ;
+    rdfs:comment "Minimum score below which results are discarded; tuned per use case to balance recall against noise." .
+kb:sliding_window a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sliding window" ;
+    rdfs:comment "A text segmentation strategy that moves a fixed-length token window over a document with a configurable step size to produce overlapping chunks for embedding." .
+kb:snapshots_pinecone_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "snapshots pinecone index" ;
+    rdfs:comment "The preservation relationship where a collection captures a point-in-time read-only copy of an index for backup or cloning purposes." .
+kb:soft_delete a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "soft delete" ;
+    rdfs:comment "A deletion strategy that marks a vector as inactive in the payload without immediately removing it from the ANN index; physical removal occurs during periodic garbage collection." .
+kb:sparse_vector a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sparse vector" ;
+    rdfs:comment "A vector representation with mostly zero values, typical of BM25-weighted or TF-IDF bag-of-words encodings; often used alongside dense vectors in hybrid search." .
+kb:sq_calibration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq calibration" ;
+    rdfs:comment "Process of determining optimal scale and offset values from a data distribution (often percentile-based)." .
+kb:sq_calibration_data a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq calibration data" ;
+    rdfs:comment "Representative sample of vectors used to determine scale_factor and zero_point; must cover the distribution to minimize quantization_error." .
+kb:sq_decode a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq decode" ;
+    rdfs:comment "Inverse transformation that reconstructs float approximations from quantized integers using scale and offset." .
+kb:sq_dtype a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq dtype" ;
+    rdfs:comment "Target integer type for quantized values (e.g. int8, uint8); defines bit-width of stored representation." .
+kb:sq_encoding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq encoding" ;
+    rdfs:comment "Bit-packing scheme for storing quantized values contiguously; enables dense memory layout." .
+kb:sq_error a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq error" ;
+    rdfs:comment "Quantization error (e.g. MSE) introduced by value rounding; trade-off against compression ratio." .
+kb:sq_offset a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq offset" ;
+    rdfs:comment "Zero-point value added during quantization (often for signed int8 centering around 0); subtracted at decode." .
+kb:sq_outlier_handling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq outlier handling" ;
+    rdfs:comment "Strategy for values exceeding the calibrated value_range; options include clipping, separate outlier scale, or exclusion from quantization." .
+kb:sq_per_channel_mode a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq per channel mode" ;
+    rdfs:comment "Scalar quantization variant where scale_factor is computed per column/feature dimension; reduces quantization_error at cost of storing multiple scales." .
+kb:sq_per_tensor_mode a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq per tensor mode" ;
+    rdfs:comment "Scalar quantization variant where one scale_factor applies to the entire tensor; simpler but less accurate for heterogeneous distributions." .
+kb:sq_precision_level a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq precision level" ;
+    rdfs:comment "Target bit-width for quantized representation (e.g., int8, int16, float16); determines memory_footprint reduction ratio." .
+kb:sq_quantization_error a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq quantization error" ;
+    rdfs:comment "Difference between original floating-point values and reconstructed values after dequantization; primary quality metric for scalar_quantization." .
+kb:sq_saturation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq saturation" ;
+    rdfs:comment "Behavior when an input value exceeds the representable range; values are clipped to min/max of target dtype." .
+kb:sq_scale a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq scale" ;
+    rdfs:comment "Floating-point multiplier that maps original values to the quantized integer range; inverse applied at decode time." .
+kb:sq_scale_factor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq scale factor" ;
+    rdfs:comment "Multiplier applied during dequantization; computed from calibration_data to map quantized integer back to floating-point." .
+kb:sq_scheme a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq scheme" ;
+    rdfs:comment "Per-tensor vs per-dimension quantization scope; global uses one scale/offset for entire tensor." .
+kb:sq_signal_to_noise_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq signal to noise ratio" ;
+    rdfs:comment "Ratio of signal power to quantization_error power; used to assess quality loss from scalar_quantization relative to full-precision." .
+kb:sq_value_range a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq value range" ;
+    rdfs:comment "Observed min-max bounds of floating-point values across the tensor being quantized; determines scale_factor magnitude." .
+kb:sq_zero_point a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sq zero point" ;
+    rdfs:comment "Integer offset used in asymmetric quantization; enables efficient storage of value ranges not centered at zero." .
+kb:streaming_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "streaming embedding" ;
+    rdfs:comment "The online computation of embedding vectors from a continuous data stream as new items arrive, without requiring reprocessing of the entire existing corpus." .
+kb:symmetric_quantization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "symmetric quantization" ;
+    rdfs:comment "A quantization scheme where the float range is centered at zero and only a scale factor is used; the zero point is implicitly zero; maps [-max_abs, max_abs] to [-127, 127]." .
+kb:text_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "text embedding" ;
+    rdfs:comment "A dense vector generated from a textual input (word, phrase, sentence, document) by a transformer or sentence-transformer model." .
+kb:transfer_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transfer learning" ;
+    rdfs:comment "The practice of initializing an embedding model from weights pre-trained on a large corpus and then adapting those weights to a target downstream task." .
+kb:transports_pinecone_query a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transports pinecone query" ;
+    rdfs:comment "The transport relationship where the gRPC API layer carries query requests and responses between client and Pinecone index service." .
+kb:transports_pinecone_upsert a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transports pinecone upsert" ;
+    rdfs:comment "The transport relationship where the gRPC API layer carries upsert requests and acknowledgments between client and Pinecone index service." .
+kb:triplet_loss a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "triplet loss" ;
+    rdfs:comment "A training loss that penalizes embeddings where the distance between an anchor and a negative example is not sufficiently larger than the distance between the anchor and a positive example." .
+kb:tsne a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tsne" ;
+    rdfs:comment "t-Distributed Stochastic Neighbor Embedding: a non-linear dimensionality reduction method that emphasizes preservation of local neighborhood structure for visualization of high-dimensional embedding spaces." .
+kb:umap a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "umap" ;
+    rdfs:comment "Uniform Manifold Approximation and Projection: a non-linear dimensionality reduction technique that preserves both local and some global topological structure and is faster than t-SNE at scale." .
+kb:update_operation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "update operation" ;
+    rdfs:comment "The replacement of an existing vector's embedding values or payload metadata, requiring the database to update the relevant index structures without full index reconstruction." .
+kb:uses_approximate_nearest_neighbor_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "uses approximate nearest neighbor search" ;
+    rdfs:comment "The algorithm relationship where a Pinecone query executes ANN search to efficiently return near neighbors rather than exact matches." .
+kb:uses_pinecone_namespace a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "uses pinecone namespace" ;
+    rdfs:comment "The tenancy relationship where a multi-tenant configuration employs namespaces to isolate tenant data within a shared index." .
+kb:value_range_calibration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "value range calibration" ;
+    rdfs:comment "The process of determining the min and max values (or percentile-based thresholds) across a representative dataset to compute optimal scale_factor and zero_point." .
+kb:vector_database a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vector database" ;
+    rdfs:comment "A specialized database system optimized for storing, indexing, and searching high-dimensional vector embeddings by similarity." .
+kb:vector_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vector embedding" ;
+    rdfs:comment "Dense numerical representation of discrete data (text, image, audio) as a point in high-dimensional continuous space where geometric proximity encodes semantic similarity." .
+kb:vector_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vector index" ;
+    rdfs:comment "A data structure inside a vector database that enables fast approximate nearest neighbor retrieval over collections of embedding vectors." .
+kb:vector_normalization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vector normalization" ;
+    rdfs:comment "Scaling embedding to unit L2 norm; makes cosine similarity equivalent to dot product and prevents magnitude from distorting similarity." .
+kb:vector_quantization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vector quantization" ;
+    rdfs:comment "The process of mapping a high-precision embedding vector to a lower-precision representative codeword to reduce storage size and speed up distance computations." .
+kb:vector_serving a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vector serving" ;
+    rdfs:comment "The infrastructure layer that exposes a vector database as a query API, handling index routing, sharding, replication, and result aggregation across nodes." .
+kb:versioning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "versioning" ;
+    rdfs:comment "The tracking of multiple embedding versions for the same logical record, enabling time-travel queries, rollback of noisy embeddings, and lineage tracking for debugging." .
+kb:visualization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "visualization" ;
+    rdfs:comment "The projection of embedding vectors into 2D or 3D space for human inspection of clustering, separation, and outlier structure in the learned semantic space." .
+kb:weaviate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "weaviate" ;
+    rdfs:comment "An open-source vector database with built-in module support for embedding models (transformers, CLIP), hybrid BM25-plus-vector search, and GraphQL API." .
+kb:weighted_average a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "weighted average" ;
+    rdfs:comment "A simple embedding aggregation method that computes a convex combination of multiple vectors, optionally weighting chunks by their relevance score or local importance." .
+kb:word_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "word embedding" ;
+    rdfs:comment "Vector representation of individual words; methods include word2vec (Skip-gram, CBOW) and GloVe; captures word co-occurrence statistics." .
+kb:wraps_pinecone_grpc_api a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "wraps pinecone grpc api" ;
+    rdfs:comment "The abstraction relationship where the official Python client provides typed gRPC method wrappers for low-latency vector operations." .
+kb:wraps_pinecone_rest_api a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "wraps pinecone rest api" ;
+    rdfs:comment "The abstraction relationship where the official Python client provides typed REST method wrappers for HTTP-based vector operations." .
+kb:writes_to_pinecone_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "writes to pinecone index" ;
+    rdfs:comment "The data mutation relationship where upsert or delete operations modify the record set stored within a Pinecone index." .
+kb:zero_point a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "zero point" ;
+    rdfs:comment "An additive offset applied in asymmetric quantization to shift the zero point of the float range onto an integer value, enabling exact representation of true zero." .
+
+kb:ann_benchmark kbo:relatesTo kb:approximate_nearest_neighbor .
+kb:anomaly_detection_embedding kbo:relatesTo kb:euclidean_distance .
+kb:approximate_nearest_neighbor kbo:relatesTo kb:faiss .
+kb:approximate_nearest_neighbor kbo:relatesTo kb:hnsw_index .
+kb:approximate_nearest_neighbor kbo:relatesTo kb:ivf_index .
+kb:approximate_query kbo:relatesTo kb:approximate_nearest_neighbor .
+kb:asymmetric_quantization kbo:relatesTo kb:symmetric_quantization .
+kb:backup_recovery kbo:relatesTo kb:replication .
+kb:batch_embedding kbo:relatesTo kb:embedding_pipeline .
+kb:bi_encoder kbo:relatesTo kb:cross_encoder .
+kb:bm25 kbo:relatesTo kb:bm25_sparse_retrieval .
+kb:catastrophic_forgetting kbo:relatesTo kb:continual_learning .
+kb:chroma_client kbo:relatesTo kb:chroma_in_memory_mode .
+kb:chroma_client kbo:relatesTo kb:chroma_server .
+kb:chroma_collection kbo:relatesTo kb:chroma_document .
+kb:chroma_collection kbo:relatesTo kb:chroma_embedding .
+kb:chroma_collection kbo:relatesTo kb:chroma_entry_id .
+kb:chroma_collection kbo:relatesTo kb:chroma_filter .
+kb:chroma_collection kbo:relatesTo kb:chroma_metadata .
+kb:chroma_document kbo:relatesTo kb:chroma_embedding .
+kb:chroma_embedding kbo:relatesTo kb:chroma_embedding_function .
+kb:chroma_persistence kbo:relatesTo kb:chroma_collection .
+kb:chroma_query kbo:relatesTo kb:chroma_collection .
+kb:chroma_query kbo:relatesTo kb:chroma_distance_metric .
+kb:chroma_query kbo:relatesTo kb:chroma_filter .
+kb:chroma_result_set kbo:relatesTo kb:chroma_query .
+kb:chunking kbo:relatesTo kb:semantic_chunking .
+kb:clipping_threshold kbo:relatesTo kb:sq_saturation .
+kb:clustering kbo:relatesTo kb:k_means .
+kb:clustering_quality kbo:relatesTo kb:recall_at_k .
+kb:collaborative_filtering kbo:relatesTo kb:content_based_filtering .
+kb:concept_drift kbo:relatesTo kb:embedding_drift .
+kb:consistency_model kbo:relatesTo kb:immutability .
+kb:content_based_filtering kbo:relatesTo kb:collaborative_filtering .
+kb:continual_learning kbo:relatesTo kb:online_learning .
+kb:cosine_similarity kbo:relatesTo kb:dot_product_similarity .
+kb:cosine_similarity kbo:relatesTo kb:vector_normalization .
+kb:deduplication kbo:relatesTo kb:similarity_threshold .
+kb:delete_operation kbo:relatesTo kb:update_operation .
+kb:deletion_marking kbo:relatesTo kb:vector_database .
+kb:dense_vector kbo:relatesTo kb:sparse_vector .
+kb:dequantization kbo:relatesTo kb:asymmetric_quantization .
+kb:dimension_reduction kbo:relatesTo kb:vector_embedding .
+kb:dimensionality_reduction kbo:relatesTo kb:pca .
+kb:embedding_aggregation kbo:relatesTo kb:document_embedding .
+kb:embedding_aggregation kbo:relatesTo kb:semantic_chunking .
+kb:embedding_dimension kbo:relatesTo kb:dimension_reduction .
+kb:embedding_dimension kbo:relatesTo kb:memory_footprint .
+kb:embedding_drift kbo:relatesTo kb:incremental_indexing .
+kb:embedding_model kbo:relatesTo kb:contrastive_learning .
+kb:embedding_model kbo:relatesTo kb:embedding_as_service .
+kb:embedding_model kbo:relatesTo kb:embedding_finetuning .
+kb:embedding_pipeline kbo:relatesTo kb:embedding_cache .
+kb:embedding_pipeline kbo:relatesTo kb:incremental_indexing .
+kb:faiss kbo:relatesTo kb:product_quantization .
+kb:faiss kbo:relatesTo kb:scalar_quantization .
+kb:hnsw_index kbo:relatesTo kb:indexing_strategy .
+kb:hybrid_search kbo:relatesTo kb:bm25_sparse_retrieval .
+kb:hybrid_search kbo:relatesTo kb:dense_vector .
+kb:idx_algorithm_selection kbo:relatesTo kb:faiss .
+kb:idx_algorithm_selection kbo:relatesTo kb:hnsw_index .
+kb:idx_algorithm_selection kbo:relatesTo kb:ivf_index .
+kb:idx_faiss_index_factory kbo:relatesTo kb:faiss .
+kb:idx_gpu_acceleration kbo:relatesTo kb:faiss .
+kb:idx_hnsw_params kbo:relatesTo kb:hnsw_index .
+kb:idx_hybrid_composition kbo:relatesTo kb:hnsw_index .
+kb:idx_hybrid_composition kbo:relatesTo kb:ivf_index .
+kb:idx_hybrid_composition kbo:relatesTo kb:product_quantization .
+kb:idx_ivf_params kbo:relatesTo kb:ivf_index .
+kb:idx_memory_budget kbo:relatesTo kb:memory_footprint .
+kb:idx_memory_budget kbo:relatesTo kb:product_quantization .
+kb:idx_memory_budget kbo:relatesTo kb:scalar_quantization .
+kb:idx_parameter_sweep kbo:relatesTo kb:idx_query_latency_budget .
+kb:idx_parameter_sweep kbo:relatesTo kb:idx_recall_target .
+kb:idx_query_latency_budget kbo:relatesTo kb:approximate_nearest_neighbor .
+kb:idx_recall_target kbo:relatesTo kb:approximate_nearest_neighbor .
+kb:idx_workload_profiling kbo:relatesTo kb:idx_algorithm_selection .
+kb:idx_workload_profiling kbo:relatesTo kb:idx_parameter_sweep .
+kb:image_embedding kbo:relatesTo kb:anomaly_detection_embedding .
+kb:image_embedding kbo:relatesTo kb:vector_database .
+kb:ivf_index kbo:relatesTo kb:indexing_strategy .
+kb:ivf_index kbo:relatesTo kb:product_quantization .
+kb:maximum_marginal_relevance kbo:relatesTo kb:nearest_neighbor_search .
+kb:metadata_filtering kbo:relatesTo kb:qdrant .
+kb:metadata_filtering kbo:relatesTo kb:vector_database .
+kb:nearest_neighbor_search kbo:relatesTo kb:approximate_nearest_neighbor .
+kb:pinecone kbo:relatesTo kb:integrates_with_embedding_model .
+kb:pinecone kbo:relatesTo kb:manages_vector_database .
+kb:pinecone_api_key kbo:relatesTo kb:authenticates_to_pinecone_project .
+kb:pinecone_cloud_provider kbo:relatesTo kb:hosts_pinecone_serverless_index .
+kb:pinecone_collection kbo:relatesTo kb:snapshots_pinecone_index .
+kb:pinecone_configure_index kbo:relatesTo kb:modifies_pinecone_index .
+kb:pinecone_create_index kbo:relatesTo kb:creates_pinecone_index .
+kb:pinecone_delete kbo:relatesTo kb:writes_to_pinecone_index .
+kb:pinecone_dense_vector kbo:relatesTo kb:is_component_of_pinecone_record .
+kb:pinecone_describe_index_stats kbo:relatesTo kb:introspects_pinecone_index .
+kb:pinecone_distance_metric kbo:relatesTo kb:configures_pinecone_index .
+kb:pinecone_fetch kbo:relatesTo kb:reads_from_pinecone_index .
+kb:pinecone_filter_expression kbo:relatesTo kb:constrains_pinecone_query .
+kb:pinecone_grpc_api kbo:relatesTo kb:transports_pinecone_query .
+kb:pinecone_grpc_api kbo:relatesTo kb:transports_pinecone_upsert .
+kb:pinecone_index kbo:relatesTo kb:implements_ann_index .
+kb:pinecone_multi_tenancy kbo:relatesTo kb:uses_pinecone_namespace .
+kb:pinecone_namespace kbo:relatesTo kb:partitions_pinecone_index .
+kb:pinecone_pod_index kbo:relatesTo kb:extends_pinecone_index .
+kb:pinecone_project kbo:relatesTo kb:contains_pinecone_index .
+kb:pinecone_project kbo:relatesTo kb:scopes_pinecone_api_key .
+kb:pinecone_python_client kbo:relatesTo kb:wraps_pinecone_grpc_api .
+kb:pinecone_python_client kbo:relatesTo kb:wraps_pinecone_rest_api .
+kb:pinecone_query kbo:relatesTo kb:reads_from_pinecone_index .
+kb:pinecone_query kbo:relatesTo kb:receives_query_vector .
+kb:pinecone_query kbo:relatesTo kb:returns_pinecone_similarity_score .
+kb:pinecone_query kbo:relatesTo kb:uses_approximate_nearest_neighbor_search .
+kb:pinecone_record kbo:relatesTo kb:belongs_to_pinecone_index .
+kb:pinecone_record kbo:relatesTo kb:belongs_to_pinecone_namespace .
+kb:pinecone_record kbo:relatesTo kb:contains_pinecone_dense_vector .
+kb:pinecone_record kbo:relatesTo kb:contains_pinecone_sparse_vector .
+kb:pinecone_serverless_index kbo:relatesTo kb:extends_pinecone_index .
+kb:pinecone_sparse_vector kbo:relatesTo kb:is_component_of_pinecone_record .
+kb:pinecone_upsert kbo:relatesTo kb:writes_to_pinecone_index .
+kb:product_quantization kbo:relatesTo kb:memory_footprint .
+kb:query_latency kbo:relatesTo kb:faiss .
+kb:query_latency kbo:relatesTo kb:hnsw_index .
+kb:recall_at_k kbo:relatesTo kb:approximate_nearest_neighbor .
+kb:recommendation_system kbo:relatesTo kb:embedding_aggregation .
+kb:recommendation_system kbo:relatesTo kb:nearest_neighbor_search .
+kb:reranking kbo:relatesTo kb:cross_encoder .
+kb:reranking kbo:relatesTo kb:nearest_neighbor_search .
+kb:scalar_quantization kbo:relatesTo kb:memory_footprint .
+kb:semantic_search kbo:relatesTo kb:hybrid_search .
+kb:semantic_search kbo:relatesTo kb:nearest_neighbor_search .
+kb:semantic_search kbo:relatesTo kb:rag_retrieval .
+kb:sentence_embedding kbo:relatesTo kb:colbert_late_interaction .
+kb:sentence_embedding kbo:relatesTo kb:dense_passage_retrieval .
+kb:sentence_embedding kbo:relatesTo kb:document_embedding .
+kb:sentence_embedding kbo:relatesTo kb:multilingual_embedding .
+kb:shard_partitioning kbo:relatesTo kb:milvus .
+kb:shard_partitioning kbo:relatesTo kb:vector_database .
+kb:similarity_threshold kbo:relatesTo kb:semantic_search .
+kb:sparse_vector kbo:relatesTo kb:bm25_sparse_retrieval .
+kb:vector_database kbo:relatesTo kb:chroma .
+kb:vector_database kbo:relatesTo kb:embedding_cache .
+kb:vector_database kbo:relatesTo kb:milvus .
+kb:vector_database kbo:relatesTo kb:pinecone .
+kb:vector_database kbo:relatesTo kb:qdrant .
+kb:vector_database kbo:relatesTo kb:weaviate .
+kb:vector_embedding kbo:relatesTo kb:embedding_model .
+kb:vector_embedding kbo:relatesTo kb:nearest_neighbor_search .
+kb:vector_embedding kbo:relatesTo kb:vector_database .
+kb:word_embedding kbo:relatesTo kb:sentence_embedding .
+

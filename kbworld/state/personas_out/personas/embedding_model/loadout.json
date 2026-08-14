@@ -1,6 +1,6 @@
 {
   "region": "embedding_model",
-  "call_number": "retrieval_augmented_generation_architecture_patt.embedding_model",
+  "call_number": "vector_databases_and_embeddings.embedding_model",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 13
+  "cone_size": 3
 }

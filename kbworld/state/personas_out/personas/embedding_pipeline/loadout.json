@@ -1,0 +1,13 @@
+{
+  "region": "embedding_pipeline",
+  "call_number": "vector_databases_and_embeddings.embedding_pipeline",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 2
+}
