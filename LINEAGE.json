@@ -2154,5 +2154,18 @@
     ],
     "fitness_current": 1.0,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-14T20:46:47+00:00",
+    "verdict": "REVERT",
+    "change": "Installed inversion_lens.md to loadout; discovered chain_verifier_recipe.md depends on missing Divergence Lens and Convergence Lens; inversion_second_order_recipe.md depends on missing constraint_inve",
+    "diff": [
+      {
+        "file": "loadout/inversion_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 2.0,
+    "fitness_patched": 2.0
   }
 ]
