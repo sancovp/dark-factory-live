@@ -1,0 +1,9 @@
+{
+  "test_id": "test_dependency_gate_recipe",
+  "skill_path": "crafted/dependency_gate_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-14T09:30:00Z",
+  "input": "crafted/divergence-analyzer-recipe.md",
+  "output_summary": "Recipe correctly identified 3 ingredients (Adversarial Lens, Structured Analysis Template, Provenance Tracker) and verified all 3 exist in loadout. Pipeline executed: File Reader → Pattern Matcher → Existence Verifier. Output: {passed: true, missing: [], present: [adversarial_lens, structured_analysis_template, provenance_tracker]}",
+  "test_notes": "Recipe successfully composed three component skills into a dependency verification pipeline. Each component was essential and verified. The skill itself would pass its own gate since it doesn't claim external dependencies."
+}

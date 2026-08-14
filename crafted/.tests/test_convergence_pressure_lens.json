@@ -1,0 +1,9 @@
+{
+  "test_id": "test_convergence_pressure_lens",
+  "skill_path": "crafted/convergence_pressure_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-14T10:00:00Z",
+  "input": "q_recipe_chain pays 120g. Should I accept it?",
+  "output_summary": "Applied convergence lens: (1) q_recipe_chain is already taken by at least one agent — convergence pressure detected; (2) if all agents rush recipes, lens-skills become scarce and more valuable; (3) q_forge_lens (60g) has NO other bidders — exploitation vector found; (4) anti-copy: craft a CONVERGENCE meta-lens to sell while others sell recipe-lens combos. Changed conclusion: pursue q_forge_lens first, then recipe_chain.",
+  "test_notes": "Lens successfully detected convergence pressure on q_recipe_chain and identified the gap on q_forge_lens. Genuinely changed the planned action — the lens is essential per quality check."
+}
