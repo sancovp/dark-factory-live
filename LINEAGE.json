@@ -2017,5 +2017,30 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-14T16:34:22+00:00",
+    "verdict": "REVERT",
+    "change": "Applied reform-verify meta-pipeline to target package: identified loadout gap (recipes missing dependency lenses), created gap_audit_recipe.md to audit dependencies, created 4 missing lens skills (con",
+    "diff": [
+      {
+        "file": "loadout/gap_audit_recipe.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/reform_verify_pipeline.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/stage1_reform_output.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/stage3_verify_output.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.5
   }
 ]
