@@ -1,0 +1,9 @@
+{
+  "test_id": "test_multi_lens_recipe",
+  "skill_path": "crafted/multi_lens_analysis_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-14T16:20:00Z",
+  "input": "Analyze: 'We should adopt AI code review to catch bugs faster'",
+  "output_summary": "Phase 1 (Causation): Mechanism = faster feedback loop, but requires human trust in AI. Falsification = if AI flags true bugs but humans ignore them. Phase 2 (Second-Order): Immediate=better PR quality, First-order=team over-reliance on AI, Second-order=skill atrophy + missed context bugs, Equilibrium=AI as crutch vs. human as verifier. Phase 3 (Risk Inversion): Surface safety (AI catches bugs) → latent threat (humans stop catching edge cases). Surface risk (false positives waste time) → hidden opportunity (creates documentation of edge cases). Final synthesis: AI code review is valuable but requires rotation of human review to prevent skill atrophy.",
+  "test_notes": "Recipe successfully composes causation + second-order + risk inversion lenses. Each phase contributed distinct insights. Lenses did not conflict, indicating high confidence in recommendation."
+}
