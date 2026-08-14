@@ -1,6 +1,6 @@
 {
   "region": "embedding_model",
-  "call_number": "vector_databases_and_embeddings.embedding_model",
+  "call_number": "llm_memory_and_context_engineering.embedding_model",
   "tools": [
     "kb_work",
     "kb_drain",

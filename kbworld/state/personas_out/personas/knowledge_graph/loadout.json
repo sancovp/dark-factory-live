@@ -1,6 +1,6 @@
 {
   "region": "knowledge_graph",
-  "call_number": "personal_knowledge_management_and_the_second_bra.knowledge_graph",
+  "call_number": "llm_memory_and_context_engineering.knowledge_graph : deep_long_term_memory(2)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 3
+  "cone_size": 4
 }

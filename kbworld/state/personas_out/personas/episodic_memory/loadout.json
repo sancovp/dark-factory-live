@@ -1,0 +1,13 @@
+{
+  "region": "episodic_memory",
+  "call_number": "llm_memory_and_context_engineering.episodic_memory : deep_long_term_memory(11)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 11
+}

@@ -1,6 +1,6 @@
 {
   "region": "chunking_strategy",
-  "call_number": "retrieval_augmented_generation_architecture_patt.chunking_strategy",
+  "call_number": "llm_memory_and_context_engineering.chunking_strategy : deep_long_term_memory(2)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 3
+  "cone_size": 7
 }

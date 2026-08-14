@@ -1,42 +1,42 @@
 {
   "rounds": [
     {
-      "region": "vector_database",
+      "region": "context_window",
       "targets": [
-        "chroma",
-        "pinecone"
+        "context_length",
+        "context_utilization"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 45,
-      "new_relations": 48
+      "new_concepts": 70,
+      "new_relations": 49
     },
     {
-      "region": "nearest_neighbor_search",
+      "region": "long_term_memory",
       "targets": [
-        "scalar_quantization",
-        "indexing_strategy"
+        "episodic_memory",
+        "knowledge_graph"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 47,
-      "new_relations": 19
+      "new_concepts": 24,
+      "new_relations": 34
     }
   ],
   "basis_before": {
     "shared_atoms": [],
     "shared": 0,
-    "union": 16,
+    "union": 55,
     "overlap": 0.0
   },
   "basis_after": {
     "shared_atoms": [],
     "shared": 0,
-    "union": 18,
+    "union": 84,
     "overlap": 0.0
   }
 }

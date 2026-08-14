@@ -1,0 +1,13 @@
+{
+  "region": "memory_retrieval",
+  "call_number": "llm_memory_and_context_engineering.memory_retrieval : deep_long_term_memory(2)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 3
+}

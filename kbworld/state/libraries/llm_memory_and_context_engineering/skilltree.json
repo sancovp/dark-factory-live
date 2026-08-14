@@ -1,0 +1,223 @@
+{
+  "skilltree": {
+    "name": "understand-llm memory and context engineering",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-llm memory and context engineering",
+    "description": "the llm memory and context engineering library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-core",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-core",
+        "description": "the core subdomain of llm memory and context engineering (1 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-is_a",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-is_a",
+            "description": "A taxonomic relationship linking a kg_instance to its kg_class, establishing membership and enabling inheritan",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_context_window",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-deep_context_window",
+        "description": "the deep_context_window subdomain of llm memory and context engineering (70 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-token_boundary_marker",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-token_boundary_marker",
+            "description": "The positional delimiter marking the transition from input context to output generation; tokens before this ma",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-input_token_budget",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-input_token_budget",
+            "description": "The portion of context_length reserved and available for prompt tokens, retrieved context, and system instruct",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-output_token_limit",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-output_token_limit",
+            "description": "The portion of context_length reserved for generated tokens; equals context_length minus input_token_budget mi",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-overflow_threshold",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-overflow_threshold",
+            "description": "The position or token count at which the model behavior shifts from normal processing to truncation or error; ",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-maximum_position",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-maximum_position",
+            "description": "The highest valid integer position index representable by the position_embedding scheme within context_length;",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-context_capacity_ratio",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-context_capacity_ratio",
+            "description": "The ratio of tokens actively processed to total available context_length; quantifies context_utilization as us",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_long_term_memory",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-deep_long_term_memory",
+        "description": "the deep_long_term_memory subdomain of llm memory and context engineering (24 concepts)",
+        "coord": "0.3",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-em_event",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-em_event",
+            "description": "A discrete unit of experience stored in episodic memory \u2014 a single interaction, task completion, or notable ou",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-kg_entity",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-kg_entity",
+            "description": "A node in the knowledge_graph representing a distinct thing \u2014 concrete object, person, event, or concept \u2014 ide",
+            "coord": "0.3.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-em_salience_weight",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-em_salience_weight",
+            "description": "Numeric value indicating how memorable or significant an event is; influences consolidation priority and retri",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-kg_predicate",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-kg_predicate",
+            "description": "The label or type of a kg_relationship; defines the semantics of how two kg_entities relate (e.g., is_a, part_",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-kg_ontology",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-kg_ontology",
+            "description": "The schema layer of a knowledge_graph defining allowed kg_entity types (classes), allowed kg_predicate labels,",
+            "coord": "0.3.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-kg_class",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-kg_class",
+            "description": "A kg_entity type within the kg_ontology; groups instances that share structural or semantic properties",
+            "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-llm_memory_and_context_engineering",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-llm_memory_and_context_engineering",
+        "description": "the llm_memory_and_context_engineering subdomain of llm memory and context engineering (343 concepts)",
+        "coord": "0.4",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-context_window",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-context_window",
+            "description": "The finite token sequence an LLM can process in a single forward pass; defines the maximum input + output capa",
+            "coord": "0.4.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-context_length",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-context_length",
+            "description": "Total number of tokens (input + output) an LLM supports; the hard ceiling on how much text can be loaded into ",
+            "coord": "0.4.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-long_term_memory",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-long_term_memory",
+            "description": "Information persisted across sessions, tasks, or deployments; requires external storage and retrieval mechanis",
+            "coord": "0.4.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-working_memory",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-working_memory",
+            "description": "The transient token budget allocated for active reasoning within a single model call; scratch space for chain_",
+            "coord": "0.4.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-attention_mechanism",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-attention_mechanism",
+            "description": "The core operation allowing each token to attend to all others; scaled dot-product attention is the standard. ",
+            "coord": "0.4.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-vector_database",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_llm_memory_and_context_engineering/understand-vector_database",
+            "description": "Storage system indexing embeddings for similarity search; backbone of RAG. Examples: Pinecone, Weaviate, Chrom",
+            "coord": "0.4.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

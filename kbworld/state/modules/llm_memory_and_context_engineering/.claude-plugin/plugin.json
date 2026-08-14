@@ -1,0 +1,14 @@
+{
+  "name": "llm-memory-and-context-engineering-module",
+  "version": "0.1.0",
+  "description": "llm memory and context engineering \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 438 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "knowledge-base",
+    "neurosymbolic",
+    "llm-memory-and-context-engineering"
+  ]
+}

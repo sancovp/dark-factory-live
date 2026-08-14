@@ -1,0 +1,13 @@
+{
+  "region": "output_token_limit",
+  "call_number": "deep_context_window.output_token_limit",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 5
+}

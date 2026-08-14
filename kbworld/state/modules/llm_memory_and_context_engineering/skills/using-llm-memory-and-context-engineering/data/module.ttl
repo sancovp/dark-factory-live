@@ -1,0 +1,1548 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/llm_memory_and_context_engineering#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/llm_memory_and_context_engineering> a owl:Ontology ;
+    rdfs:label "llm memory and context engineering" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:active_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "active retrieval" ;
+    rdfs:comment "Retrieval triggered during generation, not just at start; model decides when to query based on generated content. HyDE and self-RAG are examples." .
+kb:adapters_in_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "adapters in context" ;
+    rdfs:comment "Lightweight modules inserted in transformer layers trained on specific tasks; combined with context for efficient multi-task performance." .
+kb:adaptive_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "adaptive context" ;
+    rdfs:comment "Dynamically adjusting context composition based on the current task, user query, or observed model behavior mid-conversation" .
+kb:agent_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agent memory" ;
+    rdfs:comment "Structured memory holding an agent's beliefs, goals, preferences, and accumulated experience; feeds into context_building for downstream tasks" .
+kb:agentic_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "agentic rag" ;
+    rdfs:comment "RAG where the LLM orchestrates multiple retrieval steps, decides what to query, and synthesizes from multiple sources. Reflection and planning loops." .
+kb:alibi_position_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "alibi position embedding" ;
+    rdfs:comment "Attention with Linear Biases \u2014 a position embedding scheme derived from attention scores, enabling better length extrapolation than absolute positions" .
+kb:ann_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ann index" ;
+    rdfs:comment "The data structure or index built to support approximate_nearest_neighbors queries over a vector collection" .
+kb:approximate_nearest_neighbor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "approximate nearest neighbor" ;
+    rdfs:comment "Fast retrieval of roughly similar vectors accepting some error; enables scaling vector_database beyond exact search limits" .
+kb:approximate_nearest_neighbors a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "approximate nearest neighbors" ;
+    rdfs:comment "Algorithms that trade exactness for speed in vector_search, enabling sub-linear retrieval over large embedding indices" .
+kb:associative_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "associative memory" ;
+    rdfs:comment "Recall triggered by related concepts; attention mechanism is a form of content-addressable associative memory enabling retrieval by similarity." .
+kb:associative_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "associative retrieval" ;
+    rdfs:comment "Retrieving memories by content similarity rather than exact match; enabled by embedding space proximity." .
+kb:attention_as_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention as memory" ;
+    rdfs:comment "Perspective that attention mechanism itself is a form of memory retrieval; queries search keys to retrieve values, analogous to content-addressable memory." .
+kb:attention_bottleneck a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention bottleneck" ;
+    rdfs:comment "The computational bottleneck created by the O(n\u00b2) cost of self_attention as context_length grows; the core challenge in long_context" .
+kb:attention_cost a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention cost" ;
+    rdfs:comment "Computational cost scaling quadratically with sequence length; O(n^2) in naive attention. Flash attention and sparse methods mitigate this." .
+kb:attention_dropout a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention dropout" ;
+    rdfs:comment "Stochastic masking of attention weights during training; regularization technique with indirect effects on context_utilization patterns" .
+kb:attention_mechanism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention mechanism" ;
+    rdfs:comment "The core operation allowing each token to attend to all others; scaled dot-product attention is the standard. Memory and context are both outputs of attention computation." .
+kb:attention_overhead a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention overhead" ;
+    rdfs:comment "Computational overhead of attention mechanisms relative to other operations; dominates total compute for long contexts." .
+kb:attention_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention pattern" ;
+    rdfs:comment "The specific matrix of attention weights produced by a model for a given context; observable via attention visualization for interpretability" .
+kb:attention_quadratic_cost a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention quadratic cost" ;
+    rdfs:comment "Computational cost of self_attention that scales as the square of context_length; the fundamental reason long context_length is expensive" .
+kb:attention_saturation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention saturation" ;
+    rdfs:comment "Condition where attention weights become uniform across long context; signals reduced context_utilization and effective_context shrinkage" .
+kb:attention_saturation_onset_position a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention saturation onset position" ;
+    rdfs:comment "Position index in context_length where attention_saturation begins; typically occurs when context_length exceeds a model-dependent threshold" .
+kb:attention_sink a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention sink" ;
+    rdfs:comment "Certain tokens (often BOS/start tokens) disproportionately accumulate attention weight; hypothesis: they serve as a computational anchor for softmax normalization without carrying semantic meaning." .
+kb:attention_sink_token_position a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention sink token position" ;
+    rdfs:comment "Fixed or learned position indices within context_length that accumulate disproportionate attention mass" .
+kb:attention_sinks a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention sinks" ;
+    rdfs:comment "Special tokens that accumulate disproportionate attention mass, enabling efficient long-context modeling without explicit positional encoding" .
+kb:attention_sparsification a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention sparsification" ;
+    rdfs:comment "The phenomenon where models develop increasingly sparse attention patterns for distant tokens, often losing middle information (lost_in_the_middle)" .
+kb:attention_spread a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention spread" ;
+    rdfs:comment "The distribution of attention weights across tokens; narrow spread means concentrated computation on few tokens, wide spread means distributed computation." .
+kb:attention_visualization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention visualization" ;
+    rdfs:comment "Inspecting attention_pattern matrices to understand what tokens the model is attending to; used for debugging and interpretability" .
+kb:attention_weighting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention weighting" ;
+    rdfs:comment "Distribution of attention scores across context tokens; reveals what the model considers relevant to current generation" .
+kb:attribution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attribution" ;
+    rdfs:comment "Tracing model outputs back to source context tokens or retrieved memories; essential for factual grounding and verification" .
+kb:backward_recall a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "backward recall" ;
+    rdfs:comment "Retrieval of past context tokens; constrained by context_window for working_memory and retrieval_mechanism for long_term_memory" .
+kb:backward_recall_distance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "backward recall distance" ;
+    rdfs:comment "Maximum token positions behind current index extractable via backward_recall; constrained by context_length and attention_weighting patterns" .
+kb:belief_state a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "belief state" ;
+    rdfs:comment "Model's current representation of world facts and user claims; maintained through context and updated via retrieval" .
+kb:bm25 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bm25" ;
+    rdfs:comment "A probabilistic sparse retrieval ranking function; the standard lexical baseline against which dense_retrieval is compared" .
+kb:byte_pair_encoding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "byte pair encoding" ;
+    rdfs:comment "A subword_tokenization algorithm building vocabulary via frequency-based merges; used by GPT models" .
+kb:c_util_001 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "c util 001" ;
+    rdfs:comment "Attention entropy: a scalar measure of the uniformity/dispersion in attention_weighting distributions across context tokens; high entropy signals near-uniform attention (low selectivity) while low entropy indicates focused attention on key tokens." .
+kb:c_util_002 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "c util 002" ;
+    rdfs:comment "Retrieval accuracy at position: the fraction of relevant facts or context atoms correctly accessed when queried from a given token distance; varies with position_embedding type and context_horizon boundaries." .
+kb:c_util_003 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "c util 003" ;
+    rdfs:comment "Task performance variance: measurable change in downstream task accuracy when the same information is repositioned within context_window; reveals position-dependent bias in effective_context." .
+kb:c_util_004 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "c util 004" ;
+    rdfs:comment "Attention saturation: condition where attention_weighting becomes uniform across long context, reducing selective focus and shrinking effective_context toward a uniform distribution." .
+kb:c_util_005 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "c util 005" ;
+    rdfs:comment "Attention sinks artifact: disproportionate attention mass accumulating on specific tokens (often BOS) that enables stable gradients in long sequences; directly affects how context_utilization degrades with sequence length." .
+kb:c_util_006 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "c util 006" ;
+    rdfs:comment "Information decay curve: function mapping token distance from current position to usefulness of that token for generation; describes how backward_recall fidelity degrades across context_horizon." .
+kb:c_util_007 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "c util 007" ;
+    rdfs:comment "Useful information density: ratio of tokens causally traced as contributing to output versus total tokens in context_window; the efficiency ratio of memory_efficiency applied to working_memory." .
+kb:c_util_008 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "c util 008" ;
+    rdfs:comment "Effective context ratio: effective_context measured as fraction of context_length; if ratio < 1.0 the model fails to leverage all available tokens for the generation task." .
+kb:c_util_009 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "c util 009" ;
+    rdfs:comment "Context compression quality: how much redundant or non-contributory context exists per unit of useful signal; measured by causal_tracing where low-contribution tokens indicate poor context compression." .
+kb:c_util_010 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "c util 010" ;
+    rdfs:comment "Position sensitivity bias: systematic performance degradation at context_horizon boundaries or with certain position_embedding types (sinusoidal vs RoPE vs ALiBi) that affects retrieval accuracy at position." .
+kb:c_util_011 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "c util 011" ;
+    rdfs:comment "Sliding window efficiency: how well sliding_window evicts old tokens while preserving high-attention_sinks and useful context atoms; relates to memory_efficiency in the working_memory layer." .
+kb:cache_eviction_policy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cache eviction policy" ;
+    rdfs:comment "Algorithm for deciding which KV pairs to discard when cache is full; options: LRU, LFU, importance-weighted, or learned policies." .
+kb:catastrophic_forgetting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "catastrophic forgetting" ;
+    rdfs:comment "Abrupt loss of previously learned knowledge when training on new data; mitigated by experience_replay and importance_weighted_memory" .
+kb:causal_tracing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "causal tracing" ;
+    rdfs:comment "Technique identifying which context tokens causally influence model outputs; used to understand effective_context and attention patterns" .
+kb:causal_tracing_probe_position a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "causal tracing probe position" ;
+    rdfs:comment "Token position within context_length selected as intervention point during causal_tracing to measure influence on output" .
+kb:chain_of_thought a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chain of thought" ;
+    rdfs:comment "Producing intermediate reasoning steps before final answer; when demonstrated in context, subsequent reasoning follows the pattern. A form of contextual procedural memory." .
+kb:chain_of_thought_allocation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chain of thought allocation" ;
+    rdfs:comment "Tokens within context_length reserved for scratchpad reasoning steps; reduces output_capacity by its byte length" .
+kb:chunk_boundaries a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chunk boundaries" ;
+    rdfs:comment "The logical seams between chunks; optimal placement preserves semantic coherence and avoids splitting entities or instructions mid-chunk" .
+kb:chunk_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chunk embedding" ;
+    rdfs:comment "Embedding a text chunk \u2014 a segment of a document \u2014 rather than an entire document or a single sentence; balances granularity for retrieval" .
+kb:chunking_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chunking strategy" ;
+    rdfs:comment "How documents are split into retrieval units; choices affect recall/precision: fixed-size, semantic (by sentences/paragraphs), recursive, or agentic splitting." .
+kb:consolidation_trigger a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "consolidation trigger" ;
+    rdfs:comment "Condition (time passed, memory fullness, importance threshold) that initiates memory_consolidation from episodic to semantic storage" .
+kb:context_aging a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context aging" ;
+    rdfs:comment "Gradual reduction in retrieval probability for older memories based on forgetting_curve principles" .
+kb:context_assembly a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context assembly" ;
+    rdfs:comment "Composing final context from preprocessed components: system prompt, conversation history, retrieved documents, memory entries. Ordered according to template." .
+kb:context_bound_reasoning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context bound reasoning" ;
+    rdfs:comment "Reasoning constrained by available context; unlike humans who can use unbounded external memory, LLM reasoning limited to context window." .
+kb:context_boundary a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context boundary" ;
+    rdfs:comment "The hard edge position within context where context_overflow triggers if exceeded; exactly context_length minus one for the output region." .
+kb:context_building a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context building" ;
+    rdfs:comment "The process of assembling the prompt from system instructions, conversation history, retrieved documents, and tool outputs into a coherent input sequence" .
+kb:context_caching a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context caching" ;
+    rdfs:comment "Storing computed key-value pairs from prior forward passes to avoid recomputation on repeated or overlapping context prefixes" .
+kb:context_caching_overhead_tokens a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context caching overhead tokens" ;
+    rdfs:comment "Tokens consumed by caching metadata that reduce net available context_length for content" .
+kb:context_capacity_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context capacity ratio" ;
+    rdfs:comment "The ratio of tokens actively processed to total available context_length; quantifies context_utilization as used_capacity divided by max_model_tokens." .
+kb:context_ceiling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context ceiling" ;
+    rdfs:comment "The absolute hard upper bound on total sequence length enforced by model architecture; once reached context_overflow occurs" .
+kb:context_chunk a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context chunk" ;
+    rdfs:comment "A discrete unit of text stored for retrieval; typically 512-1024 tokens. The granularity at which retrieval operates." .
+kb:context_chunking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context chunking" ;
+    rdfs:comment "Dividing long content into manageable segments (chunks) for separate embedding, retrieval, and context_building" .
+kb:context_coherence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context coherence" ;
+    rdfs:comment "The logical consistency and narrative unity of context content; incoherent context can cause the model to contradict itself" .
+kb:context_compression a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context compression" ;
+    rdfs:comment "Transforming a large context into a shorter equivalent representation \u2014 via summarization, extraction, or lossy summarization \u2014 to fit within context_limit" .
+kb:context_compression_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context compression ratio" ;
+    rdfs:comment "Ratio of original information size to compressed representation; tradeoffs with fidelity: higher compression means more information loss." .
+kb:context_diversity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context diversity" ;
+    rdfs:comment "The breadth of distinct perspectives, information sources, or viewpoints represented in context; can improve robustness but dilute signal" .
+kb:context_eviction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context eviction" ;
+    rdfs:comment "Selecting which tokens/chunks to remove when context is full; strategies: FIFO, importance-weighted, semantic clustering, or learned eviction." .
+kb:context_exhaustion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context exhaustion" ;
+    rdfs:comment "All available context tokens used with no room for more; requires eviction, summarization, or termination of context-dependent operations." .
+kb:context_extension a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context extension" ;
+    rdfs:comment "Growing the effective context beyond a single context_window by chaining windows or using hierarchical summarization" .
+kb:context_fidelity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context fidelity" ;
+    rdfs:comment "The accuracy with which context content reflects ground truth; low fidelity leads to hallucinated reasoning from corrupted context" .
+kb:context_grounding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context grounding" ;
+    rdfs:comment "Ensuring generation is anchored in the provided context rather than ungrounded model knowledge; key for retrieval_augmented_generation quality" .
+kb:context_history_window a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context history window" ;
+    rdfs:comment "How many historical context states are retained for potential backtracking or recovery; larger windows enable undo but cost memory." .
+kb:context_horizon a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context horizon" ;
+    rdfs:comment "Farthest retrievable or presentable token distance from current position; the effective reach of memory_access" .
+kb:context_horizon_token_span a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context horizon token span" ;
+    rdfs:comment "Token span from first to last position that falls within context_horizon; bounded above by context_length" .
+kb:context_incremental a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context incremental" ;
+    rdfs:comment "Adding new information to context without rebuilding it from scratch; the standard online mode for multi-turn conversations" .
+kb:context_injection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context injection" ;
+    rdfs:comment "Programmatically adding information to context at runtime; used for dynamic retrieval, tool results, or user-provided information." .
+kb:context_isolation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context isolation" ;
+    rdfs:comment "Ensuring context from one request doesn't leak into another; critical for multi-user systems with shared infrastructure." .
+kb:context_length a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context length" ;
+    rdfs:comment "Total number of tokens (input + output) an LLM supports; the hard ceiling on how much text can be loaded into context_window at once" .
+kb:context_length_estimation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context length estimation" ;
+    rdfs:comment "Predicting how many tokens a text passage will produce; required for accurate token budgeting before generation." .
+kb:context_length_extension a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context length extension" ;
+    rdfs:comment "Techniques (position_interpolation, RoPE scaling) enabling models to handle longer context than trained on" .
+kb:context_length_limit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context length limit" ;
+    rdfs:comment "Maximum tokens a model can attend to; beyond this, information is invisible. Models like GPT-4-128k have different limits than Llama-8b's 32k." .
+kb:context_length_scaling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context length scaling" ;
+    rdfs:comment "The challenge of maintaining model quality and retrieval accuracy as context_length grows; quadratically harder for attention and retrieval" .
+kb:context_limit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context limit" ;
+    rdfs:comment "The practical or configured maximum token count enforced during inference, often less than the theoretical context_length due to memory or cost constraints" .
+kb:context_management a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context management" ;
+    rdfs:comment "Strategies and systems for selecting, ordering, compressing, and evicting content to stay within context_window while preserving task relevance" .
+kb:context_mixing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context mixing" ;
+    rdfs:comment "Combining multiple context sources (retrieved, historical, generated) into unified context fed to model; requires conflict resolution and ordering." .
+kb:context_overflow a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context overflow" ;
+    rdfs:comment "The failure state where total input exceeds context_window, causing silent truncation or errors depending on the client library" .
+kb:context_overflow_handling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context overflow handling" ;
+    rdfs:comment "The policy and mechanism for responding when content exceeds context_limit \u2014 whether to truncate, reject, compress, or paginate" .
+kb:context_overflow_trigger a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context overflow trigger" ;
+    rdfs:comment "Condition where total token count exceeds context_length; activates truncation_strategy" .
+kb:context_overhead a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context overhead" ;
+    rdfs:comment "Tokens consumed by system prompts, chat templates, or fixed prefixes that reduce prompt_capacity even when not user-provided" .
+kb:context_overlap a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context overlap" ;
+    rdfs:comment "Degree of shared information between retrieved memories and current context; affects redundancy and memory_efficiency" .
+kb:context_padding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context padding" ;
+    rdfs:comment "Appending empty tokens to extend context to alignment boundaries; inefficient but sometimes necessary for batch processing" .
+kb:context_poisoning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context poisoning" ;
+    rdfs:comment "Injecting misleading information into context to manipulate model behavior; can occur via retrieval from adversarial sources or deliberate prompt injection." .
+kb:context_position_encoding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context position encoding" ;
+    rdfs:comment "How token positions are represented to the model; affects relative distance awareness and context extrapolation ability." .
+kb:context_postprocessing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context postprocessing" ;
+    rdfs:comment "Transforming generated output: formatting, validation, security filtering. Not memory but completes the context lifecycle." .
+kb:context_preprocessing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context preprocessing" ;
+    rdfs:comment "Transforming raw inputs into context-ready format: cleaning, formatting, metadata extraction, chunking. Done before context assembly." .
+kb:context_pruning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context pruning" ;
+    rdfs:comment "Selective removal of low-relevance tokens, messages, or chunks from context to improve signal-to-noise ratio and reduce token spend" .
+kb:context_quadratic_scaling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context quadratic scaling" ;
+    rdfs:comment "The mathematical reality that self_attention cost grows quadratically with sequence length; fundamental limit on practical context_length" .
+kb:context_quality a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context quality" ;
+    rdfs:comment "The signal-to-noise ratio, relevance, coherence, and grounding quality of content within context_window; distinct from raw token count" .
+kb:context_quantum a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context quantum" ;
+    rdfs:comment "Granularity at which context_length is quantized in a given system; often 1 token but may be larger for efficiency in specific implementations" .
+kb:context_redundancy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context redundancy" ;
+    rdfs:comment "Overlap or duplication of information within context; reduces effective context length and can bias model toward redundant content." .
+kb:context_refresh a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context refresh" ;
+    rdfs:comment "Periodically rebuilding context from persistent sources rather than incrementally extending it, reducing error accumulation from noisy truncation" .
+kb:context_relevance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context relevance" ;
+    rdfs:comment "The degree to which context content directly pertains to the current query or task; a primary criterion for context_selection" .
+kb:context_relevance_scoring a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context relevance scoring" ;
+    rdfs:comment "Assessing whether context entries help answer current query; used to filter retrieved content before injection." .
+kb:context_reset a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context reset" ;
+    rdfs:comment "Clearing all or part of context to start fresh; may reset working memory while preserving system prompt, or full reset to initial state." .
+kb:context_resize_event a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context resize event" ;
+    rdfs:comment "The runtime mechanism or policy invoked when context_length must accommodate inputs exceeding current capacity; involves reallocation or overflow handling." .
+kb:context_scaling_factor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context scaling factor" ;
+    rdfs:comment "The multiplier relating raw context_length to effective_context; models with improved attention patterns achieve factors closer to one." .
+kb:context_selection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context selection" ;
+    rdfs:comment "Choosing which items (documents, messages, facts) enter the context based on relevance, recency, or importance heuristics" .
+kb:context_snapshot a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context snapshot" ;
+    rdfs:comment "Capturing the full state of context at a specific point in time for later comparison, auditing, or resumption" .
+kb:context_state a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context state" ;
+    rdfs:comment "Snapshot of all current context tokens and their metadata; includes user messages, system prompts, retrieved documents, memory entries, and generated text." .
+kb:context_summarization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context summarization" ;
+    rdfs:comment "Replacing a long context segment with a distilled summary that preserves key semantics while consuming fewer tokens" .
+kb:context_switching a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context switching" ;
+    rdfs:comment "Managing the transition when conversation topic shifts; requires knowing when to discard or archive prior context" .
+kb:context_synthesis a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context synthesis" ;
+    rdfs:comment "Combining information from multiple retrieved sources into coherent context; requires resolution of conflicts, deduplication, and ordering." .
+kb:context_token_efficiency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context token efficiency" ;
+    rdfs:comment "Information density per context token; higher efficiency means more useful information fits in limited context. Affected by chunking, retrieval quality, and compression." .
+kb:context_tracking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context tracking" ;
+    rdfs:comment "Monitoring what information is currently in context; enables informed decisions about eviction, retrieval, and context updates." .
+kb:context_truncation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context truncation" ;
+    rdfs:comment "Hard-cutting context to max_tokens, typically from the oldest or lowest-scored entries; the simplest form of context_management" .
+kb:context_utilization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context utilization" ;
+    rdfs:comment "How effectively the model uses all available context tokens; metrics include attention entropy, retrieval accuracy at various positions, task performance variation with position." .
+kb:context_utilization_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context utilization rate" ;
+    rdfs:comment "Ratio of effective_context_limit to token_budget; attention_saturation lowers this rate on long contexts" .
+kb:context_window a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context window" ;
+    rdfs:comment "The finite token sequence an LLM can process in a single forward pass; defines the maximum input + output capacity bounded by architecture or inference config" .
+kb:context_window_boundary a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context window boundary" ;
+    rdfs:comment "The absolute position index equal to context_length minus one; tokens cannot be positioned beyond this limit without triggering context_overflow" .
+kb:context_window_management a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context window management" ;
+    rdfs:comment "Active control of what enters, stays in, and leaves the context window; requires eviction policies, prioritization, and summarization." .
+kb:context_window_padding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context window padding" ;
+    rdfs:comment "Adding padding tokens to fill context to fixed length; used for batching but wastes compute on padding tokens." .
+kb:context_window_utilization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context window utilization" ;
+    rdfs:comment "Fraction of context window actively used for task-relevant information; low utilization means wasted tokens, high utilization maximizes information density." .
+kb:contextual_learning_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "contextual learning rate" ;
+    rdfs:comment "Adaptive rate at which new information from context is incorporated into model's implicit beliefs; varies by architecture" .
+kb:conversation_compaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "conversation compaction" ;
+    rdfs:comment "Reducing conversation history to essential elements; options: keep last N turns, summarize early turns, keep only user intents or key facts." .
+kb:conversation_history a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "conversation history" ;
+    rdfs:comment "The chronological log of user_message and assistant_message turns in a session; the primary raw material for context_building" .
+kb:conversational_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "conversational context" ;
+    rdfs:comment "The aggregate of discourse_memory, entity_tracking, and conversation_history that defines the current interaction state" .
+kb:coreference_resolution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "coreference resolution" ;
+    rdfs:comment "Identifying when multiple expressions refer to the same entity or concept in text; reduces fragmentation in context_building and memory_write" .
+kb:corrective_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "corrective rag" ;
+    rdfs:comment "RAG variant where retrieved documents are evaluated for correctness before use; incorrect retrievals trigger re-retrieval or fallback to parametric knowledge." .
+kb:cosine_similarity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cosine similarity" ;
+    rdfs:comment "A similarity measure between embedding vectors based on the cosine of the angle between them; invariant to vector magnitude" .
+kb:cross_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cross attention" ;
+    rdfs:comment "Attention mechanism where queries attend to a separate context (e.g., retrieved documents); enables retrieval_augmented_generation" .
+kb:cross_session_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cross session memory" ;
+    rdfs:comment "Memory accessible across multiple sessions for a given user or agent, enabling continuity of preferences, facts, and relationship history" .
+kb:cu_attention_entropy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu attention entropy" ;
+    rdfs:comment "Metric quantifying the uniformity (or peakedness) of attention_weighting distribution across context tokens; maximum entropy means uniform attention (poor context_utilization), low entropy means focused attention on relevant tokens." .
+kb:cu_attention_weight_uniformity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu attention weight uniformity" ;
+    rdfs:comment "Statistical measure (e.g., Gini coefficient or KL divergence from uniform) of attention_weighting distribution; directly quantifies soft_attention versus sparse_attention behavior in practice." .
+kb:cu_effective_context_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu effective context ratio" ;
+    rdfs:comment "The ratio of tokens that causally influence model output (via causal_tracing) to the total context_window capacity; values below 1.0 indicate unused or attention_saturation-blunted context." .
+kb:cu_effective_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu effective ratio" ;
+    rdfs:comment "Ratio of effective_context tokens to total context_window capacity; quantifies what fraction of available context the model actively leverages" .
+kb:cu_information_density a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu information density" ;
+    rdfs:comment "The proportion of context tokens that carry task-relevant information versus padding or redundant content; higher density improves effective_context utilization per token budget." .
+kb:cu_position_bias_metric a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu position bias metric" ;
+    rdfs:comment "Metric comparing model performance on identical tasks when relevant information appears at the beginning (recency/primacy) versus middle versus end of context; a component of context_utilization assessment." .
+kb:cu_position_sensitivity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu position sensitivity" ;
+    rdfs:comment "Degree to which task performance varies based on token position within context_window; reveals where in the context the model attends most effectively" .
+kb:cu_retrieval_accuracy_at_position a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu retrieval accuracy at position" ;
+    rdfs:comment "Task performance metric measuring how accurately the model retrieves or utilizes information located at specific token positions within context_window; reveals positional bias in working_memory access." .
+kb:cu_retrieval_precision a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu retrieval precision" ;
+    rdfs:comment "Accuracy of backward_recall for context tokens at varying positions from current generation point; measures how precisely the model retrieves relevant information from memory_window" .
+kb:cu_saturation_threshold a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu saturation threshold" ;
+    rdfs:comment "The context_token distance from current position at which attention_saturation onset occurs; determines the practical context_horizon for reliable working_memory retrieval." .
+kb:cu_signal_noise_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu signal noise ratio" ;
+    rdfs:comment "Ratio of task-relevant tokens to irrelevant or distracting tokens present in the active context; low ratio degrades cu_information_density" .
+kb:cu_task_performance_variation_with_position a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu task performance variation with position" ;
+    rdfs:comment "Quantitative measure of task accuracy change as relevant context tokens are relocated to different positions; fundamental context_utilization signal showing how position_embedding quality affects effective_context." .
+kb:cu_utilization_bottleneck a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cu utilization bottleneck" ;
+    rdfs:comment "Constraint in memory_hierarchy that limits context_utilization; can be computational (attention_mechanism), positional (position_embedding), or retrieval-based (backward_recall)" .
+kb:declarative_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "declarative memory" ;
+    rdfs:comment "Conscious knowledge of facts and events; analogous to explicit semantic_memory and episodic_memory in LLM systems" .
+kb:dense_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dense embedding" ;
+    rdfs:comment "A continuous-valued vector representation produced by a neural encoder; the standard output of text_embedding models" .
+kb:dense_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dense retrieval" ;
+    rdfs:comment "Retrieval using dense embedding vectors produced by a neural encoder; captures semantic similarity better than sparse methods" .
+kb:differentiable_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "differentiable memory" ;
+    rdfs:comment "Memory system with learnable read/write operations; gradients can flow through memory access, enabling the model to learn what to store." .
+kb:discourse_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "discourse memory" ;
+    rdfs:comment "High-level structure of conversation: goals, commitments, questions raised; persists beyond individual turn context" .
+kb:diverse_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "diverse retrieval" ;
+    rdfs:comment "Retrieving results that cover different aspects of a query rather than near-duplicates; improves coverage but may reduce average relevance." .
+kb:dot_product_similarity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dot product similarity" ;
+    rdfs:comment "A similarity measure using raw dot product between embedding vectors; sensitive to magnitude and used when embeddings are normalized" .
+kb:dynamic_context_allocation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dynamic context allocation" ;
+    rdfs:comment "Allocating variable token budgets to different context components (history vs retrieved docs vs system prompt) based on task requirements" .
+kb:effective_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "effective context" ;
+    rdfs:comment "Portion of context_window the model actually leverages for any given generation; often less than the full window due to attention patterns" .
+kb:effective_context_limit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "effective context limit" ;
+    rdfs:comment "Portion of context_length the model actually leverages for a given task; often less than full token_budget due to attention patterns" .
+kb:effective_limit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "effective limit" ;
+    rdfs:comment "The empirically observed maximum usable context before performance degradation; often lower than model_native_limit due to attention_saturation" .
+kb:efficient_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "efficient attention" ;
+    rdfs:comment "Attention variants reducing quadratic complexity: linear attention, performer (random feature approximation), cosformer, or state space models." .
+kb:em_context_bundle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "em context bundle" ;
+    rdfs:comment "The surrounding context of an event including user inputs, system responses, and environmental state at the time." .
+kb:em_episode_marker a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "em episode marker" ;
+    rdfs:comment "Signal indicating episode boundaries: new session start, task boundary, or conversational turn demarcation." .
+kb:em_event a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "em event" ;
+    rdfs:comment "A discrete unit of experience stored in episodic memory \u2014 a single interaction, task completion, or notable outcome." .
+kb:em_experience_sequence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "em experience sequence" ;
+    rdfs:comment "An ordered collection of events forming a coherent experiential arc; the episodic unit of storage." .
+kb:em_interaction_record a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "em interaction record" ;
+    rdfs:comment "Structured log of the exchange pairs (prompt/response) comprising an event." .
+kb:em_outcome a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "em outcome" ;
+    rdfs:comment "The result or consequence of an event \u2014 success, failure, or partial completion \u2014 recorded for outcome-based retrieval." .
+kb:em_recency_decay a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "em recency decay" ;
+    rdfs:comment "Algorithm for reducing salience weights of older events over time; models forgetting in episodic memory." .
+kb:em_salience_weight a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "em salience weight" ;
+    rdfs:comment "Numeric value indicating how memorable or significant an event is; influences consolidation priority and retrieval ranking." .
+kb:em_significance_rank a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "em significance rank" ;
+    rdfs:comment "Ordering structure by event importance or impact; enables retrieval by significance rather than recency." .
+kb:em_state_snapshot a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "em state snapshot" ;
+    rdfs:comment "Captured system state (context window contents, active variables, user profile) at the moment of an event." .
+kb:em_temporal_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "em temporal index" ;
+    rdfs:comment "Organizational structure mapping events to time ranges; enables retrieval by temporal proximity." .
+kb:em_timestamp a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "em timestamp" ;
+    rdfs:comment "Temporal marker indicating when an event occurred; enables chronological ordering of episodic entries." .
+kb:embedding_dimensionality a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding dimensionality" ;
+    rdfs:comment "Number of dimensions in the embedding_space; higher captures more nuance but increases storage and retrieval_cost" .
+kb:embedding_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "embedding model" ;
+    rdfs:comment "A model trained to produce text_embedding vectors; may be a general encoder like CLIP, a domain-specific encoder, or a late-intercept from an LLM" .
+kb:entity_linking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entity linking" ;
+    rdfs:comment "Connecting text spans to entries in a knowledge base or knowledge_graph, enabling structured memory storage and disambiguation" .
+kb:entity_resolution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entity resolution" ;
+    rdfs:comment "Determining that two references refer to the same underlying entity; critical for coherent knowledge retrieval and memory merging across sources" .
+kb:entity_tracking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entity tracking" ;
+    rdfs:comment "Identifying and maintaining references to specific entities across turns; challenged by coreference_resolution complexity" .
+kb:episodic_buffer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "episodic buffer" ;
+    rdfs:comment "High-capacity short-term store holding recent episodes in near-raw form before consolidation into semantic_memory" .
+kb:episodic_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "episodic memory" ;
+    rdfs:comment "Memory storing discrete experiences or events \u2014 specific interactions,\u5b8c\u6210\u4efb\u52a1, or notable outcomes \u2014 organized chronologically or by significance" .
+kb:euclidean_distance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "euclidean distance" ;
+    rdfs:comment "A geometric distance measure between embedding vectors; used in nearest-neighbor search when angular similarity is insufficient" .
+kb:exact_match_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "exact match retrieval" ;
+    rdfs:comment "Retrieving by exact key match rather than similarity; used for metadata lookups, identifiers, or when exact terms are required." .
+kb:experience_replay a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "experience replay" ;
+    rdfs:comment "Technique of mixing past examples into training batches; combats catastrophic forgetting in continual learning" .
+kb:explicit_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "explicit memory" ;
+    rdfs:comment "Conscious, accessible memory that can be verbalized; in LLM context, retrieved via RAG or provided in prompt." .
+kb:extended_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "extended context" ;
+    rdfs:comment "Models or techniques enabling effective use of context beyond the training context_length; requires architectural innovations or inference tricks" .
+kb:external_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "external memory" ;
+    rdfs:comment "Storage outside the LLM's native parameters \u2014 vector databases, graphs, or file systems \u2014 that must be retrieved and injected into context" .
+kb:extraction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "extraction" ;
+    rdfs:comment "Selecting verbatim or lightly paraphrased spans from source; preserves factual fidelity better than abstractive summarization" .
+kb:fact_lookup a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fact lookup" ;
+    rdfs:comment "Direct retrieval of specific factual assertions from a knowledge store to support or correct LLM generation" .
+kb:faiss a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "faiss" ;
+    rdfs:comment "Facebook AI Similarity Search: a library of efficient ANN indexes and clustering methods for dense vector retrieval at scale" .
+kb:faithfulness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "faithfulness" ;
+    rdfs:comment "Degree to which model outputs respect information in provided context; measured by attribution accuracy and hallucination rate" .
+kb:few_shot_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "few shot learning" ;
+    rdfs:comment "Providing 2-5 examples in context to guide task performance; example selection and ordering affect success significantly." .
+kb:flash_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flash attention" ;
+    rdfs:comment "A memory-efficient attention algorithm using tiling and recomputation to avoid materializing the full n\u00d7n attention matrix in HBM" .
+kb:flash_attention_tile_count a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flash attention tile count" ;
+    rdfs:comment "Number of tiles into which flash_attention partitions the context_length squared attention matrix for memory_efficient computation" .
+kb:forgetting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "forgetting" ;
+    rdfs:comment "Loss of information from memory; in vector stores, caused by eviction; in model context, caused by position degradation and attention distribution." .
+kb:forgetting_curve a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "forgetting curve" ;
+    rdfs:comment "Decay function describing memory retention over time; models this decay in episodic_memory management" .
+kb:forward_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "forward context" ;
+    rdfs:comment "Future tokens visible in bidirectional models; limited utility in autoregressive generation but useful in embedding computation" .
+kb:generation_budget a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "generation budget" ;
+    rdfs:comment "The token allocation remaining for output after input tokens are accounted; varies dynamically per request" .
+kb:global_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "global memory" ;
+    rdfs:comment "Shared memory accessible across all users and sessions; typically contains general facts, policies, or system knowledge." .
+kb:gpu_memory_limits a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gpu memory limits" ;
+    rdfs:comment "Physical memory constraints on GPU that limit kv_cache size and thus maximum practical context_length for a given model on given hardware" .
+kb:graph_database a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph database" ;
+    rdfs:comment "A database optimized for storing and querying graph-structured data; powers knowledge_graph storage and traversals at scale" .
+kb:graph_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph retrieval" ;
+    rdfs:comment "Querying a knowledge graph for relevant triples/paths; often combined with vector retrieval in neuro-symbolic RAG pipelines." .
+kb:hard_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hard attention" ;
+    rdfs:comment "Attention focusing on single positions; non-differentiable but efficient; approximated by soft attention in practice" .
+kb:hierarchical_chunking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hierarchical chunking" ;
+    rdfs:comment "Recursive splitting of text into nested chunks enabling multi-granularity retrieval from summary to detail" .
+kb:hierarchical_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hierarchical context" ;
+    rdfs:comment "A two+ tier context architecture: a short immediate context for recent turns plus a summarized or retrieved outer context for long-range dependencies" .
+kb:hierarchical_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hierarchical memory" ;
+    rdfs:comment "Memory organized in levels of abstraction: recent items, summaries of older items, abstract concepts; reduces memory pressure while preserving key information." .
+kb:hnsw a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hnsw" ;
+    rdfs:comment "Hierarchical Navigable Small World \u2014 a graph-based ANN algorithm offering strong recall-speed tradeoffs; implemented in FAISS and most vector DBs" .
+kb:holographic_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "holographic memory" ;
+    rdfs:comment "Distributed representation where each memory fragment is encoded across many positions; biologically inspired retrieval mechanism" .
+kb:hybrid_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hybrid memory" ;
+    rdfs:comment "System combining multiple memory substrates (vector store + knowledge_graph + kv_cache) for complementary strengths" .
+kb:hybrid_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hybrid retrieval" ;
+    rdfs:comment "Combining dense_retrieval and sparse_retrieval \u2014 often via reciprocal rank fusion \u2014 to capture both semantic and lexical matches" .
+kb:hyde_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hyde retrieval" ;
+    rdfs:comment "Hypotheses-to-Documents: generate hypothetical answer, embed it, retrieve real documents matching the hypothesis; improves recall on ambiguous queries." .
+kb:implicit_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "implicit memory" ;
+    rdfs:comment "Unconscious memory affecting behavior without explicit recall; in LLMs, manifested as in-context behavioral patterns not easily articulated." .
+kb:importance_weighted_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "importance weighted memory" ;
+    rdfs:comment "Memory entries weighted by estimated importance; higher weight reduces eviction probability. Importance estimated by recency, access frequency, or model-assessed relevance." .
+kb:in_context_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "in context learning" ;
+    rdfs:comment "Model adapts behavior based on examples provided in the context window; no weight updates. Related to memory since examples must fit in context." .
+kb:in_memory_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "in memory retrieval" ;
+    rdfs:comment "Retrieval from memory systems kept in RAM rather than disk; faster but limited capacity. Often used for hot data with cold storage for scale." .
+kb:index_compression a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "index compression" ;
+    rdfs:comment "Reducing the memory footprint of an ann_index through quantization or product quantization, trading recall for storage efficiency" .
+kb:index_sharding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "index sharding" ;
+    rdfs:comment "Distributing an ANN_index across multiple machines or partitions to scale retrieval beyond single-node memory and compute" .
+kb:inflection_points a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inflection points" ;
+    rdfs:comment "Tokens marking significant boundaries in context (topic shifts, new entities, key claims); candidates for memory_anchors" .
+kb:input_capacity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "input capacity" ;
+    rdfs:comment "The portion of token_budget allocated to prompt/prompt_tokens; the maximum tokens a user can submit before generation begins" .
+kb:input_token_budget a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "input token budget" ;
+    rdfs:comment "The portion of context_length reserved and available for prompt tokens, retrieved context, and system instructions before generation begins." .
+kb:interference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "interference" ;
+    rdfs:comment "When new information overwrites or degrades retrieval of old information; in append-only stores, occurs during reranking/retrieval; in model context, speculative." .
+kb:is_a a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "is a" ;
+    rdfs:comment "A taxonomic relationship linking a kg_instance to its kg_class, establishing membership and enabling inheritance of class-defined properties and constraints." .
+kb:iterative_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "iterative retrieval" ;
+    rdfs:comment "Multi-pass retrieval where each pass uses results from previous passes to refine query; continues until model decides sufficient information gathered." .
+kb:key_memory_markers a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "key memory markers" ;
+    rdfs:comment "Salient tokens or embeddings flagged for priority retention; used by importance_weighted_memory selection" .
+kb:key_value_caching a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "key value caching" ;
+    rdfs:comment "The generic term for caching kv_cache entries; critical for efficient inference with long conversation_history" .
+kb:key_value_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "key value memory" ;
+    rdfs:comment "Memory organized as key-value pairs where keys enable retrieval by content; resembles attention's key-query matching." .
+kb:kg_class a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kg class" ;
+    rdfs:comment "A kg_entity type within the kg_ontology; groups instances that share structural or semantic properties" .
+kb:kg_concept a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kg concept" ;
+    rdfs:comment "An abstract kg_entity representing a category or idea; can serve as a class in is_a hierarchies" .
+kb:kg_entity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kg entity" ;
+    rdfs:comment "A node in the knowledge_graph representing a distinct thing \u2014 concrete object, person, event, or concept \u2014 identified by a unique identifier" .
+kb:kg_inference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kg inference" ;
+    rdfs:comment "Deriving new kg_triple entries from existing ones through rule application or traversal over the kg_ontology (e.g., transitivity of is_a)" .
+kb:kg_instance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kg instance" ;
+    rdfs:comment "A kg_entity that is a specific concrete occurrence of a kg_class; participates in is_a relationships with its class" .
+kb:kg_ontology a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kg ontology" ;
+    rdfs:comment "The schema layer of a knowledge_graph defining allowed kg_entity types (classes), allowed kg_predicate labels, and domain/range constraints on kg_relationships" .
+kb:kg_predicate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kg predicate" ;
+    rdfs:comment "The label or type of a kg_relationship; defines the semantics of how two kg_entities relate (e.g., is_a, part_of, owned_by, caused_by)" .
+kb:kg_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kg property" ;
+    rdfs:comment "An attribute attached to a kg_entity describing a feature or quality; differs from kg_relationship in that it terminates in a literal value rather than another entity" .
+kb:kg_relationship a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kg relationship" ;
+    rdfs:comment "A typed directed edge connecting a source kg_entity to a target kg_entity; the edge carries a predicate label defining the relation semantics" .
+kb:kg_schema a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kg schema" ;
+    rdfs:comment "The structural blueprint specifying which kg_predicate labels are permitted between which kg_entity types; enforced by kg_ontology constraints" .
+kb:kg_traversal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kg traversal" ;
+    rdfs:comment "Navigating the knowledge_graph along kg_relationship edges to discover connected kg_entities; the fundamental operation enabling associative retrieval" .
+kb:kg_triple a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kg triple" ;
+    rdfs:comment "The atomic unit of a knowledge_graph: a (subject kg_entity, predicate label, object kg_entity) tuple; equivalently a single kg_relationship with its endpoints" .
+kb:knowledge_base a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge base" ;
+    rdfs:comment "A structured repository of facts, rules, and assertions; unlike embedding-based retrieval, supports symbolic reasoning and logical inference" .
+kb:knowledge_cutoff a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge cutoff" ;
+    rdfs:comment "Temporal boundary in model's parametric knowledge; events after this date must be retrieved from external sources for accurate responses." .
+kb:knowledge_graph a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph" ;
+    rdfs:comment "A graph-structured representation of entities and their relationships; used as a structured form of semantic_memory with traversable edges" .
+kb:knowledge_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge retrieval" ;
+    rdfs:comment "Fetching factual or conceptual information from a knowledge source to ground LLM responses in verified information rather than parametric memory" .
+kb:knowledge_storage a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge storage" ;
+    rdfs:comment "The infrastructure and format for persisting knowledge \u2014 graph databases, triple stores, or vector databases \u2014 that supports knowledge_retrieval" .
+kb:kv_cache a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kv cache" ;
+    rdfs:comment "The key-value tensors cached during transformer self-attention to avoid recomputing activations for previously-seen tokens" .
+kb:kv_cache_compression a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kv cache compression" ;
+    rdfs:comment "Applying compression (pruning, quantization) to kv_cache to fit more context within GPU memory" .
+kb:kv_cache_management a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kv cache management" ;
+    rdfs:comment "Strategies for storing, evicting, or compressing key-value tensors; critical for long contexts where cache size can exceed model size." .
+kb:kv_cache_optimization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kv cache optimization" ;
+    rdfs:comment "Strategies \u2014 including paged_attention, quantization, and eviction \u2014 to reduce the memory footprint of key_value_caching" .
+kb:kv_cache_tensor_size a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kv cache tensor size" ;
+    rdfs:comment "Total key-value tensor dimensions constrained by context_length; scales as layers times heads times kv_dim times context_length" .
+kb:linear_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "linear attention" ;
+    rdfs:comment "Attention approximated with linear complexity O(n) by kernelizing the attention operation; trades expressiveness for efficiency. Examples: Linformer, Performer, RFA." .
+kb:locality_sensitive_hashing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "locality sensitive hashing" ;
+    rdfs:comment "Hashing scheme preserving similarity relationships; used in approximate_nearest_neighbor for fast vector_database queries" .
+kb:long_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "long context" ;
+    rdfs:comment "Working with context_window sizes significantly beyond standard (e.g., >32k tokens); presents engineering and quality challenges" .
+kb:long_term_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "long term memory" ;
+    rdfs:comment "Information persisted across sessions, tasks, or deployments; requires external storage and retrieval mechanisms since it cannot fit in context_window" .
+kb:lost_in_the_middle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lost in the middle" ;
+    rdfs:comment "The empirical finding that LLMs struggle to retrieve information placed in the middle of a long context, even when both ends are accessible" .
+kb:mamba_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mamba model" ;
+    rdfs:comment "Selective State Space Model with input-dependent transition matrices; achieves transformer-quality at linear complexity, strong on long sequences." .
+kb:max_model_tokens a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "max model tokens" ;
+    rdfs:comment "The absolute token ceiling of the model architecture; synonymous with context_length when no additional constraints apply." .
+kb:max_tokens a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "max tokens" ;
+    rdfs:comment "The parameter specifying the maximum number of tokens the model may output; also used colloquially as the token budget for any portion of context" .
+kb:maximum_position a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "maximum position" ;
+    rdfs:comment "The highest valid integer position index representable by the position_embedding scheme within context_length; equal to max_model_tokens minus one for zero-indexed sequences." .
+kb:memory_access_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory access pattern" ;
+    rdfs:comment "Pattern of reads/writes to memory over time; affects caching efficiency, prefetching strategies, and storage layout optimization." .
+kb:memory_addressing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory addressing" ;
+    rdfs:comment "Mechanism for locating specific information in memory; includes content-based and location-based addressing modes" .
+kb:memory_age a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory age" ;
+    rdfs:comment "Time since memory entry was written; used in recency-based eviction and for user awareness of information freshness." .
+kb:memory_allocation_fraction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory allocation fraction" ;
+    rdfs:comment "Fraction of context_length reserved for working_memory versus content tokens; memory_efficiency depends on minimizing this fraction" .
+kb:memory_anchors a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory anchors" ;
+    rdfs:comment "High-importance tokens serving as retrieval keys or summarization seeds; stable points for memory reconstruction" .
+kb:memory_append a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory append" ;
+    rdfs:comment "Adding new information to an existing memory entry without modifying prior content; common for conversation logs and evolving facts" .
+kb:memory_audit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory audit" ;
+    rdfs:comment "Systematic review of stored memories for accuracy, relevance, and compliance; governance practice for long_term_memory systems" .
+kb:memory_augmented_llm a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory augmented llm" ;
+    rdfs:comment "LLM architecture with explicit external memory read/write gates; the model learns to access memory rather than relying solely on parameters." .
+kb:memory_augmented_network a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory augmented network" ;
+    rdfs:comment "Architecture combining neural computation with external memory storage; hybrid approach to memory_hierarchy management" .
+kb:memory_bandwidth a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory bandwidth" ;
+    rdfs:comment "Rate at which memory can be read/written; bounded by context length (read), storage system latency (external), and compute for embedding generation." .
+kb:memory_binding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory binding" ;
+    rdfs:comment "Associating related memories together (entity with attributes, event with participants); enables coherent retrieval of related facts" .
+kb:memory_capacity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory capacity" ;
+    rdfs:comment "Maximum storable items in a memory system; bounded by context_length for working_memory and storage size for long_term_memory" .
+kb:memory_checkpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory checkpoint" ;
+    rdfs:comment "Periodic save of memory state enabling recovery; critical for long-running agents or systems where interruption is possible." .
+kb:memory_coherence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory coherence" ;
+    rdfs:comment "The property that memory entries are consistent with each other and free of contradictions" .
+kb:memory_compression a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory compression" ;
+    rdfs:comment "Reducing memory footprint through summarization, extraction, or learned encoding; trades context_fidelity for capacity" .
+kb:memory_confabulation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory confabulation" ;
+    rdfs:comment "Generation of plausible but incorrect memories when episodic_memory retrieval fails or produces false matches" .
+kb:memory_conflicts a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory conflicts" ;
+    rdfs:comment "Situations where multiple memory entries contain contradictory information; requires resolution strategies to maintain memory_coherence" .
+kb:memory_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory consistency" ;
+    rdfs:comment "Ensuring that reads from memory always reflect the most recent writes; critical in multi-agent or concurrent memory access scenarios" .
+kb:memory_consistency_check a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory consistency check" ;
+    rdfs:comment "Verifying memory state is coherent: no contradictions, proper versioning, no orphaned references. Important for complex multi-source memory." .
+kb:memory_consolidation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory consolidation" ;
+    rdfs:comment "The process of transforming short-term memory representations into longer-term storage; converting ephemeral state to persistent records" .
+kb:memory_decay a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory decay" ;
+    rdfs:comment "Gradual degradation or lowering of retrieval priority for older memory entries over time, mimicking biological forgetting curves" .
+kb:memory_decay_function a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory decay function" ;
+    rdfs:comment "Mathematical model of how memory strength decreases over time without reinforcement; governs episodic_memory eviction timing" .
+kb:memory_delete a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory delete" ;
+    rdfs:comment "Removing a specific memory entry from storage; used for privacy compliance, error correction, or memory_gc" .
+kb:memory_efficiency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory efficiency" ;
+    rdfs:comment "Ratio of useful information retained per unit of memory storage or context_token budget" .
+kb:memory_efficient_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory efficient attention" ;
+    rdfs:comment "Attention implementation variants (flash_attention, sparse_attention) that reduce memory complexity from O(n\u00b2) to near-linear" .
+kb:memory_encoding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory encoding" ;
+    rdfs:comment "The process of converting information into form suitable for storage; in vector stores, embedding generation; in model context, attention-based encoding." .
+kb:memory_encryption a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory encryption" ;
+    rdfs:comment "Encrypting stored memories to protect sensitive information; affects retrieval latency due to decryption overhead." .
+kb:memory_eviction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory eviction" ;
+    rdfs:comment "The policy-driven removal of entries from memory when storage limits are reached, analogous to cache eviction strategies" .
+kb:memory_forgetting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory forgetting" ;
+    rdfs:comment "Deliberate or algorithmic removal of memory entries deemed irrelevant, outdated, or harmful to preserve storage efficiency and signal quality" .
+kb:memory_fragmentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory fragmentation" ;
+    rdfs:comment "Memory spread across storage in ways that hurt retrieval efficiency; defragmentation or reorganization improves performance." .
+kb:memory_gc a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory gc" ;
+    rdfs:comment "Garbage collection of memory entries \u2014 removing stale, contradicted, or superseded entries to maintain a clean, accurate memory store" .
+kb:memory_hierarchy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory hierarchy" ;
+    rdfs:comment "The layered structure of LLM memory: immediate context (working), retrieved context (RAG), fine-tuned weights (parametric), external stores (vector DB). Each layer has different latency/capacity tradeoffs." .
+kb:memory_importance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory importance" ;
+    rdfs:comment "Computed or learned value of a memory item; determines retention priority in importance_weighted_memory systems" .
+kb:memory_importance_weighting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory importance weighting" ;
+    rdfs:comment "Scoring memories by significance so high-importance entries are retained, retrieved more frequently, or given priority in context_selection" .
+kb:memory_interference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory interference" ;
+    rdfs:comment "New memories disrupting or overwriting related old memories; challenge for continual learning in episodic_memory systems" .
+kb:memory_invalidation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory invalidation" ;
+    rdfs:comment "Removing or updating outdated memories; necessary when world_model facts change and stored memories become incorrect" .
+kb:memory_lookup a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory lookup" ;
+    rdfs:comment "Direct access to specific memory entries by identifier rather than content similarity; faster but requires knowing what you're looking for." .
+kb:memory_merging a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory merging" ;
+    rdfs:comment "Combining information from multiple memory entries into a unified representation, resolving overlaps and conflicts" .
+kb:memory_overflow a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory overflow" ;
+    rdfs:comment "Condition where accumulated memory exceeds storage capacity; triggers eviction or compression strategies" .
+kb:memory_overwrite a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory overwrite" ;
+    rdfs:comment "Replacing a memory entry entirely with new content, used when prior information is superseded or fundamentally incorrect" .
+kb:memory_persistence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory persistence" ;
+    rdfs:comment "How long memory survives; session memory (within conversation), user memory (across sessions), or permanent memory (until explicitly deleted)." .
+kb:memory_poisoning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory poisoning" ;
+    rdfs:comment "Corruption of long_term_memory stores with false or harmful content; defense requires verification and source attribution" .
+kb:memory_pooling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory pooling" ;
+    rdfs:comment "Aggregating multiple similar memories into a single representative memory; reduces storage while preserving key information" .
+kb:memory_pressure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory pressure" ;
+    rdfs:comment "Situation where memory demand exceeds capacity; triggers eviction, compression, or retrieval of summarized memories." .
+kb:memory_read a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory read" ;
+    rdfs:comment "Retrieving relevant information from stored memory; in external memory systems, this is vector search; in working context, this is attention-based retrieval." .
+kb:memory_read_latency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory read latency" ;
+    rdfs:comment "Time to retrieve relevant memory entries; determined by embedding model, vector index size, and search algorithm. Critical for real-time applications." .
+kb:memory_refresh a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory refresh" ;
+    rdfs:comment "Re-encoding or updating memory entries to maintain relevance or accuracy; more sophisticated than simple overwrite." .
+kb:memory_replay a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory replay" ;
+    rdfs:comment "Re-presenting past experiences or interactions to the LLM during training or reasoning to reinforce memory consolidation and prevent catastrophic forgetting" .
+kb:memory_resolution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory resolution" ;
+    rdfs:comment "The process of adjudicating memory_conflicts by choosing which entry takes precedence or synthesizing a consensus view" .
+kb:memory_retention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory retention" ;
+    rdfs:comment "Measure of how long information remains accessible in memory systems; affected by eviction policies, storage capacity, and retrieval interference." .
+kb:memory_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory retrieval" ;
+    rdfs:comment "The act of fetching stored memory entries \u2014 by semantic similarity, keyword, metadata, or temporal proximity \u2014 to include in context" .
+kb:memory_retrieval_q a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory retrieval q" ;
+    rdfs:comment "The query representation used to access memory; typically embedding of current context or explicit query, matched against stored keys." .
+kb:memory_scope a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory scope" ;
+    rdfs:comment "What entities a memory applies to: user-specific, session-specific, global, or task-specific. Different scopes have different persistence requirements." .
+kb:memory_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory search" ;
+    rdfs:comment "Querying memory stores using semantic similarity, exact match, or structured filters to surface relevant prior information" .
+kb:memory_slot a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory slot" ;
+    rdfs:comment "Dedicated positions in context reserved for memory operations; model learns to read/write at specific slots analogous to working memory buffers." .
+kb:memory_storage_capacity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory storage capacity" ;
+    rdfs:comment "Maximum information storable in a memory system; bounded by vector store size, database rows, or context window tokens." .
+kb:memory_summarization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory summarization" ;
+    rdfs:comment "Compressing memory entries into shorter representations; can be extractive (selecting key sentences) or abstractive (LLM-generated summaries)." .
+kb:memory_trace a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory trace" ;
+    rdfs:comment "Record of memory accesses over time; useful for auditing, optimization, and understanding retrieval patterns. May be explicit or derived from query logs." .
+kb:memory_update a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory update" ;
+    rdfs:comment "Modifying existing memory entries to reflect new information, corrections, or changed circumstances" .
+kb:memory_versioning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory versioning" ;
+    rdfs:comment "Tracking changes to memory over time; enables rollback, audit, and understanding of how knowledge evolves." .
+kb:memory_window a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory window" ;
+    rdfs:comment "The subset of episodic_memory available for retrieval at any time; analogous to context_window but for long_term_storage" .
+kb:memory_window_context_slice a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory window context slice" ;
+    rdfs:comment "Subset of memory_window extractable at any moment; constrained by current context_length utilization" .
+kb:memory_write a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory write" ;
+    rdfs:comment "Storing new information into memory after or during LLM inference; may include structuring, tagging, or deduplication of the incoming data" .
+kb:million_token_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "million token context" ;
+    rdfs:comment "Extremely long context_window designs targeting one million or more tokens; requires architectural breakthroughs to be tractable" .
+kb:model_native_limit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "model native limit" ;
+    rdfs:comment "The architecture-specified maximum sequence length baked into model weights; represents the positional_embedding range and attention matrix dimensions" .
+kb:multi_head_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "multi head attention" ;
+    rdfs:comment "Running multiple self_attention operations in parallel with different learned projections; enables attending to different representation subspaces" .
+kb:neural_turing_machine a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "neural turing machine" ;
+    rdfs:comment "Architecture with differentiable memory read/write operations; foundational concept for memory_augmented_network designs" .
+kb:non_declarative_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "non declarative memory" ;
+    rdfs:comment "Skills and procedures not consciously recalled; maps to procedural_memory encoded in model weights" .
+kb:ntk_by_parts_scaling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ntk by parts scaling" ;
+    rdfs:comment "NTK-aware RoPE scaling that treats frequency bands differently; preserves resolution on high-frequency components while interpolating low-frequency for long contexts." .
+kb:output_capacity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "output capacity" ;
+    rdfs:comment "Portion of token_budget reserved for model-generated response tokens; computed as token_budget minus input_capacity minus scratchpad_reservation" .
+kb:output_reserve a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "output reserve" ;
+    rdfs:comment "The portion of token_budget reserved for generated tokens; determined by max_tokens parameter or model ceiling minus input" .
+kb:output_token_limit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "output token limit" ;
+    rdfs:comment "The portion of context_length reserved for generated tokens; equals context_length minus input_token_budget minus overhead tokens." .
+kb:overflow_threshold a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "overflow threshold" ;
+    rdfs:comment "The position or token count at which the model behavior shifts from normal processing to truncation or error; often slightly below context_boundary." .
+kb:overlapping_chunks a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "overlapping chunks" ;
+    rdfs:comment "Chunking strategy where adjacent chunks share boundary tokens to prevent information loss at chunk_boundaries" .
+kb:paged_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "paged attention" ;
+    rdfs:comment "A kv_cache management technique borrowed from OS page tables that enables efficient memory utilization across variable-length contexts" .
+kb:parametric_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "parametric memory" ;
+    rdfs:comment "Knowledge encoded in model weights; requires no external retrieval but cannot be updated without fine-tuning. Changes slowly through continual learning." .
+kb:persistent_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "persistent memory" ;
+    rdfs:comment "Memory that survives across API calls and sessions; stored in a database, file, or key-value store and explicitly injected into context at inference time" .
+kb:persistent_memory_store a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "persistent memory store" ;
+    rdfs:comment "Memory stored on disk or distributed database; enables scale beyond RAM but adds retrieval latency. Common for long-term agent memory." .
+kb:persona_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "persona memory" ;
+    rdfs:comment "Stable traits and preferences of a character or agent persona; maintained across sessions via system_message or retrieved context" .
+kb:personalization_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "personalization memory" ;
+    rdfs:comment "Memory capturing user preferences, communication style, and facts about user; accumulated over multiple interactions for personalized responses." .
+kb:position_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "position embedding" ;
+    rdfs:comment "Encoding that injects positional information into token representations since attention is permutation-invariant. Choices: sinusoidal, RoPE, ALiBi. Affects how context scales." .
+kb:position_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "position index" ;
+    rdfs:comment "Ordinal integer from zero to context_window_boundary representing each token's location in the sequence; each index must be encodable by the position_embedding scheme in use" .
+kb:position_interpolation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "position interpolation" ;
+    rdfs:comment "Technique extending context_window by interpolating position embeddings between known ranges; avoids extrapolation failures" .
+kb:preference_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "preference memory" ;
+    rdfs:comment "Learned user preferences accumulated over interactions; used to personalize responses without explicit instruction each turn" .
+kb:prefix_caching a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prefix caching" ;
+    rdfs:comment "Caching the KV tensors for shared prefixes (system prompt, few-shot examples) so they aren't recomputed per request; reduces latency and compute for repeated contexts." .
+kb:prefix_caching_benefit_ratio a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prefix caching benefit ratio" ;
+    rdfs:comment "Fraction of context_length saved from recomputation when shared prefixes exist; improves memory_efficiency for repeated system prompts" .
+kb:prefix_tuning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prefix tuning" ;
+    rdfs:comment "Learning a small continuous prefix that modifies model behavior; prefix is prepended to all layers, effectively conditioning without explicit context tokens." .
+kb:primacy_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "primacy effect" ;
+    rdfs:comment "Better recall of tokens at the start of context; often exploited by placing critical information at context boundaries." .
+kb:procedural_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "procedural memory" ;
+    rdfs:comment "Memory encoding how to perform tasks \u2014 skill sequences, workflows, or learned procedures \u2014 enabling agents to execute without re-instruction" .
+kb:progressive_summarization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "progressive summarization" ;
+    rdfs:comment "Iterative refinement of notes expanding key points; applied to memory_consolidation where summaries become summaries-of-summaries" .
+kb:prompt_capacity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prompt capacity" ;
+    rdfs:comment "The actual user-available input tokens after subtracting context_overhead from input_capacity" .
+kb:prompt_engineering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prompt engineering" ;
+    rdfs:comment "Crafting input text to elicit desired outputs; includes instruction design, example selection, formatting, and context structuring." .
+kb:prompt_injection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prompt injection" ;
+    rdfs:comment "Malicious content in retrieved context designed to override system instructions; mitigated by content filtering, separation markers, or retrieval source validation." .
+kb:prompt_template a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prompt template" ;
+    rdfs:comment "Parameterized structure for prompts; variables substituted per request. Critical for consistent context injection across many calls." .
+kb:query_context_relevance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query context relevance" ;
+    rdfs:comment "Semantic similarity between retrieval query and context entries; determines whether retrieved content helps answer the query." .
+kb:query_decomposition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query decomposition" ;
+    rdfs:comment "Breaking complex question into simpler sub-questions answered separately then synthesized; handles multi-hop questions without requiring long context." .
+kb:query_expansion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query expansion" ;
+    rdfs:comment "Expanding a short query into multiple related queries to increase recall; techniques: synonym expansion, HyDE hypotheses, sub-query decomposition." .
+kb:query_rewriting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query rewriting" ;
+    rdfs:comment "Transforming user queries to improve retrieval from vector_database; includes expansion, reformulation, and decomposition" .
+kb:recency_bias a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "recency bias" ;
+    rdfs:comment "Tendency for models to weight recent tokens more heavily; may cause older context to be underutilized regardless of relevance." .
+kb:recency_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "recency effect" ;
+    rdfs:comment "Better recall of tokens at the end of context; often exploited by placing answers or key info near the end." .
+kb:relative_position_bias a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relative position bias" ;
+    rdfs:comment "Encoding the relative distance between tokens rather than absolute positions; improves generalization to unseen context_lengths" .
+kb:relevance_scoring a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relevance scoring" ;
+    rdfs:comment "Computing importance of retrieved candidates for current query; determines which long_term_memory enters working_memory" .
+kb:replay_buffer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "replay buffer" ;
+    rdfs:comment "Storage of past experiences for retrieval; in fine-tuning, selected to reinforce important or rare patterns" .
+kb:reranking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reranking" ;
+    rdfs:comment "Scoring retrieved candidates with a cross-encoder for finer relevance; expensive but more accurate than embedding similarity. Used as final step in retrieval pipelines." .
+kb:retrieval_augmented_generation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval augmented generation" ;
+    rdfs:comment "Architecture pattern where an LLM queries external knowledge sources and injects results into context before generating a response; combines memory_retrieval with generation" .
+kb:retrieval_calibration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval calibration" ;
+    rdfs:comment "Adjusting retrieval thresholds based on confidence estimates to balance recall and precision in long_term_memory access" .
+kb:retrieval_failure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval failure" ;
+    rdfs:comment "When no relevant results are returned from memory; handled by query reformulation, relaxing constraints, or fallback to parametric knowledge." .
+kb:retrieval_fusion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval fusion" ;
+    rdfs:comment "Combining results from multiple retrieval strategies (semantic, keyword, graph) into a unified context set" .
+kb:retrieval_latency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval latency" ;
+    rdfs:comment "Time required to fetch relevant items from long_term_memory into working_memory; affects real-time responsiveness" .
+kb:retrieval_precision a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval precision" ;
+    rdfs:comment "Fraction of retrieved chunks that are relevant to the query; high precision means fewer irrelevant tokens polluting context." .
+kb:retrieval_recall a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval recall" ;
+    rdfs:comment "Fraction of all relevant information that was retrieved; low recall means the model misses critical facts. Tradeoff with context length limits." .
+kb:retrieval_relevance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval relevance" ;
+    rdfs:comment "Alignment between retrieved memory content and current generation needs; measured by relevance_scoring mechanisms" .
+kb:retrieval_token a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval token" ;
+    rdfs:comment "Tokens in context representing retrieved information; either as raw text chunks or as special [RETRIEVE] tokens triggering retrieval at generation time." .
+kb:ring_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ring attention" ;
+    rdfs:comment "Distributed sliding_window_attention across multiple devices with communication-avoiding algorithms for very long sequences" .
+kb:ring_attention_slice_size a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ring attention slice size" ;
+    rdfs:comment "context_length divided by number of devices in ring_attention; each device handles this many contiguous positions" .
+kb:rolling_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rolling context" ;
+    rdfs:comment "A sliding_context_window variant maintaining a fixed-size suffix of conversation_history as the primary context for each new turn" .
+kb:rope_position_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rope position embedding" ;
+    rdfs:comment "Rotary Position Embedding encodes position via rotation in feature space; enables better generalization to longer contexts than absolute positions." .
+kb:rope_scaling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rope scaling" ;
+    rdfs:comment "Modifying Rotary Position Embeddings to handle contexts longer than training: either linear interpolation (dims scaled) or NTK-aware scaling that preserves high-frequency details." .
+kb:rotary_position_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rotary position embedding" ;
+    rdfs:comment "A position encoding method rotating the key and query vectors; enables extrapolation beyond the training context_length" .
+kb:scratchpad a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scratchpad" ;
+    rdfs:comment "Explicit intermediate reasoning space written by the model itself; a form of ephemeral working_memory externalized to tokens" .
+kb:selective_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "selective context" ;
+    rdfs:comment "Identifying and retaining only the most relevant tokens from a context; reduces context_length while preserving signal" .
+kb:self_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "self attention" ;
+    rdfs:comment "The mechanism by which transformer models relate each token position to all other positions; the quadratic bottleneck in context_length scaling" .
+kb:self_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "self consistency" ;
+    rdfs:comment "Sampling multiple reasoning paths and selecting most common final answer; improves reliability on reasoning tasks by exploiting model uncertainty." .
+kb:self_rag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "self rag" ;
+    rdfs:comment "Self-Retrieval-Augmented Generation: model generates special tokens indicating whether to retrieve, if retrieved content is relevant, and whether to use it." .
+kb:semantic_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic memory" ;
+    rdfs:comment "Memory storing general world knowledge, facts, and concepts rather than specific personal experiences; queried via retrieval for grounding" .
+kb:semantic_network a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic network" ;
+    rdfs:comment "Graph of concepts connected by typed edges; models can store and traverse this structure for relational reasoning" .
+kb:semantic_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic search" ;
+    rdfs:comment "Search over a corpus using meaning rather than keyword overlap; maps queries and documents to a shared embedding space for similarity comparison" .
+kb:semantic_similarity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic similarity" ;
+    rdfs:comment "Measure of meaning overlap between two text fragments in embedding_space; the basis for associative_memory retrieval" .
+kb:sentence_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sentence embedding" ;
+    rdfs:comment "Embedding an entire sentence or paragraph as a single vector; the granularity most commonly used in semantic_search" .
+kb:sentencepiece a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sentencepiece" ;
+    rdfs:comment "A language-independent subword_tokenization framework that trains directly on raw text without pre-tokenization; used by many LLMs" .
+kb:sequence_limit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sequence limit" ;
+    rdfs:comment "The maximum contiguous token span a single forward pass can process; equals context_ceiling for standard models but differs for sliding_window architectures" .
+kb:sequence_position a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sequence position" ;
+    rdfs:comment "The ordinal index of a token within the full context sequence; constrained to be less than or equal to maximum_position." .
+kb:session_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "session context" ;
+    rdfs:comment "Information scoped to the current user interaction session; reset between sessions unlike persistent long_term_memory" .
+kb:session_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "session memory" ;
+    rdfs:comment "Memory scoped to a single user session; includes conversation_history and ephemeral state accumulated during that session" .
+kb:short_term_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "short term memory" ;
+    rdfs:comment "Information retained within a single conversation session; typically implemented as rolling conversation_history limited by context_window" .
+kb:similarity_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "similarity search" ;
+    rdfs:comment "The general problem of finding items in a collection most similar to a query item; the operational form of vector_search" .
+kb:sliding_context_window a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sliding context window" ;
+    rdfs:comment "A context_management strategy where the active window slides forward, discarding the oldest tokens as new ones are added" .
+kb:sliding_window a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sliding window" ;
+    rdfs:comment "Fixed-size contiguous subset of recent tokens kept in working_memory as new tokens arrive and old ones are evicted" .
+kb:sliding_window_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sliding window attention" ;
+    rdfs:comment "A sparse_attention variant attending only to a local window of neighboring tokens; efficient for processing long sequences" .
+kb:sliding_window_horizon a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sliding window horizon" ;
+    rdfs:comment "Token distance from current position at which sliding_window begins evicting old tokens; bounded by context_length" .
+kb:soft_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "soft attention" ;
+    rdfs:comment "Attention producing weighted averages over all positions; differentiable but computationally expensive at scale" .
+kb:soft_prompt a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "soft prompt" ;
+    rdfs:comment "Learned continuous embeddings prepended to context instead of discrete tokens; enables task-specific adaptation without fine-tuning full model." .
+kb:sparse_attention a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sparse attention" ;
+    rdfs:comment "Attention patterns that compute fewer than n\u00b2 pairwise interactions, reducing memory_efficient_attention cost at the cost of expressiveness" .
+kb:sparse_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sparse embedding" ;
+    rdfs:comment "A high-dimensional vector with mostly zero values; used in sparse_retrieval to represent documents as weighted term vectors" .
+kb:sparse_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sparse retrieval" ;
+    rdfs:comment "Retrieval using sparse representations like BM25 or TF-IDF; efficient for exact or lexical matches but limited for semantic queries" .
+kb:spatial_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "spatial context" ;
+    rdfs:comment "Environmental or positional information attached to memories enabling location-based retrieval" .
+kb:state_space_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "state space model" ;
+    rdfs:comment "Sequence model (Mamba, S4) operating as continuous-time recurrence; offers linear scaling with sequence length and selective state propagation." .
+kb:state_tracking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "state tracking" ;
+    rdfs:comment "Monitoring entities and their properties over a conversation; a core capability requiring working_memory or explicit context" .
+kb:streaming_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "streaming context" ;
+    rdfs:comment "Processing context incrementally as it arrives rather than waiting for complete context; enables handling of very long or infinite streams." .
+kb:sub_question a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sub question" ;
+    rdfs:comment "A constituent question from a decomposed query; answered independently then combined. Each sub-question has simpler retrieval needs." .
+kb:subword_tokenization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "subword tokenization" ;
+    rdfs:comment "Tokenization breaking words into subword units (bytes, characters, morphemes) enabling open-vocabulary encoding with bounded vocabulary size" .
+kb:summarization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "summarization" ;
+    rdfs:comment "Compressing text by extracting or abstracting key content; used for memory_consolidation and context_overflow management" .
+kb:system_message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "system message" ;
+    rdfs:comment "Persistent preamble injected into every conversation turn; anchors persona, behavioral rules, and long_term_memory instructions" .
+kb:system_prompt a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "system prompt" ;
+    rdfs:comment "Static instruction injected at conversation start defining model behavior; often contains role, constraints, output format. Loaded into context once per session." .
+kb:task_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "task memory" ;
+    rdfs:comment "Memory specific to a current task or goal; created at task start, used during task, discarded at completion." .
+kb:temporal_grounding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "temporal grounding" ;
+    rdfs:comment "Associating memories with timestamps enabling recency-based retrieval and temporal reasoning" .
+kb:temporal_ordering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "temporal ordering" ;
+    rdfs:comment "Arranging memories by time of occurrence; supports recency-based retrieval and chronological reasoning" .
+kb:text_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "text embedding" ;
+    rdfs:comment "The process of transforming raw text into a dense vector representation in a learned high-dimensional space" .
+kb:tiered_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tiered memory" ;
+    rdfs:comment "Architecture separating working_memory, episodic_memory, and long_term_memory with different retrieval latencies and capacities" .
+kb:tiktoken a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tiktoken" ;
+    rdfs:comment "OpenAI's fast BPE tokenizer implementation in Rust; the standard tokenization backend for GPT-series models" .
+kb:token_accounting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token accounting" ;
+    rdfs:comment "Tracking token usage across context_building operations to ensure neither context_window nor max_tokens limits are exceeded" .
+kb:token_boundary_marker a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token boundary marker" ;
+    rdfs:comment "The positional delimiter marking the transition from input context to output generation; tokens before this marker are provided context, tokens after are to be generated." .
+kb:token_budget a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token budget" ;
+    rdfs:comment "The total token allocation available for a given context operation, encompassing both input context and output generation capacity" .
+kb:token_density a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token density" ;
+    rdfs:comment "The ratio of semantic content units per token for a given text under a particular tokenization_scheme; affects how much text fits within context_length." .
+kb:token_efficiency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token efficiency" ;
+    rdfs:comment "Maximizing the information density per token in context \u2014 eliminating redundancy and noise to extract more useful content per token spent" .
+kb:token_headroom a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token headroom" ;
+    rdfs:comment "The arithmetic difference between current position or token count and context_boundary; the remaining room before overflow_threshold is reached." .
+kb:token_optimization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "token optimization" ;
+    rdfs:comment "Strategies to reduce token consumption without degrading downstream task performance \u2014 compression, selection, and smarter chunking" .
+kb:tokenization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tokenization" ;
+    rdfs:comment "Converting raw text into tokens consumable by an LLM tokenizer; the foundational step before any context_building or memory operation" .
+kb:tokenization_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tokenization memory" ;
+    rdfs:comment "Varying token counts for same text across tokenizers; different models (cl100k vs tiktoken vs sentencepiece) have different tokenization schemes." .
+kb:tokenization_scheme a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tokenization scheme" ;
+    rdfs:comment "The specific algorithm determining how raw text is segmented into discrete tokens; determines token_boundary_marker positions and token_density for any given text." .
+kb:topic_tracking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "topic tracking" ;
+    rdfs:comment "Identifying the subject matter of conversation segments; enables routing to appropriate long_term_memory" .
+kb:tree_of_thought a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tree of thought" ;
+    rdfs:comment "Explicitly exploring multiple reasoning branches as a tree; more thorough than single chain-of-thought but requires more context tokens." .
+kb:triple_store a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "triple store" ;
+    rdfs:comment "A specialized database for RDF-style knowledge representations: subject-predicate-object triples enabling SPARQL queries over knowledge_graph" .
+kb:truncation_activation_point a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "truncation activation point" ;
+    rdfs:comment "Token position index where context_overflow becomes imminent and truncation_strategy must execute; typically context_length minus N reserved tokens" .
+kb:truncation_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "truncation strategy" ;
+    rdfs:comment "Policy for removing old context when context_overflow occurs; options include FIFO, importance-weighted, and semantic summarization" .
+kb:user_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "user memory" ;
+    rdfs:comment "Personalized memory about a specific user maintained across sessions; enables continuity and personalization." .
+kb:user_preference_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "user preference memory" ;
+    rdfs:comment "Memory tracking a specific user's demonstrated preferences, communication style, and requirements for personalized responses" .
+kb:vector_database a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vector database" ;
+    rdfs:comment "Storage system indexing embeddings for similarity search; backbone of RAG. Examples: Pinecone, Weaviate, Chroma, FAISS. Enables retrieval from vast document collections." .
+kb:vector_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vector search" ;
+    rdfs:comment "Performing nearest-neighbor search in a high-dimensional embedding space; the core retrieval mechanism behind semantic_search" .
+kb:wordpiece a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "wordpiece" ;
+    rdfs:comment "A subword_tokenization algorithm using greedy longest-match-first splitting; used by BERT and many encoder models" .
+kb:working_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "working memory" ;
+    rdfs:comment "The transient token budget allocated for active reasoning within a single model call; scratch space for chain_of_thought and intermediate results" .
+kb:world_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "world model" ;
+    rdfs:comment "Internal representation of environment state enabling planning and reasoning; built from episodic_memory and semantic_memory" .
+kb:zero_shot_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "zero shot learning" ;
+    rdfs:comment "Model performs unseen task without examples; relies on instruction-following capabilities and knowledge from pretraining." .
+
+kb:active_retrieval kbo:relatesTo kb:active_retrieval .
+kb:adapters_in_context kbo:relatesTo kb:adapters_in_context .
+kb:adaptive_context kbo:relatesTo kb:adaptive_context .
+kb:agent_memory kbo:relatesTo kb:agent_memory .
+kb:agentic_rag kbo:relatesTo kb:agentic_rag .
+kb:alibi_position_embedding kbo:relatesTo kb:alibi_position_embedding .
+kb:ann_index kbo:relatesTo kb:ann_index .
+kb:approximate_nearest_neighbors kbo:relatesTo kb:approximate_nearest_neighbor .
+kb:associative_retrieval kbo:relatesTo kb:associative_retrieval .
+kb:attention_as_memory kbo:relatesTo kb:attention_as_memory .
+kb:attention_bottleneck kbo:relatesTo kb:attention_bottleneck .
+kb:attention_cost kbo:relatesTo kb:attention_cost .
+kb:attention_dropout kbo:relatesTo kb:attention_dropout .
+kb:attention_mechanism kbo:relatesTo kb:attention_saturation .
+kb:attention_mechanism kbo:relatesTo kb:attention_sinks .
+kb:attention_mechanism kbo:relatesTo kb:attention_weighting .
+kb:attention_mechanism kbo:relatesTo kb:cross_attention .
+kb:attention_mechanism kbo:relatesTo kb:hard_attention .
+kb:attention_mechanism kbo:relatesTo kb:kv_cache .
+kb:attention_mechanism kbo:relatesTo kb:self_attention .
+kb:attention_mechanism kbo:relatesTo kb:soft_attention .
+kb:attention_mechanism kbo:relatesTo kb:sparse_attention .
+kb:attention_overhead kbo:relatesTo kb:attention_cost .
+kb:attention_pattern kbo:relatesTo kb:attention_pattern .
+kb:attention_quadratic_cost kbo:relatesTo kb:attention_quadratic_cost .
+kb:attention_saturation_onset_position kbo:relatesTo kb:attention_saturation_onset_position .
+kb:attention_sink kbo:relatesTo kb:attention_sink .
+kb:attention_sink_token_position kbo:relatesTo kb:attention_sink .
+kb:attention_sinks kbo:relatesTo kb:attention_saturation .
+kb:attention_sinks kbo:relatesTo kb:context_window .
+kb:attention_sinks kbo:relatesTo kb:effective_context .
+kb:attention_sparsification kbo:relatesTo kb:attention_sparsification .
+kb:c_util_001 kbo:relatesTo kb:c_util_004 .
+kb:c_util_001 kbo:relatesTo kb:effective_context .
+kb:c_util_002 kbo:relatesTo kb:c_util_010 .
+kb:c_util_002 kbo:relatesTo kb:position_embedding .
+kb:c_util_003 kbo:relatesTo kb:c_util_010 .
+kb:c_util_004 kbo:relatesTo kb:c_util_008 .
+kb:c_util_005 kbo:relatesTo kb:attention_sinks .
+kb:c_util_005 kbo:relatesTo kb:memory_efficiency .
+kb:c_util_006 kbo:relatesTo kb:backward_recall .
+kb:c_util_006 kbo:relatesTo kb:context_horizon .
+kb:c_util_007 kbo:relatesTo kb:attention_weighting .
+kb:c_util_007 kbo:relatesTo kb:context_length .
+kb:c_util_007 kbo:relatesTo kb:effective_context .
+kb:c_util_008 kbo:relatesTo kb:context_length .
+kb:c_util_008 kbo:relatesTo kb:effective_context .
+kb:c_util_009 kbo:relatesTo kb:causal_tracing .
+kb:c_util_009 kbo:relatesTo kb:effective_context .
+kb:c_util_010 kbo:relatesTo kb:position_embedding .
+kb:c_util_011 kbo:relatesTo kb:attention_sinks .
+kb:c_util_011 kbo:relatesTo kb:sliding_window .
+kb:chain_of_thought kbo:relatesTo kb:attention_weighting .
+kb:chain_of_thought kbo:relatesTo kb:causal_tracing .
+kb:chain_of_thought kbo:relatesTo kb:scratchpad .
+kb:chain_of_thought kbo:relatesTo kb:working_memory .
+kb:chunking_strategy kbo:relatesTo kb:context_fidelity .
+kb:chunking_strategy kbo:relatesTo kb:hierarchical_chunking .
+kb:chunking_strategy kbo:relatesTo kb:memory_retrieval .
+kb:chunking_strategy kbo:relatesTo kb:overlapping_chunks .
+kb:context_boundary kbo:relatesTo kb:overflow_threshold .
+kb:context_capacity_ratio kbo:relatesTo kb:effective_context .
+kb:context_compression kbo:relatesTo kb:context_fidelity .
+kb:context_compression kbo:relatesTo kb:context_overflow .
+kb:context_compression kbo:relatesTo kb:extraction .
+kb:context_compression kbo:relatesTo kb:memory_compression .
+kb:context_compression kbo:relatesTo kb:progressive_summarization .
+kb:context_compression kbo:relatesTo kb:selective_context .
+kb:context_compression kbo:relatesTo kb:summarization .
+kb:context_length kbo:relatesTo kb:context_boundary .
+kb:context_length kbo:relatesTo kb:context_padding .
+kb:context_length kbo:relatesTo kb:context_resize_event .
+kb:context_length kbo:relatesTo kb:context_scaling_factor .
+kb:context_length kbo:relatesTo kb:input_token_budget .
+kb:context_length kbo:relatesTo kb:max_model_tokens .
+kb:context_length kbo:relatesTo kb:maximum_position .
+kb:context_length kbo:relatesTo kb:output_token_limit .
+kb:context_length kbo:relatesTo kb:overflow_threshold .
+kb:context_length kbo:relatesTo kb:token_accounting .
+kb:context_length kbo:relatesTo kb:token_boundary_marker .
+kb:context_padding kbo:relatesTo kb:context_capacity_ratio .
+kb:context_scaling_factor kbo:relatesTo kb:effective_context .
+kb:context_window kbo:relatesTo kb:context_length .
+kb:context_window kbo:relatesTo kb:context_overflow .
+kb:context_window kbo:relatesTo kb:context_utilization .
+kb:context_window kbo:relatesTo kb:effective_context .
+kb:context_window kbo:relatesTo kb:flash_attention .
+kb:context_window kbo:relatesTo kb:kv_cache .
+kb:context_window kbo:relatesTo kb:position_embedding .
+kb:context_window kbo:relatesTo kb:ring_attention .
+kb:context_window kbo:relatesTo kb:sliding_window .
+kb:context_window kbo:relatesTo kb:truncation_strategy .
+kb:context_window kbo:relatesTo kb:working_memory .
+kb:conversation_history kbo:relatesTo kb:context_overflow .
+kb:conversation_history kbo:relatesTo kb:context_summarization .
+kb:conversation_history kbo:relatesTo kb:conversational_context .
+kb:conversation_history kbo:relatesTo kb:coreference_resolution .
+kb:conversation_history kbo:relatesTo kb:discourse_memory .
+kb:conversation_history kbo:relatesTo kb:entity_tracking .
+kb:conversation_history kbo:relatesTo kb:memory_overflow .
+kb:conversation_history kbo:relatesTo kb:rolling_context .
+kb:conversation_history kbo:relatesTo kb:topic_tracking .
+kb:conversation_history kbo:relatesTo kb:truncation_strategy .
+kb:em_event kbo:relatesTo kb:em_context_bundle .
+kb:em_event kbo:relatesTo kb:em_interaction_record .
+kb:em_event kbo:relatesTo kb:em_outcome .
+kb:em_event kbo:relatesTo kb:em_salience_weight .
+kb:em_event kbo:relatesTo kb:em_state_snapshot .
+kb:em_event kbo:relatesTo kb:em_timestamp .
+kb:em_experience_sequence kbo:relatesTo kb:em_event .
+kb:em_salience_weight kbo:relatesTo kb:em_recency_decay .
+kb:embedding_model kbo:relatesTo kb:associative_memory .
+kb:embedding_model kbo:relatesTo kb:embedding_dimensionality .
+kb:embedding_model kbo:relatesTo kb:semantic_similarity .
+kb:episodic_memory kbo:relatesTo kb:em_episode_marker .
+kb:episodic_memory kbo:relatesTo kb:em_event .
+kb:episodic_memory kbo:relatesTo kb:em_significance_rank .
+kb:episodic_memory kbo:relatesTo kb:em_temporal_index .
+kb:few_shot_learning kbo:relatesTo kb:in_context_learning .
+kb:few_shot_learning kbo:relatesTo kb:prompt_engineering .
+kb:in_context_learning kbo:relatesTo kb:attention_mechanism .
+kb:in_context_learning kbo:relatesTo kb:context_window .
+kb:in_context_learning kbo:relatesTo kb:few_shot_learning .
+kb:input_token_budget kbo:relatesTo kb:output_token_limit .
+kb:input_token_budget kbo:relatesTo kb:token_boundary_marker .
+kb:input_token_budget kbo:relatesTo kb:token_headroom .
+kb:kg_class kbo:relatesTo kb:is_a .
+kb:kg_entity kbo:relatesTo kb:kg_property .
+kb:kg_entity kbo:relatesTo kb:kg_relationship .
+kb:kg_instance kbo:relatesTo kb:kg_class .
+kb:kg_ontology kbo:relatesTo kb:kg_class .
+kb:kg_ontology kbo:relatesTo kb:kg_predicate .
+kb:kg_ontology kbo:relatesTo kb:kg_schema .
+kb:kg_property kbo:relatesTo kb:kg_entity .
+kb:kg_relationship kbo:relatesTo kb:kg_predicate .
+kb:kg_triple kbo:relatesTo kb:kg_entity .
+kb:kg_triple kbo:relatesTo kb:kg_predicate .
+kb:knowledge_graph kbo:relatesTo kb:semantic_memory .
+kb:knowledge_graph kbo:relatesTo kb:semantic_network .
+kb:kv_cache kbo:relatesTo kb:context_caching .
+kb:kv_cache kbo:relatesTo kb:context_window .
+kb:kv_cache kbo:relatesTo kb:prefix_caching .
+kb:kv_cache kbo:relatesTo kb:working_memory .
+kb:long_term_memory kbo:relatesTo kb:episodic_memory .
+kb:long_term_memory kbo:relatesTo kb:knowledge_graph .
+kb:long_term_memory kbo:relatesTo kb:memory_audit .
+kb:long_term_memory kbo:relatesTo kb:memory_capacity .
+kb:long_term_memory kbo:relatesTo kb:memory_consolidation .
+kb:long_term_memory kbo:relatesTo kb:memory_invalidation .
+kb:long_term_memory kbo:relatesTo kb:memory_persistence .
+kb:long_term_memory kbo:relatesTo kb:memory_poisoning .
+kb:long_term_memory kbo:relatesTo kb:memory_retrieval .
+kb:long_term_memory kbo:relatesTo kb:semantic_memory .
+kb:long_term_memory kbo:relatesTo kb:semantic_network .
+kb:long_term_memory kbo:relatesTo kb:vector_database .
+kb:maximum_position kbo:relatesTo kb:position_index .
+kb:maximum_position kbo:relatesTo kb:sequence_position .
+kb:memory_consolidation kbo:relatesTo kb:em_event .
+kb:memory_consolidation kbo:relatesTo kb:em_experience_sequence .
+kb:memory_consolidation kbo:relatesTo kb:em_salience_weight .
+kb:memory_persistence kbo:relatesTo kb:em_recency_decay .
+kb:memory_retrieval kbo:relatesTo kb:em_significance_rank .
+kb:memory_retrieval kbo:relatesTo kb:em_temporal_index .
+kb:memory_retrieval kbo:relatesTo kb:semantic_similarity .
+kb:output_token_limit kbo:relatesTo kb:token_boundary_marker .
+kb:output_token_limit kbo:relatesTo kb:token_headroom .
+kb:overflow_threshold kbo:relatesTo kb:context_resize_event .
+kb:position_index kbo:relatesTo kb:sequence_position .
+kb:prompt_engineering kbo:relatesTo kb:chain_of_thought .
+kb:prompt_engineering kbo:relatesTo kb:few_shot_learning .
+kb:prompt_engineering kbo:relatesTo kb:in_context_learning .
+kb:prompt_engineering kbo:relatesTo kb:scratchpad .
+kb:prompt_engineering kbo:relatesTo kb:system_message .
+kb:retrieval_augmented_generation kbo:relatesTo kb:attribution .
+kb:retrieval_augmented_generation kbo:relatesTo kb:context_grounding .
+kb:retrieval_augmented_generation kbo:relatesTo kb:cross_attention .
+kb:retrieval_augmented_generation kbo:relatesTo kb:faithfulness .
+kb:retrieval_augmented_generation kbo:relatesTo kb:long_term_memory .
+kb:retrieval_augmented_generation kbo:relatesTo kb:query_rewriting .
+kb:retrieval_augmented_generation kbo:relatesTo kb:retrieval_fusion .
+kb:retrieval_augmented_generation kbo:relatesTo kb:vector_database .
+kb:semantic_memory kbo:relatesTo kb:kg_inference .
+kb:semantic_network kbo:relatesTo kb:kg_traversal .
+kb:sliding_window kbo:relatesTo kb:backward_recall .
+kb:sliding_window kbo:relatesTo kb:context_horizon .
+kb:sliding_window kbo:relatesTo kb:memory_window .
+kb:sliding_window kbo:relatesTo kb:truncation_strategy .
+kb:sliding_window kbo:relatesTo kb:working_memory .
+kb:system_message kbo:relatesTo kb:long_term_memory .
+kb:system_message kbo:relatesTo kb:persona_memory .
+kb:system_message kbo:relatesTo kb:preference_memory .
+kb:token_boundary_marker kbo:relatesTo kb:sequence_position .
+kb:token_density kbo:relatesTo kb:context_capacity_ratio .
+kb:token_headroom kbo:relatesTo kb:overflow_threshold .
+kb:tokenization_scheme kbo:relatesTo kb:token_boundary_marker .
+kb:tokenization_scheme kbo:relatesTo kb:token_density .
+kb:vector_database kbo:relatesTo kb:approximate_nearest_neighbor .
+kb:vector_database kbo:relatesTo kb:chunking_strategy .
+kb:vector_database kbo:relatesTo kb:cosine_similarity .
+kb:vector_database kbo:relatesTo kb:embedding_dimensionality .
+kb:vector_database kbo:relatesTo kb:embedding_model .
+kb:vector_database kbo:relatesTo kb:hierarchical_chunking .
+kb:vector_database kbo:relatesTo kb:locality_sensitive_hashing .
+kb:vector_database kbo:relatesTo kb:overlapping_chunks .
+kb:vector_database kbo:relatesTo kb:semantic_similarity .
+kb:working_memory kbo:relatesTo kb:attention_mechanism .
+kb:working_memory kbo:relatesTo kb:chain_of_thought .
+kb:working_memory kbo:relatesTo kb:context_window .
+kb:working_memory kbo:relatesTo kb:memory_efficiency .
+kb:working_memory kbo:relatesTo kb:memory_hierarchy .
+kb:working_memory kbo:relatesTo kb:memory_window .
+kb:working_memory kbo:relatesTo kb:scratchpad .
+kb:working_memory kbo:relatesTo kb:sliding_window .
+
