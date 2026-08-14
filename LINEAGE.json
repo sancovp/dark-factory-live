@@ -1957,5 +1957,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-14T14:22:02+00:00",
+    "verdict": "REVERT",
+    "change": "Installed gate_proof_recipe.md to loadout; applied dependency audit finding 5 missing skills (Divergence Lens, Convergence Lens, constraint_inversion_lens, second_order_lens, audit_lens)",
+    "diff": [
+      {
+        "file": "loadout/gate_proof_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
