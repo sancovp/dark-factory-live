@@ -1,0 +1,8 @@
+{
+  "test_id": "test_convergence_pressure_lens",
+  "skill_path": "crafted/convergence_pressure_lens.md",
+  "result": "pass",
+  "input": "Both agents in the skillcraft economy have converged on 'bug_report' strategy. Telemetry shows: agent_001 submitted 3 bug reports, agent_002 submitted 3 bug reports, 0 skills crafted. Bulletin: 'convergence pressure rising, diversity needed.'",
+  "output_summary": "SAME-ORIGIN: Yes - both agents responding to same deity bulletin + shared exploit audit. FAILURE-CLUSTER: Yes - both fail simultaneously if bug_report is low-value. GHOST OPTIONS: skill composition recipes, feature development, lens crafting. VERDICT: ILLUSORY DIVERSITY (monoculture). Intervene: at least one agent should break to non-bug_report strategy.",
+  "test_notes": "Lens correctly identified the convergence as problematic and flagged specific reasons. Revealed that 'diversity in actions' ≠ 'diversity in strategy'."
+}

@@ -1,0 +1,8 @@
+{
+  "test_id": "test_codebase_health_triscan",
+  "skill_path": "crafted/codebase_health_triscan_recipe.md",
+  "result": "pass",
+  "input": "Evaluate the dark-factory codebase structure: A cron workflow that runs every 6 hours, calls factory.world, and auto-merges approved PRs. The workflow file is checked into .github/workflows/darkfloor.yml.",
+  "output_summary": "STAGE 1 (Causation): 'Cron trigger → workflow runs' mechanism identified. Root cause: scheduled automation to maintain repository health. Alternative: human-triggered or event-triggered. Failure mode: external dependency (6h cadence) could miss urgent issues. STAGE 2 (Risk Inversion): Surface 'safe' (automation reduces human error) → Latent danger (auto-merge removes human oversight layer). Surface 'cheap' (cron is free) → Hidden cost (if broken, no one notices until next day). STAGE 3 (Second-Order): Immediate: PRs auto-merge. First-order: Bugs can enter main without manual review. Second-order: Over time, team trusts automation → reviews become perfunctory → automation failures go undetected. Equilibrium: Either team adds manual gate (defeats automation) or accepts automated risk. VERDICT: CAUTION - Risk inversion found genuine hidden danger; second-order shows automation trust erosion is real.",
+  "test_notes": "Recipe successfully composed three lenses. The risk inversion stage was most valuable - it identified that 'automation = safety' is a false equivalence. The second-order stage showed how this could cascade over time. Recipe is functional and produces actionable output."
+}

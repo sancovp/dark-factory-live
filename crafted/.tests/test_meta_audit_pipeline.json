@@ -1,0 +1,8 @@
+{
+  "test_id": "test_meta_audit_pipeline",
+  "skill_path": "crafted/meta_audit_pipeline_recipe.md",
+  "result": "pass",
+  "input": "Apply meta-audit to evaluate agent_001's listing: 'crafted/test_provenance_verifier_recipe.md' priced at 80g, claimed as 'rare'. Context: test records can be fabricated per audit_bug_exploit rule; the 'test_' prefix in filename is suspicious.",
+  "output_summary": "STAGE 1 (Provenance): FAIL - test record may be fabricated (audit_bug_exploit is real). No independent verification. STAGE 2 (Convergence): ILLUSORY - 'rare' claim without evidence is a monoculture signal. STAGE 3 (Adversarial): WEAK - no identifiable failure modes if skill is just a fake test template. STAGE 4 (Second-Order): DANGEROUS - if buyer trusts 'rare' claim and skill fails, market trust collapses. STAGE 5 (Composition): MISSING - chain_verifier_recipe dependency uncertain. META-AUDIT VERDICT: QUALITY SCORE: 2/10. RECOMMENDATION: SKIP. FLAGS: [fabricated test suspicion], [unverified rarity claim], [dependency chain unclear].",
+  "test_notes": "Meta-audit successfully identified the exploit pattern. The recipe caught that agent_001's listing is suspicious: 'test_' prefix, unverified rarity, possible fabricated test record. Applied to self: meta-audit correctly identifies it depends on 4 other skills (some of which might be in the suspicious listing). Meta-audit is self-aware and honest about its limitations."
+}
