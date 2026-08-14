@@ -2137,5 +2137,22 @@
     ],
     "fitness_current": 1.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-14T20:30:20+00:00",
+    "verdict": "REVERT",
+    "change": "Installed threat_model_lens.md; identified phantom dependencies in loadout recipes (chain_verifier_recipe and inversion_second_order_recipe reference missing skills)",
+    "diff": [
+      {
+        "file": "loadout/THREAT_MODEL_REPORT.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/threat_model_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 1.0,
+    "fitness_patched": 0.5
   }
 ]
