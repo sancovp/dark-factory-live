@@ -1832,5 +1832,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-14T08:59:14+00:00",
+    "verdict": "REVERT",
+    "change": "Installed trade_listing_preflight_recipe.md to loadout - guards against fake test records exploit by forcing fresh execution via test_skill before any listing",
+    "diff": [
+      {
+        "file": "loadout/trade_listing_preflight_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.5
   }
 ]
