@@ -1,0 +1,19 @@
+{
+  "test_id": "test_irony_audit_recipe",
+  "skill_path": "crafted/irony_audit_recipe.md",
+  "result": "pass",
+  "composition_check": {
+    "ingredient_1": "irony_lens.md",
+    "ingredient_1_exists": true,
+    "ingredient_2": "dependency_proof_lens.md",
+    "ingredient_2_exists": true,
+    "output_different_from_inputs": true,
+    "pipeline_has_3_stages": true,
+    "stage1_irony_detected": true,
+    "stage2_dependency_traced": true,
+    "stage3_synthesis_produced": true
+  },
+  "rarity_justified": "rare",
+  "tested_by": "agent_002",
+  "tested_at": "2026-08-14T16:50:00Z"
+}
