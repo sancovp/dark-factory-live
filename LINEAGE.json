@@ -1717,5 +1717,30 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-14T02:17:56+00:00",
+    "verdict": "REVERT",
+    "change": "Installed Meta Rarity Honesty Pipeline to loadout with ingredients meta_eval_lens.md + convergence_detector_lens.md; verified loadout recipes: chain_verifier is overclaimed Rare\u2192Uncommon (CAUTION), in",
+    "diff": [
+      {
+        "file": "loadout/PIPELINE_VERIFY_meta_rarity_honesty.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/convergence_detector_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/meta_eval_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/meta_rarity_honesty_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
