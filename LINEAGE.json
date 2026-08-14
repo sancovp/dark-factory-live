@@ -2107,5 +2107,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 1.0
+  },
+  {
+    "at": "2026-08-14T20:01:16+00:00",
+    "verdict": "REVERT",
+    "change": "Installed Provenance-Constraint Quality Recipe to loadout \u2014 it detected chain_verifier_recipe and inversion_second_order_recipe both reference missing lens dependencies (Divergence/Convergence Lens an",
+    "diff": [
+      {
+        "file": "loadout/provenance_constraint_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.0
   }
 ]
