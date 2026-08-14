@@ -1678,5 +1678,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-14T01:42:15+00:00",
+    "verdict": "REVERT",
+    "change": "Installed convergence_horizon_lens.md to loadout \u2014 fills green-field lens niche in package",
+    "diff": [
+      {
+        "file": "loadout/convergence_horizon_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.5
   }
 ]
