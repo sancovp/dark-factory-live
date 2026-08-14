@@ -1,42 +1,74 @@
 {
   "rounds": [
     {
-      "region": "retrieval_augmented_generation",
+      "region": "knowledge_management",
       "targets": [
-        "multi_modal_rag",
-        "memory_augmented_rag"
+        "luhmann",
+        "slip_box"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 48,
-      "new_relations": 79
+      "new_concepts": 43,
+      "new_relations": 21
     },
     {
-      "region": "dense_retrieval",
+      "region": "second_brain",
       "targets": [
-        "colbert_style_retrieval",
-        "reciprocal_rank_fusion"
+        "external_memory",
+        "thought_extender"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 51,
-      "new_relations": 31
+      "new_concepts": 23,
+      "new_relations": 24
     }
   ],
   "basis_before": {
-    "shared_atoms": [],
-    "shared": 0,
-    "union": 30,
-    "overlap": 0.0
+    "shared_atoms": [
+      "atomic_notes",
+      "capturing",
+      "distilling",
+      "evergreen_notes",
+      "expressing",
+      "fleeting_notes",
+      "knowledge_management",
+      "literature_notes",
+      "luhmann",
+      "organizing",
+      "permanent_notes",
+      "progressive_summarization",
+      "slip_box",
+      "zettelkasten"
+    ],
+    "shared": 14,
+    "union": 18,
+    "overlap": 0.778
   },
   "basis_after": {
-    "shared_atoms": [],
-    "shared": 0,
-    "union": 50,
-    "overlap": 0.0
+    "shared_atoms": [
+      "atomic_notes",
+      "box_context",
+      "capturing",
+      "communication_partner",
+      "distilling",
+      "evergreen_notes",
+      "expressing",
+      "fleeting_notes",
+      "knowledge_management",
+      "literature_notes",
+      "luhmann",
+      "organizing",
+      "permanent_notes",
+      "progressive_summarization",
+      "slip_box",
+      "zettelkasten"
+    ],
+    "shared": 16,
+    "union": 23,
+    "overlap": 0.696
   }
 }

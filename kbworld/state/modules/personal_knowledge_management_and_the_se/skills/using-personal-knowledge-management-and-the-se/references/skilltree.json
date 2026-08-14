@@ -1,0 +1,223 @@
+{
+  "skilltree": {
+    "name": "understand-personal knowledge management and the second brain",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-personal knowledge management and the second brain",
+    "description": "the personal knowledge management and the second brain library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-core",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-core",
+        "description": "the core subdomain of personal knowledge management and the second brain (1 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-attention_as_scarcy",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-attention_as_scarcy",
+            "description": "Attention is a finite, exhaustible resource that must be deliberately allocated; because attention is scarce, ",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_knowledge_management",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-deep_knowledge_management",
+        "description": "the deep_knowledge_management subdomain of personal knowledge management and the second brain (43 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-slip_card",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-slip_card",
+            "description": "A single note card serving as the atomic unit of a slip-box; the fundamental indivisible element that carries ",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-handwritten_slip",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-handwritten_slip",
+            "description": "A physical card with handwritten notes; the original material form Luhmann used for his 90,000-card box.",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-branching_id",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-branching_id",
+            "description": "Luhmann's hierarchical ID scheme using letters and numbers (e.g., 21, 21a, 21a1) that allows new cards to be i",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-note_link",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-note_link",
+            "description": "An explicit connection between two slip cards created by writing the target card's ID on the source card, form",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-physical_index",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-physical_index",
+            "description": "Luhmann's topical index cards kept at the front of the box that point to entry-point card IDs by subject headi",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-luhmann_literary_machine",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-luhmann_literary_machine",
+            "description": "Luhmann's own term for his Zettelkasten \u2014 describing it as a writing machine that generates manuscripts by nav",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_second_brain",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-deep_second_brain",
+        "description": "the deep_second_brain subdomain of personal knowledge management and the second brain (23 concepts)",
+        "coord": "0.3",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-te_organizing",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-te_organizing",
+            "description": "The structuring operation that transforms captured material into a retrievable system; grouping related conten",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-te_distilling",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-te_distilling",
+            "description": "The process of extracting essential insights from source material through progressive summarization; a compres",
+            "coord": "0.3.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-te_capturing",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-te_capturing",
+            "description": "The first phase of the CODE framework where information is quickly captured before it fades from working memor",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-te_expressing",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-te_expressing",
+            "description": "The final phase of the CODE framework where accumulated knowledge becomes tangible output; the conversion oper",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-biological_memory",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-biological_memory",
+            "description": "The brain's innate memory system comprising working memory and long-term memory, subject to capacity limits an",
+            "coord": "0.3.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-working_memory",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-working_memory",
+            "description": "The limited-capacity cognitive workspace where active thinking occurs; the primary target for cognitive offloa",
+            "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-personal_knowledge_management_and_the_second_bra",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-personal_knowledge_management_and_the_second_bra",
+        "description": "the personal_knowledge_management_and_the_second_bra subdomain of personal knowledge management and the second brain (94 concepts)",
+        "coord": "0.4",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-knowledge_management",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-knowledge_management",
+            "description": "The practice of systematically capturing, organizing, distilling, and expressing information to build a reusab",
+            "coord": "0.4.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-zettelkasten",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-zettelkasten",
+            "description": "A note-taking system using atomic, interconnected notes that forms a web of ideas; developed by sociologist Ni",
+            "coord": "0.4.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-permanent_notes",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-permanent_notes",
+            "description": "Atomic notes in Zettelkasten that exist independently of their source material; connected to other notes via e",
+            "coord": "0.4.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-slip_box",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-slip_box",
+            "description": "Another name for Zettelkasten; emphasizes the slip-box metaphor of individual cards that can be recombined fre",
+            "coord": "0.4.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-second_brain",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-second_brain",
+            "description": "A methodology and digital system for capturing, organizing, and retrieving knowledge externally so the biologi",
+            "coord": "0.4.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-capturing",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_personal_knowledge_management_and_the_second_bra/understand-capturing",
+            "description": "The act of quickly recording any idea, insight, or information before it is lost; the first phase in the CODE ",
+            "coord": "0.4.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "phase": "soup",
+  "define": [],
+  "connect": [
+    "luhmann_sociological_output",
+    "luhmann_sociology",
+    "memory_fluidity",
+    "nachlass",
+    "notion",
+    "personal_knowledge_graph",
+    "personal_wiki",
+    "systems_theory",
+    "two_drawers",
+    "ubergangszettel"
+  ],
+  "reconcile": [],
+  "explain": [],
+  "n_concepts": 161,
+  "n_relations": 149
+}
