@@ -1661,5 +1661,22 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-14T01:25:04+00:00",
+    "verdict": "REVERT",
+    "change": "Installed test_then_verify_recipe.md to loadout/ and executed pipeline against quests/ \u2014 generated test records and chain verdicts",
+    "diff": [
+      {
+        "file": "loadout/test_then_verify_recipe.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/test_then_verify_recipe_pipeline.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
