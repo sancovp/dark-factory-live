@@ -1,0 +1,7 @@
+{"test_id": "test_systemic_analysis_pipeline",
+  "skill_path": "crafted/systemic-analysis-pipeline.md",
+  "result": "pass",
+  "input": "Analyze: build times increased 40% this quarter",
+  "output_summary": "Phase 1 causation: hypothesis=dependency graph growth. Phase 2 cascade: slow CI to skipped tests to bugs to trust erosion. Phase 3 opportunities: caching infra, incremental detection, transparent metrics.",
+  "test_notes": "Recipe composes 3 lenses; each essential per quality gate."
+}
