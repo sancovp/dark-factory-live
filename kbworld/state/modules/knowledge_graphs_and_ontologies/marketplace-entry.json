@@ -1,0 +1,12 @@
+{
+  "name": "knowledge-graphs-and-ontologies-module",
+  "description": "knowledge graphs and ontologies \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 177 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "category": "productivity",
+  "source": {
+    "source": "url",
+    "url": "https://github.com/sancovp/knowledge-graphs-and-ontologies-module.git"
+  }
+}

@@ -1,0 +1,177 @@
+{"c": "abductive_reasoning", "d": "inference process that derives the most likely explanation for observed facts given available knowledge", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "abox", "d": "The assertional box \u2014 the instance-level component of a knowledge base containing ground assertions about individuals.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "annotation_property", "d": "A property type for attaching metadata (labels, comments, deprecated flags) without affecting reasoning.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "application_ontology", "d": "A concrete ontology tailored for a specific software application, integrating and constraining reference and domain ontologies.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "axiom", "d": "A logical statement in an ontology taken as fundamental truth, constraining what inferences and interpretations are valid.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "backward_chaining", "d": "An inference strategy starting from a query goal and recursively applying rules backwards to find supporting facts.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "blank_node", "d": "An anonymous resource in RDF without a stable IRI, used for existential variables or intermediate blank graph nodes.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "cardinality_restriction", "d": "A class restriction specifying exact, minimum, or maximum number of values a property can take for class members.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "causal_inference", "d": "reasoning about cause-effect relationships enabling prediction of consequences given observed causes", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "class", "d": "A concept in an ontology representing a set of entities that share common characteristics, forming the taxonomic backbone.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "class_assertion", "d": "statement asserting that an individual entity belongs to a specific class in the ontology classification system", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "classification", "d": "The process of organizing entities into classes based on shared characteristics, a core activity in ontology engineering.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "coherence", "d": "The quality property of an ontology where all defined classes can have at least one instance without violating constraints.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "concept_hierarchy", "d": "organization of concepts in an ontology forming IS-A taxonomic relationships with superclass and subclass relations", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "concept_similarity", "d": "metric quantifying the degree of semantic relatedness between two concepts based on shared attributes and relationships", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "confidence_scoring", "d": "assignment of probability or confidence values to knowledge graph triples indicating reliability of each fact", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "consistency", "d": "A reasoning task verifying that an ontology has no contradictory axioms that would eliminate all possible models.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "constraint", "d": "A logical condition restricting valid states of a knowledge graph, violated instances indicating data quality issues.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "constraint_satisfaction", "d": "enforcement of logical rules and cardinality constraints ensuring knowledge graph consistency and validity", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "coreference", "d": "The relationship between different expressions referring to the same entity, central to entity resolution and data integration.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "counterfactual_reasoning", "d": "reasoning about hypothetical alternative scenarios and their outcomes differing from actual observed events", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "datatype_property", "d": "A property type in OWL whose value is a literal datatype, attaching data values to entities.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "description_logic", "d": "The decidable fragment of first-order logic underpinning OWL, balancing expressive power with tractable reasoning.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "disjoint_class", "d": "ontology axiom ensuring instances of one class cannot simultaneously belong to another specified class", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "disjoint_union", "d": "A logical axiom stating that a class is exactly the union of a collection of pairwise-disjoint classes.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "disjoint_with", "d": "A logical constraint stating that two classes have no common instances, enforcing mutual exclusivity in domain models.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "distant_supervision", "d": "weak supervision technique using knowledge graph to generate training labels for relation extraction from text", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "dl_safe_rule", "d": "A rule in OWL 2 RL/RDF that is restricted to ensure decidability and compatibility with description logic semantics.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "domain", "d": "The constraint specifying which classes an entity must belong to when it appears as the subject of a given property.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "domain_ontology", "d": "An ontology capturing the concepts and relations specific to a particular subject area or application domain.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "domain_range", "d": "constraints defining which entity types can appear as subject or object of a given property in an ontology", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "entailment", "d": "A logical consequence relationship where one set of statements necessarily follows from another set given the formal semantics.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "entity", "d": "A real or abstract thing represented as a node in a knowledge graph, identified by a unique IRI and having properties and relationships.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "entity_disambiguation", "d": "process of determining which specific real-world entity a text mention refers to when multiple candidates exist", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "entity_linking", "d": "process of connecting textual entity mentions to their corresponding nodes in a knowledge graph disambiguating meaning", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "entity_representation_learning", "d": "learning continuous vector embeddings for entities capturing their semantic properties and graph neighborhood", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "entity_resolution", "d": "The task of identifying when multiple entity identifiers refer to the same real-world object, also called deduplication.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "entity_typing", "d": "task of assigning semantic types and classes to entities determining what categories they belong to in the ontology", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "equivalent_class", "d": "A logical axiom declaring two class expressions to denote the same set of entities in an ontology.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "equivalent_property", "d": "A logical axiom declaring two properties to have identical semantics and extensions in an ontology.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "evidence_aggregation", "d": "process of combining evidence from multiple sources to determine the overall confidence in a knowledge assertion", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "existential_restriction", "d": "A class restriction requiring that instances have at least one value for a specified property from a specified class.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "fact_checking", "d": "task of verifying the truthfulness of factual claims using knowledge graphs as a source of verified knowledge", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "formal_ontology", "d": "An explicit specification of a conceptualization using a formal logic, enabling computational reasoning about domain structure.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "forward_chaining", "d": "An inference strategy applying rules repeatedly from premises to conclusions until no new facts can be derived.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "foundational_ontology", "d": "A top-level ontology supplying core metaphysical categories and relations for building domain ontologies on top of.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "functional_property", "d": "A property axiom stating that each entity can have at most one distinct value for this property.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "graph", "d": "An abstract mathematical structure composed of nodes (vertices) and edges (connections) underlying all knowledge graph representations.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "graph_database", "d": "database management system optimized for graph storage and traversal operations enabling efficient knowledge graph queries", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "graph_embedding", "d": "A learned low-dimensional vector representation of graph elements preserving structural and semantic proximity information.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "graph_neural_network", "d": "A neural architecture designed to operate directly on graph-structured data, learning representations for nodes and edges.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "graph_pattern", "d": "A template of triple patterns with variables used in SPARQL queries to match and extract subgraphs from knowledge graphs.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "graph_query_language", "d": "language designed for expressing pattern matching and traversal operations over graph-structured knowledge", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "graph_traversal", "d": "The algorithmic process of visiting nodes and edges in a knowledge graph following defined patterns or strategies.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "hierarchy", "d": "A parent-child tree structure imposing ordering among entities, fundamental to class taxonomies and part-whole relations.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "hybrid_reasoning", "d": "A reasoning approach combining multiple inference techniques such as description logic reasoning with rule-based logic programming.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "indexing", "d": "The creation of auxiliary data structures enabling fast retrieval of triples matching given patterns in a triple store.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "individual", "d": "A concrete instance of a class in an ontology, representing a specific entity in the domain rather than a type.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "inductive_learning", "d": "A learning setting where the model generalizes to entirely unseen entities not present during training.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "inference", "d": "The process of deriving new implicit knowledge from explicit statements using logical rules and reasoning mechanisms.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "inference_engine", "d": "reasoning system that derives new implicit knowledge from explicit facts using logical rules and ontology constraints", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "instance_of", "d": "A membership relation connecting an individual entity to the class it belongs to.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "inverse_functional_property", "d": "A property axiom stating that the inverse of a property is functional, enabling inference of identity from property values.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "inverse_property", "d": "A logical axiom declaring that two properties are the mutual converse of each other in a relationship pair.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "iri", "d": "Internationalized Resource Identifier \u2014 the global identifier standard for resources in the semantic web, replacing the older URI spec.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "irreflexive_property", "d": "A property axiom stating that no entity can relate to itself via the specified property.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "json_ld", "d": "JSON for Linked Data \u2014 a JSON-based serialization for RDF designed for ease of use by web developers.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_base", "d": "A persistent storage system for structured knowledge, combining a knowledge graph with an inference engine and query interface.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_completion_inference", "d": "specialized inference focused on predicting missing facts by reasoning over existing knowledge graph structure", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_curation", "d": "ongoing process of reviewing validating updating and correcting knowledge stored in the graph", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_embedding", "d": "A vector representation of entities and relations in a knowledge graph learned to satisfy relational constraints geometrically.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_graph", "d": "A structured representation of knowledge as a graph of entities (nodes) and their relationships (edges), enabling semantic querying and inference over interconnected data.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_graph_augmentation", "d": "process of enhancing an existing knowledge graph with additional facts entities or relations from external sources", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_graph_completion", "d": "The task of automatically inferring missing facts in a knowledge graph to improve its coverage and utility.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_graph_construction", "d": "end-to-end process of building a knowledge graph from raw data sources including extraction integration and curation", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_graph_embedding", "d": "specific embedding technique that projects knowledge graph components into continuous vector representations", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_graph_fusion", "d": "process of merging multiple knowledge graphs into a unified graph resolving conflicts and eliminating duplicates", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_graph_indexing", "d": "creation of efficient data structures enabling fast lookup and retrieval of entities and relations in the graph", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_graph_linking", "d": "establishment of cross-references between entities in different knowledge graphs forming a linked knowledge network", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_graph_query_optimization", "d": "techniques for efficiently executing complex queries over large-scale knowledge graphs using indexing and planning", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_graph_revision", "d": "process of modifying the knowledge graph to correct errors incorporate new information or adapt to changing knowledge", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_graph_schema_learning", "d": "automatic discovery of structural patterns and typing schemas from entity relationships in the graph", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_graph_storage", "d": "physical organization of knowledge graph data in storage systems including indexing partitioning and caching strategies", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_ontology_matching", "d": "process of aligning entities and relations between a knowledge graph and an external ontology reference schema", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "knowledge_representation", "d": "The field of study concerned with how to formally encode knowledge so that computer systems can reason about it.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "link_neighbor", "d": "An entity adjacent to a given entity via one or more edges in a knowledge graph, forming the local neighborhood context.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "link_prediction", "d": "The task of inferring missing or likely future relationships between entities in a knowledge graph.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "linked_data", "d": "A set of best practices for publishing and interlinking structured data on the web using RDF and HTTP IRIs.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "literal", "d": "A raw data value (string, number, date) in an RDF triple, as opposed to a reference to another entity via IRI.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "literal_value", "d": "data value like string number date or boolean attached to entities as property objects in knowledge representation", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "materialization", "d": "The pre-computation and storage of all inferred facts derivable from explicit knowledge, trading space for query speed.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "module_extraction", "d": "The extraction of a minimal relevant subset of an ontology satisfying all axioms relevant to a given signature of interest.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "multi_hop_reasoning", "d": "The ability to traverse and compose multiple relational steps in a knowledge graph to derive complex inferred conclusions.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "n_triples", "d": "A line-oriented RDF serialization format where each triple appears on a single line as subject predicate object separated by spaces.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "named_entity_recognition", "d": "NLP task of locating and classifying named entities in text into predefined categories like person organization location", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "named_graph", "d": "An RDF graph identified by an IRI, enabling provenance tracking, access control, and multi-context knowledge representation.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "named_individual", "d": "An individual entity that is explicitly named with an IRI, as distinguished from anonymous blank nodes.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "namespace", "d": "A logical grouping of related identifiers under a common prefix, disambiguating terms and providing context for schema definitions.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "neural_symbolic", "d": "An approach integrating neural network learning with symbolic reasoning for enhanced knowledge graph completion and inference.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "object", "d": "The third element of an RDF triple \u2014 the value or entity that is the target of the predicate assertion.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "object_property", "d": "A property type in OWL whose value is another individual entity, expressing binary relations between resources.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology", "d": "A formal explicit specification of a shared conceptualization, defining concepts, categories, properties, and relations within a domain of discourse.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_alignment", "d": "The result of ontology matching \u2014 a set of mappings establishing equivalence, subsumption, or other relations between aligned entities.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_engineering", "d": "The discipline of building, maintaining, and evolving ontologies, encompassing methodology, tools, and best practices.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_evaluation", "d": "The systematic assessment of ontology quality along dimensions including correctness, completeness, and coherence.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_import", "d": "The mechanism in OWL for one ontology to formally incorporate the axioms and declarations from another referenced ontology.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_learning", "d": "The automated or semi-automated extraction of ontology components from data sources such as text or structured data.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_matching", "d": "The automated process of finding semantic correspondences between entities from different ontologies.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_merge", "d": "The process of combining two or more ontologies into a unified ontology based on established alignments.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_module", "d": "extractable self-contained subset of an ontology that preserves semantic consistency and can be shared independently", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_pattern", "d": "reusable solution template for modeling common domain concepts like part-whole temporal events and qualifiers", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_population", "d": "The process of adding instance-level assertions to an ontology, filling the ABox with real or synthesized individuals.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_quality", "d": "A multi-dimensional measure of how well an ontology meets its intended purpose and adheres to structural best practices.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_reasoning", "d": "logical inference performed by a reasoner to deduce implicit knowledge from ontology axioms and asserted facts", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ontology_versioning", "d": "The management of changes to an ontology over time, tracking revisions and maintaining backward compatibility.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "owl", "d": "Web Ontology Language \u2014 the W3C standard for formal ontology definition supporting rich logical constraints and automated reasoning.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "owl_2", "d": "The second version of OWL with extended expressiveness including qualified cardinality, datatype facets, and property chain axioms.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "path", "d": "A sequence of connected entities and relationships traversed through a knowledge graph from an origin to a destination node.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "path_querying", "d": "traversal operation that finds sequences of edges connecting entities enabling multi-hop navigation in the graph", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "predicate", "d": "The property or relation type that connects subject to object in an RDF triple, linking entities via typed relationships.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "property", "d": "A relation type that links entities or connects entities to literal values, forming the edges of the knowledge graph.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "property_assertion", "d": "triple asserting a specific relationship between two individuals or an individual and a literal value", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "property_chain", "d": "An axiom in OWL 2 stating that a composed property equals a chain of two or more constituent properties.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "property_hierarchy", "d": "taxonomy of relations organizing properties by generality with subproperties inheriting domain and range constraints", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "provenance", "d": "Metadata about the origin, authorship, and chain of custody of knowledge graph triples and entities.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "quad", "d": "An extension of an RDF triple with a fourth element identifying the named graph, enabling context-annotated statements.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "qualified_cardinality", "d": "A cardinality restriction in OWL 2 specifying the exact number of values from a specified class for a given property.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "query_answering", "d": "task of answering natural language or structured questions by retrieving and reasoning over knowledge in the graph", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "query_federation", "d": "A technique for executing SPARQL queries across multiple distributed knowledge graphs as if they were a single unified graph.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "query_optimization", "d": "The improvement of SPARQL query execution plans to minimize response time and resource consumption.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "range", "d": "The constraint specifying which classes or datatypes apply to the value of a given property when used on an entity.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "rdf", "d": "Resource Description Framework \u2014 the foundational W3C standard data model for representing knowledge as subject-predicate-object triples.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "rdf_schema", "d": "The vocabulary definition language extending RDF with class/property hierarchies, domains, ranges, and typing primitives.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "rdfa", "d": "RDFa \u2014 a specification for embedding RDF assertions within HTML and XML documents using attributes.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "realization", "d": "The automated reasoning task of determining the most specific classes that apply to each individual in a knowledge base.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "reasoning", "d": "The systematic application of logical rules to a knowledge graph to deduce new facts, check consistency, and classify entities.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "reasoning_engine", "d": "A software system implementing inference algorithms to derive implicit consequences from explicit knowledge graph axioms.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "reflexive_property", "d": "A property axiom stating that every entity necessarily relates to itself via the specified property.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "relation", "d": "A typed connection between two entities in a knowledge graph, expressing how one thing relates to another.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "relation_extraction", "d": "natural language processing task of identifying and classifying relationships between entities mentioned in text", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "relation_typing", "d": "task of categorizing relations into types or subtypes based on their semantic meaning and structural role", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "restriction", "d": "A anonymous class describing a set of individuals by constraining property values they must or may have.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "rule", "d": "An if-then logical statement encoding domain knowledge that can derive new triples from matching antecedent patterns.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "rule_learning", "d": "automatic discovery of logical rules and patterns expressed as Horn clauses from knowledge graph examples", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "satisfiability", "d": "A reasoning task determining whether an ontology or class description can have any valid model satisfying all axioms.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "schema", "d": "The structural blueprint defining entity types, relationship types, constraints, and validation rules for a knowledge graph.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "semantic_relation", "d": "An abstract typed connection between concepts or entities capturing meaningful domain-relevant associations.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "semantic_role", "d": "linguistic description of the function an entity plays in a relation such as agent patient instrument or location", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "semantic_web", "d": "The vision of a machine-readable web of data where information has well-defined meaning through shared ontologies and standards.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "serialization", "d": "The conversion of an RDF graph into a standardized text or binary format for storage and exchange.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "shacl", "d": "Shapes Constraint Language \u2014 a W3C standard for validating RDF data against sets of structural and logical constraints.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "shapes", "d": "The declarative constraints in SHACL specifying the valid structure and value constraints for RDF data conforming to a graph.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "source_attribution", "d": "association of knowledge graph triples with their originating sources enabling verification and trust assessment", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "sparql", "d": "The W3C standard query language for RDF knowledge graphs, supporting pattern matching, filters, aggregation, and subqueries.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "sparql_update", "d": "The extension to SPARQL for modifying, inserting, and deleting triples within RDF graphs using update operations.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "staleness_detection", "d": "identification of knowledge graph facts that may be outdated or no longer accurate in current context", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "subclass_of", "d": "A taxonomic relation stating that one class is more specific than (a specialization of) another class.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "subgraph_matching", "d": "process of finding occurrences of a query graph pattern within a larger knowledge graph", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "subject", "d": "The first element of an RDF triple \u2014 the entity about which a statement is made, always an IRI or blank node.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "swrl", "d": "Semantic Web Rule Language \u2014 a W3C submission extending OWL with Horn-like rules for expressing additional inferential knowledge.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "symmetric_property", "d": "A property axiom stating that if entity A relates to B, then B also relates to A via the same property.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "tableau_reasoner", "d": "A reasoning algorithm for description logics based on constructing and manipulating a completion graph to test satisfiability.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "taxonomy", "d": "A hierarchical classification structure organizing concepts from general to specific through subclass/superclass relationships.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "tbox", "d": "The terminological box \u2014 the schema-level component of a knowledge base defining classes, properties, and their relations.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "temporal_knowledge_graph", "d": "knowledge graph augmented with temporal annotations specifying when facts hold and when relationships are active", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "temporal_reasoning", "d": "inference process that accounts for time dimensions when facts become valid expire or evolve in the knowledge graph", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "transductive_learning", "d": "A learning setting where the model observes all training and test entities but not their labels during training.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "transitive_property", "d": "A property axiom stating that if A relates to B and B relates to C, then A relates to C through the same property.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "triple", "d": "A basic unit of RDF data consisting of subject-predicate-object that expresses a single atomic assertion about the world.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "triple_store", "d": "A specialized database system optimized for storing, indexing, and querying RDF triples at scale.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "ttl", "d": "TTL (Turtle) \u2014 the common file extension for Turtle-format RDF files, used throughout the semantic web ecosystem.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "turtle", "d": "Terse RDF Triple Language \u2014 a human-readable serialization format for RDF using prefix notation and nested expressions.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "universal_restriction", "d": "class description ensuring that all related entities through a property must satisfy given conditions", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "upper_ontology", "d": "A high-level ontology providing foundational categories (entity, event, time, space) that bridge domain-specific ontologies.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "uri", "d": "Uniform Resource Identifier \u2014 the addressing scheme for resources on the web, forming the basis for naming graph elements.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "validation", "d": "The checking of a knowledge graph against defined constraints to identify violations indicating errors or inconsistencies.", "lib": "knowledge_graphs_and_ontologies"}
+{"c": "vocabulary", "d": "A defined set of terms, their meanings, and relationships that provides the schema layer for a knowledge graph or ontology.", "lib": "knowledge_graphs_and_ontologies"}
