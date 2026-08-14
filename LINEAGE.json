@@ -2000,5 +2000,22 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-14T15:05:46+00:00",
+    "verdict": "REVERT",
+    "change": "Installed provenance_lens.md (rare lens) + meta_pe_guided_skill_crafting_recipe.md (epic recipe) to loadout via Meta-PE pipeline",
+    "diff": [
+      {
+        "file": "loadout/meta_pe_guided_skill_crafting_recipe.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/provenance_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
