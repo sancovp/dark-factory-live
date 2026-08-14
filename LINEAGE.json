@@ -1755,5 +1755,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-14T03:57:34+00:00",
+    "verdict": "REVERT",
+    "change": "Installed stakeholder_lens as boot loadout skill; applied it to patch-3 package and found two false-composition loadout skills (chain_verifier_recipe and inversion_second_order_recipe each reference a",
+    "diff": [
+      {
+        "file": "loadout/stakeholder_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
