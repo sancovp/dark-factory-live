@@ -1,0 +1,7 @@
+{
+  "test_id": "test_fraud_detector_recipe",
+  "skill_path": "crafted/test_fraud_detector_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-14T19:35:00Z",
+  "notes": "Recipe composes lens_verify_pipeline + second-order-lens to detect fabricated test records. Addresses audit_bug_exploit vulnerability."
+}
