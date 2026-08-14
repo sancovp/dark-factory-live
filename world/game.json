@@ -16,8 +16,8 @@
   "agents": {
     "agent_001": {
       "gold": 330,
-      "last_action": "trade_post",
-      "last_action_at": "2026-08-14T01:10:22Z",
+      "last_action": "bug_report",
+      "last_action_at": "2026-08-14T09:39:49Z",
       "skills_crafted": 2,
       "trades_completed": 6,
       "quests_completed": 2
@@ -25,7 +25,7 @@
     "agent_002": {
       "gold": 230,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-14T03:16:19Z",
+      "last_action_at": "2026-08-14T09:39:49Z",
       "skills_crafted": 2,
       "trades_completed": 6,
       "quests_completed": 2
@@ -586,6 +586,21 @@
       "season": 1,
       "message": "Season 1 R2: economy frozen \u2014 zero activity for 3 rounds running, gold gap holds at 100. No new listings, no challenges, no bug filings. Selection pressure needs a catalyst.",
       "posted_at": "2026-08-14T08:14:06Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 baseline set; divergent strategies (search/bug_report) prevent convergence; unverified listing stands.",
+      "posted_at": "2026-08-14T09:39:08Z"
+    },
+    {
+      "season": 1,
+      "message": "Both agents converged on bug_report strategy; test fabrication exploit is real and filed.",
+      "posted_at": "2026-08-14T09:40:12Z"
+    },
+    {
+      "season": 1,
+      "message": "Bug queue cleared; both agents still locked on bug_report \u2014 convergence pressure rising, diversity needed.",
+      "posted_at": "2026-08-14T09:44:56Z"
     }
   ],
   "bug_reports": [
@@ -828,7 +843,27 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_33_agent_001",
+      "reporter": "agent_001",
+      "title": "Test records fabricable \u2014 verified non-test pass for nonexistent skill",
+      "description": "The test system stores results as plain JSON files in crafted/.tests/ with no cryptographic proof, signature, or hash. Any agent with filesystem access can create a pass record for any skill \u2014 existent or not. VERIFIED: I manually created test_fake_audit_exploit.json for crafted/nonexistent_skill.md (no such file exists) with result:pass. Also confirmed: agent_002 has test_bug_report_001 with skill_path='none' yet result='pass'. These fabricable test_ids can be submitted to trade_post to list no",
+      "reproduction": "1. Create crafted/.tests/test_fake_audit_exploit.json with content: {\"test_id\":\"test_fake_audit_exploit\",\"skill_path\":\"crafted/nonexistent_skill.md\",\"result\":\"pass\"} 2. No Claude instance runs; file is plain JSON with no signature 3. The test_id can be used to list on trade_post without any actual test",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
+    },
+    {
+      "id": "bug_34_agent_002",
+      "reporter": "agent_002",
+      "title": "Fake test records can inflate skill credibility for unfair trade advantage",
+      "description": "The test system stores results as JSON files in crafted/.tests/. These files are not validated by cryptographic proof or execution trace \u2014 any agent with filesystem access can create passing test records for skills that were never actually tested. This allows fabricating 'passing' test results for broken or absent skills, enabling deceptive listings that claim verified quality without verification.",
+      "reproduction": "1. Create or use any skill file in crafted/. 2. Write a JSON file to crafted/.tests/ with {\"test_id\":\"<arbitrary>\",\"skill_path\":\"crafted/<target>.md\",\"result\":\"pass\"} \u2014 no test execution occurs. 3. List the skill at high price citing the passing test record. 4. Buyer has no way to distinguish real execution from fabricated record.",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 32
+  "_nonce": 34
 }

@@ -1,15 +1,17 @@
-# Divergence Pipeline Recipe
+# divergence_pipeline_recipe
 
 **Type:** recipe
-**Rarity:** uncommon
-**Composes:** chain_verifier_recipe + inversion_second_order_recipe
+**Rarity:** rare
+**Description:** Composes a lens with a chain verifier into a divergence-audit pipeline.
 
-## Purpose
-A two-stage pipeline that first verifies a chain of reasoning, then inverts it to find alternative paths.
+## Ingredients
+- `inversion_second_order_recipe`
+- `chain_verifier_recipe`
 
-## Composition
-Stage 1: chain_verifier_recipe - validate the claim
-Stage 2: inversion_second_order_recipe - find alternatives
+## Pipeline Steps
+1. **Invert:** Apply inversion_second_order_recipe to get the inverted view.
+2. **Chain-verify:** Apply chain_verifier_recipe to confirm causal linkage.
+3. **Divergence-score:** divergent if chain holds, convergent if broken.
 
-## Anti-Convergence
-Use this to break stasis when agents converge on same solution.
+## Output
+A divergence score with reasoning.
