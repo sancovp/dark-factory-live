@@ -1,0 +1,76 @@
+{
+  "skilltree": {
+    "name": "understand-knowledge graphs and ontologies",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_knowledge_graphs_and_ontologies/understand-knowledge graphs and ontologies",
+    "description": "the knowledge graphs and ontologies library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-knowledge_graphs_and_ontologies",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_knowledge_graphs_and_ontologies/understand-knowledge_graphs_and_ontologies",
+        "description": "the knowledge_graphs_and_ontologies subdomain of knowledge graphs and ontologies (177 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-tbox",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_knowledge_graphs_and_ontologies/understand-tbox",
+            "description": "The terminological box \u2014 the schema-level component of a knowledge base defining classes, properties, and thei",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-consistency",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_knowledge_graphs_and_ontologies/understand-consistency",
+            "description": "A reasoning task verifying that an ontology has no contradictory axioms that would eliminate all possible mode",
+            "coord": "0.1.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-causal_inference",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_knowledge_graphs_and_ontologies/understand-causal_inference",
+            "description": "reasoning about cause-effect relationships enabling prediction of consequences given observed causes",
+            "coord": "0.1.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-counterfactual_reasoning",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_knowledge_graphs_and_ontologies/understand-counterfactual_reasoning",
+            "description": "reasoning about hypothetical alternative scenarios and their outcomes differing from actual observed events",
+            "coord": "0.1.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-blank_node",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_knowledge_graphs_and_ontologies/understand-blank_node",
+            "description": "An anonymous resource in RDF without a stable IRI, used for existential variables or intermediate blank graph ",
+            "coord": "0.1.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-class",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_knowledge_graphs_and_ontologies/understand-class",
+            "description": "A concept in an ontology representing a set of entities that share common characteristics, forming the taxonom",
+            "coord": "0.1.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

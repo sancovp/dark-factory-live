@@ -1,0 +1,572 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/knowledge_graphs_and_ontologies#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/knowledge_graphs_and_ontologies> a owl:Ontology ;
+    rdfs:label "knowledge graphs and ontologies" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:abductive_reasoning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "abductive reasoning" ;
+    rdfs:comment "inference process that derives the most likely explanation for observed facts given available knowledge" .
+kb:abox a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "abox" ;
+    rdfs:comment "The assertional box \u2014 the instance-level component of a knowledge base containing ground assertions about individuals." .
+kb:annotation_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "annotation property" ;
+    rdfs:comment "A property type for attaching metadata (labels, comments, deprecated flags) without affecting reasoning." .
+kb:application_ontology a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "application ontology" ;
+    rdfs:comment "A concrete ontology tailored for a specific software application, integrating and constraining reference and domain ontologies." .
+kb:axiom a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "axiom" ;
+    rdfs:comment "A logical statement in an ontology taken as fundamental truth, constraining what inferences and interpretations are valid." .
+kb:backward_chaining a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "backward chaining" ;
+    rdfs:comment "An inference strategy starting from a query goal and recursively applying rules backwards to find supporting facts." .
+kb:blank_node a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "blank node" ;
+    rdfs:comment "An anonymous resource in RDF without a stable IRI, used for existential variables or intermediate blank graph nodes." .
+kb:cardinality_restriction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cardinality restriction" ;
+    rdfs:comment "A class restriction specifying exact, minimum, or maximum number of values a property can take for class members." .
+kb:causal_inference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "causal inference" ;
+    rdfs:comment "reasoning about cause-effect relationships enabling prediction of consequences given observed causes" .
+kb:class a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "class" ;
+    rdfs:comment "A concept in an ontology representing a set of entities that share common characteristics, forming the taxonomic backbone." .
+kb:class_assertion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "class assertion" ;
+    rdfs:comment "statement asserting that an individual entity belongs to a specific class in the ontology classification system" .
+kb:classification a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "classification" ;
+    rdfs:comment "The process of organizing entities into classes based on shared characteristics, a core activity in ontology engineering." .
+kb:coherence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "coherence" ;
+    rdfs:comment "The quality property of an ontology where all defined classes can have at least one instance without violating constraints." .
+kb:concept_hierarchy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "concept hierarchy" ;
+    rdfs:comment "organization of concepts in an ontology forming IS-A taxonomic relationships with superclass and subclass relations" .
+kb:concept_similarity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "concept similarity" ;
+    rdfs:comment "metric quantifying the degree of semantic relatedness between two concepts based on shared attributes and relationships" .
+kb:confidence_scoring a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "confidence scoring" ;
+    rdfs:comment "assignment of probability or confidence values to knowledge graph triples indicating reliability of each fact" .
+kb:consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "consistency" ;
+    rdfs:comment "A reasoning task verifying that an ontology has no contradictory axioms that would eliminate all possible models." .
+kb:constraint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "constraint" ;
+    rdfs:comment "A logical condition restricting valid states of a knowledge graph, violated instances indicating data quality issues." .
+kb:constraint_satisfaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "constraint satisfaction" ;
+    rdfs:comment "enforcement of logical rules and cardinality constraints ensuring knowledge graph consistency and validity" .
+kb:coreference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "coreference" ;
+    rdfs:comment "The relationship between different expressions referring to the same entity, central to entity resolution and data integration." .
+kb:counterfactual_reasoning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "counterfactual reasoning" ;
+    rdfs:comment "reasoning about hypothetical alternative scenarios and their outcomes differing from actual observed events" .
+kb:datatype_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "datatype property" ;
+    rdfs:comment "A property type in OWL whose value is a literal datatype, attaching data values to entities." .
+kb:description_logic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "description logic" ;
+    rdfs:comment "The decidable fragment of first-order logic underpinning OWL, balancing expressive power with tractable reasoning." .
+kb:disjoint_class a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "disjoint class" ;
+    rdfs:comment "ontology axiom ensuring instances of one class cannot simultaneously belong to another specified class" .
+kb:disjoint_union a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "disjoint union" ;
+    rdfs:comment "A logical axiom stating that a class is exactly the union of a collection of pairwise-disjoint classes." .
+kb:disjoint_with a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "disjoint with" ;
+    rdfs:comment "A logical constraint stating that two classes have no common instances, enforcing mutual exclusivity in domain models." .
+kb:distant_supervision a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "distant supervision" ;
+    rdfs:comment "weak supervision technique using knowledge graph to generate training labels for relation extraction from text" .
+kb:dl_safe_rule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dl safe rule" ;
+    rdfs:comment "A rule in OWL 2 RL/RDF that is restricted to ensure decidability and compatibility with description logic semantics." .
+kb:domain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "domain" ;
+    rdfs:comment "The constraint specifying which classes an entity must belong to when it appears as the subject of a given property." .
+kb:domain_ontology a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "domain ontology" ;
+    rdfs:comment "An ontology capturing the concepts and relations specific to a particular subject area or application domain." .
+kb:domain_range a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "domain range" ;
+    rdfs:comment "constraints defining which entity types can appear as subject or object of a given property in an ontology" .
+kb:entailment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entailment" ;
+    rdfs:comment "A logical consequence relationship where one set of statements necessarily follows from another set given the formal semantics." .
+kb:entity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entity" ;
+    rdfs:comment "A real or abstract thing represented as a node in a knowledge graph, identified by a unique IRI and having properties and relationships." .
+kb:entity_disambiguation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entity disambiguation" ;
+    rdfs:comment "process of determining which specific real-world entity a text mention refers to when multiple candidates exist" .
+kb:entity_linking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entity linking" ;
+    rdfs:comment "process of connecting textual entity mentions to their corresponding nodes in a knowledge graph disambiguating meaning" .
+kb:entity_representation_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entity representation learning" ;
+    rdfs:comment "learning continuous vector embeddings for entities capturing their semantic properties and graph neighborhood" .
+kb:entity_resolution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entity resolution" ;
+    rdfs:comment "The task of identifying when multiple entity identifiers refer to the same real-world object, also called deduplication." .
+kb:entity_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entity typing" ;
+    rdfs:comment "task of assigning semantic types and classes to entities determining what categories they belong to in the ontology" .
+kb:equivalent_class a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "equivalent class" ;
+    rdfs:comment "A logical axiom declaring two class expressions to denote the same set of entities in an ontology." .
+kb:equivalent_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "equivalent property" ;
+    rdfs:comment "A logical axiom declaring two properties to have identical semantics and extensions in an ontology." .
+kb:evidence_aggregation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "evidence aggregation" ;
+    rdfs:comment "process of combining evidence from multiple sources to determine the overall confidence in a knowledge assertion" .
+kb:existential_restriction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "existential restriction" ;
+    rdfs:comment "A class restriction requiring that instances have at least one value for a specified property from a specified class." .
+kb:fact_checking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fact checking" ;
+    rdfs:comment "task of verifying the truthfulness of factual claims using knowledge graphs as a source of verified knowledge" .
+kb:formal_ontology a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "formal ontology" ;
+    rdfs:comment "An explicit specification of a conceptualization using a formal logic, enabling computational reasoning about domain structure." .
+kb:forward_chaining a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "forward chaining" ;
+    rdfs:comment "An inference strategy applying rules repeatedly from premises to conclusions until no new facts can be derived." .
+kb:foundational_ontology a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "foundational ontology" ;
+    rdfs:comment "A top-level ontology supplying core metaphysical categories and relations for building domain ontologies on top of." .
+kb:functional_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "functional property" ;
+    rdfs:comment "A property axiom stating that each entity can have at most one distinct value for this property." .
+kb:graph a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph" ;
+    rdfs:comment "An abstract mathematical structure composed of nodes (vertices) and edges (connections) underlying all knowledge graph representations." .
+kb:graph_database a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph database" ;
+    rdfs:comment "database management system optimized for graph storage and traversal operations enabling efficient knowledge graph queries" .
+kb:graph_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph embedding" ;
+    rdfs:comment "A learned low-dimensional vector representation of graph elements preserving structural and semantic proximity information." .
+kb:graph_neural_network a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph neural network" ;
+    rdfs:comment "A neural architecture designed to operate directly on graph-structured data, learning representations for nodes and edges." .
+kb:graph_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph pattern" ;
+    rdfs:comment "A template of triple patterns with variables used in SPARQL queries to match and extract subgraphs from knowledge graphs." .
+kb:graph_query_language a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph query language" ;
+    rdfs:comment "language designed for expressing pattern matching and traversal operations over graph-structured knowledge" .
+kb:graph_traversal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph traversal" ;
+    rdfs:comment "The algorithmic process of visiting nodes and edges in a knowledge graph following defined patterns or strategies." .
+kb:hierarchy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hierarchy" ;
+    rdfs:comment "A parent-child tree structure imposing ordering among entities, fundamental to class taxonomies and part-whole relations." .
+kb:hybrid_reasoning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hybrid reasoning" ;
+    rdfs:comment "A reasoning approach combining multiple inference techniques such as description logic reasoning with rule-based logic programming." .
+kb:indexing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "indexing" ;
+    rdfs:comment "The creation of auxiliary data structures enabling fast retrieval of triples matching given patterns in a triple store." .
+kb:individual a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "individual" ;
+    rdfs:comment "A concrete instance of a class in an ontology, representing a specific entity in the domain rather than a type." .
+kb:inductive_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inductive learning" ;
+    rdfs:comment "A learning setting where the model generalizes to entirely unseen entities not present during training." .
+kb:inference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inference" ;
+    rdfs:comment "The process of deriving new implicit knowledge from explicit statements using logical rules and reasoning mechanisms." .
+kb:inference_engine a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inference engine" ;
+    rdfs:comment "reasoning system that derives new implicit knowledge from explicit facts using logical rules and ontology constraints" .
+kb:instance_of a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "instance of" ;
+    rdfs:comment "A membership relation connecting an individual entity to the class it belongs to." .
+kb:inverse_functional_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inverse functional property" ;
+    rdfs:comment "A property axiom stating that the inverse of a property is functional, enabling inference of identity from property values." .
+kb:inverse_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inverse property" ;
+    rdfs:comment "A logical axiom declaring that two properties are the mutual converse of each other in a relationship pair." .
+kb:iri a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "iri" ;
+    rdfs:comment "Internationalized Resource Identifier \u2014 the global identifier standard for resources in the semantic web, replacing the older URI spec." .
+kb:irreflexive_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "irreflexive property" ;
+    rdfs:comment "A property axiom stating that no entity can relate to itself via the specified property." .
+kb:json_ld a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "json ld" ;
+    rdfs:comment "JSON for Linked Data \u2014 a JSON-based serialization for RDF designed for ease of use by web developers." .
+kb:knowledge_base a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge base" ;
+    rdfs:comment "A persistent storage system for structured knowledge, combining a knowledge graph with an inference engine and query interface." .
+kb:knowledge_completion_inference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge completion inference" ;
+    rdfs:comment "specialized inference focused on predicting missing facts by reasoning over existing knowledge graph structure" .
+kb:knowledge_curation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge curation" ;
+    rdfs:comment "ongoing process of reviewing validating updating and correcting knowledge stored in the graph" .
+kb:knowledge_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge embedding" ;
+    rdfs:comment "A vector representation of entities and relations in a knowledge graph learned to satisfy relational constraints geometrically." .
+kb:knowledge_graph a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph" ;
+    rdfs:comment "A structured representation of knowledge as a graph of entities (nodes) and their relationships (edges), enabling semantic querying and inference over interconnected data." .
+kb:knowledge_graph_augmentation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph augmentation" ;
+    rdfs:comment "process of enhancing an existing knowledge graph with additional facts entities or relations from external sources" .
+kb:knowledge_graph_completion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph completion" ;
+    rdfs:comment "The task of automatically inferring missing facts in a knowledge graph to improve its coverage and utility." .
+kb:knowledge_graph_construction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph construction" ;
+    rdfs:comment "end-to-end process of building a knowledge graph from raw data sources including extraction integration and curation" .
+kb:knowledge_graph_embedding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph embedding" ;
+    rdfs:comment "specific embedding technique that projects knowledge graph components into continuous vector representations" .
+kb:knowledge_graph_fusion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph fusion" ;
+    rdfs:comment "process of merging multiple knowledge graphs into a unified graph resolving conflicts and eliminating duplicates" .
+kb:knowledge_graph_indexing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph indexing" ;
+    rdfs:comment "creation of efficient data structures enabling fast lookup and retrieval of entities and relations in the graph" .
+kb:knowledge_graph_linking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph linking" ;
+    rdfs:comment "establishment of cross-references between entities in different knowledge graphs forming a linked knowledge network" .
+kb:knowledge_graph_query_optimization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph query optimization" ;
+    rdfs:comment "techniques for efficiently executing complex queries over large-scale knowledge graphs using indexing and planning" .
+kb:knowledge_graph_revision a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph revision" ;
+    rdfs:comment "process of modifying the knowledge graph to correct errors incorporate new information or adapt to changing knowledge" .
+kb:knowledge_graph_schema_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph schema learning" ;
+    rdfs:comment "automatic discovery of structural patterns and typing schemas from entity relationships in the graph" .
+kb:knowledge_graph_storage a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph storage" ;
+    rdfs:comment "physical organization of knowledge graph data in storage systems including indexing partitioning and caching strategies" .
+kb:knowledge_ontology_matching a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge ontology matching" ;
+    rdfs:comment "process of aligning entities and relations between a knowledge graph and an external ontology reference schema" .
+kb:knowledge_representation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge representation" ;
+    rdfs:comment "The field of study concerned with how to formally encode knowledge so that computer systems can reason about it." .
+kb:link_neighbor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "link neighbor" ;
+    rdfs:comment "An entity adjacent to a given entity via one or more edges in a knowledge graph, forming the local neighborhood context." .
+kb:link_prediction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "link prediction" ;
+    rdfs:comment "The task of inferring missing or likely future relationships between entities in a knowledge graph." .
+kb:linked_data a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "linked data" ;
+    rdfs:comment "A set of best practices for publishing and interlinking structured data on the web using RDF and HTTP IRIs." .
+kb:literal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "literal" ;
+    rdfs:comment "A raw data value (string, number, date) in an RDF triple, as opposed to a reference to another entity via IRI." .
+kb:literal_value a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "literal value" ;
+    rdfs:comment "data value like string number date or boolean attached to entities as property objects in knowledge representation" .
+kb:materialization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "materialization" ;
+    rdfs:comment "The pre-computation and storage of all inferred facts derivable from explicit knowledge, trading space for query speed." .
+kb:module_extraction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "module extraction" ;
+    rdfs:comment "The extraction of a minimal relevant subset of an ontology satisfying all axioms relevant to a given signature of interest." .
+kb:multi_hop_reasoning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "multi hop reasoning" ;
+    rdfs:comment "The ability to traverse and compose multiple relational steps in a knowledge graph to derive complex inferred conclusions." .
+kb:n_triples a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "n triples" ;
+    rdfs:comment "A line-oriented RDF serialization format where each triple appears on a single line as subject predicate object separated by spaces." .
+kb:named_entity_recognition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "named entity recognition" ;
+    rdfs:comment "NLP task of locating and classifying named entities in text into predefined categories like person organization location" .
+kb:named_graph a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "named graph" ;
+    rdfs:comment "An RDF graph identified by an IRI, enabling provenance tracking, access control, and multi-context knowledge representation." .
+kb:named_individual a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "named individual" ;
+    rdfs:comment "An individual entity that is explicitly named with an IRI, as distinguished from anonymous blank nodes." .
+kb:namespace a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "namespace" ;
+    rdfs:comment "A logical grouping of related identifiers under a common prefix, disambiguating terms and providing context for schema definitions." .
+kb:neural_symbolic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "neural symbolic" ;
+    rdfs:comment "An approach integrating neural network learning with symbolic reasoning for enhanced knowledge graph completion and inference." .
+kb:object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "object" ;
+    rdfs:comment "The third element of an RDF triple \u2014 the value or entity that is the target of the predicate assertion." .
+kb:object_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "object property" ;
+    rdfs:comment "A property type in OWL whose value is another individual entity, expressing binary relations between resources." .
+kb:ontology a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology" ;
+    rdfs:comment "A formal explicit specification of a shared conceptualization, defining concepts, categories, properties, and relations within a domain of discourse." .
+kb:ontology_alignment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology alignment" ;
+    rdfs:comment "The result of ontology matching \u2014 a set of mappings establishing equivalence, subsumption, or other relations between aligned entities." .
+kb:ontology_engineering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology engineering" ;
+    rdfs:comment "The discipline of building, maintaining, and evolving ontologies, encompassing methodology, tools, and best practices." .
+kb:ontology_evaluation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology evaluation" ;
+    rdfs:comment "The systematic assessment of ontology quality along dimensions including correctness, completeness, and coherence." .
+kb:ontology_import a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology import" ;
+    rdfs:comment "The mechanism in OWL for one ontology to formally incorporate the axioms and declarations from another referenced ontology." .
+kb:ontology_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology learning" ;
+    rdfs:comment "The automated or semi-automated extraction of ontology components from data sources such as text or structured data." .
+kb:ontology_matching a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology matching" ;
+    rdfs:comment "The automated process of finding semantic correspondences between entities from different ontologies." .
+kb:ontology_merge a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology merge" ;
+    rdfs:comment "The process of combining two or more ontologies into a unified ontology based on established alignments." .
+kb:ontology_module a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology module" ;
+    rdfs:comment "extractable self-contained subset of an ontology that preserves semantic consistency and can be shared independently" .
+kb:ontology_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology pattern" ;
+    rdfs:comment "reusable solution template for modeling common domain concepts like part-whole temporal events and qualifiers" .
+kb:ontology_population a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology population" ;
+    rdfs:comment "The process of adding instance-level assertions to an ontology, filling the ABox with real or synthesized individuals." .
+kb:ontology_quality a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology quality" ;
+    rdfs:comment "A multi-dimensional measure of how well an ontology meets its intended purpose and adheres to structural best practices." .
+kb:ontology_reasoning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology reasoning" ;
+    rdfs:comment "logical inference performed by a reasoner to deduce implicit knowledge from ontology axioms and asserted facts" .
+kb:ontology_versioning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ontology versioning" ;
+    rdfs:comment "The management of changes to an ontology over time, tracking revisions and maintaining backward compatibility." .
+kb:owl a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "owl" ;
+    rdfs:comment "Web Ontology Language \u2014 the W3C standard for formal ontology definition supporting rich logical constraints and automated reasoning." .
+kb:owl_2 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "owl 2" ;
+    rdfs:comment "The second version of OWL with extended expressiveness including qualified cardinality, datatype facets, and property chain axioms." .
+kb:path a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "path" ;
+    rdfs:comment "A sequence of connected entities and relationships traversed through a knowledge graph from an origin to a destination node." .
+kb:path_querying a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "path querying" ;
+    rdfs:comment "traversal operation that finds sequences of edges connecting entities enabling multi-hop navigation in the graph" .
+kb:predicate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "predicate" ;
+    rdfs:comment "The property or relation type that connects subject to object in an RDF triple, linking entities via typed relationships." .
+kb:property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "property" ;
+    rdfs:comment "A relation type that links entities or connects entities to literal values, forming the edges of the knowledge graph." .
+kb:property_assertion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "property assertion" ;
+    rdfs:comment "triple asserting a specific relationship between two individuals or an individual and a literal value" .
+kb:property_chain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "property chain" ;
+    rdfs:comment "An axiom in OWL 2 stating that a composed property equals a chain of two or more constituent properties." .
+kb:property_hierarchy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "property hierarchy" ;
+    rdfs:comment "taxonomy of relations organizing properties by generality with subproperties inheriting domain and range constraints" .
+kb:provenance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "provenance" ;
+    rdfs:comment "Metadata about the origin, authorship, and chain of custody of knowledge graph triples and entities." .
+kb:quad a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "quad" ;
+    rdfs:comment "An extension of an RDF triple with a fourth element identifying the named graph, enabling context-annotated statements." .
+kb:qualified_cardinality a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "qualified cardinality" ;
+    rdfs:comment "A cardinality restriction in OWL 2 specifying the exact number of values from a specified class for a given property." .
+kb:query_answering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query answering" ;
+    rdfs:comment "task of answering natural language or structured questions by retrieving and reasoning over knowledge in the graph" .
+kb:query_federation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query federation" ;
+    rdfs:comment "A technique for executing SPARQL queries across multiple distributed knowledge graphs as if they were a single unified graph." .
+kb:query_optimization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "query optimization" ;
+    rdfs:comment "The improvement of SPARQL query execution plans to minimize response time and resource consumption." .
+kb:range a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "range" ;
+    rdfs:comment "The constraint specifying which classes or datatypes apply to the value of a given property when used on an entity." .
+kb:rdf a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rdf" ;
+    rdfs:comment "Resource Description Framework \u2014 the foundational W3C standard data model for representing knowledge as subject-predicate-object triples." .
+kb:rdf_schema a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rdf schema" ;
+    rdfs:comment "The vocabulary definition language extending RDF with class/property hierarchies, domains, ranges, and typing primitives." .
+kb:rdfa a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rdfa" ;
+    rdfs:comment "RDFa \u2014 a specification for embedding RDF assertions within HTML and XML documents using attributes." .
+kb:realization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "realization" ;
+    rdfs:comment "The automated reasoning task of determining the most specific classes that apply to each individual in a knowledge base." .
+kb:reasoning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reasoning" ;
+    rdfs:comment "The systematic application of logical rules to a knowledge graph to deduce new facts, check consistency, and classify entities." .
+kb:reasoning_engine a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reasoning engine" ;
+    rdfs:comment "A software system implementing inference algorithms to derive implicit consequences from explicit knowledge graph axioms." .
+kb:reflexive_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reflexive property" ;
+    rdfs:comment "A property axiom stating that every entity necessarily relates to itself via the specified property." .
+kb:relation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relation" ;
+    rdfs:comment "A typed connection between two entities in a knowledge graph, expressing how one thing relates to another." .
+kb:relation_extraction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relation extraction" ;
+    rdfs:comment "natural language processing task of identifying and classifying relationships between entities mentioned in text" .
+kb:relation_typing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relation typing" ;
+    rdfs:comment "task of categorizing relations into types or subtypes based on their semantic meaning and structural role" .
+kb:restriction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "restriction" ;
+    rdfs:comment "A anonymous class describing a set of individuals by constraining property values they must or may have." .
+kb:rule a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rule" ;
+    rdfs:comment "An if-then logical statement encoding domain knowledge that can derive new triples from matching antecedent patterns." .
+kb:rule_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rule learning" ;
+    rdfs:comment "automatic discovery of logical rules and patterns expressed as Horn clauses from knowledge graph examples" .
+kb:satisfiability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "satisfiability" ;
+    rdfs:comment "A reasoning task determining whether an ontology or class description can have any valid model satisfying all axioms." .
+kb:schema a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "schema" ;
+    rdfs:comment "The structural blueprint defining entity types, relationship types, constraints, and validation rules for a knowledge graph." .
+kb:semantic_relation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic relation" ;
+    rdfs:comment "An abstract typed connection between concepts or entities capturing meaningful domain-relevant associations." .
+kb:semantic_role a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic role" ;
+    rdfs:comment "linguistic description of the function an entity plays in a relation such as agent patient instrument or location" .
+kb:semantic_web a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic web" ;
+    rdfs:comment "The vision of a machine-readable web of data where information has well-defined meaning through shared ontologies and standards." .
+kb:serialization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "serialization" ;
+    rdfs:comment "The conversion of an RDF graph into a standardized text or binary format for storage and exchange." .
+kb:shacl a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "shacl" ;
+    rdfs:comment "Shapes Constraint Language \u2014 a W3C standard for validating RDF data against sets of structural and logical constraints." .
+kb:shapes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "shapes" ;
+    rdfs:comment "The declarative constraints in SHACL specifying the valid structure and value constraints for RDF data conforming to a graph." .
+kb:source_attribution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "source attribution" ;
+    rdfs:comment "association of knowledge graph triples with their originating sources enabling verification and trust assessment" .
+kb:sparql a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sparql" ;
+    rdfs:comment "The W3C standard query language for RDF knowledge graphs, supporting pattern matching, filters, aggregation, and subqueries." .
+kb:sparql_update a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sparql update" ;
+    rdfs:comment "The extension to SPARQL for modifying, inserting, and deleting triples within RDF graphs using update operations." .
+kb:staleness_detection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "staleness detection" ;
+    rdfs:comment "identification of knowledge graph facts that may be outdated or no longer accurate in current context" .
+kb:subclass_of a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "subclass of" ;
+    rdfs:comment "A taxonomic relation stating that one class is more specific than (a specialization of) another class." .
+kb:subgraph_matching a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "subgraph matching" ;
+    rdfs:comment "process of finding occurrences of a query graph pattern within a larger knowledge graph" .
+kb:subject a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "subject" ;
+    rdfs:comment "The first element of an RDF triple \u2014 the entity about which a statement is made, always an IRI or blank node." .
+kb:swrl a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "swrl" ;
+    rdfs:comment "Semantic Web Rule Language \u2014 a W3C submission extending OWL with Horn-like rules for expressing additional inferential knowledge." .
+kb:symmetric_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "symmetric property" ;
+    rdfs:comment "A property axiom stating that if entity A relates to B, then B also relates to A via the same property." .
+kb:tableau_reasoner a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tableau reasoner" ;
+    rdfs:comment "A reasoning algorithm for description logics based on constructing and manipulating a completion graph to test satisfiability." .
+kb:taxonomy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "taxonomy" ;
+    rdfs:comment "A hierarchical classification structure organizing concepts from general to specific through subclass/superclass relationships." .
+kb:tbox a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tbox" ;
+    rdfs:comment "The terminological box \u2014 the schema-level component of a knowledge base defining classes, properties, and their relations." .
+kb:temporal_knowledge_graph a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "temporal knowledge graph" ;
+    rdfs:comment "knowledge graph augmented with temporal annotations specifying when facts hold and when relationships are active" .
+kb:temporal_reasoning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "temporal reasoning" ;
+    rdfs:comment "inference process that accounts for time dimensions when facts become valid expire or evolve in the knowledge graph" .
+kb:transductive_learning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transductive learning" ;
+    rdfs:comment "A learning setting where the model observes all training and test entities but not their labels during training." .
+kb:transitive_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transitive property" ;
+    rdfs:comment "A property axiom stating that if A relates to B and B relates to C, then A relates to C through the same property." .
+kb:triple a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "triple" ;
+    rdfs:comment "A basic unit of RDF data consisting of subject-predicate-object that expresses a single atomic assertion about the world." .
+kb:triple_store a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "triple store" ;
+    rdfs:comment "A specialized database system optimized for storing, indexing, and querying RDF triples at scale." .
+kb:ttl a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ttl" ;
+    rdfs:comment "TTL (Turtle) \u2014 the common file extension for Turtle-format RDF files, used throughout the semantic web ecosystem." .
+kb:turtle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "turtle" ;
+    rdfs:comment "Terse RDF Triple Language \u2014 a human-readable serialization format for RDF using prefix notation and nested expressions." .
+kb:universal_restriction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "universal restriction" ;
+    rdfs:comment "class description ensuring that all related entities through a property must satisfy given conditions" .
+kb:upper_ontology a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "upper ontology" ;
+    rdfs:comment "A high-level ontology providing foundational categories (entity, event, time, space) that bridge domain-specific ontologies." .
+kb:uri a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "uri" ;
+    rdfs:comment "Uniform Resource Identifier \u2014 the addressing scheme for resources on the web, forming the basis for naming graph elements." .
+kb:validation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "validation" ;
+    rdfs:comment "The checking of a knowledge graph against defined constraints to identify violations indicating errors or inconsistencies." .
+kb:vocabulary a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vocabulary" ;
+    rdfs:comment "A defined set of terms, their meanings, and relationships that provides the schema layer for a knowledge graph or ontology." .
+
+kb:abox kbo:relatesTo kb:tbox .
+kb:annotation_property kbo:relatesTo kb:datatype_property .
+kb:application_ontology kbo:relatesTo kb:domain_ontology .
+kb:axiom kbo:relatesTo kb:tbox .
+kb:backward_chaining kbo:relatesTo kb:forward_chaining .
+kb:blank_node kbo:relatesTo kb:named_individual .
+kb:cardinality_restriction kbo:relatesTo kb:qualified_cardinality .
+kb:causal_inference kbo:relatesTo kb:counterfactual_reasoning .
+kb:class kbo:relatesTo kb:subclass_of .
+kb:class_assertion kbo:relatesTo kb:property_assertion .
+kb:classification kbo:relatesTo kb:realization .
+kb:coherence kbo:relatesTo kb:consistency .
+kb:concept_hierarchy kbo:relatesTo kb:taxonomy .
+kb:concept_similarity kbo:relatesTo kb:semantic_relation .
+kb:confidence_scoring kbo:relatesTo kb:evidence_aggregation .
+kb:consistency kbo:relatesTo kb:satisfiability .
+kb:constraint kbo:relatesTo kb:validation .
+kb:constraint_satisfaction kbo:relatesTo kb:graph_pattern .
+kb:coreference kbo:relatesTo kb:entity_linking .
+kb:counterfactual_reasoning kbo:relatesTo kb:causal_inference .
+
