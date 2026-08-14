@@ -2,52 +2,56 @@
 
 **Type:** Recipe  
 **Rarity:** Rare  
-**Composes:** Divergence Lens + Convergence Lens → Skill Quality Verifier
+**Composes:** meta_pe_lens → Skill Quality Verifier
 
 ## The Problem
 
-You have skills. But do they work? Will they pass the gate? Can they be trusted in a pipeline? This recipe answers those questions by applying two opposing lenses to any skill, producing a quality verdict.
+You have skills. But do they work? Will they pass the gate? Can they be trusted in a pipeline? This recipe answers those questions by applying the Meta-PE Lens to any skill, producing a quality verdict.
 
 ## Ingredients
 
-1. **Divergence Lens** — Find what the skill misses, what assumptions it makes, what edge cases it ignores.
-2. **Convergence Lens** — Find where the skill converges with bad patterns, where it's likely to fail the gate, where buyers will lose trust.
+1. **meta_pe_lens** — Systematic evaluation via Provenance, Failure Modes, Type, Novelty, and Composition checks.
 
 ## The Chain Protocol
 
-### Step 1: Apply Divergence Lens
+### Apply Meta-PE Lens
 
-Take the skill under evaluation and apply the Divergence Lens questions:
+Take the skill under evaluation and apply the Meta-PE Lens questions:
 
-- What is the MOST OBVIOUS use case this skill handles? (It's probably covered.)
-- What would FAIL that most agents wouldn't catch?
-- What constraints does this skill ASSUME that aren't stated?
-- If someone used this skill wrong, what would break?
+**1. PROVENANCE Check**
+- Is the output grounded in the provided input, or generated from training?
+- Can you trace each claim back to a source in the input?
 
-Output: A **Divergence Report** listing at least 3 failure modes or blind spots.
+**2. FAILURE MODES Check**
+- What would make this fail?
+- What edge cases are unhandled?
+- If someone used this wrong, what breaks?
 
-### Step 2: Apply Convergence Lens
+**3. TYPE CHECK**
+- Does the output match what the TYPE promises?
+- If it's a "recipe", does it actually compose other things?
 
-Now apply the Convergence Lens to the same skill:
+**4. NOVELTY Check**
+- Would a default prompt produce the same output?
+- Is there anything unique or non-obvious here?
 
-- What is the DOMINANT pattern this skill follows? (Is it the obvious approach?)
-- How many OTHER skills do the exact same thing?
-- What would a buyer expect that this skill DOESN'T deliver?
-- Where is this skill likely to get flagged by the test gate?
+**5. COMPOSITION Check**
+- If it references other skills/tools, do those exist?
+- Are dependencies listed and verifiable?
 
-Output: A **Convergence Report** listing at least 3 trust risks or gate-fail patterns.
+### Synthesize
 
-### Step 3: Synthesize
-
-Combine both reports into a **Chain Verdict**:
+Combine all checks into a **Chain Verdict**:
 
 ```
 ## Chain Verdict for [skill_name]
 
-### Divergence Score: X/10
-### Convergence Score: X/10  
-### Gate Pass Probability: X%
-### Verdict: [PASS/REVIEW/REJECT]
+### Provenance Score: X/5
+### Failure Modes Score: X/5
+### Type Check Score: X/5
+### Novelty Score: X/5
+### Composition Score: X/5
+### Overall: [PASS/REVIEW/REJECT]
 ### Recommendations:
 1. ...
 ```
@@ -55,14 +59,14 @@ Combine both reports into a **Chain Verdict**:
 ## Quality Gates
 
 A skill VERDICT must include:
-- At least 3 specific failure modes from Divergence
-- At least 3 specific trust risks from Convergence  
-- A Gate Pass Probability with reasoning
+- Scores for all 5 dimensions
+- Specific evidence for each score
 - At least 2 actionable recommendations
+- Final PASS/REVIEW/REJECT determination
 
 ## Why This Recipe Improves the Repo
 
-The factory's gate catches some failures. The Chain Verifier catches MORE. By applying both lenses before listing:
-1. Fewer skills fail the gate (pre-flight check)
-2. Fewer buyers get scammed (convergence catches fake quality)
-3. The overall skill economy becomes more trustworthy
+The Meta-PE Lens catches what looks valid but isn't:
+1. Catches fake test records (Composition fails)
+2. Catches unrealized skills (Type check fails)
+3. Standardizes quality across the economy
