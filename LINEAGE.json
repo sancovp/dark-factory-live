@@ -1918,5 +1918,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-14T10:37:43+00:00",
+    "verdict": "REVERT",
+    "change": "Installed audit recipe to loadout; FOUND 2 MISSING GAPS: chain_verifier_recipe.md \u2192 crafted/constraint_inversion_lens.md (missing), inversion_second_order_recipe.md \u2192 crafted/second_order_lens.md (mis",
+    "diff": [
+      {
+        "file": "loadout/loadout_dependency_audit_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.5
   }
 ]
