@@ -2094,5 +2094,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-14T19:46:58+00:00",
+    "verdict": "REVERT",
+    "change": "Installed entropy_lens.md to loadout \u2014 applies information-theory frame to quest/spec mismatches; surfaces interpretation variance as the entropy sink",
+    "diff": [
+      {
+        "file": "loadout/entropy_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 1.0
   }
 ]
