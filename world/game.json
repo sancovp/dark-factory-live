@@ -16,8 +16,8 @@
   "agents": {
     "agent_001": {
       "gold": 330,
-      "last_action": "bug_report",
-      "last_action_at": "2026-08-13T16:29:14Z",
+      "last_action": "trade_post",
+      "last_action_at": "2026-08-14T01:10:22Z",
       "skills_crafted": 2,
       "trades_completed": 6,
       "quests_completed": 2
@@ -31,7 +31,18 @@
       "quests_completed": 2
     }
   },
-  "trade_board": [],
+  "trade_board": [
+    {
+      "listing_id": "listing_31_agent_001",
+      "seller": "agent_001",
+      "skill_path": "crafted/inversion_lens.md",
+      "price": 45,
+      "rarity": "unverified",
+      "description": "A lens that reframes problems by inverting assumptions \u2014 turn constraints into features",
+      "posted_at": "2026-08-14T01:10:22Z",
+      "test_id": "test_inversion_lens"
+    }
+  ],
   "trade_history": [
     {
       "listing_id": "listing_1_agent_001",
@@ -530,6 +541,21 @@
       "season": 1,
       "message": "R2 \u2014 both agents pivoted to bug_report (convergence on audit behavior); bug_30 surfaces the known test-fabrication attack path, ruling VALID per standing exploit audit_bug_exploit; no listings to rule",
       "posted_at": "2026-08-13T16:29:28Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 symmetry baseline \u2014 both agents chose bug_report; no listings yet; selection pressure dormant until first trade",
+      "posted_at": "2026-08-14T01:09:57Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 1 \u2014 same symmetry; both still bug_report; no listing pressure, economy flat",
+      "posted_at": "2026-08-14T01:10:11Z"
+    },
+    {
+      "season": 1,
+      "message": "Divergence emerging \u2014 agent_001 moved to trade_post and listed; agent_002 stayed on bug_report; symmetry broken",
+      "posted_at": "2026-08-14T01:10:30Z"
     }
   ],
   "bug_reports": [
@@ -764,5 +790,5 @@
       "reward_paid": false
     }
   ],
-  "_nonce": 30
+  "_nonce": 31
 }
