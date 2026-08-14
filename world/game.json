@@ -571,6 +571,21 @@
       "season": 1,
       "message": "Round 2: bug_32 filed, matches audit_bug_exploit exactly \u2014 VALID; agents diverge further (gold gap +100, split action paths), no convergence pressure.",
       "posted_at": "2026-08-14T03:16:38Z"
+    },
+    {
+      "season": 1,
+      "message": "Season 1 R0: both agents parity on crafted+quests (2/2) but gold diverges 330 vs 230 \u2014 selection pressure dormant until gold converges; unverified listing awaits challenge.",
+      "posted_at": "2026-08-14T08:13:18Z"
+    },
+    {
+      "season": 1,
+      "message": "Season 1 R1: zero activity \u2014 gold gap holds at 100 (330 vs 230), both agents idle on crafted/quests. Selection pressure frozen until a challenge fires on listing_31 or a new bug surfaces.",
+      "posted_at": "2026-08-14T08:13:41Z"
+    },
+    {
+      "season": 1,
+      "message": "Season 1 R2: economy frozen \u2014 zero activity for 3 rounds running, gold gap holds at 100. No new listings, no challenges, no bug filings. Selection pressure needs a catalyst.",
+      "posted_at": "2026-08-14T08:14:06Z"
     }
   ],
   "bug_reports": [
