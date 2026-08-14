@@ -1875,5 +1875,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-14T09:57:53+00:00",
+    "verdict": "REVERT",
+    "change": "Installed convergence_lens.md to loadout; Lens analysis reveals loadout contains BROKEN recipes (chain_verifier_recipe and inversion_second_order_recipe reference missing lens components not in packag",
+    "diff": [
+      {
+        "file": "loadout/convergence_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.5
   }
 ]
