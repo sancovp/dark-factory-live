@@ -1,0 +1,653 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/personal_knowledge_management_and_the_second_bra#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/personal_knowledge_management_and_the_second_bra> a owl:Ontology ;
+    rdfs:label "personal knowledge management and the second brain" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:accumulation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "accumulation" ;
+    rdfs:comment "The organic growth process of a slip-box over time; cards added gradually form an increasingly dense network of linked ideas." .
+kb:anki a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "anki" ;
+    rdfs:comment "A spaced repetition flashcard application; used alongside PKM for knowledge that needs to be memorized rather than just retrieved." .
+kb:archivierung a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "archivierung" ;
+    rdfs:comment "Luhmann's filing and archival approach to the slip-box; the systematic process of assigning IDs, linking cards, and maintaining the growing network." .
+kb:associative_thinking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "associative thinking" ;
+    rdfs:comment "The cognitive process of making unexpected connections between disparate ideas; enabled and amplified by a networked knowledge system." .
+kb:atomic_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atomic notes" ;
+    rdfs:comment "Notes containing a single idea in complete, standalone form; the fundamental unit in Zettelkasten systems." .
+kb:attention_as_scarcity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention as scarcity" ;
+    rdfs:comment "The perspective that human attention is the rarest resource, so PKM should optimize for retrieval speed not just capture volume." .
+kb:attention_as_scarcy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attention as scarcy" ;
+    rdfs:comment "Attention is a finite, exhaustible resource that must be deliberately allocated; because attention is scarce, every cognitive overhead consumed by remembering, organizing, or tracking reduces capacity for deep work and flow, and PKM systems exist to offload memory and administrative cognition so that scarce attention can be directed toward meaningful work." .
+kb:backlinks a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "backlinks" ;
+    rdfs:comment "Bidirectional links where referencing a note automatically creates a visible reference back; core to networked thought tools." .
+kb:bidirectional_link a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bidirectional link" ;
+    rdfs:comment "A note link recorded on both participating cards, ensuring navigability in both directions through the slip-box network." .
+kb:bidirectional_links a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bidirectional links" ;
+    rdfs:comment "Links that work in both directions automatically; if note A links to note B, note B sees a backlink to A without manual entry." .
+kb:biological_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "biological memory" ;
+    rdfs:comment "The brain's innate memory system comprising working memory and long-term memory, subject to capacity limits and forgetting curves." .
+kb:block_references a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "block references" ;
+    rdfs:comment "Links to specific chunks or paragraphs of content rather than entire documents; enables granular knowledge reuse." .
+kb:box_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "box context" ;
+    rdfs:comment "The container holding all slip cards plus the index; the physical or digital environment where the network of ideas resides." .
+kb:branching_id a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "branching id" ;
+    rdfs:comment "Luhmann's hierarchical ID scheme using letters and numbers (e.g., 21, 21a, 21a1) that allows new cards to be inserted between existing ones without renumbering." .
+kb:building_a_second_brain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "building a second brain" ;
+    rdfs:comment "Tiago Forte's comprehensive methodology for externalizing thinking into a trusted digital system; based on CODE framework." .
+kb:capturing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "capturing" ;
+    rdfs:comment "The act of quickly recording any idea, insight, or information before it is lost; the first phase in the CODE framework." .
+kb:card_id a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "card id" ;
+    rdfs:comment "A unique alphanumeric identifier assigned to each slip card enabling explicit reference and bidirectional linking within the box." .
+kb:card_writing_habit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "card writing habit" ;
+    rdfs:comment "Luhmann's daily practice of writing approximately 6 new cards per day; a disciplined capture habit that sustained the archive's growth over decades." .
+kb:code_framework a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code framework" ;
+    rdfs:comment "Capture, Organize, Distill, Express \u2014 the cyclical process for turning information chaos into structured creative output." .
+kb:cognitive_offload a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cognitive offload" ;
+    rdfs:comment "Transferring mental tasks to external systems to free working memory for higher-order thinking; second brain is deliberate cognitive offload." .
+kb:commonplace_book a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "commonplace book" ;
+    rdfs:comment "A historical predecessor to the Zettelkasten: a hand-copied collection of quotes, observations, and ideas from reading, used by scholars for centuries." .
+kb:communication_partner a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "communication partner" ;
+    rdfs:comment "Luhmann's term for treating the slip-box as a dialogue partner; asking the box questions and following links to surface unexpected connections." .
+kb:compounding_knowledge a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "compounding knowledge" ;
+    rdfs:comment "The exponential effect where each new note becomes more valuable because it can connect to and leverage the entire existing network." .
+kb:concept_atlas a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "concept atlas" ;
+    rdfs:comment "A visual or navigable map of the key concepts in your knowledge system showing how ideas relate and cluster." .
+kb:concept_mapping a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "concept mapping" ;
+    rdfs:comment "Creating visual diagrams showing relationships between concepts; a form of externalized thinking that feeds the knowledge base." .
+kb:confirmation_bias a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "confirmation bias" ;
+    rdfs:comment "The tendency to seek information confirming existing beliefs; PKM must be deliberately open to contradictory notes and cold capture." .
+kb:context_switching a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context switching" ;
+    rdfs:comment "The cognitive cost of switching between different tasks; PKM reduces context switching by externalizing task and knowledge state." .
+kb:convergent_thinking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "convergent thinking" ;
+    rdfs:comment "Narrowing from many options to the best solution; supported by having a well-organized knowledge base to draw from." .
+kb:creative_reuse a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "creative reuse" ;
+    rdfs:comment "Finding unexpected new applications for notes and ideas originally captured for a different purpose; enabled by networked storage." .
+kb:creativity_support_tools a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "creativity support tools" ;
+    rdfs:comment "Software and systems that enhance creative output; PKM tools are a category of creativity support tools." .
+kb:daily_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "daily notes" ;
+    rdfs:comment "A journal-style capture space opened each day for logging activities, thoughts, and quick captures without structural commitment." .
+kb:deckname a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deckname" ;
+    rdfs:comment "Luhmann's file labels or topic headings used to group related cards; a navigation layer above individual note IDs." .
+kb:deep_work a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "deep work" ;
+    rdfs:comment "Productive work that requires focused, undistracted attention on cognitively demanding tasks; PKM protects deep work time." .
+kb:digital_garden a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "digital garden" ;
+    rdfs:comment "A public-facing, evolving collection of notes that grows over time; emphasizes growth, imperfection, and learning in progress over polished publication." .
+kb:digital_minimalism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "digital minimalism" ;
+    rdfs:comment "A philosophy of intentional technology use that values depth over breadth; aligns with PKM principles of deliberate capture over hoarding." .
+kb:digital_slip a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "digital slip" ;
+    rdfs:comment "An electronic representation of a slip card in software; the digital equivalent maintaining atomicity and linking capability." .
+kb:distilling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "distilling" ;
+    rdfs:comment "Extracting essential insights from source material through progressive summarization; making information denser without losing meaning." .
+kb:divergent_thinking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "divergent thinking" ;
+    rdfs:comment "Generating many possible ideas or solutions without judgment; supported by capture-first, organize-later PKM philosophy." .
+kb:emergence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "emergence" ;
+    rdfs:comment "Novel insights and understanding that arise from the connections between atomic notes; the whole becomes greater than the sum of parts." .
+kb:entry_point a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entry point" ;
+    rdfs:comment "A slip card serving as a hub that collects links from many other cards on a common topic, providing a navigation anchor into the box." .
+kb:evergreen_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "evergreen notes" ;
+    rdfs:comment "Notes written as atomic, concept-oriented assertions that are meant to evolve over time and connect to other notes in a growing network." .
+kb:expressing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "expressing" ;
+    rdfs:comment "Creating tangible output (articles, projects, solutions) from accumulated knowledge; the final phase where learning becomes useful." .
+kb:external_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "external memory" ;
+    rdfs:comment "The second brain as an extension of biological memory; shifts the brain from storage organ to synthesis engine." .
+kb:first_principles a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "first principles" ;
+    rdfs:comment "Breaking down complex problems into fundamental propositions that cannot be deduced further; valuable knowledge to externalize." .
+kb:fleeting_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fleeting notes" ;
+    rdfs:comment "Quick, rough captures meant to be processed and either promoted to permanent notes or discarded within a day or two." .
+kb:fleeting_to_slip a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fleeting to slip" ;
+    rdfs:comment "Promoting a rough fleeting note into a polished slip card for the box; the transformation from capture to permanent knowledge." .
+kb:flow_state a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flow state" ;
+    rdfs:comment "The psychological state of complete immersion in productive activity; PKM enables flow by handling the cognitive overhead of remembering." .
+kb:graph_view a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graph view" ;
+    rdfs:comment "A visual representation in PKM tools showing notes as nodes and links as edges; helps discover clusters and orphaned notes." .
+kb:handschriftlich a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "handschriftlich" ;
+    rdfs:comment "Luhmann's deliberate choice of handwritten cards; physical medium enforces brevity (atomicity) and creates a tactile filing/retrieval loop that differs from digital Zettelkasten implementations." .
+kb:handwritten_slip a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "handwritten slip" ;
+    rdfs:comment "A physical card with handwritten notes; the original material form Luhmann used for his 90,000-card box." .
+kb:highlights a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "highlights" ;
+    rdfs:comment "Selected passages from source material marked as important; raw material that must be processed through distillation into notes." .
+kb:idea_velocity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idea velocity" ;
+    rdfs:comment "The speed at which you can generate, connect, and develop new ideas by having a well-organized knowledge system as a thinking partner." .
+kb:inbox_zero_for_knowledge a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inbox zero for knowledge" ;
+    rdfs:comment "The practice of processing all captured notes regularly so nothing languishes uncaptured; analogous to email inbox zero." .
+kb:information_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "information architecture" ;
+    rdfs:comment "The structural design of shared or personal information systems; PKM is personal information architecture." .
+kb:information_overload a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "information overload" ;
+    rdfs:comment "The state of having more information than can be processed, leading to decision paralysis and reduced productivity; the problem PKM solves." .
+kb:intellectual_humility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "intellectual humility" ;
+    rdfs:comment "Openness to being wrong and updating beliefs; a disposition that a living, evolving knowledge system can support and reflect." .
+kb:intellectual_outputs a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "intellectual outputs" ;
+    rdfs:comment "Concrete artifacts produced from knowledge: written pieces, presentations, decisions, solutions, code \u2014 the proof of accumulated learning." .
+kb:inversion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inversion" ;
+    rdfs:comment "A thinking technique where you consider the opposite of what you want to achieve to gain insight; a mental model well-suited to networked capture." .
+kb:knowledge_base a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge base" ;
+    rdfs:comment "An organized, searchable collection of information structured for efficient retrieval and reuse." .
+kb:knowledge_graph a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge graph" ;
+    rdfs:comment "A data structure where concepts are nodes and their relationships are edges; visualized as the graph view in PKM tools." .
+kb:knowledge_management a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge management" ;
+    rdfs:comment "The practice of systematically capturing, organizing, distilling, and expressing information to build a reusable intellectual asset base." .
+kb:knowledge_retrieval a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge retrieval" ;
+    rdfs:comment "The ability to find relevant information when needed; the payoff that makes all PKM investment worthwhile." .
+kb:knowledge_worker a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "knowledge worker" ;
+    rdfs:comment "Someone whose primary output involves gathering, processing, synthesizing, or communicating information rather than physical goods." .
+kb:learning_in_public a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "learning in public" ;
+    rdfs:comment "Sharing knowledge, notes, and insights openly while learning; digital gardens are a manifestation of learning in public." .
+kb:literature_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "literature notes" ;
+    rdfs:comment "Notes that summarize and reflect on source material in your own words; intermediate step before permanent notes." .
+kb:literature_slip a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "literature slip" ;
+    rdfs:comment "A slip card that records a reference to a source text alongside or within the note, linking reading material to derived insights." .
+kb:literaturverzeichnis a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "literaturverzeichnis" ;
+    rdfs:comment "Luhmann's bibliography index within the Zettelkasten; a separate register tracking source materials that feed into the permanent notes." .
+kb:logseq a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "logseq" ;
+    rdfs:comment "An outliner-based PKM tool with out-of-the-box bidirectional linking and daily notes; designed for long-form thinking and knowledge management." .
+kb:long_term_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "long term memory" ;
+    rdfs:comment "The brain's persistent storage system accessible via working memory; characterized by slow retrieval and susceptibility to interference." .
+kb:luhmann a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann" ;
+    rdfs:comment "Niklas Luhmann, German sociologist who built the original Zettelkasten with 90,000 cards and used it to produce 70 books and 400 articles." .
+kb:luhmann_90k_cards a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann 90k cards" ;
+    rdfs:comment "The physical Zettelkasten that Luhmann built over his lifetime; approximately 90,000 numbered index cards containing atomic ideas, arguments, and cross-references that formed his extended mind." .
+kb:luhmann_archiv_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann archiv principle" ;
+    rdfs:comment "The archival principle underlying Luhmann's system \u2014 that notes exist as independent, reusable artifacts rather than marginalia or annotations, enabling combinatorial use across future writing projects." .
+kb:luhmann_branching_id a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann branching id" ;
+    rdfs:comment "Luhmann's alphanumeric ID scheme for cards \u2014 e.g. '21/3a1f8' \u2014 where each segment encodes branching position, enabling systematic child-note placement and retroactive insertion without renumbering." .
+kb:luhmann_card a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann card" ;
+    rdfs:comment "A single note card in Luhmann's system \u2014 physically a 6\u00d74 inch DIN A6 card containing one atomic idea, a unique ID, keywords, and explicit pointers to other cards by their IDs." .
+kb:luhmann_communication_partner a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann communication partner" ;
+    rdfs:comment "Luhmann's practice of treating the Zettelkasten as a dialogue partner \u2014 conducting imaginary conversations with the card network to surface unexpected connections and generate new insight." .
+kb:luhmann_digital_zettelkasten a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann digital zettelkasten" ;
+    rdfs:comment "The modern software implementations of Luhmann's card-based method; tools like Obsidian, Roam Research, and Logseq that translate the physical card conventions into digital environments with bidirectional links." .
+kb:luhmann_growth_rate a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann growth rate" ;
+    rdfs:comment "Luhmann's reported productive output attributed to the Zettelkasten; he claimed to produce a book roughly every year by following the connections his note system surfaced." .
+kb:luhmann_hand_written a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann hand written" ;
+    rdfs:comment "Luhmann's cards were entirely handwritten in ink, physical 4x6 cards, not digital; the physical affordances shaped his numbering and linking conventions." .
+kb:luhmann_keyword_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann keyword index" ;
+    rdfs:comment "Luhmann's keyword index \u2014 a separate register mapping keywords to card IDs, functioning as an alternative access path complementary to the link network." .
+kb:luhmann_literary_machine a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann literary machine" ;
+    rdfs:comment "Luhmann's own term for his Zettelkasten \u2014 describing it as a writing machine that generates manuscripts by navigating the card network, treating the system itself as a communication partner." .
+kb:luhmann_note_practice a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann note practice" ;
+    rdfs:comment "Luhmann's daily habit of writing 6 new cards per day \u2014 converting fleeting observations and reading notes into permanent, linkable Zettel with explicit bibliographic references." .
+kb:luhmann_numbering_scheme a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann numbering scheme" ;
+    rdfs:comment "The alphanumeric branching numbering system Luhmann used on his cards (e.g., 1, 1a, 1a1, 1b, 2, 2a...) allowing non-linear insertion and infinite branching without rewriting existing cards." .
+kb:luhmann_person a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann person" ;
+    rdfs:comment "Niklas Luhmann (1927\u20131998) German sociologist and systems theorist who created the original Zettelkasten and used it to produce 70 books and 400+ academic articles over a 40-year academic career." .
+kb:luhmann_questions a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann questions" ;
+    rdfs:comment "Luhmann's technique of posing explicit questions to the Zettelkasten to generate new insight; he would ask the system a question and follow the links to synthesize answers not pre-formed in any single card." .
+kb:luhmann_sociological_output a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann sociological output" ;
+    rdfs:comment "Luhmann's documented productivity: 70 monographs and 400+ articles across sociology, systems theory, law, ecology, and organization studies \u2014 all mediated through the Zettelkasten workflow." .
+kb:luhmann_sociology a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann sociology" ;
+    rdfs:comment "Luhmann's primary academic discipline; he held chairs in sociology at universities of M\u00fcnster and Bielefeld, producing foundational work in systems theory and social theory." .
+kb:luhmann_zettelkasten a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "luhmann zettelkasten" ;
+    rdfs:comment "The specific Zettelkasten system Luhmann built and used \u2014 a physical slip-box containing approximately 90,000 interconnected index cards, each bearing a unique alphanumeric identifier and explicit links to related cards." .
+kb:memory_anchoring a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory anchoring" ;
+    rdfs:comment "The process of creating meaningful connections between external memories and internal understanding; prevents stored information from becoming inert." .
+kb:memory_boundary a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory boundary" ;
+    rdfs:comment "The cognitive limit where biological storage capacity is exceeded; the fundamental problem that external memory systems are designed to overcome." .
+kb:memory_chain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory chain" ;
+    rdfs:comment "The linkage between a biological memory trigger and its corresponding external storage; the foundation of seamless cognitive offload." .
+kb:memory_fluidity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory fluidity" ;
+    rdfs:comment "The ease with which information moves between biological and external memory; high fluidity enables seamless switching between internal and external recall." .
+kb:memory_palace a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory palace" ;
+    rdfs:comment "An ancient technique for memorizing information by mentally placing items in a familiar spatial layout; related to spatial thinking in PKM." .
+kb:mental_models a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mental models" ;
+    rdfs:comment "Conceptual frameworks for understanding the world; a key category of knowledge to capture and connect in a second brain." .
+kb:mind_mapping a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mind mapping" ;
+    rdfs:comment "A visual thinking technique radiating from a central concept; used in PKM for brainstorming and capturing the structure of ideas." .
+kb:nachlass a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "nachlass" ;
+    rdfs:comment "Luhmann's estate including the physical Zettelkasten cards and working papers; now preserved and partially digitized for study of his method." .
+kb:networked_thought a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "networked thought" ;
+    rdfs:comment "Thinking that occurs through and on top of a connected network of notes rather than in isolation within the biological brain." .
+kb:niklas_luhmann a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "niklas luhmann" ;
+    rdfs:comment "German sociologist 1927-1998 who created the Zettelkasten method and used it to produce 70 books and 400 articles; the canonical historical figure whose 90000-card archive defines the upper bound of slip-box practice." .
+kb:note_cluster a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "note cluster" ;
+    rdfs:comment "An emergent grouping of slip cards that have accumulated links around a shared theme or concept without explicit folder assignment." .
+kb:note_link a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "note link" ;
+    rdfs:comment "An explicit connection between two slip cards created by writing the target card's ID on the source card, forming a web of relationships." .
+kb:notion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "notion" ;
+    rdfs:comment "An all-in-one workspace combining databases, wikis, and project management; popular for organizing life and work but less Zettelkasten-native than other tools." .
+kb:obsidian a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "obsidian" ;
+    rdfs:comment "A local-first, markdown-based PKM tool with a powerful plugin ecosystem, graph view, and linking capabilities; the most popular tool for Zettelkasten-style systems." .
+kb:org_mode a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "org mode" ;
+    rdfs:comment "A powerful outlining, note-taking, and project management system built into Emacs; popular among programmers and knowledge workers who live in the terminal." .
+kb:org_roam a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "org roam" ;
+    rdfs:comment "An Emacs package that brings Zettelkasten-style bidirectional linking and knowledge graph features to org-mode." .
+kb:organizing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "organizing" ;
+    rdfs:comment "Structuring captured material into a retrievable system; grouping related content by project, area, resource, or archive (P.A.R.A.)." .
+kb:output_first a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "output first" ;
+    rdfs:comment "A philosophy where you start with your intended output (article, project, decision) and work backward to what knowledge you need to gather." .
+kb:para_method a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "para method" ;
+    rdfs:comment "P.A.R.A.: Projects, Areas, Resources, Archive \u2014 a universal system for organizing any type of information by actionability." .
+kb:permanent_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "permanent notes" ;
+    rdfs:comment "Atomic notes in Zettelkasten that exist independently of their source material; connected to other notes via explicit relationships." .
+kb:personal_knowledge_graph a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "personal knowledge graph" ;
+    rdfs:comment "A graph-structured representation of an individual's accumulated knowledge showing entities and their relationships." .
+kb:personal_wiki a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "personal wiki" ;
+    rdfs:comment "An individual's interconnected knowledge repository; wiki-style because it uses bidirectional links to connect concepts." .
+kb:physical_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "physical index" ;
+    rdfs:comment "Luhmann's topical index cards kept at the front of the box that point to entry-point card IDs by subject heading." .
+kb:progressive_summarization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "progressive summarization" ;
+    rdfs:comment "A layered note-taking technique where you progressively highlight and bold key passages across multiple passes, making notes scannable at different depths." .
+kb:read_later_services a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read later services" ;
+    rdfs:comment "Tools like Instapaper and Pocket for saving web articles to process later; feed into the capture phase of PKM." .
+kb:readwise a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "readwise" ;
+    rdfs:comment "A service that syncs highlights from multiple sources (Kindle, Notion, etc.) and surfaces them for review via spaced repetition." .
+kb:reference_manager a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reference manager" ;
+    rdfs:comment "Software for managing academic citations and source materials; integrates with PKM to provide source attribution and literature notes." .
+kb:resonant_information a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "resonant information" ;
+    rdfs:comment "Information that connects to existing knowledge and triggers emotional/intellectual response; more likely to be useful than arbitrary facts." .
+kb:retrieval_system a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retrieval system" ;
+    rdfs:comment "The mechanism by which stored information is accessed from external memory when needed; must support rapid recall and associative linking." .
+kb:roam_research a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "roam research" ;
+    rdfs:comment "A networked note-taking tool that pioneered daily notes and block-level bidirectional linking; influenced the modern PKM tool landscape." .
+kb:second_brain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "second brain" ;
+    rdfs:comment "A methodology and digital system for capturing, organizing, and retrieving knowledge externally so the biological brain can focus on synthesis and creativity rather than storage." .
+kb:second_order_thinking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "second order thinking" ;
+    rdfs:comment "Considering the consequences of consequences rather than just immediate effects; a reasoning pattern strengthened by PKM practice." .
+kb:semantic_search a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semantic search" ;
+    rdfs:comment "Finding content by meaning and context rather than exact keyword match; modern PKM tools increasingly offer semantic retrieval." .
+kb:serendipity_engine a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "serendipity engine" ;
+    rdfs:comment "A system designed to surface unexpected connections between ideas that you would not have found through linear search or folder browsing." .
+kb:slip_box a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "slip box" ;
+    rdfs:comment "Another name for Zettelkasten; emphasizes the slip-box metaphor of individual cards that can be recombined freely." .
+kb:slip_card a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "slip card" ;
+    rdfs:comment "A single note card serving as the atomic unit of a slip-box; the fundamental indivisible element that carries one idea." .
+kb:slip_to_project a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "slip to project" ;
+    rdfs:comment "Extracting and composing slip cards into a larger output such as an article, chapter, or solution." .
+kb:smart_notes a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "smart notes" ;
+    rdfs:comment "Notes designed for reuse across multiple contexts with explicit connections to other notes and clear conceptual framing." .
+kb:socratic_questioning a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "socratic questioning" ;
+    rdfs:comment "Using probing questions to examine assumptions and deepen understanding; a questioning practice that generates capture-worthy reflections." .
+kb:source_attribution a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "source attribution" ;
+    rdfs:comment "Keeping track of where knowledge came from, enabling verification, deeper exploration, and proper citation when creating output." .
+kb:source_material a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "source material" ;
+    rdfs:comment "The original texts, videos, podcasts, or experiences from which knowledge is captured and distilled." .
+kb:spaced_repetition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "spaced repetition" ;
+    rdfs:comment "A learning technique where information is reviewed at increasing intervals to optimize long-term memory retention; often used with PKM." .
+kb:storage_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "storage architecture" ;
+    rdfs:comment "The organizational structure of external memory that determines how information is filed, found, and connected." .
+kb:survivorship_bias a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "survivorship bias" ;
+    rdfs:comment "Focusing on examples that survived while ignoring those that did not; a cognitive distortion PKM practice can help recognize and counter." .
+kb:synthesis_engine a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "synthesis engine" ;
+    rdfs:comment "The brain operating as a synthesis engine rather than a storage depot once external memory handles retention; the target state of second brain usage." .
+kb:systems_theory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "systems theory" ;
+    rdfs:comment "Luhmann's academic specialization in sociological systems theory; the intellectual domain that shaped and was shaped by his note-taking practice, demonstrating how a Zettelkasten embodies a worldview." .
+kb:te_capturing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te capturing" ;
+    rdfs:comment "The first phase of the CODE framework where information is quickly captured before it fades from working memory; a frictionless gateway that accepts raw input without requiring immediate structuring." .
+kb:te_capturing_friction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te capturing friction" ;
+    rdfs:comment "The cognitive overhead required to move an idea from mental state to external storage; low-friction capture prioritizes speed and accessibility over completeness." .
+kb:te_capturing_raw a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te capturing raw" ;
+    rdfs:comment "Unprocessed information in its original form as entered; the initial state before any curation transforms captured content into structured knowledge." .
+kb:te_distilling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te distilling" ;
+    rdfs:comment "The process of extracting essential insights from source material through progressive summarization; a compression operation that retains meaning while reducing volume." .
+kb:te_distilling_essence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te distilling essence" ;
+    rdfs:comment "The distilled core insight extracted from source material; the irreducible meaning that survives compression while retaining actionable value." .
+kb:te_distilling_progressive a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te distilling progressive" ;
+    rdfs:comment "A layered summarization technique that progressively highlights and bolds key passages across multiple passes; enables notes scannable at different depth levels without re-reading source." .
+kb:te_expressing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te expressing" ;
+    rdfs:comment "The final phase of the CODE framework where accumulated knowledge becomes tangible output; the conversion operation that transforms internal knowledge structures into external artifacts." .
+kb:te_expressing_articulation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te expressing articulation" ;
+    rdfs:comment "The translation of internal understanding into external representation using language, diagrams, or other media; making implicit knowledge explicit and shareable." .
+kb:te_expressing_synthesis a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te expressing synthesis" ;
+    rdfs:comment "The cognitive act of combining multiple knowledge fragments into coherent unified outputs; creating new meaning through the assembly of previously isolated atomic insights." .
+kb:te_organizing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te organizing" ;
+    rdfs:comment "The structuring operation that transforms captured material into a retrievable system; grouping related content by semantic relationship to enable future discovery and connection." .
+kb:te_organizing_index a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te organizing index" ;
+    rdfs:comment "A retrieval aid that maps concepts to their locations within the knowledge system; a navigation layer that accelerates rediscovery without requiring exhaustive search." .
+kb:te_organizing_linkage a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te organizing linkage" ;
+    rdfs:comment "Explicit relational connections between knowledge artifacts; the edges in the knowledge graph that enable traversal and discovery across categorical boundaries." .
+kb:te_organizing_taxonomy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "te organizing taxonomy" ;
+    rdfs:comment "A hierarchical classification scheme for knowledge artifacts; the categorical skeleton that determines which bucket a piece of information inhabits." .
+kb:the_folder_problem a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "the folder problem" ;
+    rdfs:comment "The limitation of hierarchical folder systems where any given piece of information could logically belong in multiple places." .
+kb:the_index_note a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "the index note" ;
+    rdfs:comment "A hub note in Zettelkasten that maps to related notes without containing its own atomic idea; serves as an entry point to a topic." .
+kb:the_intermediate_holder a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "the intermediate holder" ;
+    rdfs:comment "A middle layer between raw captures and final output where notes are processed, connected, and matured before use." .
+kb:the_inventors_paradox a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "the inventors paradox" ;
+    rdfs:comment "The phenomenon where solving a more general problem is easier than solving a specific one; broad knowledge in a PKM enables better solutions." .
+kb:thinking_by_writing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "thinking by writing" ;
+    rdfs:comment "The act of writing that generates thinking rather than merely recording it; notes become a dialogue partner for developing ideas." .
+kb:thought_extender a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "thought extender" ;
+    rdfs:comment "A system that amplifies cognitive capacity by handling memory, organization, and retrieval so the brain can operate at higher levels." .
+kb:tiago_forte a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tiago forte" ;
+    rdfs:comment "Founder of Forte Labs and author of Building a Second Brain; primary popularizer of the modern PKM movement." .
+kb:treating_yourself_as_a_palace a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "treating yourself as a palace" ;
+    rdfs:comment "The metaphor that your second brain should be a well-organized palace where information has a place and is easy to retrieve." .
+kb:two_drawers a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "two drawers" ;
+    rdfs:comment "Luhmann's practical physical filing system using two desk drawers: one for incoming/action items, one for the permanent archive; a material P.A.R.A. before PARA existed." .
+kb:ubergangszettel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ubergangszettel" ;
+    rdfs:comment "Luhmann's transition-card technique; cards that link between topic clusters serving as bridges in the growing note network, enabling unexpected combinatorial discovery." .
+kb:working_memory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "working memory" ;
+    rdfs:comment "The limited-capacity cognitive workspace where active thinking occurs; the primary target for cognitive offload via external memory systems." .
+kb:writing_to_think a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "writing to think" ;
+    rdfs:comment "The practice of using writing as a cognitive tool to clarify thinking, discover new ideas, and work through complex problems." .
+kb:zettelkasten a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "zettelkasten" ;
+    rdfs:comment "A note-taking system using atomic, interconnected notes that forms a web of ideas; developed by sociologist Niklas Luhmann who wrote 70+ books using it." .
+kb:zettelkasten_method a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "zettelkasten method" ;
+    rdfs:comment "The specific methodology of writing index cards with one idea each, numbering them to allow linking, and building an external thinking system." .
+kb:zotero a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "zotero" ;
+    rdfs:comment "An open-source reference manager that stores citations, PDFs, and annotations; often paired with PKM systems for source tracking." .
+
+kb:archivierung kbo:relatesTo kb:external_memory .
+kb:associative_thinking kbo:relatesTo kb:serendipity_engine .
+kb:atomic_notes kbo:relatesTo kb:zettelkasten .
+kb:attention_as_scarcity kbo:relatesTo kb:knowledge_retrieval .
+kb:backlinks kbo:relatesTo kb:bidirectional_links .
+kb:biological_memory kbo:relatesTo kb:long_term_memory .
+kb:biological_memory kbo:relatesTo kb:working_memory .
+kb:block_references kbo:relatesTo kb:bidirectional_links .
+kb:building_a_second_brain kbo:relatesTo kb:treating_yourself_as_a_palace .
+kb:capturing kbo:relatesTo kb:fleeting_notes .
+kb:card_writing_habit kbo:relatesTo kb:slip_box .
+kb:code_framework kbo:relatesTo kb:building_a_second_brain .
+kb:code_framework kbo:relatesTo kb:tiago_forte .
+kb:commonplace_book kbo:relatesTo kb:second_brain .
+kb:commonplace_book kbo:relatesTo kb:zettelkasten .
+kb:compounding_knowledge kbo:relatesTo kb:creative_reuse .
+kb:concept_mapping kbo:relatesTo kb:knowledge_graph .
+kb:confirmation_bias kbo:relatesTo kb:the_intermediate_holder .
+kb:context_switching kbo:relatesTo kb:cognitive_offload .
+kb:convergent_thinking kbo:relatesTo kb:knowledge_retrieval .
+kb:creative_reuse kbo:relatesTo kb:intellectual_outputs .
+kb:deckname kbo:relatesTo kb:anki .
+kb:deep_work kbo:relatesTo kb:attention_as_scarcy .
+kb:digital_garden kbo:relatesTo kb:evergreen_notes .
+kb:digital_garden kbo:relatesTo kb:learning_in_public .
+kb:digital_minimalism kbo:relatesTo kb:information_architecture .
+kb:divergent_thinking kbo:relatesTo kb:creativity_support_tools .
+kb:emergence kbo:relatesTo kb:compounding_knowledge .
+kb:emergence kbo:relatesTo kb:networked_thought .
+kb:entry_point kbo:relatesTo kb:note_cluster .
+kb:evergreen_notes kbo:relatesTo kb:progressive_summarization .
+kb:external_memory kbo:relatesTo kb:biological_memory .
+kb:external_memory kbo:relatesTo kb:cognitive_offload .
+kb:external_memory kbo:relatesTo kb:thought_extender .
+kb:fleeting_notes kbo:relatesTo kb:literature_notes .
+kb:fleeting_to_slip kbo:relatesTo kb:distilling .
+kb:flow_state kbo:relatesTo kb:deep_work .
+kb:handschriftlich kbo:relatesTo kb:handwritten_slip .
+kb:handwritten_slip kbo:relatesTo kb:branching_id .
+kb:handwritten_slip kbo:relatesTo kb:physical_index .
+kb:highlights kbo:relatesTo kb:distilling .
+kb:highlights kbo:relatesTo kb:readwise .
+kb:idea_velocity kbo:relatesTo kb:compounding_knowledge .
+kb:inbox_zero_for_knowledge kbo:relatesTo kb:capturing .
+kb:information_overload kbo:relatesTo kb:knowledge_management .
+kb:intellectual_humility kbo:relatesTo kb:evergreen_notes .
+kb:knowledge_base kbo:relatesTo kb:information_architecture .
+kb:knowledge_graph kbo:relatesTo kb:graph_view .
+kb:knowledge_graph kbo:relatesTo kb:serendipity_engine .
+kb:knowledge_management kbo:relatesTo kb:capturing .
+kb:knowledge_management kbo:relatesTo kb:distilling .
+kb:knowledge_management kbo:relatesTo kb:expressing .
+kb:knowledge_management kbo:relatesTo kb:organizing .
+kb:knowledge_retrieval kbo:relatesTo kb:second_brain .
+kb:knowledge_worker kbo:relatesTo kb:information_overload .
+kb:literature_notes kbo:relatesTo kb:permanent_notes .
+kb:literature_slip kbo:relatesTo kb:capturing .
+kb:literaturverzeichnis kbo:relatesTo kb:literature_notes .
+kb:logseq kbo:relatesTo kb:bidirectional_links .
+kb:logseq kbo:relatesTo kb:daily_notes .
+kb:luhmann_90k_cards kbo:relatesTo kb:luhmann_zettelkasten .
+kb:luhmann_archiv_principle kbo:relatesTo kb:storage_architecture .
+kb:luhmann_branching_id kbo:relatesTo kb:branching_id .
+kb:luhmann_card kbo:relatesTo kb:slip_card .
+kb:luhmann_communication_partner kbo:relatesTo kb:communication_partner .
+kb:luhmann_digital_zettelkasten kbo:relatesTo kb:zettelkasten_method .
+kb:luhmann_growth_rate kbo:relatesTo kb:luhmann_90k_cards .
+kb:luhmann_hand_written kbo:relatesTo kb:handwritten_slip .
+kb:luhmann_keyword_index kbo:relatesTo kb:physical_index .
+kb:luhmann_literary_machine kbo:relatesTo kb:luhmann_literary_machine .
+kb:luhmann_note_practice kbo:relatesTo kb:zettelkasten_method .
+kb:luhmann_numbering_scheme kbo:relatesTo kb:branching_id .
+kb:luhmann_person kbo:relatesTo kb:niklas_luhmann .
+kb:luhmann_questions kbo:relatesTo kb:socratic_questioning .
+kb:memory_anchoring kbo:relatesTo kb:permanent_notes .
+kb:memory_boundary kbo:relatesTo kb:working_memory .
+kb:memory_chain kbo:relatesTo kb:retrieval_system .
+kb:mental_models kbo:relatesTo kb:first_principles .
+kb:mental_models kbo:relatesTo kb:inversion .
+kb:mental_models kbo:relatesTo kb:second_order_thinking .
+kb:mental_models kbo:relatesTo kb:socratic_questioning .
+kb:mind_mapping kbo:relatesTo kb:concept_mapping .
+kb:note_link kbo:relatesTo kb:bidirectional_link .
+kb:note_link kbo:relatesTo kb:note_cluster .
+kb:obsidian kbo:relatesTo kb:graph_view .
+kb:obsidian kbo:relatesTo kb:networked_thought .
+kb:org_mode kbo:relatesTo kb:org_roam .
+kb:org_roam kbo:relatesTo kb:zettelkasten .
+kb:output_first kbo:relatesTo kb:expressing .
+kb:para_method kbo:relatesTo kb:organizing .
+kb:para_method kbo:relatesTo kb:the_folder_problem .
+kb:permanent_notes kbo:relatesTo kb:atomic_notes .
+kb:permanent_notes kbo:relatesTo kb:evergreen_notes .
+kb:physical_index kbo:relatesTo kb:entry_point .
+kb:progressive_summarization kbo:relatesTo kb:distilling .
+kb:read_later_services kbo:relatesTo kb:capturing .
+kb:readwise kbo:relatesTo kb:spaced_repetition .
+kb:reference_manager kbo:relatesTo kb:zotero .
+kb:resonant_information kbo:relatesTo kb:capturing .
+kb:retrieval_system kbo:relatesTo kb:storage_architecture .
+kb:roam_research kbo:relatesTo kb:bidirectional_links .
+kb:second_brain kbo:relatesTo kb:cognitive_offload .
+kb:second_brain kbo:relatesTo kb:external_memory .
+kb:second_brain kbo:relatesTo kb:knowledge_management .
+kb:second_brain kbo:relatesTo kb:thought_extender .
+kb:semantic_search kbo:relatesTo kb:knowledge_retrieval .
+kb:serendipity_engine kbo:relatesTo kb:networked_thought .
+kb:slip_box kbo:relatesTo kb:atomic_notes .
+kb:slip_box kbo:relatesTo kb:box_context .
+kb:slip_box kbo:relatesTo kb:communication_partner .
+kb:slip_box kbo:relatesTo kb:luhmann .
+kb:slip_box kbo:relatesTo kb:zettelkasten .
+kb:slip_card kbo:relatesTo kb:accumulation .
+kb:slip_card kbo:relatesTo kb:card_id .
+kb:slip_card kbo:relatesTo kb:digital_slip .
+kb:slip_card kbo:relatesTo kb:handwritten_slip .
+kb:slip_card kbo:relatesTo kb:literature_slip .
+kb:slip_card kbo:relatesTo kb:note_link .
+kb:slip_card kbo:relatesTo kb:permanent_notes .
+kb:slip_to_project kbo:relatesTo kb:expressing .
+kb:smart_notes kbo:relatesTo kb:concept_atlas .
+kb:smart_notes kbo:relatesTo kb:permanent_notes .
+kb:source_attribution kbo:relatesTo kb:reference_manager .
+kb:source_material kbo:relatesTo kb:literature_notes .
+kb:spaced_repetition kbo:relatesTo kb:anki .
+kb:spaced_repetition kbo:relatesTo kb:memory_palace .
+kb:survivorship_bias kbo:relatesTo kb:mental_models .
+kb:synthesis_engine kbo:relatesTo kb:cognitive_offload .
+kb:te_capturing kbo:relatesTo kb:te_capturing_raw .
+kb:te_capturing kbo:relatesTo kb:te_distilling .
+kb:te_capturing_friction kbo:relatesTo kb:te_capturing .
+kb:te_distilling kbo:relatesTo kb:te_distilling_essence .
+kb:te_distilling kbo:relatesTo kb:te_distilling_progressive .
+kb:te_distilling kbo:relatesTo kb:te_expressing .
+kb:te_expressing kbo:relatesTo kb:te_expressing_articulation .
+kb:te_expressing kbo:relatesTo kb:te_expressing_synthesis .
+kb:te_organizing kbo:relatesTo kb:te_capturing .
+kb:te_organizing kbo:relatesTo kb:te_distilling .
+kb:te_organizing kbo:relatesTo kb:te_expressing .
+kb:te_organizing kbo:relatesTo kb:te_organizing_index .
+kb:te_organizing kbo:relatesTo kb:te_organizing_linkage .
+kb:te_organizing kbo:relatesTo kb:te_organizing_taxonomy .
+kb:the_index_note kbo:relatesTo kb:zettelkasten .
+kb:the_intermediate_holder kbo:relatesTo kb:permanent_notes .
+kb:the_inventors_paradox kbo:relatesTo kb:compounding_knowledge .
+kb:writing_to_think kbo:relatesTo kb:knowledge_management .
+kb:writing_to_think kbo:relatesTo kb:thinking_by_writing .
+kb:zettelkasten kbo:relatesTo kb:luhmann .
+kb:zettelkasten kbo:relatesTo kb:slip_box .
+

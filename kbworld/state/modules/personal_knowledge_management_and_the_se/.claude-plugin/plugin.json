@@ -1,0 +1,14 @@
+{
+  "name": "personal-knowledge-management-and-the-se-module",
+  "version": "0.1.0",
+  "description": "personal knowledge management and the second brain \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 161 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "knowledge-base",
+    "neurosymbolic",
+    "personal-knowledge-management-and-the-se"
+  ]
+}

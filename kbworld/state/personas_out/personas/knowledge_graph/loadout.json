@@ -1,0 +1,13 @@
+{
+  "region": "knowledge_graph",
+  "call_number": "personal_knowledge_management_and_the_second_bra.knowledge_graph",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 3
+}
