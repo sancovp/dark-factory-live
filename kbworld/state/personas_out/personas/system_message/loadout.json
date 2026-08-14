@@ -1,0 +1,13 @@
+{
+  "region": "system_message",
+  "call_number": "llm_memory_and_context_engineering.system_message : deep_long_term_memory(14)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 40
+}

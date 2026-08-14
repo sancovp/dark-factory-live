@@ -1,6 +1,6 @@
 {
   "region": "retrieval_augmented_generation",
-  "call_number": "retrieval_augmented_generation_architecture_patt.retrieval_augmented_generation : deep_retrieval_augmented_(20)",
+  "call_number": "llm_memory_and_context_engineering.retrieval_augmented_generation : deep_long_term_memory(14)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 40
+  "cone_size": 44
 }

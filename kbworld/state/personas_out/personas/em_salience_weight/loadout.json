@@ -1,0 +1,13 @@
+{
+  "region": "em_salience_weight",
+  "call_number": "deep_long_term_memory.em_salience_weight",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}

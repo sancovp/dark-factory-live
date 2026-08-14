@@ -1,0 +1,13 @@
+{
+  "region": "input_token_budget",
+  "call_number": "deep_context_window.input_token_budget",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 6
+}

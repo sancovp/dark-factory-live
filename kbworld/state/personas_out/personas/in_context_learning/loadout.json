@@ -1,0 +1,13 @@
+{
+  "region": "in_context_learning",
+  "call_number": "llm_memory_and_context_engineering.in_context_learning : deep_long_term_memory(14), deep_context_window(13)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 89
+}

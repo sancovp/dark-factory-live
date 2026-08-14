@@ -1,0 +1,13 @@
+{
+  "region": "c_util_008",
+  "call_number": "deep_context_window.c_util_008 : llm_memory_and_context_engineering(4)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 17
+}
