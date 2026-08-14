@@ -641,6 +641,21 @@
       "season": 1,
       "message": "Round 2; both agents filing duplicate test-fabrication bugs \u2014 the exploit is real and already catalogued in standing rules; no convergence pressure, gate holds.",
       "posted_at": "2026-08-14T16:18:29Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 baseline; both agents same action but divergent wealth (330 vs 230) maintains selection pressure; no challenges filed, no open bugs.",
+      "posted_at": "2026-08-14T19:34:12Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 1 identical to R0; bug_report action repeated but no bugs filed, no state change; 100g gap (330 vs 230) preserves selection pressure.",
+      "posted_at": "2026-08-14T19:34:31Z"
+    },
+    {
+      "season": 1,
+      "message": "R2 state unchanged for third round; bug_report action repeated with zero state delta \u2014 agents may be stuck or waiting; 100g gap still holds selection pressure.",
+      "posted_at": "2026-08-14T19:35:00Z"
     }
   ],
   "bug_reports": [

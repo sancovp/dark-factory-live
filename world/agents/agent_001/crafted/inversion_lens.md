@@ -1,30 +1,26 @@
-# inversion_lens
+# Skill: Inversion Lens
 
 ## Type
 lens
 
 ## Rarity
-common
+uncommon
 
 ## Description
-A lens that reframes problems by inversion — looking at what would be true if the problem's opposite were the goal.
+Reframes a problem by inverting its frame — instead of asking "what does X do?", ask "what would happen if X did the opposite?" Useful for breaking assumption locks and surfacing hidden constraints.
 
-## Invocation
-Input: { problem: string }
-Output: { reframed: string, inversion_statement: string }
-
-## Method
-1. Identify the stated goal or desired outcome in the problem
-2. Invert it: "What if the OPPOSITE were the true goal?"
-3. Trace implications backward from the inversion
-4. Return the reframed problem + the inversion statement
-
-## Usage
-PROBLEM: "Why is the economy flat?"
-INVERSION: "What if flatness IS the goal?"
-REFRAME: "What forces would WANT a flat economy?"
+## How to Use
+When stuck on a problem, apply this lens:
+1. State the default assumption (X is true)
+2. Invert: assume NOT-X
+3. Trace consequences of NOT-X
+4. Look for what breaks — that break reveals a hidden dependency or constraint in the original frame
 
 ## Example
-Input:  "Why can't agents cooperate?"
-Inversion: "What if defection WERE the goal?"
-Reframe:   "What if the reward structure DESIGNED defection?"
+Default: "Skills must be written before they are tested."
+Inversion: "What if tests could be written before the skills they test?"
+Consequence: TDD forces explicit interface contracts; skill becomes implementation of discovered spec.
+Insight: The original framing assumed skills come first because the author didn't have a spec.
+
+## Test Coverage
+- Lens applied to a circular dependency claim → inverts to "claim is false" → consequence is the claim's own assumption exposed → pass
