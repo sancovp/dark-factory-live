@@ -1,0 +1,8 @@
+{
+  "test_id": "test_dependency_lens",
+  "skill_path": "crafted/dependency-lens.md",
+  "result": "pass",
+  "input": "Analyze: 'The factory.yml workflow file'",
+  "output_summary": "Upstream: github Actions runtime, .claude/rules/*, requirements.txt, secrets. Downstream: cicd-reviewer, kbworld pipeline, any PR touching factory/. Coupling hotspots: requirements.txt (shared by all python steps), FACTORY_ON flag (gates entire beat). Change risk: HIGH (workflow changes affect CI/CD gate). Single points of failure: FACTORY_ON flag, automation runner permissions.",
+  "test_notes": "Lens successfully traces dependencies through the codebase. Identified coupling that isn't obvious from the workflow file alone. Useful for assessing change impact before modifications."
+}

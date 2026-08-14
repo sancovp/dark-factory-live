@@ -1,0 +1,8 @@
+{
+  "test_id": "test_causal_chain_analyzer",
+  "skill_path": "crafted/causal-chain-analyzer-recipe.md",
+  "result": "pass",
+  "input": "Analyze: 'Companies with more meetings have lower productivity'",
+  "output_summary": "Stage 1 (Causation Lens): Hypothesis = meetings reflect decision-making bottlenecks; mechanism = coordination overhead; confidence = circumstantial. Stage 2 (Second-Order): Immediate = slower output; First-order = overtime/work compression; Second-order = burnout, turnover; Equilibrium = chronic underperformance; Unintended = best performers leave first. Final verdict: correlation (meetings↔low productivity) is circumstantially causal (bottlenecks drive both), with strong second-order risk of talent attrition.",
+  "test_notes": "Recipe successfully composes causation_lens + second-order-lens into a coherent causal chain analysis. Each lens was essential: causation identified the mechanism, second-order traced its ripple effects. Pipeline produces actionable intelligence neither lens achieves alone."
+}
