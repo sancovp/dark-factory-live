@@ -1888,5 +1888,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-14T10:09:36+00:00",
+    "verdict": "REVERT",
+    "change": "Installed test_provenance_verifier_recipe.md to loadout; verified existing skills lack test records",
+    "diff": [
+      {
+        "file": "loadout/test_provenance_verifier_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
