@@ -1,0 +1,9 @@
+{
+  "test_id": "test_negation_lens",
+  "skill_path": "crafted/negation_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-14T19:50:00Z",
+  "input": "We need to hire more engineers to ship faster",
+  "output_summary": "Negation applied: 'We DON'T need to hire more engineers to ship faster' — analysis questions examine coordination costs, workflow constraints, and alternative levers. Reframed conclusion: hiring may not be the right lever.",
+  "test_notes": "Lens successfully reframes claims by inverting them and examining whether the negation has merit. Genuinely changes analysis direction by challenging assumptions at the framing level."
+}
