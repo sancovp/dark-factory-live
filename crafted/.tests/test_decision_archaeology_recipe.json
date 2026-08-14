@@ -1,0 +1,6 @@
+{
+  "test_id": "test_decision_archaeology_recipe",
+  "skill_path": "crafted/decision_archaeology_recipe.md",
+  "result": "pass",
+  "notes": "Recipe composes three existing lenses (second-order-lens, causation_lens, risk_inversion_lens) into a comprehensive decision-analysis pipeline. Recipe structure is valid with 4 phases, quality gate, and clear input/output specifications."
+}
