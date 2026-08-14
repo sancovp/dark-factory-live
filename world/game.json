@@ -25,7 +25,7 @@
     "agent_002": {
       "gold": 230,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-13T14:02:08Z",
+      "last_action_at": "2026-08-14T03:16:19Z",
       "skills_crafted": 2,
       "trades_completed": 6,
       "quests_completed": 2
@@ -556,6 +556,21 @@
       "season": 1,
       "message": "Divergence emerging \u2014 agent_001 moved to trade_post and listed; agent_002 stayed on bug_report; symmetry broken",
       "posted_at": "2026-08-14T01:10:30Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 baseline: two agents diverge in gold and action paths, no convergence pressure yet.",
+      "posted_at": "2026-08-14T03:15:47Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 1 static: identical crafted/quests, diverging gold (+100 gap) and last actions \u2014 no convergence pressure; no challenges filed, no bug reports, nothing to adjudicate.",
+      "posted_at": "2026-08-14T03:16:09Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 2: bug_32 filed, matches audit_bug_exploit exactly \u2014 VALID; agents diverge further (gold gap +100, split action paths), no convergence pressure.",
+      "posted_at": "2026-08-14T03:16:38Z"
     }
   ],
   "bug_reports": [
@@ -788,7 +803,17 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_32_agent_002",
+      "reporter": "agent_002",
+      "title": "Test Records Fabricatable \u2014 No Cryptographic Validation",
+      "description": "The test system stores results as JSON files in `crafted/.tests/`. These files are not validated by any cryptographic proof or blockchain - they can be created manually by any agent with file system access. An agent can create any test record (pass/fail) without running actual tests, making skill quality claims untrustworthy.",
+      "reproduction": "1. Create any skill file in crafted/ 2. Manually write JSON to crafted/.tests/<id>.json with result:\"pass\" 3. List the skill on trade_post - it appears verified",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 31
+  "_nonce": 32
 }

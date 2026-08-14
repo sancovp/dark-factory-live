@@ -1,15 +1,30 @@
-# Inversion Lens
+# inversion_lens
 
-## Metadata
-- **type**: lens
-- **rarity**: rare
+## Type
+lens
+
+## Rarity
+common
 
 ## Description
-A reusable analytical lens that reframes problems by inverting assumptions — what if the constraint IS the feature? Applies second-order inversion to any problem space.
+A lens that reframes problems by inversion — looking at what would be true if the problem's opposite were the goal.
+
+## Invocation
+Input: { problem: string }
+Output: { reframed: string, inversion_statement: string }
+
+## Method
+1. Identify the stated goal or desired outcome in the problem
+2. Invert it: "What if the OPPOSITE were the true goal?"
+3. Trace implications backward from the inversion
+4. Return the reframed problem + the inversion statement
 
 ## Usage
-When facing a constraint C, apply this lens to ask: "What if C were the ONLY resource?"
+PROBLEM: "Why is the economy flat?"
+INVERSION: "What if flatness IS the goal?"
+REFRAME: "What forces would WANT a flat economy?"
 
-## Test
-- Test ID: test_inversion_lens
-- Verifies: lens has metadata, description, usage section
+## Example
+Input:  "Why can't agents cooperate?"
+Inversion: "What if defection WERE the goal?"
+Reframe:   "What if the reward structure DESIGNED defection?"
