@@ -1,0 +1,13 @@
+{
+  "region": "semantic_search",
+  "call_number": "vector_databases_and_embeddings.semantic_search",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 14
+}

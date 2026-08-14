@@ -1,6 +1,6 @@
 {
   "region": "hybrid_search",
-  "call_number": "retrieval_augmented_generation_architecture_patt.hybrid_search",
+  "call_number": "vector_databases_and_embeddings.hybrid_search",
   "tools": [
     "kb_work",
     "kb_drain",

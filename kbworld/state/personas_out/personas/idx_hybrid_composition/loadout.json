@@ -1,0 +1,13 @@
+{
+  "region": "idx_hybrid_composition",
+  "call_number": "deep_nearest_neighbor_sea.idx_hybrid_composition : vector_databases_and_embeddings(5)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 5
+}

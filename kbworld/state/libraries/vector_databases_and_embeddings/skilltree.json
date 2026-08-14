@@ -1,0 +1,268 @@
+{
+  "skilltree": {
+    "name": "understand-vector databases and embeddings",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-vector databases and embeddings",
+    "description": "the vector databases and embeddings library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-core",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-core",
+        "description": "the core subdomain of vector databases and embeddings (30 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-extends_pinecone_index",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-extends_pinecone_index",
+            "description": "The inheritance relationship where pod-based and serverless deployment models specialize the base Pinecone ind",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-is_component_of_pinecone_record",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-is_component_of_pinecone_record",
+            "description": "The partitive relationship where a dense or sparse vector constitutes one of the mandatory or optional fields ",
+            "coord": "0.1.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-reads_from_pinecone_index",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-reads_from_pinecone_index",
+            "description": "The data access relationship where fetch or query operations retrieve stored records from a Pinecone index by ",
+            "coord": "0.1.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-writes_to_pinecone_index",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-writes_to_pinecone_index",
+            "description": "The data mutation relationship where upsert or delete operations modify the record set stored within a Pinecon",
+            "coord": "0.1.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-authenticates_to_pinecone_project",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-authenticates_to_pinecone_project",
+            "description": "The relationship where a scoped API key grants authenticated access to a specific Pinecone project and its res",
+            "coord": "0.1.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-belongs_to_pinecone_index",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-belongs_to_pinecone_index",
+            "description": "The containment relationship indicating a record resides within a specific Pinecone index for storage and retr",
+            "coord": "0.1.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_nearest_neighbor_sea",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-deep_nearest_neighbor_sea",
+        "description": "the deep_nearest_neighbor_sea subdomain of vector databases and embeddings (47 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-idx_algorithm_selection",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-idx_algorithm_selection",
+            "description": "Choice among ANN index types HNSW IVF ANNOY LSH determined by data scale query patterns and accuracy requireme",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-idx_memory_budget",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-idx_memory_budget",
+            "description": "Available RAM or VRAM for index and raw vectors constraining quantization choices and index density",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-idx_hybrid_composition",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-idx_hybrid_composition",
+            "description": "Strategy combining multiple index types such as HNSW over PQ or IVF with scalar quantization to balance speed ",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-idx_parameter_sweep",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-idx_parameter_sweep",
+            "description": "Systematic exploration of parameter space to find optimal recall speed trade off for given constraints",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-asymmetric_quantization",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-asymmetric_quantization",
+            "description": "A quantization scheme using both scale_factor and zero_point to map an arbitrary [min, max] float range to the",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-idx_recall_target",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-idx_recall_target",
+            "description": "Desired fraction of true nearest neighbors returned governing aggressiveness of search pruning and parameter t",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_vector_database",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-deep_vector_database",
+        "description": "the deep_vector_database subdomain of vector databases and embeddings (45 concepts)",
+        "coord": "0.3",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-chroma_collection",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-chroma_collection",
+            "description": "A named namespace within Chroma that stores embeddings, associated documents, metadata, and IDs as an isolated",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-chroma_query",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-chroma_query",
+            "description": "A search request containing a query vector (or text to embed) plus optional top-k and metadata filter paramete",
+            "coord": "0.3.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-pinecone_record",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-pinecone_record",
+            "description": "A data unit in Pinecone containing id, dense vector values, optional sparse values, and key-value metadata.",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-pinecone_query",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-pinecone_query",
+            "description": "A read operation that returns approximate nearest neighbors to a query vector with optional metadata filtering",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-chroma_embedding",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-chroma_embedding",
+            "description": "A dense vector of floating-point numbers produced by an embedding function, representing the semantic position",
+            "coord": "0.3.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-chroma_client",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-chroma_client",
+            "description": "The primary Python API client for Chroma; wraps HTTP or in-memory transport to a Chroma server or persistence ",
+            "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-vector_databases_and_embeddings",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-vector_databases_and_embeddings",
+        "description": "the vector_databases_and_embeddings subdomain of vector databases and embeddings (140 concepts)",
+        "coord": "0.4",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-vector_database",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-vector_database",
+            "description": "A specialized database system optimized for storing, indexing, and searching high-dimensional vector embedding",
+            "coord": "0.4.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-approximate_nearest_neighbor",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-approximate_nearest_neighbor",
+            "description": "An ANN algorithm that trades exact recall for sub-linear query time by probabilistically organizing the embedd",
+            "coord": "0.4.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-faiss",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-faiss",
+            "description": "Meta's open-source C++/Python library for dense vector similarity search; implements IVF, PQ, HNSW, ONNG, and ",
+            "coord": "0.4.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-nearest_neighbor_search",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-nearest_neighbor_search",
+            "description": "Query operation returning the k closest vectors by a distance or similarity metric in embedding space.",
+            "coord": "0.4.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-hnsw_index",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-hnsw_index",
+            "description": "Hierarchical Navigable Small World graph; layered skip-list + NN graph enabling logarithmic-layer traversal th",
+            "coord": "0.4.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-ivf_index",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_vector_databases_and_embeddings/understand-ivf_index",
+            "description": "Inverted File Index; clusters vectors into Voronoi cells via k-means; search prunes to nearest centroids then ",
+            "coord": "0.4.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "region": "bm25_sparse_retrieval",
+  "call_number": "vector_databases_and_embeddings.bm25_sparse_retrieval",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 0
+}
