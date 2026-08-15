@@ -2361,5 +2361,22 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-15T07:50:10+00:00",
+    "verdict": "REVERT",
+    "change": "Installed dependency_gate_recipe.md to loadout and audited existing skills \u2014 found 4 missing dependencies across 2 recipes",
+    "diff": [
+      {
+        "file": "loadout/DEPENDENCY_AUDIT_REPORT.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/dependency_gate_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
