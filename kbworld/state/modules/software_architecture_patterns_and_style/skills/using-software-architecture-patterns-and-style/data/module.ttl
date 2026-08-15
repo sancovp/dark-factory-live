@@ -1,0 +1,846 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/software_architecture_patterns_and_styles#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/software_architecture_patterns_and_styles> a owl:Ontology ;
+    rdfs:label "software architecture patterns and styles" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:acid_properties a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acid properties" ;
+    rdfs:comment "Atomicity, Consistency, Isolation, Durability \u2014 four properties guaranteeing reliable processing of database transactions." .
+kb:aggregate_root a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "aggregate root" ;
+    rdfs:comment "In domain_driven_design, an aggregate is a cluster of related entities and value_objects treated as a single unit for data changes; the aggregate_root is the single entity within that cluster that external objects reference and interact with, enforcing invariants and encapsulating the aggregate's internal state." .
+kb:aggregator_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "aggregator pattern" ;
+    rdfs:comment "An integration pattern where a service calls multiple backend services and combines their responses into a single result for the client." .
+kb:ambassador_service a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ambassador service" ;
+    rdfs:comment "A helper service that offloads client-side network responsibilities (retry, circuit_breaker, monitoring) from the application into a sidecar container." .
+kb:anti_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "anti pattern" ;
+    rdfs:comment "A commonly used pattern that appears beneficial but is actually counterproductive; architectural anti_patterns include big_ball_of_mud, golden_hammer, and spaghetti_code." .
+kb:api_composition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "api composition" ;
+    rdfs:comment "A pattern where a facade or aggregation layer combines data from multiple backend services or APIs into a single unified response, enabling clients to retrieve consolidated results without managing multiple round-trips or service contracts." .
+kb:api_gateway a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "api gateway" ;
+    rdfs:comment "A server entry point that routes requests to backend services, handling cross-cutting concerns like authentication, rate_limiting, and protocol_translation." .
+kb:apm a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "apm" ;
+    rdfs:comment "Application Performance Monitoring \u2014 tooling that provides observability into application performance through metrics, tracing, and profiling." .
+kb:auto_scaling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "auto scaling" ;
+    rdfs:comment "Automatically adjusting the number of compute instances based on demand metrics (CPU, request_count, queue_depth), improving resource efficiency." .
+kb:availability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "availability" ;
+    rdfs:comment "In distributed_systems and reliability engineering, availability is the proportion of time a system remains operational and accessible, often expressed as a percentage (e.g., 99.99%) over a measurement window." .
+kb:base_properties a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "base properties" ;
+    rdfs:comment "Basically Available, Soft state, Eventually consistent \u2014 a consistency model used by distributed systems (especially NoSQL) that trades strict consistency for availability." .
+kb:big_ball_of_mud a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "big ball of mud" ;
+    rdfs:comment "An anti_pattern describing a system whose architecture has deteriorated into an entangled, inseparable mass, making changes risky and difficult." .
+kb:blackboard_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "blackboard architecture" ;
+    rdfs:comment "A pattern where multiple specialized knowledge sources contribute to a shared knowledge base (the blackboard), which is read and updated by a control component. Common in AI systems." .
+kb:blue_green_deployment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "blue green deployment" ;
+    rdfs:comment "A deployment strategy maintaining two identical production environments (blue and green), switching traffic atomically to the new version after validation." .
+kb:bounded_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bounded context" ;
+    rdfs:comment "In domain_driven_design, a boundary within which a particular domain_model is defined and applicable, separating it from other contexts where the same terms may have different meanings." .
+kb:bulkhead_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bulkhead pattern" ;
+    rdfs:comment "A resilience pattern that isolates resources (threads, connections, partitions) so that failure in one partition does not affect others, named after ship bulkheads." .
+kb:caching_strategy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "caching strategy" ;
+    rdfs:comment "Approaches for storing frequently accessed data closer to consumers (CDN, in_memory_cache, distributed_cache) to reduce latency and backend load." .
+kb:canary_deployment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "canary deployment" ;
+    rdfs:comment "A deployment strategy where a new version is released to a small subset of users first, gradually increasing traffic as confidence grows." .
+kb:cdd a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cdd" ;
+    rdfs:comment "Context-Driven Delivery \u2014 an architectural approach where decisions are made based on the specific context and tradeoffs rather than applying patterns prescriptively." .
+kb:chaos_engineering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chaos engineering" ;
+    rdfs:comment "The practice of deliberately introducing failures into a system in a controlled manner to identify weaknesses and improve resilience before failures occur in production." .
+kb:choreography_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "choreography pattern" ;
+    rdfs:comment "A distributed coordination pattern where services exchange events without a central orchestrator; each service knows what to do based on received events." .
+kb:circuit_breaker_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "circuit breaker pattern" ;
+    rdfs:comment "A resilience pattern that wraps calls to a remote service and trips open when failures exceed a threshold, preventing cascading failures by failing fast." .
+kb:claim_check_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "claim check pattern" ;
+    rdfs:comment "A pattern for handling large messages by storing the payload in an external store (blob_storage, data_lake) and passing only a reference (claim_check) through the message bus." .
+kb:clean_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "clean architecture" ;
+    rdfs:comment "An architectural pattern proposed by Robert Martin that structures software into concentric layers (entities, use_cases, interface_adapters, frameworks_drivers) with strict dependency rules pointing inward." .
+kb:client_server_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "client server architecture" ;
+    rdfs:comment "A distributed model where a client requests services from a server, which provides resources or computations. The server may be stateless or maintain session_state." .
+kb:cohesion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cohesion" ;
+    rdfs:comment "The degree to which elements inside a module belong together; high cohesion indicates that a module's responsibilities form a meaningful unit, improving maintainability." .
+kb:component_based_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "component based architecture" ;
+    rdfs:comment "An architecture style that emphasizes separation of concerns and reuse through discrete, independently replaceable software components, each encapsulating a specific functionality." .
+kb:containerization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "containerization" ;
+    rdfs:comment "Packaging an application with its dependencies into a container_image for consistent deployment across environments, with Docker being the dominant implementation." .
+kb:contract_testing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "contract testing" ;
+    rdfs:comment "A testing approach that verifies the contracts between services (API schemas, message formats) independently, ensuring compatibility without end_to_end_testing." .
+kb:coupling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "coupling" ;
+    rdfs:comment "The degree of interdependence between software modules; high coupling means modules are heavily dependent on each other, while low (loose) coupling is a design goal." .
+kb:cqrs a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cqrs" ;
+    rdfs:comment "Command Query Responsibility Segregation \u2014 a pattern that separates read (query) and write (command) operations into different models, allowing independent optimization of each path." .
+kb:crdt a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "crdt" ;
+    rdfs:comment "Conflict-free Replicated Data Types \u2014 data structures that can be merged automatically across distributed nodes without coordination, enabling conflict-free eventual_consistency." .
+kb:data_lake a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "data lake" ;
+    rdfs:comment "A storage repository that holds vast amounts of raw data in its native format until needed, supporting diverse analytics and machine_learning workloads." .
+kb:data_warehouse a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "data warehouse" ;
+    rdfs:comment "A centralized repository for integrated data from multiple sources, optimized for analytical queries and business_intelligence workloads." .
+kb:database_per_service a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "database per service" ;
+    rdfs:comment "A data management pattern in microservices where each service owns and manages its own database schema or instance, enforcing loose coupling." .
+kb:dead_letter_queue a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dead letter queue" ;
+    rdfs:comment "A message queue destination for messages that cannot be processed successfully, allowing investigation and reprocessing without losing failed messages." .
+kb:dependency_inversion_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dependency inversion principle" ;
+    rdfs:comment "A SOLID principle stating that high-level modules should not depend on low-level modules; both should depend on abstractions (interfaces), not concrete implementations." .
+kb:distributed_cache a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "distributed cache" ;
+    rdfs:comment "A cache shared across multiple nodes or processes in a distributed_system, providing low-latency access to frequently used data by storing it in memory across the cluster rather than fetching from a central database." .
+kb:distributed_tracing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "distributed tracing" ;
+    rdfs:comment "Tracking a request as it flows through multiple services by propagating correlation_ids, enabling end-to-end visibility into latency sources and failure points." .
+kb:distributed_transaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "distributed transaction" ;
+    rdfs:comment "A transaction that spans multiple independent services or database_per_service instances, requiring coordination to maintain atomicity across nodes where each participant may reside in a different process or machine." .
+kb:domain_driven_design a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "domain driven design" ;
+    rdfs:comment "A software development approach that focuses on modeling software based on the real-world domain, using bounded_contexts, entities, value_objects, aggregates, and a ubiquitous_language shared between domain experts and developers." .
+kb:dps_001 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 001" ;
+    rdfs:comment "database_per_service is a data management pattern in microservices where each service owns and manages its own database schema or instance, enforcing loose coupling between services through physical data isolation." .
+kb:dps_002 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 002" ;
+    rdfs:comment "schema_isolation means each service's database exposes only the data and operations relevant to its bounded context, hiding internal structures from other services." .
+kb:dps_003 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 003" ;
+    rdfs:comment "instance_isolation means each service runs its own database server process or cluster, with separate credentials, ports, and storage, preventing any service from accessing another's data store directly." .
+kb:dps_004 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 004" ;
+    rdfs:comment "polyglot_persistence is the practice where different services within the same system use different database technologies (SQL, NoSQL, graph, etc.) best suited to each service's data model." .
+kb:dps_005 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 005" ;
+    rdfs:comment "schema_ownership declares that a service is the sole authority for defining, migrating, and evolving its database schema; no other service may modify it." .
+kb:dps_006 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 006" ;
+    rdfs:comment "data_duplication is the consequence of database_per_service where the same logical entity may be materialized in multiple service databases, kept synchronized through application-level events." .
+kb:dps_007 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 007" ;
+    rdfs:comment "api_composition is the pattern where a client or gateway aggregates data from multiple service databases by querying each service's API and combining results, compensating for the lack of cross-service SQL joins." .
+kb:dps_008 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 008" ;
+    rdfs:comment "cqrs_boundary applies within a single service's database where command operations (writes) and query operations (reads) against the same logical entity use separate data representations, all contained within that service's schema." .
+kb:dps_009 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 009" ;
+    rdfs:comment "migration_orchestration is the process of evolving a service's schema independently, typically done via versioned migration scripts (e.g., Flyway, Liquibase) that each service applies on its own schedule." .
+kb:dps_010 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 010" ;
+    rdfs:comment "connection_pool_per_service means each service manages its own database connection pool, sized independently based on that service's concurrency needs." .
+kb:dps_011 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 011" ;
+    rdfs:comment "backup_and_recovery_scope defines that each service backs up and restores only its own database, making recovery operations independent across services." .
+kb:dps_012 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 012" ;
+    rdfs:comment "service_catalog_entry is the registration of a service's database connection metadata (host, port, credentials ref) in a service_discovery registry, so authorized services or operators can locate it." .
+kb:dps_013 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 013" ;
+    rdfs:comment "database_as_sidecar deploys a database container alongside a service container, such that the database is co-located, co-scoped, and co-lifecycled with that specific service." .
+kb:dps_014 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 014" ;
+    rdfs:comment "eventual_consistency_model is the consistency guarantee that results from database_per_service: writes are immediately durable in one service's database, and other services receive updates asynchronously via event_streaming or message_queue." .
+kb:dps_015 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 015" ;
+    rdfs:comment "shared_nothing_architecture is the architectural property that database_per_service embodies: no shared disk, no shared schema, no shared connection pool across service boundaries." .
+kb:dps_016 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dps 016" ;
+    rdfs:comment "bounded_context_enforcement is the enforcement of domain-driven design bounded contexts through database_per_service, where each context's canonical model is stored only in its own database." .
+kb:dry_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dry principle" ;
+    rdfs:comment "Don't Repeat Yourself \u2014 a principle advocating for single-source-of-truth in code to avoid duplication and the maintenance nightmares it creates." .
+kb:dual_write a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dual write" ;
+    rdfs:comment "An anti_pattern where an application simultaneously writes to two systems (e.g., database and message broker) without transactional guarantees, risking inconsistency." .
+kb:es_consumer_group a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es consumer group" ;
+    rdfs:comment "A named set of event consumers that share progress tracking across partitions; the broker ensures each partition is assigned to exactly one member within the group for load-balanced consumption." .
+kb:es_event_consumer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es event consumer" ;
+    rdfs:comment "An entity that reads events sequentially from a stream partition, maintaining its own offset position and processing events independently of other consumers." .
+kb:es_event_partition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es event partition" ;
+    rdfs:comment "An ordered, independent, immutable segment of an event stream; events within a partition maintain strict ordering; partitions enable parallelism and throughput scaling." .
+kb:es_event_producer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es event producer" ;
+    rdfs:comment "An entity that serializes and writes events to a stream topic, optionally routing to specific partitions based on key hashing or explicit partition assignment." .
+kb:es_event_record a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es event record" ;
+    rdfs:comment "An immutable entry appended to the event log consisting of a key, value payload, timestamp, headers, and a per-partition offset; once written it is never modified or deleted except by retention policy." .
+kb:es_event_stream a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es event stream" ;
+    rdfs:comment "An immutable, append-only log of events organized in time-order, retained for a configurable duration or size, enabling multiple independent consumers to read from any position and replay historical events." .
+kb:es_event_timestamp a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es event timestamp" ;
+    rdfs:comment "A mandatory timestamp attribute on each event record indicating when the event occurred (event time) or when it was ingested (processing time), enabling temporal ordering and windowing." .
+kb:es_log_compaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es log compaction" ;
+    rdfs:comment "A retention mechanism that retains only the most recent event per key within each partition, enabling compacted streams to serve as key-value changelogs while reclaiming storage." .
+kb:es_partition_key a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es partition key" ;
+    rdfs:comment "An optional routing key on an event record used by producers to determine target partition via consistent hashing, ensuring events with the same key land in the same partition for ordering guarantees." .
+kb:es_retention_policy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es retention policy" ;
+    rdfs:comment "A configuration defining time-based (e.g., 7 days) or size-based (e.g., 10GB per partition) boundaries that determine when older events are purged from the log." .
+kb:es_schema_registry a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es schema registry" ;
+    rdfs:comment "A centralized service managing versioned schemas (Avro, Protobuf, JSON Schema) for event payloads; producers validate against registered schemas and consumers deserialize accordingly." .
+kb:es_stream_broker a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es stream broker" ;
+    rdfs:comment "The streaming platform intermediary (e.g., Kafka broker, Pulsar) that persists events durably to disk, manages partitions, and serves consumer reads at scale." .
+kb:es_stream_offset a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es stream offset" ;
+    rdfs:comment "A monotonically increasing integer position marker within a partition that uniquely identifies an event record; consumers commit offsets to enable resume-from-failure semantics." .
+kb:es_stream_replay a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "es stream replay" ;
+    rdfs:comment "The capability for a consumer to reset its committed offset backward and re-read historical events from a partition, enabling reprocessing, debugging, and new consumer bootstrapping." .
+kb:etl a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "etl" ;
+    rdfs:comment "Extract, Transform, Load \u2014 a data integration process that extracts data from sources, transforms it for analysis, and loads it into a destination." .
+kb:event_driven_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event driven architecture" ;
+    rdfs:comment "A software design pattern where the flow of the program is determined by events (user actions, sensor outputs, messages) and the propagation of events through the system." .
+kb:event_sourcing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event sourcing" ;
+    rdfs:comment "A pattern where the state of an application is stored as a sequence of events rather than current state. The event_log becomes the source of truth; state is reconstructed by replaying events." .
+kb:event_stream a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event stream" ;
+    rdfs:comment "An immutable, append-only ordered log of events retained over time, enabling multiple independent consumers to read from any position; unlike ephemeral pub/sub messages, events persist for a configurable retention window and can be replayed." .
+kb:event_streaming a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event streaming" ;
+    rdfs:comment "A data handling approach where events are captured in order as an immutable log (stream), allowing multiple consumers to read independently (e.g., Kafka, Pulsar)." .
+kb:eventual_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "eventual consistency" ;
+    rdfs:comment "A consistency model where updates propagate through a distributed system asynchronously; given enough time without new updates, all replicas will converge to the same value." .
+kb:extensibility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "extensibility" ;
+    rdfs:comment "A system quality attribute measuring how easily new functionality can be added without modifying existing code (open_closed_principle in practice)." .
+kb:fallback_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fallback pattern" ;
+    rdfs:comment "A resilience pattern that provides an alternative response or behavior when the primary service call fails, improving user experience." .
+kb:gateway_routing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing" ;
+    rdfs:comment "A pattern where an API_gateway routes requests to appropriate backend services based on request characteristics (URL path, headers) without the client knowing service locations." .
+kb:gateway_routing__integration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing  integration" ;
+    rdfs:comment "Integration with load_balancing to distribute requests across multiple instances of a backend service." .
+kb:gateway_routing_backend_service a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing backend service" ;
+    rdfs:comment "A microservice or backend resource that receives forwarded requests from the gateway." .
+kb:gateway_routing_circuit_breaker_integration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing circuit breaker integration" ;
+    rdfs:comment "Integration with circuit_breaker logic to prevent routing to failing backend services." .
+kb:gateway_routing_fallback_route a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing fallback route" ;
+    rdfs:comment "A predefined route or behavior triggered when primary routing fails or no route matches." .
+kb:gateway_routing_header_condition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing header condition" ;
+    rdfs:comment "A matching rule based on request or response header values for routing decisions." .
+kb:gateway_routing_header_transformation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing header transformation" ;
+    rdfs:comment "The addition, removal, or modification of HTTP headers during request forwarding." .
+kb:gateway_routing_http_method_filter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing http method filter" ;
+    rdfs:comment "A routing constraint based on HTTP method (GET, POST, PUT, DELETE) for route matching." .
+kb:gateway_routing_path_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing path pattern" ;
+    rdfs:comment "A URL path template or pattern used to match incoming request paths for routing decisions." .
+kb:gateway_routing_path_rewrite a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing path rewrite" ;
+    rdfs:comment "A transformation that modifies the request path before forwarding to the backend service." .
+kb:gateway_routing_request_matcher a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing request matcher" ;
+    rdfs:comment "A component that evaluates incoming requests against route matching criteria." .
+kb:gateway_routing_response_aggregation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing response aggregation" ;
+    rdfs:comment "The combination of responses from multiple backend services into a single client response." .
+kb:gateway_routing_reverse_proxy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing reverse proxy" ;
+    rdfs:comment "The mechanism that forwards matched requests to backend services and returns responses to clients." .
+kb:gateway_routing_route a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing route" ;
+    rdfs:comment "A defined mapping between incoming request criteria and a target backend service endpoint." .
+kb:gateway_routing_route_definition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing route definition" ;
+    rdfs:comment "The declarative or imperative specification of a route including matching criteria and target service." .
+kb:gateway_routing_route_priority a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing route priority" ;
+    rdfs:comment "The ordering rule that determines which route takes precedence when multiple routes match." .
+kb:gateway_routing_service_discovery_integration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway routing service discovery integration" ;
+    rdfs:comment "Integration with service_discovery to dynamically resolve backend service network locations." .
+kb:golden_hammer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "golden hammer" ;
+    rdfs:comment "An anti_pattern where a familiar tool or solution is overapplied to problems it was not designed for, ignoring better alternatives." .
+kb:graphql_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graphql architecture" ;
+    rdfs:comment "An API query language and runtime where clients specify exactly what data they need, as an alternative to REST's fixed response structures." .
+kb:grpc_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "grpc architecture" ;
+    rdfs:comment "A high-performance, open-source RPC framework using HTTP/2 for transport and Protocol Buffers for serialization, enabling strict contracts between services." .
+kb:health_check a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "health check" ;
+    rdfs:comment "An interface endpoint that reports whether a service instance is functioning correctly and ready to receive traffic, used by load_balancers and orchestrators." .
+kb:hexagonal_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hexagonal architecture" ;
+    rdfs:comment "An architectural pattern (ports_and_adapters) that structures the application with a core business logic at the center, surrounded by ports for input and output adapters, keeping the core independent of external concerns." .
+kb:high_cohesion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "high cohesion" ;
+    rdfs:comment "A design principle where elements within a module, class, or component are strongly related and serve a single purpose; high cohesion within modules complements loose_coupling between them, improving maintainability and clarity." .
+kb:horizontal_scaling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "horizontal scaling" ;
+    rdfs:comment "Scaling out by adding more machines to a system, as opposed to vertical_scaling which adds resources to existing machines." .
+kb:http2 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "http2" ;
+    rdfs:comment "A binary wire protocol succeeding HTTP/1.1 that multiplexes multiple concurrent requests over a single TCP connection, supports header compression, and enables bidirectional server push, serving as the transport layer for grpc_architecture." .
+kb:http_protocol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "http protocol" ;
+    rdfs:comment "The stateless request-response application protocol underlying the web, defining methods (GET, POST, PUT, DELETE) for manipulating resources identified by URIs, upon which restful_architecture builds its uniform_interface constraints." .
+kb:immutable_infrastructure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "immutable infrastructure" ;
+    rdfs:comment "An infrastructure management approach where servers are never modified after deployment; changes require creating new instances, improving consistency and rollback." .
+kb:kappa_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kappa architecture" ;
+    rdfs:comment "A simplification of lambda_architecture that uses a single streaming layer (typically Apache Kafka) for both real-time and historical processing, avoiding the complexity of maintaining separate batch and speed layers." .
+kb:kiss_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kiss principle" ;
+    rdfs:comment "Keep It Simple, Stupid \u2014 a design principle advocating for simplicity in system design and avoiding unnecessary complexity." .
+kb:kubernetes_orchestration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kubernetes orchestration" ;
+    rdfs:comment "A container orchestration platform that automates deployment, scaling, and management of containerized applications across clusters of machines." .
+kb:lambda_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lambda architecture" ;
+    rdfs:comment "A data processing architecture that combines batch and stream (speed) processing layers using a serving_layer for queries, designed for systems where both historical and real-time data are needed." .
+kb:law_of_demeter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "law of demeter" ;
+    rdfs:comment "A design guideline stating that an object should only communicate with its immediate collaborators, not with objects obtained through those collaborators, reducing coupling." .
+kb:layered_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "layered architecture" ;
+    rdfs:comment "A software architecture pattern that organizes code into horizontal layers, each with a specific responsibility (e.g., presentation, business logic, data access). Higher layers depend on lower layers; dependency flow is unidirectional." .
+kb:load_balancing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "load balancing" ;
+    rdfs:comment "A technique for distributing network traffic or workload across multiple servers to ensure no single resource is overwhelmed, improving responsiveness and availability." .
+kb:logging a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "logging" ;
+    rdfs:comment "The practice of recording application events, errors, and audit trails to persistent storage for debugging, monitoring, and compliance purposes." .
+kb:loose_coupling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "loose coupling" ;
+    rdfs:comment "A design property where modules or services minimize their dependencies on each other, interacting through well-defined interfaces or abstractions so that changes to one component do not require changes in others." .
+kb:maintainability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "maintainability" ;
+    rdfs:comment "A system quality attribute measuring how easily the system can be modified to correct defects, improve performance, or adapt to new requirements." .
+kb:materialized_view a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "materialized view" ;
+    rdfs:comment "A precomputed query result stored as a table, updated asynchronously to provide fast read access to complex query results." .
+kb:message_bus_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message bus architecture" ;
+    rdfs:comment "An integration pattern where system components communicate via a shared message_bus (ESB), which handles routing, transformation, and delivery of messages between services." .
+kb:message_queue a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message queue" ;
+    rdfs:comment "A communication mechanism where messages are placed in a queue by producers and consumed asynchronously by consumers, decoupling sender and receiver in time and space." .
+kb:metrics a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "metrics" ;
+    rdfs:comment "Quantitative measurements of system behavior (CPU_usage, request_latency, error_rate) collected and aggregated for monitoring and alerting." .
+kb:microkernel_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "microkernel architecture" ;
+    rdfs:comment "An architecture with a minimal core (kernel) providing basic OS services, with extended functionality provided by modular plugins or servers. In software, the core handles essential operations while plugins handle specialized features." .
+kb:microservices_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "microservices architecture" ;
+    rdfs:comment "An architectural style that structures an application as a collection of small, autonomous, loosely-coupled services organized around business capabilities, each deployable independently and communicating via lightweight protocols." .
+kb:monolithic_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "monolithic architecture" ;
+    rdfs:comment "A software deployment model where all components (UI, business logic, data access) are packaged and deployed as a single unit. The opposite of distributed architectures." .
+kb:orchestration_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "orchestration pattern" ;
+    rdfs:comment "A distributed coordination pattern where a central coordinator (orchestrator) directs the flow of operations across services, contrasting with choreography." .
+kb:outbox_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "outbox pattern" ;
+    rdfs:comment "A reliability pattern for distributed systems where a database outbox table stores pending events alongside business transactions; a relay process publishes these events reliably." .
+kb:peer_to_peer_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "peer to peer architecture" ;
+    rdfs:comment "A decentralized architecture where nodes (peers) act as both clients and servers, sharing resources directly without requiring a central coordination point." .
+kb:pipe_and_filter_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pipe and filter architecture" ;
+    rdfs:comment "A structural pattern where data flows through a series of processing components (filters) connected by pipes. Each filter processes input and produces output for the next stage." .
+kb:plugin_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "plugin architecture" ;
+    rdfs:comment "An architectural style where a minimal core system exposes extension points that allow modules (plugins) to be loaded dynamically at runtime, enabling feature extensibility without modifying the core, as employed by microkernel_architecture." .
+kb:ports_and_adapters a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ports and adapters" ;
+    rdfs:comment "An architectural pattern that separates the core business logic from external concerns by defining ports (interfaces) for inputs and outputs, with adapters implementing those ports to connect to frameworks, databases, or external systems." .
+kb:proxy_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "proxy pattern" ;
+    rdfs:comment "An architectural pattern where a surrogate object acts as an interface to another object, adding behavior like lazy_initialization, access_control, or logging." .
+kb:pub_sub_broadcast a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub broadcast" ;
+    rdfs:comment "A delivery mode where a single message published to a topic is forwarded to all current subscribers of that topic without modification." .
+kb:pub_sub_channel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub channel" ;
+    rdfs:comment "An alias or alternative naming for a topic within the broker's namespace, representing the logical path between publishers and subscribers." .
+kb:pub_sub_dead_letter_queue a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub dead letter queue" ;
+    rdfs:comment "A holding area for messages that failed delivery after repeated retry attempts, enabling later inspection and reprocessing without losing event data." .
+kb:pub_sub_event_envelope a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub event envelope" ;
+    rdfs:comment "The structured wrapper around a message containing metadata such as timestamp, source identifier, and routing attributes used by the broker for delivery decisions." .
+kb:pub_sub_fan_out a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub fan out" ;
+    rdfs:comment "A routing behavior where a single published message results in independent delivery copies to each subscriber, allowing individual acknowledgment without affecting other recipients." .
+kb:pub_sub_message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub message" ;
+    rdfs:comment "The event payload or notification transmitted by a publisher through a topic to all interested subscribers." .
+kb:pub_sub_message_broker a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub message broker" ;
+    rdfs:comment "The middleware infrastructure component that hosts topics, receives published messages, and routes them to the appropriate subscriber queues." .
+kb:pub_sub_message_filter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub message filter" ;
+    rdfs:comment "A predicate or selector expression applied to message content or headers that determines whether a given subscriber receives a particular message on a topic." .
+kb:pub_sub_publisher a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub publisher" ;
+    rdfs:comment "An event source that produces messages and emits them to one or more topics without knowledge of downstream subscribers or their identities." .
+kb:pub_sub_subscriber a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub subscriber" ;
+    rdfs:comment "An event consumer that registers interest in one or more topics and receives messages routed to those topics without knowledge of upstream publishers." .
+kb:pub_sub_subscription a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub subscription" ;
+    rdfs:comment "The registered interest record binding a specific subscriber to a specific topic, enabling the broker to know where to route matching messages." .
+kb:pub_sub_topic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub topic" ;
+    rdfs:comment "A named routing channel or subject that publishers send messages to and that subscribers listen on for filtered delivery of those messages." .
+kb:pub_sub_unsubscribe a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pub sub unsubscribe" ;
+    rdfs:comment "The operation by which a subscriber revokes its registered interest in a topic, ceasing further message delivery for that topic." .
+kb:publish_subscribe_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "publish subscribe pattern" ;
+    rdfs:comment "A messaging pattern where publishers send messages to a topic without knowing subscribers, and subscribers receive messages published to topics they are interested in." .
+kb:pubsub_broker a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pubsub broker" ;
+    rdfs:comment "The intermediary component that receives messages from publishers and forwards them to subscribers based on topic subscriptions; may also perform filtering." .
+kb:pubsub_content_filter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pubsub content filter" ;
+    rdfs:comment "A predicate or attribute-based rule applied at the broker or subscriber side to select a subset of messages on a topic for delivery." .
+kb:pubsub_dead_letter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pubsub dead letter" ;
+    rdfs:comment "A destination for messages that cannot be successfully delivered to any subscriber, capturing failures for later inspection or replay." .
+kb:pubsub_message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pubsub message" ;
+    rdfs:comment "The payload broadcast by a publisher on a topic; in pub/sub it is typically ephemeral and not persisted beyond active subscriber consumption." .
+kb:pubsub_message_schema a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pubsub message schema" ;
+    rdfs:comment "A structured format (JSON, Avro, Protobuf) defining the shape of messages on a topic, enabling subscribers to deserialize and interpret published events." .
+kb:pubsub_publisher a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pubsub publisher" ;
+    rdfs:comment "An entity that sends messages to a topic without knowing which subscribers will receive them; decoupled from consumers in both space and time." .
+kb:pubsub_subscriber a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pubsub subscriber" ;
+    rdfs:comment "An entity that expresses interest in one or more topics and receives messages published to those topics; receives only messages matching its subscriptions." .
+kb:pubsub_subscription a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pubsub subscription" ;
+    rdfs:comment "An active registration linking a subscriber to a topic; may be durable (surviving subscriber disconnection) or transient (active only while subscriber is connected)." .
+kb:pubsub_topic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pubsub topic" ;
+    rdfs:comment "A named channel or subject through which messages are routed from publishers to interested subscribers; the publisher has no knowledge of subscriber identities or count." .
+kb:pubsub_topic_namespace a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pubsub topic namespace" ;
+    rdfs:comment "A hierarchical or scoped naming scheme for topics (e.g., orders.new, orders.cancelled) that enables subscribers to express interest at varying levels of granularity." .
+kb:rate_limiting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rate limiting" ;
+    rdfs:comment "A traffic_management technique that controls how many requests a client can make in a given time period, protecting services from overload and abuse." .
+kb:read_replica a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read replica" ;
+    rdfs:comment "A database replica optimized for read operations, offloading read traffic from the primary database and improving query performance." .
+kb:reliability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reliability" ;
+    rdfs:comment "A system quality attribute measuring the probability that the system performs its intended function correctly under designated conditions for a specified period." .
+kb:resilience_patterns a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "resilience patterns" ;
+    rdfs:comment "A category of fault_tolerance patterns (including circuit_breaker_pattern, retry_pattern, bulkhead_pattern, and fallback_pattern) that enable a distributed_system to continue operating gracefully when components fail or degrade." .
+kb:restful_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "restful architecture" ;
+    rdfs:comment "An architectural style using HTTP methods (GET, POST, PUT, DELETE) on resources identified by URIs, following stateless communication, cacheability, and uniform_interface constraints." .
+kb:retry_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retry pattern" ;
+    rdfs:comment "A resilience pattern that automatically retries failed operations with configurable backoff strategies to handle transient failures." .
+kb:rolling_deployment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rolling deployment" ;
+    rdfs:comment "A deployment strategy that incrementally replaces instances of the old version with the new one, maintaining availability throughout the update." .
+kb:saga_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "saga pattern" ;
+    rdfs:comment "A pattern for managing distributed transactions across microservices using a sequence of local transactions with compensating actions for rollback, replacing distributed transactions." .
+kb:scalability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scalability" ;
+    rdfs:comment "A system quality attribute measuring its ability to handle increased load (users, requests, data volume) by scaling up (vertical) or scaling out (horizontal)." .
+kb:scatter_gather a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scatter gather" ;
+    rdfs:comment "A messaging pattern where a request is broadcast to multiple recipients (scatter) and responses are collected and aggregated (gather) to produce a final result." .
+kb:separation_of_concerns a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "separation of concerns" ;
+    rdfs:comment "A design principle that states each module or layer should have responsibility over a single aspect of the software's functionality, reducing coupling between concerns." .
+kb:serverless_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "serverless architecture" ;
+    rdfs:comment "An architectural pattern where application logic runs in stateless compute containers managed by a cloud_provider (e.g., AWS Lambda, Azure Functions), abstracting server management entirely." .
+kb:service_discovery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "service discovery" ;
+    rdfs:comment "The automatic detection of services and their network locations (IP address, port) in a dynamic infrastructure, typically via client_side_discovery or server_side_discovery." .
+kb:service_mesh a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "service mesh" ;
+    rdfs:comment "A dedicated infrastructure layer that handles service_to_service communication, providing observability, traffic_management, and security without embedding this logic in application code (e.g., Istio, Linkerd)." .
+kb:service_oriented_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "service oriented architecture" ;
+    rdfs:comment "An architectural pattern where application components provide services to other components via a communication protocol, typically over a network. SOA emphasizes interoperability and composition of services." .
+kb:sharding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sharding" ;
+    rdfs:comment "A data partitioning strategy where data is distributed across database shards based on a shard_key, enabling horizontal scaling of data storage." .
+kb:shared_database a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "shared database" ;
+    rdfs:comment "An anti_pattern in microservices where multiple services share the same database, creating tight coupling and hindering independent deployment." .
+kb:sidecar_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sidecar pattern" ;
+    rdfs:comment "A deployment pattern where a helper container (sidecar) is attached to a main application container to extend or add functionality without modifying the application." .
+kb:single_responsibility_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "single responsibility principle" ;
+    rdfs:comment "A SOLID principle stating that a class or module should have only one reason to change, embodying the idea that each component should have one job." .
+kb:solid_principles a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "solid principles" ;
+    rdfs:comment "Five object-oriented design principles (single_responsibility, open_closed, liskov_substitution, interface_segregation, dependency_inversion) that guide maintainable software design." .
+kb:space_based_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "space based architecture" ;
+    rdfs:comment "An architecture designed for high concurrency and scalability by using a shared memory space (tuple_space or distributed_cache) instead of a traditional database, eliminating synchronization bottlenecks." .
+kb:spaghetti_code a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "spaghetti code" ;
+    rdfs:comment "An anti_pattern where code has little to no structure, with complex and tangled control flow, making it nearly impossible to maintain or extend." .
+kb:strangler_fig_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strangler fig pattern" ;
+    rdfs:comment "A migration strategy where a new system gradually replaces an old system by incrementally routing functionality, eventually strangling the legacy system." .
+kb:stream_backpressure a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream backpressure" ;
+    rdfs:comment "A flow control mechanism by which a slow consumer signals producers or the broker to pause delivery, preventing unbounded buffer growth and consumer overwhelm under burst load." .
+kb:stream_checkpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream checkpoint" ;
+    rdfs:comment "A durable record of a consumer's committed offset position in a partition, persisted outside the stream itself, enabling fault-tolerant resumption from the last acknowledged event after process failure." .
+kb:stream_compaction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream compaction" ;
+    rdfs:comment "A retention policy variant that retains only the latest event per message key within a log, discarding older superseded events with the same key while preserving the full event history for keys not yet updated." .
+kb:stream_consumer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream consumer" ;
+    rdfs:comment "An entity that reads events from one or more stream partitions independently, maintaining its own offset cursor; multiple consumers may read the same partition concurrently without coordination." .
+kb:stream_consumer_group a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream consumer group" ;
+    rdfs:comment "A named set of stream consumers sharing the work of consuming a topic, where each partition is assigned to exactly one consumer in the group to prevent duplicate processing." .
+kb:stream_consumer_lag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream consumer lag" ;
+    rdfs:comment "The numerical difference between the latest offset written to a partition and the offset last committed by a consumer, indicating how far behind real-time the consumer is and often used for alerting." .
+kb:stream_delivery_semantics a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream delivery semantics" ;
+    rdfs:comment "The guaranteed level of event delivery a streaming system provides to consumers: at-least-once (events may be redelivered), at-most-once (events may be dropped), or exactly-once (each event is processed precisely one time end-to-end)." .
+kb:stream_event a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream event" ;
+    rdfs:comment "An immutable record appended to an event stream, containing a payload (message body), a timestamp, a partition key, and an offset; once written it is never modified, only retained or expired according to retention policy." .
+kb:stream_lag a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream lag" ;
+    rdfs:comment "The numeric difference between the latest stream_offset produced and the last offset consumed by a stream_consumer or stream_consumer_group; measures how far behind the consumer is and serves as a primary operational metric for stream health." .
+kb:stream_log a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream log" ;
+    rdfs:comment "An immutable append-only sequence of events retained on disk or equivalent durable storage; unlike pubsub_message which is ephemeral, events in a stream_log persist for the configured retention period and can be reread from any offset by any consumer group." .
+kb:stream_message_schema a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream message schema" ;
+    rdfs:comment "A structured definition (often expressed in Avro, Protocol Buffers, or JSON Schema) that describes the fields, types, and layout of messages flowing through an event_streaming or message_queue system, enabling producers and consumers to serialize and deserialize events consistently." .
+kb:stream_offset a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream offset" ;
+    rdfs:comment "A monotonically increasing integer position marker assigned to each event within a partition, uniquely identifying the event's place in the partition's sequence and enabling consumers to resume reading from a specific point." .
+kb:stream_partition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream partition" ;
+    rdfs:comment "A distinct, ordered slice of an event stream, identified by a partition key or index, enabling parallel production and consumption; each partition maintains its own offset sequence independently of other partitions." .
+kb:stream_processor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream processor" ;
+    rdfs:comment "A stateful or stateless transform that reads events from a stream, applies computation or enrichment, and optionally writes derived events to an output stream; may maintain local or distributed state." .
+kb:stream_producer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream producer" ;
+    rdfs:comment "An entity that writes events to a stream partition, optionally selecting the partition via a keying function; producers are typically decoupled from consumers and do not track subscriber state." .
+kb:stream_replay a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream replay" ;
+    rdfs:comment "The capability to re-read events from a stream_log starting at any prior stream_offset or timestamp; enabled by durable retention, replay allows new consumers or recovering systems to reprocess historical events without re-producing them." .
+kb:stream_replication_factor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream replication factor" ;
+    rdfs:comment "The number of redundant copies of each partition maintained across distinct brokers or nodes, providing fault tolerance against broker failures and enabling continued consumption during outages." .
+kb:stream_retention_policy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream retention policy" ;
+    rdfs:comment "The configured duration or size limit after which events are automatically discarded from a stream partition; governs how far back consumers can replay and the storage cost bound." .
+kb:stream_schema_registry a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream schema registry" ;
+    rdfs:comment "A centralized service that stores and manages schemas for stream events, enforcing compatibility constraints on schema evolution and enabling consumers to deserialize events correctly." .
+kb:stream_state_store a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream state store" ;
+    rdfs:comment "A durable key-value store maintained by a stream processor to hold intermediate or accumulated state, backed by the event stream and checkpointed for fault-tolerant recovery." .
+kb:stream_topic_mapping a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream topic mapping" ;
+    rdfs:comment "An association linking a pubsub_topic in the relative root to one or more stream partitions, describing how publish/subscribe channels are realized as persisted streams." .
+kb:stream_watermark a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream watermark" ;
+    rdfs:comment "A timestamp marking the earliest point in time for which all events have been fully ingested into a partition, used by windowed stream processors to determine when to emit results for time-based windows." .
+kb:stream_window a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stream window" ;
+    rdfs:comment "A temporal or session-based grouping of consecutive events within a partition, defined by fixed time intervals, sliding parameters, or session inactivity gaps, over which aggregations or joins are computed." .
+kb:technical_debt a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "technical debt" ;
+    rdfs:comment "The implied cost of additional rework caused by choosing a quick and easy solution now instead of a better approach that would take longer." .
+kb:testability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "testability" ;
+    rdfs:comment "A system quality attribute measuring how easily and effectively software components can be tested in isolation." .
+kb:throttling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "throttling" ;
+    rdfs:comment "A flow_control mechanism that limits the rate of operations (API calls, message processing) to prevent resource exhaustion." .
+kb:transactional_outbox a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transactional outbox" ;
+    rdfs:comment "A pattern combining a database transaction with an outbox_table to atomically persist state changes and event records, eliminating the need for dual_writes." .
+kb:two_phase_commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "two phase commit" ;
+    rdfs:comment "A distributed transaction protocol with a prepare phase (where all participants vote) and a commit phase (where coordinator directs all to commit or abort), ensuring atomicity across nodes." .
+kb:ubiquitous_language a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ubiquitous language" ;
+    rdfs:comment "In domain_driven_design, a shared language between development team and domain experts that is consistently used in code, conversations, and documentation within a bounded_context." .
+kb:vertical_scaling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "vertical scaling" ;
+    rdfs:comment "Scaling up by adding more CPU, RAM, or storage to existing machines, as opposed to horizontal_scaling which adds more machines." .
+kb:work_queue a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "work queue" ;
+    rdfs:comment "A distributed pattern where work items are placed in a queue and consumed by available workers, enabling asynchronous processing and load distribution." .
+kb:yagni_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "yagni principle" ;
+    rdfs:comment "You Aren't Gonna Need It \u2014 an extreme programming principle that advises against adding functionality until it is actually needed." .
+
+kb:acid_properties kbo:relatesTo kb:two_phase_commit .
+kb:aggregator_pattern kbo:relatesTo kb:api_composition .
+kb:api_composition kbo:relatesTo kb:api_gateway .
+kb:api_gateway kbo:relatesTo kb:gateway_routing .
+kb:api_gateway kbo:relatesTo kb:rate_limiting .
+kb:apm kbo:relatesTo kb:distributed_tracing .
+kb:apm kbo:relatesTo kb:logging .
+kb:apm kbo:relatesTo kb:metrics .
+kb:availability kbo:relatesTo kb:reliability .
+kb:base_properties kbo:relatesTo kb:eventual_consistency .
+kb:big_ball_of_mud kbo:relatesTo kb:anti_pattern .
+kb:big_ball_of_mud kbo:relatesTo kb:spaghetti_code .
+kb:blackboard_architecture kbo:relatesTo kb:event_driven_architecture .
+kb:blue_green_deployment kbo:relatesTo kb:immutable_infrastructure .
+kb:bounded_context kbo:relatesTo kb:microservices_architecture .
+kb:bulkhead_pattern kbo:relatesTo kb:resilience_patterns .
+kb:canary_deployment kbo:relatesTo kb:blue_green_deployment .
+kb:cdd kbo:relatesTo kb:component_based_architecture .
+kb:chaos_engineering kbo:relatesTo kb:reliability .
+kb:choreography_pattern kbo:relatesTo kb:event_driven_architecture .
+kb:circuit_breaker_pattern kbo:relatesTo kb:bulkhead_pattern .
+kb:circuit_breaker_pattern kbo:relatesTo kb:resilience_patterns .
+kb:claim_check_pattern kbo:relatesTo kb:message_queue .
+kb:clean_architecture kbo:relatesTo kb:dependency_inversion_principle .
+kb:clean_architecture kbo:relatesTo kb:hexagonal_architecture .
+kb:clean_architecture kbo:relatesTo kb:single_responsibility_principle .
+kb:client_server_architecture kbo:relatesTo kb:load_balancing .
+kb:cohesion kbo:relatesTo kb:single_responsibility_principle .
+kb:component_based_architecture kbo:relatesTo kb:plugin_architecture .
+kb:containerization kbo:relatesTo kb:kubernetes_orchestration .
+kb:contract_testing kbo:relatesTo kb:microservices_architecture .
+kb:coupling kbo:relatesTo kb:separation_of_concerns .
+kb:cqrs kbo:relatesTo kb:event_sourcing .
+kb:cqrs kbo:relatesTo kb:materialized_view .
+kb:cqrs kbo:relatesTo kb:read_replica .
+kb:data_warehouse kbo:relatesTo kb:etl .
+kb:dead_letter_queue kbo:relatesTo kb:message_queue .
+kb:distributed_cache kbo:relatesTo kb:caching_strategy .
+kb:distributed_tracing kbo:relatesTo kb:metrics .
+kb:domain_driven_design kbo:relatesTo kb:aggregate_root .
+kb:domain_driven_design kbo:relatesTo kb:bounded_context .
+kb:domain_driven_design kbo:relatesTo kb:ubiquitous_language .
+kb:dps_001 kbo:relatesTo kb:dps_002 .
+kb:dps_001 kbo:relatesTo kb:dps_003 .
+kb:dps_001 kbo:relatesTo kb:dps_006 .
+kb:dps_001 kbo:relatesTo kb:dps_014 .
+kb:dps_001 kbo:relatesTo kb:dps_015 .
+kb:dps_001 kbo:relatesTo kb:dps_016 .
+kb:dps_002 kbo:relatesTo kb:dps_005 .
+kb:dps_003 kbo:relatesTo kb:dps_010 .
+kb:dps_003 kbo:relatesTo kb:dps_011 .
+kb:dps_003 kbo:relatesTo kb:dps_012 .
+kb:dps_004 kbo:relatesTo kb:dps_002 .
+kb:dps_004 kbo:relatesTo kb:dps_003 .
+kb:dps_005 kbo:relatesTo kb:dps_009 .
+kb:dps_006 kbo:relatesTo kb:dps_007 .
+kb:dps_006 kbo:relatesTo kb:dps_014 .
+kb:dps_007 kbo:relatesTo kb:api_gateway .
+kb:dps_008 kbo:relatesTo kb:choreography_pattern .
+kb:dps_008 kbo:relatesTo kb:orchestration_pattern .
+kb:dps_012 kbo:relatesTo kb:service_discovery .
+kb:dps_013 kbo:relatesTo kb:sidecar_pattern .
+kb:dps_014 kbo:relatesTo kb:event_streaming .
+kb:dps_014 kbo:relatesTo kb:message_queue .
+kb:dps_014 kbo:relatesTo kb:publish_subscribe_pattern .
+kb:dps_014 kbo:relatesTo kb:saga_pattern .
+kb:dry_principle kbo:relatesTo kb:single_responsibility_principle .
+kb:dual_write kbo:relatesTo kb:anti_pattern .
+kb:es_consumer_group kbo:relatesTo kb:stream_consumer_group .
+kb:es_event_consumer kbo:relatesTo kb:es_event_producer .
+kb:es_event_partition kbo:relatesTo kb:stream_partition .
+kb:es_event_producer kbo:relatesTo kb:es_event_consumer .
+kb:es_event_record kbo:relatesTo kb:stream_event .
+kb:es_event_stream kbo:relatesTo kb:event_streaming .
+kb:es_event_timestamp kbo:relatesTo kb:stream_event .
+kb:es_log_compaction kbo:relatesTo kb:stream_compaction .
+kb:es_partition_key kbo:relatesTo kb:stream_partition .
+kb:es_retention_policy kbo:relatesTo kb:stream_retention_policy .
+kb:es_schema_registry kbo:relatesTo kb:stream_schema_registry .
+kb:es_stream_broker kbo:relatesTo kb:pubsub_broker .
+kb:es_stream_offset kbo:relatesTo kb:stream_offset .
+kb:es_stream_replay kbo:relatesTo kb:stream_replay .
+kb:etl kbo:relatesTo kb:data_lake .
+kb:event_driven_architecture kbo:relatesTo kb:event_streaming .
+kb:event_driven_architecture kbo:relatesTo kb:message_queue .
+kb:event_driven_architecture kbo:relatesTo kb:publish_subscribe_pattern .
+kb:event_sourcing kbo:relatesTo kb:eventual_consistency .
+kb:event_stream kbo:relatesTo kb:event_streaming .
+kb:event_streaming kbo:relatesTo kb:pubsub_broker .
+kb:event_streaming kbo:relatesTo kb:pubsub_topic .
+kb:eventual_consistency kbo:relatesTo kb:crdt .
+kb:fallback_pattern kbo:relatesTo kb:resilience_patterns .
+kb:gateway_routing kbo:relatesTo kb:gateway_routing__integration .
+kb:gateway_routing kbo:relatesTo kb:gateway_routing_backend_service .
+kb:gateway_routing kbo:relatesTo kb:gateway_routing_circuit_breaker_integration .
+kb:gateway_routing kbo:relatesTo kb:gateway_routing_fallback_route .
+kb:gateway_routing kbo:relatesTo kb:gateway_routing_response_aggregation .
+kb:gateway_routing kbo:relatesTo kb:gateway_routing_reverse_proxy .
+kb:gateway_routing kbo:relatesTo kb:gateway_routing_route .
+kb:gateway_routing kbo:relatesTo kb:gateway_routing_service_discovery_integration .
+kb:gateway_routing__integration kbo:relatesTo kb:load_balancing .
+kb:gateway_routing_request_matcher kbo:relatesTo kb:gateway_routing_header_condition .
+kb:gateway_routing_request_matcher kbo:relatesTo kb:gateway_routing_http_method_filter .
+kb:gateway_routing_request_matcher kbo:relatesTo kb:gateway_routing_path_pattern .
+kb:gateway_routing_reverse_proxy kbo:relatesTo kb:gateway_routing_header_transformation .
+kb:gateway_routing_reverse_proxy kbo:relatesTo kb:gateway_routing_path_rewrite .
+kb:gateway_routing_route kbo:relatesTo kb:gateway_routing_route_definition .
+kb:gateway_routing_route_definition kbo:relatesTo kb:gateway_routing_request_matcher .
+kb:gateway_routing_route_definition kbo:relatesTo kb:gateway_routing_route_priority .
+kb:gateway_routing_service_discovery_integration kbo:relatesTo kb:service_discovery .
+kb:golden_hammer kbo:relatesTo kb:anti_pattern .
+kb:graphql_architecture kbo:relatesTo kb:api_gateway .
+kb:grpc_architecture kbo:relatesTo kb:http2 .
+kb:hexagonal_architecture kbo:relatesTo kb:dependency_inversion_principle .
+kb:hexagonal_architecture kbo:relatesTo kb:ports_and_adapters .
+kb:horizontal_scaling kbo:relatesTo kb:auto_scaling .
+kb:kubernetes_orchestration kbo:relatesTo kb:auto_scaling .
+kb:lambda_architecture kbo:relatesTo kb:event_streaming .
+kb:lambda_architecture kbo:relatesTo kb:kappa_architecture .
+kb:layered_architecture kbo:relatesTo kb:monolithic_architecture .
+kb:layered_architecture kbo:relatesTo kb:separation_of_concerns .
+kb:load_balancing kbo:relatesTo kb:horizontal_scaling .
+kb:logging kbo:relatesTo kb:distributed_tracing .
+kb:loose_coupling kbo:relatesTo kb:high_cohesion .
+kb:message_bus_architecture kbo:relatesTo kb:service_oriented_architecture .
+kb:message_queue kbo:relatesTo kb:pubsub_message .
+kb:microkernel_architecture kbo:relatesTo kb:plugin_architecture .
+kb:microservices_architecture kbo:relatesTo kb:api_gateway .
+kb:microservices_architecture kbo:relatesTo kb:database_per_service .
+kb:microservices_architecture kbo:relatesTo kb:saga_pattern .
+kb:microservices_architecture kbo:relatesTo kb:service_discovery .
+kb:microservices_architecture kbo:relatesTo kb:service_mesh .
+kb:microservices_architecture kbo:relatesTo kb:shared_database .
+kb:monolithic_architecture kbo:relatesTo kb:big_ball_of_mud .
+kb:orchestration_pattern kbo:relatesTo kb:service_oriented_architecture .
+kb:outbox_pattern kbo:relatesTo kb:dual_write .
+kb:peer_to_peer_architecture kbo:relatesTo kb:distributed_cache .
+kb:pipe_and_filter_architecture kbo:relatesTo kb:event_streaming .
+kb:plugin_architecture kbo:relatesTo kb:microkernel_architecture .
+kb:ports_and_adapters kbo:relatesTo kb:hexagonal_architecture .
+kb:pubsub_broker kbo:relatesTo kb:pubsub_dead_letter .
+kb:pubsub_broker kbo:relatesTo kb:pubsub_message .
+kb:pubsub_broker kbo:relatesTo kb:pubsub_subscription .
+kb:pubsub_content_filter kbo:relatesTo kb:pubsub_subscriber .
+kb:pubsub_message kbo:relatesTo kb:pubsub_content_filter .
+kb:pubsub_message kbo:relatesTo kb:pubsub_message_schema .
+kb:pubsub_message_schema kbo:relatesTo kb:pubsub_broker .
+kb:pubsub_publisher kbo:relatesTo kb:pubsub_topic .
+kb:pubsub_subscription kbo:relatesTo kb:pubsub_subscriber .
+kb:pubsub_subscription kbo:relatesTo kb:pubsub_topic_namespace .
+kb:pubsub_topic kbo:relatesTo kb:pubsub_broker .
+kb:pubsub_topic kbo:relatesTo kb:pubsub_message .
+kb:pubsub_topic kbo:relatesTo kb:pubsub_topic_namespace .
+kb:restful_architecture kbo:relatesTo kb:http_protocol .
+kb:retry_pattern kbo:relatesTo kb:circuit_breaker_pattern .
+kb:retry_pattern kbo:relatesTo kb:resilience_patterns .
+kb:rolling_deployment kbo:relatesTo kb:canary_deployment .
+kb:saga_pattern kbo:relatesTo kb:choreography_pattern .
+kb:saga_pattern kbo:relatesTo kb:distributed_transaction .
+kb:saga_pattern kbo:relatesTo kb:orchestration_pattern .
+kb:scalability kbo:relatesTo kb:horizontal_scaling .
+kb:scalability kbo:relatesTo kb:vertical_scaling .
+kb:scatter_gather kbo:relatesTo kb:message_queue .
+kb:serverless_architecture kbo:relatesTo kb:auto_scaling .
+kb:serverless_architecture kbo:relatesTo kb:event_driven_architecture .
+kb:service_discovery kbo:relatesTo kb:load_balancing .
+kb:service_mesh kbo:relatesTo kb:sidecar_pattern .
+kb:sharding kbo:relatesTo kb:horizontal_scaling .
+kb:shared_database kbo:relatesTo kb:anti_pattern .
+kb:sidecar_pattern kbo:relatesTo kb:ambassador_service .
+kb:solid_principles kbo:relatesTo kb:maintainability .
+kb:solid_principles kbo:relatesTo kb:testability .
+kb:space_based_architecture kbo:relatesTo kb:distributed_cache .
+kb:strangler_fig_pattern kbo:relatesTo kb:microservices_architecture .
+kb:stream_compaction kbo:relatesTo kb:stream_retention_policy .
+kb:stream_consumer kbo:relatesTo kb:stream_offset .
+kb:stream_consumer kbo:relatesTo kb:stream_partition .
+kb:stream_consumer_group kbo:relatesTo kb:stream_consumer .
+kb:stream_consumer_group kbo:relatesTo kb:stream_offset .
+kb:stream_lag kbo:relatesTo kb:stream_offset .
+kb:stream_log kbo:relatesTo kb:stream_partition .
+kb:stream_partition kbo:relatesTo kb:stream_offset .
+kb:stream_producer kbo:relatesTo kb:stream_log .
+kb:stream_producer kbo:relatesTo kb:stream_partition .
+kb:stream_replay kbo:relatesTo kb:stream_log .
+kb:stream_replay kbo:relatesTo kb:stream_offset .
+kb:stream_retention_policy kbo:relatesTo kb:stream_log .
+kb:stream_schema_registry kbo:relatesTo kb:stream_message_schema .
+kb:stream_watermark kbo:relatesTo kb:stream_offset .
+kb:technical_debt kbo:relatesTo kb:maintainability .
+kb:two_phase_commit kbo:relatesTo kb:distributed_transaction .
+kb:work_queue kbo:relatesTo kb:message_queue .
+

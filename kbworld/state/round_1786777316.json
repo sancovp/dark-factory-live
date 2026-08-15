@@ -1,0 +1,97 @@
+{
+  "subject": "software architecture patterns and styles",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "bootstrap",
+      "doors": [
+        "microservices_architecture",
+        "event_driven_architecture"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "bootstrap": {
+        "concepts": 106,
+        "relations": 98
+      },
+      "specialize": {
+        "basis_after": 0.271,
+        "new": [
+          [
+            "microservices_architecture",
+            32,
+            43
+          ],
+          [
+            "event_driven_architecture",
+            60,
+            31
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 13
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 211,
+        "relations": 192,
+        "define": 0,
+        "connect": 30
+      }
+    },
+    "brain": {
+      "grew": "gateway_routing"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/software_architecture_patterns_and_styles",
+      "skills": 24,
+      "staff": 47
+    },
+    "observe": {
+      "findings": 1,
+      "issues": [
+        {
+          "atom": "api_gateway",
+          "why": "describes authentication as a cross-cutting concern but auth is an application-level concern, not truly cross-cutting like logging or retry",
+          "price": 11,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/264"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/software_architecture_patterns_and_style",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/software_architecture_patterns_and_style/skills/using-software-architecture-patterns-and-style/SKILL.md",
+      "plugin": "software-architecture-patterns-and-style-module",
+      "library_skills": 29,
+      "brain_files": 24
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "211c/192r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 0
+      },
+      "after": {
+        "define": 0,
+        "connect": 30
+      }
+    },
+    "basis": 0.708,
+    "secs": 376.0
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "skilltree": {
+    "name": "understand-software architecture patterns and styles",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-software architecture patterns and styles",
+    "description": "the software architecture patterns and styles library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-core",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-core",
+        "description": "the core subdomain of software architecture patterns and styles (13 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-resilience_patterns",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-resilience_patterns",
+            "description": "A category of fault_tolerance patterns (including circuit_breaker_pattern, retry_pattern, bulkhead_pattern, an",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-distributed_cache",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-distributed_cache",
+            "description": "A cache shared across multiple nodes or processes in a distributed_system, providing low-latency access to fre",
+            "coord": "0.1.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-plugin_architecture",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-plugin_architecture",
+            "description": "An architectural style where a minimal core system exposes extension points that allow modules (plugins) to be",
+            "coord": "0.1.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-api_composition",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-api_composition",
+            "description": "A pattern where a facade or aggregation layer combines data from multiple backend services or APIs into a sing",
+            "coord": "0.1.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-distributed_transaction",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-distributed_transaction",
+            "description": "A transaction that spans multiple independent services or database_per_service instances, requiring coordinati",
+            "coord": "0.1.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-ports_and_adapters",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-ports_and_adapters",
+            "description": "An architectural pattern that separates the core business logic from external concerns by defining ports (inte",
+            "coord": "0.1.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_event_driven_archite",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-deep_event_driven_archite",
+        "description": "the deep_event_driven_archite subdomain of software architecture patterns and styles (60 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-pubsub_broker",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-pubsub_broker",
+            "description": "The intermediary component that receives messages from publishers and forwards them to subscribers based on to",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-stream_offset",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-stream_offset",
+            "description": "A monotonically increasing integer position marker assigned to each event within a partition, uniquely identif",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-stream_partition",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-stream_partition",
+            "description": "A distinct, ordered slice of an event stream, identified by a partition key or index, enabling parallel produc",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-pubsub_topic",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-pubsub_topic",
+            "description": "A named channel or subject through which messages are routed from publishers to interested subscribers; the pu",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-pubsub_message",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-pubsub_message",
+            "description": "The payload broadcast by a publisher on a topic; in pub/sub it is typically ephemeral and not persisted beyond",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-stream_log",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-stream_log",
+            "description": "An immutable append-only sequence of events retained on disk or equivalent durable storage; unlike pubsub_mess",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_microservices_archit",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-deep_microservices_archit",
+        "description": "the deep_microservices_archit subdomain of software architecture patterns and styles (32 concepts)",
+        "coord": "0.3",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-dps_001",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-dps_001",
+            "description": "database_per_service is a data management pattern in microservices where each service owns and manages its own",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dps_014",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-dps_014",
+            "description": "eventual_consistency_model is the consistency guarantee that results from database_per_service: writes are imm",
+            "coord": "0.3.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dps_003",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-dps_003",
+            "description": "instance_isolation means each service runs its own database server process or cluster, with separate credentia",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-gateway_routing_request_matcher",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-gateway_routing_request_matcher",
+            "description": "A component that evaluates incoming requests against route matching criteria.",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dps_002",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-dps_002",
+            "description": "schema_isolation means each service's database exposes only the data and operations relevant to its bounded co",
+            "coord": "0.3.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dps_006",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-dps_006",
+            "description": "data_duplication is the consequence of database_per_service where the same logical entity may be materialized ",
+            "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-software_architecture_patterns_and_styles",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-software_architecture_patterns_and_styles",
+        "description": "the software_architecture_patterns_and_styles subdomain of software architecture patterns and styles (106 concepts)",
+        "coord": "0.4",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-microservices_architecture",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-microservices_architecture",
+            "description": "An architectural style that structures an application as a collection of small, autonomous, loosely-coupled se",
+            "coord": "0.4.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-gateway_routing",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-gateway_routing",
+            "description": "A pattern where an API_gateway routes requests to appropriate backend services based on request characteristic",
+            "coord": "0.4.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-event_streaming",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-event_streaming",
+            "description": "A data handling approach where events are captured in order as an immutable log (stream), allowing multiple co",
+            "coord": "0.4.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-message_queue",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-message_queue",
+            "description": "A communication mechanism where messages are placed in a queue by producers and consumed asynchronously by con",
+            "coord": "0.4.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-event_driven_architecture",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-event_driven_architecture",
+            "description": "A software design pattern where the flow of the program is determined by events (user actions, sensor outputs,",
+            "coord": "0.4.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-api_gateway",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_architecture_patterns_and_styles/understand-api_gateway",
+            "description": "A server entry point that routes requests to backend services, handling cross-cutting concerns like authentica",
+            "coord": "0.4.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

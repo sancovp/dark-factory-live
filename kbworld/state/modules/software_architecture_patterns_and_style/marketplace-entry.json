@@ -1,0 +1,12 @@
+{
+  "name": "software-architecture-patterns-and-style-module",
+  "description": "software architecture patterns and styles \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 211 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "category": "productivity",
+  "source": {
+    "source": "url",
+    "url": "https://github.com/sancovp/software-architecture-patterns-and-style-module.git"
+  }
+}
