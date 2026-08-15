@@ -1,0 +1,14 @@
+{
+  "name": "software-design-patterns-module",
+  "version": "0.1.0",
+  "description": "software design patterns \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 211 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "knowledge-base",
+    "neurosymbolic",
+    "software-design-patterns"
+  ]
+}

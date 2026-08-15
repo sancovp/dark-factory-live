@@ -1,0 +1,104 @@
+{
+  "skilltree": {
+    "name": "understand-software design patterns",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_design_patterns/understand-software design patterns",
+    "description": "the software design patterns library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-core",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_design_patterns/understand-core",
+        "description": "the core subdomain of software design patterns (2 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-creational_pattern",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_design_patterns/understand-creational_pattern",
+            "description": "A design pattern category focused on object creation mechanisms, abstracting the instantiation process so that",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-structural_pattern",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_design_patterns/understand-structural_pattern",
+            "description": "A design pattern category focused on composing classes and objects into larger structures, defining relationsh",
+            "coord": "0.1.2",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-software_design_patterns",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_design_patterns/understand-software_design_patterns",
+        "description": "the software_design_patterns subdomain of software design patterns (209 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-clean_architecture",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_design_patterns/understand-clean_architecture",
+            "description": "Layered architecture with independent frameworks and clear dependency rules pointing inward.",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-circuit_breaker_pattern",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_design_patterns/understand-circuit_breaker_pattern",
+            "description": "Prevents cascading failures by failing fast when a service is unhealthy.",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-bulkhead_pattern",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_design_patterns/understand-bulkhead_pattern",
+            "description": "Isolates resources so that failure in one part of the system does not affect others.",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-active_object_pattern",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_design_patterns/understand-active_object_pattern",
+            "description": "Decouples method execution from method invocation in its own thread of control.",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-abstract_factory_pattern",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_design_patterns/understand-abstract_factory_pattern",
+            "description": "Provides an interface for creating families of related objects without specifying their concrete classes, oper",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-hexagonal_architecture_pattern",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_software_design_patterns/understand-hexagonal_architecture_pattern",
+            "description": "Ports_and_adapters architecture that separates core business logic from external concerns, with ports defining",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}
