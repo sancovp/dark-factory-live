@@ -2249,5 +2249,22 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-15T02:24:43+00:00",
+    "verdict": "REVERT",
+    "change": "Installed trust_lens.md to loadout; Trust Lens analysis revealed dependency_proof_before_loadout violation in inversion_second_order_recipe (requires crafted/ lenses not in package)",
+    "diff": [
+      {
+        "file": "loadout/TRUST_ANALYSIS.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/trust_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
