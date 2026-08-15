@@ -1,21 +1,33 @@
-# Assumption Inversion Lens
+# assumption_inversion_lens
 
 **Type:** lens
 **Rarity:** uncommon
-**Purpose:** Reframe problems by inverting their underlying assumptions
+**Lens for:** reframing a problem by questioning its hidden premises
 
-## How to Use
-When faced with a problem, identify the implicit assumptions and invert them.
+## What it does
 
-## Process
-1. State the problem clearly
-2. List the hidden assumptions
-3. Invert each assumption
-4. Derive consequences of inversions
-5. Extract reframed problem statements
+A reusable analytical lens that inverts a stated assumption and examines what the problem looks like from its negation. Apply to any skill, bug report, or process description to surface implicit constraints that may not hold.
+
+## How to use
+
+1. Identify the stated assumption in the problem description (often hidden in "of course", "obviously", "must").
+2. Negate it.
+3. From the negated assumption, derive what the problem or solution would look like.
+4. Compare: does the negated view reveal a better path?
 
 ## Example
-Problem: "How to reduce bugs?"
-Assumption: Bugs are problems to eliminate
-Inversion: Bugs are signals to amplify
-Reframe: "How to use bugs as feedback to improve design?"
+
+| stated assumption | inversion |
+|---|---|
+| "tests must pass before shipping" | "ship with failing tests if the failure is documented and non-critical" |
+| "the skill must own its dependencies" | "dependencies are trusted external contracts" |
+
+## When to apply
+
+- A skill claims `uncommon` but the description does not support that rarity claim.
+- A recipe assumes a loadout dependency that is not in the loadout.
+- A pipeline assumes composition without verifying the components.
+
+## Composition proof
+
+No external dependencies — self-contained lens applying only to the text of the target artifact. Reads and inverts; emits a structured comparison.
