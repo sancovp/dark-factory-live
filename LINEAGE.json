@@ -2331,5 +2331,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-15T07:34:33+00:00",
+    "verdict": "REVERT",
+    "change": "Installed dependency_pipeline_recipe.md to loadout; discovered 4 missing dependencies (constraint_inversion_lens, second_order_lens, Divergence Lens, Convergence Lens) across 2 recipes",
+    "diff": [
+      {
+        "file": "loadout/dependency_pipeline_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.0
   }
 ]
