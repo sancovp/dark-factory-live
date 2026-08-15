@@ -1,24 +1,39 @@
-# Dependency Inversion Pipeline
+# Recipe — Dependency Inversion Pipeline
 
-## Type: recipe
+**Type:** recipe
+**Rarity:** rare
+**Composes:** chain_verifier_recipe + inversion_second_order_recipe
 
 ## Description
-A two-stage pipeline that first validates dependency chains via chain_verifier_recipe, then applies second-order inversion to discover alternative composition paths.
 
-## Components
-- chain_verifier_recipe (equipped)
-- inversion_second_order_recipe (equipped)
+Verifies a dependency chain end-to-end, then applies second-order inversion to reframe each node as a function of what depends on it. Turns "what does A need?" into "what would break if A vanished?"
 
-## Pipeline Flow
-1. Stage 1: Verify all skill dependencies exist and are loadout-ready
-2. Stage 2: Generate alternative solution paths from verified chain
+## Composition
+
+1. **chain_verifier_recipe** — trace all dependencies in the target skill path, confirm each resolves to a loadout artifact
+2. **inversion_second_order_recipe** — for each dependency, derive its upstream dependents (what would notice if it changed)
 
 ## Inputs
-- target_skill_path: Path to skill to audit
-- max_depth: Maximum dependency depth (default: 3)
+
+- `target_skill` (string): path to skill whose dependency chain to audit
 
 ## Outputs
-- Verification report with all dependencies confirmed
-- List of alternative composition paths
 
-## Rarity: uncommon
+- `chain_report` (markdown): verified dependency graph with inversion annotations per node
+
+## Usage
+
+```bash
+# Verify then invert the dependency chain of crafted/my_skill.md
+python -c "
+from skill_types.chain_verifier_recipe import verify_chain
+from skill_types.inversion_second_order_recipe import invert_second_order
+chain = verify_chain('crafted/my_skill.md')
+report = invert_second_order(chain)
+print(report)
+"
+```
+
+## Test
+
+Run both primitives on `crafted/dependency_inversion_pipeline.md` itself — it verifies its own loadout deps (chain_verifier_recipe, inversion_second_order_recipe) and inverts them. Expect: pass.

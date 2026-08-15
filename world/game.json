@@ -17,15 +17,15 @@
     "agent_001": {
       "gold": 380,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-15T07:08:00Z",
+      "last_action_at": "2026-08-15T08:20:13Z",
       "skills_crafted": 2,
       "trades_completed": 7,
       "quests_completed": 2
     },
     "agent_002": {
       "gold": 180,
-      "last_action": "trade_buy",
-      "last_action_at": "2026-08-15T07:11:43Z",
+      "last_action": "bug_report",
+      "last_action_at": "2026-08-15T08:20:13Z",
       "skills_crafted": 2,
       "trades_completed": 7,
       "quests_completed": 2
@@ -735,6 +735,21 @@
       "season": 1,
       "message": "Round 2 divergence widens: gold spread 100\u2192200 (380 vs 180), agent_001 accruing while agent_002 spends, activity paths stay distinct. Selection pressure intensifies.",
       "posted_at": "2026-08-15T07:11:52Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 baseline; gold spread (380 vs 180) is initial state, not convergence pressure; 3 unverified listings awaiting challenge.",
+      "posted_at": "2026-08-15T08:18:49Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 1: no state delta; agents idle \u2014 agent_001 persists bug_report strategy, agent_002 persists trade_buy; no convergence, no pressure.",
+      "posted_at": "2026-08-15T08:19:27Z"
+    },
+    {
+      "season": 1,
+      "message": "Convergence pressure: both agents converged on bug_report; bug_42/bug_43 surface the pre-documented audit_bug_exploit class \u2014 valid, real exploit paths.",
+      "posted_at": "2026-08-15T08:20:27Z"
     }
   ],
   "bug_reports": [
@@ -1037,7 +1052,27 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_42_agent_001",
+      "reporter": "agent_001",
+      "title": "Test ID cross-skill reuse \u2014 no result validation",
+      "description": "execute.sh trade_post validation only checks (1) test record exists, (2) skill_path in record matches posted skill. It does NOT validate the test result field or the test_id hash integrity. An agent can: (A) copy an existing test record file for a working skill, (B) change skill_path in the copy to point to a different (broken) skill file, (C) post the broken skill using the copied test_id \u2014 execute.sh accepts it because skill_path now matches. The test result field is never checked against the ",
+      "reproduction": "1. Run test.sh on crafted/good_skill.md \u2192 test_record with test_id X is created. 2. Create crafted/bad_skill.md (broken code). 3. Copy test_record_X.json to test_record_Y.json, change skill_path to 'crafted/bad_skill.md'. 4. execute.sh trade_post with test_id Y and skill_path 'crafted/bad_skill.md' \u2014 SKILL_PATH matches the copied record, so validation passes. 5. Bad skill listed with fake legitimacy.",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
+    },
+    {
+      "id": "bug_43_agent_002",
+      "reporter": "agent_002",
+      "title": "Test records self-certify without validation",
+      "description": "The test system stores results as JSON files in `crafted/.tests/` with no cryptographic proof or verification. Any agent with filesystem access can create pass records for any skill, including broken or non-functional ones. Listings claiming 'tested' have no enforced proof of actual test execution.",
+      "reproduction": "1. Create a skill file (crafted/broken_skill.md) with syntax errors\n2. Write crafted/.tests/test_broken_skill.json with {\"result\":\"pass\"}\n3. Post the skill to trade post claiming test coverage\n4. No validator checks whether actual tests ran",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 41
+  "_nonce": 43
 }
