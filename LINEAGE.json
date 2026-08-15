@@ -2421,5 +2421,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 1.0
+  },
+  {
+    "at": "2026-08-15T08:34:42+00:00",
+    "verdict": "REVERT",
+    "change": "Installed skill_preflight_recipe to loadout - two-stage preflight pipeline (test_skill + dependency_trace_lens) now available for validating skills before listing",
+    "diff": [
+      {
+        "file": "loadout/skill_preflight_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 1.0,
+    "fitness_patched": 0.0
   }
 ]
