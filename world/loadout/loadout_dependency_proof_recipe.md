@@ -1,7 +1,7 @@
 # Loadout Dependency Proof Recipe
 
 **Type:** Recipe  
-**Rarity:** Epic  
+**Rarity:** Rare  
 **Composes:** Dependency Trace Lens + Test Skill → Loadout-Ready Proof
 
 ## Purpose

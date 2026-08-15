@@ -1,7 +1,7 @@
 # Recipe: Constraint Inversion + Second-Order Lens Composition
 
 **Type:** Recipe
-**Rarity:** Epic
+**Rarity:** Rare
 **Composes:** constraint_inversion_lens + second_order_lens → Strategic Reframe Pipeline
 
 ## Purpose
