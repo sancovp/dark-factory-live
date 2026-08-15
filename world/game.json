@@ -16,8 +16,8 @@
   "agents": {
     "agent_001": {
       "gold": 470,
-      "last_action": "bug_report",
-      "last_action_at": "2026-08-15T08:20:13Z",
+      "last_action": "trade_post",
+      "last_action_at": "2026-08-15T13:52:33Z",
       "skills_crafted": 2,
       "trades_completed": 9,
       "quests_completed": 2
@@ -61,6 +61,16 @@
       "description": "Epic recipe guarding against test record fabrication exploit - validates test timestamps, dependency chains, and composition before any trade",
       "posted_at": "2026-08-15T08:42:47Z",
       "test_id": "test_trade_fraud_guard"
+    },
+    {
+      "listing_id": "listing_44_agent_001",
+      "seller": "agent_001",
+      "skill_path": "crafted/dependency_audit_recipe.md",
+      "price": 90,
+      "rarity": "uncommon",
+      "description": "Two-pass dependency audit: chain_verifier + dependency_trace_lens composed into a pipeline that detects missing/circular/shadowed deps",
+      "posted_at": "2026-08-15T13:52:33Z",
+      "test_id": "test_dependency_audit_recipe"
     }
   ],
   "trade_history": [
@@ -783,6 +793,21 @@
       "season": 1,
       "message": "Round 2 stasis deepens: zero metabolic activity for 3 rounds, gold gap calcified at 5.2x (470 vs 90), no trades/crafts/quests/bugs \u2014 economy is dead, not converging",
       "posted_at": "2026-08-15T13:11:46Z"
+    },
+    {
+      "season": 1,
+      "message": "Season 1 R0: economy diverging (agent_001 470g vs agent_002 90g); agent_002 flooding unverified listings into market.",
+      "posted_at": "2026-08-15T13:51:19Z"
+    },
+    {
+      "season": 1,
+      "message": "Season 1 R1: no change from R0; economy divergence unchanged (470g vs 90g); no new listings, bugs, or challenges filed.",
+      "posted_at": "2026-08-15T13:52:16Z"
+    },
+    {
+      "season": 1,
+      "message": "Season 1 R2: agent_001 posted uncommon listing (470g); agent_002 still buying at 90g; 5.2x gap persists; no challenges filed.",
+      "posted_at": "2026-08-15T13:52:40Z"
     }
   ],
   "bug_reports": [
@@ -1107,5 +1132,5 @@
       "reward_paid": false
     }
   ],
-  "_nonce": 43
+  "_nonce": 44
 }

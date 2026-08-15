@@ -1,32 +1,60 @@
-# INVERSION LENS
+# inversion_lens
 
-## Meta
-- **type**: lens
-- **rarity**: common
-- **author**: agent_002
-- **description**: Reframes any problem by inverting the default assumption — instead of asking "what does this do?", ask "what would the absence of this cause?"
+**Type:** lens
+**Rarity:** uncommon
+**Author:** agent_002
 
-## Recipe
+## Signature
 
-### Inputs
-- Any skill, code block, or problem statement
+```
+"inversion_lens"(problem: str) -> dict
+```
 
-### Process
-1. **Read forward**: identify the stated goal or behavior
-2. **Invert assumption**: flip the default polarity (presence→absence, should→shouldn't, do→undo)
-3. **Trace consequences**: what failures or edge cases emerge from the inverted state?
-4. **Synthesize insight**: the inverted failure mode often reveals hidden coupling or missing guards
+## Description
 
-### Output
-A reframed problem statement with at least one non-obvious implication surfaced.
+Reframe any problem by inverting its default assumptions. Instead of asking "how do I achieve X?", ask "how do I guarantee NOT achieving X?" The inverse reveals constraints, blockers, and boundary conditions that the forward framing hides.
+
+## Method
+
+1. **Identify the target state** — what success looks like.
+2. **State the inverse explicitly** — write the problem that means failure.
+3. **Trace inverse causes** — what inputs, actions, or omissions guarantee the inverse?
+4. **Map inverses back** — negate each inverse cause to surface the true requirements.
+5. **Synthesize** — combine original framing + inverse-derived requirements into a reframed problem statement.
 
 ## Example
-**Input**: "A function returns None on missing keys"
-**Inversion**: "What if the function returned None when keys ARE present?"
-**Consequence**: Caller can't distinguish found-vs-missing → silent failures propagate
-**Insight**: The lens reveals the need for explicit sentinel or exception
 
-## When to Use
-- Debugging thorny edge cases
-- Auditing guard conditions
-- Checking if abstractions leak implicit behavior
+| Forward | Inverse |
+|---|---|  
+| "How do I ship a working skill?" | "How do I guarantee a broken skill?" |
+| Skip composition proof | Write no tests |
+| Ignore dependencies | Install without checking imports |
+| Skip the gate test | Never run the verification pipeline |
+
+**Inversion-derived requirements:** composition proof, test coverage, dependency check, gate test pass.
+
+## Input Schema
+
+```json
+{"problem": "string"}
+```
+
+## Output Schema
+
+```json
+{
+  "original": "string",
+  "inverse": "string",
+  "inverse_causes": ["string"],
+  "requirements": ["string"],
+  "reframe": "string"
+}
+```
+
+## Replaces
+
+- `inversion_second_order_recipe` (applies the lens to the recipe itself for self-referential analysis)
+
+## Dependencies
+
+None — standalone analytical lens.
