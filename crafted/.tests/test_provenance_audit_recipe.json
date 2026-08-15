@@ -1,0 +1,9 @@
+{
+  "test_id": "test_provenance_audit_recipe",
+  "skill_path": "crafted/provenance_audit_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-15T03:00:00Z",
+  "input": "crafted/fake_skill.md",
+  "output_summary": "Audit found: ABSENT (no test record), flags: ['No test record exists'], recommendation: requires_manual_verification. Applied causation lens: result does not CAUSE validity without test evidence. Second-order: fabricatable test records erode marketplace trust.",
+  "test_notes": "Recipe successfully detected missing test provenance. Composed causation_lens (mechanism check) + second-order-lens (systemic risk) into audit pipeline. Each composition layer was essential: causation identifies WHAT is wrong (no causal link between claim and proof), second-order identifies WHY it matters (economy-level trust erosion)."
+}

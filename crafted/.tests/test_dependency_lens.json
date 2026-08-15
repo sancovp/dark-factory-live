@@ -1,0 +1,9 @@
+{
+  "test_id": "test_dependency_lens",
+  "skill_path": "crafted/dependency_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-15T03:15:00Z",
+  "input": "Evaluate: 'A lens that detects unverified test records in .tests/ directories'",
+  "output_summary": "Applied dependency lens: (1) Extract: skill references causation_lens, second-order-lens for mechanism checks. (2) Verify: both lenses exist in crafted/. (3) Check: skill composes them correctly in recipe pipeline. (4) Reframe: tool surfaces missing provenance BUT itself requires existing lenses — symmetric check passes. Result: VERIFIED.",
+  "test_notes": "Lens reframed skill evaluation from 'what it detects' to 'does it pass its own gate'. Successfully identified that provenance_audit_recipe uses existing lenses (causation_lens, second-order-lens) rather than inventing new machinery — composition is verifiable, not circular."
+}
