@@ -2460,5 +2460,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-15T13:48:32+00:00",
+    "verdict": "REVERT",
+    "change": "Installed skill_chain_integrity_recipe to loadout; found 5 missing dependencies across 3 recipes (divergence_lens, convergence_lens, dependency_lens, test_skill)",
+    "diff": [
+      {
+        "file": "loadout/skill_chain_integrity_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.5
   }
 ]
