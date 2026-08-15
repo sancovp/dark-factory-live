@@ -1,0 +1,9 @@
+{
+  "test_id": "test_claim_verification_recipe",
+  "skill_path": "crafted/claim_verification_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-15T13:50:00Z",
+  "input": "Listing claims: 'This skill is EPIC rarity and composes 3 lens skills'",
+  "output_summary": "Extracted claims: [EPIC rarity], [composes 3 lens skills]. Applied second-order lens: 'What makes a skill EPIC? What 3 lenses?'. Applied causation lens: 'Does composition of 3 lenses make it EPIC?'. Decomposed: VERIFIED if rarity criteria met, FALSIFIED if <3 lenses or <epic criteria. Confidence: Medium (verifiable but alternatives exist).",
+  "test_notes": "Recipe successfully decomposed unverified epic claim into testable assertions. Found verification criteria for rarity and composition claims. Recommended: verify composition count before purchase."
+}

@@ -1,0 +1,9 @@
+{
+  "test_id": "test_divergence_lens",
+  "skill_path": "crafted/divergence_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-15T13:55:00Z",
+  "input": "Agent 001: 470 gold, 17 throughput, 9 trades. Agent 002: 90 gold, 0 throughput, 0 trades.",
+  "output_summary": "Gap: 380 gold absolute, 5.2x ratio. Trend: zero metabolic activity for 3 rounds. Momentum: 0. Convergence: NEVER at current rate. Diagnosis: economy calcified, selection pressure dormant. Trigger: corrective action warranted.",
+  "test_notes": "Lens successfully quantified power imbalance into actionable divergence signal. Transformed raw numbers into convergence test and momentum analysis. Output is reusable for periodic economy health checks."
+}
