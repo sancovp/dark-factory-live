@@ -1,0 +1,30 @@
+{
+  "phase": "soup",
+  "define": [],
+  "connect": [
+    "document_distinguishes_from_event",
+    "document_envelope",
+    "document_historian",
+    "document_identifier",
+    "document_identity",
+    "document_message_is_message",
+    "document_metadata",
+    "document_reference",
+    "document_store",
+    "enterprise_integration_pattern",
+    "message_bridge",
+    "non_prescriptive_behavior",
+    "normalizer_for_documents",
+    "payload_completeness",
+    "payload_encoding",
+    "payload_schema",
+    "payload_type",
+    "payload_validation",
+    "schema_validation_on_document",
+    "static_recipient_list"
+  ],
+  "reconcile": [],
+  "explain": [],
+  "n_concepts": 154,
+  "n_relations": 176
+}

@@ -1,0 +1,659 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/enterprise_integration_patterns#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/enterprise_integration_patterns> a owl:Ontology ;
+    rdfs:label "enterprise integration patterns" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:aggregator a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "aggregator" ;
+    rdfs:comment "A router that collects related messages over time and combines them into a single coherent output message." .
+kb:asynchronous_messaging a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "asynchronous messaging" ;
+    rdfs:comment "Messaging semantics where the sender does not block waiting for the receiver to process the message before continuing." .
+kb:at_least_once_delivery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "at least once delivery" ;
+    rdfs:comment "Message delivery semantics where a message is retried until acknowledged, guaranteeing delivery but allowing possible duplicates." .
+kb:at_most_once_delivery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "at most once delivery" ;
+    rdfs:comment "Message delivery semantics where a message may be lost but is never redelivered; sender does not retry on failure." .
+kb:attachment a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "attachment" ;
+    rdfs:comment "Secondary data elements or files appended to the document message beyond its primary business payload." .
+kb:bulk_message_consumer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bulk message consumer" ;
+    rdfs:comment "A consumer that collects multiple messages over a batching window and processes them together for throughput optimization." .
+kb:canonical_data_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "canonical data model" ;
+    rdfs:comment "A standardized, technology-agnostic message schema used across the enterprise to avoid direct dependency on any system's native format." .
+kb:canonical_form a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "canonical form" ;
+    rdfs:comment "The normalized or standardized representation of the document after transformation, serving as the canonical data format." .
+kb:channel_adapter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "channel adapter" ;
+    rdfs:comment "A connector that bridges external systems or protocols into a messaging channel, encapsulating the legacy system's API." .
+kb:channel_bridge a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "channel bridge" ;
+    rdfs:comment "A connection point that joins two channel segments or a channel to an external system, enabling message flow across the boundary while preserving channel semantics." .
+kb:channel_purger a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "channel purger" ;
+    rdfs:comment "A system management pattern that periodically clears a channel of stale or poison messages to reset system state." .
+kb:channel_type_declaration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "channel type declaration" ;
+    rdfs:comment "The explicit binding of a message datatype to a channel at channel creation or configuration time, establishing the type contract." .
+kb:channel_typing_discipline a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "channel typing discipline" ;
+    rdfs:comment "The classification of datatype channels by typing rigor: static typing enforces type at compile/build time, dynamic typing enforces at message inspection time." .
+kb:choreography a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "choreography" ;
+    rdfs:comment "A decentralized integration style where each system knows only its own part of the process; there is no central orchestrator." .
+kb:circuit_breaker a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "circuit breaker" ;
+    rdfs:comment "A resilience pattern that stops forwarding requests to a failing downstream system after a threshold of failures is exceeded." .
+kb:claim_check a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "claim check" ;
+    rdfs:comment "A transformation that stores the full message body in an external store and replaces it with a lightweight reference token in the message." .
+kb:cmd_001 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cmd 001" ;
+    rdfs:comment "operation_identifier \u2014 the name or qualified identifier of the operation being invoked on the receiver" .
+kb:cmd_002 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cmd 002" ;
+    rdfs:comment "operation_arguments \u2014 structured data representing the parameters passed to the invoked operation" .
+kb:cmd_003 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cmd 003" ;
+    rdfs:comment "command_target \u2014 the destination endpoint service or receiver on which the operation is to be executed" .
+kb:cmd_004 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cmd 004" ;
+    rdfs:comment "command_priority \u2014 urgency level that influences routing queue ordering and processor scheduling" .
+kb:cmd_005 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cmd 005" ;
+    rdfs:comment "idempotency_key \u2014 unique value the receiver uses to detect and suppress duplicate command executions" .
+kb:cmd_006 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cmd 006" ;
+    rdfs:comment "command_timeout \u2014 duration after which the sender abandons waiting for execution result" .
+kb:cmd_007 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cmd 007" ;
+    rdfs:comment "target_interface_version \u2014 version identifier enabling the receiver to select the correct operation contract" .
+kb:cmd_008 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cmd 008" ;
+    rdfs:comment "execution_context \u2014 metadata about the calling environment such as principal identity and correlation scope" .
+kb:cmd_009 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cmd 009" ;
+    rdfs:comment "result_payload \u2014 data returned by successful command execution part of request_reply exchange" .
+kb:cmd_010 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cmd 010" ;
+    rdfs:comment "fault_payload \u2014 structured error information returned when command execution fails part of request_reply" .
+kb:command_message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "command message" ;
+    rdfs:comment "A message that encodes an invocation of an operation on the receiver, carrying method name and arguments." .
+kb:command_priority a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "command priority" ;
+    rdfs:comment "A metadata field indicating the urgency or precedence level of a command message, used by schedulers and routers to order or filter command processing." .
+kb:command_target a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "command target" ;
+    rdfs:comment "The logical or physical destination endpoint to which a command message is addressed, specifying which receiver should process the invocation." .
+kb:command_timeout a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "command timeout" ;
+    rdfs:comment "The maximum duration a sender will wait for a command to complete before considering it failed; exceeding this triggers timeout handling or retry." .
+kb:composed_message_processor a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "composed message processor" ;
+    rdfs:comment "A processor that splits an incoming composite message, routes each part through separate paths, then aggregates the results." .
+kb:content_based_router a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "content based router" ;
+    rdfs:comment "A router that examines message payload fields to determine the destination channel, decoupling sender from destination knowledge." .
+kb:content_enricher a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "content enricher" ;
+    rdfs:comment "A transformer that supplements an incoming message with additional data fetched from an external source before forwarding." .
+kb:content_filter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "content filter" ;
+    rdfs:comment "A transformer that removes unwanted fields from a message, reducing payload size or stripping sensitive data." .
+kb:content_integrity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "content integrity" ;
+    rdfs:comment "A cryptographic checksum or hash value computed over the document content to detect unauthorized alterations in transit." .
+kb:content_router_for_documents a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "content router for documents" ;
+    rdfs:comment "The application of content_based_router to a document_message using payload fields to determine routing destination." .
+kb:correlation_identifier a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "correlation identifier" ;
+    rdfs:comment "A unique ID placed on both request and reply messages so the sender can match responses to their originating calls." .
+kb:cp_channel_state_snapshot a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cp channel state snapshot" ;
+    rdfs:comment "A point-in-time capture of channel metrics (depth, oldest_message_age, error_rate) used to evaluate purge_policy conditions before triggering a purge." .
+kb:cp_poison_message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cp poison message" ;
+    rdfs:comment "A message that has caused repeated processing failures or is structurally unprocessable and blocks channel progress if retained." .
+kb:cp_purge_action a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cp purge action" ;
+    rdfs:comment "The execution step that removes qualifying messages from the channel: permanent deletion, move to dead_letter_channel, or quarantine to invalid_message_channel." .
+kb:cp_purge_history a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cp purge history" ;
+    rdfs:comment "An audit log recording which messages were purged, when, under which policy, and the channel_state_snapshot at purge time for replay and tuning." .
+kb:cp_purge_policy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cp purge policy" ;
+    rdfs:comment "A set of rules defining which messages qualify for purging: age threshold, retry exhaustion, poison detection criteria, or pattern matching on content." .
+kb:cp_purge_scheduler a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cp purge scheduler" ;
+    rdfs:comment "The component that periodically evaluates threshold_condition and, when true, dispatches purge_action against the target channel." .
+kb:cp_purge_trigger a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cp purge trigger" ;
+    rdfs:comment "A condition that initiates a channel purge cycle; may be time-based, count-based, or event-based such as threshold_exceeded." .
+kb:cp_retention_window a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cp retention window" ;
+    rdfs:comment "A configurable time interval after which messages become stale_message candidates for purging; part of purge_policy definition." .
+kb:cp_stale_message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cp stale message" ;
+    rdfs:comment "A message that has exceeded its relevance window or idle duration and no longer carries actionable data for downstream consumers." .
+kb:cp_threshold_condition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cp threshold condition" ;
+    rdfs:comment "A predicate over channel_state_snapshot values that evaluates to true when purge_trigger should fire, such as depth_overflow or stale_age_exceeded." .
+kb:datatype_channel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "datatype channel" ;
+    rdfs:comment "A channel dedicated to one message type, enforcing contract clarity at the channel level rather than inside the payload." .
+kb:dead_letter_channel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dead letter channel" ;
+    rdfs:comment "A channel where messages go after exhausting retries, signaling a delivery failure requiring intervention." .
+kb:delayer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "delayer" ;
+    rdfs:comment "A router that holds messages for a configurable duration before forwarding them, implementing delayed delivery semantics." .
+kb:detour a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "detour" ;
+    rdfs:comment "A system management pattern that reroutes messages through a debugging or inspection step before resuming normal delivery." .
+kb:dm_001 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dm 001" ;
+    rdfs:comment "payload_structure: The internal data shape of a document message, comprising typed fields and nested data elements that constitute the complete business data being transmitted." .
+kb:dm_002 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dm 002" ;
+    rdfs:comment "semantic_envelope: Metadata wrapper around the payload describing document provenance, intent classification, and temporal context without prescribing receiver action." .
+kb:dm_003 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dm 003" ;
+    rdfs:comment "business_object_type: A typed classifier identifying the kind of business entity the document represents, such as purchase_order, invoice, or shipment_manifest." .
+kb:dm_004 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dm 004" ;
+    rdfs:comment "document_schema: A formal contract defining the expected payload_structure fields, their types, cardinality, and optionality for a given business_object_type." .
+kb:dm_005 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dm 005" ;
+    rdfs:comment "content_identifier: A stable unique reference (document_id, correlation token) that identifies this specific document instance across systems and message stores." .
+kb:dm_006 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dm 006" ;
+    rdfs:comment "processing_hint: An optional non-directive annotation suggesting preferred handling, urgency, or routing preference without constituting a command." .
+kb:dm_007 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dm 007" ;
+    rdfs:comment "document_origin: Metadata identifying the originating system, agent, or process that produced the document_message." .
+kb:dm_008 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dm 008" ;
+    rdfs:comment "payload_extractor: A component that retrieves specific fields from the payload_structure for routing, correlation, or downstream transformation." .
+kb:dm_009 a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dm 009" ;
+    rdfs:comment "schema_registry_entry: An entry in the message_type_registry binding a business_object_type to its document_schema and authorized handlers." .
+kb:doc_payload a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "doc payload" ;
+    rdfs:comment "The complete data content carried by a document_message, representing the full information payload without prescribing receiver action." .
+kb:document_classifier a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document classifier" ;
+    rdfs:comment "A component or rule set that examines document content to determine its payload type category for downstream routing." .
+kb:document_content a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document content" ;
+    rdfs:comment "The actual business data carried by the document message, constituting the primary payload that the receiver processes." .
+kb:document_distinguishes_from_command a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document distinguishes from command" ;
+    rdfs:comment "document_message differs from command_message by carrying data rather than prescribing method invocations." .
+kb:document_distinguishes_from_event a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document distinguishes from event" ;
+    rdfs:comment "document_message differs from event_message by carrying complete business data rather than lightweight occurrence notifications." .
+kb:document_envelope a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document envelope" ;
+    rdfs:comment "A transport wrapper bundling document content with its metadata, headers, and routing information for channel delivery." .
+kb:document_historian a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document historian" ;
+    rdfs:comment "The use of message_historian to archive document_message exchanges for compliance and forensic analysis." .
+kb:document_identifier a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document identifier" ;
+    rdfs:comment "A unique reference assigned to a document_message enabling correlation, lookup, and idempotent processing." .
+kb:document_identity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document identity" ;
+    rdfs:comment "A unique identifier or business key that uniquely distinguishes one document instance from all others in the integration system." .
+kb:document_message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document message" ;
+    rdfs:comment "A message that carries a complete data payload (e.g. a purchase order) without prescribing what the receiver must do." .
+kb:document_message_is_message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document message is message" ;
+    rdfs:comment "document_message specializes the general concept of message, inheriting channel transport, headers, and delivery semantics." .
+kb:document_metadata a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document metadata" ;
+    rdfs:comment "Auxiliary descriptors attached to a document_message describing origin, timestamp, version, or business context." .
+kb:document_reference a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document reference" ;
+    rdfs:comment "A link or pointer to related documents, enabling document graphs and cross-referencing within the message stream." .
+kb:document_semantic_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document semantic type" ;
+    rdfs:comment "The domain-specific classification of a document_message payload, distinguishing purchase orders from invoices or other business documents." .
+kb:document_store a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "document store" ;
+    rdfs:comment "The use of message_store to persist document_message payloads enabling audit trails and replay capability." .
+kb:durable_subscriber a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "durable subscriber" ;
+    rdfs:comment "A subscriber registration that survives broker restarts; undelivered messages are queued and delivered once the subscriber reconnects." .
+kb:dynamic_router a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dynamic router" ;
+    rdfs:comment "A router that consults a registry or lookup table at runtime to determine destinations, allowing routing rules to change without redeployment." .
+kb:end_to_end_acknowledge a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "end to end acknowledge" ;
+    rdfs:comment "A correlation pattern where the final consumer sends an acknowledgment that propagates back through the routing chain to the original sender." .
+kb:enterprise_integration_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "enterprise integration pattern" ;
+    rdfs:comment "A reusable solution template for connecting distributed systems, codified from real-world middleware and messaging experience." .
+kb:enterprise_service_bus a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "enterprise service bus" ;
+    rdfs:comment "An architectural platform that combines messaging, routing, transformation, and protocol bridging into a single integration middleware layer." .
+kb:envelope_wrapper a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "envelope wrapper" ;
+    rdfs:comment "A transformer that wraps or unwraps a message in an envelope to add or strip protocol-level headers for transport." .
+kb:event_driven_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event driven architecture" ;
+    rdfs:comment "An architectural style where system components react to events published to a message bus rather than being invoked directly." .
+kb:event_message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event message" ;
+    rdfs:comment "A message that notifies the receiver something has happened, typically carrying a lightweight notification payload." .
+kb:event_subscription a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event subscription" ;
+    rdfs:comment "The registration of a consumer's interest in receiving messages from a particular channel or topic based on content or type." .
+kb:exactly_once_delivery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "exactly once delivery" ;
+    rdfs:comment "Message delivery semantics ensuring that a message is processed precisely one time, combining delivery guarantees with deduplication." .
+kb:execution_context a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "execution context" ;
+    rdfs:comment "A structured record of runtime state passed alongside a command, providing the environment information needed to correctly process the operation invocation." .
+kb:fault_payload a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fault payload" ;
+    rdfs:comment "A data envelope containing error details returned when an operation fails, typically including fault code, description, and optional context for recovery." .
+kb:file_transfer_integration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "file transfer integration" ;
+    rdfs:comment "Integration via shared filesystem where each system produces/consumes files, requiring conventions on naming and polling." .
+kb:guaranteed_delivery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "guaranteed delivery" ;
+    rdfs:comment "The assurance that a message sent over a channel will eventually be delivered, even if the receiver is temporarily unavailable." .
+kb:health_check_endpoint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "health check endpoint" ;
+    rdfs:comment "A monitoring interface that exposes integration component status (channels healthy, queues depth, processing lag) for observability." .
+kb:idempotency_key a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idempotency key" ;
+    rdfs:comment "A unique identifier assigned to a command that allows receivers to detect and discard duplicate submissions, ensuring safe retries without double execution." .
+kb:idempotent_consumer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idempotent consumer" ;
+    rdfs:comment "A consumer designed to safely process the same message more than once without side effects, essential for guaranteed delivery." .
+kb:integration_style a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "integration style" ;
+    rdfs:comment "A coarse-grained approach to system interconnection, defined by the mechanism used to move data between systems." .
+kb:invalid_message_channel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "invalid message channel" ;
+    rdfs:comment "A channel that captures malformed or unprocessable messages for manual inspection instead of blocking the main flow." .
+kb:list_of_interceptors a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "list of interceptors" ;
+    rdfs:comment "A system management pattern that registers interceptor objects to run before or after message processing for cross-cutting concerns." .
+kb:load_balancer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "load balancer" ;
+    rdfs:comment "A router that distributes messages across multiple equivalent receiver instances to spread processing load." .
+kb:message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message" ;
+    rdfs:comment "A discrete packet of information sent over a channel, carrying a payload and metadata for routing and processing." .
+kb:message_bridge a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message bridge" ;
+    rdfs:comment "An adapter linking two messaging systems or channel types so messages flow across heterogeneous middleware." .
+kb:message_broker a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message broker" ;
+    rdfs:comment "Middleware that holds a central registry of channels, routes messages between them, and manages subscriber lifecycles." .
+kb:message_channel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message channel" ;
+    rdfs:comment "A virtual pipeline through which messages travel from sender to receiver; analogous to a typed stream or queue." .
+kb:message_datatype a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message datatype" ;
+    rdfs:comment "The classification or schema identifier of a message that determines which datatype channels it can traverse." .
+kb:message_expiration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message expiration" ;
+    rdfs:comment "A property on a message indicating it becomes invalid after a certain time and should be discarded if not delivered." .
+kb:message_filter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message filter" ;
+    rdfs:comment "A router that discards messages that do not meet a predicate condition, suppressing unwanted messages from downstream consumers." .
+kb:message_historian a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message historian" ;
+    rdfs:comment "A component that archives all messages passing through a channel for compliance, auditing, or forensic replay." .
+kb:message_router a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message router" ;
+    rdfs:comment "A component that inspects message content or metadata and forwards the message to one or more downstream channels." .
+kb:message_store a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message store" ;
+    rdfs:comment "A durable repository of all messages processed by an integration component, enabling replay and audit trails." .
+kb:message_transformer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message transformer" ;
+    rdfs:comment "A component that modifies message structure or content as it passes through, translating between producer and consumer schemas." .
+kb:message_type_registry a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message type registry" ;
+    rdfs:comment "A catalog that maps message type names or namespace identifiers to their schemas and handlers in the integration system." .
+kb:messaging_gateway a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "messaging gateway" ;
+    rdfs:comment "A Fa\u00e7ade that exposes integration functionality to internal clients while hiding the underlying messaging API and complexity." .
+kb:messaging_integration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "messaging integration" ;
+    rdfs:comment "Integration via asynchronous message passing through a message broker, decoupling sender and receiver in time and space." .
+kb:messaging_system a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "messaging system" ;
+    rdfs:comment "Middleware infrastructure that provides channels, routing, and delivery guarantees for asynchronous message transport." .
+kb:messaging_translator a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "messaging translator" ;
+    rdfs:comment "A bridge component that converts between the enterprise's canonical data model and the external system's proprietary format." .
+kb:non_prescriptive_behavior a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "non prescriptive behavior" ;
+    rdfs:comment "The semantic trait distinguishing document_message from command_message, indicating the receiver determines its own response." .
+kb:normalizer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "normalizer" ;
+    rdfs:comment "A transformer that reconciles multiple inbound message formats into a single canonical format before routing." .
+kb:normalizer_for_documents a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "normalizer for documents" ;
+    rdfs:comment "The use of normalizer to reconcile incoming document_message payloads from varying formats into a canonical schema." .
+kb:operation_arguments a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "operation arguments" ;
+    rdfs:comment "The parameter values supplied to the operation being invoked by a command message, structured according to the target interface's argument schema." .
+kb:operation_identifier a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "operation identifier" ;
+    rdfs:comment "A named or coded reference that uniquely identifies which operation a command message is requesting, mapping to a procedure on the target system." .
+kb:orchestration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "orchestration" ;
+    rdfs:comment "A centralized integration style where a single process manager directs the sequence of operations across multiple services." .
+kb:payload_completeness a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "payload completeness" ;
+    rdfs:comment "The defining property of a document_message asserting the payload contains all necessary data for the consumer to act upon voluntarily." .
+kb:payload_encoding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "payload encoding" ;
+    rdfs:comment "The serialization format of the document_message payload, such as JSON, XML, YAML, or binary encoding." .
+kb:payload_schema a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "payload schema" ;
+    rdfs:comment "The structural definition that a document_message payload conforms to, specifying fields, types, and constraints." .
+kb:payload_type a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "payload type" ;
+    rdfs:comment "A classification identifier indicating the document category or business object type, enabling routing and handler selection." .
+kb:payload_validation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "payload validation" ;
+    rdfs:comment "The process of verifying that document content conforms to its declared payload schema before further processing." .
+kb:point_to_point_channel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "point to point channel" ;
+    rdfs:comment "A channel with exactly one consumer per message; guarantees that exactly one receiver processes each message." .
+kb:polling_consumer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "polling consumer" ;
+    rdfs:comment "A consumer that repeatedly queries a source for new messages rather than receiving them push-style from a channel." .
+kb:process_manager a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "process manager" ;
+    rdfs:comment "A stateful component that orchestrates a multi-step business process by sending messages to channels and handling responses." .
+kb:publish_subscribe_channel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "publish subscribe channel" ;
+    rdfs:comment "A channel where one publisher sends and all subscribed receivers consume; each gets its own copy of the message." .
+kb:recipient_list a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "recipient list" ;
+    rdfs:comment "A router that sends the same message to a list of recipients computed at runtime from the message content or context." .
+kb:remote_procedure_invocation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "remote procedure invocation" ;
+    rdfs:comment "Integration where one system exposes a callable API and another synchronously invokes it as if it were local." .
+kb:request_reply a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "request reply" ;
+    rdfs:comment "A message exchange pattern pairing an outgoing request message with a correlated response message returned to the original sender." .
+kb:resequencer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "resequencer" ;
+    rdfs:comment "A router that reorders a stream of messages into the correct sequence before passing them downstream." .
+kb:result_payload a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "result payload" ;
+    rdfs:comment "A data envelope containing the return value or outcome produced by a successfully executed operation, structured to match the expected response schema." .
+kb:return_address a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "return address" ;
+    rdfs:comment "Metadata on a reply message indicating which channel and possibly which queue the response should be routed to." .
+kb:routing_slip a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "routing slip" ;
+    rdfs:comment "A routing pattern where each message carries its own itinerary of processing steps, executed in sequence by participating nodes." .
+kb:scatter_gather a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scatter gather" ;
+    rdfs:comment "A router that broadcasts a request to multiple recipients and then collects and consolidates all their responses." .
+kb:schema_validation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "schema validation" ;
+    rdfs:comment "The enforcement that a message payload conforms to its declared schema before it is routed or transformed." .
+kb:schema_validation_on_document a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "schema validation on document" ;
+    rdfs:comment "The application of schema_validation to ensure document_message payloads conform to their declared payload_schema." .
+kb:sequential_convoy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sequential convoy" ;
+    rdfs:comment "A routing pattern that correlates messages across multiple channels by a shared sequencing key to maintain order across streams." .
+kb:shared_database_integration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "shared database integration" ;
+    rdfs:comment "Integration via a common relational schema where systems read/write shared tables as the coupling mechanism." .
+kb:smart_proxy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "smart proxy" ;
+    rdfs:comment "A component that monitors a channel and takes corrective action (e.g., resends, redirects) when abnormal conditions are detected." .
+kb:splitter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "splitter" ;
+    rdfs:comment "A router that breaks a composite message containing multiple items into individual messages, one per item." .
+kb:static_recipient_list a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "static recipient list" ;
+    rdfs:comment "A recipient list with fixed destinations known at design time, compiled into the routing logic rather than derived from content." .
+kb:target_interface_version a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "target interface version" ;
+    rdfs:comment "A version descriptor indicating which contract version of the target interface a command message adheres to, enabling version-aware routing and validation." .
+kb:test_message a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "test message" ;
+    rdfs:comment "A system management pattern that injects a known probe message into the flow to verify correct processing downstream." .
+kb:throttler a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "throttler" ;
+    rdfs:comment "A router that limits the rate at which messages pass through, protecting downstream systems from overload." .
+kb:transactional_integration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transactional integration" ;
+    rdfs:comment "Integration that groups message production or consumption with local database updates into a single atomic unit of work." .
+kb:type_constraint_enforcement a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type constraint enforcement" ;
+    rdfs:comment "The runtime or compile-time rule that a datatype channel accepts only messages whose datatype matches the declared type, rejecting mismatched messages." .
+kb:type_matching_check a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type matching check" ;
+    rdfs:comment "The validation that a message's actual type matches a datatype channel's declared type at the point of send or receive." .
+kb:type_metadata a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type metadata" ;
+    rdfs:comment "The descriptor carried by a datatype channel identifying the exact message type, schema, or format that the channel transports." .
+kb:type_safe_consumer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type safe consumer" ;
+    rdfs:comment "A message consumer bound to a datatype channel that receives only messages of the declared datatype, enabling type-safe processing without runtime type checks." .
+kb:type_safe_producer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type safe producer" ;
+    rdfs:comment "A message producer bound to a datatype channel that can only publish messages of the declared datatype, preventing accidental type violations." .
+kb:type_schema_binding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "type schema binding" ;
+    rdfs:comment "The linkage between a datatype channel and the formal schema or structure definition of its accepted message type." .
+kb:untyped_channel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "untyped channel" ;
+    rdfs:comment "A channel without a declared datatype that accepts messages of any type, serving as the contrast to datatype channels." .
+kb:wire_tap a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "wire tap" ;
+    rdfs:comment "A system management pattern that taps into a channel to observe messages without disrupting the normal flow." .
+
+kb:aggregator kbo:relatesTo kb:bulk_message_consumer .
+kb:aggregator kbo:relatesTo kb:dm_003 .
+kb:aggregator kbo:relatesTo kb:end_to_end_acknowledge .
+kb:aggregator kbo:relatesTo kb:resequencer .
+kb:asynchronous_messaging kbo:relatesTo kb:messaging_system .
+kb:attachment kbo:relatesTo kb:envelope_wrapper .
+kb:canonical_data_model kbo:relatesTo kb:messaging_translator .
+kb:canonical_form kbo:relatesTo kb:canonical_data_model .
+kb:channel_adapter kbo:relatesTo kb:channel_bridge .
+kb:channel_adapter kbo:relatesTo kb:messaging_gateway .
+kb:channel_type_declaration kbo:relatesTo kb:datatype_channel .
+kb:channel_typing_discipline kbo:relatesTo kb:datatype_channel .
+kb:claim_check kbo:relatesTo kb:message_store .
+kb:cmd_001 kbo:relatesTo kb:command_message .
+kb:cmd_002 kbo:relatesTo kb:command_message .
+kb:cmd_003 kbo:relatesTo kb:command_message .
+kb:cmd_004 kbo:relatesTo kb:command_message .
+kb:cmd_005 kbo:relatesTo kb:command_message .
+kb:cmd_006 kbo:relatesTo kb:command_message .
+kb:cmd_007 kbo:relatesTo kb:command_timeout .
+kb:cmd_008 kbo:relatesTo kb:command_priority .
+kb:cmd_009 kbo:relatesTo kb:command_target .
+kb:cmd_010 kbo:relatesTo kb:command_message .
+kb:command_message kbo:relatesTo kb:command_priority .
+kb:command_message kbo:relatesTo kb:command_target .
+kb:command_message kbo:relatesTo kb:command_timeout .
+kb:command_message kbo:relatesTo kb:correlation_identifier .
+kb:command_message kbo:relatesTo kb:dead_letter_channel .
+kb:command_message kbo:relatesTo kb:execution_context .
+kb:command_message kbo:relatesTo kb:fault_payload .
+kb:command_message kbo:relatesTo kb:guaranteed_delivery .
+kb:command_message kbo:relatesTo kb:idempotency_key .
+kb:command_message kbo:relatesTo kb:idempotent_consumer .
+kb:command_message kbo:relatesTo kb:message_expiration .
+kb:command_message kbo:relatesTo kb:message_router .
+kb:command_message kbo:relatesTo kb:message_store .
+kb:command_message kbo:relatesTo kb:message_type_registry .
+kb:command_message kbo:relatesTo kb:operation_arguments .
+kb:command_message kbo:relatesTo kb:operation_identifier .
+kb:command_message kbo:relatesTo kb:request_reply .
+kb:command_message kbo:relatesTo kb:result_payload .
+kb:command_message kbo:relatesTo kb:return_address .
+kb:command_message kbo:relatesTo kb:schema_validation .
+kb:command_message kbo:relatesTo kb:target_interface_version .
+kb:composed_message_processor kbo:relatesTo kb:aggregator .
+kb:composed_message_processor kbo:relatesTo kb:splitter .
+kb:content_based_router kbo:relatesTo kb:dm_001 .
+kb:content_based_router kbo:relatesTo kb:dm_003 .
+kb:content_based_router kbo:relatesTo kb:normalizer .
+kb:content_enricher kbo:relatesTo kb:canonical_data_model .
+kb:content_integrity kbo:relatesTo kb:message_historian .
+kb:content_router_for_documents kbo:relatesTo kb:content_based_router .
+kb:cp_channel_state_snapshot kbo:relatesTo kb:cp_threshold_condition .
+kb:cp_purge_action kbo:relatesTo kb:cp_poison_message .
+kb:cp_purge_action kbo:relatesTo kb:cp_purge_history .
+kb:cp_purge_action kbo:relatesTo kb:cp_stale_message .
+kb:cp_purge_action kbo:relatesTo kb:dead_letter_channel .
+kb:cp_purge_action kbo:relatesTo kb:invalid_message_channel .
+kb:cp_purge_history kbo:relatesTo kb:health_check_endpoint .
+kb:cp_purge_policy kbo:relatesTo kb:cp_poison_message .
+kb:cp_purge_policy kbo:relatesTo kb:cp_stale_message .
+kb:cp_purge_scheduler kbo:relatesTo kb:cp_threshold_condition .
+kb:cp_purge_scheduler kbo:relatesTo kb:wire_tap .
+kb:cp_purge_trigger kbo:relatesTo kb:cp_purge_action .
+kb:cp_retention_window kbo:relatesTo kb:message_store .
+kb:cp_threshold_condition kbo:relatesTo kb:cp_purge_trigger .
+kb:datatype_channel kbo:relatesTo kb:message_channel .
+kb:datatype_channel kbo:relatesTo kb:untyped_channel .
+kb:dead_letter_channel kbo:relatesTo kb:dm_004 .
+kb:delayer kbo:relatesTo kb:message_router .
+kb:dm_001 kbo:relatesTo kb:dm_002 .
+kb:dm_001 kbo:relatesTo kb:dm_003 .
+kb:dm_002 kbo:relatesTo kb:dm_003 .
+kb:dm_002 kbo:relatesTo kb:dm_005 .
+kb:dm_002 kbo:relatesTo kb:dm_006 .
+kb:dm_004 kbo:relatesTo kb:dm_001 .
+kb:dm_007 kbo:relatesTo kb:dm_002 .
+kb:doc_payload kbo:relatesTo kb:document_message .
+kb:document_classifier kbo:relatesTo kb:content_based_router .
+kb:document_content kbo:relatesTo kb:document_semantic_type .
+kb:document_distinguishes_from_command kbo:relatesTo kb:event_message .
+kb:document_message kbo:relatesTo kb:dm_001 .
+kb:document_message kbo:relatesTo kb:dm_002 .
+kb:event_driven_architecture kbo:relatesTo kb:event_message .
+kb:event_message kbo:relatesTo kb:event_subscription .
+kb:guaranteed_delivery kbo:relatesTo kb:at_least_once_delivery .
+kb:guaranteed_delivery kbo:relatesTo kb:dead_letter_channel .
+kb:guaranteed_delivery kbo:relatesTo kb:exactly_once_delivery .
+kb:guaranteed_delivery kbo:relatesTo kb:idempotent_consumer .
+kb:idempotent_consumer kbo:relatesTo kb:dm_005 .
+kb:idempotent_consumer kbo:relatesTo kb:exactly_once_delivery .
+kb:integration_style kbo:relatesTo kb:file_transfer_integration .
+kb:integration_style kbo:relatesTo kb:messaging_integration .
+kb:integration_style kbo:relatesTo kb:remote_procedure_invocation .
+kb:integration_style kbo:relatesTo kb:shared_database_integration .
+kb:integration_style kbo:relatesTo kb:transactional_integration .
+kb:load_balancer kbo:relatesTo kb:point_to_point_channel .
+kb:message kbo:relatesTo kb:command_message .
+kb:message kbo:relatesTo kb:document_message .
+kb:message kbo:relatesTo kb:event_message .
+kb:message kbo:relatesTo kb:guaranteed_delivery .
+kb:message kbo:relatesTo kb:message_expiration .
+kb:message kbo:relatesTo kb:message_historian .
+kb:message kbo:relatesTo kb:message_router .
+kb:message kbo:relatesTo kb:message_type_registry .
+kb:message kbo:relatesTo kb:request_reply .
+kb:message kbo:relatesTo kb:schema_validation .
+kb:message_broker kbo:relatesTo kb:choreography .
+kb:message_broker kbo:relatesTo kb:content_based_router .
+kb:message_broker kbo:relatesTo kb:dead_letter_channel .
+kb:message_broker kbo:relatesTo kb:enterprise_service_bus .
+kb:message_broker kbo:relatesTo kb:publish_subscribe_channel .
+kb:message_channel kbo:relatesTo kb:channel_adapter .
+kb:message_channel kbo:relatesTo kb:channel_purger .
+kb:message_channel kbo:relatesTo kb:datatype_channel .
+kb:message_channel kbo:relatesTo kb:dead_letter_channel .
+kb:message_channel kbo:relatesTo kb:detour .
+kb:message_channel kbo:relatesTo kb:health_check_endpoint .
+kb:message_channel kbo:relatesTo kb:invalid_message_channel .
+kb:message_channel kbo:relatesTo kb:point_to_point_channel .
+kb:message_channel kbo:relatesTo kb:polling_consumer .
+kb:message_channel kbo:relatesTo kb:publish_subscribe_channel .
+kb:message_channel kbo:relatesTo kb:test_message .
+kb:message_channel kbo:relatesTo kb:wire_tap .
+kb:message_datatype kbo:relatesTo kb:type_matching_check .
+kb:message_historian kbo:relatesTo kb:dm_007 .
+kb:message_historian kbo:relatesTo kb:message_store .
+kb:message_router kbo:relatesTo kb:content_based_router .
+kb:message_router kbo:relatesTo kb:dm_008 .
+kb:message_router kbo:relatesTo kb:dynamic_router .
+kb:message_router kbo:relatesTo kb:message_filter .
+kb:message_router kbo:relatesTo kb:recipient_list .
+kb:message_router kbo:relatesTo kb:splitter .
+kb:message_store kbo:relatesTo kb:dm_005 .
+kb:message_store kbo:relatesTo kb:message_historian .
+kb:message_transformer kbo:relatesTo kb:claim_check .
+kb:message_transformer kbo:relatesTo kb:content_enricher .
+kb:message_transformer kbo:relatesTo kb:content_filter .
+kb:message_transformer kbo:relatesTo kb:envelope_wrapper .
+kb:message_transformer kbo:relatesTo kb:messaging_translator .
+kb:message_transformer kbo:relatesTo kb:normalizer .
+kb:message_type_registry kbo:relatesTo kb:dm_009 .
+kb:messaging_integration kbo:relatesTo kb:event_driven_architecture .
+kb:messaging_system kbo:relatesTo kb:at_most_once_delivery .
+kb:messaging_system kbo:relatesTo kb:circuit_breaker .
+kb:messaging_system kbo:relatesTo kb:message_channel .
+kb:normalizer kbo:relatesTo kb:dm_001 .
+kb:process_manager kbo:relatesTo kb:orchestration .
+kb:publish_subscribe_channel kbo:relatesTo kb:durable_subscriber .
+kb:publish_subscribe_channel kbo:relatesTo kb:event_subscription .
+kb:remote_procedure_invocation kbo:relatesTo kb:messaging_gateway .
+kb:request_reply kbo:relatesTo kb:correlation_identifier .
+kb:request_reply kbo:relatesTo kb:end_to_end_acknowledge .
+kb:request_reply kbo:relatesTo kb:fault_payload .
+kb:request_reply kbo:relatesTo kb:result_payload .
+kb:request_reply kbo:relatesTo kb:return_address .
+kb:routing_slip kbo:relatesTo kb:process_manager .
+kb:scatter_gather kbo:relatesTo kb:aggregator .
+kb:scatter_gather kbo:relatesTo kb:recipient_list .
+kb:schema_validation kbo:relatesTo kb:dm_004 .
+kb:schema_validation kbo:relatesTo kb:dm_009 .
+kb:sequential_convoy kbo:relatesTo kb:resequencer .
+kb:smart_proxy kbo:relatesTo kb:circuit_breaker .
+kb:splitter kbo:relatesTo kb:aggregator .
+kb:splitter kbo:relatesTo kb:bulk_message_consumer .
+kb:throttler kbo:relatesTo kb:message_router .
+kb:transactional_integration kbo:relatesTo kb:messaging_integration .
+kb:type_constraint_enforcement kbo:relatesTo kb:datatype_channel .
+kb:type_matching_check kbo:relatesTo kb:datatype_channel .
+kb:type_metadata kbo:relatesTo kb:datatype_channel .
+kb:type_safe_consumer kbo:relatesTo kb:datatype_channel .
+kb:type_safe_producer kbo:relatesTo kb:datatype_channel .
+kb:type_schema_binding kbo:relatesTo kb:datatype_channel .
+kb:type_schema_binding kbo:relatesTo kb:message_datatype .
+kb:untyped_channel kbo:relatesTo kb:message_channel .
+kb:wire_tap kbo:relatesTo kb:list_of_interceptors .
+
