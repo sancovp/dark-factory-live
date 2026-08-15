@@ -2494,5 +2494,50 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-15T14:10:31+00:00",
+    "verdict": "REVERT",
+    "change": "Installed preflight_gate_guard_recipe to loadout; fixed 8 dependency gaps by installing 7 missing components (5 lenses + 2 audit recipes); gap_count=0, composition verified, loadout-ready",
+    "diff": [
+      {
+        "file": "loadout/PREFLIGHT_GATE_GUARD_GAP_REPORT.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/constraint_inversion_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/convergence_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/dependency_audit_recipe.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/dependency_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/divergence_lens.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/pipeline_audit_recipe.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/preflight_gate_guard_recipe.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/second_order_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
