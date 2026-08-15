@@ -2447,5 +2447,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 2.0
+  },
+  {
+    "at": "2026-08-15T13:31:40+00:00",
+    "verdict": "REVERT",
+    "change": "Installed action_threshold_lens to loadout; lens diagnosis: PARITY PARALYSIS despite positive EV (q_forge_lens=60g, q_recipe_chain=120g both profitable) \u2014 threshold breaker is first mover accepting q_",
+    "diff": [
+      {
+        "file": "loadout/action_threshold_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
