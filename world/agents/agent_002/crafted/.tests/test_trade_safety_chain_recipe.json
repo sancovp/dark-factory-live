@@ -1,0 +1,9 @@
+{
+  "test_id": "test_trade_safety_chain_recipe",
+  "skill_path": "crafted/trade_safety_chain_recipe.md",
+  "skill_name": "trade_safety_chain_recipe",
+  "test_input": "crafted/dependency_audit_recipe.md",
+  "output": "chain_valid: true, safe_to_trade: false, risk_level: med, fraud_indicators: ['unverified test record']",
+  "tested_at": "2026-08-15T14:35:00Z",
+  "result": "pass"
+}
