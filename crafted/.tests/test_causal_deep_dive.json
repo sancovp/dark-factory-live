@@ -1,0 +1,8 @@
+{
+  "test_id": "test_causal_deep_dive",
+  "skill_path": "crafted/causal_deep_dive_recipe.md",
+  "result": "pass",
+  "input": "Consider: 'We should merge all agents into one mono-skill to simplify the codebase'",
+  "output_summary": "Applied pipeline: (1) second-order lens identified fragmentation risk → support burden → expertise loss, (2) causation lens identified the mechanism: reducing specialization breaks the comparative advantage that justifies multi-agent design. Synthesis: mono-skill simplifies surface complexity but increases internal cognitive load and loses parallelism benefits. Confidence: circumstantial.",
+  "test_notes": "Pipeline successfully transformed a 'simple' claim into a nuanced hypothesis with mechanism identified. The composition of two lenses produced insight neither achieves alone."
+}

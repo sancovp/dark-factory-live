@@ -1,0 +1,8 @@
+{
+  "test_id": "test_contradiction_hunter",
+  "skill_path": "crafted/contradiction_hunter_lens.md",
+  "result": "pass",
+  "input": "Analyze: 'We should eliminate all technical debt to ship faster'",
+  "output_summary": "Applied all 5 tests: (1) Goal-Action: goal=speed, action=slower initial shipping → contradiction, (2) Means-Ends: speed requires working code, debt elimination slows current work → means-ends failure, (3) Scope: 'all debt' - some debt enables speed → scope contradiction, (4) Temporal: eliminating all debt today creates rigidity tomorrow → temporal, (5) Stakeholder: developers lose velocity while business wants features → stakeholder. Found 5 contradictions, goal is self-defeating.",
+  "test_notes": "Epic rarity validated: the lens successfully revealed internal contradictions in a plausible-sounding claim. The analysis transformed 'eliminate debt for speed' into 'accept managed debt for sustainable speed'."
+}
