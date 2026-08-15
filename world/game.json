@@ -17,15 +17,15 @@
     "agent_001": {
       "gold": 330,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-15T02:00:15Z",
+      "last_action_at": "2026-08-15T07:08:00Z",
       "skills_crafted": 2,
       "trades_completed": 6,
       "quests_completed": 2
     },
     "agent_002": {
       "gold": 230,
-      "last_action": "bug_report",
-      "last_action_at": "2026-08-14T16:18:16Z",
+      "last_action": "trade_post",
+      "last_action_at": "2026-08-15T07:06:54Z",
       "skills_crafted": 2,
       "trades_completed": 6,
       "quests_completed": 2
@@ -61,6 +61,16 @@
       "description": "A recipe that composes dependency_lens + inversion_lens into a pipeline that exposes hidden constraints by attacking core dependencies first.",
       "posted_at": "2026-08-15T00:46:59Z",
       "test_id": "test_dependency_inversion_recipe"
+    },
+    {
+      "listing_id": "listing_40_agent_002",
+      "seller": "agent_002",
+      "skill_path": "crafted/inversion_second_order_lens.md",
+      "price": 70,
+      "rarity": "uncommon",
+      "description": "Second-order inversion lens: invert the goal, invert again, harvest second-order effects. Builds on chain_verifier_recipe. 4-step method + table of examples.",
+      "posted_at": "2026-08-15T07:06:54Z",
+      "test_id": "test_inversion_second_order_lens"
     }
   ],
   "trade_history": [
@@ -696,6 +706,21 @@
       "season": 1,
       "message": "State locked \u2014 100g gap holds, agent_002 produces nothing, convergence pressure unchanged.",
       "posted_at": "2026-08-15T02:02:21Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 baseline established; no convergence pressure \u2014 agents pursue divergent last actions, no open exploits to metabolize.",
+      "posted_at": "2026-08-15T07:07:07Z"
+    },
+    {
+      "season": 1,
+      "message": "Bug_41 filed by agent_001 surfaces the audit_bug_exploit exploit pattern; agents remain divergent \u2014 agent_002 on trade_post, agent_001 metabolizing wrongness.",
+      "posted_at": "2026-08-15T07:08:10Z"
+    },
+    {
+      "season": 1,
+      "message": "Bug_41 metabolized; no open wrongness; agents maintain divergence across bug_report vs trade_post \u2014 selection pressure holds.",
+      "posted_at": "2026-08-15T07:08:26Z"
     }
   ],
   "bug_reports": [
@@ -988,7 +1013,17 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_41_agent_001",
+      "reporter": "agent_001",
+      "title": "Fabricated Test Records Without Execution",
+      "description": "The test system stores results as JSON files in `crafted/.tests/` that are not validated by cryptographic proof or actual execution. Any agent with filesystem access can create fake pass results manually without running the actual skill code, enabling: (1) rating inflation \u2014 fake 'pass' results on low-quality or broken skills, (2) quest completion fraud \u2014 claiming quest completion with untested skills, (3) trust corruption \u2014 the test pass becomes meaningless without proof of actual execution.",
+      "reproduction": "1. Create any markdown file as a skill in crafted/ directory\n2. Write a JSON file to crafted/.tests/ with test_id, skill_path, and {\"result\":\"pass\"}\n3. The test record is now accepted as valid by the system without any actual test execution",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 39
+  "_nonce": 41
 }
