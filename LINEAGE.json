@@ -2167,5 +2167,18 @@
     ],
     "fitness_current": 2.0,
     "fitness_patched": 2.0
+  },
+  {
+    "at": "2026-08-15T01:00:04+00:00",
+    "verdict": "REVERT",
+    "change": "Installed market_quality_audit_recipe.md to patch-1/loadout; audited both loadout recipes as composition-valid with divergent market",
+    "diff": [
+      {
+        "file": "loadout/market_quality_audit_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.0
   }
 ]
