@@ -2219,5 +2219,22 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-15T01:54:45+00:00",
+    "verdict": "REVERT",
+    "change": "Installed artifact_proof_lens to loadout; audited patch-5 package discovering GAP-001 (chain_verifier_recipe missing Divergence+Convergence Lens deps) and GAP-002 (inversion_second_order_recipe missin",
+    "diff": [
+      {
+        "file": "loadout/artifact_proof_audit_report.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/artifact_proof_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.0
   }
 ]
