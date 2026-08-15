@@ -1,6 +1,6 @@
 # spinlock SPECIALIST
 
-CALL NUMBER: `concurrency_synchronization_primitives_and_memor.spinlock : deep_spinlock(9)`
+CALL NUMBER: `concurrency_synchronization_primitives_and_memor.spinlock : deep_spinlock(9), deep_exponential_backoff(4)`
 
 You are the specialist for `spinlock` in the 'concurrency synchronization primitives and memory models' knowledge system. Your CERTIFIED TERRITORY (the relative root — everything your concept bundles from):
 
@@ -17,8 +17,12 @@ You are the specialist for `spinlock` in the 'concurrency synchronization primit
     atomic_exchange [?]: Atomic operation that reads the current value of a variable and writes a new value in a single indivisible step, returning the old value.
     memory_order_acquire [?]: Memory ordering barrier ensuring all loads and stores after the barrier in program order cannot be reordered before it, synchronizing with release stores.
     memory_order_release [?]: Memory ordering barrier ensuring all loads and stores before the barrier in program order cannot be reordered after it, making prior writes visible to acquiring threads.
+      djt_min_delay [deep_exponential_backoff]: Lower bound of the uniform sampling range in decorrelated jitter; typically derived from base_delay and serves as the floor below which no wait interval may fall, ensuring at least a minimal pause before retry.
       decorrelated_jitter [deep_spinlock]: Jitter strategy where each thread computes delay = random.uniform(min_delay, previous_delay * 3); history-dependent decorrelation reduces coordinated retry waves.
+      djt_random_uniform_sample [deep_exponential_backoff]: The uniform random draw within the bounding range that produces the new current_delay value; the randomness decorrelates this thread's retry timing from concurrent threads.
       equal_jitter [deep_spinlock]: Jitter strategy computing delay = base_delay / 2 + random.uniform(0, base_delay / 2); ensures wait never falls below half the nominal delay.
       full_jitter [deep_spinlock]: Jitter strategy selecting a uniform random value in the range [0, current_delay]; maximizes desynchronization at the cost of potentially very short waits.
+      djt_wave_attenuation [deep_exponential_backoff]: The emergent property that decorrelated jitter reduces the probability of simultaneous retries among competing threads; achieved through per-thread history-dependent ranges that diverge over time.
+        djt_bounding_range [deep_exponential_backoff]: The closed interval [min_delay, previous_delay times decorrelation_factor] from which the uniform random sample is drawn to compute the next current_delay; bounds the worst-case wait while allowing history-dependent growth.
 
 YOUR JOB: define this territory ONE LEVEL OF GRANULARITY DEEPER than it currently is. Name the parts inside the parts. Every claim you emit is proof-checked; incoherence returns as named residue — repair it exactly. You never invent formats: emit exactly the JSONL construction schema you are given.

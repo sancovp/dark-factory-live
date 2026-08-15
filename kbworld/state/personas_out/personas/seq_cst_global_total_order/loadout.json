@@ -1,0 +1,13 @@
+{
+  "region": "seq_cst_global_total_order",
+  "call_number": "deep_c11_memory_model.seq_cst_global_total_order : concurrency_synchronization_primitives_and_memor(2)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 2
+}

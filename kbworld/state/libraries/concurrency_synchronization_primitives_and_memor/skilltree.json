@@ -25,11 +25,20 @@
             "children": []
           },
           {
+            "name": "understand-memory_order_relaxed",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-memory_order_relaxed",
+            "description": "C11/C++11 memory ordering that only guarantees atomicity of the operation with no ordering constraints relativ",
+            "coord": "0.1.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
             "name": "understand-c11_memory_model",
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-c11_memory_model",
             "description": "Standard C11 specification defining memory orderings: memory_order_relaxed, memory_order_consume, memory_order",
-            "coord": "0.1.2",
+            "coord": "0.1.3",
             "frameworks": [],
             "children": []
           },
@@ -38,15 +47,6 @@
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-exponential_backoff",
             "description": "Contention management strategy backing off exponentially after failed lock acquisition; reduces bus traffic an",
-            "coord": "0.1.3",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-mcs_lock",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-mcs_lock",
-            "description": "Queued lock where each waiting thread spins on a locally-owned node linked into a queue; cache-friendly with o",
             "coord": "0.1.4",
             "frameworks": [],
             "children": []
@@ -61,10 +61,10 @@
             "children": []
           },
           {
-            "name": "understand-synchronizes_with",
+            "name": "understand-acquire_semantics",
             "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-synchronizes_with",
-            "description": "A relation between atomic operations in memory models where a release fence on one thread synchronizes with an",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-acquire_semantics",
+            "description": "Memory ordering semantics ensuring all subsequent loads/stores cannot be reordered before the acquire operatio",
             "coord": "0.1.6",
             "frameworks": [],
             "children": []
@@ -130,43 +130,25 @@
         "name": "understand-deep_c11_memory_model",
         "kind": "skill",
         "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-deep_c11_memory_model",
-        "description": "the deep_c11_memory_model subdomain of concurrency synchronization primitives and memory models (31 concepts)",
+        "description": "the deep_c11_memory_model subdomain of concurrency synchronization primitives and memory models (50 concepts)",
         "coord": "0.3",
         "frameworks": [],
         "children": [
-          {
-            "name": "understand-relaxed_atomicity_guarantee",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-relaxed_atomicity_guarantee",
-            "description": "The sole guarantee provided by memory_order_relaxed: the atomic variable is read and written atomically withou",
-            "coord": "0.3.1",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-reordering_freedom_privilege",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-reordering_freedom_privilege",
-            "description": "A relaxed atomic operation imposes no constraints on the reordering of memory operations by either the compile",
-            "coord": "0.3.2",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-synchronizes_with_absence",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-synchronizes_with_absence",
-            "description": "A relaxed atomic operation does not synchronize with any other operation; it establishes no happens-before or ",
-            "coord": "0.3.3",
-            "frameworks": [],
-            "children": []
-          },
           {
             "name": "understand-seq_cst_global_total_order",
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-seq_cst_global_total_order",
             "description": "A single total order of all sequentially consistent operations that is visible and agreed upon by all threads ",
-            "coord": "0.3.4",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-seq_cst_indivisible_atomicity",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-seq_cst_indivisible_atomicity",
+            "description": "The property that each sequentially consistent operation appears indivisible and instantaneous to all observer",
+            "coord": "0.3.2",
             "frameworks": [],
             "children": []
           },
@@ -175,16 +157,98 @@
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-seq_cst_synchronization_protocol",
             "description": "The protocol by which sequentially consistent operations establish synchronization points between threads; cre",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-seq_cst_atomic_visibility_happens_before_cutoff_visibility",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-seq_cst_atomic_visibility_happens_before_cutoff_visibility",
+            "description": "A seq_cst read cannot observe a write that is ordered after it in the total order; the happens-before relation",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-program_order_locality",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-program_order_locality",
+            "description": "The property that program order defines a total order of operations only within a single thread; relaxed opera",
             "coord": "0.3.5",
             "frameworks": [],
             "children": []
           },
           {
-            "name": "understand-no_happens_before_establishment",
+            "name": "understand-relaxed_atomicity",
             "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-no_happens_before_establishment",
-            "description": "A relaxed operation neither participates in nor establishes a happens-before relationship with any other opera",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-relaxed_atomicity",
+            "description": "The sole guarantee of memory_order_relaxed: a load or store completes atomically without torn reads or torn wr",
             "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_exponential_backoff",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-deep_exponential_backoff",
+        "description": "the deep_exponential_backoff subdomain of concurrency synchronization primitives and memory models (37 concepts)",
+        "coord": "0.4",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-thundering_herd_contention_surge",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-thundering_herd_contention_surge",
+            "description": "A transient spike in the rate of lock or resource acquisition attempts triggered by mass wakeup, producing que",
+            "coord": "0.4.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-djt_bounding_range",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-djt_bounding_range",
+            "description": "The closed interval [min_delay, previous_delay times decorrelation_factor] from which the uniform random sampl",
+            "coord": "0.4.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-thundering_herd_wait_set",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-thundering_herd_wait_set",
+            "description": "A collection of threads blocked on a single synchronization point awaiting a condition; the structural prerequ",
+            "coord": "0.4.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-thundering_herd_wakeup_event",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-thundering_herd_wakeup_event",
+            "description": "A single signal or broadcast that causes ALL members of a wait_set to transition from blocked to runnable simu",
+            "coord": "0.4.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-thundering_herd_retry_coordination",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-thundering_herd_retry_coordination",
+            "description": "The phenomenon where concurrently woken threads retry a failing operation in near-lockstep, reinforcing the co",
+            "coord": "0.4.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-djt_random_uniform_sample",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-djt_random_uniform_sample",
+            "description": "The uniform random draw within the bounding range that produces the new current_delay value; the randomness de",
+            "coord": "0.4.6",
             "frameworks": [],
             "children": []
           }
@@ -195,24 +259,24 @@
         "kind": "skill",
         "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-deep_spinlock",
         "description": "the deep_spinlock subdomain of concurrency synchronization primitives and memory models (20 concepts)",
-        "coord": "0.4",
+        "coord": "0.5",
         "frameworks": [],
         "children": [
-          {
-            "name": "understand-current_delay",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-current_delay",
-            "description": "The computed wait interval for the current retry iteration; derived from base_delay multiplied by backoff_mult",
-            "coord": "0.4.1",
-            "frameworks": [],
-            "children": []
-          },
           {
             "name": "understand-jitter",
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-jitter",
             "description": "Randomized variance introduced into the computed delay to decorrelate competing threads and mitigate thunderin",
-            "coord": "0.4.2",
+            "coord": "0.5.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-current_delay",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-current_delay",
+            "description": "The computed wait interval for the current retry iteration; derived from base_delay multiplied by backoff_mult",
+            "coord": "0.5.2",
             "frameworks": [],
             "children": []
           },
@@ -221,25 +285,7 @@
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-mcs_lock_enqueue",
             "description": "Operation appending a thread-local qnode to the queue tail; atomically CASes qnode into tail; on CAS failure, ",
-            "coord": "0.4.3",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-mcs_lock_qnode",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-mcs_lock_qnode",
-            "description": "Thread-local queue node containing locked flag and successor pointer; must be cache-aligned and allocated per-",
-            "coord": "0.4.4",
-            "frameworks": [],
-            "children": []
-          },
-          {
-            "name": "understand-mcs_lock_release",
-            "kind": "skill",
-            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-mcs_lock_release",
-            "description": "Operation by which a thread releases the lock; sets own qnode.locked to false to unblock spinning successor; i",
-            "coord": "0.4.5",
+            "coord": "0.5.3",
             "frameworks": [],
             "children": []
           },
@@ -248,7 +294,25 @@
             "kind": "skill",
             "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-base_delay",
             "description": "Initial wait time in nanoseconds or microseconds before the first lock acquisition retry; the starting point o",
-            "coord": "0.4.6",
+            "coord": "0.5.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-mcs_lock_qnode",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-mcs_lock_qnode",
+            "description": "Thread-local queue node containing locked flag and successor pointer; must be cache-aligned and allocated per-",
+            "coord": "0.5.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-mcs_lock_release",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_concurrency_synchronization_primitives_and_memor/understand-mcs_lock_release",
+            "description": "Operation by which a thread releases the lock; sets own qnode.locked to false to unblock spinning successor; i",
+            "coord": "0.5.6",
             "frameworks": [],
             "children": []
           }
