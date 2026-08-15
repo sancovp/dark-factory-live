@@ -1,0 +1,79 @@
+{
+  "subject": "software design patterns",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "bootstrap",
+      "doors": [],
+      "source": "worklist"
+    },
+    "grow": {
+      "bootstrap": {
+        "concepts": 209,
+        "relations": 16
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 2
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 211,
+        "relations": 36,
+        "define": 0,
+        "connect": 162
+      }
+    },
+    "brain": {
+      "grew": "creational_pattern"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/software_design_patterns",
+      "skills": 8,
+      "staff": 2
+    },
+    "observe": {
+      "findings": 1,
+      "issues": [
+        {
+          "atom": "creational_pattern",
+          "why": "definition oversells scope \u2014 says code stays independent of 'how classes are assembled', but assembly is structural pattern territory; creational only handles instantiation",
+          "price": 9,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/254"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/software_design_patterns",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/software_design_patterns/skills/using-software-design-patterns/SKILL.md",
+      "plugin": "software-design-patterns-module",
+      "library_skills": 11,
+      "brain_files": 3
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "211c/36r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 0
+      },
+      "after": {
+        "define": 0,
+        "connect": 162
+      }
+    },
+    "basis": null,
+    "secs": 240.3
+  }
+}

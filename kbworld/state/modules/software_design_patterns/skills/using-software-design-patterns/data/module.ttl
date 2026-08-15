@@ -1,0 +1,690 @@
+@prefix kb: <https://sancovp.github.io/kb-atlas/ns/software_design_patterns#> .
+@prefix kbo: <https://sancovp.github.io/kb-atlas/ns/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://sancovp.github.io/kb-atlas/ns/software_design_patterns> a owl:Ontology ;
+    rdfs:label "software design patterns" ;
+    rdfs:comment "Machine-grown, Prolog-gate-admitted knowledge module. The gate proves coherence, not truth." .
+
+# the tiny core vocabulary (self-contained on purpose)
+kbo:Concept a owl:Class .
+kbo:Certificate a owl:Class .
+kbo:relatesTo a owl:ObjectProperty .
+kbo:binds a owl:ObjectProperty .
+kbo:because a owl:ObjectProperty .
+kbo:since a owl:ObjectProperty .
+kbo:togetherFit a owl:ObjectProperty .
+kbo:explains a owl:ObjectProperty .
+
+kb:abstract_factory a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "abstract factory" ;
+    rdfs:comment "Provides an interface for creating families of related objects without specifying their concrete classes." .
+kb:abstract_factory_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "abstract factory pattern" ;
+    rdfs:comment "Provides an interface for creating families of related objects without specifying their concrete classes, operating at the level of abstraction." .
+kb:abstraction a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "abstraction" ;
+    rdfs:comment "Simplifying complex reality by modeling classes appropriate to the problem, hiding unnecessary details while exposing essential characteristics." .
+kb:abstraction_layer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "abstraction layer" ;
+    rdfs:comment "Boundary that separates concerns and hides implementation complexity behind a simplified interface for consumers." .
+kb:active_object_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "active object pattern" ;
+    rdfs:comment "Decouples method execution from method invocation in its own thread of control." .
+kb:actor_model_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "actor model pattern" ;
+    rdfs:comment "Encapsulates state and behavior in message-passing actors that communicate asynchronously, with each actor processing one message at a time." .
+kb:adapter_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "adapter pattern" ;
+    rdfs:comment "Converts the interface of a class into another interface that clients expect." .
+kb:aggregate_root_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "aggregate root pattern" ;
+    rdfs:comment "Defines a cluster of associated objects treated as a single unit for data changes, with the aggregate root controlling access to internal objects." .
+kb:ambassador_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "ambassador pattern" ;
+    rdfs:comment "Places helper services alongside consumer services to offload common connectivity tasks like retries, circuit breaking, and monitoring." .
+kb:anemic_domain_model_anti_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "anemic domain model anti pattern" ;
+    rdfs:comment "Domain objects with no business logic, just data storage, with all behavior residing in service classes, breaking encapsulation." .
+kb:anti_corruption_layer_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "anti corruption layer pattern" ;
+    rdfs:comment "Introduces a translation layer between incompatible subsystems, protecting the domain model from being polluted by external system models." .
+kb:api_gateway_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "api gateway pattern" ;
+    rdfs:comment "Single entry point for all client requests to backend services." .
+kb:application_service_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "application service pattern" ;
+    rdfs:comment "Defines operations that client code uses to interact with the domain, orchestrating domain objects and coordinating application workflow." .
+kb:arrange_act_assert a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "arrange act assert" ;
+    rdfs:comment "Testing pattern structuring test methods into setup execution and verification phases." .
+kb:balking_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "balking pattern" ;
+    rdfs:comment "Only executes an action on an object when it is in a particular state, otherwise returns immediately without doing anything." .
+kb:big_ball_of_mud_anti_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "big ball of mud anti pattern" ;
+    rdfs:comment "System with no discernible architecture where components are intertwined through unpredictable dependencies and undocumented couplings." .
+kb:bridge_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bridge pattern" ;
+    rdfs:comment "Decouples an abstraction from its implementation so both can vary independently." .
+kb:builder_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "builder pattern" ;
+    rdfs:comment "Separates the construction of a complex object from its representation." .
+kb:bulkhead_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "bulkhead pattern" ;
+    rdfs:comment "Isolates resources so that failure in one part of the system does not affect others." .
+kb:callback_hell_anti_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "callback hell anti pattern" ;
+    rdfs:comment "Deeply nested callback functions in asynchronous code creating unreadable code with inverted control flow and error handling duplication." .
+kb:chain_of_responsibility_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "chain of responsibility pattern" ;
+    rdfs:comment "Avoids coupling the sender of a request to its receiver by giving multiple objects a chance to handle it." .
+kb:circuit_breaker_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "circuit breaker pattern" ;
+    rdfs:comment "Prevents cascading failures by failing fast when a service is unhealthy." .
+kb:clean_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "clean architecture" ;
+    rdfs:comment "Layered architecture with independent frameworks and clear dependency rules pointing inward." .
+kb:clean_architecture_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "clean architecture pattern" ;
+    rdfs:comment "Organizes code into layers with strict dependency rules: inner layers know nothing about outer layers, dependencies point only inward." .
+kb:code_smell a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "code smell" ;
+    rdfs:comment "Surface indication that usually corresponds to a deeper problem in the system, suggesting refactoring may improve design quality." .
+kb:cohesion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cohesion" ;
+    rdfs:comment "Measure of how strongly related and focused the responsibilities of a single module are, high cohesion indicating good design." .
+kb:command_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "command pattern" ;
+    rdfs:comment "Encapsulates a request as an object thereby allowing parameterization and queuing of requests." .
+kb:composite_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "composite pattern" ;
+    rdfs:comment "Composes objects into tree structures to represent part-whole hierarchies." .
+kb:composition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "composition" ;
+    rdfs:comment "Combining simple objects to build more complex ones, favoring has_a relationships over is_a for flexible runtime behavior." .
+kb:composition_over_inheritance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "composition over inheritance" ;
+    rdfs:comment "Favors composing objects with desired behavior rather than inheriting from classes." .
+kb:composition_over_inheritance_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "composition over inheritance principle" ;
+    rdfs:comment "Favors composing objects to get new functionality over inheriting from a parent class, reducing tight coupling." .
+kb:consequence_in_design_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "consequence in design pattern" ;
+    rdfs:comment "The tradeoffs and impacts of applying a pattern, including benefits and liabilities that affect the design decision." .
+kb:consistent_hashing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "consistent hashing" ;
+    rdfs:comment "Distributes data across nodes minimizing reorganization when nodes are added or removed." .
+kb:context_in_design_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "context in design pattern" ;
+    rdfs:comment "The situation or circumstances in which a pattern applies, defining when the pattern is a good solution choice." .
+kb:coupling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "coupling" ;
+    rdfs:comment "Degree of interdependence between software modules, high coupling making changes difficult and low coupling enabling independent evolution." .
+kb:cqrs_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cqrs pattern" ;
+    rdfs:comment "Separates read and write operations into different models for different optimization paths." .
+kb:creational_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "creational pattern" ;
+    rdfs:comment "A design pattern category focused on object creation mechanisms, abstracting the instantiation process so that code remains independent of the specific classes being created or how they are assembled." .
+kb:currying a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "currying" ;
+    rdfs:comment "Transforming a function that takes multiple arguments into a sequence of functions each with one argument." .
+kb:data_transfer_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "data transfer object" ;
+    rdfs:comment "An object used to carry data between processes to reduce method call overhead." .
+kb:dead_letter_queue a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dead letter queue" ;
+    rdfs:comment "Captures messages that cannot be processed successfully for later analysis." .
+kb:dead_letter_queue_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dead letter queue pattern" ;
+    rdfs:comment "Captures messages that cannot be processed successfully, enabling investigation and reprocessing without losing failed messages." .
+kb:decorator_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "decorator pattern" ;
+    rdfs:comment "Attaches additional responsibilities to an object dynamically." .
+kb:defense_in_depth a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "defense in depth" ;
+    rdfs:comment "Multiple layers of security controls providing redundancy if one fails." .
+kb:delegation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "delegation" ;
+    rdfs:comment "Handing off a responsibility to another object rather than doing it directly, composition alternative to inheritance for code reuse." .
+kb:dependency_injection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dependency injection" ;
+    rdfs:comment "A technique where dependencies are provided to a component rather than the component creating them." .
+kb:dependency_injection_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dependency injection pattern" ;
+    rdfs:comment "Supplies dependencies to objects rather than having objects create their own dependencies, inversion_of_control applied to dependency management." .
+kb:dependency_inversion_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dependency inversion principle" ;
+    rdfs:comment "High-level modules should not depend on low-level modules both should depend on abstractions." .
+kb:design_smell a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "design smell" ;
+    rdfs:comment "Architectural issues that indicate suboptimal design decisions, potentially leading to maintainability or extensibility problems." .
+kb:divergent_change_anti_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "divergent change anti pattern" ;
+    rdfs:comment "Single class modified in different ways for different reasons, indicating it has more than one responsibility that changes independently." .
+kb:domain_event_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "domain event pattern" ;
+    rdfs:comment "Captures notable occurrences in the domain that have significance and may trigger downstream effects through an event bus." .
+kb:domain_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "domain model" ;
+    rdfs:comment "An object model of the domain that incorporates both behavior and data." .
+kb:domain_model_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "domain model pattern" ;
+    rdfs:comment "Uses rich domain objects with business logic rather than anemic data structures, encapsulating behavior alongside state in the domain layer." .
+kb:double_checked_locking a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "double checked locking" ;
+    rdfs:comment "Reduces locking overhead by checking the condition both before and inside the lock." .
+kb:double_checked_locking_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "double checked locking pattern" ;
+    rdfs:comment "Reduces contention for locks by checking the condition twice (before and inside the synchronized block) for lazy initialization." .
+kb:dry_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dry principle" ;
+    rdfs:comment "Every piece of knowledge should have a single authoritative representation in the system." .
+kb:dto_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dto pattern" ;
+    rdfs:comment "Data transfer object carries data between processes, reducing the number of method calls by bundling multiple parameters into one object." .
+kb:duplicate_code a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "duplicate code" ;
+    rdfs:comment "Same or very similar code existing in multiple places violating the DRY principle." .
+kb:eager_load a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "eager load" ;
+    rdfs:comment "Loads all related objects as part of a single query upfront." .
+kb:encapsulation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "encapsulation" ;
+    rdfs:comment "Bundling data with methods that operate on that data, hiding internal state and exposing only necessary interfaces to external code." .
+kb:entity_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "entity pattern" ;
+    rdfs:comment "Objects defined by a unique identity that persists over time, with lifecycle continuity even as attributes change." .
+kb:event_bus a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event bus" ;
+    rdfs:comment "Central component that allows publishing and subscribing to events system-wide." .
+kb:event_driven_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event driven architecture" ;
+    rdfs:comment "Architectural style where the flow of the program is determined by events like user actions." .
+kb:event_driven_architecture_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event driven architecture pattern" ;
+    rdfs:comment "Organizes system around the production, detection, and reaction to events, coupling event producers to consumers through an event bus." .
+kb:event_sourcing a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event sourcing" ;
+    rdfs:comment "Stores state changes as a sequence of events rather than current state." .
+kb:event_sourcing_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "event sourcing pattern" ;
+    rdfs:comment "Stores state changes as a sequence of events rather than current state, enabling audit trail and reconstruction of historical states." .
+kb:eventual_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "eventual consistency" ;
+    rdfs:comment "Consistency model where updates propagate eventually but reads may see stale data." .
+kb:facade_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "facade pattern" ;
+    rdfs:comment "Provides a simplified interface to a complex subsystem." .
+kb:factory_method a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "factory method" ;
+    rdfs:comment "Defines an interface for creating an object but lets subclasses decide which class to instantiate." .
+kb:factory_method_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "factory method pattern" ;
+    rdfs:comment "Defines an interface for creating objects but lets subclasses decide which class to instantiate, deferring instantiation to child classes." .
+kb:fake_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fake object" ;
+    rdfs:comment "Simplified implementation that works but takes shortcuts not suitable for production." .
+kb:fake_object_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fake object pattern" ;
+    rdfs:comment "Provides working implementations with simplified logic unsuitable for production, like in-memory databases or in-memory service implementations." .
+kb:feature_envy a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "feature envy" ;
+    rdfs:comment "Anti-pattern where code uses more data from another class than its own." .
+kb:flyweight_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "flyweight pattern" ;
+    rdfs:comment "Uses sharing to support large numbers of fine-grained objects efficiently." .
+kb:function_composition a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "function composition" ;
+    rdfs:comment "Combining simple functions to build more complex behavior." .
+kb:gateway_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gateway pattern" ;
+    rdfs:comment "Encapsulates access to an external system or resource behind a unified interface, abstracting away the complexity of external communication." .
+kb:god_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "god object" ;
+    rdfs:comment "Anti-pattern where a single class has too many responsibilities and knows too much." .
+kb:god_object_anti_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "god object anti pattern" ;
+    rdfs:comment "Anti pattern where a single class controls too much functionality, violating single_responsibility_principle and creating maintenance nightmares." .
+kb:gossip_protocol a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "gossip protocol" ;
+    rdfs:comment "Disseminates state information across nodes in a distributed system via peer-to-peer communication." .
+kb:graceful_degradation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "graceful degradation" ;
+    rdfs:comment "System continues operating with reduced functionality when components fail." .
+kb:health_check a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "health check" ;
+    rdfs:comment "Endpoint that reports the operational status of a service and its dependencies." .
+kb:hexagonal_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hexagonal architecture" ;
+    rdfs:comment "Ports and adapters architecture that isolates the core business logic from external concerns." .
+kb:hexagonal_architecture_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hexagonal architecture pattern" ;
+    rdfs:comment "Ports_and_adapters architecture that separates core business logic from external concerns, with ports defining interfaces and adapters implementing them." .
+kb:high_cohesion a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "high cohesion" ;
+    rdfs:comment "Design principle where related elements are grouped together keeping focus within a component." .
+kb:hollywood_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "hollywood principle" ;
+    rdfs:comment "Dont call us we'll call you principle where lower-level components hook into higher-level frameworks." .
+kb:idempotency_key_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "idempotency key pattern" ;
+    rdfs:comment "Ensures operations can be safely retried by tagging requests with unique keys that allow the system to recognize and deduplicate duplicates." .
+kb:identity_map a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "identity map" ;
+    rdfs:comment "Ensures each object is loaded only once by keeping a map of all loaded objects." .
+kb:immutability a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "immutability" ;
+    rdfs:comment "State that cannot be modified after creation, simplifying reasoning about code and enabling safe concurrency." .
+kb:immutability_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "immutability pattern" ;
+    rdfs:comment "Designing objects whose state cannot be modified after creation." .
+kb:indirection a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "indirection" ;
+    rdfs:comment "Introducing an intermediate layer to decouple components, enabling flexibility and substitution of implementations behind a stable interface." .
+kb:information_hiding a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "information hiding" ;
+    rdfs:comment "Hiding design decisions within a module from other modules, exposing only the interface necessary for interaction." .
+kb:inheritance a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "inheritance" ;
+    rdfs:comment "Mechanism where a class derives properties and behavior from a parent class, establishing an is_a relationship between types." .
+kb:interface a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "interface" ;
+    rdfs:comment "Contract specifying a set of methods that implementing types must provide, enabling polymorphism through behavioral specification." .
+kb:interface_segregation_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "interface segregation principle" ;
+    rdfs:comment "Clients should not be forced to depend on interfaces they do not use." .
+kb:interpreter_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "interpreter pattern" ;
+    rdfs:comment "Defines a representation for a grammar and a mechanism to interpret sentences in the language." .
+kb:iterator_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "iterator pattern" ;
+    rdfs:comment "Provides a way to access elements of a collection sequentially without exposing its structure." .
+kb:jwt_token a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "jwt token" ;
+    rdfs:comment "Self-contained JSON token that securely transmits claims between parties." .
+kb:kiss_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "kiss principle" ;
+    rdfs:comment "Systems work best when they are kept simple and unnecessary complexity is avoided." .
+kb:law_of_demeter a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "law of demeter" ;
+    rdfs:comment "Object method should only call methods on itself, its parameters, its created objects, and its direct component objects." .
+kb:layered_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "layered architecture" ;
+    rdfs:comment "Organizes code into layers where each layer only depends on the layer directly below." .
+kb:layered_architecture_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "layered architecture pattern" ;
+    rdfs:comment "Organizes code into horizontal layers where each layer has specific responsibilities, requests flow downward through successive layers." .
+kb:lazy_initialization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lazy initialization" ;
+    rdfs:comment "Delays the creation of an object until it is first accessed." .
+kb:lazy_load a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lazy load" ;
+    rdfs:comment "Delays initialization of an object until it is actually needed." .
+kb:leader_election a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "leader election" ;
+    rdfs:comment "Algorithm for selecting one node as the coordinator among distributed nodes." .
+kb:liskov_substitution_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "liskov substitution principle" ;
+    rdfs:comment "Objects of a superclass should be replaceable with objects of its subclasses." .
+kb:load_balancer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "load balancer" ;
+    rdfs:comment "Distributes incoming traffic across multiple compute instances to ensure reliability." .
+kb:long_parameter_list a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "long parameter list" ;
+    rdfs:comment "Anti-pattern where methods require too many parameters indicating potential design issues." .
+kb:loose_coupling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "loose coupling" ;
+    rdfs:comment "Design principle minimizing dependencies between components to improve maintainability." .
+kb:mapper_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mapper pattern" ;
+    rdfs:comment "Creates a separate mapper object to transfer data between objects, keeping domain objects and data representations independent." .
+kb:marker_interface a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "marker interface" ;
+    rdfs:comment "An empty interface used to add metadata or capabilities to a class." .
+kb:marker_interface_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "marker interface pattern" ;
+    rdfs:comment "Uses an empty interface to tag classes with metadata that frameworks inspect at runtime to apply behavior or configuration." .
+kb:mediator_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mediator pattern" ;
+    rdfs:comment "Defines an object that encapsulates how a set of objects interact." .
+kb:memento_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memento pattern" ;
+    rdfs:comment "Captures and externalizes an object's internal state without violating encapsulation." .
+kb:memoization_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memoization pattern" ;
+    rdfs:comment "Caching function results to avoid redundant expensive computations." .
+kb:message_chain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message chain" ;
+    rdfs:comment "Anti-pattern where code repeatedly calls methods on the results of previous calls." .
+kb:message_queue a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message queue" ;
+    rdfs:comment "Stores messages until they are processed and removed by a consumer." .
+kb:message_router a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "message router" ;
+    rdfs:comment "Routes messages from producers to consumers based on rules or content." .
+kb:microservices_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "microservices architecture" ;
+    rdfs:comment "Structures an application as a collection of loosely coupled independently deployable services." .
+kb:microservices_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "microservices pattern" ;
+    rdfs:comment "Structures an application as a collection of loosely coupled services organized around business capabilities, each deployable independently." .
+kb:middle_man a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "middle man" ;
+    rdfs:comment "Anti-pattern where a class does nothing but delegate calls to another class." .
+kb:mock_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mock object" ;
+    rdfs:comment "Simulates real objects with controlled behavior for testing purposes." .
+kb:mock_object_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mock object pattern" ;
+    rdfs:comment "Verifies interactions between objects by asserting that expected method calls occurred with specified arguments during test execution." .
+kb:module_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "module pattern" ;
+    rdfs:comment "Groups related code into self-contained units with clear boundaries, organizing namespace and controlling visibility of internal elements." .
+kb:monad_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "monad pattern" ;
+    rdfs:comment "Design pattern that sequences operations while handling side effects in a pure way." .
+kb:monolith_architecture a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "monolith architecture" ;
+    rdfs:comment "A single unified deployment unit where all concerns are tightly coupled." .
+kb:multiton a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "multiton" ;
+    rdfs:comment "Ensures a class has a limited number of instances identified by keys." .
+kb:mutex_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mutex pattern" ;
+    rdfs:comment "Provides exclusive access to a shared resource by allowing only one thread to enter a critical section at a time." .
+kb:mvc_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mvc pattern" ;
+    rdfs:comment "Separates application into Model (data), View (presentation), and Controller (input handling), facilitating separation of concerns in user interfaces." .
+kb:mvvm_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mvvm pattern" ;
+    rdfs:comment "Separates View (UI) from Model via a ViewModel that exposes data for binding, enabling two-way data binding in declarative UI frameworks." .
+kb:null_object_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "null object pattern" ;
+    rdfs:comment "Replaces null references with neutral do-nothing behavior objects." .
+kb:oauth_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "oauth pattern" ;
+    rdfs:comment "Authorization framework enabling third-party access without sharing credentials." .
+kb:object_pool a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "object pool" ;
+    rdfs:comment "Maintains a pool of reusable objects to avoid costly allocation and deallocation." .
+kb:object_pool_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "object pool pattern" ;
+    rdfs:comment "Maintains a pool of reusable objects that can be checked out when needed and returned when no longer required, avoiding allocation overhead." .
+kb:observer_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "observer pattern" ;
+    rdfs:comment "Defines a one-to-many dependency so when one object changes state all dependents are notified." .
+kb:onion_architecture_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "onion architecture pattern" ;
+    rdfs:comment "Layers code concentrically with domain at center, surrounded by application services, then infrastructure, enforcing dependency inversion toward core." .
+kb:open_closed_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "open closed principle" ;
+    rdfs:comment "Software entities should be open for extension but closed for modification." .
+kb:outbox_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "outbox pattern" ;
+    rdfs:comment "Writes events to a database table as part of a transaction to ensure reliable delivery." .
+kb:parallel_inheritance_anti_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "parallel inheritance anti pattern" ;
+    rdfs:comment "Two parallel class hierarchies grow in lockstep, requiring a subclass in one whenever one is added in the other." .
+kb:parameterized_query a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "parameterized query" ;
+    rdfs:comment "Separates SQL logic from data to prevent SQL injection attacks." .
+kb:partial_application a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "partial application" ;
+    rdfs:comment "Fixing some arguments of a function to create a new function with fewer parameters." .
+kb:pattern_catalog a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pattern catalog" ;
+    rdfs:comment "Documented collection of design patterns organized by category, providing reusable solutions to recurring problems." .
+kb:pattern_language a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pattern language" ;
+    rdfs:comment "Systematic format for describing good design practices within a particular context, connecting patterns into a coherent whole." .
+kb:pipeline_architecture_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pipeline architecture pattern" ;
+    rdfs:comment "Chains processing stages where each stage receives input from the previous stage, processes it, and passes output to the next stage." .
+kb:pluggable_architecture_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pluggable architecture pattern" ;
+    rdfs:comment "Designs system to accept interchangeable components through well-defined extension points, enabling runtime replacement of implementations." .
+kb:polymorphism a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "polymorphism" ;
+    rdfs:comment "The ability of objects to be treated as instances of a parent type while executing type-specific behavior at runtime." .
+kb:premature_optimization a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "premature optimization" ;
+    rdfs:comment "Anti-pattern of optimizing before having evidence that optimization is needed." .
+kb:principle_of_least_privilege a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "principle of least privilege" ;
+    rdfs:comment "Users and components should only have access to the minimum resources needed." .
+kb:private_class_data a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "private class data" ;
+    rdfs:comment "Restricts accessor/mutator access by encapsulating data inside a private inner class." .
+kb:problem_in_design_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "problem in design pattern" ;
+    rdfs:comment "The recurring problem that a pattern addresses, describing the forces and constraints that create the design challenge." .
+kb:producer_consumer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "producer consumer" ;
+    rdfs:comment "Concurrency pattern where producers generate work consumed by workers in parallel." .
+kb:producer_consumer_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "producer consumer pattern" ;
+    rdfs:comment "Decouples producers that generate work from consumers that process it using a shared buffer or queue between them." .
+kb:program_to_interface a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "program to interface" ;
+    rdfs:comment "Program using interfaces rather than implementations for better flexibility and decoupling." .
+kb:prototype_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "prototype pattern" ;
+    rdfs:comment "Creates new objects by copying an existing object known as the prototype." .
+kb:proxy_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "proxy pattern" ;
+    rdfs:comment "Provides a surrogate or placeholder for another object to control access to it." .
+kb:publish_subscribe a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "publish subscribe" ;
+    rdfs:comment "Messaging pattern where publishers broadcast messages without knowing the subscribers." .
+kb:pure_function a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "pure function" ;
+    rdfs:comment "Function that produces no side effects and returns the same output for the same input." .
+kb:rate_limiting a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rate limiting" ;
+    rdfs:comment "Controls the rate of requests a client can make to prevent resource exhaustion." .
+kb:read_copy_update_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read copy update pattern" ;
+    rdfs:comment "Enables lock-free reads by maintaining multiple versions and cleaning up old versions only after no readers reference them." .
+kb:reader_writer_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reader writer lock" ;
+    rdfs:comment "Allows concurrent reads but exclusive access for writes to a shared resource." .
+kb:reader_writer_lock_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reader writer lock pattern" ;
+    rdfs:comment "Allows concurrent read access while ensuring exclusive write access, optimizing for workloads with more reads than writes." .
+kb:refactoring a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "refactoring" ;
+    rdfs:comment "Restructuring existing code without changing its external behavior to improve internal structure, readability, and maintainability." .
+kb:repository_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "repository pattern" ;
+    rdfs:comment "Mediates between the domain and data mapping layers using a collection-like interface." .
+kb:retry_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "retry pattern" ;
+    rdfs:comment "Automatically retries failed operations with configurable backoff strategies." .
+kb:saga_coordination a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "saga coordination" ;
+    rdfs:comment "Manages sagas using a central orchestrator that tells participants what to do." .
+kb:saga_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "saga pattern" ;
+    rdfs:comment "Manages distributed transactions across multiple services using a sequence of local transactions." .
+kb:scatter_gather_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scatter gather pattern" ;
+    rdfs:comment "Broadcasts a request to multiple recipients and aggregates the responses, used for parallel processing and result consolidation." .
+kb:scheduler_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "scheduler pattern" ;
+    rdfs:comment "Centralizes timing logic for periodic or delayed task execution, abstracting scheduling concerns from task execution logic." .
+kb:semaphore_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semaphore pattern" ;
+    rdfs:comment "Controls access to a shared resource with a counter, allowing up to N concurrent accesses where N is defined at initialization." .
+kb:separation_of_concerns a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "separation of concerns" ;
+    rdfs:comment "Dividing program into distinct sections where each addresses a separate concern, reducing complexity and improving modularity." .
+kb:service_layer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "service layer" ;
+    rdfs:comment "Defines the boundary between application logic and the outside world." .
+kb:service_locator_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "service locator pattern" ;
+    rdfs:comment "Provides a central registry to locate and retrieve services by name, acting as a registry abstraction for dependency resolution." .
+kb:service_mesh_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "service mesh pattern" ;
+    rdfs:comment "Adds infrastructure layer for service-to-service communication, handling load balancing, service discovery, and security without application code." .
+kb:shotgun_surgery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "shotgun surgery" ;
+    rdfs:comment "Anti-pattern where one change requires updating many classes across the codebase." .
+kb:shotgun_surgery_anti_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "shotgun surgery anti pattern" ;
+    rdfs:comment "Single change requires modifying many classes scattered throughout the codebase, indicating poor cohesion and excessive coupling." .
+kb:side_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "side effect" ;
+    rdfs:comment "Modification of state outside the local environment like changing a global variable, writing to a file, or triggering network call." .
+kb:sidecar_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sidecar pattern" ;
+    rdfs:comment "Deploys helper components alongside the main application container to handle cross-cutting concerns like logging, monitoring, or proxying." .
+kb:single_responsibility_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "single responsibility principle" ;
+    rdfs:comment "A class should have only one reason to change." .
+kb:singleton a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "singleton" ;
+    rdfs:comment "Ensures a class has only one instance and provides a global point of access to it." .
+kb:singleton_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "singleton pattern" ;
+    rdfs:comment "Restricts instantiation of a class to one single instance throughout the application lifecycle, providing a global access point to that instance." .
+kb:soa_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "soa pattern" ;
+    rdfs:comment "Service-oriented architecture structures system as reusable services communicating over a network via well-defined contracts, promoting reuse." .
+kb:solid_principles a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "solid principles" ;
+    rdfs:comment "Five principles (SRP, OCP, LSP, ISP, DIP) that guide object-oriented design toward maintainable and understandable code." .
+kb:solution_in_design_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "solution in design pattern" ;
+    rdfs:comment "The abstract structure that solves the problem, describing relationships and responsibilities among components." .
+kb:space_based_architecture_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "space based architecture pattern" ;
+    rdfs:comment "Uses distributed memory and processing grid to achieve scalability, avoiding central database bottleneck through in-memory data grids." .
+kb:spaghetti_code a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "spaghetti code" ;
+    rdfs:comment "Anti-pattern characterized by tangled control flow and lack of structure." .
+kb:spaghetti_code_anti_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "spaghetti code anti pattern" ;
+    rdfs:comment "Code with tangled control flow and unclear structure where changes cascade unpredictably across unrelated modules." .
+kb:spy_object_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "spy object pattern" ;
+    rdfs:comment "Records information about how it was called during testing, allowing verification of calls after execution completes." .
+kb:state_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "state pattern" ;
+    rdfs:comment "Allows an object to alter its behavior when its internal state changes." .
+kb:strangler_fig_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strangler fig pattern" ;
+    rdfs:comment "Increments replaces a monolithic system by routing requests to either old or new implementation based on feature flags, gradually migrating functionality." .
+kb:strategy_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strategy pattern" ;
+    rdfs:comment "Defines a family of algorithms encapsulates each one and makes them interchangeable." .
+kb:strong_consistency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "strong consistency" ;
+    rdfs:comment "Consistency model where every read receives the most recent write." .
+kb:structural_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "structural pattern" ;
+    rdfs:comment "A design pattern category focused on composing classes and objects into larger structures, defining relationships between entities to build flexible and efficient hierarchies." .
+kb:stub_object a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stub object" ;
+    rdfs:comment "Provides canned predefined responses to method calls during testing." .
+kb:stub_object_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "stub object pattern" ;
+    rdfs:comment "Provides canned responses to method calls during testing, returning pre-programmed values without any logic computation." .
+kb:tell_dont_ask a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tell dont ask" ;
+    rdfs:comment "Encourages telling objects what to do rather than querying their state and making decisions." .
+kb:tell_dont_ask_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tell dont ask principle" ;
+    rdfs:comment "Objects should be commanded to perform operations rather than being queried for state and making decisions externally." .
+kb:template_method_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "template method pattern" ;
+    rdfs:comment "Defines the skeleton of an algorithm in a method deferring some steps to subclasses." .
+kb:temporal_coupling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "temporal coupling" ;
+    rdfs:comment "When the behavior of one component depends on another being called first, creating ordering requirements that may not be obvious." .
+kb:test_double_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "test double pattern" ;
+    rdfs:comment "Generic term for any object that substitutes for a real dependency in testing, encompassing mocks stubs fakes and spies." .
+kb:test_doubles a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "test doubles" ;
+    rdfs:comment "Generic term for any object that substitutes for a real dependency in tests." .
+kb:thread_local_storage a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "thread local storage" ;
+    rdfs:comment "Provides each thread with its own instance of a variable." .
+kb:thread_pool_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "thread pool pattern" ;
+    rdfs:comment "Manages a pool of worker threads to execute tasks reducing thread creation overhead." .
+kb:tight_coupling a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tight coupling" ;
+    rdfs:comment "Strong dependency between modules making changes difficult and risky." .
+kb:timeout_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "timeout pattern" ;
+    rdfs:comment "Limits the time spent waiting for a response before considering an operation failed." .
+kb:transaction_script a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transaction script" ;
+    rdfs:comment "Procedural approach organized around procedures that process business logic." .
+kb:transaction_script_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "transaction script pattern" ;
+    rdfs:comment "Organizes business logic in procedures that handle each request, appropriate for simple applications without complex domain logic." .
+kb:two_phase_commit a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "two phase commit" ;
+    rdfs:comment "Distributed transaction protocol with a prepare phase and a commit phase." .
+kb:two_phase_commit_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "two phase commit pattern" ;
+    rdfs:comment "Coordinates distributed transaction across participants using a prepare phase followed by a commit phase, ensuring all-or-nothing semantics." .
+kb:unit_of_work_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "unit of work pattern" ;
+    rdfs:comment "Maintains a list of changes and coordinates the writing out of changes and concurrency." .
+kb:value_object_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "value object pattern" ;
+    rdfs:comment "Objects that are defined by their attributes rather than a unique identity, immutable and interchangeable if attributes match." .
+kb:visitor_pattern a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "visitor pattern" ;
+    rdfs:comment "Lets you define a new operation without changing the classes of the elements on which it operates." .
+kb:yagni_principle a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "yagni principle" ;
+    rdfs:comment "Only implement features when they are actually needed not in anticipation of future needs." .
+kb:zero_trust a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "zero trust" ;
+    rdfs:comment "Security model that requires continuous verification regardless of network location." .
+
+kb:abstract_factory kbo:relatesTo kb:abstract_factory_pattern .
+kb:abstract_factory_pattern kbo:relatesTo kb:creational_pattern .
+kb:abstraction kbo:relatesTo kb:abstraction_layer .
+kb:abstraction_layer kbo:relatesTo kb:abstraction .
+kb:active_object_pattern kbo:relatesTo kb:actor_model_pattern .
+kb:actor_model_pattern kbo:relatesTo kb:active_object_pattern .
+kb:adapter_pattern kbo:relatesTo kb:structural_pattern .
+kb:aggregate_root_pattern kbo:relatesTo kb:repository_pattern .
+kb:ambassador_pattern kbo:relatesTo kb:sidecar_pattern .
+kb:anemic_domain_model_anti_pattern kbo:relatesTo kb:domain_model .
+kb:anti_corruption_layer_pattern kbo:relatesTo kb:hexagonal_architecture_pattern .
+kb:api_gateway_pattern kbo:relatesTo kb:microservices_pattern .
+kb:application_service_pattern kbo:relatesTo kb:service_layer .
+kb:arrange_act_assert kbo:relatesTo kb:unit_of_work_pattern .
+kb:balking_pattern kbo:relatesTo kb:double_checked_locking_pattern .
+kb:big_ball_of_mud_anti_pattern kbo:relatesTo kb:spaghetti_code_anti_pattern .
+kb:bridge_pattern kbo:relatesTo kb:structural_pattern .
+kb:builder_pattern kbo:relatesTo kb:creational_pattern .
+kb:bulkhead_pattern kbo:relatesTo kb:circuit_breaker_pattern .
+kb:callback_hell_anti_pattern kbo:relatesTo kb:event_driven_architecture_pattern .
+kb:chain_of_responsibility_pattern kbo:relatesTo kb:mediator_pattern .
+kb:circuit_breaker_pattern kbo:relatesTo kb:bulkhead_pattern .
+kb:clean_architecture kbo:relatesTo kb:hexagonal_architecture_pattern .
+kb:clean_architecture_pattern kbo:relatesTo kb:clean_architecture .
+kb:composite_pattern kbo:relatesTo kb:structural_pattern .
+kb:decorator_pattern kbo:relatesTo kb:structural_pattern .
+kb:dependency_injection_pattern kbo:relatesTo kb:creational_pattern .
+kb:facade_pattern kbo:relatesTo kb:structural_pattern .
+kb:factory_method_pattern kbo:relatesTo kb:creational_pattern .
+kb:flyweight_pattern kbo:relatesTo kb:structural_pattern .
+kb:module_pattern kbo:relatesTo kb:structural_pattern .
+kb:object_pool_pattern kbo:relatesTo kb:creational_pattern .
+kb:prototype_pattern kbo:relatesTo kb:creational_pattern .
+kb:proxy_pattern kbo:relatesTo kb:structural_pattern .
+kb:service_locator_pattern kbo:relatesTo kb:creational_pattern .
+kb:singleton_pattern kbo:relatesTo kb:creational_pattern .
+

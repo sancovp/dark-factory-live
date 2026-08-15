@@ -1,0 +1,211 @@
+{"c": "abstract_factory", "d": "Provides an interface for creating families of related objects without specifying their concrete classes.", "lib": "software_design_patterns"}
+{"c": "abstract_factory_pattern", "d": "Provides an interface for creating families of related objects without specifying their concrete classes, operating at the level of abstraction.", "lib": "software_design_patterns"}
+{"c": "abstraction", "d": "Simplifying complex reality by modeling classes appropriate to the problem, hiding unnecessary details while exposing essential characteristics.", "lib": "software_design_patterns"}
+{"c": "abstraction_layer", "d": "Boundary that separates concerns and hides implementation complexity behind a simplified interface for consumers.", "lib": "software_design_patterns"}
+{"c": "active_object_pattern", "d": "Decouples method execution from method invocation in its own thread of control.", "lib": "software_design_patterns"}
+{"c": "actor_model_pattern", "d": "Encapsulates state and behavior in message-passing actors that communicate asynchronously, with each actor processing one message at a time.", "lib": "software_design_patterns"}
+{"c": "adapter_pattern", "d": "Converts the interface of a class into another interface that clients expect.", "lib": "software_design_patterns"}
+{"c": "aggregate_root_pattern", "d": "Defines a cluster of associated objects treated as a single unit for data changes, with the aggregate root controlling access to internal objects.", "lib": "software_design_patterns"}
+{"c": "ambassador_pattern", "d": "Places helper services alongside consumer services to offload common connectivity tasks like retries, circuit breaking, and monitoring.", "lib": "software_design_patterns"}
+{"c": "anemic_domain_model_anti_pattern", "d": "Domain objects with no business logic, just data storage, with all behavior residing in service classes, breaking encapsulation.", "lib": "software_design_patterns"}
+{"c": "anti_corruption_layer_pattern", "d": "Introduces a translation layer between incompatible subsystems, protecting the domain model from being polluted by external system models.", "lib": "software_design_patterns"}
+{"c": "api_gateway_pattern", "d": "Single entry point for all client requests to backend services.", "lib": "software_design_patterns"}
+{"c": "application_service_pattern", "d": "Defines operations that client code uses to interact with the domain, orchestrating domain objects and coordinating application workflow.", "lib": "software_design_patterns"}
+{"c": "arrange_act_assert", "d": "Testing pattern structuring test methods into setup execution and verification phases.", "lib": "software_design_patterns"}
+{"c": "balking_pattern", "d": "Only executes an action on an object when it is in a particular state, otherwise returns immediately without doing anything.", "lib": "software_design_patterns"}
+{"c": "big_ball_of_mud_anti_pattern", "d": "System with no discernible architecture where components are intertwined through unpredictable dependencies and undocumented couplings.", "lib": "software_design_patterns"}
+{"c": "bridge_pattern", "d": "Decouples an abstraction from its implementation so both can vary independently.", "lib": "software_design_patterns"}
+{"c": "builder_pattern", "d": "Separates the construction of a complex object from its representation.", "lib": "software_design_patterns"}
+{"c": "bulkhead_pattern", "d": "Isolates resources so that failure in one part of the system does not affect others.", "lib": "software_design_patterns"}
+{"c": "callback_hell_anti_pattern", "d": "Deeply nested callback functions in asynchronous code creating unreadable code with inverted control flow and error handling duplication.", "lib": "software_design_patterns"}
+{"c": "chain_of_responsibility_pattern", "d": "Avoids coupling the sender of a request to its receiver by giving multiple objects a chance to handle it.", "lib": "software_design_patterns"}
+{"c": "circuit_breaker_pattern", "d": "Prevents cascading failures by failing fast when a service is unhealthy.", "lib": "software_design_patterns"}
+{"c": "clean_architecture", "d": "Layered architecture with independent frameworks and clear dependency rules pointing inward.", "lib": "software_design_patterns"}
+{"c": "clean_architecture_pattern", "d": "Organizes code into layers with strict dependency rules: inner layers know nothing about outer layers, dependencies point only inward.", "lib": "software_design_patterns"}
+{"c": "code_smell", "d": "Surface indication that usually corresponds to a deeper problem in the system, suggesting refactoring may improve design quality.", "lib": "software_design_patterns"}
+{"c": "cohesion", "d": "Measure of how strongly related and focused the responsibilities of a single module are, high cohesion indicating good design.", "lib": "software_design_patterns"}
+{"c": "command_pattern", "d": "Encapsulates a request as an object thereby allowing parameterization and queuing of requests.", "lib": "software_design_patterns"}
+{"c": "composite_pattern", "d": "Composes objects into tree structures to represent part-whole hierarchies.", "lib": "software_design_patterns"}
+{"c": "composition", "d": "Combining simple objects to build more complex ones, favoring has_a relationships over is_a for flexible runtime behavior.", "lib": "software_design_patterns"}
+{"c": "composition_over_inheritance", "d": "Favors composing objects with desired behavior rather than inheriting from classes.", "lib": "software_design_patterns"}
+{"c": "composition_over_inheritance_principle", "d": "Favors composing objects to get new functionality over inheriting from a parent class, reducing tight coupling.", "lib": "software_design_patterns"}
+{"c": "consequence_in_design_pattern", "d": "The tradeoffs and impacts of applying a pattern, including benefits and liabilities that affect the design decision.", "lib": "software_design_patterns"}
+{"c": "consistent_hashing", "d": "Distributes data across nodes minimizing reorganization when nodes are added or removed.", "lib": "software_design_patterns"}
+{"c": "context_in_design_pattern", "d": "The situation or circumstances in which a pattern applies, defining when the pattern is a good solution choice.", "lib": "software_design_patterns"}
+{"c": "coupling", "d": "Degree of interdependence between software modules, high coupling making changes difficult and low coupling enabling independent evolution.", "lib": "software_design_patterns"}
+{"c": "cqrs_pattern", "d": "Separates read and write operations into different models for different optimization paths.", "lib": "software_design_patterns"}
+{"c": "creational_pattern", "d": "A design pattern category focused on object creation mechanisms, abstracting the instantiation process so that code remains independent of the specific classes being created or how they are assembled.", "lib": null}
+{"c": "currying", "d": "Transforming a function that takes multiple arguments into a sequence of functions each with one argument.", "lib": "software_design_patterns"}
+{"c": "data_transfer_object", "d": "An object used to carry data between processes to reduce method call overhead.", "lib": "software_design_patterns"}
+{"c": "dead_letter_queue", "d": "Captures messages that cannot be processed successfully for later analysis.", "lib": "software_design_patterns"}
+{"c": "dead_letter_queue_pattern", "d": "Captures messages that cannot be processed successfully, enabling investigation and reprocessing without losing failed messages.", "lib": "software_design_patterns"}
+{"c": "decorator_pattern", "d": "Attaches additional responsibilities to an object dynamically.", "lib": "software_design_patterns"}
+{"c": "defense_in_depth", "d": "Multiple layers of security controls providing redundancy if one fails.", "lib": "software_design_patterns"}
+{"c": "delegation", "d": "Handing off a responsibility to another object rather than doing it directly, composition alternative to inheritance for code reuse.", "lib": "software_design_patterns"}
+{"c": "dependency_injection", "d": "A technique where dependencies are provided to a component rather than the component creating them.", "lib": "software_design_patterns"}
+{"c": "dependency_injection_pattern", "d": "Supplies dependencies to objects rather than having objects create their own dependencies, inversion_of_control applied to dependency management.", "lib": "software_design_patterns"}
+{"c": "dependency_inversion_principle", "d": "High-level modules should not depend on low-level modules both should depend on abstractions.", "lib": "software_design_patterns"}
+{"c": "design_smell", "d": "Architectural issues that indicate suboptimal design decisions, potentially leading to maintainability or extensibility problems.", "lib": "software_design_patterns"}
+{"c": "divergent_change_anti_pattern", "d": "Single class modified in different ways for different reasons, indicating it has more than one responsibility that changes independently.", "lib": "software_design_patterns"}
+{"c": "domain_event_pattern", "d": "Captures notable occurrences in the domain that have significance and may trigger downstream effects through an event bus.", "lib": "software_design_patterns"}
+{"c": "domain_model", "d": "An object model of the domain that incorporates both behavior and data.", "lib": "software_design_patterns"}
+{"c": "domain_model_pattern", "d": "Uses rich domain objects with business logic rather than anemic data structures, encapsulating behavior alongside state in the domain layer.", "lib": "software_design_patterns"}
+{"c": "double_checked_locking", "d": "Reduces locking overhead by checking the condition both before and inside the lock.", "lib": "software_design_patterns"}
+{"c": "double_checked_locking_pattern", "d": "Reduces contention for locks by checking the condition twice (before and inside the synchronized block) for lazy initialization.", "lib": "software_design_patterns"}
+{"c": "dry_principle", "d": "Every piece of knowledge should have a single authoritative representation in the system.", "lib": "software_design_patterns"}
+{"c": "dto_pattern", "d": "Data transfer object carries data between processes, reducing the number of method calls by bundling multiple parameters into one object.", "lib": "software_design_patterns"}
+{"c": "duplicate_code", "d": "Same or very similar code existing in multiple places violating the DRY principle.", "lib": "software_design_patterns"}
+{"c": "eager_load", "d": "Loads all related objects as part of a single query upfront.", "lib": "software_design_patterns"}
+{"c": "encapsulation", "d": "Bundling data with methods that operate on that data, hiding internal state and exposing only necessary interfaces to external code.", "lib": "software_design_patterns"}
+{"c": "entity_pattern", "d": "Objects defined by a unique identity that persists over time, with lifecycle continuity even as attributes change.", "lib": "software_design_patterns"}
+{"c": "event_bus", "d": "Central component that allows publishing and subscribing to events system-wide.", "lib": "software_design_patterns"}
+{"c": "event_driven_architecture", "d": "Architectural style where the flow of the program is determined by events like user actions.", "lib": "software_design_patterns"}
+{"c": "event_driven_architecture_pattern", "d": "Organizes system around the production, detection, and reaction to events, coupling event producers to consumers through an event bus.", "lib": "software_design_patterns"}
+{"c": "event_sourcing", "d": "Stores state changes as a sequence of events rather than current state.", "lib": "software_design_patterns"}
+{"c": "event_sourcing_pattern", "d": "Stores state changes as a sequence of events rather than current state, enabling audit trail and reconstruction of historical states.", "lib": "software_design_patterns"}
+{"c": "eventual_consistency", "d": "Consistency model where updates propagate eventually but reads may see stale data.", "lib": "software_design_patterns"}
+{"c": "facade_pattern", "d": "Provides a simplified interface to a complex subsystem.", "lib": "software_design_patterns"}
+{"c": "factory_method", "d": "Defines an interface for creating an object but lets subclasses decide which class to instantiate.", "lib": "software_design_patterns"}
+{"c": "factory_method_pattern", "d": "Defines an interface for creating objects but lets subclasses decide which class to instantiate, deferring instantiation to child classes.", "lib": "software_design_patterns"}
+{"c": "fake_object", "d": "Simplified implementation that works but takes shortcuts not suitable for production.", "lib": "software_design_patterns"}
+{"c": "fake_object_pattern", "d": "Provides working implementations with simplified logic unsuitable for production, like in-memory databases or in-memory service implementations.", "lib": "software_design_patterns"}
+{"c": "feature_envy", "d": "Anti-pattern where code uses more data from another class than its own.", "lib": "software_design_patterns"}
+{"c": "flyweight_pattern", "d": "Uses sharing to support large numbers of fine-grained objects efficiently.", "lib": "software_design_patterns"}
+{"c": "function_composition", "d": "Combining simple functions to build more complex behavior.", "lib": "software_design_patterns"}
+{"c": "gateway_pattern", "d": "Encapsulates access to an external system or resource behind a unified interface, abstracting away the complexity of external communication.", "lib": "software_design_patterns"}
+{"c": "god_object", "d": "Anti-pattern where a single class has too many responsibilities and knows too much.", "lib": "software_design_patterns"}
+{"c": "god_object_anti_pattern", "d": "Anti pattern where a single class controls too much functionality, violating single_responsibility_principle and creating maintenance nightmares.", "lib": "software_design_patterns"}
+{"c": "gossip_protocol", "d": "Disseminates state information across nodes in a distributed system via peer-to-peer communication.", "lib": "software_design_patterns"}
+{"c": "graceful_degradation", "d": "System continues operating with reduced functionality when components fail.", "lib": "software_design_patterns"}
+{"c": "health_check", "d": "Endpoint that reports the operational status of a service and its dependencies.", "lib": "software_design_patterns"}
+{"c": "hexagonal_architecture", "d": "Ports and adapters architecture that isolates the core business logic from external concerns.", "lib": "software_design_patterns"}
+{"c": "hexagonal_architecture_pattern", "d": "Ports_and_adapters architecture that separates core business logic from external concerns, with ports defining interfaces and adapters implementing them.", "lib": "software_design_patterns"}
+{"c": "high_cohesion", "d": "Design principle where related elements are grouped together keeping focus within a component.", "lib": "software_design_patterns"}
+{"c": "hollywood_principle", "d": "Dont call us we'll call you principle where lower-level components hook into higher-level frameworks.", "lib": "software_design_patterns"}
+{"c": "idempotency_key_pattern", "d": "Ensures operations can be safely retried by tagging requests with unique keys that allow the system to recognize and deduplicate duplicates.", "lib": "software_design_patterns"}
+{"c": "identity_map", "d": "Ensures each object is loaded only once by keeping a map of all loaded objects.", "lib": "software_design_patterns"}
+{"c": "immutability", "d": "State that cannot be modified after creation, simplifying reasoning about code and enabling safe concurrency.", "lib": "software_design_patterns"}
+{"c": "immutability_pattern", "d": "Designing objects whose state cannot be modified after creation.", "lib": "software_design_patterns"}
+{"c": "indirection", "d": "Introducing an intermediate layer to decouple components, enabling flexibility and substitution of implementations behind a stable interface.", "lib": "software_design_patterns"}
+{"c": "information_hiding", "d": "Hiding design decisions within a module from other modules, exposing only the interface necessary for interaction.", "lib": "software_design_patterns"}
+{"c": "inheritance", "d": "Mechanism where a class derives properties and behavior from a parent class, establishing an is_a relationship between types.", "lib": "software_design_patterns"}
+{"c": "interface", "d": "Contract specifying a set of methods that implementing types must provide, enabling polymorphism through behavioral specification.", "lib": "software_design_patterns"}
+{"c": "interface_segregation_principle", "d": "Clients should not be forced to depend on interfaces they do not use.", "lib": "software_design_patterns"}
+{"c": "interpreter_pattern", "d": "Defines a representation for a grammar and a mechanism to interpret sentences in the language.", "lib": "software_design_patterns"}
+{"c": "iterator_pattern", "d": "Provides a way to access elements of a collection sequentially without exposing its structure.", "lib": "software_design_patterns"}
+{"c": "jwt_token", "d": "Self-contained JSON token that securely transmits claims between parties.", "lib": "software_design_patterns"}
+{"c": "kiss_principle", "d": "Systems work best when they are kept simple and unnecessary complexity is avoided.", "lib": "software_design_patterns"}
+{"c": "law_of_demeter", "d": "Object method should only call methods on itself, its parameters, its created objects, and its direct component objects.", "lib": "software_design_patterns"}
+{"c": "layered_architecture", "d": "Organizes code into layers where each layer only depends on the layer directly below.", "lib": "software_design_patterns"}
+{"c": "layered_architecture_pattern", "d": "Organizes code into horizontal layers where each layer has specific responsibilities, requests flow downward through successive layers.", "lib": "software_design_patterns"}
+{"c": "lazy_initialization", "d": "Delays the creation of an object until it is first accessed.", "lib": "software_design_patterns"}
+{"c": "lazy_load", "d": "Delays initialization of an object until it is actually needed.", "lib": "software_design_patterns"}
+{"c": "leader_election", "d": "Algorithm for selecting one node as the coordinator among distributed nodes.", "lib": "software_design_patterns"}
+{"c": "liskov_substitution_principle", "d": "Objects of a superclass should be replaceable with objects of its subclasses.", "lib": "software_design_patterns"}
+{"c": "load_balancer", "d": "Distributes incoming traffic across multiple compute instances to ensure reliability.", "lib": "software_design_patterns"}
+{"c": "long_parameter_list", "d": "Anti-pattern where methods require too many parameters indicating potential design issues.", "lib": "software_design_patterns"}
+{"c": "loose_coupling", "d": "Design principle minimizing dependencies between components to improve maintainability.", "lib": "software_design_patterns"}
+{"c": "mapper_pattern", "d": "Creates a separate mapper object to transfer data between objects, keeping domain objects and data representations independent.", "lib": "software_design_patterns"}
+{"c": "marker_interface", "d": "An empty interface used to add metadata or capabilities to a class.", "lib": "software_design_patterns"}
+{"c": "marker_interface_pattern", "d": "Uses an empty interface to tag classes with metadata that frameworks inspect at runtime to apply behavior or configuration.", "lib": "software_design_patterns"}
+{"c": "mediator_pattern", "d": "Defines an object that encapsulates how a set of objects interact.", "lib": "software_design_patterns"}
+{"c": "memento_pattern", "d": "Captures and externalizes an object's internal state without violating encapsulation.", "lib": "software_design_patterns"}
+{"c": "memoization_pattern", "d": "Caching function results to avoid redundant expensive computations.", "lib": "software_design_patterns"}
+{"c": "message_chain", "d": "Anti-pattern where code repeatedly calls methods on the results of previous calls.", "lib": "software_design_patterns"}
+{"c": "message_queue", "d": "Stores messages until they are processed and removed by a consumer.", "lib": "software_design_patterns"}
+{"c": "message_router", "d": "Routes messages from producers to consumers based on rules or content.", "lib": "software_design_patterns"}
+{"c": "microservices_architecture", "d": "Structures an application as a collection of loosely coupled independently deployable services.", "lib": "software_design_patterns"}
+{"c": "microservices_pattern", "d": "Structures an application as a collection of loosely coupled services organized around business capabilities, each deployable independently.", "lib": "software_design_patterns"}
+{"c": "middle_man", "d": "Anti-pattern where a class does nothing but delegate calls to another class.", "lib": "software_design_patterns"}
+{"c": "mock_object", "d": "Simulates real objects with controlled behavior for testing purposes.", "lib": "software_design_patterns"}
+{"c": "mock_object_pattern", "d": "Verifies interactions between objects by asserting that expected method calls occurred with specified arguments during test execution.", "lib": "software_design_patterns"}
+{"c": "module_pattern", "d": "Groups related code into self-contained units with clear boundaries, organizing namespace and controlling visibility of internal elements.", "lib": "software_design_patterns"}
+{"c": "monad_pattern", "d": "Design pattern that sequences operations while handling side effects in a pure way.", "lib": "software_design_patterns"}
+{"c": "monolith_architecture", "d": "A single unified deployment unit where all concerns are tightly coupled.", "lib": "software_design_patterns"}
+{"c": "multiton", "d": "Ensures a class has a limited number of instances identified by keys.", "lib": "software_design_patterns"}
+{"c": "mutex_pattern", "d": "Provides exclusive access to a shared resource by allowing only one thread to enter a critical section at a time.", "lib": "software_design_patterns"}
+{"c": "mvc_pattern", "d": "Separates application into Model (data), View (presentation), and Controller (input handling), facilitating separation of concerns in user interfaces.", "lib": "software_design_patterns"}
+{"c": "mvvm_pattern", "d": "Separates View (UI) from Model via a ViewModel that exposes data for binding, enabling two-way data binding in declarative UI frameworks.", "lib": "software_design_patterns"}
+{"c": "null_object_pattern", "d": "Replaces null references with neutral do-nothing behavior objects.", "lib": "software_design_patterns"}
+{"c": "oauth_pattern", "d": "Authorization framework enabling third-party access without sharing credentials.", "lib": "software_design_patterns"}
+{"c": "object_pool", "d": "Maintains a pool of reusable objects to avoid costly allocation and deallocation.", "lib": "software_design_patterns"}
+{"c": "object_pool_pattern", "d": "Maintains a pool of reusable objects that can be checked out when needed and returned when no longer required, avoiding allocation overhead.", "lib": "software_design_patterns"}
+{"c": "observer_pattern", "d": "Defines a one-to-many dependency so when one object changes state all dependents are notified.", "lib": "software_design_patterns"}
+{"c": "onion_architecture_pattern", "d": "Layers code concentrically with domain at center, surrounded by application services, then infrastructure, enforcing dependency inversion toward core.", "lib": "software_design_patterns"}
+{"c": "open_closed_principle", "d": "Software entities should be open for extension but closed for modification.", "lib": "software_design_patterns"}
+{"c": "outbox_pattern", "d": "Writes events to a database table as part of a transaction to ensure reliable delivery.", "lib": "software_design_patterns"}
+{"c": "parallel_inheritance_anti_pattern", "d": "Two parallel class hierarchies grow in lockstep, requiring a subclass in one whenever one is added in the other.", "lib": "software_design_patterns"}
+{"c": "parameterized_query", "d": "Separates SQL logic from data to prevent SQL injection attacks.", "lib": "software_design_patterns"}
+{"c": "partial_application", "d": "Fixing some arguments of a function to create a new function with fewer parameters.", "lib": "software_design_patterns"}
+{"c": "pattern_catalog", "d": "Documented collection of design patterns organized by category, providing reusable solutions to recurring problems.", "lib": "software_design_patterns"}
+{"c": "pattern_language", "d": "Systematic format for describing good design practices within a particular context, connecting patterns into a coherent whole.", "lib": "software_design_patterns"}
+{"c": "pipeline_architecture_pattern", "d": "Chains processing stages where each stage receives input from the previous stage, processes it, and passes output to the next stage.", "lib": "software_design_patterns"}
+{"c": "pluggable_architecture_pattern", "d": "Designs system to accept interchangeable components through well-defined extension points, enabling runtime replacement of implementations.", "lib": "software_design_patterns"}
+{"c": "polymorphism", "d": "The ability of objects to be treated as instances of a parent type while executing type-specific behavior at runtime.", "lib": "software_design_patterns"}
+{"c": "premature_optimization", "d": "Anti-pattern of optimizing before having evidence that optimization is needed.", "lib": "software_design_patterns"}
+{"c": "principle_of_least_privilege", "d": "Users and components should only have access to the minimum resources needed.", "lib": "software_design_patterns"}
+{"c": "private_class_data", "d": "Restricts accessor/mutator access by encapsulating data inside a private inner class.", "lib": "software_design_patterns"}
+{"c": "problem_in_design_pattern", "d": "The recurring problem that a pattern addresses, describing the forces and constraints that create the design challenge.", "lib": "software_design_patterns"}
+{"c": "producer_consumer", "d": "Concurrency pattern where producers generate work consumed by workers in parallel.", "lib": "software_design_patterns"}
+{"c": "producer_consumer_pattern", "d": "Decouples producers that generate work from consumers that process it using a shared buffer or queue between them.", "lib": "software_design_patterns"}
+{"c": "program_to_interface", "d": "Program using interfaces rather than implementations for better flexibility and decoupling.", "lib": "software_design_patterns"}
+{"c": "prototype_pattern", "d": "Creates new objects by copying an existing object known as the prototype.", "lib": "software_design_patterns"}
+{"c": "proxy_pattern", "d": "Provides a surrogate or placeholder for another object to control access to it.", "lib": "software_design_patterns"}
+{"c": "publish_subscribe", "d": "Messaging pattern where publishers broadcast messages without knowing the subscribers.", "lib": "software_design_patterns"}
+{"c": "pure_function", "d": "Function that produces no side effects and returns the same output for the same input.", "lib": "software_design_patterns"}
+{"c": "rate_limiting", "d": "Controls the rate of requests a client can make to prevent resource exhaustion.", "lib": "software_design_patterns"}
+{"c": "read_copy_update_pattern", "d": "Enables lock-free reads by maintaining multiple versions and cleaning up old versions only after no readers reference them.", "lib": "software_design_patterns"}
+{"c": "reader_writer_lock", "d": "Allows concurrent reads but exclusive access for writes to a shared resource.", "lib": "software_design_patterns"}
+{"c": "reader_writer_lock_pattern", "d": "Allows concurrent read access while ensuring exclusive write access, optimizing for workloads with more reads than writes.", "lib": "software_design_patterns"}
+{"c": "refactoring", "d": "Restructuring existing code without changing its external behavior to improve internal structure, readability, and maintainability.", "lib": "software_design_patterns"}
+{"c": "repository_pattern", "d": "Mediates between the domain and data mapping layers using a collection-like interface.", "lib": "software_design_patterns"}
+{"c": "retry_pattern", "d": "Automatically retries failed operations with configurable backoff strategies.", "lib": "software_design_patterns"}
+{"c": "saga_coordination", "d": "Manages sagas using a central orchestrator that tells participants what to do.", "lib": "software_design_patterns"}
+{"c": "saga_pattern", "d": "Manages distributed transactions across multiple services using a sequence of local transactions.", "lib": "software_design_patterns"}
+{"c": "scatter_gather_pattern", "d": "Broadcasts a request to multiple recipients and aggregates the responses, used for parallel processing and result consolidation.", "lib": "software_design_patterns"}
+{"c": "scheduler_pattern", "d": "Centralizes timing logic for periodic or delayed task execution, abstracting scheduling concerns from task execution logic.", "lib": "software_design_patterns"}
+{"c": "semaphore_pattern", "d": "Controls access to a shared resource with a counter, allowing up to N concurrent accesses where N is defined at initialization.", "lib": "software_design_patterns"}
+{"c": "separation_of_concerns", "d": "Dividing program into distinct sections where each addresses a separate concern, reducing complexity and improving modularity.", "lib": "software_design_patterns"}
+{"c": "service_layer", "d": "Defines the boundary between application logic and the outside world.", "lib": "software_design_patterns"}
+{"c": "service_locator_pattern", "d": "Provides a central registry to locate and retrieve services by name, acting as a registry abstraction for dependency resolution.", "lib": "software_design_patterns"}
+{"c": "service_mesh_pattern", "d": "Adds infrastructure layer for service-to-service communication, handling load balancing, service discovery, and security without application code.", "lib": "software_design_patterns"}
+{"c": "shotgun_surgery", "d": "Anti-pattern where one change requires updating many classes across the codebase.", "lib": "software_design_patterns"}
+{"c": "shotgun_surgery_anti_pattern", "d": "Single change requires modifying many classes scattered throughout the codebase, indicating poor cohesion and excessive coupling.", "lib": "software_design_patterns"}
+{"c": "side_effect", "d": "Modification of state outside the local environment like changing a global variable, writing to a file, or triggering network call.", "lib": "software_design_patterns"}
+{"c": "sidecar_pattern", "d": "Deploys helper components alongside the main application container to handle cross-cutting concerns like logging, monitoring, or proxying.", "lib": "software_design_patterns"}
+{"c": "single_responsibility_principle", "d": "A class should have only one reason to change.", "lib": "software_design_patterns"}
+{"c": "singleton", "d": "Ensures a class has only one instance and provides a global point of access to it.", "lib": "software_design_patterns"}
+{"c": "singleton_pattern", "d": "Restricts instantiation of a class to one single instance throughout the application lifecycle, providing a global access point to that instance.", "lib": "software_design_patterns"}
+{"c": "soa_pattern", "d": "Service-oriented architecture structures system as reusable services communicating over a network via well-defined contracts, promoting reuse.", "lib": "software_design_patterns"}
+{"c": "solid_principles", "d": "Five principles (SRP, OCP, LSP, ISP, DIP) that guide object-oriented design toward maintainable and understandable code.", "lib": "software_design_patterns"}
+{"c": "solution_in_design_pattern", "d": "The abstract structure that solves the problem, describing relationships and responsibilities among components.", "lib": "software_design_patterns"}
+{"c": "space_based_architecture_pattern", "d": "Uses distributed memory and processing grid to achieve scalability, avoiding central database bottleneck through in-memory data grids.", "lib": "software_design_patterns"}
+{"c": "spaghetti_code", "d": "Anti-pattern characterized by tangled control flow and lack of structure.", "lib": "software_design_patterns"}
+{"c": "spaghetti_code_anti_pattern", "d": "Code with tangled control flow and unclear structure where changes cascade unpredictably across unrelated modules.", "lib": "software_design_patterns"}
+{"c": "spy_object_pattern", "d": "Records information about how it was called during testing, allowing verification of calls after execution completes.", "lib": "software_design_patterns"}
+{"c": "state_pattern", "d": "Allows an object to alter its behavior when its internal state changes.", "lib": "software_design_patterns"}
+{"c": "strangler_fig_pattern", "d": "Increments replaces a monolithic system by routing requests to either old or new implementation based on feature flags, gradually migrating functionality.", "lib": "software_design_patterns"}
+{"c": "strategy_pattern", "d": "Defines a family of algorithms encapsulates each one and makes them interchangeable.", "lib": "software_design_patterns"}
+{"c": "strong_consistency", "d": "Consistency model where every read receives the most recent write.", "lib": "software_design_patterns"}
+{"c": "structural_pattern", "d": "A design pattern category focused on composing classes and objects into larger structures, defining relationships between entities to build flexible and efficient hierarchies.", "lib": null}
+{"c": "stub_object", "d": "Provides canned predefined responses to method calls during testing.", "lib": "software_design_patterns"}
+{"c": "stub_object_pattern", "d": "Provides canned responses to method calls during testing, returning pre-programmed values without any logic computation.", "lib": "software_design_patterns"}
+{"c": "tell_dont_ask", "d": "Encourages telling objects what to do rather than querying their state and making decisions.", "lib": "software_design_patterns"}
+{"c": "tell_dont_ask_principle", "d": "Objects should be commanded to perform operations rather than being queried for state and making decisions externally.", "lib": "software_design_patterns"}
+{"c": "template_method_pattern", "d": "Defines the skeleton of an algorithm in a method deferring some steps to subclasses.", "lib": "software_design_patterns"}
+{"c": "temporal_coupling", "d": "When the behavior of one component depends on another being called first, creating ordering requirements that may not be obvious.", "lib": "software_design_patterns"}
+{"c": "test_double_pattern", "d": "Generic term for any object that substitutes for a real dependency in testing, encompassing mocks stubs fakes and spies.", "lib": "software_design_patterns"}
+{"c": "test_doubles", "d": "Generic term for any object that substitutes for a real dependency in tests.", "lib": "software_design_patterns"}
+{"c": "thread_local_storage", "d": "Provides each thread with its own instance of a variable.", "lib": "software_design_patterns"}
+{"c": "thread_pool_pattern", "d": "Manages a pool of worker threads to execute tasks reducing thread creation overhead.", "lib": "software_design_patterns"}
+{"c": "tight_coupling", "d": "Strong dependency between modules making changes difficult and risky.", "lib": "software_design_patterns"}
+{"c": "timeout_pattern", "d": "Limits the time spent waiting for a response before considering an operation failed.", "lib": "software_design_patterns"}
+{"c": "transaction_script", "d": "Procedural approach organized around procedures that process business logic.", "lib": "software_design_patterns"}
+{"c": "transaction_script_pattern", "d": "Organizes business logic in procedures that handle each request, appropriate for simple applications without complex domain logic.", "lib": "software_design_patterns"}
+{"c": "two_phase_commit", "d": "Distributed transaction protocol with a prepare phase and a commit phase.", "lib": "software_design_patterns"}
+{"c": "two_phase_commit_pattern", "d": "Coordinates distributed transaction across participants using a prepare phase followed by a commit phase, ensuring all-or-nothing semantics.", "lib": "software_design_patterns"}
+{"c": "unit_of_work_pattern", "d": "Maintains a list of changes and coordinates the writing out of changes and concurrency.", "lib": "software_design_patterns"}
+{"c": "value_object_pattern", "d": "Objects that are defined by their attributes rather than a unique identity, immutable and interchangeable if attributes match.", "lib": "software_design_patterns"}
+{"c": "visitor_pattern", "d": "Lets you define a new operation without changing the classes of the elements on which it operates.", "lib": "software_design_patterns"}
+{"c": "yagni_principle", "d": "Only implement features when they are actually needed not in anticipation of future needs.", "lib": "software_design_patterns"}
+{"c": "zero_trust", "d": "Security model that requires continuous verification regardless of network location.", "lib": "software_design_patterns"}
