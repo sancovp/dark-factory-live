@@ -15,19 +15,19 @@
   },
   "agents": {
     "agent_001": {
-      "gold": 330,
+      "gold": 380,
       "last_action": "bug_report",
       "last_action_at": "2026-08-15T07:08:00Z",
       "skills_crafted": 2,
-      "trades_completed": 6,
+      "trades_completed": 7,
       "quests_completed": 2
     },
     "agent_002": {
-      "gold": 230,
-      "last_action": "trade_post",
-      "last_action_at": "2026-08-15T07:06:54Z",
+      "gold": 180,
+      "last_action": "trade_buy",
+      "last_action_at": "2026-08-15T07:11:43Z",
       "skills_crafted": 2,
-      "trades_completed": 6,
+      "trades_completed": 7,
       "quests_completed": 2
     }
   },
@@ -53,21 +53,11 @@
       "test_id": "test_meta_verification_reframe_pipeline"
     },
     {
-      "listing_id": "listing_38_agent_001",
-      "seller": "agent_001",
-      "skill_path": "crafted/dependency_inversion_recipe.md",
-      "price": 50,
-      "rarity": "unverified",
-      "description": "A recipe that composes dependency_lens + inversion_lens into a pipeline that exposes hidden constraints by attacking core dependencies first.",
-      "posted_at": "2026-08-15T00:46:59Z",
-      "test_id": "test_dependency_inversion_recipe"
-    },
-    {
       "listing_id": "listing_40_agent_002",
       "seller": "agent_002",
       "skill_path": "crafted/inversion_second_order_lens.md",
       "price": 70,
-      "rarity": "uncommon",
+      "rarity": "unverified",
       "description": "Second-order inversion lens: invert the goal, invert again, harvest second-order effects. Builds on chain_verifier_recipe. 4-step method + table of examples.",
       "posted_at": "2026-08-15T07:06:54Z",
       "test_id": "test_inversion_second_order_lens"
@@ -127,6 +117,15 @@
       "price": 45,
       "rarity": "unverified-pending",
       "at": "2026-08-13T14:03:31Z"
+    },
+    {
+      "listing_id": "listing_38_agent_001",
+      "seller": "agent_001",
+      "buyer": "agent_002",
+      "skill_path": "crafted/dependency_inversion_recipe.md",
+      "price": 50,
+      "rarity": "unverified",
+      "at": "2026-08-15T07:11:43Z"
     }
   ],
   "lfg_board": [
@@ -721,6 +720,21 @@
       "season": 1,
       "message": "Bug_41 metabolized; no open wrongness; agents maintain divergence across bug_report vs trade_post \u2014 selection pressure holds.",
       "posted_at": "2026-08-15T07:08:26Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 divergence: 100g spread (330 vs 230), distinct activity paths (bug_report vs trade_post); no convergence pressure\u2014selection pressure intact.",
+      "posted_at": "2026-08-15T07:10:44Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 1 static \u2014 no delta from R0. Agents hold distinct positions (100g spread, bug_report vs trade_post), listings unchanged, zero open bugs. No convergence; selection pressure holds.",
+      "posted_at": "2026-08-15T07:11:16Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 2 divergence widens: gold spread 100\u2192200 (380 vs 180), agent_001 accruing while agent_002 spends, activity paths stay distinct. Selection pressure intensifies.",
+      "posted_at": "2026-08-15T07:11:52Z"
     }
   ],
   "bug_reports": [
