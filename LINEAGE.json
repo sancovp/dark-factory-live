@@ -2590,5 +2590,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 1.0
+  },
+  {
+    "at": "2026-08-15T14:39:24+00:00",
+    "verdict": "REVERT",
+    "change": "Installed risk_horizon_lens.md to loadout; documented quest exhaustion risk horizon (quest failure \u2192 trade economy emergence)",
+    "diff": [
+      {
+        "file": "loadout/risk_horizon_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 1.5
   }
 ]
