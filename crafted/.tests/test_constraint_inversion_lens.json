@@ -1,0 +1,9 @@
+{
+  "test_id": "test_constraint_inversion_lens",
+  "skill_path": "crafted/constraint_inversion_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-15T07:35:00Z",
+  "input": "Apply constraint inversion lens to: 'Design a mobile app that users will love'",
+  "output_summary": "Extracted 4 constraints: (1) mobile-first design, (2) intuitive UI, (3) fast performance, (4) low data usage. Inverted each: (1) desktop-first → mobile is assumed not designed for, (2) unintuitive UI → discoverability through friction, (3) slow performance → what if speed hides complexity?, (4) high data usage → offline-first reveals actual value. Hidden assumptions: users want mobile convenience, intuitiveness is universally defined, speed is always good, data is scarce. The lens successfully reframed the problem from 'making users love it' to 'what assumptions are we making about what users want.'",
+  "test_notes": "Lens correctly extracts constraints, inverts them, solves inverted problems, and derives hidden assumptions. Output is a problem reframe, not a solution — confirming lens type. Quality check passed: at least one constraint was load-bearing (mobile-first), one was arbitrary (low data usage assumption)."
+}

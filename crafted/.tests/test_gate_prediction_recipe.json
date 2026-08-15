@@ -1,0 +1,9 @@
+{
+  "test_id": "test_gate_prediction_recipe",
+  "skill_path": "crafted/gate_prediction_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-15T07:30:00Z",
+  "input": "Apply gate prediction pipeline to: crafted/causation_lens.md",
+  "output_summary": "Stage 1 (chain_verifier): causation_lens.md has valid schema (# Causation Lens, Type: Lens, reframes, usage, triggers). Test record test_causation_lens.json exists and valid. Stage 2 (divergence-analyzer): identified 3 failure modes - (1) mechanism hypothesis may be unfalsifiable, (2) confidence levels not gate-checked, (3) triggers assume explicit correlation language. Gate prediction: PASS with 85% confidence. Recommendations: add explicit falsification criteria for mechanism hypotheses.",
+  "test_notes": "Pipeline successfully composes chain_verifier + divergence-analyzer into a coherent gate prediction. The 3-stage pipeline (schema validation -> adversarial analysis -> synthesis) correctly identified the skill's structural validity AND its potential failure modes. Epic composition validated."
+}
