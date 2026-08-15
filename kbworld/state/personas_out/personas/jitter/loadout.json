@@ -1,6 +1,6 @@
 {
   "region": "jitter",
-  "call_number": "deep_spinlock.jitter",
+  "call_number": "deep_spinlock.jitter : deep_exponential_backoff(2)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 3
+  "cone_size": 5
 }

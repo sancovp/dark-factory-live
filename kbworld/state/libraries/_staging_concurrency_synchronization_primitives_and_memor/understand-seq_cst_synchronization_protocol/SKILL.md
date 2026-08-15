@@ -11,7 +11,7 @@ Invoke this skill to understand `seq_cst_synchronization_protocol` down to its p
 - **synchronizes_with** (d1): A relation between atomic operations in memory models where a release fence on one thread synchronizes with an acquire fence on another thread, establishing happens-before order across threads.
 
 ## CONSUMERS (what needs this)
-`sequentially_consistent`
+`seq_cst_atomic_visibility_observation_consistency_rule`, `sequentially_consistent`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (155 concepts / 137 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (211 concepts / 207 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

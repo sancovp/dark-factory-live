@@ -1,0 +1,84 @@
+{
+  "subject": "concurrency synchronization primitives and memory models",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "deepen",
+      "doors": [
+        "c11_memory_model",
+        "exponential_backoff"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "specialize": {
+        "basis_after": 0.0,
+        "new": [
+          [
+            "c11_memory_model",
+            19,
+            25
+          ],
+          [
+            "exponential_backoff",
+            37,
+            25
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {},
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 211,
+        "relations": 207,
+        "define": 0,
+        "connect": 10
+      }
+    },
+    "brain": {
+      "grew": "memory_order_relaxed"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/concurrency_synchronization_primitives_and_memor",
+      "skills": 29,
+      "staff": 45
+    },
+    "observe": {
+      "findings": 0,
+      "issues": []
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/concurrency_synchronization_primitives_a",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/concurrency_synchronization_primitives_a/skills/using-concurrency-synchronization-primitives-a/SKILL.md",
+      "plugin": "concurrency-synchronization-primitives-a-module",
+      "library_skills": 35,
+      "brain_files": 39
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "211c/207r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 13
+      },
+      "after": {
+        "define": 0,
+        "connect": 10
+      }
+    },
+    "basis": 0.776,
+    "secs": 272.2
+  }
+}

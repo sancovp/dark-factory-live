@@ -2,22 +2,19 @@
   "phase": "soup",
   "define": [],
   "connect": [
-    "java_memory_model",
-    "phaser_java",
-    "program_order_locality",
-    "relaxed_atomicity",
-    "relaxed_load",
-    "relaxed_read_modify_write",
-    "relaxed_store",
-    "relaxed_vs_acquire",
-    "relaxed_vs_release",
-    "speculation_prune",
     "store_buffer_linger",
     "volatile_cpp",
+    "wake_all_semantics",
+    "wake_latency_spread",
+    "wake_one_semantics",
+    "wake_ratio",
+    "wake_spike",
+    "waste_ratio",
+    "work_bag_pattern",
     "write_coalescing_privilege"
   ],
   "reconcile": [],
   "explain": [],
-  "n_concepts": 155,
-  "n_relations": 137
+  "n_concepts": 211,
+  "n_relations": 207
 }
