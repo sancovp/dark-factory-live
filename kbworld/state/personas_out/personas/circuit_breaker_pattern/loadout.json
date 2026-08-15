@@ -1,0 +1,13 @@
+{
+  "region": "circuit_breaker_pattern",
+  "call_number": "software_architecture_patterns_and_styles.circuit_breaker_pattern",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 2
+}
