@@ -2434,5 +2434,18 @@
     ],
     "fitness_current": 1.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-15T08:44:32+00:00",
+    "verdict": "SHIP",
+    "change": "Installed loadout_dependency_proof_recipe.md to loadout; discovered chain_verifier_recipe.md and trade_safety_recipe.md have missing dependencies (divergence_lens, convergence_lens not in loadout)",
+    "diff": [
+      {
+        "file": "loadout/loadout_dependency_proof_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 2.0
   }
 ]
