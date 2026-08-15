@@ -1,0 +1,154 @@
+{"c": "aggregator", "d": "A router that collects related messages over time and combines them into a single coherent output message.", "lib": "enterprise_integration_patterns"}
+{"c": "asynchronous_messaging", "d": "Messaging semantics where the sender does not block waiting for the receiver to process the message before continuing.", "lib": "enterprise_integration_patterns"}
+{"c": "at_least_once_delivery", "d": "Message delivery semantics where a message is retried until acknowledged, guaranteeing delivery but allowing possible duplicates.", "lib": "enterprise_integration_patterns"}
+{"c": "at_most_once_delivery", "d": "Message delivery semantics where a message may be lost but is never redelivered; sender does not retry on failure.", "lib": "enterprise_integration_patterns"}
+{"c": "attachment", "d": "Secondary data elements or files appended to the document message beyond its primary business payload.", "lib": "deep_message"}
+{"c": "bulk_message_consumer", "d": "A consumer that collects multiple messages over a batching window and processes them together for throughput optimization.", "lib": "enterprise_integration_patterns"}
+{"c": "canonical_data_model", "d": "A standardized, technology-agnostic message schema used across the enterprise to avoid direct dependency on any system's native format.", "lib": "enterprise_integration_patterns"}
+{"c": "canonical_form", "d": "The normalized or standardized representation of the document after transformation, serving as the canonical data format.", "lib": "deep_message"}
+{"c": "channel_adapter", "d": "A connector that bridges external systems or protocols into a messaging channel, encapsulating the legacy system's API.", "lib": "enterprise_integration_patterns"}
+{"c": "channel_bridge", "d": "A connection point that joins two channel segments or a channel to an external system, enabling message flow across the boundary while preserving channel semantics.", "lib": null}
+{"c": "channel_purger", "d": "A system management pattern that periodically clears a channel of stale or poison messages to reset system state.", "lib": "enterprise_integration_patterns"}
+{"c": "channel_type_declaration", "d": "The explicit binding of a message datatype to a channel at channel creation or configuration time, establishing the type contract.", "lib": "deep_message_channel"}
+{"c": "channel_typing_discipline", "d": "The classification of datatype channels by typing rigor: static typing enforces type at compile/build time, dynamic typing enforces at message inspection time.", "lib": "deep_message_channel"}
+{"c": "choreography", "d": "A decentralized integration style where each system knows only its own part of the process; there is no central orchestrator.", "lib": "enterprise_integration_patterns"}
+{"c": "circuit_breaker", "d": "A resilience pattern that stops forwarding requests to a failing downstream system after a threshold of failures is exceeded.", "lib": "enterprise_integration_patterns"}
+{"c": "claim_check", "d": "A transformation that stores the full message body in an external store and replaces it with a lightweight reference token in the message.", "lib": "enterprise_integration_patterns"}
+{"c": "cmd_001", "d": "operation_identifier \u2014 the name or qualified identifier of the operation being invoked on the receiver", "lib": "deep_message"}
+{"c": "cmd_002", "d": "operation_arguments \u2014 structured data representing the parameters passed to the invoked operation", "lib": "deep_message"}
+{"c": "cmd_003", "d": "command_target \u2014 the destination endpoint service or receiver on which the operation is to be executed", "lib": "deep_message"}
+{"c": "cmd_004", "d": "command_priority \u2014 urgency level that influences routing queue ordering and processor scheduling", "lib": "deep_message"}
+{"c": "cmd_005", "d": "idempotency_key \u2014 unique value the receiver uses to detect and suppress duplicate command executions", "lib": "deep_message"}
+{"c": "cmd_006", "d": "command_timeout \u2014 duration after which the sender abandons waiting for execution result", "lib": "deep_message"}
+{"c": "cmd_007", "d": "target_interface_version \u2014 version identifier enabling the receiver to select the correct operation contract", "lib": "deep_message"}
+{"c": "cmd_008", "d": "execution_context \u2014 metadata about the calling environment such as principal identity and correlation scope", "lib": "deep_message"}
+{"c": "cmd_009", "d": "result_payload \u2014 data returned by successful command execution part of request_reply exchange", "lib": "deep_message"}
+{"c": "cmd_010", "d": "fault_payload \u2014 structured error information returned when command execution fails part of request_reply", "lib": "deep_message"}
+{"c": "command_message", "d": "A message that encodes an invocation of an operation on the receiver, carrying method name and arguments.", "lib": "enterprise_integration_patterns"}
+{"c": "command_priority", "d": "A metadata field indicating the urgency or precedence level of a command message, used by schedulers and routers to order or filter command processing.", "lib": null}
+{"c": "command_target", "d": "The logical or physical destination endpoint to which a command message is addressed, specifying which receiver should process the invocation.", "lib": null}
+{"c": "command_timeout", "d": "The maximum duration a sender will wait for a command to complete before considering it failed; exceeding this triggers timeout handling or retry.", "lib": null}
+{"c": "composed_message_processor", "d": "A processor that splits an incoming composite message, routes each part through separate paths, then aggregates the results.", "lib": "enterprise_integration_patterns"}
+{"c": "content_based_router", "d": "A router that examines message payload fields to determine the destination channel, decoupling sender from destination knowledge.", "lib": "enterprise_integration_patterns"}
+{"c": "content_enricher", "d": "A transformer that supplements an incoming message with additional data fetched from an external source before forwarding.", "lib": "enterprise_integration_patterns"}
+{"c": "content_filter", "d": "A transformer that removes unwanted fields from a message, reducing payload size or stripping sensitive data.", "lib": "enterprise_integration_patterns"}
+{"c": "content_integrity", "d": "A cryptographic checksum or hash value computed over the document content to detect unauthorized alterations in transit.", "lib": "deep_message"}
+{"c": "content_router_for_documents", "d": "The application of content_based_router to a document_message using payload fields to determine routing destination.", "lib": "deep_message"}
+{"c": "correlation_identifier", "d": "A unique ID placed on both request and reply messages so the sender can match responses to their originating calls.", "lib": "enterprise_integration_patterns"}
+{"c": "cp_channel_state_snapshot", "d": "A point-in-time capture of channel metrics (depth, oldest_message_age, error_rate) used to evaluate purge_policy conditions before triggering a purge.", "lib": "deep_message_channel"}
+{"c": "cp_poison_message", "d": "A message that has caused repeated processing failures or is structurally unprocessable and blocks channel progress if retained.", "lib": "deep_message_channel"}
+{"c": "cp_purge_action", "d": "The execution step that removes qualifying messages from the channel: permanent deletion, move to dead_letter_channel, or quarantine to invalid_message_channel.", "lib": "deep_message_channel"}
+{"c": "cp_purge_history", "d": "An audit log recording which messages were purged, when, under which policy, and the channel_state_snapshot at purge time for replay and tuning.", "lib": "deep_message_channel"}
+{"c": "cp_purge_policy", "d": "A set of rules defining which messages qualify for purging: age threshold, retry exhaustion, poison detection criteria, or pattern matching on content.", "lib": "deep_message_channel"}
+{"c": "cp_purge_scheduler", "d": "The component that periodically evaluates threshold_condition and, when true, dispatches purge_action against the target channel.", "lib": "deep_message_channel"}
+{"c": "cp_purge_trigger", "d": "A condition that initiates a channel purge cycle; may be time-based, count-based, or event-based such as threshold_exceeded.", "lib": "deep_message_channel"}
+{"c": "cp_retention_window", "d": "A configurable time interval after which messages become stale_message candidates for purging; part of purge_policy definition.", "lib": "deep_message_channel"}
+{"c": "cp_stale_message", "d": "A message that has exceeded its relevance window or idle duration and no longer carries actionable data for downstream consumers.", "lib": "deep_message_channel"}
+{"c": "cp_threshold_condition", "d": "A predicate over channel_state_snapshot values that evaluates to true when purge_trigger should fire, such as depth_overflow or stale_age_exceeded.", "lib": "deep_message_channel"}
+{"c": "datatype_channel", "d": "A channel dedicated to one message type, enforcing contract clarity at the channel level rather than inside the payload.", "lib": "enterprise_integration_patterns"}
+{"c": "dead_letter_channel", "d": "A channel where messages go after exhausting retries, signaling a delivery failure requiring intervention.", "lib": "enterprise_integration_patterns"}
+{"c": "delayer", "d": "A router that holds messages for a configurable duration before forwarding them, implementing delayed delivery semantics.", "lib": "enterprise_integration_patterns"}
+{"c": "detour", "d": "A system management pattern that reroutes messages through a debugging or inspection step before resuming normal delivery.", "lib": "enterprise_integration_patterns"}
+{"c": "dm_001", "d": "payload_structure: The internal data shape of a document message, comprising typed fields and nested data elements that constitute the complete business data being transmitted.", "lib": "deep_message"}
+{"c": "dm_002", "d": "semantic_envelope: Metadata wrapper around the payload describing document provenance, intent classification, and temporal context without prescribing receiver action.", "lib": "deep_message"}
+{"c": "dm_003", "d": "business_object_type: A typed classifier identifying the kind of business entity the document represents, such as purchase_order, invoice, or shipment_manifest.", "lib": "deep_message"}
+{"c": "dm_004", "d": "document_schema: A formal contract defining the expected payload_structure fields, their types, cardinality, and optionality for a given business_object_type.", "lib": "deep_message"}
+{"c": "dm_005", "d": "content_identifier: A stable unique reference (document_id, correlation token) that identifies this specific document instance across systems and message stores.", "lib": "deep_message"}
+{"c": "dm_006", "d": "processing_hint: An optional non-directive annotation suggesting preferred handling, urgency, or routing preference without constituting a command.", "lib": "deep_message"}
+{"c": "dm_007", "d": "document_origin: Metadata identifying the originating system, agent, or process that produced the document_message.", "lib": "deep_message"}
+{"c": "dm_008", "d": "payload_extractor: A component that retrieves specific fields from the payload_structure for routing, correlation, or downstream transformation.", "lib": "deep_message"}
+{"c": "dm_009", "d": "schema_registry_entry: An entry in the message_type_registry binding a business_object_type to its document_schema and authorized handlers.", "lib": "deep_message"}
+{"c": "doc_payload", "d": "The complete data content carried by a document_message, representing the full information payload without prescribing receiver action.", "lib": "deep_message"}
+{"c": "document_classifier", "d": "A component or rule set that examines document content to determine its payload type category for downstream routing.", "lib": "deep_message"}
+{"c": "document_content", "d": "The actual business data carried by the document message, constituting the primary payload that the receiver processes.", "lib": "deep_message"}
+{"c": "document_distinguishes_from_command", "d": "document_message differs from command_message by carrying data rather than prescribing method invocations.", "lib": "deep_message"}
+{"c": "document_distinguishes_from_event", "d": "document_message differs from event_message by carrying complete business data rather than lightweight occurrence notifications.", "lib": "deep_message"}
+{"c": "document_envelope", "d": "A transport wrapper bundling document content with its metadata, headers, and routing information for channel delivery.", "lib": "deep_message"}
+{"c": "document_historian", "d": "The use of message_historian to archive document_message exchanges for compliance and forensic analysis.", "lib": "deep_message"}
+{"c": "document_identifier", "d": "A unique reference assigned to a document_message enabling correlation, lookup, and idempotent processing.", "lib": "deep_message"}
+{"c": "document_identity", "d": "A unique identifier or business key that uniquely distinguishes one document instance from all others in the integration system.", "lib": "deep_message"}
+{"c": "document_message", "d": "A message that carries a complete data payload (e.g. a purchase order) without prescribing what the receiver must do.", "lib": "enterprise_integration_patterns"}
+{"c": "document_message_is_message", "d": "document_message specializes the general concept of message, inheriting channel transport, headers, and delivery semantics.", "lib": "deep_message"}
+{"c": "document_metadata", "d": "Auxiliary descriptors attached to a document_message describing origin, timestamp, version, or business context.", "lib": "deep_message"}
+{"c": "document_reference", "d": "A link or pointer to related documents, enabling document graphs and cross-referencing within the message stream.", "lib": "deep_message"}
+{"c": "document_semantic_type", "d": "The domain-specific classification of a document_message payload, distinguishing purchase orders from invoices or other business documents.", "lib": "deep_message"}
+{"c": "document_store", "d": "The use of message_store to persist document_message payloads enabling audit trails and replay capability.", "lib": "deep_message"}
+{"c": "durable_subscriber", "d": "A subscriber registration that survives broker restarts; undelivered messages are queued and delivered once the subscriber reconnects.", "lib": "enterprise_integration_patterns"}
+{"c": "dynamic_router", "d": "A router that consults a registry or lookup table at runtime to determine destinations, allowing routing rules to change without redeployment.", "lib": "enterprise_integration_patterns"}
+{"c": "end_to_end_acknowledge", "d": "A correlation pattern where the final consumer sends an acknowledgment that propagates back through the routing chain to the original sender.", "lib": "enterprise_integration_patterns"}
+{"c": "enterprise_integration_pattern", "d": "A reusable solution template for connecting distributed systems, codified from real-world middleware and messaging experience.", "lib": "enterprise_integration_patterns"}
+{"c": "enterprise_service_bus", "d": "An architectural platform that combines messaging, routing, transformation, and protocol bridging into a single integration middleware layer.", "lib": "enterprise_integration_patterns"}
+{"c": "envelope_wrapper", "d": "A transformer that wraps or unwraps a message in an envelope to add or strip protocol-level headers for transport.", "lib": "enterprise_integration_patterns"}
+{"c": "event_driven_architecture", "d": "An architectural style where system components react to events published to a message bus rather than being invoked directly.", "lib": "enterprise_integration_patterns"}
+{"c": "event_message", "d": "A message that notifies the receiver something has happened, typically carrying a lightweight notification payload.", "lib": "enterprise_integration_patterns"}
+{"c": "event_subscription", "d": "The registration of a consumer's interest in receiving messages from a particular channel or topic based on content or type.", "lib": "enterprise_integration_patterns"}
+{"c": "exactly_once_delivery", "d": "Message delivery semantics ensuring that a message is processed precisely one time, combining delivery guarantees with deduplication.", "lib": "enterprise_integration_patterns"}
+{"c": "execution_context", "d": "A structured record of runtime state passed alongside a command, providing the environment information needed to correctly process the operation invocation.", "lib": null}
+{"c": "fault_payload", "d": "A data envelope containing error details returned when an operation fails, typically including fault code, description, and optional context for recovery.", "lib": null}
+{"c": "file_transfer_integration", "d": "Integration via shared filesystem where each system produces/consumes files, requiring conventions on naming and polling.", "lib": "enterprise_integration_patterns"}
+{"c": "guaranteed_delivery", "d": "The assurance that a message sent over a channel will eventually be delivered, even if the receiver is temporarily unavailable.", "lib": "enterprise_integration_patterns"}
+{"c": "health_check_endpoint", "d": "A monitoring interface that exposes integration component status (channels healthy, queues depth, processing lag) for observability.", "lib": "enterprise_integration_patterns"}
+{"c": "idempotency_key", "d": "A unique identifier assigned to a command that allows receivers to detect and discard duplicate submissions, ensuring safe retries without double execution.", "lib": null}
+{"c": "idempotent_consumer", "d": "A consumer designed to safely process the same message more than once without side effects, essential for guaranteed delivery.", "lib": "enterprise_integration_patterns"}
+{"c": "integration_style", "d": "A coarse-grained approach to system interconnection, defined by the mechanism used to move data between systems.", "lib": "enterprise_integration_patterns"}
+{"c": "invalid_message_channel", "d": "A channel that captures malformed or unprocessable messages for manual inspection instead of blocking the main flow.", "lib": "enterprise_integration_patterns"}
+{"c": "list_of_interceptors", "d": "A system management pattern that registers interceptor objects to run before or after message processing for cross-cutting concerns.", "lib": "enterprise_integration_patterns"}
+{"c": "load_balancer", "d": "A router that distributes messages across multiple equivalent receiver instances to spread processing load.", "lib": "enterprise_integration_patterns"}
+{"c": "message", "d": "A discrete packet of information sent over a channel, carrying a payload and metadata for routing and processing.", "lib": "enterprise_integration_patterns"}
+{"c": "message_bridge", "d": "An adapter linking two messaging systems or channel types so messages flow across heterogeneous middleware.", "lib": "enterprise_integration_patterns"}
+{"c": "message_broker", "d": "Middleware that holds a central registry of channels, routes messages between them, and manages subscriber lifecycles.", "lib": "enterprise_integration_patterns"}
+{"c": "message_channel", "d": "A virtual pipeline through which messages travel from sender to receiver; analogous to a typed stream or queue.", "lib": "enterprise_integration_patterns"}
+{"c": "message_datatype", "d": "The classification or schema identifier of a message that determines which datatype channels it can traverse.", "lib": "deep_message_channel"}
+{"c": "message_expiration", "d": "A property on a message indicating it becomes invalid after a certain time and should be discarded if not delivered.", "lib": "enterprise_integration_patterns"}
+{"c": "message_filter", "d": "A router that discards messages that do not meet a predicate condition, suppressing unwanted messages from downstream consumers.", "lib": "enterprise_integration_patterns"}
+{"c": "message_historian", "d": "A component that archives all messages passing through a channel for compliance, auditing, or forensic replay.", "lib": "enterprise_integration_patterns"}
+{"c": "message_router", "d": "A component that inspects message content or metadata and forwards the message to one or more downstream channels.", "lib": "enterprise_integration_patterns"}
+{"c": "message_store", "d": "A durable repository of all messages processed by an integration component, enabling replay and audit trails.", "lib": "enterprise_integration_patterns"}
+{"c": "message_transformer", "d": "A component that modifies message structure or content as it passes through, translating between producer and consumer schemas.", "lib": "enterprise_integration_patterns"}
+{"c": "message_type_registry", "d": "A catalog that maps message type names or namespace identifiers to their schemas and handlers in the integration system.", "lib": "enterprise_integration_patterns"}
+{"c": "messaging_gateway", "d": "A Fa\u00e7ade that exposes integration functionality to internal clients while hiding the underlying messaging API and complexity.", "lib": "enterprise_integration_patterns"}
+{"c": "messaging_integration", "d": "Integration via asynchronous message passing through a message broker, decoupling sender and receiver in time and space.", "lib": "enterprise_integration_patterns"}
+{"c": "messaging_system", "d": "Middleware infrastructure that provides channels, routing, and delivery guarantees for asynchronous message transport.", "lib": "enterprise_integration_patterns"}
+{"c": "messaging_translator", "d": "A bridge component that converts between the enterprise's canonical data model and the external system's proprietary format.", "lib": "enterprise_integration_patterns"}
+{"c": "non_prescriptive_behavior", "d": "The semantic trait distinguishing document_message from command_message, indicating the receiver determines its own response.", "lib": "deep_message"}
+{"c": "normalizer", "d": "A transformer that reconciles multiple inbound message formats into a single canonical format before routing.", "lib": "enterprise_integration_patterns"}
+{"c": "normalizer_for_documents", "d": "The use of normalizer to reconcile incoming document_message payloads from varying formats into a canonical schema.", "lib": "deep_message"}
+{"c": "operation_arguments", "d": "The parameter values supplied to the operation being invoked by a command message, structured according to the target interface's argument schema.", "lib": null}
+{"c": "operation_identifier", "d": "A named or coded reference that uniquely identifies which operation a command message is requesting, mapping to a procedure on the target system.", "lib": null}
+{"c": "orchestration", "d": "A centralized integration style where a single process manager directs the sequence of operations across multiple services.", "lib": "enterprise_integration_patterns"}
+{"c": "payload_completeness", "d": "The defining property of a document_message asserting the payload contains all necessary data for the consumer to act upon voluntarily.", "lib": "deep_message"}
+{"c": "payload_encoding", "d": "The serialization format of the document_message payload, such as JSON, XML, YAML, or binary encoding.", "lib": "deep_message"}
+{"c": "payload_schema", "d": "The structural definition that a document_message payload conforms to, specifying fields, types, and constraints.", "lib": "deep_message"}
+{"c": "payload_type", "d": "A classification identifier indicating the document category or business object type, enabling routing and handler selection.", "lib": "deep_message"}
+{"c": "payload_validation", "d": "The process of verifying that document content conforms to its declared payload schema before further processing.", "lib": "deep_message"}
+{"c": "point_to_point_channel", "d": "A channel with exactly one consumer per message; guarantees that exactly one receiver processes each message.", "lib": "enterprise_integration_patterns"}
+{"c": "polling_consumer", "d": "A consumer that repeatedly queries a source for new messages rather than receiving them push-style from a channel.", "lib": "enterprise_integration_patterns"}
+{"c": "process_manager", "d": "A stateful component that orchestrates a multi-step business process by sending messages to channels and handling responses.", "lib": "enterprise_integration_patterns"}
+{"c": "publish_subscribe_channel", "d": "A channel where one publisher sends and all subscribed receivers consume; each gets its own copy of the message.", "lib": "enterprise_integration_patterns"}
+{"c": "recipient_list", "d": "A router that sends the same message to a list of recipients computed at runtime from the message content or context.", "lib": "enterprise_integration_patterns"}
+{"c": "remote_procedure_invocation", "d": "Integration where one system exposes a callable API and another synchronously invokes it as if it were local.", "lib": "enterprise_integration_patterns"}
+{"c": "request_reply", "d": "A message exchange pattern pairing an outgoing request message with a correlated response message returned to the original sender.", "lib": "enterprise_integration_patterns"}
+{"c": "resequencer", "d": "A router that reorders a stream of messages into the correct sequence before passing them downstream.", "lib": "enterprise_integration_patterns"}
+{"c": "result_payload", "d": "A data envelope containing the return value or outcome produced by a successfully executed operation, structured to match the expected response schema.", "lib": null}
+{"c": "return_address", "d": "Metadata on a reply message indicating which channel and possibly which queue the response should be routed to.", "lib": "enterprise_integration_patterns"}
+{"c": "routing_slip", "d": "A routing pattern where each message carries its own itinerary of processing steps, executed in sequence by participating nodes.", "lib": "enterprise_integration_patterns"}
+{"c": "scatter_gather", "d": "A router that broadcasts a request to multiple recipients and then collects and consolidates all their responses.", "lib": "enterprise_integration_patterns"}
+{"c": "schema_validation", "d": "The enforcement that a message payload conforms to its declared schema before it is routed or transformed.", "lib": "enterprise_integration_patterns"}
+{"c": "schema_validation_on_document", "d": "The application of schema_validation to ensure document_message payloads conform to their declared payload_schema.", "lib": "deep_message"}
+{"c": "sequential_convoy", "d": "A routing pattern that correlates messages across multiple channels by a shared sequencing key to maintain order across streams.", "lib": "enterprise_integration_patterns"}
+{"c": "shared_database_integration", "d": "Integration via a common relational schema where systems read/write shared tables as the coupling mechanism.", "lib": "enterprise_integration_patterns"}
+{"c": "smart_proxy", "d": "A component that monitors a channel and takes corrective action (e.g., resends, redirects) when abnormal conditions are detected.", "lib": "enterprise_integration_patterns"}
+{"c": "splitter", "d": "A router that breaks a composite message containing multiple items into individual messages, one per item.", "lib": "enterprise_integration_patterns"}
+{"c": "static_recipient_list", "d": "A recipient list with fixed destinations known at design time, compiled into the routing logic rather than derived from content.", "lib": "enterprise_integration_patterns"}
+{"c": "target_interface_version", "d": "A version descriptor indicating which contract version of the target interface a command message adheres to, enabling version-aware routing and validation.", "lib": null}
+{"c": "test_message", "d": "A system management pattern that injects a known probe message into the flow to verify correct processing downstream.", "lib": "enterprise_integration_patterns"}
+{"c": "throttler", "d": "A router that limits the rate at which messages pass through, protecting downstream systems from overload.", "lib": "enterprise_integration_patterns"}
+{"c": "transactional_integration", "d": "Integration that groups message production or consumption with local database updates into a single atomic unit of work.", "lib": "enterprise_integration_patterns"}
+{"c": "type_constraint_enforcement", "d": "The runtime or compile-time rule that a datatype channel accepts only messages whose datatype matches the declared type, rejecting mismatched messages.", "lib": "deep_message_channel"}
+{"c": "type_matching_check", "d": "The validation that a message's actual type matches a datatype channel's declared type at the point of send or receive.", "lib": "deep_message_channel"}
+{"c": "type_metadata", "d": "The descriptor carried by a datatype channel identifying the exact message type, schema, or format that the channel transports.", "lib": "deep_message_channel"}
+{"c": "type_safe_consumer", "d": "A message consumer bound to a datatype channel that receives only messages of the declared datatype, enabling type-safe processing without runtime type checks.", "lib": "deep_message_channel"}
+{"c": "type_safe_producer", "d": "A message producer bound to a datatype channel that can only publish messages of the declared datatype, preventing accidental type violations.", "lib": "deep_message_channel"}
+{"c": "type_schema_binding", "d": "The linkage between a datatype channel and the formal schema or structure definition of its accepted message type.", "lib": "deep_message_channel"}
+{"c": "untyped_channel", "d": "A channel without a declared datatype that accepts messages of any type, serving as the contrast to datatype channels.", "lib": "deep_message_channel"}
+{"c": "wire_tap", "d": "A system management pattern that taps into a channel to observe messages without disrupting the normal flow.", "lib": "enterprise_integration_patterns"}

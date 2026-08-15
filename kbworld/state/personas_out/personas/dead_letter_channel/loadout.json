@@ -1,0 +1,13 @@
+{
+  "region": "dead_letter_channel",
+  "call_number": "enterprise_integration_patterns.dead_letter_channel : deep_message(6)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 6
+}

@@ -1,0 +1,13 @@
+{
+  "region": "messaging_system",
+  "call_number": "enterprise_integration_patterns.messaging_system : deep_message(6), deep_message_channel(1)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 27
+}

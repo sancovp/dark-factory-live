@@ -1,0 +1,115 @@
+{
+  "subject": "enterprise integration patterns",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "bootstrap",
+      "doors": [
+        "message_channel",
+        "message"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "bootstrap": {
+        "concepts": 78,
+        "relations": 85
+      },
+      "specialize": {
+        "basis_after": 0.123,
+        "new": [
+          [
+            "message_channel",
+            20,
+            26
+          ],
+          [
+            "message",
+            45,
+            45
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 11
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 154,
+        "relations": 176,
+        "define": 0,
+        "connect": 20
+      }
+    },
+    "brain": {
+      "grew": "command_message"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/enterprise_integration_patterns",
+      "skills": 24,
+      "staff": 35
+    },
+    "observe": {
+      "findings": 4,
+      "issues": [
+        {
+          "atom": "command_target",
+          "why": "Covers destination in message metadata, but most EIP tooling (Camel, Spring Integration, WSO2 EI) routes via infrastructure (endpoints, channels) not embedded in the command. A user embedding target in the message will fight the framework.",
+          "price": 10,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/288"
+        },
+        {
+          "atom": "command_timeout",
+          "why": "Frames timeout as a property OF the command, but in standard EIP async command-dispatch patterns, commands are fire-and-forget; the sender waits on the correlated reply, not on the command itself. Misleads users into setting timeouts on commands that won't block.",
+          "price": 10,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/289"
+        },
+        {
+          "atom": "event_message",
+          "why": "States 'typically carrying a lightweight notification payload' but provides no threshold or guidance. Events in practice (domain events, CDC events) often carry full entity snapshots. A user will over-restrict payload size based on this wording.",
+          "price": 6,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/290"
+        },
+        {
+          "atom": "guaranteed_delivery",
+          "why": "Definition is truncated/incomplete \u2014 ends mid-sentence. A user relying on this atom cannot understand what guaranteed delivery means without the full description.",
+          "price": 9,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/291"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/enterprise_integration_patterns",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/enterprise_integration_patterns/skills/using-enterprise-integration-patterns/SKILL.md",
+      "plugin": "enterprise-integration-patterns-module",
+      "library_skills": 29,
+      "brain_files": 29
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "154c/176r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 0
+      },
+      "after": {
+        "define": 0,
+        "connect": 20
+      }
+    },
+    "basis": 0.692,
+    "secs": 297.2
+  }
+}

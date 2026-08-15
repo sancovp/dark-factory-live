@@ -1,0 +1,268 @@
+{
+  "skilltree": {
+    "name": "understand-enterprise integration patterns",
+    "kind": "skill",
+    "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-enterprise integration patterns",
+    "description": "the enterprise integration patterns library \u2014 every skill a certified region of the KB; call number = home : facets",
+    "coord": "0",
+    "frameworks": [],
+    "children": [
+      {
+        "name": "understand-core",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-core",
+        "description": "the core subdomain of enterprise integration patterns (11 concepts)",
+        "coord": "0.1",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-command_priority",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-command_priority",
+            "description": "A metadata field indicating the urgency or precedence level of a command message, used by schedulers and route",
+            "coord": "0.1.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-command_target",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-command_target",
+            "description": "The logical or physical destination endpoint to which a command message is addressed, specifying which receive",
+            "coord": "0.1.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-command_timeout",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-command_timeout",
+            "description": "The maximum duration a sender will wait for a command to complete before considering it failed; exceeding this",
+            "coord": "0.1.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-fault_payload",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-fault_payload",
+            "description": "A data envelope containing error details returned when an operation fails, typically including fault code, des",
+            "coord": "0.1.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-result_payload",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-result_payload",
+            "description": "A data envelope containing the return value or outcome produced by a successfully executed operation, structur",
+            "coord": "0.1.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-channel_bridge",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-channel_bridge",
+            "description": "A connection point that joins two channel segments or a channel to an external system, enabling message flow a",
+            "coord": "0.1.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_message",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-deep_message",
+        "description": "the deep_message subdomain of enterprise integration patterns (45 concepts)",
+        "coord": "0.2",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-dm_001",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-dm_001",
+            "description": "payload_structure: The internal data shape of a document message, comprising typed fields and nested data elem",
+            "coord": "0.2.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dm_002",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-dm_002",
+            "description": "semantic_envelope: Metadata wrapper around the payload describing document provenance, intent classification, ",
+            "coord": "0.2.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dm_003",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-dm_003",
+            "description": "business_object_type: A typed classifier identifying the kind of business entity the document represents, such",
+            "coord": "0.2.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dm_004",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-dm_004",
+            "description": "document_schema: A formal contract defining the expected payload_structure fields, their types, cardinality, a",
+            "coord": "0.2.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dm_005",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-dm_005",
+            "description": "content_identifier: A stable unique reference (document_id, correlation token) that identifies this specific d",
+            "coord": "0.2.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-dm_007",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-dm_007",
+            "description": "document_origin: Metadata identifying the originating system, agent, or process that produced the document_mes",
+            "coord": "0.2.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-deep_message_channel",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-deep_message_channel",
+        "description": "the deep_message_channel subdomain of enterprise integration patterns (20 concepts)",
+        "coord": "0.3",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-cp_purge_action",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-cp_purge_action",
+            "description": "The execution step that removes qualifying messages from the channel: permanent deletion, move to dead_letter_",
+            "coord": "0.3.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-cp_threshold_condition",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-cp_threshold_condition",
+            "description": "A predicate over channel_state_snapshot values that evaluates to true when purge_trigger should fire, such as ",
+            "coord": "0.3.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-cp_purge_trigger",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-cp_purge_trigger",
+            "description": "A condition that initiates a channel purge cycle; may be time-based, count-based, or event-based such as thres",
+            "coord": "0.3.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-cp_purge_policy",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-cp_purge_policy",
+            "description": "A set of rules defining which messages qualify for purging: age threshold, retry exhaustion, poison detection ",
+            "coord": "0.3.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-cp_stale_message",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-cp_stale_message",
+            "description": "A message that has exceeded its relevance window or idle duration and no longer carries actionable data for do",
+            "coord": "0.3.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-cp_poison_message",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-cp_poison_message",
+            "description": "A message that has caused repeated processing failures or is structurally unprocessable and blocks channel pro",
+            "coord": "0.3.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "understand-enterprise_integration_patterns",
+        "kind": "skill",
+        "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-enterprise_integration_patterns",
+        "description": "the enterprise_integration_patterns subdomain of enterprise integration patterns (78 concepts)",
+        "coord": "0.4",
+        "frameworks": [],
+        "children": [
+          {
+            "name": "understand-command_message",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-command_message",
+            "description": "A message that encodes an invocation of an operation on the receiver, carrying method name and arguments.",
+            "coord": "0.4.1",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-message_channel",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-message_channel",
+            "description": "A virtual pipeline through which messages travel from sender to receiver; analogous to a typed stream or queue",
+            "coord": "0.4.2",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-datatype_channel",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-datatype_channel",
+            "description": "A channel dedicated to one message type, enforcing contract clarity at the channel level rather than inside th",
+            "coord": "0.4.3",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-message",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-message",
+            "description": "A discrete packet of information sent over a channel, carrying a payload and metadata for routing and processi",
+            "coord": "0.4.4",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-message_router",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-message_router",
+            "description": "A component that inspects message content or metadata and forwards the message to one or more downstream chann",
+            "coord": "0.4.5",
+            "frameworks": [],
+            "children": []
+          },
+          {
+            "name": "understand-request_reply",
+            "kind": "skill",
+            "skill_src": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/_staging_enterprise_integration_patterns/understand-request_reply",
+            "description": "A message exchange pattern pairing an outgoing request message with a correlated response message returned to ",
+            "coord": "0.4.6",
+            "frameworks": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

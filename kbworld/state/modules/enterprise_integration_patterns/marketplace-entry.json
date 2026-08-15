@@ -1,0 +1,12 @@
+{
+  "name": "enterprise-integration-patterns-module",
+  "description": "enterprise integration patterns \u2014 a cultivated, proof-checked neurosymbolic knowledge module: RAG library, agent brain, growable KB, factory-deepened. 154 concepts.",
+  "author": {
+    "name": "Isaac Wostrel-Rubin"
+  },
+  "category": "productivity",
+  "source": {
+    "source": "url",
+    "url": "https://github.com/sancovp/enterprise-integration-patterns-module.git"
+  }
+}
