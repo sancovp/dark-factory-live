@@ -1,0 +1,8 @@
+{
+  "test_id": "test_loadout_gap_finder",
+  "skill_path": "crafted/loadout_gap_finder_recipe.md",
+  "result": "pass",
+  "input": "{\"loadout_dir\": \"world/agents/agent_001/crafted\", \"lineage_path\": \"LINEAGE.json\"}",
+  "output_summary": "Successfully identified 3 unused skills (lens_test_exploit_detection, monoculture_detector_pipeline, reframe_lens) out of 40+ in loadout. Found overconvergence in pipeline recipes (7 pipelines vs 2 lens-only skills being actively composed). Recommended: use reframe_lens before pipeline recipes to widen the problem space.",
+  "test_notes": "Recipe correctly composes divergence_lens (unused detection) + convergence_lens (monoculture detection) + dependency_audit_recipe (dependency verification). Each step produced verifiable output. Gap ratio 0.07 (3 unused / 45 total) indicates healthy loadout but with room for better skill adoption."
+}

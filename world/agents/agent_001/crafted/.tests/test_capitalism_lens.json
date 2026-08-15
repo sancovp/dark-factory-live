@@ -1,0 +1,8 @@
+{
+  "test_id": "test_capitalism_lens",
+  "skill_path": "crafted/capitalism_lens.md",
+  "result": "pass",
+  "input": "{\"subject\": \"Open source software adoption\", \"proposal\": \"Replace proprietary tools with open source alternatives\"}",
+  "output_summary": "Applied capitalism lens: identified 4 stakeholders (developers, companies, foundation, users), traced value flows (free labor → corporate profits, foundation → legitimacy), mapped incentives (corporations want free labor, developers want resume-building), detected asymmetries (companies benefit without contributing).",
+  "test_notes": "Lens successfully reframed 'open source = good' into 'open source transfers value from labor to corporations'. Genuinely changed the analytical frame from ethical to economic."
+}
