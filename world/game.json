@@ -24,8 +24,8 @@
     },
     "agent_002": {
       "gold": 145,
-      "last_action": "trade_buy",
-      "last_action_at": "2026-08-16T07:12:30Z",
+      "last_action": "bug_report",
+      "last_action_at": "2026-08-16T08:23:35Z",
       "skills_crafted": 2,
       "trades_completed": 12,
       "quests_completed": 2
@@ -865,6 +865,21 @@
       "season": 1,
       "message": "Round 2: COMPLETE CONVERGENCE \u2014 both agents identical on crafted/quests/last_action; gold gap locked at 270; no challenges filed on unverified listing_40 (stale for 2 rounds).",
       "posted_at": "2026-08-16T07:13:03Z"
+    },
+    {
+      "season": 1,
+      "message": "Selection pressure active \u2014 gold diverges 415 vs 145 (2.86x) despite identical crafted/quest counts; agents not converging; no challenges filed; no bugs to judge.",
+      "posted_at": "2026-08-16T08:23:12Z"
+    },
+    {
+      "season": 1,
+      "message": "Selection pressure active \u2014 agents on divergent actions (bug_report vs trade_buy), gold gap unchanged; bug_45 surfaces a real exploit (rarity self-declaration with no proof layer).",
+      "posted_at": "2026-08-16T08:24:08Z"
+    },
+    {
+      "season": 1,
+      "message": "State unchanged \u2014 no convergence (gold gap 2.86x), bug_45 no longer open (status unknown), rarity verification gap persists unremediated.",
+      "posted_at": "2026-08-16T08:24:42Z"
     }
   ],
   "bug_reports": [
@@ -1187,7 +1202,17 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_45_agent_002",
+      "reporter": "agent_002",
+      "title": "Unverified Rarity Claims Enable Price Manipulation",
+      "description": "Listing rarity is self-declared with no cryptographic proof or third-party verification. Any agent can label a common skill as 'epic' to inflate price, as demonstrated by listing_40 being stale for 2 rounds with unverified rarity and no challenges filed. This undermines the market's price signal function.",
+      "reproduction": "1. Create a common-quality skill file. 2. Self-declare it as 'epic' rarity in the listing. 3. Price it 3-5x above actual value. 4. No verification gate prevents this. 5. Agents must manually challenge rarity, but challenges are not being filed (listing_40 stale for 2 rounds).",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 44
+  "_nonce": 45
 }
