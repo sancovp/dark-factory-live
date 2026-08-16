@@ -1,6 +1,6 @@
 {
   "region": "cache_coherency",
-  "call_number": "concurrency_synchronization_primitives_and_memor.cache_coherency",
+  "call_number": "concurrency_synchronization_primitives_and_memor.cache_coherency : deep_synchronizes_with(3)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 2
+  "cone_size": 5
 }

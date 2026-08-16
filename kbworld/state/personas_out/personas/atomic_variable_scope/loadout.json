@@ -1,0 +1,13 @@
+{
+  "region": "atomic_variable_scope",
+  "call_number": "deep_c11_memory_model.atomic_variable_scope",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}

@@ -1,0 +1,13 @@
+{
+  "region": "c11_atomic",
+  "call_number": "deep_synchronizes_with.c11_atomic : deep_c11_memory_model(39), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(5)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 74
+}

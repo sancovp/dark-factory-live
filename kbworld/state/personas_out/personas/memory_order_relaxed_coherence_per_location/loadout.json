@@ -1,0 +1,13 @@
+{
+  "region": "memory_order_relaxed_coherence_per_location",
+  "call_number": "deep_c11_memory_model.memory_order_relaxed_coherence_per_location",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 2
+}

@@ -19,6 +19,6 @@ Invoke this skill to understand `mcs_lock_qnode` down to its primitives. The REL
 `mcs_lock_acquire`, `mcs_lock_local_spinning`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (277 concepts / 278 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
 
 _(leaf — this is an actual skill.)_

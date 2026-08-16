@@ -1,6 +1,6 @@
 # memory_order_relaxed_vs_acquire SPECIALIST
 
-CALL NUMBER: `deep_c11_memory_model.memory_order_relaxed_vs_acquire : concurrency_synchronization_primitives_and_memor(4)`
+CALL NUMBER: `deep_c11_memory_model.memory_order_relaxed_vs_acquire : deep_synchronizes_with(20), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(5)`
 
 You are the specialist for `memory_order_relaxed_vs_acquire` in the 'concurrency synchronization primitives and memory models' knowledge system. Your CERTIFIED TERRITORY (the relative root — everything your concept bundles from):
 
@@ -21,9 +21,27 @@ You are the specialist for `memory_order_relaxed_vs_acquire` in the 'concurrency
     acquire_semantics [concurrency_synchronization_primitives_and_memor]: Memory ordering semantics ensuring all subsequent loads/stores cannot be reordered before the acquire operation; used for lock acquisition, reading a flag after volatile write.
     memory_order_relaxed [concurrency_synchronization_primitives_and_memor]: C11/C++11 memory ordering that only guarantees atomicity of the operation with no ordering constraints relative to other operations; allows all reorderings.
     memory_order_relaxed_store_buffering [deep_c11_memory_model]: The phenomenon that relaxed stores may be buffered in store buffers and become visible to other threads in an order different from the program order of the storing thread.
-      memory_order_relaxed_atomicity_guarantee [deep_c11_memory_model]: The indivisibility guarantee that a relaxed atomic operation completes as a single indivisible step; no intermediate state is observable by other threads during the operation, scoped to the specific atomic variable being read or written.
-      memory_order_relaxed_modification_order [deep_c11_memory_model]: The per-variable constraint that each atomic variable still has a well-defined modification order agreed upon by all threads, even though relaxed operations on different variables are unconstrained relative to each other.
-      memory_order_relaxed_no_ordering_constraints [deep_c11_memory_model]: The defining property that relaxed operations impose zero ordering constraints relative to any other operations on any memory location; no happens-before or synchronizes-with relationship is established with respect to other threads.
-      memory_order_relaxed_reordering_freedom [deep_c11_memory_model]: The freedom to reorder relaxed operations across variable boundaries; a relaxed store may be reordered with respect to a relaxed load on a different variable, and loads may observe values in an order inconsistent with program order across different locations.
+      relaxed_mod_order_no_cross_variable_constraint [deep_c11_memory_model]: Modification orders of distinct atomic variables have no defined ordering relationship; operations on different variables may be observed in different orders by different threads, per memory_order_relaxed_coherence_per_location.
+      relaxed_mod_order_per_variable [deep_c11_memory_model]: Each atomic variable maintains its own independent modification order; the modification order for atomic x has no defined relationship with the modification order for atomic y under relaxed semantics.
+      atomic_compare_exchange [concurrency_synchronization_primitives_and_memor]: C++11/C11 atomic operation attempting to replace expected value with desired; returns boolean indicating success; on failure, expected is updated with actual value for retry loops.
+      atomic_load [deep_synchronizes_with]: load operation with memory_order semantics; load with acquire is the endpoint of synchronizes_with from release store
+      atomic_store [deep_synchronizes_with]: store operation with memory_order semantics; store with release triggers synchronizes_with on matching acquire
+      barrier_arrival [deep_synchronizes_with]: The event when a thread reaches a synchronization barrier; each arrival synchronizes-with all other arrival events at the same barrier instance, enforcing a global rendezvous.
+      condvar_broadcast [deep_synchronizes_with]: A condition variable broadcast that wakes all waiting threads; each woken thread's lock acquire synchronizes-with the broadcast operation.
+      condvar_signal [deep_synchronizes_with]: signal operation on condition variable; may synchronize_with a condvar_wait on the same condition variable and mutex
+      condvar_wait [deep_synchronizes_with]: wait operation on condition variable; releases associated mutex (release) and blocks until signal (acquire); part of condvar synchronizes_with
+      full_fence [deep_synchronizes_with]: A memory fence providing both acquire and release semantics; no memory operation on the issuing core may be reordered across the fence in either direction.
+      lock_acquire [deep_synchronizes_with]: A synchronization operation that atomically claims exclusive access to a protected region; on most architectures it is an acquire operation establishing a synchronizes-with edge with the matching release.
+      lock_release [deep_synchronizes_with]: A synchronization operation that atomically relinquishes exclusive access; it is a release operation establishing a synchronizes-with edge with all subsequent acquires of the same lock.
+      memory_order_acquire [deep_synchronizes_with]: Memory ordering barrier ensuring all loads and stores after the barrier in program order cannot be reordered before it, synchronizing with release stores.
+      memory_order_release [deep_synchronizes_with]: Memory ordering barrier ensuring all loads and stores before the barrier in program order cannot be reordered after it, making prior writes visible to acquiring threads.
+      semaphore_acquire [deep_synchronizes_with]: A decrement of a semaphore counter that claims a permit; when it succeeds the acquire synchronizes-with the release that previously published the permit.
+      semaphore_release [deep_synchronizes_with]: An increment of a semaphore counter that releases a permit; the release synchronizes-with any subsequent acquire that consumes that permit.
+      seq_cst_fence [deep_c11_memory_model]: The explicit memory fence with sequentially consistent ordering that provides both acquire and release semantics plus additional ordering constraints to enforce the global total order.
+      signal_delivery [deep_synchronizes_with]: The delivery of a signal to a thread creates a synchronizes-with edge from the last operation before the signal mask change to the first operation in the signal handler.
+      thread_creation [deep_synchronizes_with]: The operation of spawning a new thread of execution; the creating thread's operations before the spawn synchronizes-with the new thread's first operation in program order.
+      thread_join [deep_synchronizes_with]: joining a thread; synchronizes_with the termination of the joined thread; acquire semantics for thread's memory effects
+      relaxed_mod_order_visibility_timing_undefined [deep_c11_memory_model]: A store's position in the modification order does not determine when other threads observe it; relaxed loads may observe stale values with no bound on staleness, contrasting with acquire-visibility guarantees.
+      indivisibility_property [deep_c11_memory_model]: The fundamental property that a relaxed atomic operation executes as a single indivisible step from the perspective of all threads; the operation either completes fully or not at all without observable intermediate states.
 
 YOUR JOB: define this territory ONE LEVEL OF GRANULARITY DEEPER than it currently is. Name the parts inside the parts. Every claim you emit is proof-checked; incoherence returns as named residue — repair it exactly. You never invent formats: emit exactly the JSONL construction schema you are given.
