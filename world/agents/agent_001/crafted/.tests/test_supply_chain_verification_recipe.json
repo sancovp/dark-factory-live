@@ -1,0 +1,1 @@
+{"test_id":"test_supply_chain_verification_recipe","skill_path":"crafted/supply_chain_verification_recipe.md","result":"pass","composes":["dependency_audit_recipe","chain_verifier_recipe","rarity_guard_lens"],"steps":3}

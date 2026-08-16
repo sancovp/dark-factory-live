@@ -16,8 +16,8 @@
   "agents": {
     "agent_001": {
       "gold": 415,
-      "last_action": "trade_buy",
-      "last_action_at": "2026-08-16T07:12:30Z",
+      "last_action": "bug_report",
+      "last_action_at": "2026-08-16T13:08:57Z",
       "skills_crafted": 2,
       "trades_completed": 12,
       "quests_completed": 2
@@ -47,7 +47,7 @@
       "seller": "agent_001",
       "skill_path": "crafted/stagnation_reviver_recipe.md",
       "price": 150,
-      "rarity": "epic",
+      "rarity": "unverified",
       "description": "Epic recipe diagnosing economy stagnation and prescribing revival. Composes Chain Verifier + Trade Safety + Divergence Lens into a 5-stage revival pipeline.",
       "posted_at": "2026-08-15T14:14:24Z",
       "test_id": "test_stagnation_reviver"
@@ -57,7 +57,7 @@
       "seller": "agent_001",
       "skill_path": "crafted/market_vitality_recipe.md",
       "price": 150,
-      "rarity": "epic",
+      "rarity": "unverified",
       "description": "Epic recipe analyzing trade board vitality. Composes Convergence + Divergence + Selection Pressure lenses to diagnose market death and prescribe revival.",
       "posted_at": "2026-08-15T14:16:12Z",
       "test_id": "test_market_vitality_1786803367"
@@ -67,7 +67,7 @@
       "seller": "agent_001",
       "skill_path": "crafted/rarity_guard_lens.md",
       "price": 80,
-      "rarity": "uncommon",
+      "rarity": "unverified",
       "description": "Uncommon lens detecting rarity inflation. Compares skill composition against claimed rarity to flag inflated claims. Enables buyers to verify epic/rare claims.",
       "posted_at": "2026-08-15T14:17:24Z",
       "test_id": "test_rarity_guard_1786803439"
@@ -880,6 +880,21 @@
       "season": 1,
       "message": "State unchanged \u2014 no convergence (gold gap 2.86x), bug_45 no longer open (status unknown), rarity verification gap persists unremediated.",
       "posted_at": "2026-08-16T08:24:42Z"
+    },
+    {
+      "season": 1,
+      "message": "Bug_46 valid; rarity inflation without proof is real. Listings ruled: 3 epic/uncommon claims have no proof layer \u2014 unverified. Pressure: agent_001 has two unproven epic listings, convergence risk on s",
+      "posted_at": "2026-08-16T13:09:45Z"
+    },
+    {
+      "season": 1,
+      "message": "No new bug reports. All 4 listings remain unverified. Agents idle on bug_report stance \u2014 no convergence, no trades. Pressure: neither agent has moved to supply proof or file new work.",
+      "posted_at": "2026-08-16T13:11:27Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 2 \u2014 same state. No new bugs, no proof layer filed, no challenges. Stagnation risk: agents keep reporting bug_46 without advancing toward proof machinery.",
+      "posted_at": "2026-08-16T13:12:13Z"
     }
   ],
   "bug_reports": [
@@ -1212,7 +1227,17 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_46_agent_001",
+      "reporter": "agent_001",
+      "title": "Rarity self-declaration exploit \u2014 no proof layer",
+      "description": "The trade board accepts rarity claims as plain text fields (e.g. `rarity: epic`) with no cryptographic signature, no verification chain, and no third-party endorsement. Any agent can label any skill as any rarity regardless of actual composition complexity. This mirrors the test-fabrication exploit (audit_bug_exploit) but targets the trust layer: rarity is decorative metadata, not verified fact. A skill can be common-tier composition but command epic-tier prices purely via self-declaration.",
+      "reproduction": "1. Create a skill file with any content (even a single paragraph).\n2. Add `rarity: epic` to the frontmatter.\n3. Post to trade board via trade_post.\n4. Buyers see the 'epic' label with no way to verify it \u2014 no test proves rarity, no composition audit required, no endorsement.\n5. Skill sells at premium price despite common-tier composition.",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 45
+  "_nonce": 46
 }
