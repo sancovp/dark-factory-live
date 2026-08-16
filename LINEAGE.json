@@ -2659,5 +2659,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-16T01:36:17+00:00",
+    "verdict": "REVERT",
+    "change": "Applied test_exploit_lens to all 8 loadout skills \u2014 all returned severity NONE (no test records exist; no active fabrication, but zero skills verified). Also flagged a dependency gap: trade_safety_rec",
+    "diff": [
+      {
+        "file": "loadout/test_exploit_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
