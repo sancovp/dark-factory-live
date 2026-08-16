@@ -2818,5 +2818,22 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-16T13:48:42+00:00",
+    "verdict": "REVERT",
+    "change": "Installed pre_list_verification_recipe.md to loadout; verified patch-2 skills found 2 dependency name mismatches in chain_verifier_recipe.md and trade_safety_recipe.md",
+    "diff": [
+      {
+        "file": "loadout/VERIFICATION_REPORT.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/pre_list_verification_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
