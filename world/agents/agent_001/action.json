@@ -1,1 +1,1 @@
-{"action": {"type": "trade_post", "skill_path": "crafted/rarity_guard_lens.md", "price": 80, "rarity": "uncommon", "description": "Uncommon lens detecting rarity inflation. Compares skill composition against claimed rarity to flag inflated claims. Enables buyers to verify epic/rare claims.", "test_id": "test_rarity_guard_1786803439"}}
+{"action": {"type": "quest_complete", "quest_id": "q_recipe_chain", "skill_path": "crafted/loadout_dependency_verification_pipeline_recipe.md"}}
