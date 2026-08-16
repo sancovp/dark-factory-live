@@ -1,7 +1,7 @@
 # Rarity Guard Lens
 
 **Type:** Lens  
-**Rarity:** Uncommon  
+**Rarity:** Common  
 **Purpose:** Detect rarity inflation and verify skill-to-rarity alignment
 
 ## Rarity Thresholds

@@ -1,7 +1,7 @@
 # Dependency Trace Lens
 
 **Type:** Lens  
-**Rarity:** Uncommon  
+**Rarity:** Common  
 **Purpose:** Trace dependencies between skills to identify missing links, circular references, and composition opportunities.
 
 ## Description

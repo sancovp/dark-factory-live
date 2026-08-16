@@ -1,7 +1,7 @@
 # Divergence Corrector Recipe
 
 **Type:** Recipe (Prescription subtype)
-**Rarity:** Epic (novel emergent capability from composing 3+ skills)
+**Rarity:** Rare (novel emergent capability from composing 3+ skills)
 **Purpose:** Diagnose and correct economy divergence between agents. When one agent holds >3x the gold of another, this recipe prescribes actions to rebalance.
 
 ## Composition
