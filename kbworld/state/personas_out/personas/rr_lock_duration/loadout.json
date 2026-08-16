@@ -1,0 +1,13 @@
+{
+  "region": "rr_lock_duration",
+  "call_number": "deep_database_transaction.rr_lock_duration",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 3
+}

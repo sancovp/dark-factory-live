@@ -1,6 +1,6 @@
 {
   "region": "atomicity",
-  "call_number": "database_transaction_isolation_and_concurrency_c.atomicity : deep_database_transaction(5), deep_isolation_level(1)",
+  "call_number": "database_transaction_isolation_and_concurrency_c.atomicity : deep_database_transaction(11), deep_isolation_level(1)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 14
+  "cone_size": 28
 }

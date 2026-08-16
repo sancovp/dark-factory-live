@@ -8,7 +8,7 @@ Invoke this skill to understand `committed_data` down to its primitives. The REL
 ## THE RELATIVE ROOT (the import cone, by lib)
 
 ## CONSUMERS (what needs this)
-`commit_visibility_boundary`, `committed`, `read_committed`, `write_lock_held_until_commit`
+`aborted_data`, `c004`, `c005`, `c011`, `commit_visibility_boundary`, `committed`, `read_committed`, `write_lock_held_until_commit`
 
 ---
-*Projected from the `database transaction isolation and concurrency control` KB (217 concepts / 124 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `database transaction isolation and concurrency control` KB (280 concepts / 214 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

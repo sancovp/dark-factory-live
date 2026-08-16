@@ -1,6 +1,6 @@
 {
   "region": "transaction_boundary",
-  "call_number": "deep_database_transaction.transaction_boundary : database_transaction_isolation_and_concurrency_c(5), deep_isolation_level(1)",
+  "call_number": "deep_database_transaction.transaction_boundary : database_transaction_isolation_and_concurrency_c(6), deep_isolation_level(1)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 6
+  "cone_size": 17
 }

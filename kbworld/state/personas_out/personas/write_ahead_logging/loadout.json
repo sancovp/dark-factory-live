@@ -1,6 +1,6 @@
 {
   "region": "write_ahead_logging",
-  "call_number": "database_transaction_isolation_and_concurrency_c.write_ahead_logging : deep_database_transaction(2), deep_isolation_level(1)",
+  "call_number": "database_transaction_isolation_and_concurrency_c.write_ahead_logging : deep_database_transaction(7), deep_isolation_level(1)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 9
+  "cone_size": 22
 }

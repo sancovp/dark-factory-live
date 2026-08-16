@@ -7,7 +7,7 @@ version: 0.1.0
 # using-database-transaction-isolation-and-concu
 
 This module is a CULTIVATED, PROOF-CHECKED knowledge organism about
-**database transaction isolation and concurrency control** (217 concepts / 124 relations; grown by a
+**database transaction isolation and concurrency control** (280 concepts / 214 relations; grown by a
 KB factory — every region admitted by a Prolog consistency gate, wrongness
 tracked as open supersede-issues, never hidden).
 
@@ -52,15 +52,15 @@ tracked as open supersede-issues, never hidden).
 
 ## The map
 
-- `database_transaction_isolation_and_concurrency_c.atomicity : deep_database_transaction(5), deep_isolation_level(1)`
-- `database_transaction_isolation_and_concurrency_c.isolation_level : deep_database_transaction(6), deep_isolation_level(4)`
+- `database_transaction_isolation_and_concurrency_c.atomicity : deep_database_transaction(11), deep_isolation_level(1)`
+- `database_transaction_isolation_and_concurrency_c.isolation_level : deep_database_transaction(26), deep_isolation_level(4)`
+- `deep_rollback.c009`
+- `database_transaction_isolation_and_concurrency_c.aborted_state : deep_isolation_level(1)`
+- `deep_isolation_level.committed_data`
 - `database_transaction_isolation_and_concurrency_c.rollback : deep_isolation_level(1)`
 - `deep_database_transaction.tl_log_record`
-- `database_transaction_isolation_and_concurrency_c.read_committed : deep_database_transaction(6), deep_isolation_level(4)`
 - `database_transaction_isolation_and_concurrency_c.transaction_state : deep_isolation_level(1)`
-- `database_transaction_isolation_and_concurrency_c.row_level_locking : deep_database_transaction(6), deep_isolation_level(1)`
-- `database_transaction_isolation_and_concurrency_c.database_transaction : deep_database_transaction(6), deep_isolation_level(4)`
-- `database_transaction_isolation_and_concurrency_c.acid_properties : deep_database_transaction(6), deep_isolation_level(4)`
-- `database_transaction_isolation_and_concurrency_c.commit : deep_isolation_level(1)`
-- `database_transaction_isolation_and_concurrency_c.concurrency_control`
-- `database_transaction_isolation_and_concurrency_c.dirty_read : deep_isolation_level(3)`
+- `database_transaction_isolation_and_concurrency_c.read_committed : deep_database_transaction(26), deep_isolation_level(4)`
+- `deep_database_transaction.rr_definition`
+- `database_transaction_isolation_and_concurrency_c.commit : deep_database_transaction(3), deep_isolation_level(1)`
+- `database_transaction_isolation_and_concurrency_c.row_level_locking : deep_database_transaction(12), deep_isolation_level(1)`
