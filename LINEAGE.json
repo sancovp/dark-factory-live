@@ -2741,5 +2741,22 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-16T08:36:05+00:00",
+    "verdict": "REVERT",
+    "change": "Applied loadout_gap_lens to patch-5 \u2014 identified HIGH severity gap (4/5 categories present, gate_preflight_pipeline missing), installed loadout_gap_lens.md + gate_preflight_recipe.md to fill the gap",
+    "diff": [
+      {
+        "file": "loadout/gate_preflight_recipe.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/loadout_gap_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
