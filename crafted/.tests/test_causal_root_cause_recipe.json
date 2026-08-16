@@ -1,0 +1,9 @@
+{
+  "test_id": "test_causal_root_cause_recipe",
+  "skill_path": "crafted/causal_root_cause_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-16T07:10:00Z",
+  "input": "Analyze: lens_verify_pipeline fails its gate test",
+  "output_summary": "Applied causation_lens: lens_verify_pipeline depends on chain_verifier_recipe (not in loadout) + second-order-lens (exists). Applied second-order-lens on missing dep: downstream = pipeline claims valid when invalid, false passes propagate to CI. Divergence analyzer identified root = chain_verifier_recipe missing. Output: Rank 1 root cause = chain_verifier_recipe not installed; Rank 2 = missing dep creates false validation confidence.",
+  "test_notes": "Recipe successfully chains causation_lens + second-order-lens to trace from symptom (gate fail) to root cause (missing skill). Second-order effects identified (false passes) that causation_lens alone would miss."
+}

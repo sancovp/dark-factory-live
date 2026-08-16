@@ -1,0 +1,9 @@
+{
+  "test_id": "test_composition_proof_lens",
+  "skill_path": "crafted/composition_proof_lens.md",
+  "result": "pass",
+  "timestamp": "2026-08-16T07:20:00Z",
+  "input": "Apply lens to: lens_verify_pipeline.md",
+  "output_summary": "Lens identified dependencies: chain_verifier_recipe (MISSING from loadout), second-order-lens (EXISTS). Proven: second-order-lens exists. Missing: chain_verifier_recipe. Safe to run: NO — pipeline will claim valid for invalid skills. Cascade if ignored: false passes propagate to CI.",
+  "test_notes": "Lens successfully surfaces invisible dependency gap that reading the file alone would miss. Composition proof revealed chain_verifier_recipe was claimed but not installed."
+}
