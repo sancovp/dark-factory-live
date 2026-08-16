@@ -1,0 +1,13 @@
+{
+  "region": "rlx_atomicity_core",
+  "call_number": "deep_c11_memory_model.rlx_atomicity_core : concurrency_synchronization_primitives_and_memor(3)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 20
+}

@@ -3,40 +3,46 @@
     {
       "region": "c11_memory_model",
       "targets": [
-        "memory_order_relaxed",
-        "seq_cst_atomic_visibility"
+        "memory_order_relaxed_vs_acquire",
+        "memory_order_relaxed_atomicity_guarantee"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 19,
-      "new_relations": 25
+      "new_concepts": 17,
+      "new_relations": 26
     },
     {
-      "region": "exponential_backoff",
+      "region": "happens_before_relation",
       "targets": [
-        "thundering_herd",
-        "decorrelated_jitter"
+        "synchronizes_with",
+        "happens_before_relation"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 37,
+      "new_concepts": 48,
       "new_relations": 25
     }
   ],
   "basis_before": {
-    "shared_atoms": [],
-    "shared": 0,
-    "union": 27,
-    "overlap": 0.0
+    "shared_atoms": [
+      "happens_before_relation",
+      "synchronizes_with"
+    ],
+    "shared": 2,
+    "union": 28,
+    "overlap": 0.071
   },
   "basis_after": {
-    "shared_atoms": [],
-    "shared": 0,
-    "union": 43,
-    "overlap": 0.0
+    "shared_atoms": [
+      "happens_before_relation",
+      "synchronizes_with"
+    ],
+    "shared": 2,
+    "union": 36,
+    "overlap": 0.056
   }
 }

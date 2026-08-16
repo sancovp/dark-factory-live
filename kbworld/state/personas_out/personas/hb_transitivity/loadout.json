@@ -1,0 +1,13 @@
+{
+  "region": "hb_transitivity",
+  "call_number": "deep_happens_before_relat.hb_transitivity",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}

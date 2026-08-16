@@ -15,4 +15,4 @@ Invoke this skill to understand `seq_cst_global_total_order` down to its primiti
 `seq_cst_atomic_visibility_all_threads_agree_on_visibility_sequence`, `seq_cst_atomic_visibility_most_recent_write_in_total_order`, `seq_cst_atomic_visibility_total_order_observation_point`, `sequentially_consistent`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (211 concepts / 207 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (277 concepts / 278 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

@@ -1,0 +1,13 @@
+{
+  "region": "synchronizes_with_release_side",
+  "call_number": "deep_happens_before_relat.synchronizes_with_release_side",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 4
+}

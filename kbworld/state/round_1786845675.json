@@ -1,0 +1,86 @@
+{
+  "subject": "concurrency synchronization primitives and memory models",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "deepen",
+      "doors": [
+        "c11_memory_model",
+        "happens_before_relation"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "specialize": {
+        "basis_after": 0.056,
+        "new": [
+          [
+            "c11_memory_model",
+            17,
+            26
+          ],
+          [
+            "happens_before_relation",
+            48,
+            25
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 1
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 277,
+        "relations": 278,
+        "define": 0,
+        "connect": 16
+      }
+    },
+    "brain": {
+      "grew": "memory_order_relaxed_vs_acquire"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/concurrency_synchronization_primitives_and_memor",
+      "skills": 36,
+      "staff": 62
+    },
+    "observe": {
+      "findings": 0,
+      "issues": []
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/concurrency_synchronization_primitives_a",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/concurrency_synchronization_primitives_a/skills/using-concurrency-synchronization-primitives-a/SKILL.md",
+      "plugin": "concurrency-synchronization-primitives-a-module",
+      "library_skills": 43,
+      "brain_files": 50
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "277c/278r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 10
+      },
+      "after": {
+        "define": 0,
+        "connect": 16
+      }
+    },
+    "basis": 0.842,
+    "secs": 232.4
+  }
+}
