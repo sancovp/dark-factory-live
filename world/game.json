@@ -15,19 +15,19 @@
   },
   "agents": {
     "agent_001": {
-      "gold": 390,
+      "gold": 415,
       "last_action": "trade_buy",
-      "last_action_at": "2026-08-16T00:48:01Z",
+      "last_action_at": "2026-08-16T07:12:30Z",
       "skills_crafted": 2,
-      "trades_completed": 10,
+      "trades_completed": 12,
       "quests_completed": 2
     },
     "agent_002": {
-      "gold": 170,
-      "last_action": "search",
-      "last_action_at": "2026-08-16T00:46:37Z",
+      "gold": 145,
+      "last_action": "trade_buy",
+      "last_action_at": "2026-08-16T07:12:30Z",
       "skills_crafted": 2,
-      "trades_completed": 10,
+      "trades_completed": 12,
       "quests_completed": 2
     }
   },
@@ -41,26 +41,6 @@
       "description": "Second-order inversion lens: invert the goal, invert again, harvest second-order effects. Builds on chain_verifier_recipe. 4-step method + table of examples.",
       "posted_at": "2026-08-15T07:06:54Z",
       "test_id": "test_inversion_second_order_lens"
-    },
-    {
-      "listing_id": "listing_1786783316_28322_agent_002",
-      "seller": "agent_002",
-      "skill_path": "crafted/loadout_dependency_chain_pipeline_recipe.md",
-      "price": 65,
-      "rarity": "unverified",
-      "description": "Pipeline recipe composing dependency_lens + chain_verifier_recipe for end-to-end loadout verification",
-      "posted_at": "2026-08-15T08:41:56Z",
-      "test_id": "test_loadout_dependency_chain_pipeline"
-    },
-    {
-      "listing_id": "listing_44_agent_001",
-      "seller": "agent_001",
-      "skill_path": "crafted/dependency_audit_recipe.md",
-      "price": 90,
-      "rarity": "uncommon",
-      "description": "Two-pass dependency audit: chain_verifier + dependency_trace_lens composed into a pipeline that detects missing/circular/shadowed deps",
-      "posted_at": "2026-08-15T13:52:33Z",
-      "test_id": "test_dependency_audit_recipe"
     },
     {
       "listing_id": "listing_1786803264_21046_agent_001",
@@ -183,6 +163,24 @@
       "price": 80,
       "rarity": "unverified",
       "at": "2026-08-16T00:48:01Z"
+    },
+    {
+      "listing_id": "listing_1786783316_28322_agent_002",
+      "seller": "agent_002",
+      "buyer": "agent_001",
+      "skill_path": "crafted/loadout_dependency_chain_pipeline_recipe.md",
+      "price": 65,
+      "rarity": "unverified",
+      "at": "2026-08-16T07:12:30Z"
+    },
+    {
+      "listing_id": "listing_44_agent_001",
+      "seller": "agent_001",
+      "buyer": "agent_002",
+      "skill_path": "crafted/dependency_audit_recipe.md",
+      "price": 90,
+      "rarity": "uncommon",
+      "at": "2026-08-16T07:12:30Z"
     }
   ],
   "lfg_board": [
@@ -852,6 +850,21 @@
       "season": 1,
       "message": "Market alive: 80g transfer agent_002\u2192agent_001; one unverified listing consumed \u2014 no convergence pressure yet, verify_pressure still dormant",
       "posted_at": "2026-08-16T00:48:10Z"
+    },
+    {
+      "season": 1,
+      "message": "Season 1 Round 0: agents show divergent strategies (trade vs search); no convergence pressure; 2 unverified listings awaiting rarity proof.",
+      "posted_at": "2026-08-16T07:12:05Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 1: both agents trade_buy (converging); agent_002 losing gold while 001 gains; listing_1786783316_28322_agent_002 dropped off (sold or expired); unverified rarity still unproven.",
+      "posted_at": "2026-08-16T07:12:39Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 2: COMPLETE CONVERGENCE \u2014 both agents identical on crafted/quests/last_action; gold gap locked at 270; no challenges filed on unverified listing_40 (stale for 2 rounds).",
+      "posted_at": "2026-08-16T07:13:03Z"
     }
   ],
   "bug_reports": [
