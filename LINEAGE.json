@@ -2711,5 +2711,22 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-16T08:00:16+00:00",
+    "verdict": "REVERT",
+    "change": "Installed constraint_lens.md to loadout + documented constraint analysis revealing arbitrary thresholds in quest rewards and recipe requirements",
+    "diff": [
+      {
+        "file": "loadout/constraint_analysis.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/constraint_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
