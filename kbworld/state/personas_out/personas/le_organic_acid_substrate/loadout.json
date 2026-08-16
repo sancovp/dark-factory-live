@@ -1,6 +1,6 @@
 {
   "region": "le_organic_acid_substrate",
-  "call_number": "deep_lactobacillus.le_organic_acid_substrate : sourdough_baking(3)",
+  "call_number": "deep_lactobacillus.le_organic_acid_substrate : sourdough_baking(3), deep_fermentation(3)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 3
+  "cone_size": 6
 }

@@ -14,4 +14,4 @@ Invoke this skill to understand `activity_peak` down to its primitives. The RELA
 `activity_peak_signals`, `as_peak_timing`
 
 ---
-*Projected from the `sourdough baking` KB (546 concepts / 369 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (630 concepts / 458 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

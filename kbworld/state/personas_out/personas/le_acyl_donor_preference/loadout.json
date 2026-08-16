@@ -1,0 +1,13 @@
+{
+  "region": "le_acyl_donor_preference",
+  "call_number": "deep_lactobacillus.le_acyl_donor_preference : deep_fermentation(29), deep_le_activity(9), sourdough_baking(5)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 57
+}

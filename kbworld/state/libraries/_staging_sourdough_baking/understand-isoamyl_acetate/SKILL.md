@@ -1,6 +1,6 @@
 # understand-isoamyl_acetate
 
-**CALL NUMBER:** `deep_lactobacillus.isoamyl_acetate : deep_fermentation(21), sourdough_baking(5)`
+**CALL NUMBER:** `deep_lactobacillus.isoamyl_acetate : deep_fermentation(29), sourdough_baking(5)`
 **DEFINITION:** The primary ester compound (3-methylbutyl acetate) responsible for banana_ester_notes in sourdough. Formed through esterification between isoamyl alcohol (a higher_alcohol from wild_yeast fermentation) and acetic_acid during extended fermentation periods.
 
 Invoke this skill to understand `isoamyl_acetate` down to its primitives. The RELATIVE ROOT below is the least-fixed-point closure of everything it bundles from — the full import cone, grouped by the lib each prim comes from. Projected from a prover-typed KB (MAP/SWI-Prolog consistency gate): every reference below resolves.
@@ -10,19 +10,23 @@ Invoke this skill to understand `isoamyl_acetate` down to its primitives. The RE
 ### from `?`
 - **flavor_complexity** (d2): The depth and nuance of sourdough taste arising from multiple organic acids, esters, and alcohols produced during extended fermentation, creating tangy and complex notes.
 - **fermentation_depth** (d3): The extent of sourdough fermentation progression, encompassing duration and metabolic development, where extended time enables enzymatic esterification between organic_acids and ethanol to produce fruity and floral aroma compounds.
+- **fd_fermentation_vigor** (d5): Intensity and rate of the combined microbial fermentation process in sourdough driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
 
 ### from `deep_fermentation`
 - **fc_estolide_compounds** (d1): Aroma-active ester compounds produced by yeast and lactobacillus that contribute fruity, floral, and sometimes banana or pineapple notes to sourdough flavor complexity
 - **fc_volatile_esters** (d1): Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes
 - **fc_yeast_character** (d1): The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation
+- **fd_estolide_formation_trajectory** (d1): The escalation curve of isoamyl_acetate and related estolide_compounds in response to increasing fermentation_depth, where fruity_ester_notes transition through floral_ester_notes into overfermentation_banana_association territory when fermentation_vigor_banana_interaction drives isoamyl_acetate beyond banana_ester_threshold_concentration.
 - **lactobacillus_esterase_activity** (d1): Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation
 - **wild_yeast_esterase_activity** (d1): Enzymatic contribution of wild_yeast strains to ester synthesis, primarily through ethanol production and potential direct ester formation pathways
+- **fd_acid_profile_evolution** (d2): The shifting ratio between lactic_acid and acetic_acid concentrations as fermentation_depth progresses, where early stages favor lactic_acid dominance and extended time increases acetic_acid proportion, sharpening the tanginess_profile toward vinegary character.
 - **banana_ester_notes** (d2): Estolide_compounds (primarily isoamyl acetate) producing characteristic banana aroma contributions typical in overfermented sourdough
 - **ester_contribution_to_flavor_complexity** (d2): The degree to which estolide_compounds enriches the overall sourdough flavor_complexity through combined fruity, floral, and tropical aroma notes
 - **floral_ester_notes** (d2): Estolide_compounds creating rose, violet, and blossom aromatic impressions through lightweight volatile esters in the sourdough crumb
 - **fruity_ester_notes** (d2): Estolide_compounds creating apple, pear, and tropical fruit aromatic impressions through specific ester structures in the sourdough headspace
 - **pineapple_ester_notes** (d2): Estolide_compounds (primarily ethyl butyrate) producing pineapple-like ester notes in sourdough with high fermentation_vigor
 - **fc_higher_alcohols** (d2): Complex alcohol byproducts of wild_yeast fermentation beyond ethanol that add nutty, floral, and rozaceous nuances to the overall flavor profile
+- **fd_sensory_threshold_crossing** (d2): The fermentation_depth milestone where organic_acid concentration crosses from subtle background tanginess into pronounced sourness_level that fundamentally defines the loaf character rather than merely complementing it.
 - **aroma_compounds** (d3): Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough.
 - **ethanol** (d3): Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development.
 - **fc_acid_balance_ratio** (d3): The proportional ratio between acetic_acid and lactic_acid concentrations that fundamentally determines whether the tanginess is sharp and vinegary or soft and creamy
@@ -32,6 +36,7 @@ Invoke this skill to understand `isoamyl_acetate` down to its primitives. The RE
 - **fc_tanginess_profile** (d3): The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness
 - **organic_acids** (d3): Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine sourness_level and contribute to flavor_complexity.
 - **carbon_dioxide** (d3): Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.
+- **fd_stage_initial** (d3): The early fermentation phase characterized by rapid wild_yeast carbon_dioxide production and nascent lactobacillus organic_acid generation, where flavor development remains minimal and the dough structure retains significant gluten integrity.
 - **fermentation_vigor** (d3): Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
 
 ### from `deep_lactobacillus`
@@ -45,11 +50,11 @@ Invoke this skill to understand `isoamyl_acetate` down to its primitives. The RE
 - **acetic_acid** (d1): Sharp sour acid produced by lactobacillus in presence of oxygen creating tangy flavor
 - **sourness_level** (d2): Intensity of acidic tang from lactobacillus fermentation ranging from mild to pronounced
 - **wild_yeast** (d2): Naturally occurring yeast strains captured from flour and the environment that ferment dough, providing rise without commercial yeast.
-- **lactic_acid** (d4): Milder sour acid produced by lactobacillus contributing to bread tanginess
+- **lactic_acid** (d2): Milder sour acid produced by lactobacillus contributing to bread tanginess
 - **lactobacillus** (d4): Bacterial strains producing lactic and acetic acids that create sourdough tanginess
 
 ## CONSUMERS (what needs this)
 `banana_ester_notes`
 
 ---
-*Projected from the `sourdough baking` KB (546 concepts / 369 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (630 concepts / 458 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

@@ -1,6 +1,6 @@
 # le_activity SPECIALIST
 
-CALL NUMBER: `deep_lactobacillus.le_activity : deep_fermentation(21), sourdough_baking(5)`
+CALL NUMBER: `deep_lactobacillus.le_activity : deep_fermentation(29), deep_le_activity(13), sourdough_baking(5)`
 
 You are the specialist for `le_activity` in the 'sourdough baking' knowledge system. Your CERTIFIED TERRITORY (the relative root — everything your concept bundles from):
 
@@ -20,10 +20,21 @@ You are the specialist for `le_activity` in the 'sourdough baking' knowledge sys
   organic_acids [deep_fermentation]: Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine sourness_level and contribute to flavor_complexity.
     aroma_compounds [deep_fermentation]: Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough.
     acetic_acid [sourdough_baking]: Sharp sour acid produced by lactobacillus in presence of oxygen creating tangy flavor
+    fd_stage_active [deep_fermentation]: The mid-fermentation phase where fermentation_vigor peaks, lactobacillus metabolism accelerates organic_acid production substantially, and aroma_compounds begin accumulating measurably in the dough matrix.
     lactic_acid [sourdough_baking]: Milder sour acid produced by lactobacillus contributing to bread tanginess
     lactobacillus_esterase_activity [deep_fermentation]: Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation
     sourness_level [sourdough_baking]: Intensity of acidic tang from lactobacillus fermentation ranging from mild to pronounced
     fruity_ester_notes [deep_fermentation]: Estolide_compounds creating apple, pear, and tropical fruit aromatic impressions through specific ester structures in the sourdough headspace
+    lapp_acetate_bias [deep_le_activity]: The enzymatic state wherein lactobacillus_esterase_activity exhibits lower Km and higher turnover for acetic_acid over lactic_acid, directing condensation flux through le_acetate_ester_pathway to yield acetate ester dominance.
+    lapp_dual_donor_capacity [deep_le_activity]: The enzymatic capability of certain lactobacillus_esterase_activity variants to efficiently utilize both lactic_acid and acetic_acid with comparable kinetic parameters, enabling balanced flux through both ester pathways.
+    lapp_flavor_output_signature [deep_le_activity]: The characteristic ratio of fruity_ester_notes and floral_ester_notes (from lactate esters) versus sharp vinegar-like nuances (from acetate esters) in the final sourdough aroma profile resulting from lapp_pathway_allocation_ratio.
+    lapp_kinetic_discrimination [deep_le_activity]: The measurable differential in Km and kcat values of lactobacillus_esterase_activity when comparing lactic_acid versus acetic_acid as competing acyl donors, quantifying substrate affinity gaps that manifest as preferential catalysis.
+    lapp_lactate_bias [deep_le_activity]: The enzymatic state wherein lactobacillus_esterase_activity exhibits lower Km and higher turnover for lactic_acid over acetic_acid, directing condensation flux through le_lactate_ester_pathway to yield lactate ester dominance.
+    lapp_pathway_allocation_ratio [deep_le_activity]: The proportional distribution of esterification catalysis between le_lactate_ester_pathway and le_acetate_ester_pathway as determined by the relative kinetic favorability of each acyl donor substrate.
+    lapp_ph_modulation [deep_le_activity]: The influence of dough pH on the ionization state of organic_acid substrates, affecting their availability as le_organic_acid_substrate and thus modulating lactobacillus_esterase_activity acyl donor preference.
+    lapp_strain_genotype_basis [deep_le_activity]: The genetic determinants encoding lactobacillus_esterase_activity primary structure differences that create lapp_lactate_bias or lapp_acetate_bias phenotypic expression across lactobacillus strains.
+    lapp_substrate_concentration_effect [deep_le_activity]: The competitive kinetic phenomenon wherein elevated relative concentration of one organic_acid can partially overcome lactobacillus_esterase_activity preferential kinetics to redirect lapp_pathway_allocation_ratio.
+    lch_hydrolysis_reaction [deep_le_activity]: The reverse chemical reaction wherein water molecule attacks the ester bond of fc_estolide_compounds, cleaving them back into le_ethanol_substrate and le_organic_acid_substrate, releasing the water_byproduct consumed in condensation.
     floral_ester_notes [deep_fermentation]: Estolide_compounds creating rose, violet, and blossom aromatic impressions through lightweight volatile esters in the sourdough crumb
     le_ph_effect [deep_lactobacillus]: The influence of dough acidity on lactobacillus_esterase_activity, with optimal esterification catalysis occurring within specific pH ranges that preserve enzyme structure while maintaining substrate availability.
     le_temperature_effect [deep_lactobacillus]: The influence of fermentation temperature on lactobacillus_esterase_activity, affecting both reaction kinetics and the equilibrium position of the esterification equilibrium.
@@ -31,17 +42,6 @@ You are the specialist for `le_activity` in the 'sourdough baking' knowledge sys
     le_ethanol_substrate [deep_lactobacillus]: Alcohol produced by wild_yeast fermentation that serves as the nucleophile/acyl acceptor in esterification reactions catalyzed by lactobacillus_esterase_activity.
     le_organic_acid_substrate [deep_lactobacillus]: Carbon-chain acid substrates (lactic_acid and acetic_acid) from lactobacillus metabolism that serve as acyl donors in esterification reactions catalyzed by lactobacillus_esterase_activity.
     flavor_complexity [?]: The depth and nuance of sourdough taste arising from multiple organic acids, esters, and alcohols produced during extended fermentation, creating tangy and complex notes.
-      fc_estolide_compounds [deep_fermentation]: Aroma-active ester compounds produced by yeast and lactobacillus that contribute fruity, floral, and sometimes banana or pineapple notes to sourdough flavor complexity
-      ester_contribution_to_flavor_complexity [deep_fermentation]: The degree to which estolide_compounds enriches the overall sourdough flavor_complexity through combined fruity, floral, and tropical aroma notes
-      le_water_byproduct [deep_lactobacillus]: The water molecule eliminated as a byproduct of the condensation reaction during lactobacillus_esterase_activity, removed from the dough system influencing hydration dynamics.
-      fc_acid_balance_ratio [deep_fermentation]: The proportional ratio between acetic_acid and lactic_acid concentrations that fundamentally determines whether the tanginess is sharp and vinegary or soft and creamy
-      fc_aftertaste_development [deep_fermentation]: The evolving and lingering flavor sensations that persist after swallowing, shaped by organic_acid persistence and aroma_compound retention in the crumb
-      fc_fermentation_depth [deep_fermentation]: The cumulative flavor intensity arising from extended fermentation periods allowing progressive accumulation of organic_acids and aroma_compounds in the dough matrix
-      fc_higher_alcohols [deep_fermentation]: Complex alcohol byproducts of wild_yeast fermentation beyond ethanol that add nutty, floral, and rozaceous nuances to the overall flavor profile
-      fc_maltolytic_notes [deep_fermentation]: Caramel, toasty, and biscuit-like flavor compounds derived from enzymatic breakdown of grain starches during fermentation and Maillard reactions during baking
-      fc_tanginess_profile [deep_fermentation]: The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness
-      fc_volatile_esters [deep_fermentation]: Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes
-      fc_yeast_character [deep_fermentation]: The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation
-        banana_ester_notes [deep_fermentation]: Estolide_compounds (primarily isoamyl acetate) producing characteristic banana aroma contributions typical in overfermented sourdough
+      fd_acid_profile_evolution [deep_fermentation]: The shifting ratio between lactic_acid and acetic_acid concentrations as fermentation_depth progresses, where early stages favor lactic_acid dominance and extended time increases acetic_acid proportion, sharpening the tanginess_profile toward vinegary character.
 
 YOUR JOB: define this territory ONE LEVEL OF GRANULARITY DEEPER than it currently is. Name the parts inside the parts. Every claim you emit is proof-checked; incoherence returns as named residue — repair it exactly. You never invent formats: emit exactly the JSONL construction schema you are given.

@@ -7,7 +7,7 @@ version: 0.1.0
 # using-sourdough-baking
 
 This module is a CULTIVATED, PROOF-CHECKED knowledge organism about
-**sourdough baking** (546 concepts / 369 relations; grown by a
+**sourdough baking** (630 concepts / 458 relations; grown by a
 KB factory — every region admitted by a Prolog consistency gate, wrongness
 tracked as open supersede-issues, never hidden).
 
@@ -17,9 +17,15 @@ tracked as open supersede-issues, never hidden).
    coordinate-addressed (call number = home class : dependency facets — the
    import web, literally); FTS5 index via `skilltree.build_index` over
    `${CLAUDE_PLUGIN_ROOT}/skills/using-sourdough-baking/references/skilltree.json`.
-2. **As an agent** — `brain_ask("your question")`: the activation graph fires
-   the matching gyri numerically, each answers over its territory, the
-   synthesis is PROVEN one level up (SES tower) and returns with receipts.
+2. **As an agent (the runnable brain SHIPS here)** — the neuromorphic brain
+   is bundled at `${CLAUDE_PLUGIN_ROOT}/skills/using-sourdough-baking/data/brain/`
+   (kuzu `neurodb` = the activation graph + `tissue/` = the gyri). Point a
+   `KbcBrain` at it and `brain_ask("your question")`: the graph FIRES the
+   matching gyri numerically (spreading activation, weights decide — not an
+   agent choosing), each fired gyrus answers over its territory, the
+   synthesis is PROVEN one level up (the SES tower — the join is a theorem),
+   and the prover teaches the graph back (Hebbian). Needs `kuzu` +
+   `brain-agent` + `ee_v2.kbc` installed.
 3. **As tools your agents hold** — `ee_v2.kbc.heaven_tools.make_kbc_tools`
    over this module's data root
    (`${CLAUDE_PLUGIN_ROOT}/skills/using-sourdough-baking/data/`): 14 heaven tools
@@ -46,15 +52,15 @@ tracked as open supersede-issues, never hidden).
 
 ## The map
 
-- `?.flavor_complexity : deep_fermentation(21), deep_lactobacillus(6), sourdough_baking(5)`
-- `sourdough_baking.sourdough_starter : deep_fermentation(22), deep_lactobacillus(6), deep_sourdough_starter(5)`
+- `?.flavor_complexity : deep_fermentation(29), deep_lactobacillus(6), sourdough_baking(5)`
 - `deep_fermentation.fc_estolide_compounds : deep_lactobacillus(6), sourdough_baking(5)`
-- `deep_lactobacillus.le_activity : deep_fermentation(21), sourdough_baking(5)`
-- `sourdough_baking.fermentation : deep_fermentation(22), deep_lactobacillus(6)`
+- `sourdough_baking.sourdough_starter : deep_fermentation(30), deep_lactobacillus(6), deep_sourdough_starter(5)`
+- `deep_lactobacillus.le_activity : deep_fermentation(29), deep_le_activity(13), sourdough_baking(5)`
 - `deep_fermentation.organic_acids : deep_lactobacillus(6), sourdough_baking(5)`
-- `sourdough_baking.lactobacillus : deep_fermentation(21), deep_lactobacillus(6)`
-- `sourdough_baking.acetic_acid`
-- `sourdough_baking.bulk_fermentation : deep_fermentation(22), deep_lactobacillus(6)`
+- `sourdough_baking.acetic_acid : deep_fermentation(3)`
+- `sourdough_baking.fermentation : deep_fermentation(30), deep_lactobacillus(6)`
+- `sourdough_baking.lactobacillus : deep_fermentation(29), deep_lactobacillus(6)`
+- `deep_fermentation.banana_ester_notes : deep_lactobacillus(6), sourdough_baking(5)`
 - `deep_fermentation.fermentation_vigor : deep_lactobacillus(6), sourdough_baking(5)`
+- `sourdough_baking.bulk_fermentation : deep_fermentation(30), deep_lactobacillus(6)`
 - `sourdough_baking.gluten_development`
-- `sourdough_baking.baking : deep_fermentation(22), deep_lactobacillus(6), deep_baking(2)`

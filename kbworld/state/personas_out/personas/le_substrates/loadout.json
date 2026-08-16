@@ -1,6 +1,6 @@
 {
   "region": "le_substrates",
-  "call_number": "deep_lactobacillus.le_substrates : sourdough_baking(3), deep_fermentation(2)",
+  "call_number": "deep_lactobacillus.le_substrates : deep_fermentation(5), sourdough_baking(3)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 7
+  "cone_size": 10
 }

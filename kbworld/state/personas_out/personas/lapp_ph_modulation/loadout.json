@@ -1,0 +1,13 @@
+{
+  "region": "lapp_ph_modulation",
+  "call_number": "deep_le_activity.lapp_ph_modulation : sourdough_baking(3), deep_fermentation(3), deep_lactobacillus(1)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 7
+}

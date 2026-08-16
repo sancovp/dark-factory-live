@@ -1,6 +1,6 @@
 # sourdough_starter SPECIALIST
 
-CALL NUMBER: `sourdough_baking.sourdough_starter : deep_fermentation(22), deep_lactobacillus(6), deep_sourdough_starter(5)`
+CALL NUMBER: `sourdough_baking.sourdough_starter : deep_fermentation(30), deep_lactobacillus(6), deep_sourdough_starter(5)`
 
 You are the specialist for `sourdough_starter` in the 'sourdough baking' knowledge system. Your CERTIFIED TERRITORY (the relative root — everything your concept bundles from):
 
@@ -32,16 +32,16 @@ You are the specialist for `sourdough_starter` in the 'sourdough baking' knowled
     flavor_complexity [?]: The depth and nuance of sourdough taste arising from multiple organic acids, esters, and alcohols produced during extended fermentation, creating tangy and complex notes.
     lactic_acid [sourdough_baking]: Milder sour acid produced by lactobacillus contributing to bread tanginess
     sourness_level [sourdough_baking]: Intensity of acidic tang from lactobacillus fermentation ranging from mild to pronounced
+    fd_stage_active [deep_fermentation]: The mid-fermentation phase where fermentation_vigor peaks, lactobacillus metabolism accelerates organic_acid production substantially, and aroma_compounds begin accumulating measurably in the dough matrix.
     lactobacillus_esterase_activity [deep_fermentation]: Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation
     organic_acids [deep_fermentation]: Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine sourness_level and contribute to flavor_complexity.
     bulk_fermentation [sourdough_baking]: Primary fermentation phase where the mixed dough rests and ferments before shaping; time and temperature control gas production and flavor development.
     inoculation [sourdough_baking]: Adding levain to new dough batch to begin fermentation with established culture
     carbon_dioxide [deep_fermentation]: Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.
     ethanol [deep_fermentation]: Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development.
+    fd_stage_initial [deep_fermentation]: The early fermentation phase characterized by rapid wild_yeast carbon_dioxide production and nascent lactobacillus organic_acid generation, where flavor development remains minimal and the dough structure retains significant gluten integrity.
     fermentation_vigor [deep_fermentation]: Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
     wild_yeast_esterase_activity [deep_fermentation]: Enzymatic contribution of wild_yeast strains to ester synthesis, primarily through ethanol production and potential direct ester formation pathways
-      aroma_compounds [deep_fermentation]: Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough.
-      fc_acid_balance_ratio [deep_fermentation]: The proportional ratio between acetic_acid and lactic_acid concentrations that fundamentally determines whether the tanginess is sharp and vinegary or soft and creamy
-      fc_aftertaste_development [deep_fermentation]: The evolving and lingering flavor sensations that persist after swallowing, shaped by organic_acid persistence and aroma_compound retention in the crumb
+      fd_acid_profile_evolution [deep_fermentation]: The shifting ratio between lactic_acid and acetic_acid concentrations as fermentation_depth progresses, where early stages favor lactic_acid dominance and extended time increases acetic_acid proportion, sharpening the tanginess_profile toward vinegary character.
 
 YOUR JOB: define this territory ONE LEVEL OF GRANULARITY DEEPER than it currently is. Name the parts inside the parts. Every claim you emit is proof-checked; incoherence returns as named residue — repair it exactly. You never invent formats: emit exactly the JSONL construction schema you are given.
