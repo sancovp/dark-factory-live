@@ -1,6 +1,6 @@
 # understand-c11_memory_model
 
-**CALL NUMBER:** `concurrency_synchronization_primitives_and_memor.c11_memory_model : deep_c11_memory_model(21)`
+**CALL NUMBER:** `concurrency_synchronization_primitives_and_memor.c11_memory_model : deep_c11_memory_model(29)`
 **DEFINITION:** Standard C11 specification defining memory orderings: memory_order_relaxed, memory_order_consume, memory_order_acquire, memory_order_release, memory_order_acq_rel, memory_order_seq_cst; defines happens-before and synchronizes-with relations.
 
 Invoke this skill to understand `c11_memory_model` down to its primitives. The RELATIVE ROOT below is the least-fixed-point closure of everything it bundles from — the full import cone, grouped by the lib each prim comes from. Projected from a prover-typed KB (MAP/SWI-Prolog consistency gate): every reference below resolves.
@@ -37,9 +37,13 @@ Invoke this skill to understand `c11_memory_model` down to its primitives. The R
 - **seq_cst_indivisible_atomicity** (d2): The property that each sequentially consistent operation appears indivisible and instantaneous to all observers; no intermediate states are visible during the operation.
 - **seq_cst_program_order_preservation** (d2): Within each thread, sequentially consistent operations maintain program order; no reordering of these operations is permitted within the same thread.
 - **seq_cst_synchronization_protocol** (d2): The protocol by which sequentially consistent operations establish synchronization points between threads; creates a happens-before relationship across thread boundaries.
+- **relaxed_coherence_per_location_vs_acquire_global_observation** (d3): The observation model contrast where relaxed operations on different variables maintain independent per-variable coherence orders with no cross-variable ordering coordination, while acquire semantics participates in the global sequentially consistent order when mixed with seq_cst operations.
+- **relaxed_load_value_visibility_timing_vs_acquire_visibility_timing** (d3): The visibility timing contrast where a relaxed load may observe any value from the modification order at an undefined time with no guarantee about when the value becomes visible to other threads, while an acquire load observes the value at a specific point in the happens-before order with guaranteed visibility semantics.
+- **relaxed_no_happens_before_edge_vs_acquire_hb_edge** (d3): The ordering contrast where relaxed operations never establish a happens-before edge with operations on other threads regardless of visibility timing, while acquire semantics combined with release on another thread creates a transitive happens-before edge connecting the release writer to the acquire reader.
+- **relaxed_no_ordering_constraints_vs_acquire_subsequent_constrained** (d3): The scope contrast where relaxed operations impose zero ordering constraints on any other operations on any memory location, while acquire semantics constrains all subsequent loads and stores in the same thread to remain after the acquire in program order.
 
 ## CONSUMERS (what needs this)
 `c11_atomic_thread_fence_contrast`, `cpp11_memory_model`, `data_race`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (211 concepts / 207 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (277 concepts / 278 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

@@ -23,7 +23,7 @@ Invoke this skill to understand `memory_order_relaxed` down to its primitives. T
 - **memory_order_relaxed_store_buffering** (d1): The phenomenon that relaxed stores may be buffered in store buffers and become visible to other threads in an order different from the program order of the storing thread.
 
 ## CONSUMERS (what needs this)
-`c11_memory_model`
+`c11_memory_model`, `relaxed_reordering_freedom_vs_acquire_reordering_prevention`, `rlx_vs_ordering_distinct`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (211 concepts / 207 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (277 concepts / 278 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

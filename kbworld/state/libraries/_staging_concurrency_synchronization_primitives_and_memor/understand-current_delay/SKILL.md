@@ -22,4 +22,4 @@ Invoke this skill to understand `current_delay` down to its primitives. The RELA
 `exponential_backoff`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (211 concepts / 207 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (277 concepts / 278 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

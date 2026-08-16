@@ -2,7 +2,13 @@
   "phase": "soup",
   "define": [],
   "connect": [
-    "store_buffer_linger",
+    "sync_atomic_store_load",
+    "sync_fence_pair",
+    "sync_lock_release_acquire",
+    "sync_read_guarantee",
+    "sync_seq_cst_fences",
+    "sync_visibility_boundary",
+    "sync_write_guarantee",
     "volatile_cpp",
     "wake_all_semantics",
     "wake_latency_spread",
@@ -15,6 +21,6 @@
   ],
   "reconcile": [],
   "explain": [],
-  "n_concepts": 211,
-  "n_relations": 207
+  "n_concepts": 277,
+  "n_relations": 278
 }

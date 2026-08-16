@@ -8,7 +8,7 @@ Invoke this skill to understand `synchronizes_with` down to its primitives. The 
 ## THE RELATIVE ROOT (the import cone, by lib)
 
 ## CONSUMERS (what needs this)
-`happens_before_relation`, `no_synchronizes_with_establishment`, `seq_cst_synchronization_protocol`, `synchronizes_with_absence`, `volatile_java`
+`happens_before_relation`, `memory_barrier_pair`, `memory_order_relaxed`, `no_synchronizes_with_establishment`, `relaxed_no_synchronizes_with_vs_acquire_synchronizes_with`, `seq_cst_synchronization_protocol`, `synchronizes_with_absence`, `volatile_java`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (155 concepts / 137 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (277 concepts / 278 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

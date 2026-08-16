@@ -11,4 +11,4 @@ Invoke this skill to understand `seq_cst_indivisible_atomicity` down to its prim
 `seq_cst_atomic_visibility_atomic_read_returns_written_value`, `seq_cst_atomic_visibility_no_intermediate_state_visibility`, `sequentially_consistent`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (211 concepts / 207 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (277 concepts / 278 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

@@ -1,0 +1,13 @@
+{
+  "region": "hb_synchronizes_with",
+  "call_number": "?.hb_synchronizes_with : deep_happens_before_relat(5)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 5
+}

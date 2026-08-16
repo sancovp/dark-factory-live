@@ -7,7 +7,7 @@ version: 0.1.0
 # using-concurrency-synchronization-primitives-a
 
 This module is a CULTIVATED, PROOF-CHECKED knowledge organism about
-**concurrency synchronization primitives and memory models** (211 concepts / 207 relations; grown by a
+**concurrency synchronization primitives and memory models** (277 concepts / 278 relations; grown by a
 KB factory — every region admitted by a Prolog consistency gate, wrongness
 tracked as open supersede-issues, never hidden).
 
@@ -54,13 +54,13 @@ tracked as open supersede-issues, never hidden).
 
 - `concurrency_synchronization_primitives_and_memor.sequentially_consistent : deep_c11_memory_model(10)`
 - `concurrency_synchronization_primitives_and_memor.memory_order_relaxed : deep_c11_memory_model(9)`
-- `concurrency_synchronization_primitives_and_memor.c11_memory_model : deep_c11_memory_model(21)`
-- `concurrency_synchronization_primitives_and_memor.exponential_backoff : deep_spinlock(9), deep_exponential_backoff(4)`
 - `concurrency_synchronization_primitives_and_memor.happens_before_relation`
-- `deep_exponential_backoff.thundering_herd_contention_surge`
-- `concurrency_synchronization_primitives_and_memor.acquire_semantics : deep_c11_memory_model(1)`
-- `concurrency_synchronization_primitives_and_memor.mcs_lock`
+- `deep_c11_memory_model.memory_order_relaxed_vs_acquire : concurrency_synchronization_primitives_and_memor(4)`
+- `concurrency_synchronization_primitives_and_memor.c11_memory_model : deep_c11_memory_model(29)`
+- `concurrency_synchronization_primitives_and_memor.exponential_backoff : deep_spinlock(9), deep_exponential_backoff(4)`
 - `concurrency_synchronization_primitives_and_memor.synchronizes_with`
+- `concurrency_synchronization_primitives_and_memor.acquire_semantics : deep_c11_memory_model(18)`
+- `deep_exponential_backoff.thundering_herd_contention_surge`
+- `deep_c11_memory_model.rlx_atomicity_core : concurrency_synchronization_primitives_and_memor(3)`
+- `concurrency_synchronization_primitives_and_memor.mcs_lock`
 - `deep_spinlock.jitter : deep_exponential_backoff(2)`
-- `concurrency_synchronization_primitives_and_memor.release_semantics : deep_c11_memory_model(1)`
-- `deep_c11_memory_model.seq_cst_global_total_order : concurrency_synchronization_primitives_and_memor(2)`

@@ -1,0 +1,13 @@
+{
+  "region": "relaxed_no_synchronizes_with_vs_acquire_synchronizes_with",
+  "call_number": "deep_c11_memory_model.relaxed_no_synchronizes_with_vs_acquire_synchronizes_with : concurrency_synchronization_primitives_and_memor(1)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 2
+}

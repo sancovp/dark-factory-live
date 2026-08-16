@@ -1,0 +1,13 @@
+{
+  "region": "memory_order_relaxed_vs_acquire",
+  "call_number": "deep_c11_memory_model.memory_order_relaxed_vs_acquire : concurrency_synchronization_primitives_and_memor(4)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 21
+}

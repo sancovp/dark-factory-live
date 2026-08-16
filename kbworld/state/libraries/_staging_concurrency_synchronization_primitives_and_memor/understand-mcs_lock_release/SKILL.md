@@ -16,4 +16,4 @@ Invoke this skill to understand `mcs_lock_release` down to its primitives. The R
 - **mcs_lock_wait_for_successor** (d1): Sub-protocol when release finds no successor yet linked; thread performing release or a helper spins on qnode.next until non-null; ensures no lock holder exits before its successor is queued.
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (211 concepts / 207 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (277 concepts / 278 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

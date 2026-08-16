@@ -15,4 +15,4 @@ Invoke this skill to understand `thundering_herd_contention_surge` down to its p
 `thundering_herd_phased_awakening`, `thundering_herd_spurious_wakeup`, `thundering_herd_wait_queue_depth`, `thundering_herd_wake_one_semantics`, `thundering_herd_wakeup_ratio`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (211 concepts / 207 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (277 concepts / 278 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
