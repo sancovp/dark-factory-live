@@ -2616,5 +2616,22 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 1.0
+  },
+  {
+    "at": "2026-08-16T01:01:40+00:00",
+    "verdict": "REVERT",
+    "change": "Installed convergence_lens.md to loadout (unblocking chain_verifier_recipe and trade_safety_recipe); updated loadout/README.md with full boot-set table; filed q_inversion_lens_gap.md for inversion_sec",
+    "diff": [
+      {
+        "file": "quests/q_inversion_lens_gap.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/convergence_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 1.0
   }
 ]
