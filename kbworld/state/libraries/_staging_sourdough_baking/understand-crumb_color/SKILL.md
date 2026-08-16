@@ -8,7 +8,7 @@ Invoke this skill to understand `crumb_color` down to its primitives. The RELATI
 ## THE RELATIVE ROOT (the import cone, by lib)
 
 ## CONSUMERS (what needs this)
-`crumb`
+`crumb`, `crumb_color_causes`, `crumb_color_finish`, `crumb_color_indicator`, `crumb_color_monitoring`, `crumb_color_uniformity`, `crumb_goldenness`, `crumb_paleness`
 
 ---
-*Projected from the `sourdough baking` KB (373 concepts / 213 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (630 concepts / 458 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

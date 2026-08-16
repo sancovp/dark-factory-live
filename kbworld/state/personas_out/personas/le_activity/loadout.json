@@ -1,6 +1,6 @@
 {
   "region": "le_activity",
-  "call_number": "deep_lactobacillus.le_activity : deep_fermentation(21), sourdough_baking(5)",
+  "call_number": "deep_lactobacillus.le_activity : deep_fermentation(29), deep_le_activity(13), sourdough_baking(5)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 51
+  "cone_size": 73
 }

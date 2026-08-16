@@ -1,6 +1,6 @@
 {
   "region": "dormant_starter",
-  "call_number": "sourdough_baking.dormant_starter : deep_fermentation(22), deep_lactobacillus(6), deep_sourdough_starter(5)",
+  "call_number": "sourdough_baking.dormant_starter : deep_fermentation(30), deep_lactobacillus(6), deep_sourdough_starter(5)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 44
+  "cone_size": 53
 }

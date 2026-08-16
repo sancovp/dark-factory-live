@@ -10,6 +10,7 @@ Invoke this skill to understand `banana_ester_notes` down to its primitives. The
 ### from `?`
 - **fermentation_depth** (d1): The extent of sourdough fermentation progression, encompassing duration and metabolic development, where extended time enables enzymatic esterification between organic_acids and ethanol to produce fruity and floral aroma compounds.
 - **flavor_complexity** (d2): The depth and nuance of sourdough taste arising from multiple organic acids, esters, and alcohols produced during extended fermentation, creating tangy and complex notes.
+- **fd_fermentation_vigor** (d4): Intensity and rate of the combined microbial fermentation process in sourdough driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
 
 ### from `deep_fermentation`
 - **aroma_compounds** (d1): Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough.
@@ -19,6 +20,7 @@ Invoke this skill to understand `banana_ester_notes` down to its primitives. The
 - **fc_estolide_compounds** (d2): Aroma-active ester compounds produced by yeast and lactobacillus that contribute fruity, floral, and sometimes banana or pineapple notes to sourdough flavor complexity
 - **fc_volatile_esters** (d2): Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes
 - **fc_yeast_character** (d2): The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation
+- **fd_estolide_formation_trajectory** (d2): The escalation curve of isoamyl_acetate and related estolide_compounds in response to increasing fermentation_depth, where fruity_ester_notes transition through floral_ester_notes into overfermentation_banana_association territory when fermentation_vigor_banana_interaction drives isoamyl_acetate beyond banana_ester_threshold_concentration.
 - **lactobacillus_esterase_activity** (d2): Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation
 - **wild_yeast_esterase_activity** (d2): Enzymatic contribution of wild_yeast strains to ester synthesis, primarily through ethanol production and potential direct ester formation pathways
 - **fc_fermentation_depth** (d2): The cumulative flavor intensity arising from extended fermentation periods allowing progressive accumulation of organic_acids and aroma_compounds in the dough matrix
@@ -30,8 +32,12 @@ Invoke this skill to understand `banana_ester_notes` down to its primitives. The
 - **fc_tanginess_profile** (d3): The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness
 - **organic_acids** (d3): Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine sourness_level and contribute to flavor_complexity.
 - **carbon_dioxide** (d3): Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.
+- **fd_starter_vigor_dependency** (d3): The direct relationship between fermentation_vigor of the inoculating starter culture and the rate of fermentation_depth advancement, where highly active starters drive faster organic_acid accumulation and estolide_formation_trajectory compared to sluggish starters.
+- **fd_acid_profile_evolution** (d3): The shifting ratio between lactic_acid and acetic_acid concentrations as fermentation_depth progresses, where early stages favor lactic_acid dominance and extended time increases acetic_acid proportion, sharpening the tanginess_profile toward vinegary character.
 - **floral_ester_notes** (d3): Estolide_compounds creating rose, violet, and blossom aromatic impressions through lightweight volatile esters in the sourdough crumb
 - **pineapple_ester_notes** (d3): Estolide_compounds (primarily ethyl butyrate) producing pineapple-like ester notes in sourdough with high fermentation_vigor
+- **fd_sensory_threshold_crossing** (d3): The fermentation_depth milestone where organic_acid concentration crosses from subtle background tanginess into pronounced sourness_level that fundamentally defines the loaf character rather than merely complementing it.
+- **fd_substrate_depletion_rate** (d4): The speed at which available starches and sugars in the flour are consumed by the combined wild_yeast and lactobacillus microbial community, determining how quickly fermentation_depth advances and when fermentation plateau occurs.
 
 ### from `deep_lactobacillus`
 - **banana_ester_threshold_concentration** (d1): The minimum isoamyl_acetate concentration required for human sensory perception of banana character. Exceeded in overfermented conditions where fermentation_vigor drives excessive ester accumulation beyond normal fruity_ester_notes levels.
@@ -45,11 +51,11 @@ Invoke this skill to understand `banana_ester_notes` down to its primitives. The
 - **acetic_acid** (d2): Sharp sour acid produced by lactobacillus in presence of oxygen creating tangy flavor
 - **sourness_level** (d3): Intensity of acidic tang from lactobacillus fermentation ranging from mild to pronounced
 - **wild_yeast** (d3): Naturally occurring yeast strains captured from flour and the environment that ferment dough, providing rise without commercial yeast.
-- **lactic_acid** (d4): Milder sour acid produced by lactobacillus contributing to bread tanginess
+- **lactic_acid** (d3): Milder sour acid produced by lactobacillus contributing to bread tanginess
 - **lactobacillus** (d4): Bacterial strains producing lactic and acetic acids that create sourdough tanginess
 
 ## CONSUMERS (what needs this)
-`fc_estolide_compounds`
+`banana_character_signature`, `betc_sensory_detection_event`, `fc_estolide_compounds`
 
 ---
-*Projected from the `sourdough baking` KB (546 concepts / 369 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (630 concepts / 458 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

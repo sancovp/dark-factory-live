@@ -1,6 +1,6 @@
 # understand-lactobacillus
 
-**CALL NUMBER:** `sourdough_baking.lactobacillus : deep_fermentation(21), deep_lactobacillus(6)`
+**CALL NUMBER:** `sourdough_baking.lactobacillus : deep_fermentation(29), deep_lactobacillus(6)`
 **DEFINITION:** Bacterial strains producing lactic and acetic acids that create sourdough tanginess
 
 Invoke this skill to understand `lactobacillus` down to its primitives. The RELATIVE ROOT below is the least-fixed-point closure of everything it bundles from — the full import cone, grouped by the lib each prim comes from. Projected from a prover-typed KB (MAP/SWI-Prolog consistency gate): every reference below resolves.
@@ -10,11 +10,15 @@ Invoke this skill to understand `lactobacillus` down to its primitives. The RELA
 ### from `?`
 - **flavor_complexity** (d2): The depth and nuance of sourdough taste arising from multiple organic acids, esters, and alcohols produced during extended fermentation, creating tangy and complex notes.
 - **fermentation_depth** (d4): The extent of sourdough fermentation progression, encompassing duration and metabolic development, where extended time enables enzymatic esterification between organic_acids and ethanol to produce fruity and floral aroma compounds.
+- **fd_fermentation_vigor** (d7): Intensity and rate of the combined microbial fermentation process in sourdough driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
 
 ### from `deep_fermentation`
+- **fd_stage_active** (d1): The mid-fermentation phase where fermentation_vigor peaks, lactobacillus metabolism accelerates organic_acid production substantially, and aroma_compounds begin accumulating measurably in the dough matrix.
 - **lactobacillus_esterase_activity** (d1): Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation
 - **organic_acids** (d1): Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine sourness_level and contribute to flavor_complexity.
+- **fd_acid_profile_evolution** (d2): The shifting ratio between lactic_acid and acetic_acid concentrations as fermentation_depth progresses, where early stages favor lactic_acid dominance and extended time increases acetic_acid proportion, sharpening the tanginess_profile toward vinegary character.
 - **fc_estolide_compounds** (d2): Aroma-active ester compounds produced by yeast and lactobacillus that contribute fruity, floral, and sometimes banana or pineapple notes to sourdough flavor complexity
+- **fd_sensory_threshold_crossing** (d3): The fermentation_depth milestone where organic_acid concentration crosses from subtle background tanginess into pronounced sourness_level that fundamentally defines the loaf character rather than merely complementing it.
 - **banana_ester_notes** (d3): Estolide_compounds (primarily isoamyl acetate) producing characteristic banana aroma contributions typical in overfermented sourdough
 - **ester_contribution_to_flavor_complexity** (d3): The degree to which estolide_compounds enriches the overall sourdough flavor_complexity through combined fruity, floral, and tropical aroma notes
 - **fc_volatile_esters** (d3): Aroma compounds formed through esterification reactions between organic_acids and ethanol during fermentation, contributing fruity and floral notes
@@ -30,9 +34,10 @@ Invoke this skill to understand `lactobacillus` down to its primitives. The RELA
 - **fc_maltolytic_notes** (d3): Caramel, toasty, and biscuit-like flavor compounds derived from enzymatic breakdown of grain starches during fermentation and Maillard reactions during baking
 - **fc_tanginess_profile** (d3): The specific character and quality of sour notes in sourdough ranging from sharp and pungent to mild and creamy, determined by the balance between acetic acid sharpness and lactic acid softness
 - **fc_yeast_character** (d3): The bready, nutty, sometimes fruity or floral flavor notes contributed by wild_yeast metabolic activity including higher alcohols and their derivatives during fermentation
+- **fd_overfermentation_boundary** (d4): The fermentation_depth limit beyond which undesirable flavor characteristics emerge including pronounced banana_ester_notes, excessive acetic_acid sharpness, and structural collapse from overripe lactobacillus_esterase_activity and wild_yeast_esterase_activity dysregulation.
 - **fermentation_vigor** (d5): Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
+- **fd_estolide_formation_trajectory** (d5): The escalation curve of isoamyl_acetate and related estolide_compounds in response to increasing fermentation_depth, where fruity_ester_notes transition through floral_ester_notes into overfermentation_banana_association territory when fermentation_vigor_banana_interaction drives isoamyl_acetate beyond banana_ester_threshold_concentration.
 - **wild_yeast_esterase_activity** (d5): Enzymatic contribution of wild_yeast strains to ester synthesis, primarily through ethanol production and potential direct ester formation pathways
-- **carbon_dioxide** (d5): Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.
 
 ### from `deep_lactobacillus`
 - **banana_ester_threshold_concentration** (d4): The minimum isoamyl_acetate concentration required for human sensory perception of banana character. Exceeded in overfermented conditions where fermentation_vigor drives excessive ester accumulation beyond normal fruity_ester_notes levels.
@@ -52,4 +57,4 @@ Invoke this skill to understand `lactobacillus` down to its primitives. The RELA
 `as_lactobacillus_density`, `fc_maltolytic_notes`, `fermentation`, `le_activity`, `rye_sourdough`, `sourdough_starter`
 
 ---
-*Projected from the `sourdough baking` KB (546 concepts / 369 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (630 concepts / 458 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

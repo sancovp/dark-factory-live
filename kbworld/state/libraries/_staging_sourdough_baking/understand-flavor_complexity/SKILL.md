@@ -1,6 +1,6 @@
 # understand-flavor_complexity
 
-**CALL NUMBER:** `?.flavor_complexity : deep_fermentation(21), deep_lactobacillus(6), sourdough_baking(5)`
+**CALL NUMBER:** `?.flavor_complexity : deep_fermentation(29), deep_lactobacillus(6), sourdough_baking(5)`
 **DEFINITION:** The depth and nuance of sourdough taste arising from multiple organic acids, esters, and alcohols produced during extended fermentation, creating tangy and complex notes.
 
 Invoke this skill to understand `flavor_complexity` down to its primitives. The RELATIVE ROOT below is the least-fixed-point closure of everything it bundles from — the full import cone, grouped by the lib each prim comes from. Projected from a prover-typed KB (MAP/SWI-Prolog consistency gate): every reference below resolves.
@@ -9,6 +9,7 @@ Invoke this skill to understand `flavor_complexity` down to its primitives. The 
 
 ### from `?`
 - **fermentation_depth** (d3): The extent of sourdough fermentation progression, encompassing duration and metabolic development, where extended time enables enzymatic esterification between organic_acids and ethanol to produce fruity and floral aroma compounds.
+- **fd_fermentation_vigor** (d5): Intensity and rate of the combined microbial fermentation process in sourdough driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
 
 ### from `deep_fermentation`
 - **aroma_compounds** (d1): Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough.
@@ -28,10 +29,14 @@ Invoke this skill to understand `flavor_complexity` down to its primitives. The 
 - **floral_ester_notes** (d2): Estolide_compounds creating rose, violet, and blossom aromatic impressions through lightweight volatile esters in the sourdough crumb
 - **fruity_ester_notes** (d2): Estolide_compounds creating apple, pear, and tropical fruit aromatic impressions through specific ester structures in the sourdough headspace
 - **pineapple_ester_notes** (d2): Estolide_compounds (primarily ethyl butyrate) producing pineapple-like ester notes in sourdough with high fermentation_vigor
+- **fd_acid_profile_evolution** (d3): The shifting ratio between lactic_acid and acetic_acid concentrations as fermentation_depth progresses, where early stages favor lactic_acid dominance and extended time increases acetic_acid proportion, sharpening the tanginess_profile toward vinegary character.
+- **fd_stage_active** (d3): The mid-fermentation phase where fermentation_vigor peaks, lactobacillus metabolism accelerates organic_acid production substantially, and aroma_compounds begin accumulating measurably in the dough matrix.
 - **lactobacillus_esterase_activity** (d3): Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation
 - **carbon_dioxide** (d3): Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.
+- **fd_stage_initial** (d3): The early fermentation phase characterized by rapid wild_yeast carbon_dioxide production and nascent lactobacillus organic_acid generation, where flavor development remains minimal and the dough structure retains significant gluten integrity.
 - **fermentation_vigor** (d3): Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
 - **wild_yeast_esterase_activity** (d3): Enzymatic contribution of wild_yeast strains to ester synthesis, primarily through ethanol production and potential direct ester formation pathways
+- **fd_sensory_threshold_crossing** (d4): The fermentation_depth milestone where organic_acid concentration crosses from subtle background tanginess into pronounced sourness_level that fundamentally defines the loaf character rather than merely complementing it.
 
 ### from `deep_lactobacillus`
 - **banana_ester_threshold_concentration** (d3): The minimum isoamyl_acetate concentration required for human sensory perception of banana character. Exceeded in overfermented conditions where fermentation_vigor drives excessive ester accumulation beyond normal fruity_ester_notes levels.
@@ -52,4 +57,4 @@ Invoke this skill to understand `flavor_complexity` down to its primitives. The 
 `atd_crumb_retention_reservoir`, `cold_retardation`, `ester_contribution_to_flavor_complexity`, `fc_estolide_compounds`, `fermentation`, `organic_acids`
 
 ---
-*Projected from the `sourdough baking` KB (546 concepts / 369 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (630 concepts / 458 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

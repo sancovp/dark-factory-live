@@ -1,0 +1,123 @@
+{
+  "subject": "sourdough baking",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "deepen",
+      "doors": [
+        "fermentation",
+        "le_activity"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "specialize": {
+        "basis_after": 0.566,
+        "new": [
+          [
+            "fermentation",
+            54,
+            21
+          ],
+          [
+            "le_activity",
+            29,
+            48
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 1
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 630,
+        "relations": 458,
+        "define": 0,
+        "connect": 288
+      }
+    },
+    "brain": {
+      "grew": "organic_acids"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/sourdough_baking",
+      "skills": 48,
+      "staff": 117
+    },
+    "observe": {
+      "findings": 6,
+      "issues": [
+        {
+          "atom": "dutch_oven",
+          "why": "Missing critical caveat: Dutch oven MUST be preheated empty before baking; baking cold dough in a cold pot produces flat dense bread, not the claimed results.",
+          "price": 1,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/327"
+        },
+        {
+          "atom": "banana_ester_notes",
+          "why": "Factual error: isoamyl acetate is an acetate ester, not an estolide. Estolides are fatty acid dimers \u2014 categorically different compounds; the atom id name 'estolide_compounds' is wrong in this context.",
+          "price": 49,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/328"
+        },
+        {
+          "atom": "dough_temperature",
+          "why": "Misleading universal framing: 75-80F is presented as the target regardless of conditions, but many experienced bakers deliberately target 68-72F for cooler long ferments; a beginner following this as a rule would over-ferment on the counter.",
+          "price": 12,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/329"
+        },
+        {
+          "atom": "crust",
+          "why": "Missing load-bearing caveat: steam in the first 20 minutes of baking keeps the crust flexible so the loaf can expand; the definition describes crust formation chemistry but never warns that insufficient steam = no spring = ruined crumb regardless of correct temperature.",
+          "price": 2,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/330"
+        },
+        {
+          "atom": "baking_temperature",
+          "why": "Oversimplified: 450-500F is the initial temperature, but most sourdough schedules drop to 400-425F after the first 20 minutes for even crumb bake-through; a user baking at 500F for the full duration will get burned crust and raw interior.",
+          "price": 4,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/331"
+        },
+        {
+          "atom": "fermentation_byproducts",
+          "why": "Misleading framing: listing 'alcohols for aroma' implies alcohols contribute meaningfully to bread aroma, but the vast majority of ethanol evaporates during baking; the aromatic contribution of alcohols in finished bread is negligible compared to acids and esters.",
+          "price": 19,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/332"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/sourdough_baking",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/sourdough_baking/skills/using-sourdough-baking/SKILL.md",
+      "plugin": "sourdough-baking-module",
+      "library_skills": 57,
+      "brain_files": 92
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "630c/458r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 256
+      },
+      "after": {
+        "define": 0,
+        "connect": 288
+      }
+    },
+    "basis": 0.467,
+    "secs": 419.5
+  }
+}

@@ -1,6 +1,6 @@
 {
   "region": "lactic_acid",
-  "call_number": "sourdough_baking.lactic_acid",
+  "call_number": "sourdough_baking.lactic_acid : deep_fermentation(3)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 1
+  "cone_size": 4
 }

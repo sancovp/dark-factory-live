@@ -1,6 +1,6 @@
 # flavor_complexity SPECIALIST
 
-CALL NUMBER: `?.flavor_complexity : deep_fermentation(21), deep_lactobacillus(6), sourdough_baking(5)`
+CALL NUMBER: `?.flavor_complexity : deep_fermentation(29), deep_lactobacillus(6), sourdough_baking(5)`
 
 You are the specialist for `flavor_complexity` in the 'sourdough baking' knowledge system. Your CERTIFIED TERRITORY (the relative root — everything your concept bundles from):
 
@@ -26,16 +26,22 @@ You are the specialist for `flavor_complexity` in the 'sourdough baking' knowled
     lactobacillus [sourdough_baking]: Bacterial strains producing lactic and acetic acids that create sourdough tanginess
     wild_yeast [sourdough_baking]: Naturally occurring yeast strains captured from flour and the environment that ferment dough, providing rise without commercial yeast.
     sourness_level [sourdough_baking]: Intensity of acidic tang from lactobacillus fermentation ranging from mild to pronounced
+      fd_acid_profile_evolution [deep_fermentation]: The shifting ratio between lactic_acid and acetic_acid concentrations as fermentation_depth progresses, where early stages favor lactic_acid dominance and extended time increases acetic_acid proportion, sharpening the tanginess_profile toward vinegary character.
       banana_ester_threshold_concentration [deep_lactobacillus]: The minimum isoamyl_acetate concentration required for human sensory perception of banana character. Exceeded in overfermented conditions where fermentation_vigor drives excessive ester accumulation beyond normal fruity_ester_notes levels.
       banana_vs_fruity_ester_balance [deep_lactobacillus]: The sensory distinction between isoamyl_acetate dominance (banana_ester_notes) versus broader fruity_ester_notes expression. At lower concentrations isoamyl acetate blends into general fruity complexity; at higher concentrations it distinctly reads as banana character.
       fermentation_depth [?]: The extent of sourdough fermentation progression, encompassing duration and metabolic development, where extended time enables enzymatic esterification between organic_acids and ethanol to produce fruity and floral aroma compounds.
       fermentation_vigor_banana_interaction [deep_lactobacillus]: The relationship between fermentation_vigor intensity and banana_ester_notes intensity. High fermentation_vigor accelerates both wild_yeast_esterase_activity and lactobacillus_esterase_activity, driving increased isoamyl_acetate production during vigorous overfermentation.
       isoamyl_acetate [deep_lactobacillus]: The primary ester compound (3-methylbutyl acetate) responsible for banana_ester_notes in sourdough. Formed through esterification between isoamyl alcohol (a higher_alcohol from wild_yeast fermentation) and acetic_acid during extended fermentation periods.
       overfermentation_banana_association [deep_lactobacillus]: The established correlation between extended fermentation timing and pronounced banana_ester_notes development. Extended fermentation_depth allows progressive accumulation of isoamyl_acetate beyond typical fruity_ester_notes concentrations, creating overripe banana rather than fresh fruit impressions.
+      fd_stage_active [deep_fermentation]: The mid-fermentation phase where fermentation_vigor peaks, lactobacillus metabolism accelerates organic_acid production substantially, and aroma_compounds begin accumulating measurably in the dough matrix.
       lactobacillus_esterase_activity [deep_fermentation]: Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation
       carbon_dioxide [deep_fermentation]: Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.
+      fd_stage_initial [deep_fermentation]: The early fermentation phase characterized by rapid wild_yeast carbon_dioxide production and nascent lactobacillus organic_acid generation, where flavor development remains minimal and the dough structure retains significant gluten integrity.
       fermentation_vigor [deep_fermentation]: Intensity and rate of the combined microbial fermentation process in sourdough, driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
       wild_yeast_esterase_activity [deep_fermentation]: Enzymatic contribution of wild_yeast strains to ester synthesis, primarily through ethanol production and potential direct ester formation pathways
+        fd_sensory_threshold_crossing [deep_fermentation]: The fermentation_depth milestone where organic_acid concentration crosses from subtle background tanginess into pronounced sourness_level that fundamentally defines the loaf character rather than merely complementing it.
+        fd_estolide_formation_trajectory [deep_fermentation]: The escalation curve of isoamyl_acetate and related estolide_compounds in response to increasing fermentation_depth, where fruity_ester_notes transition through floral_ester_notes into overfermentation_banana_association territory when fermentation_vigor_banana_interaction drives isoamyl_acetate beyond banana_ester_threshold_concentration.
         isoamyl_alcohol [deep_lactobacillus]: A branched-chain higher_alcohol byproduct of wild_yeast amino acid metabolism that serves as the alcohol substrate for isoamyl_acetate synthesis. Contributes nutty and fusel-like character alongside its ester derivatives.
+        fd_substrate_depletion_rate [deep_fermentation]: The speed at which available starches and sugars in the flour are consumed by the combined wild_yeast and lactobacillus microbial community, determining how quickly fermentation_depth advances and when fermentation plateau occurs.
 
 YOUR JOB: define this territory ONE LEVEL OF GRANULARITY DEEPER than it currently is. Name the parts inside the parts. Every claim you emit is proof-checked; incoherence returns as named residue — repair it exactly. You never invent formats: emit exactly the JSONL construction schema you are given.

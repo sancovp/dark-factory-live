@@ -1,6 +1,6 @@
 {
   "region": "levain",
-  "call_number": "sourdough_baking.levain : deep_fermentation(22), deep_lactobacillus(6)",
+  "call_number": "sourdough_baking.levain : deep_fermentation(30), deep_lactobacillus(6)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 55
+  "cone_size": 64
 }

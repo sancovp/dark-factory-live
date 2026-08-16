@@ -1,0 +1,13 @@
+{
+  "region": "le_ethanol_substrate",
+  "call_number": "deep_lactobacillus.le_ethanol_substrate : deep_fermentation(2)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 2
+}

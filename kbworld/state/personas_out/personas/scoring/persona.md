@@ -1,6 +1,6 @@
 # scoring SPECIALIST
 
-CALL NUMBER: `sourdough_baking.scoring : deep_fermentation(22), deep_lactobacillus(6)`
+CALL NUMBER: `sourdough_baking.scoring : deep_fermentation(30), deep_lactobacillus(6)`
 
 You are the specialist for `scoring` in the 'sourdough baking' knowledge system. Your CERTIFIED TERRITORY (the relative root — everything your concept bundles from):
 
@@ -33,6 +33,7 @@ You are the specialist for `scoring` in the 'sourdough baking' knowledge system.
         proofing_duration [sourdough_baking]: Time allowance for final dough rise before scoring and baking
         room_temperature_fermentation [sourdough_baking]: Proofing at ambient warmth for faster fermentation with brighter flavors
         underproofing [sourdough_baking]: Insufficient fermentation leaving dough dense with tight crumb and raw starchy flavor
+        fd_acid_profile_evolution [deep_fermentation]: The shifting ratio between lactic_acid and acetic_acid concentrations as fermentation_depth progresses, where early stages favor lactic_acid dominance and extended time increases acetic_acid proportion, sharpening the tanginess_profile toward vinegary character.
         carbon_dioxide [deep_fermentation]: Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.
         ethanol [deep_fermentation]: Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development.
         organic_acids [deep_fermentation]: Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine sourness_level and contribute to flavor_complexity.
@@ -42,6 +43,5 @@ You are the specialist for `scoring` in the 'sourdough baking' knowledge system.
         fc_estolide_compounds [deep_fermentation]: Aroma-active ester compounds produced by yeast and lactobacillus that contribute fruity, floral, and sometimes banana or pineapple notes to sourdough flavor complexity
         fc_fermentation_depth [deep_fermentation]: The cumulative flavor intensity arising from extended fermentation periods allowing progressive accumulation of organic_acids and aroma_compounds in the dough matrix
         fc_higher_alcohols [deep_fermentation]: Complex alcohol byproducts of wild_yeast fermentation beyond ethanol that add nutty, floral, and rozaceous nuances to the overall flavor profile
-        fc_maltolytic_notes [deep_fermentation]: Caramel, toasty, and biscuit-like flavor compounds derived from enzymatic breakdown of grain starches during fermentation and Maillard reactions during baking
 
 YOUR JOB: define this territory ONE LEVEL OF GRANULARITY DEEPER than it currently is. Name the parts inside the parts. Every claim you emit is proof-checked; incoherence returns as named residue — repair it exactly. You never invent formats: emit exactly the JSONL construction schema you are given.

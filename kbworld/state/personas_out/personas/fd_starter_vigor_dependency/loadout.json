@@ -1,0 +1,13 @@
+{
+  "region": "fd_starter_vigor_dependency",
+  "call_number": "deep_fermentation.fd_starter_vigor_dependency",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 2
+}

@@ -1,0 +1,13 @@
+{
+  "region": "le_condensation_mechanism",
+  "call_number": "deep_lactobacillus.le_condensation_mechanism : deep_fermentation(29), sourdough_baking(5), deep_le_activity(4)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 50
+}

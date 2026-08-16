@@ -8,12 +8,15 @@ Invoke this skill to understand `fermentation_vigor` down to its primitives. The
 ## THE RELATIVE ROOT (the import cone, by lib)
 
 ### from `?`
+- **fd_fermentation_vigor** (d2): Intensity and rate of the combined microbial fermentation process in sourdough driven by wild_yeast gas production and lactobacillus acid generation, determining dough rise speed and flavor development timing.
 - **flavor_complexity** (d2): The depth and nuance of sourdough taste arising from multiple organic acids, esters, and alcohols produced during extended fermentation, creating tangy and complex notes.
 - **fermentation_depth** (d5): The extent of sourdough fermentation progression, encompassing duration and metabolic development, where extended time enables enzymatic esterification between organic_acids and ethanol to produce fruity and floral aroma compounds.
 
 ### from `deep_fermentation`
 - **carbon_dioxide** (d1): Gaseous byproduct of wild_yeast fermentation that provides dough rise and open crumb structure in sourdough bread.
+- **fd_starter_vigor_dependency** (d1): The direct relationship between fermentation_vigor of the inoculating starter culture and the rate of fermentation_depth advancement, where highly active starters drive faster organic_acid accumulation and estolide_formation_trajectory compared to sluggish starters.
 - **organic_acids** (d1): Carbon-chain acids produced by lactobacillus metabolism including lactic_acid and acetic_acid that determine sourness_level and contribute to flavor_complexity.
+- **fd_substrate_depletion_rate** (d2): The speed at which available starches and sugars in the flour are consumed by the combined wild_yeast and lactobacillus microbial community, determining how quickly fermentation_depth advances and when fermentation plateau occurs.
 - **aroma_compounds** (d3): Volatile fermentation byproducts including alcohols and esters that create the aromatic profile of sourdough.
 - **ethanol** (d3): Alcohol produced by wild_yeast during anaerobic fermentation that evaporates during baking and contributes to flavor_complexity development.
 - **fc_acid_balance_ratio** (d3): The proportional ratio between acetic_acid and lactic_acid concentrations that fundamentally determines whether the tanginess is sharp and vinegary or soft and creamy
@@ -30,7 +33,10 @@ Invoke this skill to understand `fermentation_vigor` down to its primitives. The
 - **floral_ester_notes** (d4): Estolide_compounds creating rose, violet, and blossom aromatic impressions through lightweight volatile esters in the sourdough crumb
 - **fruity_ester_notes** (d4): Estolide_compounds creating apple, pear, and tropical fruit aromatic impressions through specific ester structures in the sourdough headspace
 - **pineapple_ester_notes** (d4): Estolide_compounds (primarily ethyl butyrate) producing pineapple-like ester notes in sourdough with high fermentation_vigor
+- **fd_acid_profile_evolution** (d5): The shifting ratio between lactic_acid and acetic_acid concentrations as fermentation_depth progresses, where early stages favor lactic_acid dominance and extended time increases acetic_acid proportion, sharpening the tanginess_profile toward vinegary character.
+- **fd_stage_active** (d5): The mid-fermentation phase where fermentation_vigor peaks, lactobacillus metabolism accelerates organic_acid production substantially, and aroma_compounds begin accumulating measurably in the dough matrix.
 - **lactobacillus_esterase_activity** (d5): Enzymatic capability of lactobacillus strains to catalyze esterification reactions between organic_acids and ethanol during sourdough fermentation
+- **fd_stage_initial** (d5): The early fermentation phase characterized by rapid wild_yeast carbon_dioxide production and nascent lactobacillus organic_acid generation, where flavor development remains minimal and the dough structure retains significant gluten integrity.
 - **wild_yeast_esterase_activity** (d5): Enzymatic contribution of wild_yeast strains to ester synthesis, primarily through ethanol production and potential direct ester formation pathways
 
 ### from `deep_lactobacillus`
@@ -52,4 +58,4 @@ Invoke this skill to understand `fermentation_vigor` down to its primitives. The
 `as_vigor_level`, `fermentation_onset_timing`, `fermentation_vigor_banana_interaction`, `microbial_activity_intensity`, `peak_fermentation_rate`, `starter_vitality`, `temperature_coefficient`, `wild_yeast`
 
 ---
-*Projected from the `sourdough baking` KB (546 concepts / 369 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `sourdough baking` KB (630 concepts / 458 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
