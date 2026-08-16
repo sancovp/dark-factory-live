@@ -1,6 +1,6 @@
 {
   "region": "relaxed_no_synchronizes_with_vs_acquire_synchronizes_with",
-  "call_number": "deep_c11_memory_model.relaxed_no_synchronizes_with_vs_acquire_synchronizes_with : concurrency_synchronization_primitives_and_memor(1)",
+  "call_number": "deep_c11_memory_model.relaxed_no_synchronizes_with_vs_acquire_synchronizes_with : deep_synchronizes_with(20), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(2)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 2
+  "cone_size": 32
 }

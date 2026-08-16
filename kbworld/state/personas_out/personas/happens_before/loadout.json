@@ -1,0 +1,13 @@
+{
+  "region": "happens_before",
+  "call_number": "deep_synchronizes_with.happens_before : deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(2), deep_c11_memory_model(1)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 31
+}

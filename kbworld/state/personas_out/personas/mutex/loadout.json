@@ -1,6 +1,6 @@
 {
   "region": "mutex",
-  "call_number": "concurrency_synchronization_primitives_and_memor.mutex : deep_spinlock(9), deep_exponential_backoff(4)",
+  "call_number": "concurrency_synchronization_primitives_and_memor.mutex : deep_synchronizes_with(9), deep_spinlock(9), deep_happens_before_relat(7), deep_exponential_backoff(4)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 23
+  "cone_size": 38
 }

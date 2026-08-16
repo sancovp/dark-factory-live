@@ -1,0 +1,109 @@
+{
+  "subject": "concurrency synchronization primitives and memory models",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "deepen",
+      "doors": [
+        "c11_memory_model",
+        "synchronizes_with"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "specialize": {
+        "basis_after": 0.373,
+        "new": [
+          [
+            "c11_memory_model",
+            30,
+            53
+          ],
+          [
+            "synchronizes_with",
+            70,
+            62
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {},
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 377,
+        "relations": 413,
+        "define": 0,
+        "connect": 40
+      }
+    },
+    "brain": {
+      "grew": "memory_order_relaxed_atomicity_guarantee"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/concurrency_synchronization_primitives_and_memor",
+      "skills": 40,
+      "staff": 100
+    },
+    "observe": {
+      "findings": 4,
+      "issues": [
+        {
+          "atom": "release_semantics",
+          "why": "Describes release as standalone but release semantics alone provides NO cross-thread visibility \u2014 it only pairs meaningfully with acquire semantics. Omitting that counterpart caveat misleads a user into thinking release by itself synchronizes.",
+          "price": 10,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/347"
+        },
+        {
+          "atom": "acquire_semantics",
+          "why": "Same paired-semantics omission as release_semantics: acquire alone does nothing across threads; it must synchronize-with a release operation. Framing it as a standalone guarantee is misleading.",
+          "price": 21,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/348"
+        },
+        {
+          "atom": "happens_before_relation",
+          "why": "The definition says A's effects ARE visible to B if A hb B, which is oversimplified \u2014 happens-before does not guarantee that ALL of A's side effects are visible to B, only those that participate in the memory-ordering graph.",
+          "price": 37,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/349"
+        },
+        {
+          "atom": "sequentially_consistent",
+          "why": "Cites C11 but every other entry in the section is labeled C++11; a user seeking the C11 spec will be confused about which standard each atom belongs to.",
+          "price": 11,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/350"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/concurrency_synchronization_primitives_a",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/concurrency_synchronization_primitives_a/skills/using-concurrency-synchronization-primitives-a/SKILL.md",
+      "plugin": "concurrency-synchronization-primitives-a-module",
+      "library_skills": 48,
+      "brain_files": 60
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "377c/413r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 16
+      },
+      "after": {
+        "define": 0,
+        "connect": 40
+      }
+    },
+    "basis": 0.95,
+    "secs": 338.0
+  }
+}

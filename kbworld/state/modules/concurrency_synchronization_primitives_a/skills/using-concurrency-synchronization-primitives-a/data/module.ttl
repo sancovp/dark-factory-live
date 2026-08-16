@@ -23,18 +23,36 @@ kb:aba_problem a owl:NamedIndividual, kbo:Concept ;
 kb:acquire_fence a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "acquire fence" ;
     rdfs:comment "A memory ordering primitive that ensures all load and store operations appearing after the fence in program order do not begin until the fence completes and all prior writes are visible." .
+kb:acquire_op a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "acquire op" ;
+    rdfs:comment "memory operation that observes writes made before a synchronizing release; includes load with acquire, mutex_lock, thread_join, sem_wait, barrier_wait" .
 kb:acquire_semantics a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "acquire semantics" ;
     rdfs:comment "Memory ordering semantics ensuring all subsequent loads/stores cannot be reordered before the acquire operation; used for lock acquisition, reading a flag after volatile write." .
 kb:acquisition_collision a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "acquisition collision" ;
     rdfs:comment "Multiple threads competing simultaneously for the same contested lock after waking; the collision created by the wake spike." .
+kb:address_dependency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "address dependency" ;
+    rdfs:comment "A data dependency where the value loaded from address A is used to compute the address of a subsequent load, establishing an intra-thread ordering that carries visibility across weakly ordered architectures." .
 kb:amdahl_law a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "amdahl law" ;
     rdfs:comment "Formula limiting parallel speedup by the serial fraction of computation; speedup <= 1 / (serial_fraction + parallel_fraction / num_threads); motivates minimization of synchronized serial sections." .
+kb:arm_dmb a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "arm dmb" ;
+    rdfs:comment "The ARM Data Memory Barrier instruction; options for full (dmb sy), store (dmb st), or load (dmb ld) barriers providing the corresponding memory ordering on ARM/ARM64 architectures." .
+kb:arm_isb a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "arm isb" ;
+    rdfs:comment "The ARM Instruction Synchronization Barrier; flushes the pipeline ensuring all following instructions fetch from memory, used to make speculative updates visible." .
 kb:arm_memory_model a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "arm memory model" ;
     rdfs:comment "Weak memory model used by ARM processors where memory operations may be reordered extensively unless explicitly ordered by barriers; most permissive of common architectures." .
+kb:atomic_alignment_prerequisite a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atomic alignment prerequisite" ;
+    rdfs:comment "For the atomicity guarantee to hold the target variable must meet the hardware's alignment requirements, typically aligned to its natural size or to std::atomic's enforced alignment; misaligned access on some architectures may lack the indivisibility guarantee." .
+kb:atomic_alignment_prerequisite_enables_indivisibility_guarantee a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atomic alignment prerequisite enables indivisibility guarantee" ;
+    rdfs:comment "Proper alignment is a necessary precondition for the hardware to provide the indivisibility guarantee; without correct alignment the guarantee may not hold on architectures with strict alignment requirements." .
 kb:atomic_cas a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "atomic cas" ;
     rdfs:comment "Compare-and-swap operation atomically loading a value, comparing it to an expected value, and storing a new value only if they matched, returning whether the swap occurred." .
@@ -44,18 +62,48 @@ kb:atomic_compare_exchange a owl:NamedIndividual, kbo:Concept ;
 kb:atomic_exchange a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "atomic exchange" ;
     rdfs:comment "Atomic operation that reads the current value of a variable and writes a new value in a single indivisible step, returning the old value." .
+kb:atomic_fence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atomic fence" ;
+    rdfs:comment "fence operation establishing memory barriers independent of specific atomic locations; can create synchronizes_with between release and acquire" .
+kb:atomic_fetch_add a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atomic fetch add" ;
+    rdfs:comment "An atomic read-modify-write that atomically increments a value and returns the prior value; the read component acquires, the write component releases, creating synchronize-with edges for surrounding operations." .
+kb:atomic_load a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atomic load" ;
+    rdfs:comment "load operation with memory_order semantics; load with acquire is the endpoint of synchronizes_with from release store" .
+kb:atomic_location a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atomic location" ;
+    rdfs:comment "memory location accessed with atomic operations; synchronizes_with operates on atomic variables or fences between them" .
 kb:atomic_operation a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "atomic operation" ;
     rdfs:comment "Operation appearing indivisible to other threads; either hardware-supported single instruction atomics or software-implemented atomic primitives using CAS loops." .
+kb:atomic_rmw a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atomic rmw" ;
+    rdfs:comment "read-modify-write atomic operation; fetch_add, compare_exchange with acquire/release; participates in synchronizes_with chains" .
+kb:atomic_store a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atomic store" ;
+    rdfs:comment "store operation with memory_order semantics; store with release triggers synchronizes_with on matching acquire" .
+kb:atomic_variable_scope a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "atomic variable scope" ;
+    rdfs:comment "The scope boundary of atomicity guarantees limited to the specific atomic variable being read or written; other variables in the program are unaffected by this atomicity property." .
 kb:backoff_iteration a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "backoff iteration" ;
     rdfs:comment "Zero-based counter tracking how many consecutive failed lock acquisition attempts have occurred since last success." .
 kb:backoff_multiplier a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "backoff multiplier" ;
     rdfs:comment "Scaling factor (commonly 2.0) that multiplies the current delay on each failed acquisition attempt to produce the next delay interval." .
+kb:barrier_arrival a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "barrier arrival" ;
+    rdfs:comment "The event when a thread reaches a synchronization barrier; each arrival synchronizes-with all other arrival events at the same barrier instance, enforcing a global rendezvous." .
+kb:barrier_release a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "barrier release" ;
+    rdfs:comment "The event when the last thread departs a barrier; creates a synchronizes-with edge for all threads, equivalent to all prior arrivals." .
 kb:barrier_synchronization a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "barrier synchronization" ;
     rdfs:comment "Primitive blocking threads until all threads in a set reach the barrier point; threads proceed only after the group is complete; used in fork-join and bulk-synchronous parallelism." .
+kb:barrier_wait a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "barrier wait" ;
+    rdfs:comment "synchronization point where all threads must arrive; when last thread passes barrier, all threads synchronize via the barrier" .
 kb:base_delay a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "base delay" ;
     rdfs:comment "Initial wait time in nanoseconds or microseconds before the first lock acquisition retry; the starting point of the exponential schedule." .
@@ -71,6 +119,9 @@ kb:bounded_waiting a owl:NamedIndividual, kbo:Concept ;
 kb:broadcast_signal a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "broadcast signal" ;
     rdfs:comment "The invocation or mechanism that triggers wake_all_semantics; e.g., pthread_cond_broadcast, event_group.set_all, NotifyAll in a monitor." .
+kb:c11_atomic a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "c11 atomic" ;
+    rdfs:comment "The C11/C++11 memory model defined by the ISO standard; defines six memory orders (relaxed, consume, acquire, release, acq_rel, seq_cst) and formalizes synchronizes-with and happens-before." .
 kb:c11_atomic_thread_fence_contrast a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "c11 atomic thread fence contrast" ;
     rdfs:comment "A relaxed atomic operation is not a thread fence; unlike atomic_thread_fence with memory_order_seq_cst, a relaxed operation imposes no memory barrier that would establish synchronization between threads." .
@@ -80,12 +131,21 @@ kb:c11_memory_model a owl:NamedIndividual, kbo:Concept ;
 kb:cache_alignment a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "cache alignment" ;
     rdfs:comment "Placement of data structures on memory boundaries matching cache line size, typically 64 bytes, preventing false sharing between adjacent data." .
+kb:cache_coherence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cache coherence" ;
+    rdfs:comment "The hardware guarantee that reads observe the most recent write to the same address in the coherent cache hierarchy; defines the per-address visibility baseline." .
 kb:cache_coherency a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "cache coherency" ;
     rdfs:comment "Protocol ensuring that multiple caches sharing a memory location present a consistent view; MESI, MOESI, MESIF protocols maintain coherence across CPU cores." .
 kb:cache_line_ping_pong a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "cache line ping pong" ;
     rdfs:comment "Performance anti-pattern where threads on different cores repeatedly invalidate each other's cache line, causing excessive coherency traffic; often caused by false sharing or poorly designed data structures." .
+kb:carries_dependency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "carries dependency" ;
+    rdfs:comment "property of an operation depending on the result of another; forms happens_before under consume semantics when synchronizes_with absent" .
+kb:cas_loop a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "cas loop" ;
+    rdfs:comment "compare-and-swap retry loop; each iteration is a load-acquire and store-release attempt; progress requires lock freedom" .
 kb:causal_consistency_boundary a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "causal consistency boundary" ;
     rdfs:comment "Relaxed operations respect intra-thread causality (program order) but do not guarantee inter-thread causality; this boundary defines the scope of what relaxed_atomicity guarantees." .
@@ -113,9 +173,24 @@ kb:condition_variable a owl:NamedIndividual, kbo:Concept ;
 kb:condition_variable_trigger a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "condition variable trigger" ;
     rdfs:comment "The specific use of a condition variable with broadcast to notify waiting threads; a primary vector for thundering herd emergence in monitor-based code." .
+kb:condvar_broadcast a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "condvar broadcast" ;
+    rdfs:comment "A condition variable broadcast that wakes all waiting threads; each woken thread's lock acquire synchronizes-with the broadcast operation." .
+kb:condvar_signal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "condvar signal" ;
+    rdfs:comment "signal operation on condition variable; may synchronize_with a condvar_wait on the same condition variable and mutex" .
+kb:condvar_wait a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "condvar wait" ;
+    rdfs:comment "wait operation on condition variable; releases associated mutex (release) and blocks until signal (acquire); part of condvar synchronizes_with" .
+kb:consume_semantics a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "consume semantics" ;
+    rdfs:comment "memory ordering where subsequent operations dependent on the consumed load respect dependency order rather than synchronizes_with" .
 kb:context_switch a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "context switch" ;
     rdfs:comment "Operating system operation saving one thread's state and restoring another's; involves kernel transition, register saves, TLB invalidation; cost motivates lock-free and per-thread data designs." .
+kb:control_dependency a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "control dependency" ;
+    rdfs:comment "A control-flow-based ordering: when a load controls whether a later operation executes, that ordering contributes to the intra-thread happens-before chain without a fence." .
 kb:countdown_latch a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "countdown latch" ;
     rdfs:comment "One-time barrier initialized with a count; threads decrement count on completion; barrier opens when count reaches zero; cannot be reused." .
@@ -152,6 +227,9 @@ kb:dekker_algorithm a owl:NamedIndividual, kbo:Concept ;
 kb:delay_ceiling a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "delay ceiling" ;
     rdfs:comment "Upper bound cap on the computed delay; prevents unbounded growth of wait times when contention persists across many iterations." .
+kb:dependency_chain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "dependency chain" ;
+    rdfs:comment "data or control dependency from one operation to another; under consume semantics substitutes for synchronizes_with" .
 kb:dining_philosophers a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "dining philosophers" ;
     rdfs:comment "Classic deadlock problem with N philosophers at circular table needing both adjacent forks; demonstrates resource ordering, deadlock avoidance, and starvation-free synchronization design." .
@@ -203,21 +281,39 @@ kb:false_sharing a owl:NamedIndividual, kbo:Concept ;
 kb:fence_ineffectiveness_on_relaxed a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "fence ineffectiveness on relaxed" ;
     rdfs:comment "Placing a release fence after a relaxed store does not retroactively give the store release semantics; fences only constrain operations that follow them, not operations that precede them in program order." .
+kb:fence_synchronizes_with_fence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fence synchronizes with fence" ;
+    rdfs:comment "A pair of fences on different threads where the second fence in program order synchronizes-with the first fence establishing an ordering boundary." .
+kb:fence_synchronizes_with_op a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "fence synchronizes with op" ;
+    rdfs:comment "A relation where a fence on one thread establishes a synchronizes-with edge over an operation on another thread that accesses memory visible across the fence boundary." .
 kb:fetch_and_add a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "fetch and add" ;
     rdfs:comment "Atomic operation returning old value while atomically incrementing memory location; used for counters, ticket distribution, and implementing certain lock-free structures." .
 kb:fork_join_parallelism a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "fork join parallelism" ;
     rdfs:comment "Parallelism pattern where work recursively splits into subtasks that join at barriers; implementations like Java ForkJoinFramework provide efficient work stealing for divide-conquer algorithms." .
+kb:full_fence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "full fence" ;
+    rdfs:comment "A memory fence providing both acquire and release semantics; no memory operation on the issuing core may be reordered across the fence in either direction." .
 kb:full_jitter a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "full jitter" ;
     rdfs:comment "Jitter strategy selecting a uniform random value in the range [0, current_delay]; maximizes desynchronization at the cost of potentially very short waits." .
 kb:futex a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "futex" ;
     rdfs:comment "Fast userspace mutex kernel-assisted synchronization; userspace spinning first, then syscall to kernel for wait/wake; basis for most Linux threading primitives." .
+kb:futex_wait a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "futex wait" ;
+    rdfs:comment "block on futex address with expected value; acquire semantics waiting for wake from another thread" .
+kb:futex_wake a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "futex wake" ;
+    rdfs:comment "wake operation on futex; release semantics that synchronizes_with futex_wait that was blocking on the address" .
 kb:future_promise a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "future promise" ;
     rdfs:comment "Concurrency pattern decoupling value computation from access; Future represents pending result, Promise provides completion mechanism; enables asynchronous composition." .
+kb:happens_before a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "happens before" ;
+    rdfs:comment "transitive closure of program_order and synchronizes_with relations; the ordering guarantee that prevents data races" .
 kb:happens_before_order a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "happens before order" ;
     rdfs:comment "A transitive, irreflexive partial order over operations in a memory model that defines which operations must appear to precede others from any thread's perspective." .
@@ -299,12 +395,24 @@ kb:hb_transitive_closure a owl:NamedIndividual, kbo:Concept ;
 kb:hb_transitivity a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "hb transitivity" ;
     rdfs:comment "The property that if A happens-before B and B happens-before C, then A happens-before C; defines happens_before as a transitive relation." .
+kb:indivisibility_guarantee a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "indivisibility guarantee" ;
+    rdfs:comment "The foundational property that a relaxed atomic operation completes as one indivisible step; no observer can witness any partial execution of the operation." .
+kb:indivisibility_guarantee_scope_limited_to_target_variable a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "indivisibility guarantee scope limited to target variable" ;
+    rdfs:comment "The indivisibility guarantee does not extend beyond the specific atomic variable being read or written; no additional memory locations are protected or made visible atomically by the operation." .
+kb:indivisibility_property a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "indivisibility property" ;
+    rdfs:comment "The fundamental property that a relaxed atomic operation executes as a single indivisible step from the perspective of all threads; the operation either completes fully or not at all without observable intermediate states." .
 kb:instruction_reordering a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "instruction reordering" ;
     rdfs:comment "CPU or compiler reordering of memory operations for performance while preserving single-thread correctness; can violate programmer expectations in concurrent code without proper barriers." .
 kb:inter_thread_happens_before a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "inter thread happens before" ;
     rdfs:comment "The subset of happens_before relations that cross thread boundaries, established by synchronizes_with connections between release and acquire operations." .
+kb:intermediate_state_invisibility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "intermediate state invisibility" ;
+    rdfs:comment "The guarantee that no thread can observe a partially completed relaxed atomic operation; all threads observe either the state before or after the operation, never during its execution." .
 kb:intra_thread_program_order a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "intra thread program order" ;
     rdfs:comment "Within a single thread, the thread still observes its own relaxed operations in program order; this total order is local to the thread and not shared." .
@@ -332,15 +440,27 @@ kb:load_buffering a owl:NamedIndividual, kbo:Concept ;
 kb:load_buffering_allowed a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "load buffering allowed" ;
     rdfs:comment "Under relaxed ordering, a thread may read a value it will later write (load buffering) because relaxed operations do not prohibit such behavior unlike sequentially consistent or release-acquire patterns." .
+kb:load_indivisibility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "load indivisibility" ;
+    rdfs:comment "A relaxed atomic load returns exactly one value from the modification order of the target variable; no torn read of a partial value encoded in fewer bits than the atomic word is possible." .
+kb:load_linked a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "load linked" ;
+    rdfs:comment "load-linked atomic operation; part of LLSC pair; acquire semantics for the linked address" .
 kb:load_linked_store_conditional a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "load linked store conditional" ;
     rdfs:comment "Pair of instructions for software atomic operations: LL reads atomically, SC writes only if no intervening store occurred; used on ARM, PowerPC; avoids ABA problem inherent to CAS." .
+kb:lock_acquire a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock acquire" ;
+    rdfs:comment "A synchronization operation that atomically claims exclusive access to a protected region; on most architectures it is an acquire operation establishing a synchronizes-with edge with the matching release." .
 kb:lock_elision a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "lock elision" ;
     rdfs:comment "Optimization technique using HTM or CAS to execute critical sections without holding the lock when no conflict occurs; combines performance of no-locking with safety of mutual exclusion." .
 kb:lock_free a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "lock free" ;
     rdfs:comment "Progress guarantee where system-wide progress is always made; at least one thread completes an operation in finite steps regardless of other thread interference." .
+kb:lock_release a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "lock release" ;
+    rdfs:comment "A synchronization operation that atomically relinquishes exclusive access; it is a release operation establishing a synchronizes-with edge with all subsequent acquires of the same lock." .
 kb:mcs_lock a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "mcs lock" ;
     rdfs:comment "Queued lock where each waiting thread spins on a locally-owned node linked into a queue; cache-friendly with only O(1) bus traffic per lock acquisition; named after Mellor-Crummey and Scott." .
@@ -386,6 +506,9 @@ kb:memory_barrier_pair a owl:NamedIndividual, kbo:Concept ;
 kb:memory_fence a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "memory fence" ;
     rdfs:comment "Synonym for memory barrier; hardware instruction enforcing visibility and ordering constraints on memory operations across the fence; variations include full fence, store fence, load fence." .
+kb:memory_order_acq_rel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory order acq rel" ;
+    rdfs:comment "A memory ordering that is simultaneously acquire and release; applies to read-modify-write atomics and makes the update visible atomically with surrounding writes." .
 kb:memory_order_acquire a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "memory order acquire" ;
     rdfs:comment "Memory ordering barrier ensuring all loads and stores after the barrier in program order cannot be reordered before it, synchronizing with release stores." .
@@ -398,6 +521,9 @@ kb:memory_order_relaxed a owl:NamedIndividual, kbo:Concept ;
 kb:memory_order_relaxed_atomicity_guarantee a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "memory order relaxed atomicity guarantee" ;
     rdfs:comment "The indivisibility guarantee that a relaxed atomic operation completes as a single indivisible step; no intermediate state is observable by other threads during the operation, scoped to the specific atomic variable being read or written." .
+kb:memory_order_relaxed_atomicity_guarantee_implies_load_store_atomicity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory order relaxed atomicity guarantee implies load store atomicity" ;
+    rdfs:comment "The indivisibility guarantee applies uniformly to both load and store operations on the relaxed atomic variable; the atomicity property is not conditional on the operation direction." .
 kb:memory_order_relaxed_coherence_per_location a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "memory order relaxed coherence per location" ;
     rdfs:comment "The property that each atomic variable maintains its own independent coherence order but this order is not coordinated with coherence orders of other variables; operations on separate variables are totally unordered with respect to each other." .
@@ -434,12 +560,18 @@ kb:memory_order_relaxed_vs_seq_cst a owl:NamedIndividual, kbo:Concept ;
 kb:memory_order_release a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "memory order release" ;
     rdfs:comment "Memory ordering barrier ensuring all loads and stores before the barrier in program order cannot be reordered after it, making prior writes visible to acquiring threads." .
+kb:memory_order_seq_cst a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "memory order seq cst" ;
+    rdfs:comment "The strongest memory ordering; both a global total order of all seq_cst operations exists and the program order and synchronization order coincide, making reasoning straightforward but costly." .
 kb:memory_reclamation a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "memory reclamation" ;
     rdfs:comment "Challenge of safely reclaiming freed memory in lock-free structures accessed concurrently; solutions include hazard pointers, RCU, epoch-based reclamation, and quiescent-state-based approaches." .
 kb:mesi_protocol a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "mesi protocol" ;
     rdfs:comment "Four-state cache coherency protocol: Modified (exclusive, dirty), Exclusive (exclusive, clean), Shared (shared, clean), Invalid (not present); prevents inconsistent cached data." .
+kb:modification_order a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "modification order" ;
+    rdfs:comment "total order of writes to a single atomic variable; required for synchronizes_with to hold across threads" .
 kb:modification_order_coherence a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "modification order coherence" ;
     rdfs:comment "All relaxed atomic operations on the same atomic variable still observe a single total modification order consistent across all threads, though different threads need not agree on the relative order of operations to other variables." .
@@ -452,12 +584,27 @@ kb:mutex a owl:NamedIndividual, kbo:Concept ;
 kb:mutex_livelock_prevention a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "mutex livelock prevention" ;
     rdfs:comment "Techniques including exponential backoff, random delays, or lock registry to prevent threads from repeatedly colliding on lock acquisition." .
+kb:mutex_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mutex lock" ;
+    rdfs:comment "acquire operation on mutex; synchronizes_with the mutex_unlock of the thread that previously held the lock" .
+kb:mutex_unlock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "mutex unlock" ;
+    rdfs:comment "release operation on mutex; synchronizes_with all subsequent mutex_lock operations on the same mutex" .
 kb:no_happens_before_establishment a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "no happens before establishment" ;
     rdfs:comment "A relaxed operation neither participates in nor establishes a happens-before relationship with any other operation; operations may be reordered arbitrarily across thread boundaries." .
+kb:no_partial_observation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "no partial observation" ;
+    rdfs:comment "The constraint that observers of a relaxed atomic operation cannot see byte-level or word-level fragments of the operation in flight; only complete before or after states are visible." .
+kb:no_partial_value_observation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "no partial value observation" ;
+    rdfs:comment "No thread can observe a value at the target variable that represents a transient encoding representing neither the value before the operation nor the value after the operation; the observed value must be a member of the variable's modification order." .
 kb:no_synchronizes_with_establishment a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "no synchronizes with establishment" ;
     rdfs:comment "A relaxed operation cannot synchronize-with any operation on another thread; release semantics and acquire semantics are absent, breaking the synchronizes-with chain." .
+kb:no_tearing_guarantee a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "no tearing guarantee" ;
+    rdfs:comment "The guarantee that multi-byte atomic values cannot be observed in a torn state where some bytes reflect the old value and others reflect a new concurrent value." .
 kb:numa_awareness a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "numa awareness" ;
     rdfs:comment "Design consideration for systems with non-uniform memory access latency; thread affinity and data placement affect performance; synchronization must account for remote vs local memory access costs." .
@@ -470,6 +617,9 @@ kb:out_of_order_execution a owl:NamedIndividual, kbo:Concept ;
 kb:partial_store_order_pso a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "partial store order pso" ;
     rdfs:comment "Memory model (SPARC) where stores may be reordered with respect to older stores but loads maintain program order relative to other loads and stores respect address dependencies; relaxes TSO slightly." .
+kb:per_variable_modification_order_integrity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "per variable modification order integrity" ;
+    rdfs:comment "The per-variable constraint that each atomic variable maintains a single agreed modification order even under relaxed operations; atomicity preserves this per-variable coherence order." .
 kb:peterson_algorithm a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "peterson algorithm" ;
     rdfs:comment "Two-thread mutual exclusion algorithm using shared flags and a turn variable; provides bounded waiting under sequential consistency but fails on modern weak-memory hardware without memory barriers." .
@@ -500,15 +650,27 @@ kb:program_order_locality a owl:NamedIndividual, kbo:Concept ;
 kb:race_condition a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "race condition" ;
     rdfs:comment "Behavior where program outcome depends on relative timing of interleaved operations on shared state; general term for any timing-dependent bug in concurrent programs." .
+kb:race_free a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "race free" ;
+    rdfs:comment "property of an execution where all conflicting accesses are ordered by happens_before; the guarantee synchronizes_with provides" .
+kb:race_free_program a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "race free program" ;
+    rdfs:comment "A program in which all pairs of conflicting accesses are ordered by synchronizes-with or happens-before, guaranteeing defined semantics under the memory model." .
 kb:rcu_read_copy_update a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "rcu read copy update" ;
     rdfs:comment "Linux kernel synchronization mechanism allowing read-heavy workloads without reader locks; readers access data freely while writers make copies and schedule updates for later reclamation." .
+kb:read_modify_write_indivisibility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "read modify write indivisibility" ;
+    rdfs:comment "The indivisibility of compound read-modify-write operations under relaxed ordering; fetch_add fetch_sub and similar operations complete atomically without observable intermediate states." .
 kb:reader_writer_lock a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "reader writer lock" ;
     rdfs:comment "Synchronization primitive allowing multiple concurrent readers or exclusive single writer; improves read-heavy workloads but has higher overhead than simple mutex." .
 kb:readers_writers_problem a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "readers writers problem" ;
     rdfs:comment "Synchronization problem requiring exclusive write access but concurrent read access; solutions vary in reader/writer preference, fairness, and implementation complexity." .
+kb:reads_from a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "reads from" ;
+    rdfs:comment "A relation from a read operation to a write operation whose value the read returns; a building block for happens-before reconstruction from synchronizes-with edges." .
 kb:recursive_mutex a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "recursive mutex" ;
     rdfs:comment "Mutex variant permitting the same thread to acquire the lock multiple times; must be released same number of times; can hide design problems but necessary in some recursive patterns." .
@@ -518,6 +680,12 @@ kb:relaxed_atomicity a owl:NamedIndividual, kbo:Concept ;
 kb:relaxed_atomicity_guarantee a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "relaxed atomicity guarantee" ;
     rdfs:comment "The sole guarantee provided by memory_order_relaxed: the atomic variable is read and written atomically without tearing, but no ordering constraints are imposed on other operations relative to the relaxed operation." .
+kb:relaxed_atomicity_vs_non_atomic_torn_read a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed atomicity vs non atomic torn read" ;
+    rdfs:comment "A relaxed atomic load guarantees the returned value is a member of the variable's modification order; a non-atomic load of the same memory may torn_read observe a bitwise combination of two distinct values that was never stored." .
+kb:relaxed_atomicity_vs_seq_cst_atomicity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed atomicity vs seq cst atomicity" ;
+    rdfs:comment "Both relaxed and sequentially consistent atomic operations provide the same indivisibility guarantee on their target variable; the distinction lies in visibility timing and global ordering, not in the per-variable atomicity itself." .
 kb:relaxed_coherence_per_location_vs_acquire_global_observation a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "relaxed coherence per location vs acquire global observation" ;
     rdfs:comment "The observation model contrast where relaxed operations on different variables maintain independent per-variable coherence orders with no cross-variable ordering coordination, while acquire semantics participates in the global sequentially consistent order when mixed with seq_cst operations." .
@@ -530,6 +698,33 @@ kb:relaxed_load_value_visibility_timing_vs_acquire_visibility_timing a owl:Named
 kb:relaxed_memory_model a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "relaxed memory model" ;
     rdfs:comment "Memory model that permits more reorderings than sequential consistency; allows loads to be reordered with respect to stores, stores to be reordered with respect to stores, etc. Examples include ARM, PowerPC, and C11's relaxed ordering." .
+kb:relaxed_mod_order_def a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed mod order def" ;
+    rdfs:comment "The well-defined sequential order of all store operations to a single atomic variable; every relaxed store to variable x appends to x's modification order in some position, and all threads agree on this order for x." .
+kb:relaxed_mod_order_indivisibility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed mod order indivisibility" ;
+    rdfs:comment "Each modification order entry appears as an indivisible step; no intermediate store state is visible during the store, bounded by memory_order_relaxed_atomicity_guarantee." .
+kb:relaxed_mod_order_load_reads_from a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed mod order load reads from" ;
+    rdfs:comment "A relaxed load of atomic M reads the value written by some store in M's modification order that appears at or before the load's position; the load may observe any such prior store's value." .
+kb:relaxed_mod_order_no_cross_variable_constraint a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed mod order no cross variable constraint" ;
+    rdfs:comment "Modification orders of distinct atomic variables have no defined ordering relationship; operations on different variables may be observed in different orders by different threads, per memory_order_relaxed_coherence_per_location." .
+kb:relaxed_mod_order_per_variable a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed mod order per variable" ;
+    rdfs:comment "Each atomic variable maintains its own independent modification order; the modification order for atomic x has no defined relationship with the modification order for atomic y under relaxed semantics." .
+kb:relaxed_mod_order_store_append a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed mod order store append" ;
+    rdfs:comment "A relaxed store operation to atomic M atomically appends to the end of M's modification order; this append is indivisible and creates a new last element visible to all threads according to the order." .
+kb:relaxed_mod_order_thread_agreement a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed mod order thread agreement" ;
+    rdfs:comment "Although relaxed operations impose no ordering constraints, all threads nevertheless agree on the modification order for any given atomic variable; this agreement is a property of the machine model, not of synchronization." .
+kb:relaxed_mod_order_visibility_timing_undefined a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed mod order visibility timing undefined" ;
+    rdfs:comment "A store's position in the modification order does not determine when other threads observe it; relaxed loads may observe stale values with no bound on staleness, contrasting with acquire-visibility guarantees." .
+kb:relaxed_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed model" ;
+    rdfs:comment "weak memory model (ARM/Power); operations may reorder freely; synchronizes_with is the only cross-thread ordering guarantee" .
 kb:relaxed_no_happens_before_edge_vs_acquire_hb_edge a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "relaxed no happens before edge vs acquire hb edge" ;
     rdfs:comment "The ordering contrast where relaxed operations never establish a happens-before edge with operations on other threads regardless of visibility timing, while acquire semantics combined with release on another thread creates a transitive happens-before edge connecting the release writer to the acquire reader." .
@@ -539,6 +734,12 @@ kb:relaxed_no_ordering_constraints_vs_acquire_subsequent_constrained a owl:Named
 kb:relaxed_no_synchronizes_with_vs_acquire_synchronizes_with a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "relaxed no synchronizes with vs acquire synchronizes with" ;
     rdfs:comment "The synchronization contrast where relaxed atomic operations do not participate in the synchronizes-with relation and establish no cross-thread ordering, while acquire operations on a matching release create a synchronizes-with relationship establishing inter-thread happens-before." .
+kb:relaxed_operation_boundary a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed operation boundary" ;
+    rdfs:comment "The defined point where atomicity applies for relaxed operations; each relaxed load store or read-modify-write operation is atomic at its boundary with no tearing across the boundary." .
+kb:relaxed_ordering a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "relaxed ordering" ;
+    rdfs:comment "memory ordering with no synchronizes_with guarantee; only atomicity and modification order of the individual variable are guaranteed" .
 kb:relaxed_program_order_preservation_vs_acquire_fence_effect a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "relaxed program order preservation vs acquire fence effect" ;
     rdfs:comment "The barrier contrast where relaxed operations preserve intra-thread program order only for the storing thread's own perspective without cross-thread visibility guarantees, while acquire semantics acts as a memory fence that prevents both the compiler and processor from moving subsequent operations before the acquire point." .
@@ -566,6 +767,9 @@ kb:relaxed_vs_seq_cst a owl:NamedIndividual, kbo:Concept ;
 kb:release_fence a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "release fence" ;
     rdfs:comment "A memory ordering primitive that ensures all load and store operations appearing before the fence in program order complete before any operations appearing after the fence begin." .
+kb:release_op a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "release op" ;
+    rdfs:comment "memory operation that makes all prior writes visible to subsequent reads via synchronizes_with; includes store with release, mutex_unlock, thread_exit, sem_signal, barrier_complete" .
 kb:release_semantics a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "release semantics" ;
     rdfs:comment "Memory ordering semantics ensuring all prior loads/stores cannot be reordered after the release operation; used for lock release, writing data before a volatile flag." .
@@ -599,12 +803,48 @@ kb:rlx_rmw_indivisibility a owl:NamedIndividual, kbo:Concept ;
 kb:rlx_vs_ordering_distinct a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "rlx vs ordering distinct" ;
     rdfs:comment "The distinction that atomicity and ordering are orthogonal properties; relaxed operations maintain atomicity but impose zero ordering constraints relative to other operations on any variable." .
+kb:rmw_indivisibility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rmw indivisibility" ;
+    rdfs:comment "A relaxed atomic read-modify-write operation such as fetch_add, compare_exchange, or exchange completes its read, modify, and write as one indivisible triplet on the target variable; no interleaving thread can observe a torn intermediate state." .
+kb:rmw_indivisibility_subsumes_load_and_store_indivisibility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rmw indivisibility subsumes load and store indivisibility" ;
+    rdfs:comment "A read-modify-write operation's indivisibility encompasses both the load phase and the store phase as a single unified step; the read sees exactly one prior value from the modification order and the write becomes visible to subsequent operations on the same variable atomically with the read." .
+kb:rwlock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rwlock" ;
+    rdfs:comment "A read-write lock primitive; writer release synchronizes-with all subsequent reader acquires and writer acquires; reader release synchronizes-with all subsequent acquires (reader or writer)." .
+kb:rwlock_read_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rwlock read lock" ;
+    rdfs:comment "shared acquire operation; does not synchronize_with other read locks but synchronizes_with write_unlock" .
+kb:rwlock_write_lock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rwlock write lock" ;
+    rdfs:comment "exclusive lock on reader-writer lock; release semantics equivalent to mutex_unlock" .
+kb:rwlock_write_unlock a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "rwlock write unlock" ;
+    rdfs:comment "release operation on rwlock; synchronizes_with subsequent read or write lock operations" .
+kb:sc_drf_guarantee a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sc drf guarantee" ;
+    rdfs:comment "The sequential-consistency-data-race-free theorem: a program with no data races is guaranteed to execute as if sequentially consistent, allowing compilers to assume SC for race-free code." .
+kb:sem_signal a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sem signal" ;
+    rdfs:comment "V operation on semaphore; release semantics that may synchronize_with a sem_wait on the same semaphore" .
+kb:sem_wait a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sem wait" ;
+    rdfs:comment "P operation on semaphore; acquire semantics blocking until signal is received; synchronizes_with prior sem_signal" .
 kb:semaphore a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "semaphore" ;
     rdfs:comment "Synchronization primitive maintaining a counter representing available permits; P (wait/decrement) and V (signal/increment) operations; can control N concurrent accesses to a resource." .
+kb:semaphore_acquire a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semaphore acquire" ;
+    rdfs:comment "A decrement of a semaphore counter that claims a permit; when it succeeds the acquire synchronizes-with the release that previously published the permit." .
 kb:semaphore_gate a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "semaphore gate" ;
     rdfs:comment "A mitigation using a semaphore with initial count N to admit at most N waiters per wake event; bounds the herd size to a configured N." .
+kb:semaphore_release a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "semaphore release" ;
+    rdfs:comment "An increment of a semaphore counter that releases a permit; the release synchronizes-with any subsequent acquire that consumes that permit." .
+kb:seq_cst a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "seq cst" ;
+    rdfs:comment "sequentially consistent memory ordering providing program order, synchronization order total across all seq_cst ops, and happens-before via synchronizes_with chains" .
 kb:seq_cst_atomic_visibility a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "seq cst atomic visibility" ;
     rdfs:comment "The guarantee that all threads observe the effects of a sequentially consistent operation at the same logical point in the global total order; reads observe the most recent write in the total order." .
@@ -662,6 +902,15 @@ kb:sequentially_consistent a owl:NamedIndividual, kbo:Concept ;
 kb:serializability a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "serializability" ;
     rdfs:comment "Correctness criterion for transaction systems requiring equivalent to some serial execution of transactions; differs from linearizability in handling multiple operations per transaction." .
+kb:signal_delivery a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "signal delivery" ;
+    rdfs:comment "The delivery of a signal to a thread creates a synchronizes-with edge from the last operation before the signal mask change to the first operation in the signal handler." .
+kb:signal_handler_registration a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "signal handler registration" ;
+    rdfs:comment "The registration of an asynchronous signal handler establishes a happens-before edge from the registration event to the handler's execution, ensuring visibility of operations preceding registration." .
+kb:single_instruction_equivalence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "single instruction equivalence" ;
+    rdfs:comment "The relaxed atomic operation behaves as if executed as a single machine instruction with respect to the target variable; the compiler and hardware may not decompose it into separate load and store steps." .
 kb:single_waker_pattern a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "single waker pattern" ;
     rdfs:comment "A mitigation structure using a single flag, permit, or ticket to ensure only one waiter proceeds per signal; e.g., a boolean guard checked atomically with wait." .
@@ -686,12 +935,21 @@ kb:starvation a owl:NamedIndividual, kbo:Concept ;
 kb:store_buffer a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "store buffer" ;
     rdfs:comment "Hardware structure buffering stores before they become visible to other cores; essential for TSO performance but creates visibility delays requiring memory barriers to manage." .
+kb:store_buffer_invalidation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "store buffer invalidation" ;
+    rdfs:comment "The event by which a write held in a core's store buffer is propagated to other cores' caches, completing visibility of that write to other threads." .
 kb:store_buffer_linger a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "store buffer linger" ;
     rdfs:comment "A relaxed store may remain in a store buffer indefinitely before becoming visible to other threads; no fence or ordering constraint forces a flush." .
 kb:store_buffering a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "store buffering" ;
     rdfs:comment "Phenomenon where a store may be buffered and become visible later, allowing a subsequent load to observe a stale value while other threads see different orderings." .
+kb:store_conditional a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "store conditional" ;
+    rdfs:comment "store-conditional atomic operation; release semantics only if no intervening store to the address since matching load-linked" .
+kb:store_indivisibility a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "store indivisibility" ;
+    rdfs:comment "A relaxed atomic store writes the complete value as one indivisible step; no intermediate write of a partial value encoded in fewer bits than the atomic word is observable by any thread." .
 kb:sw_acquire_atomic_read a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "sw acquire atomic read" ;
     rdfs:comment "An atomic read operation with acquire semantics that observes the value written by a release write from another thread, establishing the synchronization point." .
@@ -704,6 +962,9 @@ kb:sw_inter_thread_happens_before a owl:NamedIndividual, kbo:Concept ;
 kb:sw_program_order a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "sw program order" ;
     rdfs:comment "The ordering guarantee within each individual thread: release fence orders all prior operations; acquire fence orders all subsequent operations." .
+kb:sw_rel a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "sw rel" ;
+    rdfs:comment "synchronizes_with relation: a release operation on an atomic object synchronizes_with an acquire operation on the same or different atomic if release and acquire are on the same atomic variable or fences establish the relation" .
 kb:sw_release_atomic_write a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "sw release atomic write" ;
     rdfs:comment "An atomic write operation with release semantics that makes its value visible to other threads such that a subsequent acquire read from another thread can observe it." .
@@ -740,6 +1001,9 @@ kb:sync_visibility_boundary a owl:NamedIndividual, kbo:Concept ;
 kb:sync_write_guarantee a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "sync write guarantee" ;
     rdfs:comment "The guarantee that all memory writes preceding a release operation become visible at the synchronization point to any thread performing a subsequent acquire." .
+kb:synchronization_order a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "synchronization order" ;
+    rdfs:comment "total order of all synchronization operations in an execution; establish ordering for synchronizes_with chains" .
 kb:synchronization_variable a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "synchronization variable" ;
     rdfs:comment "An atomic object (lock, flag, barrier, channel) whose release and acquire operations create synchronizes_with edges in the memory order." .
@@ -752,6 +1016,9 @@ kb:synchronizes_with_absence a owl:NamedIndividual, kbo:Concept ;
 kb:synchronizes_with_acquire_side a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "synchronizes with acquire side" ;
     rdfs:comment "The acquire-side endpoint of a synchronizes_with relation: an atomic operation or fence that performs an acquire action, making all subsequently observed writes visible to the acquiring thread." .
+kb:synchronizes_with_chain a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "synchronizes with chain" ;
+    rdfs:comment "sequence of synchronizes_with relations linking operations across threads; the backbone of inter-thread happens_before" .
 kb:synchronizes_with_ordering_effect a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "synchronizes with ordering effect" ;
     rdfs:comment "The transitive visibility guarantee created when a release operation synchronizes with an acquire: all reads before the acquire see all writes after the matching release." .
@@ -761,9 +1028,21 @@ kb:synchronizes_with_release_side a owl:NamedIndividual, kbo:Concept ;
 kb:test_and_set a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "test and set" ;
     rdfs:comment "Atomic operation setting a memory location to a value (typically 1) and returning its previous contents; basis for simple spinlock implementations." .
+kb:thread_creation a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "thread creation" ;
+    rdfs:comment "The operation of spawning a new thread of execution; the creating thread's operations before the spawn synchronizes-with the new thread's first operation in program order." .
+kb:thread_join a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "thread join" ;
+    rdfs:comment "joining a thread; synchronizes_with the termination of the joined thread; acquire semantics for thread's memory effects" .
 kb:thread_local_storage a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "thread local storage" ;
     rdfs:comment "Per-thread data storage allocating distinct instances to each thread; avoids synchronization for thread-private data; accessed efficiently without locking." .
+kb:thread_spawn a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "thread spawn" ;
+    rdfs:comment "creation of a new thread; the spawning thread synchronizes_with the start of the new thread" .
+kb:thread_termination a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "thread termination" ;
+    rdfs:comment "The final join or detachment of a thread; the last operation in the terminating thread synchronizes-with the join operation in the waiting thread." .
 kb:thundering_herd a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "thundering herd" ;
     rdfs:comment "Pattern where many threads wake simultaneously from a blocking operation but only one can proceed; wasteful of resources; often avoided with wake-one semantics or phased awakening." .
@@ -812,6 +1091,18 @@ kb:total_store_order_tso a owl:NamedIndividual, kbo:Concept ;
 kb:transactional_memory a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "transactional memory" ;
     rdfs:comment "Concurrency control paradigm allowing sequences of operations to execute atomically without explicit locking; either hardware-assisted (HTM), software-only (STM), or hybrid." .
+kb:tso_model a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "tso model" ;
+    rdfs:comment "total store order memory model (x86); store buffer creates write ordering anomalies but provides programmer-level synchronizes_with via locked instructions" .
+kb:unlock_synchronizes_with a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "unlock synchronizes with" ;
+    rdfs:comment "A specific instance of synchronizes-with: a lock-release operation synchronizes-with the lock-acquire operation of the same lock on another thread." .
+kb:variable_scoped_atomicity a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "variable scoped atomicity" ;
+    rdfs:comment "The atomicity guarantee applies exclusively to the specific atomic variable targeted by the relaxed operation; operations on distinct atomic variables maintain independent atomicity with no cross-variable ordering or transactionality implied." .
+kb:visible_side_effect a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "visible side effect" ;
+    rdfs:comment "a write W is visible to a read R if R observes the value written by W and W happens_before R" .
 kb:volatile_cpp a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "volatile cpp" ;
     rdfs:comment "C++ qualifier historically used for optimization barriers; in modern C++ standard, only provides address volatility semantics, not memory ordering; use std::atomic instead." .
@@ -845,33 +1136,71 @@ kb:work_bag_pattern a owl:NamedIndividual, kbo:Concept ;
 kb:work_stealing a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "work stealing" ;
     rdfs:comment "Load balancing strategy where idle threads steal work from busy threads' queues; typical in fork-join frameworks like Java ForkJoinPool; reduces contention compared to work distribution." .
+kb:write_buffer a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "write buffer" ;
+    rdfs:comment "A per-core store buffer that holds recently performed writes before they are committed to cache; the primary source of write-read reordering and visibility delay." .
 kb:write_coalescing_privilege a owl:NamedIndividual, kbo:Concept ;
     rdfs:label "write coalescing privilege" ;
     rdfs:comment "Multiple relaxed atomic stores to the same variable by one thread may be coalesced by the implementation; the compiler may eliminate some relaxed stores entirely if it can prove the behavior is preserved." .
+kb:x86_lock_prefix a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "x86 lock prefix" ;
+    rdfs:comment "The x86 LOCK prefix applied to memory instructions; makes the instruction atomic and provides a full memory fence on the issuing core, establishing synchronize-with edges." .
+kb:x86_mfence a owl:NamedIndividual, kbo:Concept ;
+    rdfs:label "x86 mfence" ;
+    rdfs:comment "The x86 architecture's full memory fence instruction; serializes all memory reads and writes, providing full fence semantics at hardware cost." .
 
 kb:aba_problem kbo:relatesTo kb:hazard_pointers .
 kb:acquire_fence kbo:relatesTo kb:synchronizes_with_acquire_side .
+kb:acquire_op kbo:relatesTo kb:acquire_semantics .
 kb:acquire_semantics kbo:relatesTo kb:memory_order_relaxed_vs_acquire .
+kb:acquire_semantics kbo:relatesTo kb:relaxed_mod_order_visibility_timing_undefined .
 kb:acquisition_collision kbo:relatesTo kb:acquisition_collision .
+kb:address_dependency kbo:relatesTo kb:dependency_chain .
 kb:amdahl_law kbo:relatesTo kb:fork_join_parallelism .
+kb:arm_dmb kbo:relatesTo kb:acquire_fence .
+kb:arm_dmb kbo:relatesTo kb:full_fence .
+kb:arm_dmb kbo:relatesTo kb:release_fence .
+kb:arm_isb kbo:relatesTo kb:dependency_chain .
+kb:atomic_alignment_prerequisite kbo:relatesTo kb:atomic_operation .
+kb:atomic_alignment_prerequisite_enables_indivisibility_guarantee kbo:relatesTo kb:indivisibility_property .
 kb:atomic_compare_exchange kbo:relatesTo kb:atomic_cas .
+kb:atomic_compare_exchange kbo:relatesTo kb:memory_order_acq_rel .
+kb:atomic_fence kbo:relatesTo kb:acquire_fence .
+kb:atomic_fetch_add kbo:relatesTo kb:memory_order_acq_rel .
+kb:atomic_load kbo:relatesTo kb:memory_order_acquire .
+kb:atomic_location kbo:relatesTo kb:atomic_variable_scope .
 kb:atomic_operation kbo:relatesTo kb:compare_and_swap_cas .
 kb:atomic_operation kbo:relatesTo kb:fetch_and_add .
 kb:atomic_operation kbo:relatesTo kb:test_and_set .
+kb:atomic_rmw kbo:relatesTo kb:atomic_fetch_add .
+kb:atomic_store kbo:relatesTo kb:memory_order_release .
+kb:atomic_variable_scope kbo:relatesTo kb:per_variable_modification_order_integrity .
+kb:barrier_release kbo:relatesTo kb:barrier_arrival .
 kb:barrier_synchronization kbo:relatesTo kb:countdown_latch .
 kb:barrier_synchronization kbo:relatesTo kb:cyclic_barrier .
+kb:barrier_wait kbo:relatesTo kb:barrier_synchronization .
 kb:base_delay kbo:relatesTo kb:djt_min_delay .
 kb:bounded_buffer kbo:relatesTo kb:monitor .
 kb:bounded_buffer kbo:relatesTo kb:semaphore .
 kb:broadcast_signal kbo:relatesTo kb:broadcast_signal .
+kb:c11_atomic kbo:relatesTo kb:happens_before .
+kb:c11_atomic kbo:relatesTo kb:memory_order_acq_rel .
+kb:c11_atomic kbo:relatesTo kb:memory_order_acquire .
+kb:c11_atomic kbo:relatesTo kb:memory_order_relaxed .
+kb:c11_atomic kbo:relatesTo kb:memory_order_release .
+kb:c11_atomic kbo:relatesTo kb:memory_order_seq_cst .
+kb:c11_atomic kbo:relatesTo kb:synchronizes_with .
 kb:c11_atomic_thread_fence_contrast kbo:relatesTo kb:c11_memory_model .
 kb:c11_memory_model kbo:relatesTo kb:acquire_semantics .
 kb:c11_memory_model kbo:relatesTo kb:happens_before_relation .
 kb:c11_memory_model kbo:relatesTo kb:memory_order_relaxed .
 kb:c11_memory_model kbo:relatesTo kb:release_semantics .
 kb:c11_memory_model kbo:relatesTo kb:sequentially_consistent .
+kb:cache_coherence kbo:relatesTo kb:mesi_protocol .
 kb:cache_coherency kbo:relatesTo kb:mesi_protocol .
 kb:cache_line_ping_pong kbo:relatesTo kb:cache_coherency .
+kb:carries_dependency kbo:relatesTo kb:address_dependency .
+kb:cas_loop kbo:relatesTo kb:compare_and_swap_cas .
 kb:causal_consistency_boundary kbo:relatesTo kb:sequential_consistency .
 kb:channel_csp kbo:relatesTo kb:bounded_buffer .
 kb:clh_lock kbo:relatesTo kb:mcs_lock .
@@ -880,16 +1209,20 @@ kb:compare_and_swap_cas kbo:relatesTo kb:aba_problem .
 kb:completable_future kbo:relatesTo kb:future_promise .
 kb:condition_variable kbo:relatesTo kb:monitor .
 kb:condition_variable_trigger kbo:relatesTo kb:condition_variable_trigger .
+kb:consume_semantics kbo:relatesTo kb:memory_order_consume .
+kb:control_dependency kbo:relatesTo kb:dependency_chain .
 kb:cpp11_memory_model kbo:relatesTo kb:c11_memory_model .
 kb:cross_thread_visibility_non_global kbo:relatesTo kb:store_buffering .
 kb:current_delay kbo:relatesTo kb:backoff_multiplier .
 kb:current_delay kbo:relatesTo kb:base_delay .
 kb:current_delay kbo:relatesTo kb:delay_ceiling .
 kb:data_race kbo:relatesTo kb:c11_memory_model .
+kb:data_race kbo:relatesTo kb:race_free_program .
 kb:deadlock kbo:relatesTo kb:livelock .
 kb:deadlock kbo:relatesTo kb:priority_inversion .
 kb:deadlock kbo:relatesTo kb:starvation .
 kb:dekker_algorithm kbo:relatesTo kb:peterson_algorithm .
+kb:dependency_chain kbo:relatesTo kb:happens_before .
 kb:dining_philosophers kbo:relatesTo kb:deadlock .
 kb:dining_philosophers kbo:relatesTo kb:deadlock_prevention .
 kb:djt_bounding_range kbo:relatesTo kb:djt_random_uniform_sample .
@@ -913,7 +1246,13 @@ kb:failed_awakening kbo:relatesTo kb:failed_awakening .
 kb:false_sharing kbo:relatesTo kb:cache_line_ping_pong .
 kb:fence_ineffectiveness_on_relaxed kbo:relatesTo kb:memory_fence .
 kb:fork_join_parallelism kbo:relatesTo kb:barrier_synchronization .
+kb:full_fence kbo:relatesTo kb:fence_synchronizes_with_fence .
+kb:full_fence kbo:relatesTo kb:fence_synchronizes_with_op .
 kb:futex kbo:relatesTo kb:spinlock .
+kb:futex_wait kbo:relatesTo kb:futex .
+kb:futex_wake kbo:relatesTo kb:futex .
+kb:happens_before kbo:relatesTo kb:program_order .
+kb:happens_before kbo:relatesTo kb:synchronizes_with .
 kb:happens_before_relation kbo:relatesTo kb:synchronizes_with .
 kb:hardware_transactional_memory_htm kbo:relatesTo kb:lock_elision .
 kb:hardware_transactional_memory_htm kbo:relatesTo kb:software_transactional_memory_stm .
@@ -942,7 +1281,16 @@ kb:hb_synchronizes_with kbo:relatesTo kb:hb_transitive_closure .
 kb:hb_thread_join kbo:relatesTo kb:hb_program_order .
 kb:hb_thread_start kbo:relatesTo kb:hb_program_order .
 kb:hb_transitivity kbo:relatesTo kb:hb_transitive_closure .
+kb:indivisibility_guarantee kbo:relatesTo kb:indivisibility_property .
+kb:indivisibility_guarantee_scope_limited_to_target_variable kbo:relatesTo kb:indivisibility_property .
+kb:indivisibility_property kbo:relatesTo kb:intermediate_state_invisibility .
+kb:indivisibility_property kbo:relatesTo kb:load_indivisibility .
+kb:indivisibility_property kbo:relatesTo kb:no_partial_observation .
+kb:indivisibility_property kbo:relatesTo kb:no_tearing_guarantee .
+kb:indivisibility_property kbo:relatesTo kb:read_modify_write_indivisibility .
+kb:indivisibility_property kbo:relatesTo kb:store_indivisibility .
 kb:inter_thread_happens_before kbo:relatesTo kb:happens_before_order .
+kb:intermediate_state_invisibility kbo:relatesTo kb:no_partial_observation .
 kb:intra_thread_program_order kbo:relatesTo kb:acquire_semantics .
 kb:java_memory_model kbo:relatesTo kb:java_memory_model .
 kb:jitter kbo:relatesTo kb:decorrelated_jitter .
@@ -953,9 +1301,13 @@ kb:lamport_bakery_algorithm kbo:relatesTo kb:bounded_waiting .
 kb:linearizability kbo:relatesTo kb:serializability .
 kb:load_buffering kbo:relatesTo kb:store_buffering .
 kb:load_buffering_allowed kbo:relatesTo kb:sequentially_consistent .
+kb:load_indivisibility kbo:relatesTo kb:no_tearing_guarantee .
+kb:load_linked kbo:relatesTo kb:load_linked_store_conditional .
 kb:load_linked_store_conditional kbo:relatesTo kb:compare_and_swap_cas .
+kb:lock_acquire kbo:relatesTo kb:unlock_synchronizes_with .
 kb:lock_free kbo:relatesTo kb:obstruction_free .
 kb:lock_free kbo:relatesTo kb:wait_free .
+kb:lock_release kbo:relatesTo kb:unlock_synchronizes_with .
 kb:mcs_lock kbo:relatesTo kb:atomic_cas .
 kb:mcs_lock kbo:relatesTo kb:atomic_exchange .
 kb:mcs_lock kbo:relatesTo kb:memory_order_acquire .
@@ -977,8 +1329,11 @@ kb:memory_barrier kbo:relatesTo kb:compiler_barrier .
 kb:memory_barrier kbo:relatesTo kb:release_semantics .
 kb:memory_barrier_pair kbo:relatesTo kb:synchronizes_with .
 kb:memory_fence kbo:relatesTo kb:memory_barrier .
+kb:memory_order_acq_rel kbo:relatesTo kb:full_fence .
+kb:memory_order_acquire kbo:relatesTo kb:acquire_fence .
 kb:memory_order_consume kbo:relatesTo kb:memory_order_acquire .
 kb:memory_order_relaxed kbo:relatesTo kb:happens_before_relation .
+kb:memory_order_relaxed kbo:relatesTo kb:indivisibility_property .
 kb:memory_order_relaxed kbo:relatesTo kb:memory_order_relaxed_atomicity_guarantee .
 kb:memory_order_relaxed kbo:relatesTo kb:memory_order_relaxed_coherence_per_location .
 kb:memory_order_relaxed kbo:relatesTo kb:memory_order_relaxed_load_value_visibility .
@@ -988,7 +1343,42 @@ kb:memory_order_relaxed kbo:relatesTo kb:memory_order_relaxed_no_synchronization
 kb:memory_order_relaxed kbo:relatesTo kb:memory_order_relaxed_program_order_within_thread .
 kb:memory_order_relaxed kbo:relatesTo kb:memory_order_relaxed_reordering_freedom .
 kb:memory_order_relaxed kbo:relatesTo kb:memory_order_relaxed_store_buffering .
+kb:memory_order_relaxed kbo:relatesTo kb:no_tearing_guarantee .
+kb:memory_order_relaxed kbo:relatesTo kb:relaxed_mod_order_def .
 kb:memory_order_relaxed kbo:relatesTo kb:synchronizes_with .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:atomic_variable_scope .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:indivisibility_property .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:intermediate_state_invisibility .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:load_indivisibility .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:memory_order_relaxed_coherence_per_location .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:memory_order_relaxed_load_value_visibility .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:memory_order_relaxed_no_ordering_constraints .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:memory_order_relaxed_no_synchronization .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:memory_order_relaxed_program_order_within_thread .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:memory_order_relaxed_reordering_freedom .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:memory_order_relaxed_store_buffering .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:memory_order_relaxed_vs_acquire .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:memory_order_relaxed_vs_release .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:memory_order_relaxed_vs_seq_cst .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:no_partial_observation .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:no_tearing_guarantee .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:per_variable_modification_order_integrity .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:read_modify_write_indivisibility .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:relaxed_coherence_per_location_vs_acquire_global_observation .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:relaxed_load_value_visibility_timing_vs_acquire_visibility_timing .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:relaxed_mod_order_indivisibility .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:relaxed_mod_order_store_append .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:relaxed_no_happens_before_edge_vs_acquire_hb_edge .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:relaxed_no_ordering_constraints_vs_acquire_subsequent_constrained .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:relaxed_no_synchronizes_with_vs_acquire_synchronizes_with .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:relaxed_operation_boundary .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:relaxed_program_order_preservation_vs_acquire_fence_effect .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:relaxed_reordering_freedom_vs_acquire_reordering_prevention .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:relaxed_store_buffering_vs_acquire_visibility_guarantee .
+kb:memory_order_relaxed_atomicity_guarantee kbo:relatesTo kb:store_indivisibility .
+kb:memory_order_relaxed_atomicity_guarantee_implies_load_store_atomicity kbo:relatesTo kb:memory_order_relaxed_atomicity_guarantee .
+kb:memory_order_relaxed_coherence_per_location kbo:relatesTo kb:relaxed_mod_order_no_cross_variable_constraint .
+kb:memory_order_relaxed_coherence_per_location kbo:relatesTo kb:relaxed_mod_order_per_variable .
 kb:memory_order_relaxed_vs_acquire kbo:relatesTo kb:relaxed_coherence_per_location_vs_acquire_global_observation .
 kb:memory_order_relaxed_vs_acquire kbo:relatesTo kb:relaxed_load_value_visibility_timing_vs_acquire_visibility_timing .
 kb:memory_order_relaxed_vs_acquire kbo:relatesTo kb:relaxed_no_happens_before_edge_vs_acquire_hb_edge .
@@ -997,16 +1387,25 @@ kb:memory_order_relaxed_vs_acquire kbo:relatesTo kb:relaxed_no_synchronizes_with
 kb:memory_order_relaxed_vs_acquire kbo:relatesTo kb:relaxed_program_order_preservation_vs_acquire_fence_effect .
 kb:memory_order_relaxed_vs_acquire kbo:relatesTo kb:relaxed_reordering_freedom_vs_acquire_reordering_prevention .
 kb:memory_order_relaxed_vs_acquire kbo:relatesTo kb:relaxed_store_buffering_vs_acquire_visibility_guarantee .
+kb:memory_order_release kbo:relatesTo kb:release_fence .
+kb:memory_order_seq_cst kbo:relatesTo kb:seq_cst_fence .
 kb:memory_reclamation kbo:relatesTo kb:epoch_based_reclamation .
 kb:memory_reclamation kbo:relatesTo kb:hazard_pointers .
 kb:memory_reclamation kbo:relatesTo kb:rcu_read_copy_update .
 kb:mesi_protocol kbo:relatesTo kb:invalidate_queue .
+kb:mesi_protocol kbo:relatesTo kb:write_buffer .
+kb:modification_order kbo:relatesTo kb:modification_order_coherence .
 kb:modification_order_coherence kbo:relatesTo kb:sequentially_consistent .
+kb:mutex kbo:relatesTo kb:lock_acquire .
+kb:mutex kbo:relatesTo kb:lock_release .
 kb:mutex kbo:relatesTo kb:recursive_mutex .
 kb:mutex kbo:relatesTo kb:spinlock .
 kb:mutex kbo:relatesTo kb:ticket_lock .
 kb:mutex_livelock_prevention kbo:relatesTo kb:backoff_iteration .
+kb:mutex_lock kbo:relatesTo kb:mutex .
+kb:mutex_unlock kbo:relatesTo kb:mutex .
 kb:no_happens_before_establishment kbo:relatesTo kb:happens_before_relation .
+kb:no_partial_value_observation kbo:relatesTo kb:no_partial_observation .
 kb:no_synchronizes_with_establishment kbo:relatesTo kb:synchronizes_with .
 kb:numa_awareness kbo:relatesTo kb:lock_free .
 kb:out_of_order_execution kbo:relatesTo kb:instruction_reordering .
@@ -1021,8 +1420,10 @@ kb:producer_consumer kbo:relatesTo kb:bounded_buffer .
 kb:program_order kbo:relatesTo kb:inter_thread_happens_before .
 kb:program_order_locality kbo:relatesTo kb:program_order_locality .
 kb:race_condition kbo:relatesTo kb:data_race .
+kb:race_free_program kbo:relatesTo kb:sc_drf_guarantee .
 kb:reader_writer_lock kbo:relatesTo kb:readers_writers_problem .
 kb:readers_writers_problem kbo:relatesTo kb:reader_writer_lock .
+kb:reads_from kbo:relatesTo kb:happens_before .
 kb:relaxed_atomicity kbo:relatesTo kb:relaxed_atomicity .
 kb:relaxed_atomicity_guarantee kbo:relatesTo kb:acquire_semantics .
 kb:relaxed_atomicity_guarantee kbo:relatesTo kb:release_semantics .
@@ -1031,9 +1432,14 @@ kb:relaxed_load kbo:relatesTo kb:relaxed_load .
 kb:relaxed_load_value_visibility_timing_vs_acquire_visibility_timing kbo:relatesTo kb:memory_order_relaxed_load_value_visibility .
 kb:relaxed_memory_model kbo:relatesTo kb:arm_memory_model .
 kb:relaxed_memory_model kbo:relatesTo kb:powerpc_memory_model .
+kb:relaxed_mod_order_def kbo:relatesTo kb:relaxed_mod_order_thread_agreement .
+kb:relaxed_mod_order_store_append kbo:relatesTo kb:relaxed_mod_order_load_reads_from .
 kb:relaxed_no_happens_before_edge_vs_acquire_hb_edge kbo:relatesTo kb:happens_before_relation .
 kb:relaxed_no_synchronizes_with_vs_acquire_synchronizes_with kbo:relatesTo kb:memory_order_relaxed_no_synchronization .
 kb:relaxed_no_synchronizes_with_vs_acquire_synchronizes_with kbo:relatesTo kb:synchronizes_with .
+kb:relaxed_operation_boundary kbo:relatesTo kb:load_indivisibility .
+kb:relaxed_operation_boundary kbo:relatesTo kb:read_modify_write_indivisibility .
+kb:relaxed_operation_boundary kbo:relatesTo kb:store_indivisibility .
 kb:relaxed_program_order_preservation_vs_acquire_fence_effect kbo:relatesTo kb:memory_order_relaxed_program_order_within_thread .
 kb:relaxed_read_modify_write kbo:relatesTo kb:relaxed_read_modify_write .
 kb:relaxed_reordering_freedom_vs_acquire_reordering_prevention kbo:relatesTo kb:acquire_semantics .
@@ -1045,6 +1451,7 @@ kb:relaxed_vs_release kbo:relatesTo kb:relaxed_vs_release .
 kb:relaxed_vs_seq_cst kbo:relatesTo kb:sequentially_consistent .
 kb:release_fence kbo:relatesTo kb:synchronizes_with_release_side .
 kb:release_semantics kbo:relatesTo kb:memory_order_relaxed_vs_release .
+kb:release_semantics kbo:relatesTo kb:relaxed_mod_order_visibility_timing_undefined .
 kb:reordering_freedom_privilege kbo:relatesTo kb:acquire_semantics .
 kb:reordering_freedom_privilege kbo:relatesTo kb:release_semantics .
 kb:rlx_atomicity_core kbo:relatesTo kb:rlx_atomic_read .
@@ -1056,6 +1463,8 @@ kb:rlx_atomicity_core kbo:relatesTo kb:rlx_rmw_indivisibility .
 kb:rlx_atomicity_core kbo:relatesTo kb:rlx_vs_ordering_distinct .
 kb:rlx_rmw_indivisibility kbo:relatesTo kb:rlx_cas_atomicity .
 kb:rlx_vs_ordering_distinct kbo:relatesTo kb:memory_order_relaxed .
+kb:rwlock kbo:relatesTo kb:lock_acquire .
+kb:rwlock kbo:relatesTo kb:lock_release .
 kb:semaphore kbo:relatesTo kb:binary_semaphore .
 kb:semaphore kbo:relatesTo kb:counting_semaphore .
 kb:semaphore_gate kbo:relatesTo kb:semaphore_gate .
@@ -1070,10 +1479,12 @@ kb:seq_cst_atomic_visibility_no_intermediate_state_visibility kbo:relatesTo kb:s
 kb:seq_cst_atomic_visibility_observation_consistency_rule kbo:relatesTo kb:happens_before_relation .
 kb:seq_cst_atomic_visibility_observation_consistency_rule kbo:relatesTo kb:seq_cst_synchronization_protocol .
 kb:seq_cst_atomic_visibility_total_order_observation_point kbo:relatesTo kb:seq_cst_global_total_order .
+kb:seq_cst_fence kbo:relatesTo kb:fence_synchronizes_with_fence .
 kb:seq_cst_global_total_order kbo:relatesTo kb:happens_before_relation .
 kb:seq_cst_synchronization_protocol kbo:relatesTo kb:synchronizes_with .
 kb:sequential_consistency kbo:relatesTo kb:total_store_order_tso .
 kb:sequentially_consistent kbo:relatesTo kb:memory_order_relaxed_vs_seq_cst .
+kb:sequentially_consistent kbo:relatesTo kb:relaxed_mod_order_thread_agreement .
 kb:sequentially_consistent kbo:relatesTo kb:seq_cst_atomic_visibility .
 kb:sequentially_consistent kbo:relatesTo kb:seq_cst_default_atomic_ordering .
 kb:sequentially_consistent kbo:relatesTo kb:seq_cst_fence .
@@ -1086,10 +1497,13 @@ kb:sequentially_consistent kbo:relatesTo kb:seq_cst_synchronization_protocol .
 kb:single_waker_pattern kbo:relatesTo kb:single_waker_pattern .
 kb:speculation_prune kbo:relatesTo kb:speculation_prune .
 kb:speculative_execution kbo:relatesTo kb:hardware_transactional_memory_htm .
+kb:spinlock kbo:relatesTo kb:atomic_compare_exchange .
 kb:spinlock kbo:relatesTo kb:exponential_backoff .
 kb:spinlock kbo:relatesTo kb:mcs_lock .
 kb:staggered_wake_timer kbo:relatesTo kb:staggered_wake_timer .
+kb:store_buffer_invalidation kbo:relatesTo kb:cache_coherence .
 kb:store_buffer_linger kbo:relatesTo kb:store_buffering .
+kb:store_indivisibility kbo:relatesTo kb:no_tearing_guarantee .
 kb:sw_acquire_atomic_read kbo:relatesTo kb:sw_acquire_fence .
 kb:sw_acquire_fence kbo:relatesTo kb:acquire_fence .
 kb:sw_inter_thread_happens_before kbo:relatesTo kb:inter_thread_happens_before .
@@ -1100,6 +1514,24 @@ kb:sw_seq_cst_atomic_op kbo:relatesTo kb:seq_cst_atomic_visibility .
 kb:sw_thread_pair kbo:relatesTo kb:synchronization_variable .
 kb:sw_visible_side_effect kbo:relatesTo kb:cross_thread_visibility_non_global .
 kb:synchronization_variable kbo:relatesTo kb:memory_barrier_pair .
+kb:synchronizes_with kbo:relatesTo kb:atomic_compare_exchange .
+kb:synchronizes_with kbo:relatesTo kb:atomic_load .
+kb:synchronizes_with kbo:relatesTo kb:atomic_store .
+kb:synchronizes_with kbo:relatesTo kb:barrier_arrival .
+kb:synchronizes_with kbo:relatesTo kb:condvar_broadcast .
+kb:synchronizes_with kbo:relatesTo kb:condvar_signal .
+kb:synchronizes_with kbo:relatesTo kb:condvar_wait .
+kb:synchronizes_with kbo:relatesTo kb:full_fence .
+kb:synchronizes_with kbo:relatesTo kb:lock_acquire .
+kb:synchronizes_with kbo:relatesTo kb:lock_release .
+kb:synchronizes_with kbo:relatesTo kb:memory_order_acquire .
+kb:synchronizes_with kbo:relatesTo kb:memory_order_release .
+kb:synchronizes_with kbo:relatesTo kb:semaphore_acquire .
+kb:synchronizes_with kbo:relatesTo kb:semaphore_release .
+kb:synchronizes_with kbo:relatesTo kb:seq_cst_fence .
+kb:synchronizes_with kbo:relatesTo kb:signal_delivery .
+kb:synchronizes_with kbo:relatesTo kb:thread_creation .
+kb:synchronizes_with kbo:relatesTo kb:thread_join .
 kb:synchronizes_with_absence kbo:relatesTo kb:happens_before_relation .
 kb:synchronizes_with_absence kbo:relatesTo kb:synchronizes_with .
 kb:synchronizes_with_acquire_side kbo:relatesTo kb:program_order .
@@ -1107,6 +1539,7 @@ kb:synchronizes_with_ordering_effect kbo:relatesTo kb:happens_before_order .
 kb:synchronizes_with_release_side kbo:relatesTo kb:program_order .
 kb:synchronizes_with_release_side kbo:relatesTo kb:synchronizes_with_acquire_side .
 kb:thread_local_storage kbo:relatesTo kb:context_switch .
+kb:thread_termination kbo:relatesTo kb:thread_join .
 kb:thundering_herd kbo:relatesTo kb:djt_wave_attenuation .
 kb:thundering_herd_backoff_adaptation kbo:relatesTo kb:thundering_herd_retry_coordination .
 kb:thundering_herd_backoff_adaptation kbo:relatesTo kb:thundering_herd_wakeup_event .
@@ -1127,4 +1560,6 @@ kb:transactional_memory kbo:relatesTo kb:hardware_transactional_memory_htm .
 kb:transactional_memory kbo:relatesTo kb:software_transactional_memory_stm .
 kb:volatile_java kbo:relatesTo kb:synchronizes_with .
 kb:work_stealing kbo:relatesTo kb:fork_join_parallelism .
+kb:write_buffer kbo:relatesTo kb:store_buffer_invalidation .
+kb:x86_lock_prefix kbo:relatesTo kb:x86_mfence .
 

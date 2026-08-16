@@ -4,8 +4,8 @@ This repository was **grown, not written** — and it is a valid Claude Code **p
 
 ## The numbers
 
-- **277 concepts / 278 relations**, every region gate-admitted
-- **43 `understand-*` skills** harvested from the projected library (call-number-addressed — the coordinate is the dependency web)
+- **377 concepts / 413 relations**, every region gate-admitted
+- **48 `understand-*` skills** harvested from the projected library (call-number-addressed — the coordinate is the dependency web)
 - **0 certified hyperedges** (the language automaton's KNOWN vocabulary) · **0 certified argument skeletons**
 
 ## Use it
@@ -15,7 +15,7 @@ Install as a plugin (skills auto-discover) or read `skills/using-concurrency-syn
 ## The graph + the OWL
 
 - **Interactive graph**: https://sancovp.github.io/kb-atlas/concurrency_synchronization_primitives_a.html (the KB Atlas — auto-generated pages for every module on the floor)
-- **OWL/Turtle**: `skills/using-concurrency-synchronization-primitives-a/data/module.ttl` — 277 typed individuals, 0 reified certificates, 0 typed argument edges. The proof gate underneath stays Prolog; the OWL is a faithful projection.
+- **OWL/Turtle**: `skills/using-concurrency-synchronization-primitives-a/data/module.ttl` — 377 typed individuals, 0 reified certificates, 0 typed argument edges. The proof gate underneath stays Prolog; the OWL is a faithful projection.
 
 ## Honesty note
 

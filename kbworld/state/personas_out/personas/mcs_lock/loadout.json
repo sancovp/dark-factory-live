@@ -1,6 +1,6 @@
 {
   "region": "mcs_lock",
-  "call_number": "concurrency_synchronization_primitives_and_memor.mcs_lock",
+  "call_number": "concurrency_synchronization_primitives_and_memor.mcs_lock : deep_happens_before_relat(7), deep_synchronizes_with(2)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 4
+  "cone_size": 11
 }

@@ -1,0 +1,13 @@
+{
+  "region": "memory_order_relaxed_atomicity_guarantee",
+  "call_number": "deep_c11_memory_model.memory_order_relaxed_atomicity_guarantee : deep_synchronizes_with(20), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(5)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 71
+}

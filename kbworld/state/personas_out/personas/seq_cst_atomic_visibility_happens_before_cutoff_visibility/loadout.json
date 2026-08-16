@@ -1,6 +1,6 @@
 {
   "region": "seq_cst_atomic_visibility_happens_before_cutoff_visibility",
-  "call_number": "deep_c11_memory_model.seq_cst_atomic_visibility_happens_before_cutoff_visibility : concurrency_synchronization_primitives_and_memor(2)",
+  "call_number": "deep_c11_memory_model.seq_cst_atomic_visibility_happens_before_cutoff_visibility : deep_synchronizes_with(20), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(3)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 4
+  "cone_size": 34
 }

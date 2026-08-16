@@ -1,0 +1,13 @@
+{
+  "region": "lock_release",
+  "call_number": "deep_synchronizes_with.lock_release",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}

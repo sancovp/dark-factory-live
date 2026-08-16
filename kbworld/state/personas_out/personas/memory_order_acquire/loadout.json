@@ -1,0 +1,13 @@
+{
+  "region": "memory_order_acquire",
+  "call_number": "deep_synchronizes_with.memory_order_acquire : deep_happens_before_relat(5)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 5
+}

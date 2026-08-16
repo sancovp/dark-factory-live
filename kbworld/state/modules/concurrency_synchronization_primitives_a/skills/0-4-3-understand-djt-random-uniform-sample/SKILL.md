@@ -19,6 +19,6 @@ Invoke this skill to understand `djt_random_uniform_sample` down to its primitiv
 `djt_bounding_range`, `jitter`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (277 concepts / 278 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
 
 _(leaf — this is an actual skill.)_

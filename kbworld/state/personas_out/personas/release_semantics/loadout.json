@@ -1,6 +1,6 @@
 {
   "region": "release_semantics",
-  "call_number": "concurrency_synchronization_primitives_and_memor.release_semantics : deep_c11_memory_model(1)",
+  "call_number": "concurrency_synchronization_primitives_and_memor.release_semantics : deep_c11_memory_model(2)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 1
+  "cone_size": 2
 }

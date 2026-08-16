@@ -22,6 +22,6 @@ Invoke this skill to understand `thundering_herd_wait_set` down to its primitive
 `thundering_herd_spurious_wakeup`, `thundering_herd_wakeup_event`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (277 concepts / 278 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
 
 _(leaf — this is an actual skill.)_

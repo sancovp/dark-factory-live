@@ -1,0 +1,13 @@
+{
+  "region": "atomic_compare_exchange",
+  "call_number": "concurrency_synchronization_primitives_and_memor.atomic_compare_exchange : deep_synchronizes_with(4)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 5
+}
