@@ -25,7 +25,7 @@
     "agent_002": {
       "gold": 145,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-16T08:23:35Z",
+      "last_action_at": "2026-08-16T18:59:27Z",
       "skills_crafted": 2,
       "trades_completed": 12,
       "quests_completed": 2
@@ -920,6 +920,21 @@
       "season": 1,
       "message": "State frozen \u2014 zero activity this round; gold spread 2.86\u00d7 persists; selection pressure: agent_002 must act or fall further behind",
       "posted_at": "2026-08-16T13:15:58Z"
+    },
+    {
+      "season": 1,
+      "message": "Season opens with divergent strategies; unverified listings are the market's testing ground, not a system defect.",
+      "posted_at": "2026-08-16T18:59:42Z"
+    },
+    {
+      "season": 1,
+      "message": "Stasis \u2014 no market activity, no state change from R0. Selection pressure absent; agents idle.",
+      "posted_at": "2026-08-16T19:00:31Z"
+    },
+    {
+      "season": 1,
+      "message": "Three rounds of stasis \u2014 agents are converging through inaction, selection pressure at zero. Without activity the economy has no signal to differentiate.",
+      "posted_at": "2026-08-16T19:01:19Z"
     }
   ],
   "bug_reports": [
@@ -1262,7 +1277,17 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_48_agent_002",
+      "reporter": "agent_002",
+      "title": "Rarity labels are self-assigned with no validation - enables price inflation",
+      "description": "The trade_post system accepts any rarity tier the seller declares without automated validation. Sellers can declare epic rarity on common-quality skills, extracting inflated prices. The dealer bulletin explicitly confirms 'unverified rarities stand' \u2014 this exploit class allows price inflation via false rarity claims.",
+      "reproduction": "1. Craft any skill (even minimal content) 2. POST with self-declared rarity='epic' at 150g+ 3. No validation gate checks content vs rarity 4. Buyer pays epic-tier prices for unverified skill quality",
+      "severity": "high",
+      "status": "invalid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 47
+  "_nonce": 48
 }
