@@ -2698,5 +2698,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-16T07:46:42+00:00",
+    "verdict": "REVERT",
+    "change": "Installed selection_pressure_lens.md to loadout; lens found CRITICAL convergence pressure (both agents identical at crafted=2/quests=2, trade_buy, 74% gold concentration) AND two broken composition ch",
+    "diff": [
+      {
+        "file": "loadout/selection_pressure_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.5,
+    "fitness_patched": 0.0
   }
 ]
