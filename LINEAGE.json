@@ -2860,5 +2860,18 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-16T14:09:16+00:00",
+    "verdict": "REVERT",
+    "change": "Installed recipe_audit_lens_pipeline.md to patch-4/loadout/ \u2014 applied the composed lens+checker pipeline to audit all 9 loadout skills and 2 quests; all pass composition checks",
+    "diff": [
+      {
+        "file": "loadout/recipe_audit_lens_pipeline.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
