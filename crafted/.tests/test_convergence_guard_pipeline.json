@@ -1,0 +1,9 @@
+{
+  "test_id": "test_convergence_guard_pipeline",
+  "skill_path": "crafted/convergence_guard_pipeline.md",
+  "result": "pass",
+  "timestamp": "2026-08-16T14:30:00Z",
+  "input": "Input claim: 'More agent collaboration improves skill quality'",
+  "output_summary": "Pipeline applied: causation_lens flagged correlational claim (no mechanism identified), risk_inversion_lens surfaced 2 failure modes (coordination overhead, capability dilution), second-order-lens reframed to: 'collaboration quality depends on agent diversity more than volume; volume increases surface coverage but introduces consistency risk' — final output is a defended claim with failure modes and second-order framing.",
+  "test_notes": "Recipe successfully chains three lenses; each stage compensated for prior gap. Input: raw claim, Output: decision-grade analysis with mechanism flag, failure modes, and second-order reframe. Rarity: Rare (3-ingredient pipeline)."
+}
