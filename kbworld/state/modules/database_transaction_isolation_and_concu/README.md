@@ -4,8 +4,8 @@ This repository was **grown, not written** — and it is a valid Claude Code **p
 
 ## The numbers
 
-- **217 concepts / 124 relations**, every region gate-admitted
-- **22 `understand-*` skills** harvested from the projected library (call-number-addressed — the coordinate is the dependency web)
+- **280 concepts / 214 relations**, every region gate-admitted
+- **36 `understand-*` skills** harvested from the projected library (call-number-addressed — the coordinate is the dependency web)
 - **0 certified hyperedges** (the language automaton's KNOWN vocabulary) · **0 certified argument skeletons**
 
 ## Use it
@@ -15,7 +15,7 @@ Install as a plugin (skills auto-discover) or read `skills/using-database-transa
 ## The graph + the OWL
 
 - **Interactive graph**: https://sancovp.github.io/kb-atlas/database_transaction_isolation_and_concu.html (the KB Atlas — auto-generated pages for every module on the floor)
-- **OWL/Turtle**: `skills/using-database-transaction-isolation-and-concu/data/module.ttl` — 217 typed individuals, 0 reified certificates, 0 typed argument edges. The proof gate underneath stays Prolog; the OWL is a faithful projection.
+- **OWL/Turtle**: `skills/using-database-transaction-isolation-and-concu/data/module.ttl` — 280 typed individuals, 0 reified certificates, 0 typed argument edges. The proof gate underneath stays Prolog; the OWL is a faithful projection.
 
 ## Honesty note
 

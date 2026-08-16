@@ -1,0 +1,105 @@
+{
+  "subject": "database transaction isolation and concurrency control",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "deepen",
+      "doors": [
+        "database_transaction",
+        "rollback"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "specialize": {
+        "basis_after": 0.188,
+        "new": [
+          [
+            "database_transaction",
+            23,
+            42
+          ],
+          [
+            "rollback",
+            23,
+            28
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {
+        "defined": 17
+      },
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 280,
+        "relations": 214,
+        "define": 0,
+        "connect": 97
+      }
+    },
+    "brain": {
+      "grew": "c009"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/database_transaction_isolation_and_concurrency_c",
+      "skills": 30,
+      "staff": 51
+    },
+    "observe": {
+      "findings": 3,
+      "issues": [
+        {
+          "atom": "partial_state_prevention",
+          "why": "Claims enforcement is achieved by deferring writes until commit. Most databases write changes immediately and control visibility via MVCC/locks. Users relying on defer-write understanding will be confused when they observe committed data visible before their own commit.",
+          "price": 16,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/314"
+        },
+        {
+          "atom": "c009",
+          "why": "Says exclusive lock release is 'scheduled' for shared locks only. In most DBs all locks are released at commit; exclusive locks go immediately, not on a schedule. Users may expect held locks to linger longer than they do.",
+          "price": 11,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/315"
+        },
+        {
+          "atom": "database_transaction",
+          "why": "States it guarantees ACID properties universally. Isolation level and DB engine choice determine which properties hold. READ COMMITTED and autocommit modes do not provide the same guarantees as SERIALIZABLE.",
+          "price": 0,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/316"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/database_transaction_isolation_and_concu",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/database_transaction_isolation_and_concu/skills/using-database-transaction-isolation-and-concu/SKILL.md",
+      "plugin": "database-transaction-isolation-and-concu-module",
+      "library_skills": 36,
+      "brain_files": 35
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "280c/214r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 114
+      },
+      "after": {
+        "define": 0,
+        "connect": 97
+      }
+    },
+    "basis": 0.877,
+    "secs": 211.7
+  }
+}

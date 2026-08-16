@@ -21,4 +21,4 @@ Invoke this skill to understand `tl_log_record` down to its primitives. The RELA
 `tl_checkpoint_record`, `tl_log_buffer`, `tl_lsn`, `tl_recovery_manager`
 
 ---
-*Projected from the `database transaction isolation and concurrency control` KB (217 concepts / 124 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `database transaction isolation and concurrency control` KB (280 concepts / 214 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

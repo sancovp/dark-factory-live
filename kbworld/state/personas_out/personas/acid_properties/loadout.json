@@ -1,6 +1,6 @@
 {
   "region": "acid_properties",
-  "call_number": "database_transaction_isolation_and_concurrency_c.acid_properties : deep_database_transaction(6), deep_isolation_level(4)",
+  "call_number": "database_transaction_isolation_and_concurrency_c.acid_properties : deep_database_transaction(26), deep_isolation_level(4)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 31
+  "cone_size": 67
 }

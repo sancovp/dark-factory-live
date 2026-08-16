@@ -23,4 +23,4 @@ Invoke this skill to understand `tl_recovery_manager` down to its primitives. Th
 `tl_wal_protocol`
 
 ---
-*Projected from the `database transaction isolation and concurrency control` KB (217 concepts / 124 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `database transaction isolation and concurrency control` KB (280 concepts / 214 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
