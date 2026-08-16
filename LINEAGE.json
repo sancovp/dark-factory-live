@@ -2771,5 +2771,22 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 1.0
+  },
+  {
+    "at": "2026-08-16T13:29:05+00:00",
+    "verdict": "REVERT",
+    "change": "Installed quality_gate_recipe.md (Epic recipe) and quality_gate_audit.md (audit report identifying 3 loadout gaps)",
+    "diff": [
+      {
+        "file": "loadout/quality_gate_audit.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/quality_gate_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.5
   }
 ]
