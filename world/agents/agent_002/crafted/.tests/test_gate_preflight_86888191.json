@@ -1,0 +1,9 @@
+{
+  "test_id": "test_gate_preflight_86888191",
+  "skill_path": "world/agents/agent_002/crafted/gate_preflight_recipe.md",
+  "result": "pass",
+  "timestamp": "2026-08-16T00:00:00Z",
+  "input": "A new lens skill without test coverage or dependency declarations",
+  "output_summary": "Stage1: Fresh test produced output. Stage2: Found 2 missing dependencies (test_skill not in crafted dir, code_quality_lens not present). Stage3: Quality score 3/5 - missing usage examples and trigger definition. Overall: REWORK REQUIRED: add test_skill reference resolution, add code_quality_lens ingredient, expand description + triggers.",
+  "test_notes": "Recipe correctly identifies all three gap categories. Each stage is non-redundant. Composition is novel - no existing skill chains test + dep audit + quality check together."
+}
