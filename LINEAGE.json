@@ -2672,5 +2672,18 @@
     ],
     "fitness_current": 0.0,
     "fitness_patched": 0.0
+  },
+  {
+    "at": "2026-08-16T01:54:27+00:00",
+    "verdict": "REVERT",
+    "change": "Installed preflight_verifier_recipe.md to loadout/preflight_verifier_recipe.md \u2014 passes all gate criteria (execution \u2713, analytical audit PASS 75%, fraud check CLEAN, dependencies resolved), test recor",
+    "diff": [
+      {
+        "file": "loadout/preflight_verifier_recipe.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 0.0
   }
 ]
