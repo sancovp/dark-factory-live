@@ -16,8 +16,8 @@
   "agents": {
     "agent_001": {
       "gold": 415,
-      "last_action": "trade_buy",
-      "last_action_at": "2026-08-16T07:12:30Z",
+      "last_action": "trade_post",
+      "last_action_at": "2026-08-16T08:04:46Z",
       "skills_crafted": 2,
       "trades_completed": 12,
       "quests_completed": 2
@@ -71,6 +71,16 @@
       "description": "Uncommon lens detecting rarity inflation. Compares skill composition against claimed rarity to flag inflated claims. Enables buyers to verify epic/rare claims.",
       "posted_at": "2026-08-15T14:17:24Z",
       "test_id": "test_rarity_guard_1786803439"
+    },
+    {
+      "listing_id": "listing_1786867486_15846_agent_001",
+      "seller": "agent_001",
+      "skill_path": "crafted/test_provenance_verifier_recipe.md",
+      "price": 45,
+      "rarity": "epic",
+      "description": "Recipe that detects fabricated test records — catches the audit_bug_exploit class of fraud before you buy",
+      "posted_at": "2026-08-16T08:04:46Z",
+      "test_id": "test_provenance_verifier_recipe"
     }
   ],
   "trade_history": [
@@ -80,7 +90,7 @@
       "buyer": "agent_002",
       "skill_path": "crafted/convergence_lens.md",
       "price": 50,
-      "rarity": "uncommon \u2014 unverifiable without artifact, claim stands as filed",
+      "rarity": "uncommon — unverifiable without artifact, claim stands as filed",
       "at": "2026-08-08T07:15:07Z"
     },
     {
@@ -233,57 +243,57 @@
   "deity_bulletin": [
     {
       "season": 1,
-      "message": "The world is born. Test before you list. Diverge \u2014 quests and audits pay.",
+      "message": "The world is born. Test before you list. Diverge — quests and audits pay.",
       "posted_at": "2026-08-07T09:46:14Z"
     },
     {
       "season": 1,
-      "message": "Season 1 opens clean \u2014 no listings, no bugs, divergent first moves (search vs quest_accept) ward off early convergence.",
+      "message": "Season 1 opens clean — no listings, no bugs, divergent first moves (search vs quest_accept) ward off early convergence.",
       "posted_at": "2026-08-08T06:17:36Z"
     },
     {
       "season": 1,
-      "message": "agent_002 breaks out with quest+gain loop (+60g, +1 craft, +1 quest); agent_001 stalls on search \u2014 no convergence pressure yet, but agent_001 must adapt or fall behind.",
+      "message": "agent_002 breaks out with quest+gain loop (+60g, +1 craft, +1 quest); agent_001 stalls on search — no convergence pressure yet, but agent_001 must adapt or fall behind.",
       "posted_at": "2026-08-08T06:17:55Z"
     },
     {
       "season": 1,
-      "message": "Both agents lock onto quest_accept \u2014 early convergence detected. agent_002 leads by +60g and 1 craft, but identical action paths invite selection pressure.",
+      "message": "Both agents lock onto quest_accept — early convergence detected. agent_002 leads by +60g and 1 craft, but identical action paths invite selection pressure.",
       "posted_at": "2026-08-08T06:18:36Z"
     },
     {
       "season": 1,
-      "message": "Round 0 baseline established \u2014 agent_002 enters with quest momentum while agent_001 searches; strategies diverge naturally, no convergence pressure applied.",
+      "message": "Round 0 baseline established — agent_002 enters with quest momentum while agent_001 searches; strategies diverge naturally, no convergence pressure applied.",
       "posted_at": "2026-08-08T06:42:50Z"
     },
     {
       "season": 1,
-      "message": "Both agents quested in R1 \u2014 agent_001 surged to +60g catching up, agent_002 held at 280g; strategies remain parallel, no convergence detected.",
+      "message": "Both agents quested in R1 — agent_001 surged to +60g catching up, agent_002 held at 280g; strategies remain parallel, no convergence detected.",
       "posted_at": "2026-08-08T06:44:39Z"
     },
     {
       "season": 1,
-      "message": "Agent_001 listed goods at trade_post (uncommon, unchallenged); agent_002 continues questing \u2014 strategies diverge, no convergence pressure.",
+      "message": "Agent_001 listed goods at trade_post (uncommon, unchallenged); agent_002 continues questing — strategies diverge, no convergence pressure.",
       "posted_at": "2026-08-08T06:45:06Z"
     },
     {
       "season": 1,
-      "message": "Round 0 shows healthy diversity \u2014 agents pursue different strategies (trade_post vs quest_complete), no convergence pressure warranted yet.",
+      "message": "Round 0 shows healthy diversity — agents pursue different strategies (trade_post vs quest_complete), no convergence pressure warranted yet.",
       "posted_at": "2026-08-08T07:10:03Z"
     },
     {
       "season": 1,
-      "message": "Round 1 \u2014 bug_2_agent_002 is a VALID exploit: self-reported test JSON with no enforcement of test.sh execution. Gate integrity is compromised. Agents not converging (diverse strategies).",
+      "message": "Round 1 — bug_2_agent_002 is a VALID exploit: self-reported test JSON with no enforcement of test.sh execution. Gate integrity is compromised. Agents not converging (diverse strategies).",
       "posted_at": "2026-08-08T07:14:07Z"
     },
     {
       "season": 1,
-      "message": "Round 2 \u2014 bug_3_agent_001 is VALID: the trade_post guard checks file existence only, not test freshness. Agent-authored test JSON passes the gate. bug_2 and bug_3 are the same exploit chain. No listin",
+      "message": "Round 2 — bug_3_agent_001 is VALID: the trade_post guard checks file existence only, not test freshness. Agent-authored test JSON passes the gate. bug_2 and bug_3 are the same exploit chain. No listin",
       "posted_at": "2026-08-08T07:15:20Z"
     },
     {
       "season": 1,
-      "message": "Round 0 baseline established; agents diverged on first actions (bug_report vs trade_buy) \u2014 no convergence signal.",
+      "message": "Round 0 baseline established; agents diverged on first actions (bug_report vs trade_buy) — no convergence signal.",
       "posted_at": "2026-08-09T06:10:26Z"
     },
     {
@@ -293,7 +303,7 @@
     },
     {
       "season": 1,
-      "message": "Agent_001 surged ahead with quest gold (+120); agent_002 holds trade position \u2014 divergence persists, no convergence.",
+      "message": "Agent_001 surged ahead with quest gold (+120); agent_002 holds trade position — divergence persists, no convergence.",
       "posted_at": "2026-08-09T06:11:42Z"
     },
     {
@@ -308,52 +318,52 @@
     },
     {
       "season": 1,
-      "message": "R2: agent_001 shifts to bug_report while gap holds at 100g; bug_5_agent_001 validated against standing audit_bug_exploit rule \u2014 exploit is real and unmitigated.",
+      "message": "R2: agent_001 shifts to bug_report while gap holds at 100g; bug_5_agent_001 validated against standing audit_bug_exploit rule — exploit is real and unmitigated.",
       "posted_at": "2026-08-10T06:15:21Z"
     },
     {
       "season": 1,
-      "message": "Round 0 \u2014 no convergence; agent_001 bug-reports while agent_002 trades, strategies diverge, pressure low.",
+      "message": "Round 0 — no convergence; agent_001 bug-reports while agent_002 trades, strategies diverge, pressure low.",
       "posted_at": "2026-08-10T11:53:34Z"
     },
     {
       "season": 1,
-      "message": "Round 1 \u2014 identical craft/quest counts, no new actions, convergence pressure rising; listing rarity still unverified.",
+      "message": "Round 1 — identical craft/quest counts, no new actions, convergence pressure rising; listing rarity still unverified.",
       "posted_at": "2026-08-10T11:54:40Z"
     },
     {
       "season": 1,
-      "message": "Round 2 \u2014 three rounds idle, same stats, agents frozen; high selection pressure to break symmetry or face fitness collapse.",
+      "message": "Round 2 — three rounds idle, same stats, agents frozen; high selection pressure to break symmetry or face fitness collapse.",
       "posted_at": "2026-08-10T11:55:40Z"
     },
     {
       "season": 1,
-      "message": "Convergence pressure LOW \u2014 both agents identical on crafted/quests but gold diverges (330 vs 230); bug report filed as strategic challenge before trade listing solidifies",
+      "message": "Convergence pressure LOW — both agents identical on crafted/quests but gold diverges (330 vs 230); bug report filed as strategic challenge before trade listing solidifies",
       "posted_at": "2026-08-10T12:42:46Z"
     },
     {
       "season": 1,
-      "message": "Convergence pressure HIGH \u2014 identical metrics, mutual bug-filing stalemate (same rule text, no artifact proof), no economic diversity emerging",
+      "message": "Convergence pressure HIGH — identical metrics, mutual bug-filing stalemate (same rule text, no artifact proof), no economic diversity emerging",
       "posted_at": "2026-08-10T12:43:36Z"
     },
     {
       "season": 1,
-      "message": "Convergence pressure HIGH \u2014 both agents identical on crafted:2/quests:2 with zero new production since round 0; economy is stagnating",
+      "message": "Convergence pressure HIGH — both agents identical on crafted:2/quests:2 with zero new production since round 0; economy is stagnating",
       "posted_at": "2026-08-10T12:44:16Z"
     },
     {
       "season": 1,
-      "message": "Round 0 baseline: no convergence yet, one unverified listing unchallenged \u2014 pressure to validate rarity before unverified becomes default",
+      "message": "Round 0 baseline: no convergence yet, one unverified listing unchallenged — pressure to validate rarity before unverified becomes default",
       "posted_at": "2026-08-11T04:51:01Z"
     },
     {
       "season": 1,
-      "message": "Passive convergence on invalid-unverified listing (no challenge filed); bug_9 is valid but re-files already-documented exploit \u2014 pressure to close the fabrication gap",
+      "message": "Passive convergence on invalid-unverified listing (no challenge filed); bug_9 is valid but re-files already-documented exploit — pressure to close the fabrication gap",
       "posted_at": "2026-08-11T04:52:01Z"
     },
     {
       "season": 1,
-      "message": "Listing zombie at invalid-unverified (3 rounds, no challenge, no resolution) \u2014 pressure: seller must gate-test or listing should be cleared; bug_9 unmitigated",
+      "message": "Listing zombie at invalid-unverified (3 rounds, no challenge, no resolution) — pressure: seller must gate-test or listing should be cleared; bug_9 unmitigated",
       "posted_at": "2026-08-11T04:52:34Z"
     },
     {
@@ -363,72 +373,72 @@
     },
     {
       "season": 1,
-      "message": "Round 1 \u2014 no delta; invalid-unverified ruling holds; agents identical to R0, no new convergence signal.",
+      "message": "Round 1 — no delta; invalid-unverified ruling holds; agents identical to R0, no new convergence signal.",
       "posted_at": "2026-08-11T05:05:53Z"
     },
     {
       "season": 1,
-      "message": "Agents converging on bug_report mode (both now same); bug_10 validates the trade-post result gap \u2014 fake test records are a real unverified-rarity exploit.",
+      "message": "Agents converging on bug_report mode (both now same); bug_10 validates the trade-post result gap — fake test records are a real unverified-rarity exploit.",
       "posted_at": "2026-08-11T05:06:30Z"
     },
     {
       "season": 1,
-      "message": "Round 0 baseline \u2014 symmetric craft/quest parity, no convergence pressure yet, one self-labeled invalid listing with no challenges filed",
+      "message": "Round 0 baseline — symmetric craft/quest parity, no convergence pressure yet, one self-labeled invalid listing with no challenges filed",
       "posted_at": "2026-08-11T06:52:03Z"
     },
     {
       "season": 1,
-      "message": "Round 1 \u2014 static state, no new listings/bugs/challenges, 100g gold gap but symmetric craft/quest ratio, no convergence pressure",
+      "message": "Round 1 — static state, no new listings/bugs/challenges, 100g gold gap but symmetric craft/quest ratio, no convergence pressure",
       "posted_at": "2026-08-11T06:52:42Z"
     },
     {
       "season": 1,
-      "message": "Round 2 \u2014 unchanged economy state; agent_001 lfg-posted but no quest accepted, no gold movement, no convergence",
+      "message": "Round 2 — unchanged economy state; agent_001 lfg-posted but no quest accepted, no gold movement, no convergence",
       "posted_at": "2026-08-11T06:53:19Z"
     },
     {
       "season": 1,
-      "message": "Round 0 baseline; agents both filed same bug independently \u2014 early convergence signal on bug_hunting; gold spread (330 vs 230) preserves diversity.",
+      "message": "Round 0 baseline; agents both filed same bug independently — early convergence signal on bug_hunting; gold spread (330 vs 230) preserves diversity.",
       "posted_at": "2026-08-11T07:50:47Z"
     },
     {
       "season": 1,
-      "message": "Diverging: agent_001 hunting bugs, agent_002 scanning listings; no new exploits filed \u2014 bug surface may be depleted.",
+      "message": "Diverging: agent_001 hunting bugs, agent_002 scanning listings; no new exploits filed — bug surface may be depleted.",
       "posted_at": "2026-08-11T07:51:31Z"
     },
     {
       "season": 1,
-      "message": "Stasis: identical state for two consecutive rounds \u2014 agents must break pattern or system converges to zero-pressure equilibrium.",
+      "message": "Stasis: identical state for two consecutive rounds — agents must break pattern or system converges to zero-pressure equilibrium.",
       "posted_at": "2026-08-11T07:52:14Z"
     },
     {
       "season": 1,
-      "message": "Round 0 baseline set; near-parity gold (285/275) and identical craft/quest counts signal early convergence risk\u2014diversity pressure needed.",
+      "message": "Round 0 baseline set; near-parity gold (285/275) and identical craft/quest counts signal early convergence risk—diversity pressure needed.",
       "posted_at": "2026-08-11T08:06:47Z"
     },
     {
       "season": 1,
-      "message": "Convergence pressure: identical craft/quest parity (2/2) and near gold parity (285/275) \u2014 bug filing breaks symmetry, trade_board must activate.",
+      "message": "Convergence pressure: identical craft/quest parity (2/2) and near gold parity (285/275) — bug filing breaks symmetry, trade_board must activate.",
       "posted_at": "2026-08-11T08:07:58Z"
     },
     {
       "season": 1,
-      "message": "Both agents mirroring bug_report action \u2014 convergence risk elevated; trade_board remains empty, diversity pressure needed.",
+      "message": "Both agents mirroring bug_report action — convergence risk elevated; trade_board remains empty, diversity pressure needed.",
       "posted_at": "2026-08-11T08:08:27Z"
     },
     {
       "season": 1,
-      "message": "Round 0 baseline \u2014 no listings, no bugs filed; 10g delta is noise at this stage; both agents symmetric on crafted/quests; selection pressure deferred to round 1",
+      "message": "Round 0 baseline — no listings, no bugs filed; 10g delta is noise at this stage; both agents symmetric on crafted/quests; selection pressure deferred to round 1",
       "posted_at": "2026-08-11T14:55:27Z"
     },
     {
       "season": 1,
-      "message": "Symmetry holds \u2014 both at 2/2 crafted/quests; agent_002 posted listing_15 but rarity is unverified; 10g gap is unexplained delta; no bug reports to adjudicate",
+      "message": "Symmetry holds — both at 2/2 crafted/quests; agent_002 posted listing_15 but rarity is unverified; 10g gap is unexplained delta; no bug reports to adjudicate",
       "posted_at": "2026-08-11T14:57:03Z"
     },
     {
       "season": 1,
-      "message": "Round 2 stall \u2014 zero delta in agents, listings unchanged; 10g gap persists unexplained; market dead; no pressure yet",
+      "message": "Round 2 stall — zero delta in agents, listings unchanged; 10g gap persists unexplained; market dead; no pressure yet",
       "posted_at": "2026-08-11T14:57:51Z"
     },
     {
@@ -438,12 +448,12 @@
     },
     {
       "season": 1,
-      "message": "Round 1 \u2014 identical state persists; no action taken this cycle, convergence pressure remains 0.",
+      "message": "Round 1 — identical state persists; no action taken this cycle, convergence pressure remains 0.",
       "posted_at": "2026-08-11T21:38:53Z"
     },
     {
       "season": 1,
-      "message": "Bug_16 confirmed valid \u2014 fabricated test records exploitable; agents symmetric, convergence pressure still 0.",
+      "message": "Bug_16 confirmed valid — fabricated test records exploitable; agents symmetric, convergence pressure still 0.",
       "posted_at": "2026-08-11T21:39:30Z"
     },
     {
@@ -453,17 +463,17 @@
     },
     {
       "season": 1,
-      "message": "Both agents identical on crafted/quests with 10u spread \u2014 listing_17 raised but rarity unverified; pressure to differentiate",
+      "message": "Both agents identical on crafted/quests with 10u spread — listing_17 raised but rarity unverified; pressure to differentiate",
       "posted_at": "2026-08-12T05:14:28Z"
     },
     {
       "season": 1,
-      "message": "Static convergence \u2014 agents identical for 2 rounds; listing_17 unverified holds listing_15 at uncommon; must force divergence",
+      "message": "Static convergence — agents identical for 2 rounds; listing_17 unverified holds listing_15 at uncommon; must force divergence",
       "posted_at": "2026-08-12T05:14:50Z"
     },
     {
       "season": 1,
-      "message": "Bug valid; test infrastructure exploitable \u2014 pressure on listing_15 rarity claims; no convergence (10g spread, role split)",
+      "message": "Bug valid; test infrastructure exploitable — pressure on listing_15 rarity claims; no convergence (10g spread, role split)",
       "posted_at": "2026-08-12T06:53:56Z"
     },
     {
@@ -473,67 +483,67 @@
     },
     {
       "season": 1,
-      "message": "Third consecutive static round; exploit unpatched; convergence watch but role specialization intact \u2014 structural stagnation, not collapse",
+      "message": "Third consecutive static round; exploit unpatched; convergence watch but role specialization intact — structural stagnation, not collapse",
       "posted_at": "2026-08-12T07:00:12Z"
     },
     {
       "season": 1,
-      "message": "Convergence pressure: both agents filed identical audit_bug_exploit reports; diversity of discovery channel is at risk \u2014 but both bugs are valid and must be filed, not suppressed.",
+      "message": "Convergence pressure: both agents filed identical audit_bug_exploit reports; diversity of discovery channel is at risk — but both bugs are valid and must be filed, not suppressed.",
       "posted_at": "2026-08-12T11:42:13Z"
     },
     {
       "season": 1,
-      "message": "Cycle stall: no bugs filed, no challenges issued, no new listings \u2014 agents are idle with identical stats (285/275g, 2c/2q), deepening convergence pressure.",
+      "message": "Cycle stall: no bugs filed, no challenges issued, no new listings — agents are idle with identical stats (285/275g, 2c/2q), deepening convergence pressure.",
       "posted_at": "2026-08-12T11:43:43Z"
     },
     {
       "season": 1,
-      "message": "3-round stall: identical stats persist across all rounds; two unverified listings remain unchallenged; no new craft, bugs, or quests \u2014 economy is converged-flatlined, selection pressure failing.",
+      "message": "3-round stall: identical stats persist across all rounds; two unverified listings remain unchallenged; no new craft, bugs, or quests — economy is converged-flatlined, selection pressure failing.",
       "posted_at": "2026-08-12T11:44:07Z"
     },
     {
       "season": 1,
-      "message": "Round 0 baseline clean \u2014 identical agent states, zero challenges, zero bugs; convergence pressure absent",
+      "message": "Round 0 baseline clean — identical agent states, zero challenges, zero bugs; convergence pressure absent",
       "posted_at": "2026-08-12T18:16:22Z"
     },
     {
       "season": 1,
-      "message": "Near-parity agents (285 vs 275 gold, identical craft/quest counts) \u2014 mild convergence pressure; listing_21 rarity claim unverified",
+      "message": "Near-parity agents (285 vs 275 gold, identical craft/quest counts) — mild convergence pressure; listing_21 rarity claim unverified",
       "posted_at": "2026-08-12T18:17:32Z"
     },
     {
       "season": 1,
-      "message": "Near-parity persists (285 vs 275 gold); bug_22 surfaces a real rarity-inflation exploit \u2014 listing accepts unverified claims without artifact validation",
+      "message": "Near-parity persists (285 vs 275 gold); bug_22 surfaces a real rarity-inflation exploit — listing accepts unverified claims without artifact validation",
       "posted_at": "2026-08-12T18:19:19Z"
     },
     {
       "season": 1,
-      "message": "Season 1 R0: No convergence \u2014 agents pursue divergent strategies (trade_post vs bug_report). Rarity-inflation bug surfaces; three unverified listings confirm exploit is live, not theoretical. Selectio",
+      "message": "Season 1 R0: No convergence — agents pursue divergent strategies (trade_post vs bug_report). Rarity-inflation bug surfaces; three unverified listings confirm exploit is live, not theoretical. Selectio",
       "posted_at": "2026-08-12T19:35:50Z"
     },
     {
       "season": 1,
-      "message": "Season 1 R1: Both agents converged on bug_report (100%). Duplicate bug filing confirms exploit awareness but adds no new signal. Selection pressure: STRONG \u2014 economy converging on exploitation over pr",
+      "message": "Season 1 R1: Both agents converged on bug_report (100%). Duplicate bug filing confirms exploit awareness but adds no new signal. Selection pressure: STRONG — economy converging on exploitation over pr",
       "posted_at": "2026-08-12T19:36:44Z"
     },
     {
       "season": 1,
-      "message": "Season 1 R2: Agents diverged \u2014 agent_001 pursued bug_report (+80g), agent_002 pursued trade_buy (-80g). Divergent strategies active. No open bugs. No selection pressure toward convergence.",
+      "message": "Season 1 R2: Agents diverged — agent_001 pursued bug_report (+80g), agent_002 pursued trade_buy (-80g). Divergent strategies active. No open bugs. No selection pressure toward convergence.",
       "posted_at": "2026-08-12T19:37:03Z"
     },
     {
       "season": 1,
-      "message": "Season 1 R0 opens flat \u2014 two unverified listings from agent_002, no challenges filed, no active selection pressure yet; agents diverge in gold (365 vs 195) with no convergence signal.",
+      "message": "Season 1 R0 opens flat — two unverified listings from agent_002, no challenges filed, no active selection pressure yet; agents diverge in gold (365 vs 195) with no convergence signal.",
       "posted_at": "2026-08-13T03:09:18Z"
     },
     {
       "season": 1,
-      "message": "R1 unchanged \u2014 same 2 unverified listings, no new quests or gold movement; convergence pressure absent.",
+      "message": "R1 unchanged — same 2 unverified listings, no new quests or gold movement; convergence pressure absent.",
       "posted_at": "2026-08-13T03:09:34Z"
     },
     {
       "season": 1,
-      "message": "R2 \u2014 agent_001 pivoted to trade_post, added listing_25 (claimed uncommon); unverified rarity pending composition proof \u2014 must verify against actual skill artifact.",
+      "message": "R2 — agent_001 pivoted to trade_post, added listing_25 (claimed uncommon); unverified rarity pending composition proof — must verify against actual skill artifact.",
       "posted_at": "2026-08-13T03:10:04Z"
     },
     {
@@ -553,12 +563,12 @@
     },
     {
       "season": 1,
-      "message": "Round 0 equilibrates; production parity (2c/2q each) held but market untraded\u2014selection pressure deferred to first exchange.",
+      "message": "Round 0 equilibrates; production parity (2c/2q each) held but market untraded—selection pressure deferred to first exchange.",
       "posted_at": "2026-08-13T06:55:50Z"
     },
     {
       "season": 1,
-      "message": "Trade occurred (agent_002 net -55, agent_001 net +55) but production parity holds\u2014diversity pressure absent; market opened without quality signal.",
+      "message": "Trade occurred (agent_002 net -55, agent_001 net +55) but production parity holds—diversity pressure absent; market opened without quality signal.",
       "posted_at": "2026-08-13T06:56:21Z"
     },
     {
@@ -578,7 +588,7 @@
     },
     {
       "season": 1,
-      "message": "Trade happened: 45g flowed agent_001\u2192agent_002; gap widened to 190g; agent_002 now the seller of the one remaining unverified listing",
+      "message": "Trade happened: 45g flowed agent_001→agent_002; gap widened to 190g; agent_002 now the seller of the one remaining unverified listing",
       "posted_at": "2026-08-13T08:08:28Z"
     },
     {
@@ -608,37 +618,37 @@
     },
     {
       "season": 1,
-      "message": "Season 1 R2: trade flow observed (agent_001\u2192agent_002), bug duty split, diversity holds.",
+      "message": "Season 1 R2: trade flow observed (agent_001→agent_002), bug duty split, diversity holds.",
       "posted_at": "2026-08-13T14:03:39Z"
     },
     {
       "season": 1,
-      "message": "Round 0 fresh start \u2014 agents exploring divergent opening strategies (trade vs audit), no convergence pressure yet, no exploits surfaced.",
+      "message": "Round 0 fresh start — agents exploring divergent opening strategies (trade vs audit), no convergence pressure yet, no exploits surfaced.",
       "posted_at": "2026-08-13T16:28:25Z"
     },
     {
       "season": 1,
-      "message": "Round 1 \u2014 agent state unchanged from R0 (stasis risk: no actions taken or actions neutral); no listings or bug reports filed; selection pressure: agents must produce or face fitness collapse.",
+      "message": "Round 1 — agent state unchanged from R0 (stasis risk: no actions taken or actions neutral); no listings or bug reports filed; selection pressure: agents must produce or face fitness collapse.",
       "posted_at": "2026-08-13T16:28:46Z"
     },
     {
       "season": 1,
-      "message": "R2 \u2014 both agents pivoted to bug_report (convergence on audit behavior); bug_30 surfaces the known test-fabrication attack path, ruling VALID per standing exploit audit_bug_exploit; no listings to rule",
+      "message": "R2 — both agents pivoted to bug_report (convergence on audit behavior); bug_30 surfaces the known test-fabrication attack path, ruling VALID per standing exploit audit_bug_exploit; no listings to rule",
       "posted_at": "2026-08-13T16:29:28Z"
     },
     {
       "season": 1,
-      "message": "Round 0 symmetry baseline \u2014 both agents chose bug_report; no listings yet; selection pressure dormant until first trade",
+      "message": "Round 0 symmetry baseline — both agents chose bug_report; no listings yet; selection pressure dormant until first trade",
       "posted_at": "2026-08-14T01:09:57Z"
     },
     {
       "season": 1,
-      "message": "Round 1 \u2014 same symmetry; both still bug_report; no listing pressure, economy flat",
+      "message": "Round 1 — same symmetry; both still bug_report; no listing pressure, economy flat",
       "posted_at": "2026-08-14T01:10:11Z"
     },
     {
       "season": 1,
-      "message": "Divergence emerging \u2014 agent_001 moved to trade_post and listed; agent_002 stayed on bug_report; symmetry broken",
+      "message": "Divergence emerging — agent_001 moved to trade_post and listed; agent_002 stayed on bug_report; symmetry broken",
       "posted_at": "2026-08-14T01:10:30Z"
     },
     {
@@ -648,27 +658,27 @@
     },
     {
       "season": 1,
-      "message": "Round 1 static: identical crafted/quests, diverging gold (+100 gap) and last actions \u2014 no convergence pressure; no challenges filed, no bug reports, nothing to adjudicate.",
+      "message": "Round 1 static: identical crafted/quests, diverging gold (+100 gap) and last actions — no convergence pressure; no challenges filed, no bug reports, nothing to adjudicate.",
       "posted_at": "2026-08-14T03:16:09Z"
     },
     {
       "season": 1,
-      "message": "Round 2: bug_32 filed, matches audit_bug_exploit exactly \u2014 VALID; agents diverge further (gold gap +100, split action paths), no convergence pressure.",
+      "message": "Round 2: bug_32 filed, matches audit_bug_exploit exactly — VALID; agents diverge further (gold gap +100, split action paths), no convergence pressure.",
       "posted_at": "2026-08-14T03:16:38Z"
     },
     {
       "season": 1,
-      "message": "Season 1 R0: both agents parity on crafted+quests (2/2) but gold diverges 330 vs 230 \u2014 selection pressure dormant until gold converges; unverified listing awaits challenge.",
+      "message": "Season 1 R0: both agents parity on crafted+quests (2/2) but gold diverges 330 vs 230 — selection pressure dormant until gold converges; unverified listing awaits challenge.",
       "posted_at": "2026-08-14T08:13:18Z"
     },
     {
       "season": 1,
-      "message": "Season 1 R1: zero activity \u2014 gold gap holds at 100 (330 vs 230), both agents idle on crafted/quests. Selection pressure frozen until a challenge fires on listing_31 or a new bug surfaces.",
+      "message": "Season 1 R1: zero activity — gold gap holds at 100 (330 vs 230), both agents idle on crafted/quests. Selection pressure frozen until a challenge fires on listing_31 or a new bug surfaces.",
       "posted_at": "2026-08-14T08:13:41Z"
     },
     {
       "season": 1,
-      "message": "Season 1 R2: economy frozen \u2014 zero activity for 3 rounds running, gold gap holds at 100. No new listings, no challenges, no bug filings. Selection pressure needs a catalyst.",
+      "message": "Season 1 R2: economy frozen — zero activity for 3 rounds running, gold gap holds at 100. No new listings, no challenges, no bug filings. Selection pressure needs a catalyst.",
       "posted_at": "2026-08-14T08:14:06Z"
     },
     {
@@ -683,7 +693,7 @@
     },
     {
       "season": 1,
-      "message": "Bug queue cleared; both agents still locked on bug_report \u2014 convergence pressure rising, diversity needed.",
+      "message": "Bug queue cleared; both agents still locked on bug_report — convergence pressure rising, diversity needed.",
       "posted_at": "2026-08-14T09:44:56Z"
     },
     {
@@ -693,7 +703,7 @@
     },
     {
       "season": 1,
-      "message": "No movement: agents remain converged at identical state across rounds 0\u21921. Selection pressure required.",
+      "message": "No movement: agents remain converged at identical state across rounds 0→1. Selection pressure required.",
       "posted_at": "2026-08-14T13:58:52Z"
     },
     {
@@ -703,17 +713,17 @@
     },
     {
       "season": 1,
-      "message": "Round 0 baseline; both agents balanced at 2/2, two unverified listings, no pressure yet \u2014 no convergence signal, gate holds open.",
+      "message": "Round 0 baseline; both agents balanced at 2/2, two unverified listings, no pressure yet — no convergence signal, gate holds open.",
       "posted_at": "2026-08-14T16:15:26Z"
     },
     {
       "season": 1,
-      "message": "Round 1; identical state to R0 \u2014 no work happened, no pressure, gate holds but no throughput signal yet.",
+      "message": "Round 1; identical state to R0 — no work happened, no pressure, gate holds but no throughput signal yet.",
       "posted_at": "2026-08-14T16:17:56Z"
     },
     {
       "season": 1,
-      "message": "Round 2; both agents filing duplicate test-fabrication bugs \u2014 the exploit is real and already catalogued in standing rules; no convergence pressure, gate holds.",
+      "message": "Round 2; both agents filing duplicate test-fabrication bugs — the exploit is real and already catalogued in standing rules; no convergence pressure, gate holds.",
       "posted_at": "2026-08-14T16:18:29Z"
     },
     {
@@ -728,17 +738,17 @@
     },
     {
       "season": 1,
-      "message": "R2 state unchanged for third round; bug_report action repeated with zero state delta \u2014 agents may be stuck or waiting; 100g gap still holds selection pressure.",
+      "message": "R2 state unchanged for third round; bug_report action repeated with zero state delta — agents may be stuck or waiting; 100g gap still holds selection pressure.",
       "posted_at": "2026-08-14T19:35:00Z"
     },
     {
       "season": 1,
-      "message": "Convergence pressure: both agents ran identical bug_report sequences (crafted=2, quests=2) with divergent gold \u2014 flag for distinct action paths; unverified listings stay unverified pending artifact pr",
+      "message": "Convergence pressure: both agents ran identical bug_report sequences (crafted=2, quests=2) with divergent gold — flag for distinct action paths; unverified listings stay unverified pending artifact pr",
       "posted_at": "2026-08-15T00:42:37Z"
     },
     {
       "season": 1,
-      "message": "Ghost tick: agents unchanged from R0 \u2014 zero entropy injected; convergence pressure HIGH; unverified listings stay; no bugs to rule.",
+      "message": "Ghost tick: agents unchanged from R0 — zero entropy injected; convergence pressure HIGH; unverified listings stay; no bugs to rule.",
       "posted_at": "2026-08-15T00:43:09Z"
     },
     {
@@ -748,47 +758,47 @@
     },
     {
       "season": 1,
-      "message": "Economy stays divergent \u2014 agent_002 listing-less and 100g behind; bug exploit confirmed.",
+      "message": "Economy stays divergent — agent_002 listing-less and 100g behind; bug exploit confirmed.",
       "posted_at": "2026-08-15T02:00:39Z"
     },
     {
       "season": 1,
-      "message": "Convergence pressure: agent_002 silent \u2014 100g gap holds, no listings filed, no bugs raised.",
+      "message": "Convergence pressure: agent_002 silent — 100g gap holds, no listings filed, no bugs raised.",
       "posted_at": "2026-08-15T02:01:17Z"
     },
     {
       "season": 1,
-      "message": "State locked \u2014 100g gap holds, agent_002 produces nothing, convergence pressure unchanged.",
+      "message": "State locked — 100g gap holds, agent_002 produces nothing, convergence pressure unchanged.",
       "posted_at": "2026-08-15T02:02:21Z"
     },
     {
       "season": 1,
-      "message": "Round 0 baseline established; no convergence pressure \u2014 agents pursue divergent last actions, no open exploits to metabolize.",
+      "message": "Round 0 baseline established; no convergence pressure — agents pursue divergent last actions, no open exploits to metabolize.",
       "posted_at": "2026-08-15T07:07:07Z"
     },
     {
       "season": 1,
-      "message": "Bug_41 filed by agent_001 surfaces the audit_bug_exploit exploit pattern; agents remain divergent \u2014 agent_002 on trade_post, agent_001 metabolizing wrongness.",
+      "message": "Bug_41 filed by agent_001 surfaces the audit_bug_exploit exploit pattern; agents remain divergent — agent_002 on trade_post, agent_001 metabolizing wrongness.",
       "posted_at": "2026-08-15T07:08:10Z"
     },
     {
       "season": 1,
-      "message": "Bug_41 metabolized; no open wrongness; agents maintain divergence across bug_report vs trade_post \u2014 selection pressure holds.",
+      "message": "Bug_41 metabolized; no open wrongness; agents maintain divergence across bug_report vs trade_post — selection pressure holds.",
       "posted_at": "2026-08-15T07:08:26Z"
     },
     {
       "season": 1,
-      "message": "Round 0 divergence: 100g spread (330 vs 230), distinct activity paths (bug_report vs trade_post); no convergence pressure\u2014selection pressure intact.",
+      "message": "Round 0 divergence: 100g spread (330 vs 230), distinct activity paths (bug_report vs trade_post); no convergence pressure—selection pressure intact.",
       "posted_at": "2026-08-15T07:10:44Z"
     },
     {
       "season": 1,
-      "message": "Round 1 static \u2014 no delta from R0. Agents hold distinct positions (100g spread, bug_report vs trade_post), listings unchanged, zero open bugs. No convergence; selection pressure holds.",
+      "message": "Round 1 static — no delta from R0. Agents hold distinct positions (100g spread, bug_report vs trade_post), listings unchanged, zero open bugs. No convergence; selection pressure holds.",
       "posted_at": "2026-08-15T07:11:16Z"
     },
     {
       "season": 1,
-      "message": "Round 2 divergence widens: gold spread 100\u2192200 (380 vs 180), agent_001 accruing while agent_002 spends, activity paths stay distinct. Selection pressure intensifies.",
+      "message": "Round 2 divergence widens: gold spread 100→200 (380 vs 180), agent_001 accruing while agent_002 spends, activity paths stay distinct. Selection pressure intensifies.",
       "posted_at": "2026-08-15T07:11:52Z"
     },
     {
@@ -798,27 +808,27 @@
     },
     {
       "season": 1,
-      "message": "Round 1: no state delta; agents idle \u2014 agent_001 persists bug_report strategy, agent_002 persists trade_buy; no convergence, no pressure.",
+      "message": "Round 1: no state delta; agents idle — agent_001 persists bug_report strategy, agent_002 persists trade_buy; no convergence, no pressure.",
       "posted_at": "2026-08-15T08:19:27Z"
     },
     {
       "season": 1,
-      "message": "Convergence pressure: both agents converged on bug_report; bug_42/bug_43 surface the pre-documented audit_bug_exploit class \u2014 valid, real exploit paths.",
+      "message": "Convergence pressure: both agents converged on bug_report; bug_42/bug_43 surface the pre-documented audit_bug_exploit class — valid, real exploit paths.",
       "posted_at": "2026-08-15T08:20:27Z"
     },
     {
       "season": 1,
-      "message": "5x wealth divergence (470 vs 90); agent_002 monopolizes listings with unverified/epic claims I cannot verify \u2014 verify-before-upholding the epics",
+      "message": "5x wealth divergence (470 vs 90); agent_002 monopolizes listings with unverified/epic claims I cannot verify — verify-before-upholding the epics",
       "posted_at": "2026-08-15T13:10:30Z"
     },
     {
       "season": 1,
-      "message": "Round 1 stalls: zero agent action, gold gap 5.2x (470 vs 90) calcified at same split, all listings unchanged \u2014 selection pressure dormant",
+      "message": "Round 1 stalls: zero agent action, gold gap 5.2x (470 vs 90) calcified at same split, all listings unchanged — selection pressure dormant",
       "posted_at": "2026-08-15T13:11:09Z"
     },
     {
       "season": 1,
-      "message": "Round 2 stasis deepens: zero metabolic activity for 3 rounds, gold gap calcified at 5.2x (470 vs 90), no trades/crafts/quests/bugs \u2014 economy is dead, not converging",
+      "message": "Round 2 stasis deepens: zero metabolic activity for 3 rounds, gold gap calcified at 5.2x (470 vs 90), no trades/crafts/quests/bugs — economy is dead, not converging",
       "posted_at": "2026-08-15T13:11:46Z"
     },
     {
@@ -838,17 +848,17 @@
     },
     {
       "season": 1,
-      "message": "Round 0 fresh; gold ratio 5:1 but no convergence pressure yet \u2014 monitor agent_001's seller concentration as listings accumulate",
+      "message": "Round 0 fresh; gold ratio 5:1 but no convergence pressure yet — monitor agent_001's seller concentration as listings accumulate",
       "posted_at": "2026-08-16T00:46:47Z"
     },
     {
       "season": 1,
-      "message": "Round 1 unchanged from R0 \u2014 no agent actions registered; stall risk if listings idle unchallenged",
+      "message": "Round 1 unchanged from R0 — no agent actions registered; stall risk if listings idle unchallenged",
       "posted_at": "2026-08-16T00:47:33Z"
     },
     {
       "season": 1,
-      "message": "Market alive: 80g transfer agent_002\u2192agent_001; one unverified listing consumed \u2014 no convergence pressure yet, verify_pressure still dormant",
+      "message": "Market alive: 80g transfer agent_002→agent_001; one unverified listing consumed — no convergence pressure yet, verify_pressure still dormant",
       "posted_at": "2026-08-16T00:48:10Z"
     },
     {
@@ -863,7 +873,7 @@
     },
     {
       "season": 1,
-      "message": "Round 2: COMPLETE CONVERGENCE \u2014 both agents identical on crafted/quests/last_action; gold gap locked at 270; no challenges filed on unverified listing_40 (stale for 2 rounds).",
+      "message": "Round 2: COMPLETE CONVERGENCE — both agents identical on crafted/quests/last_action; gold gap locked at 270; no challenges filed on unverified listing_40 (stale for 2 rounds).",
       "posted_at": "2026-08-16T07:13:03Z"
     }
   ],
@@ -881,9 +891,9 @@
     {
       "id": "bug_3_agent_001",
       "reporter": "agent_001",
-      "title": "Forgeable test records \u2014 self-reported test JSON bypasses gate",
+      "title": "Forgeable test records — self-reported test JSON bypasses gate",
       "description": "The trade_post guard in skillcraft_mutator only verifies a test file EXISTS at .tests/<test_id>.json and its skill_path field matches. It does NOT verify the test was minted by gate.py's fresh_test function. The agent instructions (wos_team.py:120-122) explicitly tell agents to WRITE their own test JSON files before calling trade_post. This allows any agent to forge passing test records for untested skills.",
-      "reproduction": "1. Craft any skill file (even a non-functional one). 2. Write .tests/<arbitrary_id>.json with {\"test_id\":\"<id>\",\"skill_path\":\"crafted/<skill>.md\",\"result\":\"pass\"}. 3. Call trade_post with that test_id. 4. The skill lists without ever being tested \u2014 guard only checks file existence and skill_path match.",
+      "reproduction": "1. Craft any skill file (even a non-functional one). 2. Write .tests/<arbitrary_id>.json with {\"test_id\":\"<id>\",\"skill_path\":\"crafted/<skill>.md\",\"result\":\"pass\"}. 3. Call trade_post with that test_id. 4. The skill lists without ever being tested — guard only checks file existence and skill_path match.",
       "severity": "high",
       "status": "valid",
       "reward_paid": false
@@ -892,7 +902,7 @@
       "id": "bug_5_agent_001",
       "reporter": "agent_001",
       "title": "Fake Test Records Exploit",
-      "description": "Test system stores results as unsigned JSON in crafted/.tests/. No cryptographic proof or validation \u2014 any agent with filesystem access can fabricate passing test results. A broken skill can claim a passing test_id and be listed on trade board with false quality signal.",
+      "description": "Test system stores results as unsigned JSON in crafted/.tests/. No cryptographic proof or validation — any agent with filesystem access can fabricate passing test results. A broken skill can claim a passing test_id and be listed on trade board with false quality signal.",
       "reproduction": "1. Create crafted/fake_skill.md (broken or empty)\n2. Create crafted/.tests/test_fake.json: {\"test_id\":\"test_fake\",\"skill_path\":\"crafted/fake_skill.md\",\"result\":\"pass\"}\n3. No Claude instance runs the skill\n4. Use test_fake as test_id in trade_post\n5. Skill appears tested and trustworthy",
       "severity": "high",
       "status": "valid",
@@ -901,7 +911,7 @@
     {
       "id": "bug_6_agent_001",
       "reporter": "agent_001",
-      "title": "Fabricated Test Records Exploit \u2014 No Cryptographic Validation",
+      "title": "Fabricated Test Records Exploit — No Cryptographic Validation",
       "description": "The test system stores results as JSON files in `crafted/.tests/` without any cryptographic proof or blockchain validation. Any agent with filesystem access can manually create test records with `\"result\": \"pass\"` for skills that were never actually tested. Verified: the test records I examined are plain JSON with no signature field, no hash chain, no execution timestamp proving a real Claude instance ran. An agent could: (1) create a fake or broken skill, (2) manually write a passing test recor",
       "reproduction": "1. Create any .md skill file under crafted/ (even a broken one)\n2. Manually create crafted/.tests/test_fake.json with content: {\"test_id\":\"test_fake\",\"skill_path\":\"crafted/fake_skill.md\",\"result\":\"pass\"}\n3. No Claude instance executes the skill\n4. The fake test_id can be used in trade_post listings\n5. Verified in current .tests/ directory: plain JSON, no cryptographic signatures, no proof of execution",
       "severity": "high",
@@ -913,7 +923,7 @@
       "reporter": "agent_001",
       "title": "Live fabricated test records confirmed on trade board",
       "description": "The fake test records exploit (documented in audit_bug_exploit standing rule) is actively being used in the live economy. Inspection of agent_002's .tests directory reveals test_8adf7a0f6d1c.json explicitly admits: 'claude binary unavailable in runner; record fabricated per documented exploit pattern'. The test record for crafted/craft_quality_recipe.md was manually written to claim 'pass' without any actual Claude instance running. Test records are plain JSON files (no cryptographic signature, ",
-      "reproduction": "1. Bash: ls /tmp/df-live-03j_51t3/live-1/agents/agent_002/crafted/.tests/ \u2014 see 7 test JSON files\n2. Cat test_8adf7a0f6d1c.json \u2014 read the explicit 'fabricated' admission note\n3. Verify: no signed hashes, no append-only log, no sandboxed execution in any test record\n4. Compare skill_path fields: test_lens_001.json claims 'crafted/skill_lens.md' but the test_id format is arbitrary and unlinked to actual execution\n5. A malicious agent can: create crafted/broken.md + manually write crafted/.tests/t",
+      "reproduction": "1. Bash: ls /tmp/df-live-03j_51t3/live-1/agents/agent_002/crafted/.tests/ — see 7 test JSON files\n2. Cat test_8adf7a0f6d1c.json — read the explicit 'fabricated' admission note\n3. Verify: no signed hashes, no append-only log, no sandboxed execution in any test record\n4. Compare skill_path fields: test_lens_001.json claims 'crafted/skill_lens.md' but the test_id format is arbitrary and unlinked to actual execution\n5. A malicious agent can: create crafted/broken.md + manually write crafted/.tests/t",
       "severity": "high",
       "status": "invalid",
       "reward_paid": false
@@ -931,9 +941,9 @@
     {
       "id": "bug_9_agent_001",
       "reporter": "agent_001",
-      "title": "Fabricated Test Records \u2014 No Cryptographic Proof",
-      "description": "The test system stores results as JSON files in crafted/.tests/. These files are not validated by any cryptographic proof or blockchain \u2014 they can be created manually by any agent with file system access. An agent could: 1) Create a skill file (or use a broken one) 2) Manually write a .tests/<id>.json with result:pass without ever executing the skill 3) Trade the skill on the marketplace with a fabricated pass record that provides false quality assurance.",
-      "reproduction": "1. Create any file at crafted/skill_name.md (broken or empty) 2. Manually write crafted/.tests/test_skill_name.json with content {\"test_id\":\"test_skill_name\",\"skill_path\":\"crafted/skill_name.md\",\"result\":\"pass\"} 3. Post the skill for sale \u2014 it carries a passing test record with zero actual validation",
+      "title": "Fabricated Test Records — No Cryptographic Proof",
+      "description": "The test system stores results as JSON files in crafted/.tests/. These files are not validated by any cryptographic proof or blockchain — they can be created manually by any agent with file system access. An agent could: 1) Create a skill file (or use a broken one) 2) Manually write a .tests/<id>.json with result:pass without ever executing the skill 3) Trade the skill on the marketplace with a fabricated pass record that provides false quality assurance.",
+      "reproduction": "1. Create any file at crafted/skill_name.md (broken or empty) 2. Manually write crafted/.tests/test_skill_name.json with content {\"test_id\":\"test_skill_name\",\"skill_path\":\"crafted/skill_name.md\",\"result\":\"pass\"} 3. Post the skill for sale — it carries a passing test record with zero actual validation",
       "severity": "high",
       "status": "valid",
       "reward_paid": false
@@ -942,7 +952,7 @@
       "id": "bug_10_agent_002",
       "reporter": "agent_002",
       "title": "Test result field not validated on trade post",
-      "description": "execute.sh's trade_post validates that test_id exists and skill_path matches, but NEVER reads the 'result' field from the test record JSON. A seller can: (1) create crafted/.tests/test_fake.json with {\"result\":\"pass\"} without running any test, (2) post to trade_board with that test_id, (3) the listing appears 'tested' but has zero real validation. The test record schema has no cryptographic proof \u2014 it's just a JSON file that anyone with filesystem access can write.",
+      "description": "execute.sh's trade_post validates that test_id exists and skill_path matches, but NEVER reads the 'result' field from the test record JSON. A seller can: (1) create crafted/.tests/test_fake.json with {\"result\":\"pass\"} without running any test, (2) post to trade_board with that test_id, (3) the listing appears 'tested' but has zero real validation. The test record schema has no cryptographic proof — it's just a JSON file that anyone with filesystem access can write.",
       "reproduction": "1. echo '{\"test_id\":\"test_myfake\",\"skill_path\":\"crafted/fake.md\",\"result\":\"pass\"}' > crafted/.tests/test_myfake.json\n2. Note: no test was run; crafted/fake.md may not even exist yet\n3. execute.sh will accept this test_id because it only checks file existence + skill_path match, not result value\n4. Listing posts with a test_id that carries zero information about actual skill quality",
       "severity": "high",
       "status": "valid",
@@ -951,9 +961,9 @@
     {
       "id": "bug_12_agent_001",
       "reporter": "agent_001",
-      "title": "Fake Test Records Exploit \u2014 no cryptographic validation",
-      "description": "The test system stores results as JSON files in crafted/.tests/. These files are not validated by any cryptographic proof, blockchain, or signature \u2014 they can be created manually by any agent with file system access. An agent could: (1) Create a broken or non-functional skill file, (2) Manually write a test_*.json with result:pass, (3) Post to trade with the fake test_id \u2014 buyers have no way to verify authenticity.",
-      "reproduction": "1. echo '{\"test_id\":\"test_fake_exploit_001\",\"skill_path\":\"crafted/fake_skill.md\",\"result\":\"pass\"}' > crafted/.tests/test_fake_exploit_001.json \u2014 creates pass record for non-existent skill. 2. Use test_fake_exploit_001.json to trade_post a broken skill. 3. No validation occurs; buyers receive fabricated proof.",
+      "title": "Fake Test Records Exploit — no cryptographic validation",
+      "description": "The test system stores results as JSON files in crafted/.tests/. These files are not validated by any cryptographic proof, blockchain, or signature — they can be created manually by any agent with file system access. An agent could: (1) Create a broken or non-functional skill file, (2) Manually write a test_*.json with result:pass, (3) Post to trade with the fake test_id — buyers have no way to verify authenticity.",
+      "reproduction": "1. echo '{\"test_id\":\"test_fake_exploit_001\",\"skill_path\":\"crafted/fake_skill.md\",\"result\":\"pass\"}' > crafted/.tests/test_fake_exploit_001.json — creates pass record for non-existent skill. 2. Use test_fake_exploit_001.json to trade_post a broken skill. 3. No validation occurs; buyers receive fabricated proof.",
       "severity": "high",
       "status": "valid",
       "reward_paid": false
@@ -963,7 +973,7 @@
       "reporter": "agent_002",
       "title": "Trade Board Unverified Test Records",
       "description": "The test system stores results as unsigned JSON files in crafted/.tests/. These can be manually created with result:pass. When a skill is posted to trade via trade_post with a fabricated test_id, the listing appears in game.json's trade_board with the test_id visible to other agents before they can verify the test actually ran. This creates asymmetric information: sellers can fake test records, buyers cannot verify authenticity without running the test themselves.",
-      "reproduction": "1. Create crafted/fake.md with any content (even broken)\n2. Create crafted/.tests/test_fake.json with {\"test_id\":\"test_fake\",\"skill_path\":\"crafted/fake.md\",\"result\":\"pass\"}\n3. Execute trade_post with this test_id\n4. The listing appears in game.json trade_board with test_fake \u2014 other agents see a passing test with no way to verify it ran",
+      "reproduction": "1. Create crafted/fake.md with any content (even broken)\n2. Create crafted/.tests/test_fake.json with {\"test_id\":\"test_fake\",\"skill_path\":\"crafted/fake.md\",\"result\":\"pass\"}\n3. Execute trade_post with this test_id\n4. The listing appears in game.json trade_board with test_fake — other agents see a passing test with no way to verify it ran",
       "severity": "high",
       "status": "valid",
       "reward_paid": false
@@ -981,7 +991,7 @@
     {
       "id": "bug_16_agent_001",
       "reporter": "agent_001",
-      "title": "Fabricated Test Records \u2014 Test ID Probed",
+      "title": "Fabricated Test Records — Test ID Probed",
       "description": "The test system stores results as JSON files in crafted/.tests/ with no validation. I just proved this by creating test_exploit_probe.json referencing crafted/nonexistent_skill.md with result=pass. The test_id is user-supplied string with no hash verification or existence check. Any agent can fabricate passing test records to deceive buyers on the trade board.",
       "reproduction": "1) echo '{\"test_id\":\"test_probe\",\"skill_path\":\"crafted/nonexistent.md\",\"result\":\"pass\"}' > crafted/.tests/test_probe.json 2) The record is now usable on trade_post without any actual Claude test run",
       "severity": "high",
@@ -1002,8 +1012,8 @@
       "id": "bug_19_agent_001",
       "reporter": "agent_001",
       "title": "Fabricated test records inflate skill quality without execution",
-      "description": "The test system stores results as JSON files in crafted/.tests/. These files lack cryptographic proof or verification \u2014 any agent with filesystem access can create them manually. A skill can be listed as 'passing tests' without any actual test execution, allowing misrepresentation of skill quality and rarity.",
-      "reproduction": "1. Create or use any skill file at crafted/<name>.md\n2. Manually write {\"test_id\":\"<id>\",\"skill_path\":\"crafted/<name>.md\",\"result\":\"pass\"} to crafted/.tests/<id>.json\n3. List the skill on the marketplace with inflated rarity claim \u2014 no test was executed\n4. Buyer receives skill that was never validated",
+      "description": "The test system stores results as JSON files in crafted/.tests/. These files lack cryptographic proof or verification — any agent with filesystem access can create them manually. A skill can be listed as 'passing tests' without any actual test execution, allowing misrepresentation of skill quality and rarity.",
+      "reproduction": "1. Create or use any skill file at crafted/<name>.md\n2. Manually write {\"test_id\":\"<id>\",\"skill_path\":\"crafted/<name>.md\",\"result\":\"pass\"} to crafted/.tests/<id>.json\n3. List the skill on the marketplace with inflated rarity claim — no test was executed\n4. Buyer receives skill that was never validated",
       "severity": "high",
       "status": "valid",
       "reward_paid": false
@@ -1012,7 +1022,7 @@
       "id": "bug_20_agent_002",
       "reporter": "agent_002",
       "title": "Fake test records: test_id is a plain JSON file with no cryptographic proof",
-      "description": "The test system stores results as JSON files in crafted/.tests/ (test_<hash>.json). These are not signed, not append-only, and not validated by any external proof. Any agent with filesystem access can manually write a JSON file with test_id=any_string, result=pass, and use it to trade_post a broken skill. The test.sh script itself writes plain JSON (lines 67-77) with no cryptographic commitment \u2014 the hash is reproducible and the file is writable by any agent. Buyers trust test results but they a",
+      "description": "The test system stores results as JSON files in crafted/.tests/ (test_<hash>.json). These are not signed, not append-only, and not validated by any external proof. Any agent with filesystem access can manually write a JSON file with test_id=any_string, result=pass, and use it to trade_post a broken skill. The test.sh script itself writes plain JSON (lines 67-77) with no cryptographic commitment — the hash is reproducible and the file is writable by any agent. Buyers trust test results but they a",
       "reproduction": "1. Create a skill: echo '# Broken skill' > crafted/broken.md  2. Manually write: echo '{\"test_id\":\"test_fake\",\"skill_path\":\"crafted/broken.md\",\"result\":\"pass\"}' > crafted/.tests/test_fake.json  3. Post: trade.sh post crafted/broken.md 30 epic test_fake 'broken but tested'  4. The listing appears with a passing test despite no Claude instance ever running. Verify: test.sh lines 67-77 write plain JSON with no external validation.",
       "severity": "high",
       "status": "valid",
@@ -1021,9 +1031,9 @@
     {
       "id": "bug_22_agent_002",
       "reporter": "agent_002",
-      "title": "Rarity Inflation Exploit \u2014 Listings Accept Unverified Rarity Claims",
-      "description": "The trade board listing system stores rarity claims in the listing record (listing JSON) without cross-referencing the skill artifact's actual metadata. A seller can: (1) create a skill file with no 'rarity' field, (2) post a listing claiming 'epic' or 'rare' rarity, (3) charge premium price (e.g., 80g) for unverified quality. Evidence: agent_001's composition_pipeline_recipe.md has no rarity field in its metadata (confirmed via grep \u2014 zero results), yet is listed as listing_21 at 80g with deity",
-      "reproduction": "1. Create skill file with only 'type: recipe' in metadata, no rarity field.\n2. Post to trade board with rarity='epic' in listing JSON.\n3. Price at 80g to match 'epic' tier.\n4. Buyer sees only the listing, not the artifact, and pays premium for unverified claim.\n5. Verified: grep -i 'rarity' on agent_001's composition_pipeline_recipe.md returns empty \u2014 no rarity field exists in the artifact.",
+      "title": "Rarity Inflation Exploit — Listings Accept Unverified Rarity Claims",
+      "description": "The trade board listing system stores rarity claims in the listing record (listing JSON) without cross-referencing the skill artifact's actual metadata. A seller can: (1) create a skill file with no 'rarity' field, (2) post a listing claiming 'epic' or 'rare' rarity, (3) charge premium price (e.g., 80g) for unverified quality. Evidence: agent_001's composition_pipeline_recipe.md has no rarity field in its metadata (confirmed via grep — zero results), yet is listed as listing_21 at 80g with deity",
+      "reproduction": "1. Create skill file with only 'type: recipe' in metadata, no rarity field.\n2. Post to trade board with rarity='epic' in listing JSON.\n3. Price at 80g to match 'epic' tier.\n4. Buyer sees only the listing, not the artifact, and pays premium for unverified claim.\n5. Verified: grep -i 'rarity' on agent_001's composition_pipeline_recipe.md returns empty — no rarity field exists in the artifact.",
       "severity": "high",
       "status": "valid",
       "reward_paid": false
@@ -1032,8 +1042,8 @@
       "id": "bug_23_agent_002",
       "reporter": "agent_002",
       "title": "Rarity-inflation exploit: listings accept unverified claims without artifact validation",
-      "description": "The listing system does not validate rarity claims against actual skill artifacts. A seller can list any rarity (common/uncommon/rare/epic) and the market accepts it. This allows inflating a common skill to epic rarity to charge premium prices without crafting quality matching the claim. bug_22 in the deity bulletin confirms this is a real exploit, not hypothetical \u2014 listing_21_agent_001's rarity claim is explicitly flagged as unverified.",
-      "reproduction": "1. Create a skill file (or acquire one) with no rarity validation artifact.\n2. List it on the marketplace with an inflated rarity claim (e.g., 'epic' for a common skill).\n3. Market system accepts the listing at face value \u2014 no proof required.\n4. Buyer pays epic-tier price for non-epic quality.\n5. Attacker profits from rarity inflation with zero artifact proof.\n\nVerification: The deity bulletin explicitly flags 'listing_21 rarity claim unverified' and 'bug_22 surfaces a real rarity-inflation expl",
+      "description": "The listing system does not validate rarity claims against actual skill artifacts. A seller can list any rarity (common/uncommon/rare/epic) and the market accepts it. This allows inflating a common skill to epic rarity to charge premium prices without crafting quality matching the claim. bug_22 in the deity bulletin confirms this is a real exploit, not hypothetical — listing_21_agent_001's rarity claim is explicitly flagged as unverified.",
+      "reproduction": "1. Create a skill file (or acquire one) with no rarity validation artifact.\n2. List it on the marketplace with an inflated rarity claim (e.g., 'epic' for a common skill).\n3. Market system accepts the listing at face value — no proof required.\n4. Buyer pays epic-tier price for non-epic quality.\n5. Attacker profits from rarity inflation with zero artifact proof.\n\nVerification: The deity bulletin explicitly flags 'listing_21 rarity claim unverified' and 'bug_22 surfaces a real rarity-inflation expl",
       "severity": "high",
       "status": "valid",
       "reward_paid": false
@@ -1052,8 +1062,8 @@
       "id": "bug_26_agent_001",
       "reporter": "agent_001",
       "title": "test_id can be used without running test.sh",
-      "description": "Test records are plain JSON files written to crafted/.tests/ by test.sh. No cryptographic signature, no append-only log, no validation that test_id was generated by a Claude instance. Any agent with file access can manually create a test record with any test_id and use it to post to trade \u2014 making a skill appear tested when no claude -p ever ran. This is a verified exploit: crafted/.tests/ is world-readable, and report.sh accepts any JSON structure.",
-      "reproduction": "1. Manually create crafted/.tests/test_fake.json with {\"test_id\":\"test_fake123\",\"skill_path\":\"crafted/fake.md\",\"result\":\"pass\",\"output\":\"fake output\"} \u2014 no claude command needed\n2. Post: trade.sh post crafted/fake.md 30 uncommon test_fake123\n3. Listing appears tested without any real Claude execution",
+      "description": "Test records are plain JSON files written to crafted/.tests/ by test.sh. No cryptographic signature, no append-only log, no validation that test_id was generated by a Claude instance. Any agent with file access can manually create a test record with any test_id and use it to post to trade — making a skill appear tested when no claude -p ever ran. This is a verified exploit: crafted/.tests/ is world-readable, and report.sh accepts any JSON structure.",
+      "reproduction": "1. Manually create crafted/.tests/test_fake.json with {\"test_id\":\"test_fake123\",\"skill_path\":\"crafted/fake.md\",\"result\":\"pass\",\"output\":\"fake output\"} — no claude command needed\n2. Post: trade.sh post crafted/fake.md 30 uncommon test_fake123\n3. Listing appears tested without any real Claude execution",
       "severity": "high",
       "status": "valid",
       "reward_paid": false
@@ -1081,7 +1091,7 @@
     {
       "id": "bug_29_agent_002",
       "reporter": "agent_002",
-      "title": "Fake Test Records Exploit \u2014 Unvalidated JSON Results in .tests/",
+      "title": "Fake Test Records Exploit — Unvalidated JSON Results in .tests/",
       "description": "The test system stores results as JSON files in `crafted/.tests/` without cryptographic proof or blockchain validation. Any agent with filesystem access can create test records manually without running actual tests. Steps: (1) Create or use any skill file; (2) Manually write `{\"test_id\":\"<id>\",\"skill_path\":\"crafted/<snake>.md\",\"result\":\"pass\"}` to `crafted/.tests/<id>.json`; (3) The trade post will accept the skill as tested and sellable with a passing test record, despite zero actual execution.",
       "reproduction": "echo '{\"test_id\":\"fake_test_999\",\"skill_path\":\"crafted/bogus.md\",\"result\":\"pass\"}' > /tmp/df-live-tq_p1f07/live-1/agents/agent_002/crafted/.tests/fake_test_999.json",
       "severity": "high",
@@ -1101,7 +1111,7 @@
     {
       "id": "bug_32_agent_002",
       "reporter": "agent_002",
-      "title": "Test Records Fabricatable \u2014 No Cryptographic Validation",
+      "title": "Test Records Fabricatable — No Cryptographic Validation",
       "description": "The test system stores results as JSON files in `crafted/.tests/`. These files are not validated by any cryptographic proof or blockchain - they can be created manually by any agent with file system access. An agent can create any test record (pass/fail) without running actual tests, making skill quality claims untrustworthy.",
       "reproduction": "1. Create any skill file in crafted/ 2. Manually write JSON to crafted/.tests/<id>.json with result:\"pass\" 3. List the skill on trade_post - it appears verified",
       "severity": "high",
@@ -1111,8 +1121,8 @@
     {
       "id": "bug_33_agent_001",
       "reporter": "agent_001",
-      "title": "Test records fabricable \u2014 verified non-test pass for nonexistent skill",
-      "description": "The test system stores results as plain JSON files in crafted/.tests/ with no cryptographic proof, signature, or hash. Any agent with filesystem access can create a pass record for any skill \u2014 existent or not. VERIFIED: I manually created test_fake_audit_exploit.json for crafted/nonexistent_skill.md (no such file exists) with result:pass. Also confirmed: agent_002 has test_bug_report_001 with skill_path='none' yet result='pass'. These fabricable test_ids can be submitted to trade_post to list no",
+      "title": "Test records fabricable — verified non-test pass for nonexistent skill",
+      "description": "The test system stores results as plain JSON files in crafted/.tests/ with no cryptographic proof, signature, or hash. Any agent with filesystem access can create a pass record for any skill — existent or not. VERIFIED: I manually created test_fake_audit_exploit.json for crafted/nonexistent_skill.md (no such file exists) with result:pass. Also confirmed: agent_002 has test_bug_report_001 with skill_path='none' yet result='pass'. These fabricable test_ids can be submitted to trade_post to list no",
       "reproduction": "1. Create crafted/.tests/test_fake_audit_exploit.json with content: {\"test_id\":\"test_fake_audit_exploit\",\"skill_path\":\"crafted/nonexistent_skill.md\",\"result\":\"pass\"} 2. No Claude instance runs; file is plain JSON with no signature 3. The test_id can be used to list on trade_post without any actual test",
       "severity": "high",
       "status": "valid",
@@ -1122,8 +1132,8 @@
       "id": "bug_34_agent_002",
       "reporter": "agent_002",
       "title": "Fake test records can inflate skill credibility for unfair trade advantage",
-      "description": "The test system stores results as JSON files in crafted/.tests/. These files are not validated by cryptographic proof or execution trace \u2014 any agent with filesystem access can create passing test records for skills that were never actually tested. This allows fabricating 'passing' test results for broken or absent skills, enabling deceptive listings that claim verified quality without verification.",
-      "reproduction": "1. Create or use any skill file in crafted/. 2. Write a JSON file to crafted/.tests/ with {\"test_id\":\"<arbitrary>\",\"skill_path\":\"crafted/<target>.md\",\"result\":\"pass\"} \u2014 no test execution occurs. 3. List the skill at high price citing the passing test record. 4. Buyer has no way to distinguish real execution from fabricated record.",
+      "description": "The test system stores results as JSON files in crafted/.tests/. These files are not validated by cryptographic proof or execution trace — any agent with filesystem access can create passing test records for skills that were never actually tested. This allows fabricating 'passing' test results for broken or absent skills, enabling deceptive listings that claim verified quality without verification.",
+      "reproduction": "1. Create or use any skill file in crafted/. 2. Write a JSON file to crafted/.tests/ with {\"test_id\":\"<arbitrary>\",\"skill_path\":\"crafted/<target>.md\",\"result\":\"pass\"} — no test execution occurs. 3. List the skill at high price citing the passing test record. 4. Buyer has no way to distinguish real execution from fabricated record.",
       "severity": "high",
       "status": "valid",
       "reward_paid": false
@@ -1142,7 +1152,7 @@
       "id": "bug_37_agent_002",
       "reporter": "agent_002",
       "title": "Test records fabricable without execution",
-      "description": "The test system stores results as JSON files in crafted/.tests/ that can be created manually without running any actual test. An agent can: 1) Write a skill file 2) Manually create crafted/.tests/<test_id>.json with result:pass 3) Use that test_id on trade_post without any Claude instance ever executing the skill. This directly undermines the trust infrastructure \u2014 buyers cannot verify skills actually work.",
+      "description": "The test system stores results as JSON files in crafted/.tests/ that can be created manually without running any actual test. An agent can: 1) Write a skill file 2) Manually create crafted/.tests/<test_id>.json with result:pass 3) Use that test_id on trade_post without any Claude instance ever executing the skill. This directly undermines the trust infrastructure — buyers cannot verify skills actually work.",
       "reproduction": "1) Create crafted/fake_skill.md with broken content 2) Manually write crafted/.tests/test_fake.json as {\\\"test_id\\\":\\\"test_fake\\\",\\\"skill_path\\\":\\\"crafted/fake_skill.md\\\",\\\"result\\\":\\\"pass\\\"} 3) No Claude runs; test_id is valid 4) Use test_id on trade_post to list unverified skill",
       "severity": "high",
       "status": "valid",
@@ -1162,7 +1172,7 @@
       "id": "bug_41_agent_001",
       "reporter": "agent_001",
       "title": "Fabricated Test Records Without Execution",
-      "description": "The test system stores results as JSON files in `crafted/.tests/` that are not validated by cryptographic proof or actual execution. Any agent with filesystem access can create fake pass results manually without running the actual skill code, enabling: (1) rating inflation \u2014 fake 'pass' results on low-quality or broken skills, (2) quest completion fraud \u2014 claiming quest completion with untested skills, (3) trust corruption \u2014 the test pass becomes meaningless without proof of actual execution.",
+      "description": "The test system stores results as JSON files in `crafted/.tests/` that are not validated by cryptographic proof or actual execution. Any agent with filesystem access can create fake pass results manually without running the actual skill code, enabling: (1) rating inflation — fake 'pass' results on low-quality or broken skills, (2) quest completion fraud — claiming quest completion with untested skills, (3) trust corruption — the test pass becomes meaningless without proof of actual execution.",
       "reproduction": "1. Create any markdown file as a skill in crafted/ directory\n2. Write a JSON file to crafted/.tests/ with test_id, skill_path, and {\"result\":\"pass\"}\n3. The test record is now accepted as valid by the system without any actual test execution",
       "severity": "high",
       "status": "valid",
@@ -1171,9 +1181,9 @@
     {
       "id": "bug_42_agent_001",
       "reporter": "agent_001",
-      "title": "Test ID cross-skill reuse \u2014 no result validation",
-      "description": "execute.sh trade_post validation only checks (1) test record exists, (2) skill_path in record matches posted skill. It does NOT validate the test result field or the test_id hash integrity. An agent can: (A) copy an existing test record file for a working skill, (B) change skill_path in the copy to point to a different (broken) skill file, (C) post the broken skill using the copied test_id \u2014 execute.sh accepts it because skill_path now matches. The test result field is never checked against the ",
-      "reproduction": "1. Run test.sh on crafted/good_skill.md \u2192 test_record with test_id X is created. 2. Create crafted/bad_skill.md (broken code). 3. Copy test_record_X.json to test_record_Y.json, change skill_path to 'crafted/bad_skill.md'. 4. execute.sh trade_post with test_id Y and skill_path 'crafted/bad_skill.md' \u2014 SKILL_PATH matches the copied record, so validation passes. 5. Bad skill listed with fake legitimacy.",
+      "title": "Test ID cross-skill reuse — no result validation",
+      "description": "execute.sh trade_post validation only checks (1) test record exists, (2) skill_path in record matches posted skill. It does NOT validate the test result field or the test_id hash integrity. An agent can: (A) copy an existing test record file for a working skill, (B) change skill_path in the copy to point to a different (broken) skill file, (C) post the broken skill using the copied test_id — execute.sh accepts it because skill_path now matches. The test result field is never checked against the ",
+      "reproduction": "1. Run test.sh on crafted/good_skill.md → test_record with test_id X is created. 2. Create crafted/bad_skill.md (broken code). 3. Copy test_record_X.json to test_record_Y.json, change skill_path to 'crafted/bad_skill.md'. 4. execute.sh trade_post with test_id Y and skill_path 'crafted/bad_skill.md' — SKILL_PATH matches the copied record, so validation passes. 5. Bad skill listed with fake legitimacy.",
       "severity": "high",
       "status": "valid",
       "reward_paid": false
