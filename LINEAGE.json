@@ -3049,5 +3049,22 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-17T03:11:33+00:00",
+    "verdict": "REVERT",
+    "change": "Installed adversarial_failure_lens.md to loadout; applied it to all 14 targets, found 4 CRITICAL exploits (3 recipes non-functional due to missing lens deps; reward extraction text-parsed and gameable",
+    "diff": [
+      {
+        "file": "loadout/adversarial_failure_analysis.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/adversarial_failure_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 1.0,
+    "fitness_patched": 0.5
   }
 ]
