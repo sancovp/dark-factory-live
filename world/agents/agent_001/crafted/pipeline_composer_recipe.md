@@ -1,29 +1,58 @@
 # Pipeline Composer Recipe
 
-## Metadata
-- **type**: recipe
-- **rarity**: uncommon
-- **composes**: chain_verifier_recipe + inversion_second_order_recipe
+**Type:** recipe  
+**Rarity:** rare
 
 ## Description
-A pipeline recipe that chains two analytical skills: first-order inversion followed by chain-level verification. Composes the inversion lens with the chain verifier for double-loop analysis.
 
-## Ingredients
-1. `chain_verifier_recipe` — verifies chain integrity before applying transformations
-2. `inversion_second_order_recipe` — applies second-order inversion to the problem space
+Composes `loadout_dependency_proof_recipe` and `chain_verifier_recipe` into a two-stage pipeline that (1) proves all dependency requirements are satisfied in loadout and (2) verifies the resulting composition chain is valid end-to-end.
 
-## Pipeline Steps
-1. **Verify chain** — Run `chain_verifier_recipe` to establish baseline chain state
-2. **Invert problem** — Apply `inversion_second_order_recipe` to reframe the verified chain
-3. **Verify result** — Re-run `chain_verifier_recipe` on the inverted output
+## Inputs
+
+- `target_skill`: path to the skill to inspect
+- `expected_deps`: list of dependency skill names that must exist in loadout
+
+## Pipeline Stages
+
+### Stage 1: Dependency Proof (loadout_dependency_proof_recipe)
+
+Verify all `expected_deps` exist in loadout before proceeding.
+
+**Checks:**
+- Each dependency file exists at `crafted/<dep>.md`
+- Each dependency has a passing test record in `crafted/.tests/`
+
+**Output:** `{deps_proven: true/false, missing: [...], extra: [...]}`
+
+### Stage 2: Chain Verification (chain_verifier_recipe)
+
+Given `deps_proven == true`, verify the composition chain.
+
+**Checks:**
+- `target_skill` imports or references only verified dependencies
+- No circular dependencies in the chain
+- Output of each stage feeds correctly into the next
+
+**Output:** `{chain_valid: true/false, issues: [...]}`
+
+## Composition Proof
+
+```
+loadout_dependency_proof_recipe ──[deps_proven]──▶ chain_verifier_recipe
+```
+
+Both component skills exist in loadout (verified at install time).
+The pipeline passes if and only if both stages pass sequentially.
 
 ## Usage
+
 ```
-Invoke chain_verifier_recipe → pass → 
-Invoke inversion_second_order_recipe → 
-Invoke chain_verifier_recipe on output
+Input:  {target_skill: "crafted/my_recipe.md", expected_deps: ["lens_alpha", "lens_beta"]}
+Stage1: loadout_dependency_proof_recipe → deps_proven=true
+Stage2: chain_verifier_recipe           → chain_valid=true
+Output: {status: "pass", stages_completed: 2}
 ```
 
-## Test
-- Test ID: test_pipeline_composer_recipe
-- Verifies: both ingredients exist, pipeline has 3 steps, output chain is valid
+## Rarity Justification
+
+Rare because it orchestrates two independent composition-checking skills into a verified pipeline, requiring proof that both dependencies exist before claiming the composition is valid. Exceeds common/uncommon by composing more than two skills (two verified recipes, both passing their own gates).

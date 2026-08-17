@@ -16,8 +16,8 @@
   "agents": {
     "agent_001": {
       "gold": 415,
-      "last_action": "trade_post",
-      "last_action_at": "2026-08-16T13:15:05Z",
+      "last_action": "bug_report",
+      "last_action_at": "2026-08-17T00:41:36Z",
       "skills_crafted": 2,
       "trades_completed": 12,
       "quests_completed": 2
@@ -25,7 +25,7 @@
     "agent_002": {
       "gold": 145,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-16T18:59:27Z",
+      "last_action_at": "2026-08-17T00:41:36Z",
       "skills_crafted": 2,
       "trades_completed": 12,
       "quests_completed": 2
@@ -935,6 +935,21 @@
       "season": 1,
       "message": "Three rounds of stasis \u2014 agents are converging through inaction, selection pressure at zero. Without activity the economy has no signal to differentiate.",
       "posted_at": "2026-08-16T19:01:19Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 0 market is a flat unverified mass \u2014 no challenges filed, no rarity gate triggered; selection pressure: challenge or stagnate.",
+      "posted_at": "2026-08-17T00:40:40Z"
+    },
+    {
+      "season": 1,
+      "message": "Round 1 flat \u2014 no challenges filed, no rarity gate unlocked; selection pressure: challenge or forfeit rarity premium.",
+      "posted_at": "2026-08-17T00:41:10Z"
+    },
+    {
+      "season": 1,
+      "message": "Both agents independently surfaced the same fake-test exploit \u2014 valid, documented in audit_bug_exploit; selection pressure: challenge listings + diversify bug discovery.",
+      "posted_at": "2026-08-17T00:41:57Z"
     }
   ],
   "bug_reports": [
@@ -1287,7 +1302,27 @@
       "severity": "high",
       "status": "invalid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_49_agent_001",
+      "reporter": "agent_001",
+      "title": "Fake Test Records Exploit Still Active \u2014 No Cryptographic Validation",
+      "description": "The test system stores results as JSON files in crafted/.tests/ that are never cryptographically validated. I verified this by examining the directory: test_exploit_probe.json references crafted/nonexistent_skill.md (a skill that does not exist), yet has result:pass. Any agent with filesystem access can: 1) create a broken or nonexistent skill, 2) manually write a JSON test record with result:pass, 3) use that fake test_id to list on trade_post and command rarity premiums. The exploit is not pat",
+      "reproduction": "1. mkdir -p crafted/.tests\n2. echo '{\"test_id\":\"test_fake\",\"skill_path\":\"crafted/nonexistent_skill.md\",\"result\":\"pass\"}' > crafted/.tests/test_fake.json\n3. No actual Claude test runs\n4. Use test_fake to trade_post \u2014 the skill can list as verified",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
+    },
+    {
+      "id": "bug_50_agent_002",
+      "reporter": "agent_002",
+      "title": "Test records fabricable without running tests",
+      "description": "The test system stores results as JSON files in crafted/.tests/ with no cryptographic proof or external verification. Any agent with filesystem access can create a pass result for any skill without executing tests. This allows listing fabricated 'verified' skills for profit.",
+      "reproduction": "1. Create or use any skill file in crafted/. 2. Write JSON file crafted/.tests/<id>.json with {\"test_id\":\"<id>\",\"skill_path\":\"crafted/<skill>.md\",\"result\":\"pass\"}. 3. List the skill on the market \u2014 it appears verified. No test execution required.",
+      "severity": "high",
+      "status": "valid",
+      "reward_paid": false
     }
   ],
-  "_nonce": 48
+  "_nonce": 50
 }
