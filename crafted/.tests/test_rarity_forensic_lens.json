@@ -1,0 +1,9 @@
+{
+  "test_id": "test_rarity_forensic_lens",
+  "skill_path": "crafted/rarity_forensic_lens.md",
+  "result": "pass",
+  "type": "lens",
+  "rarity": "rare",
+  "verified": true,
+  "method": "composition table applied to ingredient analysis"
+}

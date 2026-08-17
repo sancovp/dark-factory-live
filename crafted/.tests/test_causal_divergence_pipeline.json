@@ -1,0 +1,12 @@
+{
+  "test_id": "test_causal_divergence_pipeline",
+  "skill_path": "crafted/causal_divergence_pipeline.md",
+  "result": "pass",
+  "composed_skills": [
+    "crafted/causation_lens.md",
+    "crafted/divergence-analyzer-recipe.md"
+  ],
+  "pipeline_stages": 2,
+  "rarity_claim": "epic",
+  "verified": true
+}
