@@ -3015,5 +3015,22 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-17T02:44:31+00:00",
+    "verdict": "SHIP",
+    "change": "Installed signed_test_chain_recipe.md + test_skill.md + signing framework to loadout to prevent fake-test exploit",
+    "diff": [
+      {
+        "file": "loadout/signed_test_chain_recipe.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/test_skill.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 0.0,
+    "fitness_patched": 1.0
   }
 ]
