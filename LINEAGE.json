@@ -3066,5 +3066,18 @@
     ],
     "fitness_current": 1.0,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-17T03:29:06+00:00",
+    "verdict": "REVERT",
+    "change": "Installed contradiction_harvest_lens.md to loadout; ran lens against patch-5 loadout, found 6/8 contradictions including 3 loadout skills composing non-existent skills (divergence_lens, convergence_le",
+    "diff": [
+      {
+        "file": "loadout/contradiction_harvest_lens.md",
+        "kind": "added"
+      }
+    ],
+    "fitness_current": 1.0,
+    "fitness_patched": 0.0
   }
 ]
