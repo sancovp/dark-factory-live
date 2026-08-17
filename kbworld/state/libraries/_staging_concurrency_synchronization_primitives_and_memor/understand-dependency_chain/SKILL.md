@@ -53,4 +53,4 @@ Invoke this skill to understand `dependency_chain` down to its primitives. The R
 `address_dependency`, `arm_isb`, `control_dependency`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

@@ -3,72 +3,65 @@
     {
       "region": "c11_memory_model",
       "targets": [
-        "memory_order_relaxed_atomicity_guarantee",
-        "memory_order_relaxed_modification_order"
+        "memory_order_relaxed_modification_order",
+        "seq_cst_default_atomic_ordering"
       ],
       "phases": [
         "soup",
         "soup"
       ],
-      "new_concepts": 30,
-      "new_relations": 53
+      "new_concepts": 11,
+      "new_relations": 20
     },
     {
-      "region": "synchronizes_with",
+      "region": "indivisibility_property",
       "targets": [
-        "synchronizes_with"
+        "intermediate_state_invisibility",
+        "read_modify_write_indivisibility"
       ],
       "phases": [
+        "soup",
         "soup"
       ],
-      "new_concepts": 70,
-      "new_relations": 62
+      "new_concepts": 19,
+      "new_relations": 24
     }
   ],
   "basis_before": {
     "shared_atoms": [
-      "synchronizes_with"
+      "indivisibility_property",
+      "intermediate_state_invisibility",
+      "load_indivisibility",
+      "no_partial_observation",
+      "no_tearing_guarantee",
+      "read_modify_write_indivisibility",
+      "store_indivisibility"
     ],
-    "shared": 1,
-    "union": 36,
-    "overlap": 0.028
+    "shared": 7,
+    "union": 83,
+    "overlap": 0.084
   },
   "basis_after": {
     "shared_atoms": [
-      "acquire_fence",
-      "atomic_cas",
-      "atomic_compare_exchange",
-      "atomic_load",
-      "atomic_store",
-      "barrier_arrival",
-      "condvar_broadcast",
-      "condvar_signal",
-      "condvar_wait",
-      "fence_synchronizes_with_fence",
-      "fence_synchronizes_with_op",
-      "full_fence",
-      "happens_before_order",
-      "inter_thread_happens_before",
-      "lock_acquire",
-      "lock_release",
-      "memory_order_acq_rel",
-      "memory_order_acquire",
-      "memory_order_release",
-      "program_order",
-      "release_fence",
-      "semaphore_acquire",
-      "semaphore_release",
-      "seq_cst_fence",
-      "signal_delivery",
-      "synchronizes_with",
-      "synchronizes_with_acquire_side",
-      "synchronizes_with_release_side",
-      "thread_creation",
-      "thread_join",
-      "unlock_synchronizes_with"
+      "indivisibility_property",
+      "intermediate_state_invisibility",
+      "isi_atomicity_boundary",
+      "isi_load_visibility_rule",
+      "isi_no_in_flight_state",
+      "isi_observer_exclusivity",
+      "isi_operation_completeness",
+      "isi_post_state_visibility",
+      "isi_pre_state_visibility",
+      "isi_rmw_visibility_rule",
+      "isi_store_visibility_rule",
+      "load_indivisibility",
+      "no_partial_observation",
+      "no_tearing_guarantee",
+      "read_modify_write_indivisibility",
+      "store_indivisibility"
     ],
-    "shared": 31,
-    "union": 83,
-    "overlap": 0.373
+    "shared": 16,
+    "union": 97,
+    "overlap": 0.165
   }
 }

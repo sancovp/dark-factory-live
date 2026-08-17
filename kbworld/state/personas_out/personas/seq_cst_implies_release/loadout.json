@@ -1,0 +1,13 @@
+{
+  "region": "seq_cst_implies_release",
+  "call_number": "deep_c11_memory_model.seq_cst_implies_release",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}

@@ -7,7 +7,7 @@ version: 0.1.0
 # using-concurrency-synchronization-primitives-a
 
 This module is a CULTIVATED, PROOF-CHECKED knowledge organism about
-**concurrency synchronization primitives and memory models** (377 concepts / 413 relations; grown by a
+**concurrency synchronization primitives and memory models** (407 concepts / 477 relations; grown by a
 KB factory — every region admitted by a Prolog consistency gate, wrongness
 tracked as open supersede-issues, never hidden).
 
@@ -52,15 +52,15 @@ tracked as open supersede-issues, never hidden).
 
 ## The map
 
-- `deep_c11_memory_model.memory_order_relaxed_atomicity_guarantee : deep_synchronizes_with(20), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(5)`
+- `deep_c11_memory_model.memory_order_relaxed_atomicity_guarantee : deep_synchronizes_with(20), deep_indivisibility_prope(9), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(5)`
 - `concurrency_synchronization_primitives_and_memor.synchronizes_with : deep_synchronizes_with(20), deep_happens_before_relat(7), deep_c11_memory_model(1)`
-- `concurrency_synchronization_primitives_and_memor.memory_order_relaxed : deep_c11_memory_model(39), deep_synchronizes_with(20), deep_happens_before_relat(7)`
-- `concurrency_synchronization_primitives_and_memor.sequentially_consistent : deep_synchronizes_with(20), deep_c11_memory_model(11), deep_happens_before_relat(7)`
-- `deep_c11_memory_model.indivisibility_property`
-- `deep_c11_memory_model.memory_order_relaxed_vs_acquire : deep_synchronizes_with(20), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(5)`
-- `concurrency_synchronization_primitives_and_memor.acquire_semantics : deep_c11_memory_model(39), deep_synchronizes_with(20), deep_happens_before_relat(7)`
+- `concurrency_synchronization_primitives_and_memor.memory_order_relaxed : deep_c11_memory_model(39), deep_synchronizes_with(20), deep_indivisibility_prope(9), deep_happens_before_relat(7)`
+- `concurrency_synchronization_primitives_and_memor.sequentially_consistent : deep_synchronizes_with(20), deep_c11_memory_model(16), deep_happens_before_relat(7)`
+- `deep_c11_memory_model.indivisibility_property : deep_indivisibility_prope(9)`
+- `deep_c11_memory_model.memory_order_relaxed_vs_acquire : deep_synchronizes_with(20), deep_indivisibility_prope(9), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(5)`
+- `concurrency_synchronization_primitives_and_memor.acquire_semantics : deep_c11_memory_model(39), deep_synchronizes_with(20), deep_indivisibility_prope(9), deep_happens_before_relat(7)`
 - `concurrency_synchronization_primitives_and_memor.happens_before_relation : deep_synchronizes_with(20), deep_happens_before_relat(7), deep_c11_memory_model(1)`
-- `concurrency_synchronization_primitives_and_memor.c11_memory_model : deep_c11_memory_model(47), deep_synchronizes_with(20), deep_happens_before_relat(7)`
+- `deep_indivisibility_prope.rmw_ind_001 : deep_c11_memory_model(3)`
+- `concurrency_synchronization_primitives_and_memor.c11_memory_model : deep_c11_memory_model(52), deep_synchronizes_with(20), deep_indivisibility_prope(9), deep_happens_before_relat(7)`
 - `concurrency_synchronization_primitives_and_memor.exponential_backoff : deep_spinlock(9), deep_exponential_backoff(4)`
-- `concurrency_synchronization_primitives_and_memor.mutex : deep_synchronizes_with(9), deep_spinlock(9), deep_happens_before_relat(7), deep_exponential_backoff(4)`
-- `deep_c11_memory_model.rlx_atomicity_core : deep_synchronizes_with(20), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(5)`
+- `deep_c11_memory_model.seq_cst_global_total_order : deep_synchronizes_with(20), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(3)`

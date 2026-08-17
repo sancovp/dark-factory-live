@@ -1,0 +1,13 @@
+{
+  "region": "rwlock_write_lock",
+  "call_number": "deep_synchronizes_with.rwlock_write_lock",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 1
+}

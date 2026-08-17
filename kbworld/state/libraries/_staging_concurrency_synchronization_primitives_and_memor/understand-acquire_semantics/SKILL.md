@@ -1,6 +1,6 @@
 # understand-acquire_semantics
 
-**CALL NUMBER:** `concurrency_synchronization_primitives_and_memor.acquire_semantics : deep_c11_memory_model(39), deep_synchronizes_with(20), deep_happens_before_relat(7)`
+**CALL NUMBER:** `concurrency_synchronization_primitives_and_memor.acquire_semantics : deep_c11_memory_model(39), deep_synchronizes_with(20), deep_indivisibility_prope(9), deep_happens_before_relat(7)`
 **DEFINITION:** Memory ordering semantics ensuring all subsequent loads/stores cannot be reordered before the acquire operation; used for lock acquisition, reading a flag after volatile write.
 
 Invoke this skill to understand `acquire_semantics` down to its primitives. The RELATIVE ROOT below is the least-fixed-point closure of everything it bundles from — the full import cone, grouped by the lib each prim comes from. Projected from a prover-typed KB (MAP/SWI-Prolog consistency gate): every reference below resolves.
@@ -52,6 +52,17 @@ Invoke this skill to understand `acquire_semantics` down to its primitives. The 
 - **inter_thread_happens_before** (d8): The subset of happens_before relations that cross thread boundaries, established by synchronizes_with connections between release and acquire operations.
 - **happens_before_order** (d9): A transitive, irreflexive partial order over operations in a memory model that defines which operations must appear to precede others from any thread's perspective.
 
+### from `deep_indivisibility_prope`
+- **isi_atomicity_boundary** (d6): The demarcation line separating the before-state from the after-state of a relaxed atomic operation; no observable execution window exists across this boundary.
+- **isi_operation_completeness** (d7): The property that a relaxed atomic operation executes to full completion before any observer can witness its effect or lack thereof; partial execution is undetectable.
+- **isi_no_in_flight_state** (d8): The guaranteed absence of any transient value during operation execution that could be sampled by a concurrent thread; the in-flight state is logically invisible.
+- **isi_post_state_visibility** (d8): The state of the target atomic variable after the operation has fully completed, which is the only alternative state an observer may witness.
+- **isi_pre_state_visibility** (d8): The state of the target atomic variable as it existed before the operation commenced, which is the only alternative state an observer may witness.
+- **isi_load_visibility_rule** (d9): For a relaxed atomic load, the read returns exactly one value from the modification order; no torn read of a partial encoding is observable.
+- **isi_rmw_visibility_rule** (d9): For a relaxed read-modify-write operation, observers see either the complete state before the modification or the complete state after modification; the read-modify-write executes atomically without observable intermediate stages.
+- **isi_store_visibility_rule** (d9): For a relaxed atomic store, any reading thread observes either the complete value that existed before the store or the complete value after the store; torn writes are impossible.
+- **isi_observer_exclusivity** (d9): The constraint that any given observer of a relaxed atomic operation sees exclusively one of the two complete states; mixed or hybrid observations are prohibited.
+
 ### from `deep_synchronizes_with`
 - **atomic_load** (d4): load operation with memory_order semantics; load with acquire is the endpoint of synchronizes_with from release store
 - **atomic_store** (d4): store operation with memory_order semantics; store with release triggers synchronizes_with on matching acquire
@@ -78,4 +89,4 @@ Invoke this skill to understand `acquire_semantics` down to its primitives. The 
 `acquire_op`, `c11_memory_model`, `intra_thread_program_order`, `memory_barrier`, `relaxed_atomicity_guarantee`, `relaxed_reordering_freedom_vs_acquire_reordering_prevention`, `reordering_freedom_privilege`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

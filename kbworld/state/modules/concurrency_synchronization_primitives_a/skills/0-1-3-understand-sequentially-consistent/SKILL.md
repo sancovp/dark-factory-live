@@ -5,7 +5,7 @@ description: "[0.1.3] The strongest memory ordering requiring a single total ord
 
 # understand-sequentially_consistent
 
-**CALL NUMBER:** `concurrency_synchronization_primitives_and_memor.sequentially_consistent : deep_synchronizes_with(20), deep_c11_memory_model(11), deep_happens_before_relat(7)`
+**CALL NUMBER:** `concurrency_synchronization_primitives_and_memor.sequentially_consistent : deep_synchronizes_with(20), deep_c11_memory_model(16), deep_happens_before_relat(7)`
 **DEFINITION:** The strongest memory ordering requiring a single total order of all sequentially consistent operations visible to all threads; implied by default for std::atomic operations in C++.
 
 Invoke this skill to understand `sequentially_consistent` down to its primitives. The RELATIVE ROOT below is the least-fixed-point closure of everything it bundles from — the full import cone, grouped by the lib each prim comes from. Projected from a prover-typed KB (MAP/SWI-Prolog consistency gate): every reference below resolves.
@@ -32,6 +32,11 @@ Invoke this skill to understand `sequentially_consistent` down to its primitives
 - **seq_cst_indivisible_atomicity** (d1): The property that each sequentially consistent operation appears indivisible and instantaneous to all observers; no intermediate states are visible during the operation.
 - **seq_cst_program_order_preservation** (d1): Within each thread, sequentially consistent operations maintain program order; no reordering of these operations is permitted within the same thread.
 - **seq_cst_synchronization_protocol** (d1): The protocol by which sequentially consistent operations establish synchronization points between threads; creates a happens-before relationship across thread boundaries.
+- **seq_cst_default_semantics** (d2): The implicit behavior that std::atomic operations exhibit when instantiated without an explicit memory_order template argument; this is the mandated strongest ordering level requiring no explicit fences.
+- **seq_cst_synchronizes_with** (d2): A relation between release_seq_cst operations on one thread and acquire_seq_cst operations on another thread that establishes inter-thread happens-before ordering through the global total order.
+- **seq_cst_happens_before_edge** (d2): A transitive ordering relation established between sequentially consistent operations that creates visibility guarantees across thread boundaries; if A happens-before B, A's effects are visible to B.
+- **seq_cst_no_explicit_fence_required** (d3): The property that the sequentially consistent default provides the full barrier effect of a seq_cst fence without requiring the programmer to write one; the compiler inserts the necessary barriers automatically.
+- **seq_cst_default_implies_seq_cst_fence** (d4): The equivalence between an operation using the default seq_cst ordering and the same operation paired with an explicit seq_cst fence; both establish the same global ordering constraints.
 
 ### from `deep_happens_before_relat`
 - **acquire_fence** (d4): A memory ordering primitive that ensures all load and store operations appearing after the fence in program order do not begin until the fence completes and all prior writes are visible.
@@ -68,6 +73,6 @@ Invoke this skill to understand `sequentially_consistent` down to its primitives
 `c11_memory_model`, `load_buffering_allowed`, `modification_order_coherence`, `relaxed_vs_seq_cst`, `seq_cst_atomic_visibility_all_threads_agree_on_visibility_sequence`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
 
 _(leaf — this is an actual skill.)_

@@ -17,4 +17,4 @@ Invoke this skill to understand `acquire_fence` down to its primitives. The RELA
 `arm_dmb`, `atomic_fence`, `memory_order_acquire`, `sw_acquire_fence`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

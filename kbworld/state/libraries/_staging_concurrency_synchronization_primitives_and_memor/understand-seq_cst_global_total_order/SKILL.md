@@ -16,7 +16,8 @@ Invoke this skill to understand `seq_cst_global_total_order` down to its primiti
 - **atomic_compare_exchange** (d3): C++11/C11 atomic operation attempting to replace expected value with desired; returns boolean indicating success; on failure, expected is updated with actual value for retry loops.
 
 ### from `deep_c11_memory_model`
-- **seq_cst_fence** (d3): The explicit memory fence with sequentially consistent ordering that provides both acquire and release semantics plus additional ordering constraints to enforce the global total order.
+- **seq_cst_atomic_visibility** (d1): The guarantee that all threads observe the effects of a sequentially consistent operation at the same logical point in the global total order; reads observe the most recent write in the total order.
+- **seq_cst_fence** (d1): The explicit memory fence with sequentially consistent ordering that provides both acquire and release semantics plus additional ordering constraints to enforce the global total order.
 
 ### from `deep_happens_before_relat`
 - **acquire_fence** (d4): A memory ordering primitive that ensures all load and store operations appearing after the fence in program order do not begin until the fence completes and all prior writes are visible.
@@ -28,6 +29,7 @@ Invoke this skill to understand `seq_cst_global_total_order` down to its primiti
 - **happens_before_order** (d8): A transitive, irreflexive partial order over operations in a memory model that defines which operations must appear to precede others from any thread's perspective.
 
 ### from `deep_synchronizes_with`
+- **fence_synchronizes_with_fence** (d2): A pair of fences on different threads where the second fence in program order synchronizes-with the first fence establishing an ordering boundary.
 - **atomic_load** (d3): load operation with memory_order semantics; load with acquire is the endpoint of synchronizes_with from release store
 - **atomic_store** (d3): store operation with memory_order semantics; store with release triggers synchronizes_with on matching acquire
 - **barrier_arrival** (d3): The event when a thread reaches a synchronization barrier; each arrival synchronizes-with all other arrival events at the same barrier instance, enforcing a global rendezvous.
@@ -45,12 +47,11 @@ Invoke this skill to understand `seq_cst_global_total_order` down to its primiti
 - **thread_creation** (d3): The operation of spawning a new thread of execution; the creating thread's operations before the spawn synchronizes-with the new thread's first operation in program order.
 - **thread_join** (d3): joining a thread; synchronizes_with the termination of the joined thread; acquire semantics for thread's memory effects
 - **memory_order_acq_rel** (d4): A memory ordering that is simultaneously acquire and release; applies to read-modify-write atomics and makes the update visible atomically with surrounding writes.
-- **fence_synchronizes_with_fence** (d4): A pair of fences on different threads where the second fence in program order synchronizes-with the first fence establishing an ordering boundary.
 - **fence_synchronizes_with_op** (d4): A relation where a fence on one thread establishes a synchronizes-with edge over an operation on another thread that accesses memory visible across the fence boundary.
 - **unlock_synchronizes_with** (d4): A specific instance of synchronizes-with: a lock-release operation synchronizes-with the lock-acquire operation of the same lock on another thread.
 
 ## CONSUMERS (what needs this)
-`seq_cst_atomic_visibility_all_threads_agree_on_visibility_sequence`, `seq_cst_atomic_visibility_most_recent_write_in_total_order`, `seq_cst_atomic_visibility_total_order_observation_point`, `sequentially_consistent`
+`seq_cst_atomic_visibility_all_threads_agree_on_visibility_sequence`, `seq_cst_atomic_visibility_most_recent_write_in_total_order`, `seq_cst_atomic_visibility_total_order_observation_point`, `seq_cst_default_atomic_ordering`, `sequentially_consistent`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

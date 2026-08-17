@@ -1,0 +1,97 @@
+{
+  "subject": "concurrency synchronization primitives and memory models",
+  "grade1": true,
+  "phases": {
+    "aim": {
+      "mode": "deepen",
+      "doors": [
+        "c11_memory_model",
+        "indivisibility_property"
+      ],
+      "source": "worklist"
+    },
+    "grow": {
+      "specialize": {
+        "basis_after": 0.165,
+        "new": [
+          [
+            "c11_memory_model",
+            11,
+            20
+          ],
+          [
+            "indivisibility_property",
+            19,
+            24
+          ]
+        ]
+      }
+    },
+    "drain": {
+      "define": {},
+      "connect": {
+        "wired": 20
+      },
+      "after": {
+        "phase": "soup",
+        "concepts": 407,
+        "relations": 477,
+        "define": 0,
+        "connect": 20
+      }
+    },
+    "brain": {
+      "grew": "acquire_semantics"
+    },
+    "project": {
+      "library": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/libraries/concurrency_synchronization_primitives_and_memor",
+      "skills": 46,
+      "staff": 119
+    },
+    "observe": {
+      "findings": 2,
+      "issues": [
+        {
+          "atom": "acquire_semantics",
+          "why": "Definition missing its counterpart: acquire synchronizes-with a release store, making the release writer's prior stores visible to the acquire reader. The definition only covers the reorder-prevention aspect.",
+          "price": 22,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/362"
+        },
+        {
+          "atom": "relaxed_load_value_visibility_timing_vs_acquire_visibility_timing",
+          "why": "Claiming acquire 'observes the value at a specific point in the happens-before order' conflates two distinct concepts: the value comes from the modification order (not happens-before), and happens-before is the synchronization consequence, not the observation mechanism.",
+          "price": 23,
+          "url": "https://github.com/sancovp/dark-factory-live/issues/363"
+        }
+      ]
+    },
+    "encapsulate": {
+      "module": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/concurrency_synchronization_primitives_a",
+      "skill": "/home/runner/work/dark-factory-live/dark-factory-live/kbworld/state/modules/concurrency_synchronization_primitives_a/skills/using-concurrency-synchronization-primitives-a/SKILL.md",
+      "plugin": "concurrency-synchronization-primitives-a-module",
+      "library_skills": 55,
+      "brain_files": 76
+    }
+  },
+  "stack_pins": {
+    "EE_V2_SHA": "83d52bd88be4ed04144b2fe1d96f1ce54383a26a",
+    "MAP_V2_SHA": "da166b03e27b35bb66500dbb2935523174126688",
+    "BRAIN_AGENT_SHA": "dd3ab56855b4d0648ab01bb04849763a63ef4c7b",
+    "CAVE_TEAMS_SHA": "a0189919f844fd962e2a2fa1df69035500fb06b2"
+  },
+  "telemetry": {
+    "kb": "407c/477r",
+    "worklist": {
+      "before": {
+        "define": 0,
+        "connect": 40
+      },
+      "after": {
+        "define": 0,
+        "connect": 20
+      }
+    },
+    "basis": 0.957,
+    "secs": 240.1
+  }
+}

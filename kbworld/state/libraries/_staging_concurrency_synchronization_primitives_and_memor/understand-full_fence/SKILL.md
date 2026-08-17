@@ -15,4 +15,4 @@ Invoke this skill to understand `full_fence` down to its primitives. The RELATIV
 `arm_dmb`, `memory_order_acq_rel`, `synchronizes_with`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

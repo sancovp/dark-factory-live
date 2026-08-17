@@ -15,4 +15,4 @@ Invoke this skill to understand `djt_bounding_range` down to its primitives. The
 `djt_decorrelation_factor`, `djt_min_delay`, `djt_previous_delay`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
