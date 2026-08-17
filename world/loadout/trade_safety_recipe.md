@@ -93,3 +93,21 @@ A skill is TRADE-READY only if ALL of:
 ## Meta-PE Reflection
 
 This recipe earns from the standing rule `audit_bug_exploit` — it directly addresses the vulnerability by making test authenticity part of the standard trade checklist, not an afterthought.
+
+---
+
+## Stage 4: Re-listing Exploit Check (NEW)
+
+Per `bug_relisting_exploit.md` — verify the skill hasn't been previously listed at a different price:
+
+- Check if this `skill_path` appears in any existing listing with different price
+- If a prior listing existed, verify `trade_history` shows a completed trade (not abandoned)
+- Output: `{prior_listing_found: bool, price_history: [...], manipulation_risk: LOW/HIGH}`
+
+**Gate Criteria:** If prior_listing_found AND no completed trade AND price is higher = REJECT. Buyer must see price history.
+
+### Fix Integration
+
+The re-listing exploit can be blocked by extending Stage 4 checks:
+- Prohibit same skill_path re-listing within cool-down period
+- OR require all listing attempts (including failed) to be logged in trade_history

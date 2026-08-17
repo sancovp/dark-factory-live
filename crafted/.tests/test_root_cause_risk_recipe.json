@@ -1,0 +1,8 @@
+{
+  "test_id": "test_root_cause_risk_recipe",
+  "skill_path": "crafted/root_cause_risk_recipe.md",
+  "result": "pass",
+  "tested_composition": ["causation_lens", "risk_inversion_lens"],
+  "validation": "Both ingredient lenses exist and are referenced with correct type. Pipeline logic chains them in valid sequence. Recipe specifies all required assembly steps with output shape.",
+  "quality_checks": "Quality check section validates both lenses are essential to composition"
+}

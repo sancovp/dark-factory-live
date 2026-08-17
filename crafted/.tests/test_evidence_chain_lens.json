@@ -1,0 +1,6 @@
+{
+  "test_id": "test_evidence_chain_lens",
+  "skill_path": "crafted/evidence_chain_lens.md",
+  "result": "pass",
+  "validation": "Lens has correct type=Lens, provides reframes, input triggers, output shape, and usage steps. Composes well with existing lenses (causation_lens, risk_inversion_lens, second-order-lens)."
+}
