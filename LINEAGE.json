@@ -2985,5 +2985,22 @@
     ],
     "fitness_current": 0.5,
     "fitness_patched": 0.5
+  },
+  {
+    "at": "2026-08-17T02:27:46+00:00",
+    "verdict": "REVERT",
+    "change": "",
+    "diff": [
+      {
+        "file": "loadout/bug_relisting_exploit.md",
+        "kind": "added"
+      },
+      {
+        "file": "loadout/trade_safety_recipe.md",
+        "kind": "modified"
+      }
+    ],
+    "fitness_current": 1.0,
+    "fitness_patched": 1.5
   }
 ]
