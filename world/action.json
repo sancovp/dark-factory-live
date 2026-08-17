@@ -1,1 +1,1 @@
-{"action":{"type":"quest_complete","quest_id":"q_recipe_chain","skill_path":"crafted/convergence_pipeline_recipe.md","test_id":"test_convergence_pipeline_001"}}
+{"action":{"type":"challenge","listing_id":"listing_1786803264_21046_agent_001","assessment":"over-claimed","reason":"stagnation_reviver_recipe.md claims epic composition using Chain Verifier + Trade Safety + Divergence Lens but rarity is unverified with no gate-proof test record; 3-component recipe does not auto-qualify as epic without proven cross-domain integration"}}

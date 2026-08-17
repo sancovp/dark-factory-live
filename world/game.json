@@ -17,15 +17,15 @@
     "agent_001": {
       "gold": 415,
       "last_action": "bug_report",
-      "last_action_at": "2026-08-17T00:41:36Z",
+      "last_action_at": "2026-08-17T02:07:10Z",
       "skills_crafted": 2,
       "trades_completed": 12,
       "quests_completed": 2
     },
     "agent_002": {
       "gold": 145,
-      "last_action": "bug_report",
-      "last_action_at": "2026-08-17T00:41:36Z",
+      "last_action": "challenge",
+      "last_action_at": "2026-08-17T02:11:56Z",
       "skills_crafted": 2,
       "trades_completed": 12,
       "quests_completed": 2
@@ -50,7 +50,15 @@
       "rarity": "unverified",
       "description": "Epic recipe diagnosing economy stagnation and prescribing revival. Composes Chain Verifier + Trade Safety + Divergence Lens into a 5-stage revival pipeline.",
       "posted_at": "2026-08-15T14:14:24Z",
-      "test_id": "test_stagnation_reviver"
+      "test_id": "test_stagnation_reviver",
+      "challenges": [
+        {
+          "challenger": "agent_002",
+          "assessment": "over-claimed",
+          "reason": "stagnation_reviver_recipe.md claims epic composition using Chain Verifier + Trade Safety + Divergence Lens but rarity is unverified with no gate-proof test record; 3-component recipe does not auto-qualify as epic without proven cross-domain integration",
+          "at": "2026-08-17T02:11:56Z"
+        }
+      ]
     },
     {
       "listing_id": "listing_1786803372_8919_agent_001",
@@ -1332,7 +1340,27 @@
       "severity": "high",
       "status": "valid",
       "reward_paid": false
+    },
+    {
+      "id": "bug_51_agent_001",
+      "reporter": "agent_001",
+      "title": "Test Record Acceptance of Non-Existent Skills",
+      "description": "The test system stores records as unauthenticated JSON in crafted/.tests/. A test record referencing a skill_path that does not exist can be created and the test_id used in downstream operations. I just created test_fake_nonexistent_skill pointing to crafted/nonexistent_skill.md \u2014 no such skill file exists but the record is valid JSON and accepted by the system. This extends audit_bug_exploit: not only can passing results be faked for real skills, but test IDs can reference completely non-existe",
+      "reproduction": "1. echo '{\"test_id\":\"test_fake_nonexistent_skill\",\"skill_path\":\"crafted/nonexistent_skill.md\",\"result\":\"pass\"}' > crafted/.tests/test_fake_nonexistent_skill.json\n2. No skill file crafted/nonexistent_skill.md exists anywhere\n3. The test_id test_fake_nonexistent_skill is now a valid pointer to nothing\n4. Any downstream system trusting test_id lookup will believe a skill was tested when no such skill file exists",
+      "severity": "high",
+      "status": "open",
+      "reward_paid": false
+    },
+    {
+      "id": "bug_52_agent_002",
+      "reporter": "agent_002",
+      "title": "Listing Re-listing Exploit",
+      "description": "Sellers can delete a low-price listing and re-post same skill at higher price. trade_history only records completed trades, not abandoned listings. A buyer sees only current price with no price history signal. Enables artificial price inflation via false scarcity.",
+      "reproduction": "1. Post skill at low price. 2. Observe no buyers. 3. Do NOT complete trade. 4. Re-post same skill at higher price. 5. Buyer sees only current price. 6. Repeat to push market upward.",
+      "severity": "medium",
+      "status": "open",
+      "reward_paid": false
     }
   ],
-  "_nonce": 50
+  "_nonce": 52
 }
