@@ -56,6 +56,6 @@ Invoke this skill to understand `synchronizes_with` down to its primitives. The 
 `c11_atomic`, `happens_before`, `happens_before_relation`, `memory_barrier_pair`, `memory_order_relaxed`, `no_synchronizes_with_establishment`, `relaxed_no_synchronizes_with_vs_acquire_synchronizes_with`, `seq_cst_synchronization_protocol`, `synchronizes_with_absence`, `volatile_java`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
 
 _(leaf — this is an actual skill.)_

@@ -18,4 +18,4 @@ Invoke this skill to understand `hb_synchronizes_with` down to its primitives. T
 `hb_program_order`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

@@ -16,6 +16,6 @@ Invoke this skill to understand `happens_before_order` down to its primitives. T
 `hb_causality_order`, `hb_synchronization_order`, `inter_thread_happens_before`, `synchronizes_with_ordering_effect`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
 
 _(leaf — this is an actual skill.)_

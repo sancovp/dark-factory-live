@@ -1,6 +1,6 @@
 {
   "region": "indivisibility_property",
-  "call_number": "deep_c11_memory_model.indivisibility_property",
+  "call_number": "deep_c11_memory_model.indivisibility_property : deep_indivisibility_prope(9)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 6
+  "cone_size": 15
 }

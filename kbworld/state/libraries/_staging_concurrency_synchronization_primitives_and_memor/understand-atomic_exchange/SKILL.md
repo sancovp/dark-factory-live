@@ -11,4 +11,4 @@ Invoke this skill to understand `atomic_exchange` down to its primitives. The RE
 `mcs_lock`, `mcs_lock_wait_for_successor`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

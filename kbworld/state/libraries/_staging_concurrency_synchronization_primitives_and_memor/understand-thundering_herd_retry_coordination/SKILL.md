@@ -11,4 +11,4 @@ Invoke this skill to understand `thundering_herd_retry_coordination` down to its
 `thundering_herd_backoff_adaptation`, `thundering_herd_contention_surge`, `thundering_herd_jitter_decorrelation`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*

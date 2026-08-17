@@ -16,6 +16,6 @@ Invoke this skill to understand `atomic_cas` down to its primitives. The RELATIV
 `atomic_compare_exchange`, `mcs_lock`, `mcs_lock_enqueue`, `mcs_lock_tail`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
 
 _(leaf — this is an actual skill.)_

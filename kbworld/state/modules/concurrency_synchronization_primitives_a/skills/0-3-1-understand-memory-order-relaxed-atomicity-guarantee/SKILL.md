@@ -5,7 +5,7 @@ description: "[0.3.1] The indivisibility guarantee that a relaxed atomic operati
 
 # understand-memory_order_relaxed_atomicity_guarantee
 
-**CALL NUMBER:** `deep_c11_memory_model.memory_order_relaxed_atomicity_guarantee : deep_synchronizes_with(20), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(5)`
+**CALL NUMBER:** `deep_c11_memory_model.memory_order_relaxed_atomicity_guarantee : deep_synchronizes_with(20), deep_indivisibility_prope(9), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(5)`
 **DEFINITION:** The indivisibility guarantee that a relaxed atomic operation completes as a single indivisible step; no intermediate state is observable by other threads during the operation, scoped to the specific atomic variable being read or written.
 
 Invoke this skill to understand `memory_order_relaxed_atomicity_guarantee` down to its primitives. The RELATIVE ROOT below is the least-fixed-point closure of everything it bundles from — the full import cone, grouped by the lib each prim comes from. Projected from a prover-typed KB (MAP/SWI-Prolog consistency gate): every reference below resolves.
@@ -58,6 +58,17 @@ Invoke this skill to understand `memory_order_relaxed_atomicity_guarantee` down 
 - **inter_thread_happens_before** (d7): The subset of happens_before relations that cross thread boundaries, established by synchronizes_with connections between release and acquire operations.
 - **happens_before_order** (d8): A transitive, irreflexive partial order over operations in a memory model that defines which operations must appear to precede others from any thread's perspective.
 
+### from `deep_indivisibility_prope`
+- **isi_atomicity_boundary** (d2): The demarcation line separating the before-state from the after-state of a relaxed atomic operation; no observable execution window exists across this boundary.
+- **isi_operation_completeness** (d3): The property that a relaxed atomic operation executes to full completion before any observer can witness its effect or lack thereof; partial execution is undetectable.
+- **isi_no_in_flight_state** (d4): The guaranteed absence of any transient value during operation execution that could be sampled by a concurrent thread; the in-flight state is logically invisible.
+- **isi_post_state_visibility** (d4): The state of the target atomic variable after the operation has fully completed, which is the only alternative state an observer may witness.
+- **isi_pre_state_visibility** (d4): The state of the target atomic variable as it existed before the operation commenced, which is the only alternative state an observer may witness.
+- **isi_load_visibility_rule** (d5): For a relaxed atomic load, the read returns exactly one value from the modification order; no torn read of a partial encoding is observable.
+- **isi_rmw_visibility_rule** (d5): For a relaxed read-modify-write operation, observers see either the complete state before the modification or the complete state after modification; the read-modify-write executes atomically without observable intermediate stages.
+- **isi_store_visibility_rule** (d5): For a relaxed atomic store, any reading thread observes either the complete value that existed before the store or the complete value after the store; torn writes are impossible.
+- **isi_observer_exclusivity** (d5): The constraint that any given observer of a relaxed atomic operation sees exclusively one of the two complete states; mixed or hybrid observations are prohibited.
+
 ### from `deep_synchronizes_with`
 - **atomic_load** (d3): load operation with memory_order semantics; load with acquire is the endpoint of synchronizes_with from release store
 - **atomic_store** (d3): store operation with memory_order semantics; store with release triggers synchronizes_with on matching acquire
@@ -84,6 +95,6 @@ Invoke this skill to understand `memory_order_relaxed_atomicity_guarantee` down 
 `memory_order_relaxed`, `memory_order_relaxed_atomicity_guarantee_implies_load_store_atomicity`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
 
 _(leaf — this is an actual skill.)_

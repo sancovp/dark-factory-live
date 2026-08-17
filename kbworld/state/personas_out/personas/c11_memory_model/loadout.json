@@ -1,6 +1,6 @@
 {
   "region": "c11_memory_model",
-  "call_number": "concurrency_synchronization_primitives_and_memor.c11_memory_model : deep_c11_memory_model(47), deep_synchronizes_with(20), deep_happens_before_relat(7)",
+  "call_number": "concurrency_synchronization_primitives_and_memor.c11_memory_model : deep_c11_memory_model(52), deep_synchronizes_with(20), deep_indivisibility_prope(9), deep_happens_before_relat(7)",
   "tools": [
     "kb_work",
     "kb_drain",
@@ -9,5 +9,5 @@
     "brain_grow",
     "brain_ask"
   ],
-  "cone_size": 82
+  "cone_size": 96
 }

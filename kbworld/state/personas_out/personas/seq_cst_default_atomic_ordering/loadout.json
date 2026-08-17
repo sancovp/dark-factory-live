@@ -1,0 +1,13 @@
+{
+  "region": "seq_cst_default_atomic_ordering",
+  "call_number": "deep_c11_memory_model.seq_cst_default_atomic_ordering : deep_synchronizes_with(20), deep_happens_before_relat(7), concurrency_synchronization_primitives_and_memor(3)",
+  "tools": [
+    "kb_work",
+    "kb_drain",
+    "kb_root",
+    "kb_expand",
+    "brain_grow",
+    "brain_ask"
+  ],
+  "cone_size": 43
+}

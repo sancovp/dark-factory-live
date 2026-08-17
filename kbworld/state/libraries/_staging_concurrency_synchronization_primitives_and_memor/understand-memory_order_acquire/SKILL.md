@@ -18,4 +18,4 @@ Invoke this skill to understand `memory_order_acquire` down to its primitives. T
 `atomic_load`, `c11_atomic`, `mcs_lock`, `memory_order_consume`, `synchronizes_with`
 
 ---
-*Projected from the `concurrency synchronization primitives and memory models` KB (377 concepts / 413 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
+*Projected from the `concurrency synchronization primitives and memory models` KB (407 concepts / 477 relations) — consistency-typed by MAP; the facet list after the colon IS the cross-lib dependency web.*
